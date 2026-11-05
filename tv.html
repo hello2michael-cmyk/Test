@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#000000">
+  <title>TV Mirror · TV</title>
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="app.css">
+</head>
+<body class="tv">
+  <div class="lobby" id="lobby">
+    <h1>TV Mirror</h1>
+    <div class="code" id="code">····</div>
+    <div class="qrrow">
+      <div class="qr" id="qr"></div>
+      <div class="steps">
+        On your phone, open <b id="url"></b><br>
+        (or scan the QR code), pick a video and type the code above.<br>
+        <span id="status">Connecting…</span>
+      </div>
+    </div>
+  </div>
+  <video id="screen" class="screen" playsinline autoplay hidden></video>
+  <div class="overlay" id="overlay" hidden>▶ Press OK on the remote (or tap) to play with sound</div>
+  <div class="toast" id="toast"></div>
+
+  <script src="vendor/peerjs.min.js"></script>
+  <script src="vendor/qrcode.js"></script>
+  <script src="common.js"></script>
+  <script src="receiver.js"></script>
+</body>
+</html>

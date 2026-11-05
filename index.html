@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0b0f17">
+  <title>TV Mirror · Phone</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icon-192.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="stylesheet" href="app.css">
+</head>
+<body>
+  <div class="wrap">
+    <header class="bar">
+      <div class="logo">
+        <svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#141a26"/><rect x="8" y="14" width="48" height="30" rx="4" fill="#4f8cff"/><rect x="11" y="17" width="42" height="24" rx="2" fill="#141a26"/><rect x="24" y="46" width="16" height="3" rx="1.5" fill="#4f8cff"/><rect x="20" y="22" width="10" height="16" rx="2" fill="#eef2f8"/><path d="M36 25l9 5-9 5z" fill="#eef2f8"/></svg>
+        <h1>TV Mirror</h1>
+      </div>
+      <a class="small" id="tvLink" href="tv.html" target="_blank" rel="noopener">tv.html</a>
+    </header>
+
+    <section class="card">
+      <h2>1. Choose a video</h2>
+      <div class="row">
+        <label class="file btn">📁 Pick a video on this phone
+          <input id="file" type="file" accept="video/*,audio/*">
+        </label>
+      </div>
+      <div class="row" style="margin-top:10px">
+        <input id="url" type="url" placeholder="…or paste a video link (https://…/video.mp4)" inputmode="url">
+        <button id="loadUrl" style="flex:0 0 auto">Load</button>
+      </div>
+      <p class="hint" id="sourceName">No video loaded yet.</p>
+    </section>
+
+    <section class="card">
+      <video id="video" class="preview" controls playsinline></video>
+    </section>
+
+    <section class="card">
+      <h2>2. Send it to your TCL TV</h2>
+      <div class="tabs" role="tablist">
+        <button role="tab" aria-selected="true" data-panel="mirrorPanel">Mirror</button>
+        <button role="tab" aria-selected="false" data-panel="castPanel">Cast</button>
+      </div>
+
+      <div class="panel" id="mirrorPanel">
+        <p class="small" style="margin:0 0 10px">On the TV, open <code id="tvLinkText">tv.html</code> in its browser (or scan the QR code it shows). Type the 4-character code it displays:</p>
+        <div class="row">
+          <input id="code" class="code" type="text" maxlength="4" placeholder="CODE" autocomplete="off" autocapitalize="characters" spellcheck="false">
+          <button id="send" class="primary" style="flex:0 0 auto">Send to TV</button>
+          <button id="stop" hidden style="flex:0 0 auto">Stop</button>
+        </div>
+        <div class="status" id="status" style="margin-top:10px"><span class="dot"></span><span>Not connected.</span></div>
+        <p class="hint">Works with files on your phone and with links. Phone and TV need the same Wi-Fi. Keep this page open while watching.</p>
+      </div>
+
+      <div class="panel" id="castPanel" hidden>
+        <div class="castrow">
+          <button id="castBtn" class="primary big" disabled>📺 Cast to TV</button>
+          <google-cast-launcher title="Google Cast"></google-cast-launcher>
+        </div>
+        <p class="hint" id="castStatus">Loading Google Cast…</p>
+        <p class="hint">Uses the Chromecast built into TCL Google TV / Android TV models. Only works with video links, and only in Chrome on Android.</p>
+      </div>
+    </section>
+  </div>
+
+  <script src="vendor/peerjs.min.js"></script>
+  <script src="common.js"></script>
+  <script>document.getElementById('tvLinkText').textContent = TVM.siblingUrl('tv.html').replace(/^https?:\/\//, '');</script>
+  <script src="sender.js"></script>
+</body>
+</html>
