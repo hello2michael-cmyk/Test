@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#000000">
+  <title>Home TV</title>
+  <link rel="manifest" href="manifest-watch.webmanifest">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icon-192.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <link rel="stylesheet" href="app.css">
+</head>
+<body class="watch">
+  <video id="screen" class="screen" autoplay playsinline muted hidden></video>
+
+  <div class="center" id="setup" hidden>
+    <div class="card setup">
+      <h1 style="margin-bottom:8px">Home TV</h1>
+      <p style="margin-bottom:14px">One-time setup. At home, open the camera page on a spare phone or laptop pointed at the TV, then scan its QR code with this phone, or type its key here.</p>
+      <input id="keyInput" class="code" type="text" maxlength="16" placeholder="KEY" autocomplete="off" autocapitalize="characters" spellcheck="false" style="letter-spacing:.2em;font-size:1.2rem">
+      <button id="saveKey" class="primary" style="width:100%;margin-top:10px">Connect</button>
+      <p class="small" id="camLink" style="margin-top:14px"></p>
+    </div>
+  </div>
+
+  <div class="center" id="connecting" hidden>
+    <div class="spinner"></div>
+    <h1 id="connTitle">Connecting to home…</h1>
+    <p id="connText">Looking for the camera at home.</p>
+  </div>
+
+  <div class="topbar" id="topbar">
+    <span class="pill"><span class="dot" id="liveDot"></span><span id="liveText">Live</span></span>
+    <button id="settingsBtn">⚙︎</button>
+  </div>
+  <button class="soundbtn primary" id="soundBtn" hidden>🔊 Tap for sound</button>
+
+  <script src="vendor/peerjs.min.js"></script>
+  <script src="common.js"></script>
+  <script src="watch.js"></script>
+</body>
+</html>

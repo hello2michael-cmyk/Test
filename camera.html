@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b0f17">
+  <title>Home TV · Camera (leave this open at home)</title>
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="app.css">
+</head>
+<body class="cam">
+  <div class="wrap">
+    <header class="bar"><div class="logo"><h1>Home TV · Camera</h1></div><span class="small">leave this open at home</span></header>
+
+    <section class="card">
+      <h2>Point this device at the TV</h2>
+      <video id="preview" class="preview" autoplay muted playsinline></video>
+      <div class="row" style="margin-top:10px">
+        <select id="cameraSelect"><option value="">Choose camera…</option></select>
+        <button id="startBtn" class="primary" style="flex:0 0 auto">Start camera</button>
+      </div>
+      <div class="status" id="camStatus" style="margin-top:10px"><span class="dot"></span><span>Camera not started.</span></div>
+    </section>
+
+    <section class="card">
+      <h2>Pair your phone (one time)</h2>
+      <div class="row">
+        <div class="qr" id="qr"></div>
+        <div style="flex:1 1 200px">
+          <p class="small" style="margin:0 0 8px">Scan with your phone's camera, then add the page to your home screen. Or type this key on the phone:</p>
+          <div class="key" id="key">…</div>
+          <p class="small" id="watchUrl" style="margin:8px 0 0"></p>
+        </div>
+      </div>
+      <div class="status" id="peerStatus" style="margin-top:12px"><span class="dot"></span><span>Not online yet.</span></div>
+      <p class="hint">Viewers connected: <b id="viewers">0</b></p>
+    </section>
+
+    <section class="card">
+      <div class="row">
+        <button id="dimBtn">🌙 Dim screen (keeps streaming)</button>
+        <button id="newKeyBtn">New key</button>
+      </div>
+      <p class="hint">Keep this device plugged in, with this page in front. The page keeps the screen awake. Anyone who has the key can watch, so only share it with people you trust.</p>
+    </section>
+  </div>
+  <div class="dim" id="dim" hidden>Streaming… tap to wake</div>
+
+  <script src="vendor/peerjs.min.js"></script>
+  <script src="vendor/qrcode.js"></script>
+  <script src="common.js"></script>
+  <script src="camera.js"></script>
+</body>
+</html>

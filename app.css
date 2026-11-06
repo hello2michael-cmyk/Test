@@ -77,3 +77,26 @@ body.tv { overflow: hidden; background: #000; }
   padding: 12px 20px; border-radius: 12px; font-size: clamp(.9rem, 1.8vw, 1.3rem); opacity: 0; transition: opacity .3s; pointer-events: none; }
 .tv .toast.show { opacity: 1; }
 [hidden] { display: none !important; }
+
+/* Watch / camera pages */
+.linkcard { display: flex; flex-direction: column; gap: 4px; text-decoration: none; color: var(--text); border: 1px solid #2a3447; }
+.linkcard:active { background: var(--card-2); }
+body.watch { background: #000; overflow: hidden; }
+.watch video.screen { position: fixed; inset: 0; width: 100vw; height: 100vh; object-fit: contain; background: #000; }
+.watch .center { position: fixed; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 24px; text-align: center; }
+.watch .center p { color: var(--muted); max-width: 36ch; margin: 0; }
+.watch .spinner { width: 44px; height: 44px; border-radius: 50%; border: 4px solid #2a3447; border-top-color: var(--accent); animation: spin 1s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+.watch .topbar { position: fixed; top: 0; left: 0; right: 0; display: flex; justify-content: space-between; align-items: center; padding: calc(10px + env(safe-area-inset-top)) 12px 10px;
+  background: linear-gradient(rgba(0,0,0,.7), transparent); transition: opacity .3s; }
+.watch .topbar.hide { opacity: 0; pointer-events: none; }
+.watch .topbar button { min-height: 40px; padding: 8px 14px; background: rgba(20,26,38,.85); }
+.watch .pill { display: inline-flex; align-items: center; gap: 8px; background: rgba(20,26,38,.85); padding: 8px 14px; border-radius: 999px; font-size: .9rem; }
+.watch .soundbtn { position: fixed; bottom: calc(20px + env(safe-area-inset-bottom)); left: 50%; transform: translateX(-50%); }
+.watch .setup { max-width: 480px; width: 100%; }
+.cam .preview { width: 100%; max-height: 40vh; object-fit: contain; background: #000; border-radius: 12px; }
+.cam .key { font-size: 1.6rem; letter-spacing: .2em; font-weight: 800; text-align: center; padding: 10px; background: #0f1420; border-radius: 12px; user-select: all; }
+.cam .qr { background: #fff; padding: 10px; border-radius: 12px; display: inline-block; }
+.cam .qr svg { display: block; width: 180px; height: 180px; }
+.cam .dim { position: fixed; inset: 0; background: #000; display: flex; align-items: center; justify-content: center; color: #333; font-size: 1.1rem; z-index: 10; }
+select { width: 100%; border: 1px solid #2a3447; background: #0f1420; color: var(--text); border-radius: 12px; padding: 12px; font: inherit; min-height: 48px; }

@@ -1,8 +1,31 @@
 # TV Mirror
 
-Play a video on your phone and watch the exact same thing on your TCL TV.
+Two things in one small web app, nothing to install from an app store:
 
-It is a small web app, so there is nothing to install from an app store. You open one page on the phone and one page on the TV.
+1. **Home TV**: open the app on your phone, anywhere, and see live what the TV at home is playing.
+2. **TV Mirror**: play a video on your phone and watch the same thing on your TCL TV.
+
+Live at: https://hello2michael-cmyk.github.io/Test/
+
+## Home TV: see what the TV at home is playing
+
+A TV cannot send out a picture of its own screen, and apps like Netflix block screen capture. So this uses a spare phone, tablet or laptop at home, with its camera pointed at the TV. It works with any TV and any channel or app.
+
+**One-time setup at home**
+
+1. On the spare device, open `camera.html` (https://hello2michael-cmyk.github.io/Test/camera.html) in Chrome and allow the camera.
+2. Stand it where it sees the TV, plugged in. Pick the right camera from the list if needed.
+3. Scan the QR code it shows with your own phone. The watch page opens with the key filled in.
+4. On your phone, use the browser menu, then **Add to Home screen**. You get a "Home TV" icon.
+5. On the spare device tap **Dim screen** so it is not a lamp at night. It keeps streaming.
+
+**Every day**
+
+Tap the Home TV icon. The phone connects on its own and shows the TV live, with sound after one tap. If the home device is off you see "Home camera is offline" and it keeps retrying.
+
+Anyone with the key can watch, so share the QR code only with people you trust. **New key** on the camera page locks everyone out and starts fresh.
+
+## TV Mirror: play a video from your phone on the TV
 
 ```
 Phone  ──(same Wi‑Fi)──▶  TV
@@ -42,7 +65,8 @@ To use **Cast** instead, load a video *link*, open the **Cast** tab and tap **Ca
 ## How it works
 
 - The phone captures its own playing `<video>` and sends it to the TV over WebRTC, directly over your Wi‑Fi. The video does not go through any server.
-- To find each other, both sides use the free public PeerJS signaling server. Only the 4‑character code travels through it.
+- To find each other, both sides use the free public PeerJS signaling server. Only the code or key travels through it.
+- Across the internet, the direct route is found with public STUN servers. If a mobile network blocks direct routes, the free Open Relay TURN servers carry the stream instead. No account or key is needed for any of this.
 - Cast uses the Google Cast Web Sender SDK with the default media receiver, so the TV itself streams the link.
 
 ### Running it on your own computer instead of GitHub Pages
@@ -65,8 +89,10 @@ and add `?host=<computer-ip>&port=9000&path=/` to both page URLs.
 
 ## Files
 
-- `index.html`, `sender.js`: phone page.
-- `tv.html`, `receiver.js`: TV page.
+- `watch.html`, `watch.js`: Home TV viewer (your phone). `manifest-watch.webmanifest` makes it installable as "Home TV".
+- `camera.html`, `camera.js`: the camera page for the spare device at home.
+- `index.html`, `sender.js`: TV Mirror phone page.
+- `tv.html`, `receiver.js`: TV Mirror TV page.
 - `common.js`, `app.css`: shared helpers and styling.
 - `manifest.webmanifest`, `sw.js`, `icon*.{svg,png}`: lets the phone page be installed like an app.
 - `vendor/`: PeerJS 1.5.5 and qrcode-generator 1.5.2, bundled so the app does not depend on a CDN.
