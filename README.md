@@ -118,3 +118,43 @@ and add `?host=<computer-ip>&port=9000&path=/` to both page URLs.
 - `common.js`, `app.css`: shared helpers and styling.
 - `manifest.webmanifest`, `sw.js`, `icon*.{svg,png}`: lets the phone page be installed like an app.
 - `vendor/`: PeerJS 1.5.5 and qrcode-generator 1.5.2, bundled so the app does not depend on a CDN.
+
+## Tube Player: watch YouTube on the iPhone
+
+The `ios/` folder holds a small iPhone app, **Tube Player**. It searches YouTube, opens pasted links, keeps history and saved videos, and plays everything through YouTube's own player. It does not block or skip ads. The honest way to watch ad-free is a **YouTube Premium** account: sign in once inside the app (Settings → Sign in to YouTube) and the player shows no ads. Without Premium, YouTube's usual ads play.
+
+GitHub builds the app file automatically: https://github.com/hello2michael-cmyk/Test/releases/download/iphone-app/TubePlayer.ipa
+
+Apple only lets apps from the App Store install directly, so the file has to be put on the phone from a computer. Pick one of these.
+
+**Option A: a Mac with Xcode (simplest if you have a Mac)**
+
+1. Install **Xcode** from the Mac App Store and open `ios/TubePlayer.xcodeproj` from this repository.
+2. In Xcode → Settings → Accounts, add your Apple ID (a free one is fine).
+3. Click the **TubePlayer** project, then the **Signing & Capabilities** tab, and choose your name under **Team**.
+4. Plug in the iPhone, pick it at the top of the window and press the **Run** (▶) button.
+5. On the phone: **Settings → General → VPN & Device Management**, tap your Apple ID and **Trust**.
+
+With a free Apple ID the app stops opening after 7 days. Press Run in Xcode again to renew it. With a paid Apple Developer account ($99/year) it lasts a year.
+
+**Option B: Windows or Mac without Xcode, using Sideloadly**
+
+1. On the computer install **iTunes** (Windows) and **Sideloadly** from https://sideloadly.io.
+2. Download `TubePlayer.ipa` from the link above.
+3. Plug in the iPhone, open Sideloadly, drag the `.ipa` in, type your Apple ID and press **Start**.
+4. On the phone: **Settings → General → VPN & Device Management**, tap your Apple ID and **Trust**.
+
+Same 7-day rule as above with a free Apple ID; run Sideloadly again to renew.
+
+**Every day**: tap Tube Player, search or paste a link, tap a video. Tap the full-screen button in the player and turn the phone sideways for a big picture.
+
+### Search key
+
+Searching inside the app uses Google's free **YouTube Data API**. Pasting links works without it. To turn on search (about five minutes, no payment):
+
+1. Open https://console.cloud.google.com and sign in with any Google account.
+2. Create a project (any name), then open **APIs & Services → Library**, find **YouTube Data API v3** and press **Enable**.
+3. Open **APIs & Services → Credentials → Create credentials → API key**. Copy the key.
+4. In the app: **Settings → Search → API key** and paste it.
+
+The free quota allows roughly 100 searches a day.

@@ -1,0 +1,50 @@
+name: Build the iPhone app (IPA)
+
+on:
+  push:
+    branches: [main]
+    paths: ['ios/**', '.github/workflows/ios.yml']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ios
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Show Xcode version
+        run: xcodebuild -version
+      - name: Build the app (unsigned, for sideloading)
+        run: |
+          xcodebuild -project ios/TubePlayer.xcodeproj -scheme TubePlayer -configuration Release \
+            -sdk iphoneos -destination 'generic/platform=iOS' -derivedDataPath build \
+            CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO CODE_SIGN_IDENTITY="" \
+            build
+      - name: Package as IPA
+        run: |
+          rm -rf Payload && mkdir Payload
+          cp -R build/Build/Products/Release-iphoneos/TubePlayer.app Payload/
+          zip -qr TubePlayer.ipa Payload
+          ls -la TubePlayer.ipa
+      - uses: actions/upload-artifact@v4
+        with:
+          name: TubePlayer
+          path: TubePlayer.ipa
+      - name: Publish as the "iphone-app" release (same download link every time)
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: iphone-app
+          name: Tube Player app for iPhone
+          body: |
+            Tube Player: watch YouTube on the iPhone through YouTube's own player. Sign in with a YouTube Premium account for ad-free playback.
+            Download link: https://github.com/${{ github.repository }}/releases/download/iphone-app/TubePlayer.ipa
+            This file is unsigned. Install it with Sideloadly or AltStore using your Apple ID, or open the `ios` folder in Xcode on a Mac.
+            Full steps: https://github.com/${{ github.repository }}#tube-player-watch-youtube-on-the-iphone
+          files: TubePlayer.ipa
+          make_latest: false
