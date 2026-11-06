@@ -126,7 +126,7 @@ enum SynthesisError: LocalizedError {
     var errorDescription: String? { "The speech synthesizer did not produce audio. Try another voice in the Studio tab." }
 }
 
-extension AVSpeechSynthesisVoice.Quality {
+extension AVSpeechSynthesisVoiceQuality {
     var label: String {
         switch self {
         case .premium: return "Premium"

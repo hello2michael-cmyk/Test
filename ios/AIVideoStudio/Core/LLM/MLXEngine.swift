@@ -16,18 +16,16 @@ final class MLXEngine: LLMEngine, @unchecked Sendable {
     enum LoadPhase: Sendable { case download, weights }
 
     /// Load (and download on first use) the model described by `descriptor`.
-    /// `progress` reports the phase (downloading files, then loading weights) and its fraction (0…1).
+    /// `progress` reports the download fraction (0…1); once the download is complete the phase flips to `.weights`.
     static func load(_ descriptor: ModelDescriptor,
                      progress: @escaping @Sendable (LoadPhase, Double) -> Void) async throws -> MLXEngine {
         // Keep MLX's GPU cache small: on a phone every hundred megabytes matters.
         MLX.GPU.set(cacheLimit: 24 * 1024 * 1024)
 
         let configuration = ModelConfiguration(id: descriptor.repoId)
-        let handlers = LoadProgressHandlers(
-            download: { p in progress(.download, p.fractionCompleted) },
-            weights: { p in progress(.weights, p.fractionCompleted) }
-        )
-        let container = try await #huggingFaceLoadModelContainer(configuration: configuration, progress: handlers)
+        let container = try await #huggingFaceLoadModelContainer(configuration: configuration) { p in
+            progress(p.fractionCompleted >= 0.999 ? .weights : .download, p.fractionCompleted)
+        }
         return MLXEngine(descriptor: descriptor, container: container)
     }
 

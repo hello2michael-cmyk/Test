@@ -52,8 +52,8 @@ struct SettingsView: View {
                 Section {
                     Picker("Voice", selection: Binding(get: { s.voiceIdentifier ?? "" }, set: { s.voiceIdentifier = $0.isEmpty ? nil : $0 })) {
                         Text("Best installed voice").tag("")
-                        ForEach(voices, id: \.identifier) { v in
-                            Text("\(v.name) · \(v.language) · \(v.quality.label)").tag(v.identifier)
+                        ForEach(voiceChoices, id: \.id) { choice in
+                            Text(choice.label).tag(choice.id)
                         }
                     }
                     VStack(alignment: .leading) {
@@ -92,6 +92,14 @@ struct SettingsView: View {
                 case .failure(let error): musicError = error.localizedDescription
                 }
             }
+        }
+    }
+
+    private struct VoiceChoice: Identifiable { let id: String; let label: String }
+
+    private var voiceChoices: [VoiceChoice] {
+        voices.map { v in
+            VoiceChoice(id: v.identifier, label: v.name + " · " + v.language + " · " + v.quality.label)
         }
     }
 

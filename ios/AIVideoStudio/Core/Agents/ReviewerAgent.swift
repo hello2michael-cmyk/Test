@@ -29,7 +29,7 @@ struct ReviewerAgent {
         if let revisions = review.revisedNarration {
             review.revisedNarration = revisions.filter { key, value in
                 guard let id = Int(key), let original = script.scenes.first(where: { $0.beatId == id }) else { return false }
-                return value.wordCount <= original.wordCount + 6 && !value.isEmpty
+                return value.wordCount <= original.narration.wordCount + 6 && !value.isEmpty
             }
         }
         let count = review.revisedNarration?.count ?? 0
