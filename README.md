@@ -1,11 +1,31 @@
 # TV Mirror
 
-Two things in one small web app, nothing to install from an app store:
+Three ways to connect your phone and your TCL TV:
 
-1. **Home TV**: open the app on your phone, anywhere, and see live what the TV at home is playing.
-2. **TV Mirror**: play a video on your phone and watch the same thing on your TCL TV.
+1. **TV Screen Share** (same Wi‑Fi, no camera): a small app on the TV streams the TV's own screen to your phone.
+2. **Home TV** (from anywhere): a spare phone or laptop at home films the TV and your phone shows it live.
+3. **TV Mirror**: play a video on your phone and watch the same thing on your TCL TV.
 
 Live at: https://hello2michael-cmyk.github.io/Test/
+
+## See the TV's screen on your phone (same Wi‑Fi)
+
+Your TCL runs Google TV (Android). The `android/` folder holds a small TV app, **TV Screen Share**, that captures the TV screen and serves it to your phone's browser over the home network. GitHub builds the installable file automatically.
+
+Download link for the TV: https://github.com/hello2michael-cmyk/Test/releases/download/tv-app/TVScreenShare.apk
+
+**One-time install on the TV**
+
+1. On the TV, open the **Google Play Store** and install **Downloader** (by AFTVnews).
+2. TV **Settings → Apps → Security & restrictions → Unknown sources**: allow **Downloader**.
+3. Open Downloader, type the download link above and press Go. Choose **Install**, then **Open**.
+4. In TV Screen Share press **Start sharing**, then **Start now** on the system question. Allow sound if asked.
+5. The TV shows an address like `192.168.1.23:8080` and a QR code. Scan the QR code with your phone, or open https://hello2michael-cmyk.github.io/Test/tvapp.html and type the address once.
+6. On the phone, use the browser menu and **Add to Home screen**.
+
+**Every day**: open TV Screen Share on the TV (it keeps sharing until you stop it or turn the TV off), then tap the icon on your phone. Tap once for sound.
+
+**Limits**: Netflix, Prime Video and Disney+ protect their picture and show as black in any screen capture. Sound comes through for apps that allow it (YouTube does). Phone and TV must be on the same Wi‑Fi. To update the TV app later, uninstall the old one first.
 
 ## Home TV: see what the TV at home is playing
 
@@ -89,6 +109,8 @@ and add `?host=<computer-ip>&port=9000&path=/` to both page URLs.
 
 ## Files
 
+- `android/`: the TV Screen Share app for Android TV / Google TV (Kotlin). `.github/workflows/android.yml` builds it.
+- `tvapp.html`: phone page with the install steps and a launcher for the TV's address.
 - `watch.html`, `watch.js`: Home TV viewer (your phone). `manifest-watch.webmanifest` makes it installable as "Home TV".
 - `camera.html`, `camera.js`: the camera page for the spare device at home.
 - `index.html`, `sender.js`: TV Mirror phone page.
