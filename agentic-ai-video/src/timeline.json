@@ -1,0 +1,54 @@
+{
+ "segments": [
+  {
+   "id": "title",
+   "start": 0.8,
+   "dur": 5.65,
+   "end": 6.45,
+   "text": "What is an A I agent? And what is agentic A I? Let's break it down, in sixty seconds."
+  },
+  {
+   "id": "chatbot",
+   "start": 6.9,
+   "dur": 3.165,
+   "end": 10.065,
+   "text": "A normal chatbot answers one question, and stops."
+  },
+  {
+   "id": "loop",
+   "start": 10.515,
+   "dur": 9.21,
+   "end": 19.725,
+   "text": "An agent goes further. It perceives its environment, thinks about the goal, takes an action, and checks the result, again and again, until the job is done."
+  },
+  {
+   "id": "parts",
+   "start": 20.175,
+   "dur": 9.2,
+   "end": 29.375,
+   "text": "Inside, an agent has four key parts. A goal. Memory. Tools, like web search, code, or email. And a planner, that decides the next step."
+  },
+  {
+   "id": "agentic",
+   "start": 29.825,
+   "dur": 11.135,
+   "end": 40.96,
+   "text": "So, what is agentic A I? It is a system where many agents work together, autonomously. They split a big goal into tasks, use tools, and coordinate, with only light human supervision."
+  },
+  {
+   "id": "example",
+   "start": 41.41,
+   "dur": 9.045,
+   "end": 50.455,
+   "text": "For example: say, book my trip to Tokyo. One agent finds flights. Another compares hotels. A third books them, and adds everything to your calendar."
+  },
+  {
+   "id": "outro",
+   "start": 50.905,
+   "dur": 6.525,
+   "end": 57.43,
+   "text": "That is the shift. From A I that talks, to A I that does. Subscribe for more A I, explained simply."
+  }
+ ],
+ "total": 60.0
+}
