@@ -62,7 +62,7 @@ Contracts (`Core/Pipeline/VideoSpec.swift`): `VideoBrief` → `Script` → `Revi
 
 `ModelCatalog.builtIn` lists 4-bit MLX conversions by RAM tier; `ModelManager` loads one `ModelContainer` at a time via `#huggingFaceLoadModelContainer(configuration:progress:)` and reports download progress. Qwen3 gets `/no_think` appended and `<think>` blocks are stripped regardless. `MLX.GPU.set(cacheLimit:)` keeps the Metal cache small on the phone.
 
-Package versions pinned in `AIVideoStudio.xcodeproj`: `mlx-swift-lm` 3.32.x, `mlx-swift` 0.33+, `swift-huggingface` 0.9+, `swift-transformers` 1.3+. If the MLX API moves, only `Core/LLM/MLXEngine.swift` changes.
+Package versions pinned in `AIVideoStudio.xcodeproj`: `mlx-swift-lm` 3.32.x, `mlx-swift` 0.32.x (what mlx-swift-lm 3.32 pins), `swift-huggingface` 0.9+, `swift-transformers` 1.3+. If the MLX API moves, only `Core/LLM/MLXEngine.swift` changes.
 
 ## Extending
 
