@@ -1,0 +1,51 @@
+name: Build the TV app (APK)
+
+on:
+  push:
+    branches: [main]
+    paths: ['android/**', '.github/workflows/android.yml']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: android
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '8.7'
+      - name: Create a signing key for this build (not stored anywhere)
+        run: |
+          keytool -genkeypair -keystore android/sideload.keystore -alias sideload -keyalg RSA -keysize 2048 \
+            -validity 10000 -storepass sideload -keypass sideload -dname "CN=TV Screen Share, O=TV Mirror"
+      - name: Build release APK
+        run: gradle -p android assembleRelease --no-daemon
+      - name: Rename APK
+        run: cp android/app/build/outputs/apk/release/app-release.apk TVScreenShare.apk
+      - uses: actions/upload-artifact@v4
+        with:
+          name: TVScreenShare
+          path: TVScreenShare.apk
+      - name: Publish as the "tv-app" release (same download link every time)
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: tv-app
+          name: TV Screen Share app for the TCL TV
+          body: |
+            Install this on the TCL (Google TV / Android TV) to see the TV's screen on your phone over Wi-Fi.
+            Download link for the TV's Downloader app: https://github.com/${{ github.repository }}/releases/download/tv-app/TVScreenShare.apk
+            Full steps: https://github.com/${{ github.repository }}#see-the-tvs-screen-on-your-phone-same-wi-fi
+            Updating from an older build: uninstall the old app on the TV first (each build is signed with a fresh key).
+          files: TVScreenShare.apk
+          make_latest: true

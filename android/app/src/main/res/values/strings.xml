@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">TV Screen Share</string>
+    <string name="start">Start sharing</string>
+    <string name="stop">Stop sharing</string>
+    <string name="not_sharing">Not sharing. Press Start, then allow screen capture.</string>
+    <string name="sharing">Sharing this TV\'s screen. On your phone, open:</string>
+    <string name="hint">Phone and TV must be on the same Wi‑Fi. Netflix, Prime Video and Disney+ protect their picture and show black. The viewer page on the phone can be added to its home screen.</string>
+    <string name="channel">Screen sharing</string>
+    <string name="notif_title">Sharing the TV screen</string>
+    <string name="notif_text">Open the address shown on the TV on your phone</string>
+</resources>

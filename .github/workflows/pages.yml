@@ -26,6 +26,8 @@ jobs:
         uses: actions/configure-pages@v5
         with:
           enablement: true
+      - name: Keep only the web app in the site
+        run: rm -rf android .github
       - uses: actions/upload-pages-artifact@v3
         with:
           path: .

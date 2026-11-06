@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#000000">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>TV Screen</title>
+<style>
+  html,body{margin:0;height:100%;background:#000;color:#eef2f8;font:16px system-ui,-apple-system,Roboto,sans-serif;overflow:hidden}
+  #v{position:fixed;inset:0;width:100vw;height:100vh;object-fit:contain;background:#000;display:block}
+  .bar{position:fixed;top:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:calc(10px + env(safe-area-inset-top)) 12px 10px;background:linear-gradient(rgba(0,0,0,.7),transparent);transition:opacity .3s}
+  .bar.hide{opacity:0;pointer-events:none}
+  .pill{display:inline-flex;align-items:center;gap:8px;background:rgba(20,26,38,.85);padding:8px 14px;border-radius:999px;font-size:.9rem}
+  .dot{width:10px;height:10px;border-radius:50%;background:#9aa6ba}.dot.ok{background:#37c37a}.dot.warn{background:#f2b84b}.dot.err{background:#ef5b6b}
+  button{appearance:none;border:0;border-radius:12px;padding:12px 16px;font:inherit;font-weight:600;background:#4f8cff;color:#fff;min-height:44px}
+  .center{position:fixed;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:24px;text-align:center;background:#000}
+  .center p{color:#9aa6ba;max-width:36ch;margin:0}
+  .spinner{width:44px;height:44px;border-radius:50%;border:4px solid #2a3447;border-top-color:#4f8cff;animation:spin 1s linear infinite}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  .sound{position:fixed;bottom:calc(20px + env(safe-area-inset-bottom));left:50%;transform:translateX(-50%)}
+  [hidden]{display:none!important}
+</style>
+</head>
+<body>
+<img id="v" alt="TV screen" hidden>
+<div class="center" id="wait"><div class="spinner"></div><h2 id="waitTitle" style="margin:0">Connecting to the TV…</h2><p id="waitText">Make sure the TV app says "Sharing".</p></div>
+<div class="bar" id="bar"><span class="pill"><span class="dot" id="dot"></span><span id="txt">Connecting</span></span><button id="fs" style="background:rgba(20,26,38,.85)">⛶</button></div>
+<button class="sound" id="sound" hidden>🔊 Tap for sound</button>
+<script>
+(function(){
+  const $=id=>document.getElementById(id);
+  const img=$('v'),wait=$('wait'),waitTitle=$('waitTitle'),waitText=$('waitText'),bar=$('bar'),dot=$('dot'),txt=$('txt'),soundBtn=$('sound');
+  let online=false,hideTimer=null,status=null,wakeLock=null;
+
+  function live(kind,t){dot.className='dot '+kind;txt.textContent=t;}
+  function startVideo(){ img.src='/stream?t='+Date.now(); }
+  img.addEventListener('load',()=>{ /* fires once per MJPEG connection start in most browsers */ });
+  img.addEventListener('error',()=>{ online=false; live('err','Connection lost'); });
+
+  async function poll(){
+    try{
+      const r=await fetch('/status?t='+Date.now(),{cache:'no-store'});
+      if(!r.ok) throw new Error(r.status);
+      status=await r.json();
+      if(!online){ online=true; startVideo(); img.hidden=false; wait.hidden=true; live('ok','Live'); autoHide(); keepAwake(); soundBtn.hidden=!(status.audio)||audioOn; }
+    }catch(e){
+      if(online||!img.hidden){ online=false; img.hidden=true; img.removeAttribute('src'); wait.hidden=false; waitTitle.textContent='TV is not sharing'; waitText.textContent='Open "TV Screen Share" on the TV and press Start. This page reconnects by itself.'; live('err','Offline'); stopAudio(); }
+    }
+    setTimeout(poll,2500);
+  }
+
+  // ---- sound: raw 16-bit stereo PCM over fetch, played with Web Audio ----
+  let ctx=null,nextTime=0,audioOn=false,abort=null;
+  async function startAudio(){
+    if(!status||!status.audio) return;
+    try{
+      if(!ctx) ctx=new (window.AudioContext||window.webkitAudioContext)({sampleRate:status.sampleRate||48000});
+      await ctx.resume();
+      abort=new AbortController();
+      const r=await fetch('/audio.pcm?t='+Date.now(),{signal:abort.signal,cache:'no-store'});
+      if(!r.ok) throw new Error('no audio');
+      audioOn=true; soundBtn.hidden=true; nextTime=0;
+      const reader=r.body.getReader(); let carry=new Uint8Array(0);
+      while(true){
+        const {value,done}=await reader.read(); if(done) break;
+        let buf=value;
+        if(carry.length){ const m=new Uint8Array(carry.length+value.length); m.set(carry); m.set(value,carry.length); buf=m; }
+        const usable=buf.length-(buf.length%4); carry=buf.slice(usable);
+        if(usable<=0) continue;
+        const frames=usable/4, dv=new DataView(buf.buffer,buf.byteOffset,usable);
+        const ab=ctx.createBuffer(2,frames,ctx.sampleRate); const L=ab.getChannelData(0),R=ab.getChannelData(1);
+        for(let i=0;i<frames;i++){ L[i]=dv.getInt16(i*4,true)/32768; R[i]=dv.getInt16(i*4+2,true)/32768; }
+        const src=ctx.createBufferSource(); src.buffer=ab; src.connect(ctx.destination);
+        const now=ctx.currentTime;
+        if(nextTime<now+0.05||nextTime>now+0.6) nextTime=now+0.08; // (re)sync, keep ~80 ms of latency
+        src.start(nextTime); nextTime+=ab.duration;
+      }
+    }catch(e){ if(!(e&&e.name==='AbortError')) { audioOn=false; soundBtn.hidden=false; soundBtn.textContent='🔇 No sound from this app'; } }
+    audioOn=false;
+  }
+  function stopAudio(){ try{abort&&abort.abort();}catch(e){} audioOn=false; }
+  soundBtn.addEventListener('click',()=>{ startAudio(); goFullscreen(); });
+
+  function goFullscreen(){ const el=document.documentElement,fn=el.requestFullscreen||el.webkitRequestFullscreen; if(fn&&!document.fullscreenElement){ try{ fn.call(el).catch(()=>{}); }catch(e){} } try{ screen.orientation&&screen.orientation.lock&&screen.orientation.lock('landscape').catch(()=>{}); }catch(e){} }
+  $('fs').addEventListener('click',goFullscreen);
+  function autoHide(){ bar.classList.remove('hide'); clearTimeout(hideTimer); hideTimer=setTimeout(()=>bar.classList.add('hide'),3500); }
+  img.addEventListener('click',autoHide); img.addEventListener('dblclick',goFullscreen);
+  async function keepAwake(){ try{ if('wakeLock' in navigator&&!wakeLock){ wakeLock=await navigator.wakeLock.request('screen'); wakeLock.addEventListener('release',()=>{wakeLock=null;}); } }catch(e){} }
+  document.addEventListener('visibilitychange',()=>{ if(document.visibilityState==='visible'){ keepAwake(); if(online) startVideo(); } });
+  poll();
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b0f17">
+  <title>See the TV's screen on this phone</title>
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="app.css">
+</head>
+<body>
+  <div class="wrap">
+    <header class="bar"><div class="logo"><h1>TV screen on this phone</h1></div><a class="small" href="index.html">back</a></header>
+
+    <section class="card">
+      <h2>Open the TV's screen</h2>
+      <p class="small" style="margin:0 0 10px">The TV app shows an address like <code>192.168.1.23:8080</code>. Type it here once; it is remembered.</p>
+      <div class="row">
+        <input id="addr" type="text" inputmode="decimal" placeholder="192.168.1.23:8080" autocomplete="off">
+        <button id="open" class="primary" style="flex:0 0 auto">Open</button>
+      </div>
+      <p class="hint">Phone and TV must be on the same Wi‑Fi. Or just scan the QR code the TV shows.</p>
+    </section>
+
+    <section class="card">
+      <h2>One-time install on the TCL TV</h2>
+      <ol class="small" style="margin:0;padding-left:20px;line-height:1.7">
+        <li>On the TV, open the <b>Google Play Store</b> and install <b>Downloader</b> (by AFTVnews).</li>
+        <li>TV <b>Settings → Apps → Security &amp; restrictions → Unknown sources</b>: allow <b>Downloader</b>.</li>
+        <li>Open Downloader, type this address and press Go:<br><code id="apk">…</code></li>
+        <li>When it downloads, choose <b>Install</b>, then <b>Open</b>.</li>
+        <li>In <b>TV Screen Share</b>, press <b>Start sharing</b>, then <b>Start now</b> on the system question. Allow sound if asked.</li>
+        <li>The TV shows an address and a QR code. Scan it with this phone, or type the address above.</li>
+      </ol>
+      <p class="hint">Netflix, Prime Video and Disney+ protect their picture, so they show as black. YouTube, games, menus and most apps work.</p>
+    </section>
+  </div>
+  <script src="common.js"></script>
+  <script>
+    (function () {
+      const { store, load } = window.TVM;
+      const addr = document.getElementById('addr'), open = document.getElementById('open');
+      const repo = location.hostname.endsWith('github.io') ? 'https://github.com/' + location.hostname.split('.')[0] + location.pathname.replace(/\/[^/]*$/, '') : 'https://github.com/hello2michael-cmyk/Test';
+      document.getElementById('apk').textContent = repo + '/releases/download/tv-app/TVScreenShare.apk';
+      addr.value = load('tvapp.addr') || '';
+      function go() {
+        let a = addr.value.trim().replace(/^https?:\/\//, '').replace(/\/+$/, '');
+        if (!a) { addr.focus(); return; }
+        if (!/:\d+$/.test(a)) a += ':8080';
+        store('tvapp.addr', a);
+        location.href = 'http://' + a + '/';
+      }
+      open.addEventListener('click', go);
+      addr.addEventListener('keydown', e => { if (e.key === 'Enter') go(); });
+    })();
+  </script>
+</body>
+</html>
