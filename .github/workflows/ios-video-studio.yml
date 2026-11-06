@@ -2,7 +2,7 @@ name: Build AI Video Studio (iPhone IPA)
 
 on:
   push:
-    branches: [main]
+    branches: [main, 'claude/**']
     paths: ['ios/AIVideoStudio/**', 'ios/AIVideoStudio.xcodeproj/**', '.github/workflows/ios-video-studio.yml']
   workflow_dispatch:
 
