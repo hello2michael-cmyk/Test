@@ -158,3 +158,15 @@ Searching inside the app uses Google's free **YouTube Data API**. Pasting links 
 4. In the app: **Settings → Search → API key** and paste it.
 
 The free quota allows roughly 100 searches a day.
+
+## Tube Player on the web (no computer needed)
+
+If you cannot use a computer to install the iPhone app, use the web version. It is the same idea, running in Safari, and it opens from the home screen like an app.
+
+1. On the iPhone, open https://hello2michael-cmyk.github.io/Test/tube.html in Safari.
+2. Tap the **Share** button (the square with an arrow at the bottom), then **Add to Home Screen**, then **Add**.
+3. Tap the **Tube Player** icon. Paste a link or search, then tap a video.
+
+Open a link directly: `https://hello2michael-cmyk.github.io/Test/tube.html?v=<video id>`.
+
+What it can and cannot do: it plays every YouTube video through YouTube's own player, with history and saved videos kept on the phone. Search needs the free key described under [Search key](#search-key). Ads are YouTube's own; the web version cannot use a Premium sign-in, so for ad-free viewing use the YouTube app with YouTube Premium.
