@@ -1,0 +1,30 @@
+[
+ {
+  "id": "title",
+  "text": "What is an AI agent? And what is agentic AI? Let's break it down, in sixty seconds."
+ },
+ {
+  "id": "chatbot",
+  "text": "A normal chatbot answers one question, and stops."
+ },
+ {
+  "id": "loop",
+  "text": "An agent goes further. It perceives its environment, thinks about the goal, takes an action, and checks the result, again and again, until the job is done."
+ },
+ {
+  "id": "parts",
+  "text": "Inside, an agent has four key parts. A goal. Memory. Tools, like web search, code, or email. And a planner, that decides the next step."
+ },
+ {
+  "id": "agentic",
+  "text": "So, what is agentic AI? It is a system where many agents work together, autonomously. They split a big goal into tasks, use tools, and coordinate, with only light human supervision."
+ },
+ {
+  "id": "example",
+  "text": "For example: say, book my trip to Tokyo. One agent finds flights. Another compares hotels. A third books them, and adds everything to your calendar."
+ },
+ {
+  "id": "outro",
+  "text": "That is the shift. From AI that talks, to AI that does. Subscribe for more AI, explained simply."
+ }
+]
