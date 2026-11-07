@@ -24,6 +24,7 @@ const DEFAULTS = {
   channelName: '', cta: 'Subscribe for more AI explainers', modelId: '',
   footageProvider: 'free',      // 'none' (motion graphics) | 'free' (stock video + free AI stills) | 'fal' (paid generated video)
   pexelsKey: '', pixabayKey: '', allowPollinations: true,
+  aiVideoEnabled: true, aiVideoSpace: 'Lightricks/ltx-video-distilled', hfToken: '',
   falKey: '', falModel: 'ltx2-fast', falEndpoint: '', falExtra: '', footageDuration: 6, footageScope: 'all',
 };
 

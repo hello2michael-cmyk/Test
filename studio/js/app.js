@@ -8,7 +8,7 @@ import { Renderer } from './renderer.js';
 import { encodeSupport, encodeWebCodecs, encodeMediaRecorder } from './encoder.js';
 import { srt, youtubeText, download, shareFiles, safeName, chapterStamp } from './exporter.js';
 import { store, requestPersistentStorage } from './store.js';
-import { generateFootage, shotPrompt, FOOTAGE_MODELS, FOOTAGE_COST } from './footage.js';
+import { generateFootage, shotPrompt, FOOTAGE_MODELS, FOOTAGE_COST, FREE_VIDEO_SPACES } from './footage.js';
 import { openAsset } from './clipdecoder.js';
 import { THEMES, VOICES, loadSettings, saveSettings, canvasSize } from './settings.js';
 
@@ -64,7 +64,7 @@ function renderSummary() {
   $('summary').innerHTML = `Model: <b>${esc(m.name)}</b> · ${esc(aspectLabel())} · ${w}×${h} · ${settings.fps} fps · ${esc(settings.theme)}<br>` +
     `Up to ${settings.maxDuration} s, aiming for ${settings.targetDuration} s · voice: ${esc((VOICES.find(v => v[0] === settings.voice) || [0, settings.voice])[1])}<br>` +
     `Footage: <b>${settings.footageProvider === 'fal' ? esc((FOOTAGE_MODELS.find(m => m.id === settings.falModel) || FOOTAGE_MODELS[0]).name) + (settings.falKey ? '' : ' · <span class="warn">no API key yet</span>')
-      : settings.footageProvider === 'free' ? 'free ' + [settings.pexelsKey ? 'Pexels video' : null, settings.pixabayKey ? 'Pixabay video' : null, settings.allowPollinations !== false ? 'AI photos with motion' : null].filter(Boolean).join(' + ') + (!settings.pexelsKey && !settings.pixabayKey ? ' · <span class="warn">add a free Pexels key for real video clips</span>' : '')
+      : settings.footageProvider === 'free' ? 'free ' + [settings.aiVideoEnabled !== false && settings.aiVideoSpace ? 'AI video (LTX on a free GPU)' : null, settings.pexelsKey ? 'Pexels video' : null, settings.pixabayKey ? 'Pixabay video' : null, settings.allowPollinations !== false ? 'AI photos with motion' : null].filter(Boolean).join(' → ') + (!settings.hfToken ? ' · <span class="warn">add a free Hugging Face token for more daily GPU time</span>' : '')
       : 'motion graphics only'}</b>` +
     (m.engine === 'webllm' && !hasWebGPU() ? `<br><span class="warn">This browser has no WebGPU; pick a CPU model in the Models tab.</span>` : '');
 }
@@ -179,6 +179,7 @@ async function produce(prompt, resume) {
   const cp = resume || { id: 'current', prompt, settings: { ...settings }, attempts: 0, createdAt: Date.now() };
   const s = cp.settings;
   if (params.get('footage') === 'mock' || params.get('footage') === 'mockimage') s.footageProvider = params.get('footage');
+  if (params.get('space')) { s.footageProvider = 'free'; s.aiVideoSpace = params.get('space'); s.aiVideoEnabled = true; s.pexelsKey = ''; s.pixabayKey = ''; s.allowPollinations = params.get('nopoll') !== '1'; }
   const [width, height] = canvasSize(s);
   const save = async (stage) => { cp.stage = stage; cp.updatedAt = Date.now(); await store.putRun(cp); };
   const kindOf = (id) => ((cp.storyboard && cp.storyboard.scenes.find(v => v.beatId === id)) || cp.brief.outline.find(b => b.id === id) || {}).kind
@@ -245,7 +246,7 @@ async function produce(prompt, resume) {
       progress('Footage', 0, `${missing.length} clip(s)`);
       const sourceName = footageOn === 'fal' ? (FOOTAGE_MODELS.find(m => m.id === fs.falModel) || FOOTAGE_MODELS[0]).name + ' (then free sources)'
         : footageOn.startsWith('mock') ? 'the test asset'
-        : [fs.pexelsKey ? 'Pexels stock video' : null, fs.pixabayKey ? 'Pixabay stock video' : null, fs.allowPollinations !== false ? 'free AI images (Pollinations)' : null].filter(Boolean).join(' → ') || 'nothing (no free source enabled)';
+        : [fs.aiVideoEnabled !== false && fs.aiVideoSpace ? `free AI video (${(FREE_VIDEO_SPACES.find(x => x.id === fs.aiVideoSpace) || { name: fs.aiVideoSpace }).name.split(' (')[0]})` : null, fs.pexelsKey ? 'Pexels stock video' : null, fs.pixabayKey ? 'Pixabay stock video' : null, fs.allowPollinations !== false ? 'free AI images (Pollinations)' : null].filter(Boolean).join(' → ') || 'nothing (no free source enabled)';
       log('Footage', 'info', `Finding footage for ${missing.length} scene(s): ${sourceName}. Searches: ${wanted.map(v => `[${v.beatId}] ${v.stockQuery || ''}`).join(' · ').slice(0, 300)}`);
       const { results, errors } = await generateFootage(jobs, fs, {
         log, checkCancel, existing: cp.footage,
@@ -547,6 +548,13 @@ function renderSettings() {
   $('s-falmodel').innerHTML = FOOTAGE_MODELS.map(m => `<option value="${m.id}">${esc(m.name)}${FOOTAGE_COST[m.id] != null ? ` · ~$${FOOTAGE_COST[m.id].toFixed(2)}/clip` : ''}</option>`).join('');
   bind('s-footage', 'footageProvider', v => v, () => { $('falFields').hidden = settings.footageProvider !== 'fal'; $('freeFields').hidden = settings.footageProvider === 'none'; });
   bind('s-pexels', 'pexelsKey'); bind('s-pixabay', 'pixabayKey'); bind('s-pollinations', 'allowPollinations');
+  $('s-space').innerHTML = FREE_VIDEO_SPACES.map(x => `<option value="${esc(x.id)}">${esc(x.name)}</option>`).join('');
+  const knownSpace = FREE_VIDEO_SPACES.some(x => x.id === settings.aiVideoSpace);
+  $('s-space').value = knownSpace ? settings.aiVideoSpace : 'custom';
+  $('s-spacecustom').hidden = knownSpace; $('s-spacecustom').value = knownSpace ? '' : (settings.aiVideoSpace || '');
+  $('s-space').onchange = () => { const v = $('s-space').value; $('s-spacecustom').hidden = v !== 'custom'; if (v !== 'custom') { settings.aiVideoSpace = v; saveSettings(settings); renderSummary(); } };
+  $('s-spacecustom').oninput = () => { settings.aiVideoSpace = $('s-spacecustom').value.trim(); saveSettings(settings); renderSummary(); };
+  bind('s-aivideo', 'aiVideoEnabled'); bind('s-hftoken', 'hfToken');
   bind('s-falkey', 'falKey'); bind('s-falmodel', 'falModel', v => v, () => { $('falCustom').hidden = settings.falModel !== 'custom'; });
   bind('s-falendpoint', 'falEndpoint'); bind('s-falextra', 'falExtra');
   bind('s-footagedur', 'footageDuration', v => parseInt(v, 10)); bind('s-footagescope', 'footageScope');
