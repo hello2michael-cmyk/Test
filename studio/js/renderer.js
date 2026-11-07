@@ -1,0 +1,428 @@
+// Draws any frame of the video from the plan. Pure function of (plan, time): deterministic, so the thumbnail is just a frame.
+import { THEMES } from './settings.js';
+
+const FADE_IN = 0.45, FADE_OUT = 0.3;
+const clamp01 = x => Math.min(1, Math.max(0, x));
+const prog = (t, start, dur) => dur <= 0 ? (t >= start ? 1 : 0) : clamp01((t - start) / dur);
+const outCubic = x => 1 - Math.pow(1 - clamp01(x), 3);
+const outExpo = x => { const p = clamp01(x); return p === 1 ? 1 : 1 - Math.pow(2, -10 * p); };
+const outBack = x => { const p = clamp01(x), c1 = 1.70158, c3 = c1 + 1; return 1 + c3 * Math.pow(p - 1, 3) + c1 * Math.pow(p - 1, 2); };
+
+const SANS = '-apple-system, "SF Pro Rounded", "SF Pro Display", system-ui, "Segoe UI", Roboto, sans-serif';
+const MONO = 'ui-monospace, "SF Mono", Menlo, Consolas, monospace';
+const SERIF = 'ui-serif, "New York", Georgia, serif';
+
+export class Renderer {
+  constructor(canvas, settings) {
+    this.canvas = canvas;
+    this.ctx = canvas.getContext('2d', { alpha: false, desynchronized: true });
+    this.settings = settings;
+    this.theme = THEMES[settings.theme] || THEMES.Midnight;
+    this.w = canvas.width; this.h = canvas.height;
+    this.unit = Math.min(this.w, this.h) / 1080;
+    this.portrait = this.h > this.w;
+    this.mx = this.w * (this.portrait ? 0.08 : 0.075);
+    this.my = this.h * (this.portrait ? 0.12 : 0.11);
+    this.cw = this.w - 2 * this.mx;
+    this.measureCache = new Map();
+  }
+
+  u(v) { return v * this.unit; }
+  font(px, weight = 700, family = SANS) { return `${weight} ${Math.round(px)}px ${family}`; }
+
+  // ---------- public ----------
+  draw(plan, time) {
+    const { ctx } = this;
+    this.background(time);
+    let index = plan.scenes.findIndex(s => time >= s.start && time < s.start + s.duration);
+    if (index < 0) index = time >= plan.totalDuration ? plan.scenes.length - 1 : -1;
+    if (index < 0) return;
+    const scene = plan.scenes[index];
+    const local = time - scene.start;
+    const aIn = outCubic(prog(local, 0, FADE_IN));
+    const aOut = index === plan.scenes.length - 1 ? 1 : clamp01((scene.start + scene.duration - time) / FADE_OUT);
+    ctx.save();
+    ctx.globalAlpha = Math.min(aIn, aOut);
+    this.scene(scene, local);
+    ctx.restore();
+    this.chrome(plan, time);
+    if (this.settings.burnInCaptions) {
+      const cue = scene.captions.find(c => time >= c.start && time < c.end);
+      if (cue) this.caption(cue.text);
+    }
+  }
+
+  // ---------- background & chrome ----------
+  background(time) {
+    const { ctx, w, h, theme } = this;
+    const drift = Math.sin(time * 0.15) * w * 0.1;
+    const g = ctx.createLinearGradient(drift, 0, w - drift, h);
+    g.addColorStop(0, theme.bgTop); g.addColorStop(1, theme.bgBottom);
+    ctx.fillStyle = g; ctx.fillRect(0, 0, w, h);
+    const orbs = [[0.15, 0.25, 0.55, theme.accent, 0.11], [0.85, 0.75, 0.6, theme.accent2, 0.09], [0.7, 0.15, 0.35, theme.accent, 0.07]];
+    orbs.forEach((o, i) => {
+      const phase = time * (0.08 + i * 0.03);
+      const cx = o[0] * w + Math.sin(phase) * w * 0.06, cy = o[1] * h + Math.cos(phase * 1.3) * h * 0.05;
+      const r = o[2] * Math.min(w, h);
+      const rg = ctx.createRadialGradient(cx, cy, 0, cx, cy, r);
+      rg.addColorStop(0, withAlpha(o[3], theme.dark ? o[4] : o[4] * 0.6)); rg.addColorStop(1, withAlpha(o[3], 0));
+      ctx.fillStyle = rg; ctx.fillRect(cx - r, cy - r, r * 2, r * 2);
+    });
+    ctx.strokeStyle = withAlpha(theme.text, theme.dark ? 0.035 : 0.05); ctx.lineWidth = this.u(1);
+    const step = this.u(90);
+    ctx.beginPath();
+    for (let x = 0; x < w; x += step) { ctx.moveTo(x, 0); ctx.lineTo(x, h); }
+    for (let y = 0; y < h; y += step) { ctx.moveTo(0, y); ctx.lineTo(w, y); }
+    ctx.stroke();
+  }
+
+  chrome(plan, time) {
+    const { ctx, w, h, theme, settings } = this;
+    if (settings.showProgressBar) {
+      const bh = this.u(6);
+      ctx.fillStyle = withAlpha(theme.text, 0.12); ctx.fillRect(0, 0, w, bh);
+      ctx.fillStyle = theme.accent; ctx.fillRect(0, 0, w * clamp01(time / Math.max(1, plan.totalDuration)), bh);
+    }
+    if (settings.channelName) {
+      ctx.font = this.font(this.u(22), 600); ctx.fillStyle = theme.muted; ctx.textBaseline = 'top';
+      this.fillSpaced(settings.channelName.toUpperCase(), this.mx, h - this.my * 0.55, this.u(2));
+    }
+  }
+
+  caption(text) {
+    const { ctx, w, h, theme } = this;
+    const font = this.font(this.u(this.portrait ? 40 : 36), 600);
+    const cx = w / 2, cy = h - this.my * (this.portrait ? 1.35 : 1.05);
+    this.pill(text, cx, cy, font, '#fff', theme.caption, this.u(28), this.u(14), 1, w * 0.84);
+  }
+
+  // ---------- text helpers ----------
+  wrap(text, font, maxWidth) {
+    const key = font + '|' + maxWidth + '|' + text;
+    if (this.measureCache.has(key)) return this.measureCache.get(key);
+    const { ctx } = this; ctx.font = font;
+    const words = String(text).split(/\s+/).filter(Boolean);
+    const lines = []; let cur = '';
+    for (const wd of words) {
+      const test = cur ? cur + ' ' + wd : wd;
+      if (ctx.measureText(test).width > maxWidth && cur) { lines.push(cur); cur = wd; } else cur = test;
+    }
+    if (cur) lines.push(cur);
+    const px = parseInt(font.match(/(\d+)px/)[1], 10);
+    const result = { lines, lineHeight: px * 1.12, height: lines.length * px * 1.12 };
+    this.measureCache.set(key, result);
+    return result;
+  }
+
+  /** Draw wrapped text; returns height used. align: 'left'|'center' */
+  text(text, x, y, maxWidth, font, color, { align = 'left', alpha = 1, offsetY = 0, lineHeightMultiple = 1 } = {}) {
+    const { ctx } = this;
+    const m = this.wrap(text, font, maxWidth);
+    if (alpha <= 0.001) return m.height * lineHeightMultiple;
+    ctx.save(); ctx.globalAlpha *= alpha; ctx.font = font; ctx.fillStyle = color; ctx.textBaseline = 'top'; ctx.textAlign = align;
+    const lh = m.lineHeight * lineHeightMultiple;
+    m.lines.forEach((line, i) => ctx.fillText(line, align === 'center' ? x + maxWidth / 2 : x, y + offsetY + i * lh));
+    ctx.restore();
+    return m.lines.length * lh;
+  }
+
+  fillSpaced(text, x, y, spacing) {
+    const { ctx } = this;
+    if ('letterSpacing' in ctx) { ctx.letterSpacing = spacing + 'px'; ctx.fillText(text, x, y); ctx.letterSpacing = '0px'; return; }
+    for (const ch of text) { ctx.fillText(ch, x, y); x += ctx.measureText(ch).width + spacing; }
+  }
+
+  fitFont(text, maxPx, minPx, weight, maxWidth, maxLines, family = SANS) {
+    for (let px = maxPx; px > minPx; px -= this.u(4)) {
+      const m = this.wrap(text, this.font(px, weight, family), maxWidth);
+      if (m.lines.length <= maxLines) return px;
+    }
+    return minPx;
+  }
+
+  roundRect(x, y, w, h, r, fill, stroke, lw) {
+    const { ctx } = this;
+    ctx.beginPath(); ctx.roundRect(x, y, w, h, r);
+    if (fill) { ctx.fillStyle = fill; ctx.fill(); }
+    if (stroke) { ctx.strokeStyle = stroke; ctx.lineWidth = lw || this.u(2); ctx.stroke(); }
+  }
+
+  pill(text, cx, cy, font, color, bg, padX, padY, alpha = 1, maxWidth = this.w) {
+    const { ctx } = this;
+    const m = this.wrap(text, font, maxWidth - 2 * padX);
+    ctx.font = font;
+    const tw = Math.max(...m.lines.map(l => ctx.measureText(l).width));
+    const rw = tw + 2 * padX, rh = m.height + 2 * padY;
+    ctx.save(); ctx.globalAlpha *= alpha;
+    this.roundRect(cx - rw / 2, cy - rh / 2, rw, rh, rh / 2, bg);
+    this.text(text, cx - tw / 2, cy - m.height / 2, tw + 2, font, color, { align: 'center' });
+    ctx.restore();
+  }
+
+  arrow(ax, ay, bx, by, color, width, p) {
+    if (p <= 0) return;
+    const { ctx } = this;
+    const ex = ax + (bx - ax) * p, ey = ay + (by - ay) * p;
+    ctx.strokeStyle = color; ctx.lineWidth = width; ctx.lineCap = 'round';
+    ctx.beginPath(); ctx.moveTo(ax, ay); ctx.lineTo(ex, ey); ctx.stroke();
+    if (p >= 0.98) {
+      const ang = Math.atan2(by - ay, bx - ax), head = this.u(16);
+      ctx.fillStyle = color; ctx.beginPath(); ctx.moveTo(bx, by);
+      ctx.lineTo(bx - head * Math.cos(ang - Math.PI / 6), by - head * Math.sin(ang - Math.PI / 6));
+      ctx.lineTo(bx - head * Math.cos(ang + Math.PI / 6), by - head * Math.sin(ang + Math.PI / 6));
+      ctx.closePath(); ctx.fill();
+    }
+  }
+
+  // ---------- scenes ----------
+  scene(scene, local) {
+    const v = scene.visual;
+    switch (v.kind) {
+      case 'title': return this.title(v, local);
+      case 'bullets': return this.bullets(v, local);
+      case 'diagram': return this.diagram(v, local);
+      case 'comparison': return this.comparison(v, local);
+      case 'stat': return this.stat(v, local);
+      case 'code': return this.code(v, local);
+      case 'quote': return this.quote(v, local);
+      default: return this.outro(v, local);
+    }
+  }
+
+  kicker(text, local, y) {
+    if (!text) return y;
+    const p = outCubic(prog(local, 0.05, 0.5));
+    const { ctx, theme } = this;
+    ctx.save(); ctx.globalAlpha *= p; ctx.font = this.font(this.u(26), 700); ctx.fillStyle = theme.accent; ctx.textBaseline = 'top'; ctx.textAlign = 'left';
+    this.fillSpaced(text.toUpperCase(), this.mx, y + (1 - p) * this.u(12), this.u(3));
+    ctx.restore();
+    return y + this.u(26) * 1.12 + this.u(18);
+  }
+
+  heading(text, local, y, maxSize = 74, maxLines = 2, delay = 0.1) {
+    const p = outCubic(prog(local, delay, 0.6));
+    const px = this.fitFont(text, this.u(maxSize), this.u(40), 800, this.cw, maxLines);
+    const h = this.text(text, this.mx, y, this.cw, this.font(px, 800), this.theme.text, { alpha: p, offsetY: (1 - p) * this.u(24), lineHeightMultiple: 0.95 });
+    const rp = outExpo(prog(local, delay + 0.25, 0.7));
+    this.ctx.fillStyle = this.theme.accent; this.ctx.fillRect(this.mx, y + h + this.u(16), this.u(120) * rp, this.u(6));
+    return y + h + this.u(48);
+  }
+
+  title(v, local) {
+    const { ctx, theme, settings } = this;
+    let y = this.h * (this.portrait ? 0.30 : 0.32);
+    y = this.kicker(v.kicker || settings.channelName || 'AI explained', local, y);
+    const px = this.fitFont(v.title, this.u(this.portrait ? 96 : 104), this.u(48), 900, this.cw, 3);
+    const font = this.font(px, 900);
+    const m = this.wrap(v.title, font, this.cw);
+    ctx.font = font; ctx.textBaseline = 'top'; ctx.textAlign = 'left';
+    const space = ctx.measureText(' ').width;
+    let wi = 0;
+    m.lines.forEach((line, li) => {
+      let x = this.mx;
+      for (const word of line.split(' ')) {
+        const p = outCubic(prog(local, 0.15 + wi * 0.07, 0.55));
+        ctx.save(); ctx.globalAlpha *= p; ctx.fillStyle = theme.text; ctx.font = font;
+        ctx.fillText(word, x, y + li * m.lineHeight * 0.98 + (1 - p) * this.u(30));
+        ctx.restore();
+        x += ctx.measureText(word).width + space; wi++;
+      }
+    });
+    let ly = y + m.lines.length * m.lineHeight * 0.98 + this.u(24);
+    const rp = outExpo(prog(local, 0.5, 0.8));
+    ctx.fillStyle = theme.accent; ctx.fillRect(this.mx, ly, this.u(160) * rp, this.u(8));
+    if (v.subtitle) {
+      const p = outCubic(prog(local, 0.8, 0.6));
+      this.text(v.subtitle, this.mx, ly + this.u(36), this.cw * 0.9, this.font(this.u(38), 500), theme.muted, { alpha: p, offsetY: (1 - p) * this.u(16) });
+    }
+  }
+
+  bullets(v, local) {
+    const { ctx, theme } = this;
+    let y = this.my;
+    y = this.kicker(v.kicker, local, y);
+    y = this.heading(v.title, local, y);
+    const font = this.font(this.u(this.portrait ? 44 : 42), 600);
+    const dot = this.u(14);
+    (v.bullets || []).forEach((b, i) => {
+      const p = outCubic(prog(local, 0.55 + i * 0.32, 0.5));
+      const tx = this.mx + dot * 3.4, tw = this.cw - dot * 3.4;
+      const m = this.wrap(b, font, tw);
+      ctx.save(); ctx.globalAlpha *= p; ctx.translate((1 - p) * -this.u(40), 0);
+      ctx.fillStyle = i % 2 === 0 ? theme.accent : theme.accent2;
+      ctx.beginPath(); ctx.arc(this.mx + dot, y + m.lineHeight * 0.5, dot * (0.6 + 0.4 * p), 0, Math.PI * 2); ctx.fill();
+      this.text(b, tx, y, tw, font, theme.text);
+      ctx.restore();
+      y += m.height + this.u(26);
+    });
+  }
+
+  diagram(v, local) {
+    const { ctx, theme } = this;
+    let y = this.my;
+    y = this.kicker(v.kicker, local, y);
+    y = this.heading(v.title, local, y, 64);
+    const nodes = v.nodes || [];
+    if (!nodes.length) return;
+    const font = this.font(this.u(34), 700);
+    const top = y + this.u(20), bottom = this.h - this.my * (this.settings.burnInCaptions ? 1.6 : 1.0);
+    const vertical = this.portrait || nodes.length > 4, n = nodes.length;
+    const centers = [];
+    if (vertical) { const gap = (bottom - top) / n; for (let i = 0; i < n; i++) centers.push([this.w / 2, top + gap * (i + 0.5)]); }
+    else { const gap = this.cw / n, cy = (top + bottom) / 2; for (let i = 0; i < n; i++) centers.push([this.mx + gap * (i + 0.5), cy]); }
+    const bw = vertical ? this.cw * 0.7 : (this.cw / n) * 0.78;
+    const bh = vertical ? Math.min(this.u(110), (bottom - top) / n * 0.6) : this.u(130);
+    for (let i = 0; i < n; i++) {
+      const p = outBack(prog(local, 0.5 + i * 0.38, 0.5));
+      if (p <= 0) continue;
+      const [cx, cy] = centers[i];
+      const rw = bw * p, rh = bh * p;
+      this.roundRect(cx - rw / 2, cy - rh / 2, rw, rh, this.u(22), theme.surface, withAlpha(i === n - 1 ? theme.accent2 : theme.accent, 0.9), this.u(3));
+      if (p > 0.6) {
+        const m = this.wrap(nodes[i], font, rw - this.u(20));
+        this.text(nodes[i], cx - (rw - this.u(20)) / 2, cy - m.height / 2, rw - this.u(20), font, theme.text, { align: 'center', alpha: (p - 0.6) / 0.4 });
+      }
+      if (i < n - 1) {
+        const ap = outCubic(prog(local, 0.5 + i * 0.38 + 0.25, 0.3));
+        const [nx, ny] = centers[i + 1];
+        if (vertical) this.arrow(cx, cy + bh / 2 + this.u(6), nx, ny - bh / 2 - this.u(6), theme.muted, this.u(4), ap);
+        else this.arrow(cx + bw / 2 + this.u(6), cy, nx - bw / 2 - this.u(6), ny, theme.muted, this.u(4), ap);
+      }
+    }
+  }
+
+  comparison(v, local) {
+    const { ctx, theme } = this;
+    let y = this.my;
+    y = this.kicker(v.kicker, local, y);
+    y = this.heading(v.title, local, y, 64);
+    const bottom = this.h - this.my * (this.settings.burnInCaptions ? 1.6 : 1.0), gap = this.u(28);
+    const cols = [[v.leftTitle || 'A', v.leftItems || [], theme.accent], [v.rightTitle || 'B', v.rightItems || [], theme.accent2]];
+    cols.forEach(([title, items, color], i) => {
+      const p = outCubic(prog(local, 0.5 + i * 0.3, 0.55));
+      let rx, ry, rw, rh;
+      if (this.portrait) { rh = (bottom - y - gap) / 2; rw = this.cw; rx = this.mx; ry = y + i * (rh + gap); }
+      else { rw = (this.cw - gap) / 2; rh = bottom - y; rx = this.mx + i * (rw + gap); ry = y; }
+      ctx.save(); ctx.globalAlpha *= p; ctx.translate(0, (1 - p) * this.u(30));
+      this.roundRect(rx, ry, rw, rh, this.u(28), theme.surface, theme.border, this.u(2));
+      ctx.fillStyle = color; ctx.fillRect(rx, ry, rw, this.u(8));
+      let ty = ry + this.u(34);
+      ty += this.text(title, rx + this.u(32), ty, rw - this.u(64), this.font(this.u(40), 700), color) + this.u(18);
+      const item = this.font(this.u(34), 500);
+      items.forEach((it, j) => {
+        const ip = outCubic(prog(local, 0.9 + i * 0.3 + j * 0.2, 0.4));
+        ctx.save(); ctx.globalAlpha *= ip; ctx.fillStyle = color; ctx.beginPath(); ctx.arc(rx + this.u(44), ty + this.u(22), this.u(7), 0, Math.PI * 2); ctx.fill(); ctx.restore();
+        ty += this.text(it, rx + this.u(70), ty, rw - this.u(102), item, theme.text, { alpha: ip }) + this.u(14);
+      });
+      ctx.restore();
+    });
+  }
+
+  stat(v, local) {
+    const { ctx, theme } = this;
+    let y = this.my;
+    y = this.kicker(v.kicker, local, y);
+    const value = v.statValue || '';
+    const mnum = value.match(/^([\d,]*\.?\d+)(.*)$/);
+    const countP = outExpo(prog(local, 0.3, 1.3));
+    let shown = value;
+    if (mnum) {
+      const num = parseFloat(mnum[1].replace(/,/g, ''));
+      const cur = num * countP;
+      shown = (Number.isInteger(num) ? String(Math.round(cur)) : cur.toFixed(1)) + mnum[2];
+    }
+    const px = this.fitFont(shown, this.u(this.portrait ? 260 : 300), this.u(120), 900, this.cw, 1);
+    const sp = outBack(prog(local, 0.2, 0.6));
+    const cy = this.h * (this.portrait ? 0.42 : 0.45);
+    const m = this.wrap(shown, this.font(px, 900), this.cw);
+    ctx.save(); ctx.translate(this.w / 2, cy); ctx.scale(0.7 + 0.3 * sp, 0.7 + 0.3 * sp); ctx.translate(-this.w / 2, -cy);
+    this.text(shown, this.mx, cy - m.height / 2, this.cw, this.font(px, 900), theme.accent, { align: 'center', alpha: sp });
+    ctx.restore();
+    const lp = outCubic(prog(local, 0.7, 0.6));
+    const ly = cy + m.height / 2 + this.u(10);
+    const lh = this.text(v.statLabel || v.title, this.mx, ly, this.cw, this.font(this.u(44), 600), theme.text, { align: 'center', alpha: lp, offsetY: (1 - lp) * this.u(16) });
+    if (v.statLabel && v.title !== v.statLabel) this.text(v.title, this.mx, ly + lh + this.u(12), this.cw, this.font(this.u(30), 500), theme.muted, { align: 'center', alpha: lp });
+  }
+
+  code(v, local) {
+    const { ctx, theme } = this;
+    let y = this.my;
+    y = this.kicker(v.kicker || v.codeLanguage, local, y);
+    y = this.heading(v.title, local, y, 60, 1);
+    const lines = (v.code || '').split('\n');
+    const px = this.u(this.portrait ? 30 : 32), font = this.font(px, 500, MONO), lh = px * 1.5, pad = this.u(36);
+    const ch = lh * lines.length + pad * 2 + this.u(30);
+    const cp = outCubic(prog(local, 0.4, 0.5));
+    ctx.save(); ctx.globalAlpha *= cp;
+    this.roundRect(this.mx, y, this.cw, ch, this.u(24), theme.dark ? 'rgba(0,0,0,0.35)' : '#212121', theme.border, this.u(2));
+    ['#ff5f57', '#febc2e', '#28c840'].forEach((c, i) => { ctx.fillStyle = c; ctx.beginPath(); ctx.arc(this.mx + pad + i * this.u(28), y + this.u(30), this.u(8), 0, Math.PI * 2); ctx.fill(); });
+    let ly = y + pad + this.u(30);
+    ctx.font = font; ctx.textBaseline = 'top'; ctx.textAlign = 'left';
+    for (let i = 0; i < lines.length; i++) {
+      const p = prog(local, 0.7 + i * 0.28, 0.25);
+      if (p <= 0) break;
+      const visible = lines[i].slice(0, Math.ceil(lines[i].length * p));
+      let x = this.mx + pad;
+      for (const tok of tokenize(visible)) {
+        ctx.fillStyle = /^(#|\/\/)/.test(tok) ? theme.muted : /^["']/.test(tok) ? theme.accent2 : KEYWORDS.has(tok) ? theme.accent : /^\d/.test(tok) ? theme.accent2 : '#fff';
+        ctx.fillText(tok, x, ly); x += ctx.measureText(tok).width;
+      }
+      ly += lh;
+    }
+    ctx.restore();
+  }
+
+  quote(v, local) {
+    const { theme } = this;
+    const p = outCubic(prog(local, 0.15, 0.7));
+    this.text('“', this.mx - this.u(10), this.h * 0.16, this.u(300), this.font(this.u(220), 900, SERIF), withAlpha(theme.accent, 0.5), { alpha: p });
+    const px = this.fitFont(v.quote || v.title, this.u(64), this.u(36), 600, this.cw, 5, SERIF);
+    const h = this.text(v.quote || v.title, this.mx, this.h * 0.33, this.cw, this.font(px, 600, SERIF), theme.text, { alpha: p, offsetY: (1 - p) * this.u(24), lineHeightMultiple: 1.1 });
+    if (v.attribution) {
+      const ap = outCubic(prog(local, 0.8, 0.5));
+      this.text('— ' + v.attribution, this.mx, this.h * 0.33 + h + this.u(28), this.cw, this.font(this.u(32), 500), theme.accent2, { alpha: ap });
+    }
+  }
+
+  outro(v, local) {
+    const { ctx, theme, settings } = this;
+    const p = outCubic(prog(local, 0.1, 0.7));
+    const top = this.h * (this.portrait ? 0.30 : 0.28);
+    ctx.save(); ctx.globalAlpha *= p; ctx.font = this.font(this.u(26), 700); ctx.fillStyle = theme.accent; ctx.textBaseline = 'top'; ctx.textAlign = 'center';
+    if ('letterSpacing' in ctx) ctx.letterSpacing = this.u(3) + 'px';
+    ctx.fillText('REMEMBER THIS', this.w / 2, top);
+    ctx.restore();
+    const px = this.fitFont(v.title, this.u(this.portrait ? 84 : 92), this.u(44), 900, this.cw, 3);
+    const h = this.text(v.title, this.mx, top + this.u(60), this.cw, this.font(px, 900), theme.text, { align: 'center', alpha: p, offsetY: (1 - p) * this.u(30), lineHeightMultiple: 0.98 });
+    const cp = outBack(prog(local, 0.9, 0.6));
+    if (cp > 0) {
+      const cta = v.subtitle || settings.cta || 'Subscribe for more';
+      const cx = this.w / 2, cy = top + this.u(60) + h + this.u(80);
+      ctx.save(); ctx.translate(cx, cy); ctx.scale(cp, cp); ctx.translate(-cx, -cy);
+      this.pill(cta, cx, cy, this.font(this.u(36), 700), theme.dark ? theme.bgTop : '#fff', theme.accent, this.u(40), this.u(20), 1, this.cw);
+      ctx.restore();
+    }
+  }
+}
+
+const KEYWORDS = new Set(['def', 'return', 'import', 'from', 'for', 'in', 'if', 'else', 'while', 'class', 'let', 'var', 'func', 'const', 'function', 'print', 'await', 'async', 'with', 'as', 'model', 'fit', 'predict']);
+function tokenize(line) {
+  const out = []; let cur = '', q = null;
+  for (let i = 0; i < line.length; i++) {
+    const c = line[i];
+    if (q) { cur += c; if (c === q) { out.push(cur); cur = ''; q = null; } continue; }
+    if (c === '#' || (c === '/' && line[i + 1] === '/')) { if (cur) out.push(cur); out.push(line.slice(i)); return out; }
+    if (c === '"' || c === "'") { if (cur) out.push(cur); cur = c; q = c; continue; }
+    if (/[\w]/.test(c)) cur += c; else { if (cur) out.push(cur); cur = ''; out.push(c); }
+  }
+  if (cur) out.push(cur);
+  return out;
+}
+
+function withAlpha(color, a) {
+  if (color.startsWith('#')) {
+    const n = parseInt(color.slice(1), 16);
+    return `rgba(${(n >> 16) & 255},${(n >> 8) & 255},${n & 255},${a})`;
+  }
+  return color.replace(/rgba?\(([^)]+)\)/, (_, inner) => { const p = inner.split(',').slice(0, 3).join(','); return `rgba(${p},${a})`; });
+}

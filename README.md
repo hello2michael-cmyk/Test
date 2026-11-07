@@ -10,6 +10,39 @@ Plus, unrelated to the TV: **AI Video Studio**, an iPhone app that turns one pro
 
 Live at: https://hello2michael-cmyk.github.io/Test/
 
+## AI Video Studio (web): open a link, add to Home Screen, no Mac needed
+
+**Open this on the iPhone:** https://hello2michael-cmyk.github.io/Test/studio/
+
+It is the same idea as the native app below, running inside Safari: a team of agents writes, reviews and art-directs, a neural voice narrates, and the video is rendered and encoded on the phone. Nothing is uploaded; no account, no API key.
+
+**Add it to the Home Screen (one minute)**
+
+1. Open the link in **Safari** (not Chrome).
+2. Tap **Share** (the square with the arrow), then **Add to Home Screen**, then **Add**.
+3. Open it from the new icon. In the **Models** tab tap **Download** (about 0.9 GB over Wi‑Fi, once), then in **Create** type a topic and tap **Generate video**.
+4. When it is done, open the **Videos** tab and tap **Share / Save to Photos**. Upload from the YouTube app; the title, description, tags and the "verify before publishing" list are one tap away, each with a Copy button.
+
+**What it needs**
+
+| | |
+|---|---|
+| Fast path | iOS 26 or newer: Safari has WebGPU, so the language model runs on the GPU (Llama 3.2 1B, Qwen2.5 1.5B, Qwen3 1.7B). |
+| Older iOS (17–18) | No WebGPU: pick a **CPU** model in the Models tab (Qwen2.5 0.5B or Llama 3.2 1B through llama.cpp in WebAssembly). It works, just slower. |
+| Memory | iPhone 13 or newer for the 1B models, iPhone 15 Pro or newer for 1.5B+. If Safari reloads the page during generation, choose a smaller model or 720p. |
+| Time | 3–8 minutes per video depending on the phone. Keep the app in the foreground; the screen stays awake by itself. |
+
+**First run downloads** (cached on the phone afterwards, also inside the Home Screen app): the language model (0.4–2 GB), the Kokoro voice (about 90 MB) and the WebAssembly runtimes (about 30 MB). If storage is tight, the Models tab shows what is used and can delete the downloads; videos are kept.
+
+**Differences from the native app**: smaller language models (a browser tab gets less memory than an app), the Kokoro voice instead of iOS Premium voices, 720p/1080p only. Everything else is the same: the 60‑second cap guarantee, the eight layouts, captions, music ducking, the YouTube package.
+
+**Troubleshooting**
+
+- *"This browser has no WebGPU"*: update to iOS 26, or pick a CPU model.
+- *The page reloads during generation*: Safari ran out of memory. Use a smaller model, 720p, or close other tabs.
+- *The voice download stalls*: it resumes; stay on Wi‑Fi. Tap **Download voice now** in the Models tab to fetch it ahead of time.
+- *The video has no sound in Photos*: use **Share / Save to Photos** from the app rather than downloading through Safari's download manager.
+
 ## AI Video Studio: make educational AI videos on the iPhone
 
 One prompt in, a finished ≤ 60‑second YouTube video out, produced entirely **on the phone** by a team of AI agents running a local language model. Nothing is uploaded anywhere; there are no API keys and no subscription.

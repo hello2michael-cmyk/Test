@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0d1229">
+  <title>AI Video Studio</title>
+  <link rel="manifest" href="studio.webmanifest">
+  <link rel="icon" href="icon-192.png" type="image/png">
+  <link rel="apple-touch-icon" href="icon-192.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Video Studio">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="stylesheet" href="studio.css">
+</head>
+<body>
+  <div class="wrap">
+    <header class="bar">
+      <div class="logo"><img src="icon-192.png" alt=""><h1>AI Video Studio</h1></div>
+      <span class="badge" id="deviceBadge">checking device…</span>
+    </header>
+
+    <!-- CREATE -->
+    <section class="panel active" id="panel-create">
+      <div class="card install" id="installCard">
+        <h2>Add to Home Screen</h2>
+        <ol>
+          <li>Tap the <b>Share</b> button in Safari (the square with an arrow).</li>
+          <li>Choose <b>Add to Home Screen</b>, then <b>Add</b>.</li>
+          <li>Open it from the icon. The model and voice download once and stay on the phone.</li>
+        </ol>
+        <div class="btnrow"><button class="secondary" id="hideInstall">Got it</button></div>
+      </div>
+      <div class="card">
+        <h2>What should the video teach?</h2>
+        <textarea id="prompt" placeholder="e.g. Why do large language models hallucinate? Three causes and one fix."></textarea>
+        <div class="chips" id="chips"></div>
+        <button class="primary" id="generate">Generate video</button>
+        <button class="danger" id="cancel" hidden style="width:100%;margin-top:8px">Cancel</button>
+        <div class="summary" id="summary"></div>
+      </div>
+      <div class="card" id="progressCard" hidden>
+        <div class="row"><h2 id="stageName" style="margin:0">Planning</h2><span id="stageDetail" style="text-align:right;color:var(--muted);font-size:.8rem"></span></div>
+        <div class="progress"><div id="bar"></div></div>
+        <div class="stages" id="stages"></div>
+        <div class="stream" id="stream" hidden></div>
+        <canvas id="canvas" class="preview" hidden></canvas>
+      </div>
+      <div class="card" id="resultCard" hidden>
+        <h2>Your video is ready</h2>
+        <button class="item" id="resultItem"></button>
+      </div>
+      <div class="card" id="logCard" hidden>
+        <h2>Agent room</h2>
+        <div class="log" id="log"></div>
+      </div>
+    </section>
+
+    <!-- VIDEOS -->
+    <section class="panel" id="panel-videos">
+      <div class="card" id="detailCard" hidden>
+        <video class="player" id="player" controls playsinline></video>
+        <div class="btnrow">
+          <button class="primary" id="shareBtn">Share / Save to Photos</button>
+          <button class="secondary" id="dlVideo">Download video</button>
+          <button class="secondary" id="dlSrt">Download captions.srt</button>
+          <button class="secondary" id="dlText">Download youtube.txt</button>
+          <button class="danger" id="deleteBtn">Delete</button>
+        </div>
+        <div id="detailMeta"></div>
+      </div>
+      <div class="card">
+        <h2>Videos</h2>
+        <div class="list" id="projects"></div>
+        <p class="empty" id="projectsEmpty">No videos yet. Generate one from the Create tab.</p>
+      </div>
+    </section>
+
+    <!-- MODELS -->
+    <section class="panel" id="panel-models">
+      <div class="card">
+        <h2>Status</h2>
+        <div id="engineStatus" class="note">No model loaded. It loads automatically when you generate.</div>
+        <div class="progress" id="modelProgress" hidden><div></div></div>
+        <p class="note" id="deviceNote"></p>
+      </div>
+      <div class="card">
+        <h2>Local language models</h2>
+        <div id="modelList"></div>
+        <h3>Add a WebLLM model id</h3>
+        <div class="row"><input type="text" id="customModel" placeholder="e.g. Qwen2.5-0.5B-Instruct-q4f16_1-MLC"><button class="secondary" id="addModel" style="flex:0 0 auto">Add</button></div>
+        <p class="note">Any id from the WebLLM prebuilt list works. Smaller than 1.5 GB is advisable on a phone.</p>
+      </div>
+      <div class="card">
+        <h2>Voice model</h2>
+        <div id="ttsStatus" class="note">Kokoro-82M (about 90 MB) downloads on first use and stays cached.</div>
+        <div class="btnrow"><button class="secondary" id="preloadTts">Download voice now</button><button class="secondary" id="previewVoice">Preview voice</button></div>
+      </div>
+      <div class="card">
+        <h2>Storage</h2>
+        <div class="note" id="storageNote">—</div>
+        <div class="btnrow"><button class="danger" id="clearCaches">Delete downloaded models</button></div>
+      </div>
+    </section>
+
+    <!-- STUDIO (settings) -->
+    <section class="panel" id="panel-studio">
+      <div class="card">
+        <h2>Format</h2>
+        <div class="field"><label>Aspect</label><select id="s-aspect"><option value="16x9">16:9 (YouTube)</option><option value="9x16">9:16 (Shorts)</option><option value="1x1">1:1 (Square)</option></select></div>
+        <div class="field"><label>Resolution</label><select id="s-quality"><option value="1080">1080p</option><option value="720">720p (faster)</option></select></div>
+        <div class="field"><label>Frame rate</label><select id="s-fps"><option value="30">30 fps</option><option value="24">24 fps</option></select></div>
+      </div>
+      <div class="card">
+        <h2>Length</h2>
+        <div class="field"><label>Hard cap: <span id="s-max-v"></span> s</label><input type="range" id="s-max" min="20" max="60" step="5"></div>
+        <div class="field"><label>Aim for: <span id="s-target-v"></span> s</label><input type="range" id="s-target" min="15" max="55" step="1"></div>
+        <p class="note">Agents write for the target; the producer then guarantees the cap by speeding narration slightly or trimming the script.</p>
+      </div>
+      <div class="card">
+        <h2>Look</h2>
+        <div class="field"><label>Theme</label><select id="s-theme"></select></div>
+        <label class="toggle"><span>Burn captions into the video</span><input type="checkbox" id="s-captions"></label>
+        <label class="toggle"><span>Progress bar along the top</span><input type="checkbox" id="s-progressbar"></label>
+        <div class="field"><label>Channel name (shown small on every frame)</label><input type="text" id="s-channel"></div>
+        <div class="field"><label>Call to action on the last scene</label><input type="text" id="s-cta"></div>
+      </div>
+      <div class="card">
+        <h2>Narration</h2>
+        <div class="field"><label>Voice</label><select id="s-voice"></select></div>
+        <div class="field"><label>Pace: <span id="s-speed-v"></span></label><input type="range" id="s-speed" min="0.85" max="1.15" step="0.01"></div>
+      </div>
+      <div class="card">
+        <h2>Music</h2>
+        <div class="field"><label>Track</label><select id="s-music"><option value="">None</option></select></div>
+        <div class="btnrow"><button class="secondary" id="importMusic">Import a music file…</button></div>
+        <input type="file" id="musicFile" accept="audio/*" hidden>
+        <div class="field"><label>Music level under narration: <span id="s-musicvol-v"></span>%</label><input type="range" id="s-musicvol" min="5" max="50" step="1"></div>
+        <label class="toggle"><span>Generated ambient bed when no music is set</span><input type="checkbox" id="s-ambient"></label>
+        <p class="note">Use music you have the rights to (for example the YouTube Audio Library). The mixer ducks it automatically while the voice speaks.</p>
+      </div>
+      <div class="card">
+        <h2>About</h2>
+        <p class="note">Everything runs in this browser: the language model (WebLLM / llama.cpp), the voice (Kokoro), the renderer (Canvas) and the encoder (WebCodecs). Nothing is uploaded. Source: <a href="https://github.com/hello2michael-cmyk/Test" style="color:var(--accent)">github.com/hello2michael-cmyk/Test</a></p>
+      </div>
+    </section>
+  </div>
+
+  <nav class="tabs">
+    <button data-tab="create" class="active"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"/></svg>Create</button>
+    <button data-tab="videos"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M10 9l5 3-5 3z"/></svg>Videos</button>
+    <button data-tab="models"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="5" width="14" height="14" rx="2"/><path d="M9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3"/></svg>Models</button>
+    <button data-tab="studio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/><circle cx="9" cy="7" r="2" fill="#0d1229"/><circle cx="15" cy="12" r="2" fill="#0d1229"/><circle cx="8" cy="17" r="2" fill="#0d1229"/></svg>Studio</button>
+  </nav>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
