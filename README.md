@@ -39,7 +39,7 @@ It is the same idea as the native app below, running inside Safari: a team of ag
 **Troubleshooting**
 
 - *"This browser has no WebGPU"*: update to iOS 26, or pick a CPU model.
-- *The page reloads during generation*: Safari ran out of memory. Use a smaller model, 720p, or close other tabs.
+- *The page reloads during generation*: Safari freed memory by reloading the tab. Nothing is lost: the run is checkpointed after every step, and the app offers **Resume** (it continues by itself after five seconds). If it happens twice, it offers **Restart with lighter settings** (720p and a smaller model).
 - *The voice download stalls*: it resumes; stay on Wi‑Fi. Tap **Download voice now** in the Models tab to fetch it ahead of time.
 - *The video has no sound in Photos*: use **Share / Save to Photos** from the app rather than downloading through Safari's download manager.
 

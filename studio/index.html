@@ -32,6 +32,11 @@
         </ol>
         <div class="btnrow"><button class="secondary" id="hideInstall">Got it</button></div>
       </div>
+      <div class="card install" id="resumeCard" hidden>
+        <h2>Continue the interrupted run?</h2>
+        <p class="note" id="resumeText"></p>
+        <div class="btnrow"><button class="primary" id="resumeBtn">Resume</button><button class="secondary" id="resumeLighter" hidden>Restart with lighter settings (720p, smaller model)</button><button class="secondary" id="resumeDiscard">Discard</button></div>
+      </div>
       <div class="card">
         <h2>What should the video teach?</h2>
         <textarea id="prompt" placeholder="e.g. Why do large language models hallucinate? Three causes and one fix."></textarea>

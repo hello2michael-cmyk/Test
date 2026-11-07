@@ -46,7 +46,7 @@ async function webllmEngine(model, onProgress) {
   const { CreateMLCEngine } = await import('../vendor/webllm.js');
   const engine = await CreateMLCEngine(model.id, {
     initProgressCallback: (r) => onProgress && onProgress(r.progress ?? 0, r.text || ''),
-  });
+  }, { context_window_size: 2048 });   // the agents never need more; a smaller KV cache saves memory on phones
   const qwen3 = model.family === 'qwen3' || /qwen3/i.test(model.id);
   return {
     name: model.name,
