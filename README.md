@@ -6,7 +6,118 @@ Three ways to connect your phone and your TCL TV:
 2. **Home TV** (from anywhere): a spare phone or laptop at home films the TV and your phone shows it live.
 3. **TV Mirror**: play a video on your phone and watch the same thing on your TCL TV.
 
+Plus, unrelated to the TV: **AI Video Studio**, an iPhone app that turns one prompt into a finished ≤60‑second educational AI video, using a language model that runs on the phone (see below).
+
 Live at: https://hello2michael-cmyk.github.io/Test/
+
+## AI Video Studio (web): open a link, add to Home Screen, no Mac needed
+
+**Open this on the iPhone:** https://hello2michael-cmyk.github.io/Test/studio/
+
+It is the same idea as the native app below, running inside Safari: a team of agents writes, reviews and art-directs, a neural voice narrates, and the video is rendered and encoded on the phone. Nothing is uploaded; no account, no API key.
+
+**Add it to the Home Screen (one minute)**
+
+1. Open the link in **Safari** (not Chrome).
+2. Tap **Share** (the square with the arrow), then **Add to Home Screen**, then **Add**.
+3. Open it from the new icon. In the **Models** tab tap **Download** (about 0.9 GB over Wi‑Fi, once), then in **Create** type a topic and tap **Generate video**.
+4. When it is done, open the **Videos** tab and tap **Share / Save to Photos**. Upload from the YouTube app; the title, description, tags and the "verify before publishing" list are one tap away, each with a Copy button.
+
+**What it needs**
+
+| | |
+|---|---|
+| Fast path | iOS 26 or newer: Safari has WebGPU, so the language model runs on the GPU (Llama 3.2 1B, Qwen2.5 1.5B, Qwen3 1.7B). |
+| Older iOS (17–18) | No WebGPU: pick a **CPU** model in the Models tab (Qwen2.5 0.5B or Llama 3.2 1B through llama.cpp in WebAssembly). It works, just slower. |
+| Memory | iPhone 13 or newer for the 1B models, iPhone 15 Pro or newer for 1.5B+. If Safari reloads the page during generation, choose a smaller model or 720p. |
+| Time | 3–8 minutes per video depending on the phone. Keep the app in the foreground; the screen stays awake by itself. |
+
+**First run downloads** (cached on the phone afterwards, also inside the Home Screen app): the language model (0.4–2 GB), the Kokoro voice (about 90 MB) and the WebAssembly runtimes (about 30 MB). If storage is tight, the Models tab shows what is used and can delete the downloads; videos are kept.
+
+**Differences from the native app**: smaller language models (a browser tab gets less memory than an app), the Kokoro voice instead of iOS Premium voices, 720p/1080p only. Everything else is the same: the 60‑second cap guarantee, the eight layouts, captions, music ducking, the YouTube package.
+
+**Troubleshooting**
+
+- *"This browser has no WebGPU"*: update to iOS 26, or pick a CPU model.
+- *The page reloads during generation*: Safari ran out of memory. Use a smaller model, 720p, or close other tabs.
+- *The voice download stalls*: it resumes; stay on Wi‑Fi. Tap **Download voice now** in the Models tab to fetch it ahead of time.
+- *The video has no sound in Photos*: use **Share / Save to Photos** from the app rather than downloading through Safari's download manager.
+
+## AI Video Studio: make educational AI videos on the iPhone
+
+One prompt in, a finished ≤ 60‑second YouTube video out, produced entirely **on the phone** by a team of AI agents running a local language model. Nothing is uploaded anywhere; there are no API keys and no subscription.
+
+What you get for each prompt:
+
+- `video.mp4` — 1080p (or 4K) motion‑graphics explainer, H.264/HEVC, BT.709, 30 or 60 fps, 16:9 for regular videos or 9:16 for Shorts
+- a narrated voice track mixed with your music (automatic ducking, limiter, loudness normalised)
+- burned‑in captions plus `captions.srt` for YouTube's subtitle upload
+- `youtube.txt` — title, description with chapters, tags, thumbnail text, pinned comment, and a checklist of claims the reviewer agent wants you to verify
+- `thumbnail.png`
+
+The code lives in `ios/AIVideoStudio` (app) and `ios/AIVideoStudio.xcodeproj`. A GitHub Action builds an installable file on every push.
+
+Download link: https://github.com/hello2michael-cmyk/Test/releases/download/ai-video-studio/AIVideoStudio.ipa
+
+**Honest scope note.** No phone can run a diffusion video model (the Veo/Sora kind) at a quality you would put on YouTube. The studio therefore makes the style most AI education channels actually use: a crisp animated explainer with typography, diagrams, comparisons, stats and code cards, narrated by the iPhone's neural voice. The language model writes, reviews and art‑directs; the renderer does the pixels deterministically.
+
+### What you need
+
+| | Minimum | Recommended |
+|---|---|---|
+| iPhone | iPhone 12 or newer (4 GB RAM) with the “light” models | iPhone 15 Pro, 16 or 17 (8 GB RAM) for Qwen3 4B |
+| iOS | 17 | 18 or newer |
+| Free space | 3 GB | 6 GB |
+| First run | Wi‑Fi to download the model once (0.8–2.4 GB) | |
+
+### Install
+
+Option A, no Mac: download the IPA above and sideload it with **Sideloadly** or **AltStore** using your Apple ID (same as Tube Player below).
+
+Option B, with a Mac (recommended for the 4B model): open `ios/AIVideoStudio.xcodeproj` in **Xcode 26**, pick your phone, set your team under *Signing & Capabilities*, press Run. Xcode signing adds the *Increased Memory Limit* entitlement the larger models need. The iOS Simulator is not supported: MLX needs the phone's GPU.
+
+### First run (two minutes)
+
+1. **Models tab**: the app pre‑selects the best model that fits your phone. Tap **Download** (Qwen3 4B ≈ 2.4 GB). You can paste any other `mlx-community/...` repository too.
+2. **Studio tab**: choose 16:9 or 9:16 (Shorts), 1080p/4K, theme, your channel name and call to action.
+3. **Voice**: for studio quality, install a Premium voice in iOS **Settings → Accessibility → Spoken Content → Voices → English** (for example *Ava (Premium)* or *Zoe (Premium)*), then pick it in the Studio tab and tap *Preview voice*.
+4. **Music** (optional): import a track you have the rights to (the YouTube Audio Library is free). The mixer ducks it under the narration automatically.
+
+### Make a video
+
+1. **Create tab**: describe what the video should teach, e.g. *“Why do large language models hallucinate? Three causes and one fix.”* Tap **Generate video**.
+2. Watch the *agent room*: Director → Scriptwriter → Reviewer → Visual Designer → Publisher, then narration, mix, render and packaging. On an iPhone 16 Pro a 1080p30 video takes about 3–5 minutes end to end; 4K or 60 fps takes longer. Keep the app in the foreground.
+3. **Videos tab**: watch it, **Save to Photos**, or **Share files** (video, captions, YouTube text, thumbnail). Finished projects also show up in the Files app under *AI Video Studio* if you prefer AirDrop to a Mac.
+
+### Publish on YouTube
+
+1. Open the YouTube app → **+** → upload the video from Photos (9:16 and ≤ 60 s is detected as a Short automatically).
+2. Paste the title, description and tags from the Videos tab (every field has a copy button) or from `youtube.txt`.
+3. In YouTube Studio on the web add `captions.srt` under *Subtitles* if you turned off burned‑in captions.
+4. Go through the **Verify before publishing** list. Small on‑device models are good writers but can state a number or a name confidently and wrongly; the reviewer agent flags every specific claim it saw.
+
+### How the agents work
+
+Every run is a short production meeting, each role a separate prompt with a strict JSON contract (see `ios/AIVideoStudio/ARCHITECTURE.md`):
+
+| Agent | Job |
+|---|---|
+| Director | Audience, hook, learning objectives, takeaway, and 4–8 beats with a visual type each |
+| Scriptwriter | Spoken narration per beat inside a word budget derived from the target length; rewrites when over budget |
+| Reviewer | Flags unverifiable claims, jargon and awkward speech; can rewrite a beat |
+| Visual Designer | Turns each beat into a concrete layout: title, bullets, diagram, comparison, stat, code, quote, outro |
+| Publisher | YouTube title, description with chapters, tags, thumbnail text, pinned comment |
+| Producer (code, not LLM) | Records the narration, measures it, guarantees the length cap, mixes audio, renders and encodes |
+
+The 60‑second cap is enforced in three stages: the script is budgeted in words, then the measured narration is re‑recorded up to 18 % faster if needed, then the script is cut and re‑recorded, and as a last resort the tail is trimmed. A video never exceeds the cap you set.
+
+### Troubleshooting
+
+- **The app quits while loading the model**: the phone ran out of memory. Pick a lighter model in the Models tab, or build with Xcode so the memory entitlement is applied.
+- **Download stalls**: downloads resume; keep the app open on Wi‑Fi. Weights are stored in the app's Documents folder; delete them from the Models tab.
+- **The voice sounds robotic**: you are on the default voice. Install a Premium voice (step 3 above).
+- **A number in the video is wrong**: use the *Verify before publishing* list, and keep the prompt specific (“explain *the mechanism*” gets better results than “tell me about AI”).
+
 
 ## See the TV's screen on your phone (same Wi‑Fi)
 

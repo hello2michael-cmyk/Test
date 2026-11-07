@@ -1,0 +1,58 @@
+name: Build AI Video Studio (iPhone IPA)
+
+on:
+  push:
+    branches: [main, 'claude/**']
+    paths: ['ios/AIVideoStudio/**', 'ios/AIVideoStudio.xcodeproj/**', '.github/workflows/ios-video-studio.yml']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ios-video-studio
+  cancel-in-progress: true
+
+jobs:
+  build:
+    # mlx-swift-lm 3.x needs Swift 6.2 / Xcode 26 (swift-syntax 602).
+    runs-on: macos-26
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - name: Show Xcode version
+        run: xcodebuild -version
+      - name: Cache Swift packages
+        uses: actions/cache@v4
+        with:
+          path: ~/Library/Developer/Xcode/DerivedData/**/SourcePackages
+          key: spm-${{ runner.os }}-${{ hashFiles('ios/AIVideoStudio.xcodeproj/project.pbxproj') }}
+      - name: Build the app (unsigned, for sideloading)
+        run: |
+          xcodebuild -project ios/AIVideoStudio.xcodeproj -scheme AIVideoStudio -configuration Release \
+            -sdk iphoneos -destination 'generic/platform=iOS' -derivedDataPath build \
+            -skipMacroValidation -skipPackagePluginValidation \
+            CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO CODE_SIGN_IDENTITY="" \
+            build
+      - name: Package as IPA
+        run: |
+          rm -rf Payload && mkdir Payload
+          cp -R build/Build/Products/Release-iphoneos/AIVideoStudio.app Payload/
+          zip -qr AIVideoStudio.ipa Payload
+          ls -la AIVideoStudio.ipa
+      - uses: actions/upload-artifact@v4
+        with:
+          name: AIVideoStudio
+          path: AIVideoStudio.ipa
+      - name: Publish as the "ai-video-studio" release (same download link every time)
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ai-video-studio
+          name: AI Video Studio app for iPhone
+          body: |
+            AI Video Studio: an on-device agent team (local LLM via Apple MLX) that writes, narrates, renders and exports a ≤60 s educational video from one prompt.
+            Download link: https://github.com/${{ github.repository }}/releases/download/ai-video-studio/AIVideoStudio.ipa
+            This file is unsigned. Install it with Sideloadly or AltStore using your Apple ID, or open `ios/AIVideoStudio.xcodeproj` in Xcode 26 on a Mac (recommended: Xcode signing adds the increased-memory entitlement the 4B models need).
+            Full steps: https://github.com/${{ github.repository }}#ai-video-studio-make-educational-ai-videos-on-the-iphone
+          files: AIVideoStudio.ipa
+          make_latest: false
