@@ -342,7 +342,12 @@ ${script.scenes.map(s => `${s.beatId}: ${s.onScreenTitle} — ${s.narration}`).j
 JSON schema:
 {"title": "...", "description": "...", "tags": ["..."], "chapters": [{"beatId": 1, "label": "2-4 word chapter name"}],
  "thumbnailText": "...", "pinnedComment": "one friendly sentence inviting a question"}`;
-      try { pkg = await this.structured('Publisher', system, user, { temperature: 0.5 }); }
+      try {
+        pkg = await this.structured('Publisher', system, user, { temperature: 0.5 }, (o) => {
+          if (T.wordCount(o.title) < 2 || String(o.title).length > 100) throw new Error('title missing');
+          if (T.wordCount(o.description) < 5) throw new Error('description missing');
+        });
+      }
       catch (e) { this.warn('Publisher', `Using automatic metadata: ${e.message}`); pkg = {}; }
     } else if (this.engine) {
       const d = await this.ask('Publisher', `Write a two-sentence YouTube description for a short video titled "${brief.title}" whose takeaway is: ${brief.keyTakeaway}. Reply with the description only.`, { maxTokens: 90, maxWords: 50 });
@@ -425,7 +430,13 @@ export function autoVisual(scene, kind, brief, index, count, settings) {
   switch (kind) {
     case 'title': v.subtitle = brief.audience ? `For ${brief.audience}` : null; break;
     case 'outro': v.title = clip(brief.keyTakeaway || scene.onScreenTitle, 10); v.subtitle = settings && settings.cta; break;
-    case 'diagram': { const words = headlineFrom(scene.narration).split(' '); v.nodes = words.length >= 3 ? words.slice(0, 4) : null; if (!v.nodes) { v.kind = 'bullets'; v.bullets = bulletsFrom(); } break; }
+    case 'diagram': {
+      // Only draw a flow when the narration really has steps; otherwise bullets read better.
+      const steps = sents.length >= 3 ? sents : scene.narration.split(/,\s*|\s+then\s+|\s+and then\s+|\s*->\s*|\s*→\s*/).map(x => x.trim()).filter(Boolean);
+      const nodes = [...new Set(steps.map(x => clip(headlineFrom(x), 2)).filter(Boolean))].slice(0, 5);
+      if (nodes.length >= 3) v.nodes = nodes; else { v.kind = 'bullets'; v.bullets = bulletsFrom(); }
+      break;
+    }
     case 'quote': v.quote = clip(sents[0] || scene.narration, 20); v.attribution = null; break;
     default: v.kind = ['bullets', 'quote', 'title', 'outro'].includes(kind) ? kind : 'bullets'; if (v.kind === 'bullets') v.bullets = bulletsFrom();
   }

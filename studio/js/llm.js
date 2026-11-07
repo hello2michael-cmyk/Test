@@ -103,9 +103,9 @@ function mockEngine(broken = false) {
       let out;
       if (system.startsWith('You help make short educational videos')) {
         // Plain-text question (small-model path).
-        if (/title/i.test(user)) out = 'How Attention Works Inside a Transformer';
+        if (/narration/i.test(user)) out = 'Attention lets the model weigh every earlier word before it writes the next one. That is how it keeps track of meaning.';
+        else if (/YouTube title/i.test(user)) out = 'How Attention Works Inside a Transformer';
         else if (/ideal viewer/i.test(user)) out = 'curious beginners';
-        else if (/narration/i.test(user)) out = 'Attention lets the model weigh every earlier word before it writes the next one. That is how it keeps track of meaning.';
         else if (/description/i.test(user)) out = 'A one-minute explainer of attention. You will learn what it does and why it matters.';
         else out = 'Attention is the model deciding which earlier words matter most right now.';
       } else if (broken) {
