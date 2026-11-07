@@ -157,7 +157,8 @@ async function discoverGradio(root, headers, preset) {
       const def = p.parameter_has_default ? p.parameter_default : (p.example_input !== undefined ? null : null);
       if (/negative/.test(key)) return ctx.negative;
       if (/prompt/.test(key) && /textbox|text/.test(comp || 'textbox')) return prompt;
-      if (/image|video|audio|file/.test(comp) || /image|video/.test(key) && comp !== 'dropdown' && comp !== 'textbox') return null;
+      if (/^(image|video|audio|file|gallery|model3d)$/.test(comp)) return null;                       // media inputs: none for text-to-video
+      if (/(^|_)(image|video)(_|$)|filepath/.test((p.parameter_name || '').toLowerCase()) && /textbox/.test(comp)) return null;  // hidden path textboxes
       if (/\bmode\b|task/.test(key) && typeof def === 'string') return /text/i.test(JSON.stringify(p.type || '')) && /text-to-video/.test(JSON.stringify(p.type)) ? 'text-to-video' : def;
       if (/height/.test(key) && typeof def === 'number') return ctx.height;
       if (/width/.test(key) && typeof def === 'number') return ctx.width;
