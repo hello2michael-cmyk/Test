@@ -36,7 +36,7 @@ const stripThink = (t) => t.replace(/<think>[\s\S]*?<\/think>/g, '').replace(/<t
 
 /** onProgress(fraction, text) */
 export async function createEngine(model, onProgress) {
-  if (model.engine === 'mock') return mockEngine();
+  if (model.engine === 'mock') return mockEngine(model.broken);
   if (model.engine === 'wllama') return wllamaEngine(model, onProgress);
   return webllmEngine(model, onProgress);
 }
@@ -95,13 +95,22 @@ async function wllamaEngine(model, onProgress) {
 }
 
 // ---------- Mock engine (tests and demos; no download) ----------
-function mockEngine() {
+function mockEngine(broken = false) {
   const json = (o) => JSON.stringify(o);
   return {
-    name: 'Mock writer (demo)',
+    name: broken ? 'Mock writer (broken JSON)' : 'Mock writer (demo)',
     async complete(system, user, opts, onToken) {
       let out;
-      if (system.includes('DIRECTOR')) {
+      if (system.startsWith('You help make short educational videos')) {
+        // Plain-text question (small-model path).
+        if (/narration/i.test(user)) out = 'Attention lets the model weigh every earlier word before it writes the next one. That is how it keeps track of meaning.';
+        else if (/YouTube title/i.test(user)) out = 'How Attention Works Inside a Transformer';
+        else if (/ideal viewer/i.test(user)) out = 'curious beginners';
+        else if (/description/i.test(user)) out = 'A one-minute explainer of attention. You will learn what it does and why it matters.';
+        else out = 'Attention is the model deciding which earlier words matter most right now.';
+      } else if (broken) {
+        out = 'Sure! Here is the plan:\n{"title": "Oops", "outline": []}';
+      } else if (system.includes('DIRECTOR')) {
         const n = parseInt((user.match(/Produce exactly (\d+) beats/) || [0, 6])[1], 10);
         const topic = (user.match(/creator: "([^"]+)"/) || [0, 'AI'])[1];
         const visuals = ['title', 'bullets', 'diagram', 'stat', 'comparison', 'code', 'quote', 'outro'];

@@ -91,10 +91,9 @@ function progress(stage, fraction, detail = '') {
   $('stages').innerHTML = STAGES.map(s => `<i class="${STAGES.indexOf(s) <= STAGES.indexOf(stage) ? 'on' : ''}"></i>`).join('');
 }
 
-async function ensureEngine() {
-  const model = MOCK ? { id: 'mock', engine: 'mock', name: 'Mock writer (demo)' } : describeModel(settings.modelId);
+async function loadModel(model) {
   if (engine && engineModelId === model.id) return engine;
-  if (engine) { await engine.unload(); engine = null; }
+  if (engine) { await engine.unload(); engine = null; engineModelId = null; }
   $('engineStatus').textContent = `Loading ${model.name}…`;
   engine = await createEngine(model, (f, text) => {
     progress('Planning', 0, `Loading model ${Math.round(f * 100)}%`);
@@ -107,6 +106,33 @@ async function ensureEngine() {
   localStorage.setItem('aivideostudio.downloaded.' + model.id, '1');
   return engine;
 }
+
+/** Loads the selected model; if that fails, falls back to a CPU model; if that fails too, returns null
+ *  (the studio then builds the script from the lines of the prompt). Never throws. */
+async function ensureEngine(allowFallback = true) {
+  const model = MOCK ? { id: 'mock', engine: 'mock', name: 'Mock writer (demo)', broken: params.get('broken') === '1', sizeMB: params.get('small') === '1' ? 300 : 900 } : describeModel(settings.modelId);
+  const chain = [model];
+  if (allowFallback && !MOCK) {
+    const cpu = MODELS.find(m => m.engine === 'wllama');
+    if (model.engine === 'webllm' && cpu) chain.push(cpu);
+  }
+  for (const m of chain) {
+    try { return await loadModel(m); }
+    catch (e) {
+      console.error(e);
+      log('Studio', 'warning', `Could not load ${m.name}: ${(e && e.message) || e}`);
+      $('engineStatus').innerHTML = `<span class="bad">${esc(m.name)}: ${esc((e && e.message) || String(e))}</span>`;
+      engine = null; engineModelId = null;
+    }
+  }
+  if (!MOCK || params.get('nomodel') === '1') {
+    log('Studio', 'warning', 'No language model could run here. The script will be built from the lines of your prompt: write one line per scene for best results.');
+    return null;
+  }
+  return null;
+}
+
+function isSmallModel(model) { return !model || model.engine === 'wllama' || (model.sizeMB && model.sizeMB <= 700); }
 
 async function start(resume = null) {
   const prompt = resume ? resume.prompt : $('prompt').value.trim();
@@ -159,9 +185,11 @@ async function produce(prompt, resume) {
   const needsLLM = !(cp.brief && cp.script && cp.review && cp.storyboard && cp.publish);
   if (needsLLM) {
     progress('Planning', 0, 'Loading model');
-    const eng = await ensureEngine();
-    log('Studio', 'info', `Model “${eng.name}” is ready. Everything runs in this browser. Keep this screen open.`);
-    const team = new Team(eng, s, (ev) => log(ev.agent, ev.level, ev.message));
+    const eng = params.get('nomodel') === '1' ? null : await ensureEngine();
+    const model = eng ? (MOCK ? { engine: 'mock', sizeMB: params.get('small') === '1' ? 300 : 900 } : describeModel(engineModelId || s.modelId)) : null;
+    if (eng) log('Studio', 'info', `Model “${eng.name}” is ready. Everything runs in this browser. Keep this screen open.`);
+    const team = new Team(eng, s, (ev) => log(ev.agent, ev.level, ev.message), { small: isSmallModel(model) });
+    if (eng && isSmallModel(model)) log('Studio', 'info', 'Small model: the agents will work one question at a time.');
     const sceneCount = T.sceneCountFor(s.targetDuration);
     const budget = () => T.wordBudget(s.targetDuration, cp.brief.outline.length);
 
@@ -193,7 +221,7 @@ async function produce(prompt, resume) {
     const removed = T.tighten(cp.script, kindOf, s.maxDuration, s.speed);
     if (removed) { log('Producer', 'warning', `Script estimated over the ${s.maxDuration} s cap; dropped ${removed} sentence(s) from the wordiest beats.`); await save('publish'); }
     // Free the language model before anything else heavy is loaded.
-    if (!MOCK) { await eng.unload(); engine = null; engineModelId = null; $('engineStatus').textContent = 'Model unloaded to free memory; it reloads from cache on the next run.'; await new Promise(r => setTimeout(r, 400)); }
+    if (!MOCK && eng) { await eng.unload(); engine = null; engineModelId = null; $('engineStatus').textContent = 'Model unloaded to free memory; it reloads from cache on the next run.'; await new Promise(r => setTimeout(r, 400)); }
   } else {
     log('Studio', 'info', 'Script, storyboard and metadata restored from the saved run.');
   }
@@ -202,10 +230,17 @@ async function produce(prompt, resume) {
   cp.audios = cp.audios || {};
   cp.speedMult = cp.speedMult || 1;
   const useMockTTS = MOCK && params.get('tts') === 'mock';
+  let voiceOK = !useMockTTS;
   if (!useMockTTS && cp.script.scenes.some(sc => !cp.audios[sc.beatId])) {
     progress('Narrating', 0, 'Loading voice');
-    await loadTTS((f, file) => { progress('Narrating', 0, `Downloading voice ${Math.round(f * 100)}%`); $('ttsStatus').textContent = `Downloading voice: ${Math.round(f * 100)}% ${file || ''}`; });
+    try {
+      await loadTTS((f, file) => { progress('Narrating', 0, `Downloading voice ${Math.round(f * 100)}%`); $('ttsStatus').textContent = `Downloading voice: ${Math.round(f * 100)}% ${file || ''}`; });
+    } catch (e) {
+      voiceOK = false;
+      log('Narrator', 'warning', `The voice model could not load (${(e && e.message) || e}). Producing the video with captions and no voice; tap "Download voice now" in Models and generate again later.`);
+    }
   }
+  cp.silent = !voiceOK && !useMockTTS;
   let timeline = await narrate(cp, s, useMockTTS, save);
   let mult = T.speedToFit(timeline.total, s.maxDuration);
   if (mult && cp.speedMult === 1) {
@@ -273,7 +308,13 @@ async function narrate(cp, s, useMockTTS, save) {
     if (cp.audios[sc.beatId]) continue;
     checkCancel();
     progress('Narrating', i / n, `${i + 1}/${n}`);
-    const a = useMockTTS ? mockAudio(sc.narration) : await synthesize(sc.narration, s.voice, s.speed * cp.speedMult);
+    let a;
+    if (useMockTTS) a = mockAudio(sc.narration);
+    else if (cp.silent) a = silentAudio(sc.narration, s.speed * cp.speedMult);
+    else {
+      try { a = await synthesize(sc.narration, s.voice, s.speed * cp.speedMult); }
+      catch (e) { log('Narrator', 'warning', `Could not voice scene ${sc.beatId} (${(e && e.message) || e}); leaving it silent.`); a = silentAudio(sc.narration, s.speed * cp.speedMult); }
+    }
     cp.audios[sc.beatId] = { samples: a.samples, sampleRate: a.sampleRate, duration: a.duration };
     await save('narration');
   }
@@ -288,6 +329,11 @@ async function narrate(cp, s, useMockTTS, save) {
       narrationDuration: a.duration, audio: a, captions: T.captions(sc.narration, p.narrationStart, a.duration) };
   });
   return { scenes, total };
+}
+
+function silentAudio(text, speed = 1) {
+  const sampleRate = 24000, duration = Math.max(1.2, T.wordCount(text) / (T.WORDS_PER_SECOND * speed));
+  return { samples: new Float32Array(Math.floor(duration * sampleRate)), sampleRate, duration };
 }
 
 function mockAudio(text) {
@@ -389,7 +435,7 @@ function renderModels() {
       ${settings.modelId === m.id && !downloaded ? `<button class="secondary" data-load="${esc(m.id)}">Download</button>` : ''}</label>`;
   }).join('');
   $('modelList').querySelectorAll('input[name=model]').forEach(r => r.onchange = () => { settings.modelId = r.value; saveSettings(settings); renderModels(); renderSummary(); });
-  $('modelList').querySelectorAll('[data-load]').forEach(b => b.onclick = async () => { b.disabled = true; try { await ensureEngine(); renderModels(); } catch (e) { $('engineStatus').innerHTML = `<span class="bad">${esc(e.message)}</span>`; } });
+  $('modelList').querySelectorAll('[data-load]').forEach(b => b.onclick = async () => { b.disabled = true; try { await loadModel(MOCK ? { id: 'mock', engine: 'mock', name: 'Mock writer (demo)' } : describeModel(settings.modelId)); renderModels(); } catch (e) { $('engineStatus').innerHTML = `<span class="bad">${esc(e.message)}</span>`; } });
 }
 $('addModel').onclick = () => { const id = $('customModel').value.trim(); if (!id || allModels().some(m => m.id === id)) return; customModels.push(id); localStorage.setItem('aivideostudio.customModels', JSON.stringify(customModels)); $('customModel').value = ''; renderModels(); };
 $('preloadTts').onclick = async () => { try { await loadTTS((f, file) => { $('ttsStatus').textContent = `Downloading voice: ${Math.round(f * 100)}% ${file || ''}`; }); $('ttsStatus').innerHTML = '<span class="ok">Voice model ready.</span>'; } catch (e) { $('ttsStatus').innerHTML = `<span class="bad">${esc(e.message)}</span>`; } };
