@@ -48,6 +48,9 @@ ${bullets(plan.claimsToVerify)}
 REVIEWER NOTES
 ${bullets(plan.review.issues)}
 
+FOOTAGE CREDITS (free licences; attribution appreciated, not required)
+${bullets(plan.footageCredits || [])}
+
 Produced in the browser, on this device: ${plan.width}×${plan.height}, ${plan.fps} fps, ${plan.totalDuration.toFixed(1)} s.
 `;
 }

@@ -9,7 +9,7 @@ import { encodeSupport, encodeWebCodecs, encodeMediaRecorder } from './encoder.j
 import { srt, youtubeText, download, shareFiles, safeName, chapterStamp } from './exporter.js';
 import { store, requestPersistentStorage } from './store.js';
 import { generateFootage, shotPrompt, FOOTAGE_MODELS, FOOTAGE_COST } from './footage.js';
-import { openClip } from './clipdecoder.js';
+import { openAsset } from './clipdecoder.js';
 import { THEMES, VOICES, loadSettings, saveSettings, canvasSize } from './settings.js';
 
 const $ = (id) => document.getElementById(id);
@@ -63,7 +63,9 @@ function renderSummary() {
   const [w, h] = canvasSize(settings);
   $('summary').innerHTML = `Model: <b>${esc(m.name)}</b> · ${esc(aspectLabel())} · ${w}×${h} · ${settings.fps} fps · ${esc(settings.theme)}<br>` +
     `Up to ${settings.maxDuration} s, aiming for ${settings.targetDuration} s · voice: ${esc((VOICES.find(v => v[0] === settings.voice) || [0, settings.voice])[1])}<br>` +
-    `Footage: <b>${settings.footageProvider === 'fal' ? esc((FOOTAGE_MODELS.find(m => m.id === settings.falModel) || FOOTAGE_MODELS[0]).name) + (settings.falKey ? '' : ' · <span class="warn">no API key yet</span>') : 'motion graphics only'}</b>` +
+    `Footage: <b>${settings.footageProvider === 'fal' ? esc((FOOTAGE_MODELS.find(m => m.id === settings.falModel) || FOOTAGE_MODELS[0]).name) + (settings.falKey ? '' : ' · <span class="warn">no API key yet</span>')
+      : settings.footageProvider === 'free' ? 'free ' + [settings.pexelsKey ? 'Pexels video' : null, settings.pixabayKey ? 'Pixabay video' : null, settings.allowPollinations !== false ? 'AI photos with motion' : null].filter(Boolean).join(' + ') + (!settings.pexelsKey && !settings.pixabayKey ? ' · <span class="warn">add a free Pexels key for real video clips</span>' : '')
+      : 'motion graphics only'}</b>` +
     (m.engine === 'webllm' && !hasWebGPU() ? `<br><span class="warn">This browser has no WebGPU; pick a CPU model in the Models tab.</span>` : '');
 }
 function aspectLabel() { return ({ '16x9': '16:9', '9x16': '9:16 Shorts', '1x1': '1:1' })[settings.aspect]; }
@@ -176,7 +178,7 @@ function checkCancel() { if (cancelled) throw new Error('Cancelled'); }
 async function produce(prompt, resume) {
   const cp = resume || { id: 'current', prompt, settings: { ...settings }, attempts: 0, createdAt: Date.now() };
   const s = cp.settings;
-  if (params.get('footage') === 'mock') s.footageProvider = 'mock';
+  if (params.get('footage') === 'mock' || params.get('footage') === 'mockimage') s.footageProvider = params.get('footage');
   const [width, height] = canvasSize(s);
   const save = async (stage) => { cp.stage = stage; cp.updatedAt = Date.now(); await store.putRun(cp); };
   const kindOf = (id) => ((cp.storyboard && cp.storyboard.scenes.find(v => v.beatId === id)) || cp.brief.outline.find(b => b.id === id) || {}).kind
@@ -237,20 +239,24 @@ async function produce(prompt, resume) {
     const fs = { ...s, footageProvider: footageOn };
     const topic = promptTopic(cp.brief.title);
     const wanted = cp.storyboard.scenes.filter((v, i) => fs.footageScope !== 'hero' || i === 0 || i === cp.storyboard.scenes.length - 1);
-    const jobs = wanted.map(v => ({ beatId: v.beatId, prompt: shotPrompt(v.shot, topic) }));
+    const jobs = wanted.map(v => ({ beatId: v.beatId, prompt: shotPrompt(v.shot, topic), query: v.stockQuery || topic }));
     const missing = jobs.filter(j => !(j.beatId in cp.footage));
     if (missing.length) {
       progress('Footage', 0, `${missing.length} clip(s)`);
-      log('Footage', 'info', `Generating ${missing.length} video clip(s) with ${footageOn === 'mock' ? 'the test clip' : (FOOTAGE_MODELS.find(m => m.id === fs.falModel) || FOOTAGE_MODELS[0]).name}. Shots: ${wanted.map(v => `[${v.beatId}] ${v.shot || ''}`).join(' · ').slice(0, 400)}`);
+      const sourceName = footageOn === 'fal' ? (FOOTAGE_MODELS.find(m => m.id === fs.falModel) || FOOTAGE_MODELS[0]).name + ' (then free sources)'
+        : footageOn.startsWith('mock') ? 'the test asset'
+        : [fs.pexelsKey ? 'Pexels stock video' : null, fs.pixabayKey ? 'Pixabay stock video' : null, fs.allowPollinations !== false ? 'free AI images (Pollinations)' : null].filter(Boolean).join(' → ') || 'nothing (no free source enabled)';
+      log('Footage', 'info', `Finding footage for ${missing.length} scene(s): ${sourceName}. Searches: ${wanted.map(v => `[${v.beatId}] ${v.stockQuery || ''}`).join(' · ').slice(0, 300)}`);
       const { results, errors } = await generateFootage(jobs, fs, {
         log, checkCancel, existing: cp.footage,
         onUpdate: (done, total, note) => progress('Footage', total ? done / total : 0, `${done}/${total} ${note || ''}`),
       });
       cp.footage = results;
       for (const e of errors) log('Footage', 'warning', e);
-      const got = Object.values(cp.footage).filter(Boolean).length;
-      if (got) log('Footage', 'success', `${got} of ${jobs.length} clip(s) ready; scenes without a clip use motion graphics.`);
-      else log('Footage', 'warning', 'No clips could be generated; the video uses motion graphics for every scene.');
+      const entries = Object.values(cp.footage).filter(Boolean);
+      const vids = entries.filter(e => e.kind === 'video').length, imgs = entries.filter(e => e.kind === 'image').length;
+      if (entries.length) log('Footage', 'success', `${vids} video clip(s) and ${imgs} photo(s) with camera motion ready for ${jobs.length} scene(s); the rest use motion graphics.`);
+      else log('Footage', 'warning', 'No footage could be fetched; the video uses motion graphics for every scene.');
       await save('footage');
     }
   }
@@ -283,7 +289,8 @@ async function produce(prompt, resume) {
   await save('render');
   checkCancel();
 
-  const plan = { prompt, brief: cp.brief, review: cp.review, publish: cp.publish, scenes, totalDuration: total, claimsToVerify: cp.review.claimsToVerify, width, height, fps: s.fps, createdAt: Date.now() };
+  const footageCredits = [...new Set(Object.values(cp.footage || {}).filter(Boolean).map(e => e.credit).filter(Boolean))];
+  const plan = { prompt, brief: cp.brief, review: cp.review, publish: cp.publish, scenes, totalDuration: total, claimsToVerify: cp.review.claimsToVerify, width, height, fps: s.fps, footageCredits, createdAt: Date.now() };
 
   // ---------- Mix ----------
   progress('Mixing', 0.3);
@@ -306,15 +313,16 @@ async function produce(prompt, resume) {
     const idx = plan.scenes.findIndex(sc => t >= sc.start && t < sc.start + sc.duration);
     if (idx < 0) return null;
     const sc = plan.scenes[idx];
-    const blob = cp.footage && cp.footage[sc.beatId];
-    if (!blob) return null;
+    const entry = cp.footage && cp.footage[sc.beatId];
+    if (!entry) return null;
     if (openScene !== sc.beatId) {
       if (openClipHandle) { try { openClipHandle.close(); } catch {} }
       openClipHandle = null; openScene = sc.beatId;
-      try { openClipHandle = await openClip(blob, width, height); } catch (e) { log('Footage', 'warning', `Scene ${sc.beatId}: could not decode the clip (${e.message}); using motion graphics.`); }
+      try { openClipHandle = await openAsset(entry, width, height, idx); } catch (e) { log('Footage', 'warning', `Scene ${sc.beatId}: could not decode the footage (${e.message}); using motion graphics.`); }
     }
     if (!openClipHandle) return null;
     const local = t - sc.start;
+    if (openClipHandle.isImage) { try { return await openClipHandle.frameAt(local, local, sc.duration); } catch { return null; } }
     const clipT = openClipHandle.duration >= sc.duration ? local : local * (openClipHandle.duration / sc.duration);
     try { return await openClipHandle.frameAt(clipT); } catch { return null; }
   };
@@ -537,7 +545,8 @@ function renderSettings() {
   bind('s-musicvol', 'musicVolume', v => parseInt(v, 10) / 100, () => { $('s-musicvol').value = Math.round(settings.musicVolume * 100); $('s-musicvol-v').textContent = Math.round(settings.musicVolume * 100); });
   bind('s-ambient', 'ambientBed');
   $('s-falmodel').innerHTML = FOOTAGE_MODELS.map(m => `<option value="${m.id}">${esc(m.name)}${FOOTAGE_COST[m.id] != null ? ` · ~$${FOOTAGE_COST[m.id].toFixed(2)}/clip` : ''}</option>`).join('');
-  bind('s-footage', 'footageProvider', v => v, () => { $('falFields').hidden = settings.footageProvider !== 'fal'; });
+  bind('s-footage', 'footageProvider', v => v, () => { $('falFields').hidden = settings.footageProvider !== 'fal'; $('freeFields').hidden = settings.footageProvider === 'none'; });
+  bind('s-pexels', 'pexelsKey'); bind('s-pixabay', 'pixabayKey'); bind('s-pollinations', 'allowPollinations');
   bind('s-falkey', 'falKey'); bind('s-falmodel', 'falModel', v => v, () => { $('falCustom').hidden = settings.falModel !== 'custom'; });
   bind('s-falendpoint', 'falEndpoint'); bind('s-falextra', 'falExtra');
   bind('s-footagedur', 'footageDuration', v => parseInt(v, 10)); bind('s-footagescope', 'footageScope');

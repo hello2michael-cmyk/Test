@@ -310,13 +310,13 @@ stat: kicker, statValue, statLabel, title (statValue must come from the narratio
 code: title, code, codeLanguage
 quote: quote, attribution, title
 outro: title (the takeaway, max 8 words), subtitle (a short call to action)
-Every beat also gets "shot".
+Every beat also gets "shot" and "stockQuery" (2-4 plain English words to search a stock-footage library, e.g. "woman typing laptop").
 
 JSON schema:
 {"scenes": [{"beatId": 1, "kind": "title", "kicker": null, "title": "...", "subtitle": null, "bullets": null, "nodes": null,
  "leftTitle": null, "leftItems": null, "rightTitle": null, "rightItems": null, "statValue": null, "statLabel": null,
  "code": null, "codeLanguage": null, "quote": null, "attribution": null,
- "shot": "a cinematic one-sentence description of the video clip for this beat"}]}`;
+ "shot": "a cinematic one-sentence description of the video clip for this beat", "stockQuery": "2-4 search words"}]}`;
       try {
         out = await this.structured('Visual Designer', system, user, { temperature: 0.4 }, (o) => { if (!Array.isArray(o.scenes)) throw new Error('scenes missing'); });
       } catch (e) { this.warn('Visual Designer', `Using automatic layouts: ${e.message}`); }
@@ -336,6 +336,13 @@ JSON schema:
         let shot = null;
         if (this.engine) shot = await this.ask('Visual Designer', `Describe, in one sentence, a realistic cinematic six-second video clip with people or real places that illustrates this narration from a video about ${topic}: "${sc.narration}". Mention the subject, the action, the setting and a camera movement. Do not mention text, charts or logos. Reply with the sentence only.`, { maxTokens: 70, maxWords: 36, temperature: 0.6 });
         v.shot = shot || autoShot(sc, topic, v.kind);
+      }
+      for (const v of scenes) {
+        if (v.stockQuery && T.wordCount(v.stockQuery) >= 1) continue;
+        const sc = script.scenes.find(x => x.beatId === v.beatId);
+        let q = null;
+        if (this.engine) q = await this.ask('Visual Designer', `Give two to four plain English words to search a stock video library for footage that fits this narration: "${sc.narration}". Concrete, visual things only (people, places, objects, actions), no abstract words. Reply with the words only.`, { maxTokens: 16, maxWords: 4, temperature: 0.4 });
+        v.stockQuery = (q && !/[{}:"]/.test(q)) ? q.toLowerCase() : autoQuery(v.shot, topic);
       }
     }
     this.ok('Visual Designer', 'Storyboard ready: ' + scenes.map(v => v.kind).join(' → '));
@@ -455,6 +462,14 @@ export function autoShot(scene, topic, kind) {
 }
 function hash(s) { let h = 0; for (const c of String(s)) h = (h * 31 + c.charCodeAt(0)) | 0; return h; }
 
+/** Stock-search words from a shot description: the concrete nouns, not the camera talk. */
+export function autoQuery(shot, topic) {
+  const stop = new Set(['shot', 'slow', 'push', 'pan', 'tracking', 'dolly', 'orbit', 'handheld', 'medium', 'close', 'closeup', 'establishing', 'closing', 'cinematic', 'light', 'lighting', 'depth', 'field', 'shallow', 'soft', 'warm', 'cool', 'evoking', 'with', 'and', 'the', 'a', 'an', 'in', 'on', 'of', 'at', 'to', 'through', 'between', 'around', 'into', 'from', 'while', 'motion', 'camera', 'movement', 'realistic', 'scene', 'clip']);
+  const words = String(shot || '').toLowerCase().replace(/[^a-z\s-]/g, ' ').split(/\s+/).filter(w => w.length > 2 && !stop.has(w));
+  const picked = words.slice(0, 3);
+  return (picked.length >= 2 ? picked : ['technology', 'people', 'office']).join(' ');
+}
+
 /** A sensible layout from the narration alone (used when the designer gives nothing usable). */
 export function autoVisual(scene, kind, brief, index, count, settings) {
   const sents = sentencesOf(scene.narration);
@@ -529,6 +544,7 @@ export function sanitise(v, script) {
     quote: v.quote ? clip(v.quote, 24) : null,
     attribution: v.attribution ? clip(v.attribution, 6) : null,
     shot: v.shot ? clip(String(v.shot).replace(/\s+/g, ' '), 45) : null,
+    stockQuery: v.stockQuery ? clip(String(v.stockQuery).replace(/[^\w\s-]/g, ' '), 4).toLowerCase() : null,
   };
   const fallbackBullets = () => (script.emphasisWords && script.emphasisWords.length ? script.emphasisWords : [script.onScreenTitle]);
   const degrade = () => { out.kind = 'bullets'; if (!out.bullets || !out.bullets.length) out.bullets = fallbackBullets(); };
