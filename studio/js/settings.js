@@ -22,6 +22,8 @@ const DEFAULTS = {
   burnInCaptions: true, showProgressBar: true, maxDuration: 60, targetDuration: 50,
   voice: 'af_heart', speed: 1.0, musicName: '', musicVolume: 0.18, ambientBed: false,
   channelName: '', cta: 'Subscribe for more AI explainers', modelId: '',
+  footageProvider: 'none',      // 'none' (motion graphics) | 'fal' (generated video) | 'mock' (tests)
+  falKey: '', falModel: 'ltx2-fast', falEndpoint: '', falExtra: '', footageDuration: 6, footageScope: 'all',
 };
 
 const KEY = 'aivideostudio.settings.v1';

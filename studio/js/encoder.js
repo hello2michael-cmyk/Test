@@ -17,7 +17,7 @@ export async function encodeSupport(width, height) {
  * drawFrame(time) paints the frame on `canvas`. audioBuffer is the mixed soundtrack.
  * Returns a Blob (video/mp4).
  */
-export async function encodeWebCodecs({ canvas, fps, duration, drawFrame, audioBuffer, support, onProgress, shouldCancel }) {
+export async function encodeWebCodecs({ canvas, fps, duration, drawFrame, prepareFrame, audioBuffer, support, onProgress, shouldCancel }) {
   const { width, height } = canvas;
   const bitrate = Math.round(width * height * fps * 0.19);
   const output = new Output({ format: new Mp4OutputFormat({ fastStart: 'in-memory' }), target: new BufferTarget() });
@@ -33,6 +33,7 @@ export async function encodeWebCodecs({ canvas, fps, duration, drawFrame, audioB
   for (let i = 0; i < totalFrames; i++) {
     if (shouldCancel && shouldCancel()) { try { await output.cancel(); } catch {} throw new Error('Cancelled'); }
     const t = i / fps;
+    if (prepareFrame) await prepareFrame(t);
     drawFrame(t);
     await video.add(t, frameDuration);
     if (i % fps === 0) { onProgress && onProgress(i / totalFrames); await new Promise(r => setTimeout(r, 0)); }
@@ -45,7 +46,7 @@ export async function encodeWebCodecs({ canvas, fps, duration, drawFrame, audioB
 }
 
 /** Real-time fallback: plays the soundtrack into a MediaStream while repainting the canvas. */
-export async function encodeMediaRecorder({ canvas, fps, duration, drawFrame, audioBuffer, onProgress, shouldCancel }) {
+export async function encodeMediaRecorder({ canvas, fps, duration, drawFrame, prepareFrame, audioBuffer, onProgress, shouldCancel }) {
   const stream = canvas.captureStream(fps);
   const ac = new AudioContext({ sampleRate: audioBuffer.sampleRate });
   await ac.resume();
@@ -67,7 +68,10 @@ export async function encodeMediaRecorder({ canvas, fps, duration, drawFrame, au
       const t = (performance.now() - t0) / 1000;
       if (shouldCancel && shouldCancel()) { rec.stop(); reject(new Error('Cancelled')); return; }
       if (t >= duration) { resolve(); return; }
-      if (t >= 0) { drawFrame(t); onProgress && onProgress(t / duration); }
+      if (t >= 0) {
+        if (prepareFrame) prepareFrame(t).then(() => drawFrame(t)).catch(() => drawFrame(t)); else drawFrame(t);
+        onProgress && onProgress(t / duration);
+      }
       requestAnimationFrame(tick);
     };
     requestAnimationFrame(tick);
