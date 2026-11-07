@@ -5,11 +5,12 @@ let dbPromise;
 function open() {
   if (dbPromise) return dbPromise;
   dbPromise = new Promise((resolve, reject) => {
-    const req = indexedDB.open(DB, 1);
+    const req = indexedDB.open(DB, 2);
     req.onupgradeneeded = () => {
       const db = req.result;
       if (!db.objectStoreNames.contains('projects')) db.createObjectStore('projects', { keyPath: 'id' });
       if (!db.objectStoreNames.contains('music')) db.createObjectStore('music', { keyPath: 'name' });
+      if (!db.objectStoreNames.contains('runs')) db.createObjectStore('runs', { keyPath: 'id' });
     };
     req.onsuccess = () => resolve(req.result);
     req.onerror = () => reject(req.error);
@@ -39,6 +40,10 @@ export const store = {
   async getMusic(name) { const r = await tx('music', 'readonly', s => s.get(name)); return r && r.blob; },
   async listMusic() { const all = await tx('music', 'readonly', s => s.getAllKeys()); return all || []; },
   async deleteMusic(name) { return tx('music', 'readwrite', s => s.delete(name)); },
+  // Checkpoints of a run in progress, so a page reload (Safari memory pressure) can resume instead of restarting.
+  async putRun(run) { return tx('runs', 'readwrite', s => s.put(run)); },
+  async getRun(id = 'current') { return tx('runs', 'readonly', s => s.get(id)); },
+  async deleteRun(id = 'current') { return tx('runs', 'readwrite', s => s.delete(id)); },
 };
 
 export async function requestPersistentStorage() {

@@ -1,5 +1,5 @@
 // Timing: word budgets, scene layout and caption cues. Mirrors the iOS TimingPlanner.
-export const WORDS_PER_SECOND = 2.7;   // Kokoro at speed 1.0
+export const WORDS_PER_SECOND = 3.1;   // Kokoro at speed 1.0, measured on real output
 export const LEAD_IN = 0.35;
 export const TAIL = 0.45;
 export const MIN_SCENE = 2.4;
@@ -58,6 +58,28 @@ export function captions(narration, start, duration, maxChars = 40) {
   }
   if (cues.length) cues[cues.length - 1].end = start + duration;
   return cues;
+}
+
+/** Estimated timeline length from word counts (before any audio exists). */
+export function estimateTotal(script, kindOf, speed = 1) {
+  const inputs = script.scenes.map(s => ({ beatId: s.beatId, kind: kindOf(s.beatId), narrationDuration: wordCount(s.narration) / (WORDS_PER_SECOND * speed) }));
+  return layout(inputs).total;
+}
+
+/** Shorten the script without the language model: drop trailing sentences from the wordiest beats. */
+export function tighten(script, kindOf, cap, speed = 1) {
+  const sentences = t => (t.match(/[^.!?]+[.!?]+["')\]]*|[^.!?]+$/g) || []).map(x => x.trim()).filter(Boolean);
+  let guard = 0, removed = 0;
+  while (estimateTotal(script, kindOf, speed) > cap * 0.97 && guard++ < 40) {
+    const candidates = script.scenes.map(s => ({ s, n: sentences(s.narration) })).filter(c => c.n.length > 1);
+    if (!candidates.length) break;
+    candidates.sort((a, b) => wordCount(b.s.narration) - wordCount(a.s.narration));
+    const c = candidates[0];
+    c.s.narration = c.n.slice(0, -1).join(' ');
+    removed++;
+  }
+  script.totalWords = script.scenes.reduce((n, s) => n + wordCount(s.narration), 0);
+  return removed;
 }
 
 export function hardTrim(scenes, cap) {

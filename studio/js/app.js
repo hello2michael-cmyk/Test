@@ -108,24 +108,29 @@ async function ensureEngine() {
   return engine;
 }
 
-async function start() {
-  const prompt = $('prompt').value.trim();
+async function start(resume = null) {
+  const prompt = resume ? resume.prompt : $('prompt').value.trim();
   if (!prompt || running) return;
+  if (!resume) {
+    // Same prompt as a saved, interrupted run: continue it instead of starting over.
+    try { const saved = await store.getRun(); if (saved && saved.prompt === prompt) resume = saved; else if (saved) await store.deleteRun(); } catch {}
+  }
   running = true; cancelled = false;
-  $('generate').hidden = true; $('cancel').hidden = false;
+  $('generate').hidden = true; $('cancel').hidden = false; $('resumeCard').hidden = true;
   $('log').innerHTML = ''; $('logCard').hidden = true; $('resultCard').hidden = true; $('stream').hidden = true; $('canvas').hidden = true;
   let wakeLock = null;
   try { wakeLock = await navigator.wakeLock?.request('screen'); } catch {}
   const t0 = Date.now();
   try {
-    const project = await produce(prompt);
+    const project = await produce(prompt, resume);
     currentProject = project;
     const secs = Math.round((Date.now() - t0) / 1000);
     log('Studio', 'success', `Done in ${Math.floor(secs / 60)} min ${secs % 60} s. Open the Videos tab to watch, share and copy the YouTube text.`);
     showResult(project);
   } catch (e) {
     console.error(e);
-    log('Studio', cancelled ? 'warning' : 'error', cancelled ? 'Cancelled.' : (e && e.message) || String(e));
+    if (cancelled) { await store.deleteRun(); log('Studio', 'warning', 'Cancelled.'); }
+    else log('Studio', 'error', ((e && e.message) || String(e)) + ' — your progress is saved; tap Generate again to continue from where it stopped.');
   } finally {
     running = false;
     $('generate').hidden = false; $('cancel').hidden = true;
@@ -136,67 +141,87 @@ async function start() {
 
 function checkCancel() { if (cancelled) throw new Error('Cancelled'); }
 
-async function produce(prompt) {
-  const s = { ...settings };
+// Every step saves a checkpoint. If Safari reloads the page (memory pressure), the run resumes from the
+// last saved step instead of starting over, and the heavy parts are sequenced so they never coexist in memory:
+// language model → (unload) → voice model → mix → render.
+async function produce(prompt, resume) {
+  const cp = resume || { id: 'current', prompt, settings: { ...settings }, attempts: 0, createdAt: Date.now() };
+  const s = cp.settings;
   const [width, height] = canvasSize(s);
-  progress('Planning', 0, 'Loading model');
-  // Start the voice download in parallel with the writing.
-  const ttsPromise = MOCK && params.get('tts') === 'mock' ? null : loadTTS((f, file) => { $('ttsStatus').textContent = `Downloading voice: ${Math.round(f * 100)}% ${file || ''}`; }).catch(e => { throw new Error('Voice model failed to load: ' + e.message); });
-  const eng = await ensureEngine();
-  log('Studio', 'info', `Model “${eng.name}” is ready. Everything runs in this browser.`);
-  const team = new Team(eng, s, (ev) => log(ev.agent, ev.level, ev.message));
+  const save = async (stage) => { cp.stage = stage; cp.updatedAt = Date.now(); await store.putRun(cp); };
+  const kindOf = (id) => ((cp.storyboard && cp.storyboard.scenes.find(v => v.beatId === id)) || cp.brief.outline.find(b => b.id === id) || {}).kind
+    || ((cp.brief.outline.find(b => b.id === id) || {}).suggestedVisual) || 'bullets';
+  if (resume) log('Studio', 'info', `Resuming from “${cp.stage}” (attempt ${cp.attempts + 1}).`);
+  cp.attempts = (cp.attempts || 0) + 1;
+  await save(cp.stage || 'start');
 
-  progress('Planning', 0.2);
-  const sceneCount = T.sceneCountFor(s.targetDuration);
-  const brief = await team.director(prompt, sceneCount); checkCancel();
+  // ---------- Language-model phase ----------
+  const needsLLM = !(cp.brief && cp.script && cp.review && cp.storyboard && cp.publish);
+  if (needsLLM) {
+    progress('Planning', 0, 'Loading model');
+    const eng = await ensureEngine();
+    log('Studio', 'info', `Model “${eng.name}” is ready. Everything runs in this browser. Keep this screen open.`);
+    const team = new Team(eng, s, (ev) => log(ev.agent, ev.level, ev.message));
+    const sceneCount = T.sceneCountFor(s.targetDuration);
+    const budget = () => T.wordBudget(s.targetDuration, cp.brief.outline.length);
 
-  progress('Writing', 0.2);
-  const budget = T.wordBudget(s.targetDuration, brief.outline.length);
-  let script = await team.scriptwriter(brief, budget);
-  for (let i = 0; i < 2 && script.totalWords > budget * 1.08; i++) {
+    if (!cp.brief) { progress('Planning', 0.2); cp.brief = await team.director(prompt, sceneCount); await save('brief'); }
     checkCancel();
-    const cut = script.totalWords - budget;
-    script = await team.scriptwriter(brief, budget, script, `The draft is ${cut} words too long. Cut filler and keep every beat under ${Math.floor(budget / brief.outline.length)} words.`);
+    if (!cp.script) {
+      progress('Writing', 0.2);
+      let script = await team.scriptwriter(cp.brief, budget());
+      for (let i = 0; i < 2 && script.totalWords > budget() * 1.08; i++) {
+        checkCancel();
+        script = await team.scriptwriter(cp.brief, budget(), script, `The draft is ${script.totalWords - budget()} words too long. Cut filler and keep every beat under ${Math.floor(budget() / cp.brief.outline.length)} words.`);
+      }
+      cp.script = script; await save('script');
+    }
+    checkCancel();
+    if (!cp.review) {
+      progress('Reviewing', 0.2);
+      cp.review = await team.reviewer(cp.brief, cp.script, budget());
+      for (const sc of cp.script.scenes) if (cp.review.revisedNarration[sc.beatId]) sc.narration = cp.review.revisedNarration[sc.beatId];
+      cp.script.totalWords = cp.script.scenes.reduce((n, x) => n + T.wordCount(x.narration), 0);
+      await save('review');
+    }
+    checkCancel();
+    if (!cp.storyboard) { progress('Designing', 0.2); cp.storyboard = await team.designer(cp.brief, cp.script); await save('storyboard'); }
+    checkCancel();
+    if (!cp.publish) { progress('Metadata', 0.2); cp.publish = await team.publisher(cp.brief, cp.script); await save('publish'); }
+    checkCancel();
+    // Fit the cap from word counts while the writer is still here; the voice is measured later.
+    const removed = T.tighten(cp.script, kindOf, s.maxDuration, s.speed);
+    if (removed) { log('Producer', 'warning', `Script estimated over the ${s.maxDuration} s cap; dropped ${removed} sentence(s) from the wordiest beats.`); await save('publish'); }
+    // Free the language model before anything else heavy is loaded.
+    if (!MOCK) { await eng.unload(); engine = null; engineModelId = null; $('engineStatus').textContent = 'Model unloaded to free memory; it reloads from cache on the next run.'; await new Promise(r => setTimeout(r, 400)); }
+  } else {
+    log('Studio', 'info', 'Script, storyboard and metadata restored from the saved run.');
   }
-  checkCancel();
-  progress('Reviewing', 0.2);
-  const review = await team.reviewer(brief, script, budget);
-  for (const sc of script.scenes) if (review.revisedNarration[sc.beatId]) sc.narration = review.revisedNarration[sc.beatId];
-  checkCancel();
-  progress('Designing', 0.2);
-  const storyboard = await team.designer(brief, script);
-  checkCancel();
-  progress('Metadata', 0.2);
-  const publish = await team.publisher(brief, script);
-  checkCancel();
 
-  // Narration + timing (guaranteed ≤ cap)
-  progress('Narrating', 0, 'Loading voice');
-  if (ttsPromise) await ttsPromise;
-  let { scenes, total } = await narrate(script, storyboard, s, 1.0);
-  let mult = T.speedToFit(total, s.maxDuration);
-  if (mult) {
-    log('Producer', 'warning', `Cut is ${total.toFixed(1)} s, over the ${s.maxDuration} s cap. Re-recording narration ${Math.round((mult - 1) * 100)}% faster.`);
-    ({ scenes, total } = await narrate(script, storyboard, s, mult));
+  // ---------- Voice phase ----------
+  cp.audios = cp.audios || {};
+  cp.speedMult = cp.speedMult || 1;
+  const useMockTTS = MOCK && params.get('tts') === 'mock';
+  if (!useMockTTS && cp.script.scenes.some(sc => !cp.audios[sc.beatId])) {
+    progress('Narrating', 0, 'Loading voice');
+    await loadTTS((f, file) => { progress('Narrating', 0, `Downloading voice ${Math.round(f * 100)}%`); $('ttsStatus').textContent = `Downloading voice: ${Math.round(f * 100)}% ${file || ''}`; });
   }
-  if (total > s.maxDuration) {
-    const excess = Math.round((total - s.maxDuration) * T.WORDS_PER_SECOND) + 8;
-    log('Producer', 'warning', `Still ${(total - s.maxDuration).toFixed(1)} s over. Asking the scriptwriter to cut ${excess} words.`);
-    script = await team.scriptwriter(brief, Math.max(40, script.totalWords - excess), script, `Remove ${excess} words. Shorten every beat; drop the least important sentence.`);
-    ({ scenes, total } = await narrate(script, storyboard, s, 1.0));
-    mult = T.speedToFit(total, s.maxDuration);
-    if (mult) ({ scenes, total } = await narrate(script, storyboard, s, mult));
+  let timeline = await narrate(cp, s, useMockTTS, save);
+  let mult = T.speedToFit(timeline.total, s.maxDuration);
+  if (mult && cp.speedMult === 1) {
+    log('Producer', 'warning', `Cut is ${timeline.total.toFixed(1)} s, over the ${s.maxDuration} s cap. Re-recording narration ${Math.round((mult - 1) * 100)}% faster.`);
+    cp.speedMult = mult; cp.audios = {}; await save('narration');
+    timeline = await narrate(cp, s, useMockTTS, save);
   }
+  let { scenes, total } = timeline;
   if (total > s.maxDuration) { total = T.hardTrim(scenes, s.maxDuration); log('Producer', 'warning', 'Trimmed the end of the final scene to respect the cap.'); }
   log('Producer', 'success', `Final cut: ${total.toFixed(1)} s across ${scenes.length} scenes.`);
+  await save('render');
   checkCancel();
 
-  // Free the language model before the memory-heavy render.
-  if (!MOCK) { await eng.unload(); engine = null; engineModelId = null; $('engineStatus').textContent = 'Model unloaded to free memory; it reloads from cache on the next run.'; }
+  const plan = { prompt, brief: cp.brief, review: cp.review, publish: cp.publish, scenes, totalDuration: total, claimsToVerify: cp.review.claimsToVerify, width, height, fps: s.fps, createdAt: Date.now() };
 
-  const plan = { prompt, brief, review, publish, scenes, totalDuration: total, claimsToVerify: review.claimsToVerify, width, height, fps: s.fps, createdAt: Date.now() };
-
-  // Mix
+  // ---------- Mix ----------
   progress('Mixing', 0.3);
   let music = null;
   if (s.musicName) { const blob = await store.getMusic(s.musicName); if (blob) { try { music = await decodeMusic(blob); } catch { log('Audio', 'warning', 'Could not decode the music file; continuing without it.'); } } }
@@ -204,7 +229,7 @@ async function produce(prompt) {
   log('Audio', 'success', 'Narration mixed' + (music ? ' with music under ducking.' : '.'));
   checkCancel();
 
-  // Render + encode
+  // ---------- Render + encode ----------
   progress('Rendering', 0);
   const canvas = $('canvas');
   canvas.width = width; canvas.height = height; canvas.hidden = false;
@@ -222,39 +247,43 @@ async function produce(prompt) {
   }
   log('Render', 'success', `Encoded ${(videoBlob.size / 1048576).toFixed(1)} MB.`);
 
-  // Package
+  // ---------- Package ----------
   progress('Packaging', 0.5);
   drawFrame((scenes[0]?.start || 0) + 1.8);
   const thumbBlob = await new Promise(r => canvas.toBlob(r, 'image/jpeg', 0.9));
   canvas.hidden = true;
   const project = {
-    id: (crypto.randomUUID ? crypto.randomUUID() : String(Date.now())), createdAt: Date.now(), prompt, title: publish.title,
+    id: (crypto.randomUUID ? crypto.randomUUID() : String(Date.now())), createdAt: Date.now(), prompt, title: cp.publish.title,
     duration: total, aspect: s.aspect, width, height, videoType: videoBlob.type || 'video/mp4',
     videoBlob, thumbBlob, srt: srt(plan), youtubeText: youtubeText(plan, s),
     plan: { ...plan, scenes: scenes.map(({ audio, ...rest }) => rest) },
   };
   await store.putProject(project);
+  await store.deleteRun();
   progress('Packaging', 1);
   return project;
 }
 
-async function narrate(script, storyboard, s, speedMult) {
-  const inputs = [];
-  const audios = {};
-  for (let i = 0; i < script.scenes.length; i++) {
-    checkCancel();
+/** Synthesises any scene that has no audio yet (saving after each), then lays the timeline out. */
+async function narrate(cp, s, useMockTTS, save) {
+  const script = cp.script, storyboard = cp.storyboard;
+  const n = script.scenes.length;
+  for (let i = 0; i < n; i++) {
     const sc = script.scenes[i];
-    const audio = (MOCK && params.get('tts') === 'mock') ? mockAudio(sc.narration) : await synthesize(sc.narration, s.voice, s.speed * speedMult);
-    audios[sc.beatId] = audio;
-    const kind = (storyboard.scenes.find(v => v.beatId === sc.beatId) || {}).kind || 'bullets';
-    inputs.push({ beatId: sc.beatId, kind, narrationDuration: audio.duration });
-    progress('Narrating', (i + 1) / script.scenes.length, `${i + 1}/${script.scenes.length}`);
+    if (cp.audios[sc.beatId]) continue;
+    checkCancel();
+    progress('Narrating', i / n, `${i + 1}/${n}`);
+    const a = useMockTTS ? mockAudio(sc.narration) : await synthesize(sc.narration, s.voice, s.speed * cp.speedMult);
+    cp.audios[sc.beatId] = { samples: a.samples, sampleRate: a.sampleRate, duration: a.duration };
+    await save('narration');
   }
+  progress('Narrating', 1, `${n}/${n}`);
+  const inputs = script.scenes.map(sc => ({ beatId: sc.beatId, kind: (storyboard.scenes.find(v => v.beatId === sc.beatId) || {}).kind || 'bullets', narrationDuration: cp.audios[sc.beatId].duration }));
   const { placements, total } = T.layout(inputs);
   const scenes = placements.map(p => {
     const sc = script.scenes.find(x => x.beatId === p.beatId);
     const visual = storyboard.scenes.find(v => v.beatId === p.beatId);
-    const a = audios[p.beatId];
+    const a = cp.audios[p.beatId];
     return { beatId: p.beatId, script: sc, visual, start: p.start, duration: p.duration, narrationStart: p.narrationStart,
       narrationDuration: a.duration, audio: a, captions: T.captions(sc.narration, p.narrationStart, a.duration) };
   });
@@ -262,11 +291,39 @@ async function narrate(script, storyboard, s, speedMult) {
 }
 
 function mockAudio(text) {
-  const sampleRate = 24000, duration = Math.max(0.8, T.wordCount(text) / 2.7);
+  const sampleRate = 24000, duration = Math.max(0.8, T.wordCount(text) / T.WORDS_PER_SECOND);
   const n = Math.floor(duration * sampleRate), samples = new Float32Array(n);
   for (let i = 0; i < n; i++) samples[i] = Math.sin(2 * Math.PI * 220 * i / sampleRate) * 0.2 * (0.5 + 0.5 * Math.sin(2 * Math.PI * 3 * i / sampleRate));
   return { samples, sampleRate, duration };
 }
+
+// ---------- resume after an interrupted run ----------
+async function checkInterruptedRun() {
+  let run = null;
+  try { run = await store.getRun(); } catch {}
+  if (!run || !run.stage) return;
+  const card = $('resumeCard'); card.hidden = false;
+  const stageLabel = { start: 'the start', brief: 'the plan', script: 'the script', review: 'the review', storyboard: 'the storyboard', publish: 'the YouTube text', narration: 'the narration', render: 'the render' }[run.stage] || run.stage;
+  $('resumeText').textContent = `A previous run (“${run.prompt.slice(0, 60)}”) was interrupted after ${stageLabel}. This usually means Safari reloaded the page to free memory. Your progress is saved.`;
+  const lighter = run.attempts >= 2;
+  $('resumeLighter').hidden = !lighter;
+  $('resumeBtn').onclick = () => { $('prompt').value = run.prompt; start(run); };
+  $('resumeLighter').onclick = () => {
+    run.settings.quality = '720';
+    if (!MOCK) { const m = describeModel(run.settings.modelId); if (m.engine === 'webllm' && m.sizeMB > 400) { run.settings.modelId = 'SmolLM2-360M-Instruct-q4f16_1-MLC'; settings.modelId = run.settings.modelId; saveSettings(settings); } }
+    delete run.brief; delete run.script; delete run.review; delete run.storyboard; delete run.publish; run.audios = {};
+    $('prompt').value = run.prompt; start(run);
+  };
+  $('resumeDiscard').onclick = async () => { await store.deleteRun(); card.hidden = true; };
+  if (!lighter && !params.has('noauto')) {
+    let left = 5;
+    $('resumeBtn').textContent = `Resume (${left})`;
+    const timer = setInterval(() => { left--; if (left <= 0) { clearInterval(timer); if (!card.hidden && !running) $('resumeBtn').click(); } else $('resumeBtn').textContent = `Resume (${left})`; }, 1000);
+    card.dataset.timer = String(timer);
+    $('resumeDiscard').addEventListener('click', () => clearInterval(timer));
+  }
+}
+checkInterruptedRun();
 
 function showResult(p) {
   $('resultCard').hidden = false;
