@@ -19,6 +19,13 @@ export const FOOTAGE_MODELS = [
   { id: 'custom', name: 'Custom fal.ai endpoint (advanced)', endpoint: null,
     input: (p, a, d, s) => { let extra = {}; try { extra = JSON.parse(s.falExtra || '{}'); } catch {} return { prompt: p, aspect_ratio: a, ...extra }; } },
 ];
+/** Free text-to-video generators: public Hugging Face Spaces (free GPUs) or your own Gradio server (e.g. Colab). */
+export const FREE_VIDEO_SPACES = [
+  { id: 'Lightricks/ltx-video-distilled', name: 'LTX-Video 13B distilled (official Lightricks Space, free GPU)', api: 'text_to_video', preset: 'ltx' },
+  { id: 'DeepRat/LTX-Video-ZeroGPU-Optimized', name: 'LTX-Video optimised (community Space)', api: null, preset: 'auto' },
+  { id: 'custom', name: 'Custom Space id or Gradio URL (e.g. your Colab server)', api: null, preset: 'auto' },
+];
+
 export const FOOTAGE_COST = { 'ltx2-fast': 0.04, ltx2: 0.12, wan22: 0.08, kling25: 0.35, veo31fast: 0.80, hailuo02: 0.28, custom: null };
 
 const STYLE = 'Cinematic, photorealistic, natural lighting, shallow depth of field, smooth slow camera movement, high detail, 4k. No text, no captions, no subtitles, no logos, no watermarks.';
@@ -54,7 +61,7 @@ export async function generateFootage(jobs, settings, { log, onUpdate, checkCanc
     return { results, errors };
   }
 
-  const chain = provider === 'fal' ? ['fal', 'pexels', 'pixabay', 'pollinations'] : ['pexels', 'pixabay', 'pollinations'];
+  const chain = provider === 'fal' ? ['fal', 'gradio', 'pexels', 'pixabay', 'pollinations'] : ['gradio', 'pexels', 'pixabay', 'pollinations'];
   for (const source of chain) {
     const todo = pending();
     if (!todo.length) break;
@@ -63,6 +70,7 @@ export async function generateFootage(jobs, settings, { log, onUpdate, checkCanc
       else if (source === 'pixabay' && settings.pixabayKey) await fromPixabay(todo, settings, results, errors, update, checkCancel, log);
       else if (source === 'pollinations' && settings.allowPollinations !== false) await fromPollinations(todo, settings, results, errors, update, checkCancel, log);
       else if (source === 'fal' && settings.falKey) await fromFal(todo, settings, results, errors, update, checkCancel, log);
+      else if (source === 'gradio' && settings.aiVideoEnabled !== false && (settings.aiVideoSpace || '').trim()) await fromGradio(todo, settings, results, errors, update, checkCancel, log);
     } catch (e) {
       if (e && e.message === 'Cancelled') throw e;
       errors.push(`${source}: ${e.message}`);
@@ -70,6 +78,148 @@ export async function generateFootage(jobs, settings, { log, onUpdate, checkCanc
   }
   for (const j of jobs) if (!(j.beatId in results)) results[j.beatId] = null;
   return { results, errors };
+}
+
+// ---------- Free AI video: Gradio API of a Hugging Face Space or your own server ----------
+export function gradioRoot(spaceOrUrl) {
+  const v = String(spaceOrUrl || '').trim().replace(/\/+$/, '');
+  if (/^https?:\/\//i.test(v)) return v;
+  if (/^[\w.-]+\/[\w.-]+$/.test(v)) return `https://${v.toLowerCase().replace(/[^a-z0-9/]+/g, '-').replace('/', '-')}.hf.space`;
+  return null;
+}
+
+function ltxDims(aspect) { return aspect === '9x16' ? [768, 448] : aspect === '1x1' ? [576, 576] : [448, 768]; }  // [height, width], multiples of 32
+
+async function fromGradio(jobs, s, results, errors, update, checkCancel, log) {
+  const root = gradioRoot(s.aiVideoSpace);
+  if (!root) { errors.push(`Unrecognised Space id or URL: ${s.aiVideoSpace}`); return; }
+  const headers = { 'Content-Type': 'application/json' };
+  if ((s.hfToken || '').trim()) headers.Authorization = `Bearer ${s.hfToken.trim()}`;
+  const preset = FREE_VIDEO_SPACES.find(x => x.id === s.aiVideoSpace) || FREE_VIDEO_SPACES[2];
+  const negative = 'text, captions, subtitles, logos, watermark, worst quality, inconsistent motion, blurry, jittery, distorted';
+  const duration = Math.min(7, Math.max(3, s.footageDuration || 5));
+  const [h, w] = ltxDims(s.aspect);
+
+  // Discover the endpoint (works for any Gradio text-to-video app, including a Colab server).
+  let plan = null;
+  try { plan = await discoverGradio(root, headers, preset); }
+  catch (e) {
+    if (/HTTP 5\d\d|network/.test(e.message)) { errors.push(`The AI video Space is waking up or offline (${e.message}); trying the next source.`); return; }
+    if (preset.preset !== 'ltx') { errors.push(`Could not read the Space API (${e.message}); trying the next source.`); return; }
+  }
+  if (!plan && preset.preset === 'ltx') plan = { api: 'text_to_video', build: (prompt) => [prompt, negative, null, null, h, w, 'text-to-video', duration, 9, 42, true, 1.0, true] };
+  if (!plan) { errors.push('This Space has no text-to-video endpoint the studio can use.'); return; }
+
+  let consecutiveFailures = 0;
+  for (const j of jobs) {
+    checkCancel && checkCancel();
+    try {
+      update(`asking the free GPU for scene ${j.beatId} (can take a few minutes)`);
+      const data = plan.build(j.prompt, { negative, height: h, width: w, duration, aspect: s.aspect });
+      const out = await gradioCall(root, plan.api, data, headers, 12 * 60_000, checkCancel, (msg) => update(`scene ${j.beatId}: ${msg}`));
+      const file = findVideoFile(out);
+      if (!file) throw new Error('the Space returned no video');
+      const url = file.url || `${root}/gradio_api/file=${file.path}`;
+      results[j.beatId] = { kind: 'video', blob: await downloadMedia(url, 180_000), credit: `AI video generated for free with ${preset.name.split(' (')[0]} on Hugging Face (${root})` };
+      consecutiveFailures = 0;
+      update(`AI video ready for scene ${j.beatId}`);
+    } catch (e) {
+      if (e && e.message === 'Cancelled') throw e;
+      const m = String(e.message || e);
+      errors.push(`Scene ${j.beatId}: free AI video failed (${m.slice(0, 200)})`);
+      if (/quota|exceeded|rate limit|too many|sign ?in|login/i.test(m)) {
+        errors.push((s.hfToken ? 'Your free GPU quota for today is used up; the remaining scenes use stock footage or AI photos. It resets daily.' : 'The free GPU quota for anonymous visitors is used up. Add a free Hugging Face token in Studio → Footage for a bigger daily quota; the remaining scenes use stock footage or AI photos.'));
+        return;
+      }
+      if (++consecutiveFailures >= 2) { errors.push('The AI video Space keeps failing; the remaining scenes use the next source.'); return; }
+    }
+  }
+}
+
+/** Reads /gradio_api/info and picks a text-to-video endpoint, filling parameters from their defaults. */
+async function discoverGradio(root, headers, preset) {
+  const r = await fetch(`${root}/gradio_api/info`, { headers: headers.Authorization ? { Authorization: headers.Authorization } : {} }).catch(e => { throw new Error('network: ' + e.message); });
+  if (!r.ok) throw new Error(`HTTP ${r.status}`);
+  const info = await r.json();
+  const named = info.named_endpoints || {};
+  const candidates = Object.entries(named).map(([name, ep]) => ({ name: name.replace(/^\//, ''), ep }));
+  const isVideoReturn = (ep) => (ep.returns || []).some(x => /video/i.test(x.component || '') || /video/i.test(JSON.stringify(x.type || '')));
+  const hasPrompt = (ep) => (ep.parameters || []).some(p => /prompt/i.test(p.parameter_name || p.label || '') && !/negative/i.test(p.parameter_name || p.label || ''));
+  let pick = preset.api ? candidates.find(c => c.name === preset.api) : null;
+  if (!pick) pick = candidates.find(c => /text.?to.?video|t2v|generate/i.test(c.name) && isVideoReturn(c.ep) && hasPrompt(c.ep)) || candidates.find(c => isVideoReturn(c.ep) && hasPrompt(c.ep));
+  if (!pick) throw new Error('no text-to-video endpoint');
+  const params = pick.ep.parameters || [];
+  return {
+    api: pick.name,
+    build: (prompt, ctx) => params.map(p => {
+      const key = `${p.parameter_name || ''} ${p.label || ''}`.toLowerCase();
+      const comp = (p.component || '').toLowerCase();
+      const def = p.parameter_has_default ? p.parameter_default : (p.example_input !== undefined ? null : null);
+      if (/negative/.test(key)) return ctx.negative;
+      if (/prompt/.test(key) && /textbox|text/.test(comp || 'textbox')) return prompt;
+      if (/image|video|audio|file/.test(comp) || /image|video/.test(key) && comp !== 'dropdown' && comp !== 'textbox') return null;
+      if (/\bmode\b|task/.test(key) && typeof def === 'string') return /text/i.test(JSON.stringify(p.type || '')) && /text-to-video/.test(JSON.stringify(p.type)) ? 'text-to-video' : def;
+      if (/height/.test(key) && typeof def === 'number') return ctx.height;
+      if (/width/.test(key) && typeof def === 'number') return ctx.width;
+      if (/duration|seconds/.test(key) && typeof def === 'number') return Math.min(ctx.duration, def > 20 ? def : 8.5);
+      if (/randomi/.test(key)) return true;
+      if (/seed/.test(key) && typeof def === 'number') return Math.floor(Math.random() * 1e9);
+      if (/aspect/.test(key) && typeof def === 'string') return ({ '16x9': '16:9', '9x16': '9:16', '1x1': '1:1' })[ctx.aspect] || def;
+      return def === undefined ? null : def;
+    }),
+  };
+}
+
+/** Gradio's simple HTTP API: POST .../call/{api} → event_id, then GET the SSE stream until "complete". */
+async function gradioCall(root, api, data, headers, timeoutMs, checkCancel, onStatus) {
+  let r;
+  for (let attempt = 0; attempt < 3; attempt++) {
+    r = await fetch(`${root}/gradio_api/call/${api}`, { method: 'POST', headers, body: JSON.stringify({ data }) }).catch(e => { throw new Error('network: ' + e.message); });
+    if (r.status === 503 || r.status === 502) { onStatus && onStatus('Space is starting up, waiting…'); await new Promise(res => setTimeout(res, 20000)); continue; }
+    break;
+  }
+  const text0 = await r.text();
+  if (!r.ok) throw new Error(`HTTP ${r.status}: ${text0.slice(0, 200)}`);
+  let eventId; try { eventId = JSON.parse(text0).event_id; } catch {}
+  if (!eventId) throw new Error('no event id from the Space');
+  const started = Date.now();
+  const res = await fetch(`${root}/gradio_api/call/${api}/${eventId}`, { headers: headers.Authorization ? { Authorization: headers.Authorization } : {} });
+  if (!res.ok || !res.body) throw new Error(`HTTP ${res.status} while waiting for the result`);
+  const reader = res.body.getReader();
+  const decoder = new TextDecoder();
+  let buffer = '', eventName = '';
+  while (true) {
+    if (checkCancel) checkCancel();
+    if (Date.now() - started > timeoutMs) { try { reader.cancel(); } catch {} throw new Error('timed out waiting for the free GPU'); }
+    const { value, done } = await reader.read();
+    if (done) break;
+    buffer += decoder.decode(value, { stream: true });
+    let idx;
+    while ((idx = buffer.indexOf('\n')) >= 0) {
+      const line = buffer.slice(0, idx).trim(); buffer = buffer.slice(idx + 1);
+      if (line.startsWith('event:')) eventName = line.slice(6).trim();
+      else if (line.startsWith('data:')) {
+        const payload = line.slice(5).trim();
+        if (eventName === 'complete') { try { return JSON.parse(payload); } catch { throw new Error('unreadable result'); } }
+        if (eventName === 'error') { let msg = payload; try { const j = JSON.parse(payload); msg = (j && (j.message || j.error || j.title)) || payload; } catch {} throw new Error(msg || 'the Space reported an error'); }
+        if (eventName === 'generating' || eventName === 'heartbeat') onStatus && onStatus('generating…');
+      }
+    }
+  }
+  throw new Error('the Space closed the connection before finishing');
+}
+
+function findVideoFile(out) {
+  const items = Array.isArray(out) ? out : [out];
+  for (const it of items) {
+    if (!it) continue;
+    if (typeof it === 'string' && /\.(mp4|webm|mov)(\?|$)/i.test(it)) return /^https?:/.test(it) ? { url: it } : { path: it };
+    if (typeof it === 'object') {
+      if (it.video && (it.video.url || it.video.path)) return it.video;
+      if ((it.url || it.path) && /mp4|webm|mov|video/i.test(`${it.url || ''} ${it.path || ''} ${it.mime_type || ''}`)) return it;
+    }
+  }
+  return null;
 }
 
 // ---------- Pexels (free key) ----------
