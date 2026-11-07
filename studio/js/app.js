@@ -1,5 +1,5 @@
 // UI + production run. Everything happens in this browser tab.
-import { Team } from './agents.js';
+import { Team, promptTopic } from './agents.js';
 import * as T from './timing.js';
 import { MODELS, hasWebGPU, defaultModelId, describeModel, createEngine } from './llm.js';
 import { loadTTS, synthesize, isLoaded as ttsLoaded } from './tts.js';
@@ -8,12 +8,14 @@ import { Renderer } from './renderer.js';
 import { encodeSupport, encodeWebCodecs, encodeMediaRecorder } from './encoder.js';
 import { srt, youtubeText, download, shareFiles, safeName, chapterStamp } from './exporter.js';
 import { store, requestPersistentStorage } from './store.js';
+import { generateFootage, shotPrompt, FOOTAGE_MODELS, FOOTAGE_COST } from './footage.js';
+import { openClip } from './clipdecoder.js';
 import { THEMES, VOICES, loadSettings, saveSettings, canvasSize } from './settings.js';
 
 const $ = (id) => document.getElementById(id);
 const params = new URLSearchParams(location.search);
 const MOCK = params.get('mock') === '1';
-const STAGES = ['Planning', 'Writing', 'Reviewing', 'Designing', 'Metadata', 'Narrating', 'Mixing', 'Rendering', 'Packaging'];
+const STAGES = ['Planning', 'Writing', 'Reviewing', 'Designing', 'Metadata', 'Footage', 'Narrating', 'Mixing', 'Rendering', 'Packaging'];
 const SAMPLES = [
   'Explain what a transformer attention head does, for curious beginners',
   'Why do large language models hallucinate? Three causes and one fix',
@@ -60,7 +62,8 @@ function renderSummary() {
   const m = describeModel(settings.modelId);
   const [w, h] = canvasSize(settings);
   $('summary').innerHTML = `Model: <b>${esc(m.name)}</b> · ${esc(aspectLabel())} · ${w}×${h} · ${settings.fps} fps · ${esc(settings.theme)}<br>` +
-    `Up to ${settings.maxDuration} s, aiming for ${settings.targetDuration} s · voice: ${esc((VOICES.find(v => v[0] === settings.voice) || [0, settings.voice])[1])}` +
+    `Up to ${settings.maxDuration} s, aiming for ${settings.targetDuration} s · voice: ${esc((VOICES.find(v => v[0] === settings.voice) || [0, settings.voice])[1])}<br>` +
+    `Footage: <b>${settings.footageProvider === 'fal' ? esc((FOOTAGE_MODELS.find(m => m.id === settings.falModel) || FOOTAGE_MODELS[0]).name) + (settings.falKey ? '' : ' · <span class="warn">no API key yet</span>') : 'motion graphics only'}</b>` +
     (m.engine === 'webllm' && !hasWebGPU() ? `<br><span class="warn">This browser has no WebGPU; pick a CPU model in the Models tab.</span>` : '');
 }
 function aspectLabel() { return ({ '16x9': '16:9', '9x16': '9:16 Shorts', '1x1': '1:1' })[settings.aspect]; }
@@ -84,7 +87,7 @@ function progress(stage, fraction, detail = '') {
   $('progressCard').hidden = false;
   $('stageName').textContent = stage;
   $('stageDetail').textContent = detail;
-  const weights = { Planning: .10, Writing: .16, Reviewing: .08, Designing: .10, Metadata: .05, Narrating: .15, Mixing: .02, Rendering: .32, Packaging: .02 };
+  const weights = { Planning: .10, Writing: .14, Reviewing: .07, Designing: .09, Metadata: .04, Footage: .12, Narrating: .12, Mixing: .02, Rendering: .28, Packaging: .02 };
   let total = 0;
   for (const s of STAGES) { if (s === stage) { total += weights[s] * fraction; break; } total += weights[s]; }
   $('bar').style.width = Math.round(Math.min(1, total) * 100) + '%';
@@ -173,6 +176,7 @@ function checkCancel() { if (cancelled) throw new Error('Cancelled'); }
 async function produce(prompt, resume) {
   const cp = resume || { id: 'current', prompt, settings: { ...settings }, attempts: 0, createdAt: Date.now() };
   const s = cp.settings;
+  if (params.get('footage') === 'mock') s.footageProvider = 'mock';
   const [width, height] = canvasSize(s);
   const save = async (stage) => { cp.stage = stage; cp.updatedAt = Date.now(); await store.putRun(cp); };
   const kindOf = (id) => ((cp.storyboard && cp.storyboard.scenes.find(v => v.beatId === id)) || cp.brief.outline.find(b => b.id === id) || {}).kind
@@ -226,6 +230,31 @@ async function produce(prompt, resume) {
     log('Studio', 'info', 'Script, storyboard and metadata restored from the saved run.');
   }
 
+  // ---------- Footage phase (cloud video model, optional) ----------
+  const footageOn = s.footageProvider && s.footageProvider !== 'none' ? s.footageProvider : null;
+  cp.footage = cp.footage || {};
+  if (footageOn) {
+    const fs = { ...s, footageProvider: footageOn };
+    const topic = promptTopic(cp.brief.title);
+    const wanted = cp.storyboard.scenes.filter((v, i) => fs.footageScope !== 'hero' || i === 0 || i === cp.storyboard.scenes.length - 1);
+    const jobs = wanted.map(v => ({ beatId: v.beatId, prompt: shotPrompt(v.shot, topic) }));
+    const missing = jobs.filter(j => !(j.beatId in cp.footage));
+    if (missing.length) {
+      progress('Footage', 0, `${missing.length} clip(s)`);
+      log('Footage', 'info', `Generating ${missing.length} video clip(s) with ${footageOn === 'mock' ? 'the test clip' : (FOOTAGE_MODELS.find(m => m.id === fs.falModel) || FOOTAGE_MODELS[0]).name}. Shots: ${wanted.map(v => `[${v.beatId}] ${v.shot || ''}`).join(' · ').slice(0, 400)}`);
+      const { results, errors } = await generateFootage(jobs, fs, {
+        log, checkCancel, existing: cp.footage,
+        onUpdate: (done, total, note) => progress('Footage', total ? done / total : 0, `${done}/${total} ${note || ''}`),
+      });
+      cp.footage = results;
+      for (const e of errors) log('Footage', 'warning', e);
+      const got = Object.values(cp.footage).filter(Boolean).length;
+      if (got) log('Footage', 'success', `${got} of ${jobs.length} clip(s) ready; scenes without a clip use motion graphics.`);
+      else log('Footage', 'warning', 'No clips could be generated; the video uses motion graphics for every scene.');
+      await save('footage');
+    }
+  }
+
   // ---------- Voice phase ----------
   cp.audios = cp.audios || {};
   cp.speedMult = cp.speedMult || 1;
@@ -269,22 +298,49 @@ async function produce(prompt, resume) {
   const canvas = $('canvas');
   canvas.width = width; canvas.height = height; canvas.hidden = false;
   const renderer = new Renderer(canvas, s);
-  const drawFrame = (t) => renderer.draw(plan, t);
+  // Footage frames: open one clip at a time as the timeline enters each scene. Clip time is stretched to the
+  // scene length (gentle slow motion) so there is never a hard cut inside a scene.
+  const clips = {};
+  let openScene = null, openClipHandle = null;
+  const footageFrameAt = async (t) => {
+    const idx = plan.scenes.findIndex(sc => t >= sc.start && t < sc.start + sc.duration);
+    if (idx < 0) return null;
+    const sc = plan.scenes[idx];
+    const blob = cp.footage && cp.footage[sc.beatId];
+    if (!blob) return null;
+    if (openScene !== sc.beatId) {
+      if (openClipHandle) { try { openClipHandle.close(); } catch {} }
+      openClipHandle = null; openScene = sc.beatId;
+      try { openClipHandle = await openClip(blob, width, height); } catch (e) { log('Footage', 'warning', `Scene ${sc.beatId}: could not decode the clip (${e.message}); using motion graphics.`); }
+    }
+    if (!openClipHandle) return null;
+    const local = t - sc.start;
+    const clipT = openClipHandle.duration >= sc.duration ? local : local * (openClipHandle.duration / sc.duration);
+    try { return await openClipHandle.frameAt(clipT); } catch { return null; }
+  };
+  const hasFootage = Object.values(cp.footage || {}).some(Boolean);
+  const drawFrame = (t) => renderer.draw(plan, t, renderer._pendingFrame || null);
+  const prepareFrame = hasFootage ? async (t) => { renderer._pendingFrame = await footageFrameAt(t); } : null;
   const support = await encodeSupport(width, height);
   const onProgress = (f) => progress('Rendering', f, Math.round(f * 100) + '%');
   let videoBlob;
   if (support) {
     log('Render', 'info', `Encoding with WebCodecs (${support.codec.toUpperCase()} + ${support.audio.toUpperCase()}), ${width}×${height} at ${s.fps} fps.`);
-    videoBlob = await encodeWebCodecs({ canvas, fps: s.fps, duration: total, drawFrame, audioBuffer, support, onProgress, shouldCancel: () => cancelled });
+    videoBlob = await encodeWebCodecs({ canvas, fps: s.fps, duration: total, drawFrame, prepareFrame, audioBuffer, support, onProgress, shouldCancel: () => cancelled });
   } else {
     log('Render', 'warning', 'WebCodecs is not available here; recording in real time instead (takes as long as the video).');
-    videoBlob = await encodeMediaRecorder({ canvas, fps: s.fps, duration: total, drawFrame, audioBuffer, onProgress, shouldCancel: () => cancelled });
+    videoBlob = await encodeMediaRecorder({ canvas, fps: s.fps, duration: total, drawFrame, prepareFrame, audioBuffer, onProgress, shouldCancel: () => cancelled });
   }
+  if (openClipHandle) { try { openClipHandle.close(); } catch {} }
+  renderer._pendingFrame = null;
   log('Render', 'success', `Encoded ${(videoBlob.size / 1048576).toFixed(1)} MB.`);
 
   // ---------- Package ----------
   progress('Packaging', 0.5);
+  if (prepareFrame) { try { await prepareFrame((scenes[0]?.start || 0) + 1.8); } catch {} }
   drawFrame((scenes[0]?.start || 0) + 1.8);
+  if (openClipHandle) { try { openClipHandle.close(); } catch {} openClipHandle = null; }
+  renderer._pendingFrame = null;
   const thumbBlob = await new Promise(r => canvas.toBlob(r, 'image/jpeg', 0.9));
   canvas.hidden = true;
   const project = {
@@ -349,7 +405,7 @@ async function checkInterruptedRun() {
   try { run = await store.getRun(); } catch {}
   if (!run || !run.stage) return;
   const card = $('resumeCard'); card.hidden = false;
-  const stageLabel = { start: 'the start', brief: 'the plan', script: 'the script', review: 'the review', storyboard: 'the storyboard', publish: 'the YouTube text', narration: 'the narration', render: 'the render' }[run.stage] || run.stage;
+  const stageLabel = { start: 'the start', brief: 'the plan', script: 'the script', review: 'the review', storyboard: 'the storyboard', publish: 'the YouTube text', footage: 'the footage', narration: 'the narration', render: 'the render' }[run.stage] || run.stage;
   $('resumeText').textContent = `A previous run (“${run.prompt.slice(0, 60)}”) was interrupted after ${stageLabel}. This usually means Safari reloaded the page to free memory. Your progress is saved.`;
   const lighter = run.attempts >= 2;
   $('resumeLighter').hidden = !lighter;
@@ -480,6 +536,11 @@ function renderSettings() {
   bind('s-voice', 'voice'); bind('s-speed', 'speed', parseFloat, () => { $('s-speed-v').textContent = settings.speed < 0.95 ? 'calm' : settings.speed > 1.05 ? 'brisk' : 'natural'; });
   bind('s-musicvol', 'musicVolume', v => parseInt(v, 10) / 100, () => { $('s-musicvol').value = Math.round(settings.musicVolume * 100); $('s-musicvol-v').textContent = Math.round(settings.musicVolume * 100); });
   bind('s-ambient', 'ambientBed');
+  $('s-falmodel').innerHTML = FOOTAGE_MODELS.map(m => `<option value="${m.id}">${esc(m.name)}${FOOTAGE_COST[m.id] != null ? ` · ~$${FOOTAGE_COST[m.id].toFixed(2)}/clip` : ''}</option>`).join('');
+  bind('s-footage', 'footageProvider', v => v, () => { $('falFields').hidden = settings.footageProvider !== 'fal'; });
+  bind('s-falkey', 'falKey'); bind('s-falmodel', 'falModel', v => v, () => { $('falCustom').hidden = settings.falModel !== 'custom'; });
+  bind('s-falendpoint', 'falEndpoint'); bind('s-falextra', 'falExtra');
+  bind('s-footagedur', 'footageDuration', v => parseInt(v, 10)); bind('s-footagescope', 'footageScope');
   store.listMusic().then(names => { $('s-music').innerHTML = '<option value="">None</option>' + names.map(n => `<option value="${esc(n)}">${esc(n)}</option>`).join(''); $('s-music').value = settings.musicName || ''; });
   $('s-music').onchange = () => { settings.musicName = $('s-music').value; saveSettings(settings); };
 }

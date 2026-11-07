@@ -31,11 +31,13 @@ export class Renderer {
   font(px, weight = 700, family = SANS) { return `${weight} ${Math.round(px)}px ${family}`; }
 
   // ---------- public ----------
-  draw(plan, time) {
+  /** footageFrame: optional CanvasImageSource (already cover-fitted to the canvas) drawn under the scene. */
+  draw(plan, time, footageFrame = null) {
     const { ctx } = this;
-    this.background(time);
     let index = plan.scenes.findIndex(s => time >= s.start && time < s.start + s.duration);
     if (index < 0) index = time >= plan.totalDuration ? plan.scenes.length - 1 : -1;
+    if (footageFrame && index >= 0) this.footage(footageFrame, time - plan.scenes[index].start, plan.scenes[index].duration, plan.scenes[index].visual.kind);
+    else this.background(time);
     if (index < 0) return;
     const scene = plan.scenes[index];
     const local = time - scene.start;
@@ -50,6 +52,24 @@ export class Renderer {
       const cue = scene.captions.find(c => time >= c.start && time < c.end);
       if (cue) this.caption(cue.text);
     }
+  }
+
+  /** Generated footage: slow push-in plus a cinematic scrim so the typography stays legible. */
+  footage(frame, local, duration, kind = 'title') {
+    const { ctx, w, h } = this;
+    const zoom = 1 + 0.06 * Math.min(1, local / Math.max(1, duration));
+    ctx.save();
+    ctx.translate(w / 2, h / 2); ctx.scale(zoom, zoom); ctx.translate(-w / 2, -h / 2);
+    try { ctx.drawImage(frame, 0, 0, w, h); } catch { ctx.fillStyle = this.theme.bgTop; ctx.fillRect(0, 0, w, h); }
+    ctx.restore();
+    const g = ctx.createLinearGradient(0, 0, 0, h);
+    g.addColorStop(0, 'rgba(5,8,20,0.55)'); g.addColorStop(0.45, 'rgba(5,8,20,0.28)'); g.addColorStop(1, 'rgba(5,8,20,0.82)');
+    ctx.fillStyle = g; ctx.fillRect(0, 0, w, h);
+    const side = ctx.createLinearGradient(0, 0, w, 0);
+    side.addColorStop(0, 'rgba(5,8,20,0.45)'); side.addColorStop(0.6, 'rgba(5,8,20,0)');
+    ctx.fillStyle = side; ctx.fillRect(0, 0, w, h);
+    // Card-based layouts carry more text: dim the footage further so it reads as a backdrop.
+    if (['diagram', 'comparison', 'code', 'stat', 'bullets'].includes(kind)) { ctx.fillStyle = 'rgba(5,8,20,0.32)'; ctx.fillRect(0, 0, w, h); }
   }
 
   // ---------- background & chrome ----------

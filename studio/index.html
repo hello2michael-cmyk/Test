@@ -137,6 +137,21 @@
         <div class="field"><label>Pace: <span id="s-speed-v"></span></label><input type="range" id="s-speed" min="0.85" max="1.15" step="0.01"></div>
       </div>
       <div class="card">
+        <h2>Footage (generated video)</h2>
+        <div class="field"><label>Source</label><select id="s-footage"><option value="none">Motion graphics only (free, fully on-device)</option><option value="fal">Generated video clips via fal.ai (your API key)</option></select></div>
+        <div id="falFields" hidden>
+          <div class="field"><label>fal.ai API key (stored only on this phone)</label><input type="text" id="s-falkey" placeholder="key_id:key_secret" autocapitalize="off" autocorrect="off" spellcheck="false"></div>
+          <div class="field"><label>Video model</label><select id="s-falmodel"></select></div>
+          <div id="falCustom" hidden>
+            <div class="field"><label>Endpoint id (e.g. fal-ai/some-model/text-to-video)</label><input type="text" id="s-falendpoint" autocapitalize="off" autocorrect="off"></div>
+            <div class="field"><label>Extra input JSON (optional)</label><input type="text" id="s-falextra" placeholder='{"resolution":"720p"}' autocapitalize="off" autocorrect="off"></div>
+          </div>
+          <div class="field"><label>Clip length</label><select id="s-footagedur"><option value="5">5 s</option><option value="6">6 s</option><option value="8">8 s</option><option value="10">10 s</option></select></div>
+          <div class="field"><label>Which scenes</label><select id="s-footagescope"><option value="all">Every scene</option><option value="hero">Only the opening and closing scene (cheaper)</option></select></div>
+          <p class="note">Get a key at fal.ai → Dashboard → Keys. Clips are generated in parallel in the cloud and composited with titles, captions and the voice on this phone. A six-scene video costs roughly 6 × the per-clip price shown. Scenes whose clip fails fall back to motion graphics automatically.</p>
+        </div>
+      </div>
+      <div class="card">
         <h2>Music</h2>
         <div class="field"><label>Track</label><select id="s-music"><option value="">None</option></select></div>
         <div class="btnrow"><button class="secondary" id="importMusic">Import a music file…</button></div>

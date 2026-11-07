@@ -294,7 +294,9 @@ Use an empty object for revisedNarration when nothing needs rewriting.`;
       const system = HOUSE_RULES + `\n\nYou are the VISUAL DESIGNER for a motion-graphics explainer. For every beat choose a layout and fill its fields.
 On-screen text must be SHORT: titles up to 6 words, bullets up to 7 words, at most 4 bullets, diagram nodes 1-3 words
 and 3-5 nodes, comparison items up to 5 words and at most 3 per side. Code snippets: at most 6 short lines.
-Text on screen should reinforce the narration, not repeat it word for word.`;
+Text on screen should reinforce the narration, not repeat it word for word.
+Also write "shot": one sentence describing a realistic, cinematic 6-second video clip that illustrates the beat
+(subject, action, setting, camera movement). People and real places are welcome. Never describe text, charts or logos.`;
       const user = `Video: ${brief.title}
 Beats with narration:
 ${script.scenes.map(s => `${s.beatId}. layout=${kindOf(s.beatId)} | headline="${s.onScreenTitle}" | narration="${s.narration}"`).join('\n')}
@@ -308,11 +310,13 @@ stat: kicker, statValue, statLabel, title (statValue must come from the narratio
 code: title, code, codeLanguage
 quote: quote, attribution, title
 outro: title (the takeaway, max 8 words), subtitle (a short call to action)
+Every beat also gets "shot".
 
 JSON schema:
 {"scenes": [{"beatId": 1, "kind": "title", "kicker": null, "title": "...", "subtitle": null, "bullets": null, "nodes": null,
  "leftTitle": null, "leftItems": null, "rightTitle": null, "rightItems": null, "statValue": null, "statLabel": null,
- "code": null, "codeLanguage": null, "quote": null, "attribution": null}]}`;
+ "code": null, "codeLanguage": null, "quote": null, "attribution": null,
+ "shot": "a cinematic one-sentence description of the video clip for this beat"}]}`;
       try {
         out = await this.structured('Visual Designer', system, user, { temperature: 0.4 }, (o) => { if (!Array.isArray(o.scenes)) throw new Error('scenes missing'); });
       } catch (e) { this.warn('Visual Designer', `Using automatic layouts: ${e.message}`); }
@@ -323,6 +327,17 @@ JSON schema:
       const auto = autoVisual(s, kindOf(s.beatId), brief, i, script.scenes.length, this.settings);
       return sanitise(given ? { ...auto, ...given, beatId: s.beatId, kind: kindOf(s.beatId) } : auto, s);
     });
+    // Shot descriptions for generated footage (only needed when footage is on, but cheap to keep).
+    if (this.settings.footageProvider && this.settings.footageProvider !== 'none') {
+      const topic = promptTopic(brief.title);
+      for (const v of scenes) {
+        if (v.shot && T.wordCount(v.shot) >= 5) continue;
+        const sc = script.scenes.find(x => x.beatId === v.beatId);
+        let shot = null;
+        if (this.engine) shot = await this.ask('Visual Designer', `Describe, in one sentence, a realistic cinematic six-second video clip with people or real places that illustrates this narration from a video about ${topic}: "${sc.narration}". Mention the subject, the action, the setting and a camera movement. Do not mention text, charts or logos. Reply with the sentence only.`, { maxTokens: 70, maxWords: 36, temperature: 0.6 });
+        v.shot = shot || autoShot(sc, topic, v.kind);
+      }
+    }
     this.ok('Visual Designer', 'Storyboard ready: ' + scenes.map(v => v.kind).join(' → '));
     return { scenes };
   }
@@ -422,6 +437,24 @@ function autoTags(topic) {
   return [...new Set([topic.toLowerCase(), ...base, 'ai explained', 'artificial intelligence', 'machine learning', 'ai for beginners', 'explainer'])];
 }
 
+/** A deterministic shot description when the model gives none. */
+export function autoShot(scene, topic, kind) {
+  const subjects = [
+    'a young engineer studying code on a laptop in a sunlit studio, slow push-in',
+    'a diverse team gathered around a glass table discussing ideas, slow pan',
+    'close-up of hands typing on a keyboard with soft monitor glow, shallow depth of field',
+    'a researcher walking through a modern data centre between server racks, tracking shot',
+    'a student watching an explainer on a tablet in a cafe, warm afternoon light, slow dolly',
+    'a presenter sketching on a glass board in a bright office, handheld medium shot',
+    'city street at dusk with commuters looking at their phones, cinematic slow motion',
+    'a scientist in a lab looking at a holographic-style display, cool lighting, slow orbit',
+  ];
+  const i = Math.abs(hash(scene.narration)) % subjects.length;
+  const lead = kind === 'title' ? 'Establishing shot: ' : kind === 'outro' ? 'Closing shot: ' : '';
+  return `${lead}${subjects[i]}, evoking ${topic}`;
+}
+function hash(s) { let h = 0; for (const c of String(s)) h = (h * 31 + c.charCodeAt(0)) | 0; return h; }
+
 /** A sensible layout from the narration alone (used when the designer gives nothing usable). */
 export function autoVisual(scene, kind, brief, index, count, settings) {
   const sents = sentencesOf(scene.narration);
@@ -495,6 +528,7 @@ export function sanitise(v, script) {
     codeLanguage: v.codeLanguage ? String(v.codeLanguage).slice(0, 16) : null,
     quote: v.quote ? clip(v.quote, 24) : null,
     attribution: v.attribution ? clip(v.attribution, 6) : null,
+    shot: v.shot ? clip(String(v.shot).replace(/\s+/g, ' '), 45) : null,
   };
   const fallbackBullets = () => (script.emphasisWords && script.emphasisWords.length ? script.emphasisWords : [script.onScreenTitle]);
   const degrade = () => { out.kind = 'bullets'; if (!out.bullets || !out.bullets.length) out.bullets = fallbackBullets(); };
