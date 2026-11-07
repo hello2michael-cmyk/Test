@@ -22,14 +22,19 @@ const DEFAULTS = {
   burnInCaptions: true, showProgressBar: true, maxDuration: 60, targetDuration: 50,
   voice: 'af_heart', speed: 1.0, musicName: '', musicVolume: 0.18, ambientBed: false,
   channelName: '', cta: 'Subscribe for more AI explainers', modelId: '',
-  footageProvider: 'none',      // 'none' (motion graphics) | 'fal' (generated video) | 'mock' (tests)
+  footageProvider: 'free',      // 'none' (motion graphics) | 'free' (stock video + free AI stills) | 'fal' (paid generated video)
+  pexelsKey: '', pixabayKey: '', allowPollinations: true,
   falKey: '', falModel: 'ltx2-fast', falEndpoint: '', falExtra: '', footageDuration: 6, footageScope: 'all',
 };
 
 const KEY = 'aivideostudio.settings.v1';
 
 export function loadSettings() {
-  try { return { ...DEFAULTS, ...JSON.parse(localStorage.getItem(KEY) || '{}') }; } catch { return { ...DEFAULTS }; }
+  let s;
+  try { s = { ...DEFAULTS, ...JSON.parse(localStorage.getItem(KEY) || '{}') }; } catch { s = { ...DEFAULTS }; }
+  // Settings saved before free footage existed default to the free sources once.
+  if (!s.footageMigrated) { if (s.footageProvider === 'none') s.footageProvider = 'free'; s.footageMigrated = 1; saveSettings(s); }
+  return s;
 }
 export function saveSettings(s) { localStorage.setItem(KEY, JSON.stringify(s)); }
 export function canvasSize(s) { return ASPECTS[s.aspect].size[s.quality]; }

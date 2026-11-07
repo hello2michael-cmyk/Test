@@ -138,7 +138,13 @@
       </div>
       <div class="card">
         <h2>Footage (generated video)</h2>
-        <div class="field"><label>Source</label><select id="s-footage"><option value="none">Motion graphics only (free, fully on-device)</option><option value="fal">Generated video clips via fal.ai (your API key)</option></select></div>
+        <div class="field"><label>Source</label><select id="s-footage"><option value="free">Free: stock video + AI photos with camera motion</option><option value="fal">Paid: generated video clips via fal.ai (your API key), free sources as backup</option><option value="none">Motion graphics only (fully on-device)</option></select></div>
+        <div id="freeFields">
+          <div class="field"><label>Pexels API key (free, 30 seconds to get: pexels.com/api)</label><input type="text" id="s-pexels" placeholder="paste your free Pexels key" autocapitalize="off" autocorrect="off" spellcheck="false"></div>
+          <div class="field"><label>Pixabay API key (free, optional second library: pixabay.com/api/docs)</label><input type="text" id="s-pixabay" placeholder="optional" autocapitalize="off" autocorrect="off" spellcheck="false"></div>
+          <label class="toggle"><span>Free AI photos with cinematic motion when no stock clip fits (Pollinations, no key)</span><input type="checkbox" id="s-pollinations"></label>
+          <p class="note">Stock clips are real filmed people and places, free for YouTube under the Pexels and Pixabay licences. Without any key, scenes get a photoreal AI image with a slow pan and zoom. Scenes with neither fall back to motion graphics; credits are added to youtube.txt.</p>
+        </div>
         <div id="falFields" hidden>
           <div class="field"><label>fal.ai API key (stored only on this phone)</label><input type="text" id="s-falkey" placeholder="key_id:key_secret" autocapitalize="off" autocorrect="off" spellcheck="false"></div>
           <div class="field"><label>Video model</label><select id="s-falmodel"></select></div>
