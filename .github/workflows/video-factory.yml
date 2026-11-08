@@ -1,0 +1,164 @@
+name: Video factory (make a video from a prompt)
+
+on:
+  workflow_dispatch:
+    inputs:
+      prompt:
+        description: 'What the video should be (topic for an explainer, or a cinematic brief; add "Maximum duration 60 seconds")'
+        required: true
+        type: string
+      style:
+        description: 'Video style'
+        type: choice
+        default: auto
+        options: [auto, explainer, cinematic]
+      aspect:
+        description: 'Aspect'
+        type: choice
+        default: 16x9
+        options: [16x9, 9x16, 1x1]
+      footage:
+        description: 'Footage: free = LTX-2.3 on Hugging Face free GPUs (then stock/photos); hf = Wan 2.2 14B via Inference Providers (credits, then billed); none = motion graphics'
+        type: choice
+        default: free
+        options: [free, hf, none]
+      max_seconds:
+        description: 'Length cap in seconds'
+        default: '60'
+        type: string
+  issues:
+    types: [opened]
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: video-factory-${{ github.run_id }}
+
+jobs:
+  make:
+    # Runs for the button, or for a new issue whose title starts with "Video:"
+    if: github.event_name == 'workflow_dispatch' || startsWith(github.event.issue.title, 'Video:')
+    runs-on: ubuntu-latest
+    timeout-minutes: 150
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Work out the request
+        id: req
+        env:
+          IN_PROMPT: ${{ github.event.inputs.prompt }}
+          ISSUE_TITLE: ${{ github.event.issue.title }}
+          ISSUE_BODY: ${{ github.event.issue.body }}
+        run: |
+          python3 - <<'PY'
+          import os, re, json
+          ev = os.environ
+          if ev.get('IN_PROMPT'):
+              prompt = ev['IN_PROMPT']; style = '${{ github.event.inputs.style }}' or 'auto'
+              aspect = '${{ github.event.inputs.aspect }}' or '16x9'; footage = '${{ github.event.inputs.footage }}' or 'free'
+              secs = '${{ github.event.inputs.max_seconds }}' or '60'
+          else:
+              body = (ev.get('ISSUE_BODY') or '').strip(); title = ev.get('ISSUE_TITLE') or ''
+              # Options may be given as lines "style: cinematic", "aspect: 9x16", "footage: hf", "seconds: 45"
+              opts = dict(re.findall(r'^(style|aspect|footage|seconds)\s*:\s*(\S+)\s*$', body, flags=re.I | re.M))
+              opts = {k.lower(): v for k, v in opts.items()}
+              prompt = re.sub(r'^(style|aspect|footage|seconds)\s*:.*$', '', body, flags=re.I | re.M).strip() or title.split(':', 1)[1].strip()
+              style = opts.get('style', 'auto'); aspect = opts.get('aspect', '16x9'); footage = opts.get('footage', 'free'); secs = opts.get('seconds', '60')
+          with open(os.environ['GITHUB_OUTPUT'], 'a') as f:
+              f.write('style=%s\naspect=%s\nfootage=%s\nsecs=%s\n' % (style, aspect, footage, secs))
+          with open('prompt.txt', 'w') as f: f.write(prompt)
+          print('PROMPT:', prompt[:300]); print('style', style, 'aspect', aspect, 'footage', footage, 'secs', secs)
+          PY
+
+      - name: Tell the issue we started
+        if: github.event_name == 'issues'
+        env: { GH_TOKEN: '${{ github.token }}' }
+        run: gh issue comment ${{ github.event.issue.number }} --body "Making your video now (run ${{ github.run_number }}). This usually takes 10–25 minutes; I will post the download links here. Progress: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+
+      - uses: actions/setup-node@v4
+        with: { node-version: '22' }
+      - name: Install the browser
+        run: |
+          cd factory && npm install --no-audit --no-fund
+          npx playwright install --with-deps chromium
+      - name: Install ffmpeg
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+
+      - name: Serve the studio
+        run: (python3 -m http.server 8765 --bind 127.0.0.1 > server.log 2>&1 &) && sleep 1 && curl -sf http://127.0.0.1:8765/studio/index.html > /dev/null
+
+      - name: Make the video
+        env:
+          PROMPT_FILE: prompt.txt
+          STYLE: ${{ steps.req.outputs.style }}
+          ASPECT: ${{ steps.req.outputs.aspect }}
+          FOOTAGE: ${{ steps.req.outputs.footage }}
+          MAX_SECONDS: ${{ steps.req.outputs.secs }}
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+          PEXELS_KEY: ${{ secrets.PEXELS_KEY }}
+          CHANNEL: ${{ vars.CHANNEL_NAME }}
+          OUT_DIR: out
+        run: |
+          export PROMPT="$(cat prompt.txt)"
+          if [ -z "$HF_TOKEN" ]; then echo "::warning::No HF_TOKEN secret: the writer falls back to a CPU model and free GPU priority is anonymous. Add it under Settings → Secrets and variables → Actions."; fi
+          node factory/run.mjs
+
+      - name: Final encode (H.264 + AAC, YouTube-ready)
+        run: |
+          set -e
+          RAW=$(ls out/video-raw.* | head -1)
+          ffmpeg -v error -y -i "$RAW" -c:v libx264 -preset medium -crf 18 -pix_fmt yuv420p -colorspace bt709 -color_primaries bt709 -color_trc bt709 -c:a aac -b:a 192k -movflags +faststart out/video.mp4
+          ffprobe -v error -show_entries format=duration,size -of compact out/video.mp4
+          TITLE=$(python3 -c "import json;print(json.load(open('out/summary.json'))['title'])")
+          SAFE=$(python3 -c "import re,json;t=json.load(open('out/summary.json'))['title'];print(re.sub(r'[^A-Za-z0-9]+','-',t).strip('-')[:60] or 'video')")
+          echo "SAFE=$SAFE" >> $GITHUB_ENV
+          echo "TITLE=$TITLE" >> $GITHUB_ENV
+          cp out/video.mp4 "out/$SAFE.mp4"; cp out/captions.srt "out/$SAFE.srt"; cp out/youtube.txt "out/$SAFE-youtube.txt"; cp out/thumbnail.jpg "out/$SAFE-thumbnail.jpg"
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: video-${{ github.run_number }}
+          path: out/
+          retention-days: 30
+
+      - name: Publish as a release (same links for 90 days)
+        id: release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: video-${{ github.run_number }}
+          name: ${{ env.TITLE }}
+          body: |
+            Prompt: ${{ github.event.inputs.prompt || github.event.issue.title }}
+
+            Files: the MP4 (H.264, YouTube-ready), captions (.srt), the YouTube title/description/tags (-youtube.txt) and a thumbnail.
+            Footage: see youtube.txt for credits. Made by the AI Video Studio factory, run ${{ github.run_number }}.
+          files: |
+            out/${{ env.SAFE }}.mp4
+            out/${{ env.SAFE }}.srt
+            out/${{ env.SAFE }}-youtube.txt
+            out/${{ env.SAFE }}-thumbnail.jpg
+          make_latest: false
+
+      - name: Post the links on the issue
+        if: github.event_name == 'issues'
+        env: { GH_TOKEN: '${{ github.token }}' }
+        run: |
+          FOOT=$(python3 -c "import json;print(json.load(open('out/summary.json')).get('footage',''))")
+          gh issue comment ${{ github.event.issue.number }} --body "Your video is ready: **${TITLE}**
+
+          - Video (MP4): ${{ github.server_url }}/${{ github.repository }}/releases/download/video-${{ github.run_number }}/${SAFE}.mp4
+          - Captions: ${{ github.server_url }}/${{ github.repository }}/releases/download/video-${{ github.run_number }}/${SAFE}.srt
+          - YouTube title/description/tags: ${{ github.server_url }}/${{ github.repository }}/releases/download/video-${{ github.run_number }}/${SAFE}-youtube.txt
+          - Thumbnail: ${{ github.server_url }}/${{ github.repository }}/releases/download/video-${{ github.run_number }}/${SAFE}-thumbnail.jpg
+
+          Footage: ${FOOT}
+
+          Open the MP4 link on your phone, save it, and upload from the YouTube app. To make another video, open a new issue whose title starts with \`Video:\`."
+
+      - name: Report a failure on the issue
+        if: failure() && github.event_name == 'issues'
+        env: { GH_TOKEN: '${{ github.token }}' }
+        run: gh issue comment ${{ github.event.issue.number }} --body "The video run failed. Log: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }} (the 'Make the video' step shows the agent room)."

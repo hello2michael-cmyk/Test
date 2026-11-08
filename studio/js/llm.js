@@ -3,7 +3,15 @@
 //  - wllama (llama.cpp in WebAssembly): works without WebGPU, slower.
 //  - mock: deterministic output for tests.
 
+export const HF_TEXT_MODELS = [
+  { id: 'hf-text:Qwen/Qwen2.5-72B-Instruct', engine: 'hf-text', model: 'Qwen/Qwen2.5-72B-Instruct', name: 'Qwen2.5 72B via Hugging Face (PRO credits, best writing, no download)', sizeMB: 0,
+    note: 'Runs on Hugging Face Inference Providers with your token. Excellent scripts and shot lists; pennies per video.' },
+  { id: 'hf-text:meta-llama/Llama-3.3-70B-Instruct', engine: 'hf-text', model: 'meta-llama/Llama-3.3-70B-Instruct', name: 'Llama 3.3 70B via Hugging Face (PRO credits)', sizeMB: 0,
+    note: 'Alternative cloud writer, same token and billing.' },
+];
+
 export const MODELS = [
+  ...HF_TEXT_MODELS,
   { id: 'Llama-3.2-1B-Instruct-q4f16_1-MLC', engine: 'webllm', name: 'Llama 3.2 1B (recommended)', sizeMB: 880,
     note: 'Best balance of writing quality and memory. Works on iPhone 13 and newer with iOS 26.' },
   { id: 'Qwen2.5-1.5B-Instruct-q4f16_1-MLC', engine: 'webllm', name: 'Qwen2.5 1.5B (better writing)', sizeMB: 1630,
@@ -23,20 +31,22 @@ export const MODELS = [
 export function hasWebGPU() { return typeof navigator !== 'undefined' && !!navigator.gpu; }
 
 export function defaultModelId() {
-  return hasWebGPU() ? MODELS[0].id : MODELS.find(m => m.engine === 'wllama').id;
+  return hasWebGPU() ? MODELS.find(m => m.engine === 'webllm').id : MODELS.find(m => m.engine === 'wllama').id;
 }
 
 export function describeModel(id) {
   const known = MODELS.find(m => m.id === id);
   if (known) return known;
+  if (String(id).startsWith('hf-text:')) return { id, engine: 'hf-text', model: id.slice(8), name: id.slice(8) + ' via Hugging Face', sizeMB: 0, note: 'Custom Hugging Face chat model id.' };
   return { id, engine: 'webllm', name: id, sizeMB: 0, family: /qwen3/i.test(id) ? 'qwen3' : undefined, note: 'Custom WebLLM model id.' };
 }
 
 const stripThink = (t) => t.replace(/<think>[\s\S]*?<\/think>/g, '').replace(/<think>[\s\S]*$/, '').trim();
 
 /** onProgress(fraction, text) */
-export async function createEngine(model, onProgress) {
+export async function createEngine(model, onProgress, settings = {}) {
   if (model.engine === 'mock') return mockEngine(model.broken);
+  if (model.engine === 'hf-text') return hfTextEngine(model, settings);
   if (model.engine === 'wllama') return wllamaEngine(model, onProgress);
   return webllmEngine(model, onProgress);
 }
@@ -91,6 +101,37 @@ async function wllamaEngine(model, onProgress) {
       return stripThink(text);
     },
     async unload() { try { await wllama.exit(); } catch {} },
+  };
+}
+
+// ---------- Hugging Face Inference Providers (OpenAI-compatible chat API, billed to the HF account) ----------
+function hfTextEngine(model, settings) {
+  const token = (settings.hfToken || '').trim();
+  if (!token) throw new Error('The Hugging Face writer needs your Hugging Face token (Studio → Footage).');
+  const base = settings.hfRouterChatBase || 'https://router.huggingface.co/v1/chat/completions';
+  return {
+    name: model.name,
+    async complete(system, user, opts = {}, onToken) {
+      const body = { model: model.model, messages: [{ role: 'system', content: system }, { role: 'user', content: user }],
+        temperature: opts.temperature ?? 0.4, top_p: 0.9, max_tokens: opts.maxTokens ?? 1200, stream: false };
+      let r;
+      for (let attempt = 0; attempt < 3; attempt++) {
+        r = await fetch(base, { method: 'POST', headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
+        if (r.status === 429 || r.status >= 500) { await new Promise(res => setTimeout(res, 3000 * (attempt + 1))); continue; }
+        break;
+      }
+      const text = await r.text();
+      if (!r.ok) {
+        if (r.status === 401) throw new Error('Hugging Face refused the token for the writer model.');
+        if (r.status === 402 || r.status === 403) throw new Error('No Hugging Face provider credits left for the writer model (Settings → Billing).');
+        throw new Error(`writer model HTTP ${r.status}: ${text.slice(0, 160)}`);
+      }
+      let j = {}; try { j = JSON.parse(text); } catch {}
+      const out = j.choices?.[0]?.message?.content || '';
+      onToken && onToken(out.slice(0, 400));
+      return stripThink(out);
+    },
+    async unload() {},
   };
 }
 

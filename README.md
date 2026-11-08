@@ -10,6 +10,30 @@ Plus, unrelated to the TV: **AI Video Studio**, an iPhone app that turns one pro
 
 Live at: https://hello2michael-cmyk.github.io/Test/
 
+## Video factory: make videos from GitHub, no app and no phone limits
+
+The same pipeline runs on GitHub's servers. You ask for a video, come back in 10–25 minutes, and download the finished MP4 with captions and YouTube text. The writing is done by a large model (Qwen2.5 72B through Hugging Face Inference Providers, pennies per video), the footage by LTX‑2.3 on free Hugging Face GPUs or Wan 2.2 14B via Inference Providers, and the voice, mix, render and encode run in a headless browser, finished with an H.264 encode for YouTube.
+
+**One-time setup (2 minutes)**
+
+1. In this repository on GitHub: **Settings → Secrets and variables → Actions → New repository secret**, name `HF_TOKEN`, value your Hugging Face token. Optional: `PEXELS_KEY` for stock footage, and a *variable* `CHANNEL_NAME` to print your channel name on every frame.
+2. That is all. Both ways of asking below work from the GitHub app on a phone.
+
+**Ask for a video, way 1: open an issue**
+
+Open a new issue whose title starts with `Video:` and put the prompt in the body. Optional lines in the body: `style: cinematic` (or explainer), `aspect: 9x16`, `footage: hf` (Wan 2.2 14B, billed) or `footage: none`, `seconds: 45`. The factory replies on the issue when it starts and again with the download links when it is done.
+
+**Ask for a video, way 2: the Actions button**
+
+Actions → *Video factory* → Run workflow → fill in the prompt and options. The result appears under Releases as `video-<run number>` and as a run artifact.
+
+**Writing the prompt**
+
+- Explainer: a topic, e.g. *"Why do large language models hallucinate? Three causes and one fix. Maximum duration 60 seconds."*
+- Cinematic: name the world and list the shots after `Shots:` (see the example in the web app section). With a shot list the writer model is not even needed.
+
+**Costs**: GitHub Actions is free for public repositories. Writer: fractions of a cent per video on Inference Providers. Footage: free with LTX‑2.3; about $0.40 per 5‑second clip with Wan 2.2 14B. Everything is credited in the YouTube text.
+
 ## AI Video Studio (web): open a link, add to Home Screen, no Mac needed
 
 **Open this on the iPhone:** https://hello2michael-cmyk.github.io/Test/studio/
