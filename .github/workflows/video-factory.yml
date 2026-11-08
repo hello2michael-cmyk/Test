@@ -138,6 +138,10 @@ jobs:
               elif prev_run: phase, feedback = 'plan', comment
               else: phase, feedback = 'plan', comment
           # The prompt carries the length ("9 minutes"); the cap input only applies when given.
+          # A lesson plan written and reviewed in Claude Code lives in the repository: render it directly, no plan round-trip.
+          if lesson and os.path.exists(f'klasse6/lessons/{lesson}/plan.json') and not feedback:
+              phase = 'all'
+              print('committed lesson plan found: rendering directly')
           if lesson and not prompt and not secs:
               secs = str(round(float((minutes or '0').replace(',', '.')) * 60 * 1.08)) if minutes else ''
           if not secs and prompt:

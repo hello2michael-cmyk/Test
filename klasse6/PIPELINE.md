@@ -35,19 +35,33 @@ Kinder dem Bild folgen können.
 - Jede Zahl im Bild muss zum Sprechertext passen (der Prüfer rechnet nach).
 - Kein Inhalt außerhalb des Lernbereichs, außer als kurzer Ausblick mit Hinweis „kommt später“.
 
-## Was im Code bereits läuft
+## So läuft es jetzt: Claude schreibt in Claude Code, die Fabrik rendert
 
-- **Eingang** `Lektion: <Thema-ID>` als Issue-Titel oder Feld im Actions-Formular (`.github/workflows/video-factory.yml`); die Themen-IDs stehen in `klasse6/LEKTIONEN.md`.
-- **Brief aus dem Lehrplan**: `factory/run.mjs` liest `klasse6/data/klasse6-bayern.json` und baut den deutschen Auftrag (Kompetenzen, Inhalte, Stunden, Grundidee); Stil `course`, keine Stock-Clips, Mindestdauer 10 s je Szene.
-- **Agenten-Regeln für Kinder** (`studio/js/lesson.js`): Deutsch, du-Form, bayerische Fachbegriffe, Reihenfolge Bild → Regel → Beispiel → Frage, mindestens 32 Wörter je Szene.
-- **Szenenart `math3d`**: der Kapitel-Autor wählt eine der acht Mathe-Szenen mit Parametern; aufeinanderfolgende Szenen mit gleicher Szene und gleichen Zahlen spielen eine durchgehende Animation (`studio/js/renderer.js`).
-- **Zweites Prüf-Modell** (`REVIEWER`, Standard Llama 3.3 70B über Hugging Face) prüft Zahlen gegen die Szenen-Parameter, Lehrplan-Rahmen und Kindersprache; blockierende Befunde (`mustFix`) gehen an den Autor zurück, höchstens zwei Korrekturrunden; Rest landet in der Liste „vor Veröffentlichung prüfen“.
-- **Deutsche Stimme**: Piper (Thorsten, 22 kHz) läuft im Fabrik-Prozess und reicht die Audiodaten in die Seite (`__factoryTTS`); Stimme per `TTS=piper:<voice>` wählbar.
-- **Plan-Freigabe** auf dem Issue wie bisher (`approve` oder Änderungswünsche).
+Der Besitzer hat ein Claude-Abo, aber keinen API-Schlüssel. Darum findet das Schreiben und Prüfen in Claude-Code-Sitzungen statt, und die
+Fabrik auf GitHub Actions braucht kein Sprachmodell mehr:
+
+1. **Autor (Claude in Claude Code)**: schreibt `klasse6/lessons/<ID>.lesson.json` aus dem Lehrplan-Thema: Kapitel, Szenen mit deutschem
+   Sprechertext (≥ 32 Wörter), Titel, Stichpunkte, 3D-Szenen mit Parametern und `segment` (welcher Abschnitt der Animation zu sehen ist).
+2. **Prüfer (zweites Claude-Modell, Sonnet-Subagent)**: rechnet jede Zahl nach, prüft Bild gegen Text je 3D-Szene, Lehrplan-Rahmen,
+   Fachbegriffe, Kindersprache; blockierende Befunde gehen an den Autor zurück. Das Ergebnis steht im Feld `review` der Lektion.
+3. **Generator** `klasse6/tools/make-plan.mjs`: erzeugt `klasse6/lessons/<ID>/plan.json` (das Format der Fabrik) und `plan.md`.
+4. **Fabrik** (`Lektion: <ID>` als Issue): findet den eingecheckten Plan, rendert mit 3D-Szenen, Piper-Stimme, Untertiteln, Kapiteln,
+   YouTube-Text; veröffentlicht als Release.
+
+Ohne eingecheckten Plan läuft weiterhin der modellgestützte Weg (Hugging Face als Autor und zweiter Prüfer, Plan zur Freigabe auf dem Issue).
+
+## Was im Code läuft
+
+- **Eingang** `Lektion: <Thema-ID>` als Issue-Titel oder Feld im Actions-Formular; Themen-IDs in `klasse6/LEKTIONEN.md`.
+- **Eingecheckte Pläne** werden direkt gerendert (Workflow erkennt `klasse6/lessons/<ID>/plan.json`).
+- **Szenenart `math3d`** mit Parametern und `segment`; aufeinanderfolgende Szenen ohne `segment` spielen eine durchgehende Animation.
+- **Deutsche Stimme**: Piper (Thorsten, 22 kHz) im Fabrik-Prozess, Audiodaten per `__factoryTTS` in die Seite.
+- **Mindestdauer** 10 s je Szene; Lektionen ohne Stock-Clips.
+- Modellgestützter Weg (Fallback): Lehrplan-Brief aus dem Syllabus, Kinderregeln für alle Agenten, zweites Prüf-Modell mit Korrekturschleife.
 
 ## Noch offen
 
-1. Bild-Prüfung: Standbilder jeder Szene an ein Vision-Modell geben (prüft, ob das Bild zur Aussage passt). Heute prüft der zweite Prüfer den Text gegen die Szenen-Parameter.
-2. 3D-Szenen für Natur und Technik (Photosynthese, Wirbeltiere, Dateisystem-Baum, Objekte und Klassen), Geschichte (Zeitleiste, Pyramide, Imperium Romanum), Deutsch/Englisch/Latein (Satzglieder, Zeitformen, Deklinationen).
-3. Deutsche Wortrate für die Zeitplanung (Piper spricht etwa 2,5 Wörter/s statt 3,1): Längenabschätzung vor der Vertonung anpassen.
+1. Bild-Prüfung der gerenderten Standbilder durch den Prüfer (heute: Text gegen Szenen-Parameter und Segment-Zeiten).
+2. 3D-Szenen für Natur und Technik, Geschichte und Sprachen.
+3. Deutsche Wortrate (2,5 Wörter/s) in der Zeitplanung des modellgestützten Wegs.
 4. Automatischer YouTube-Upload über den Token in der Umgebung.

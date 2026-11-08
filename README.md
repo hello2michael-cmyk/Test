@@ -12,28 +12,32 @@ Live at: https://hello2michael-cmyk.github.io/Test/
 
 ## Klasse 6 Bayern: ein YouTube-Video pro Lehrplan-Thema
 
-The goal is a YouTube lesson for every topic of Jahrgangsstufe 6 at a Bavarian Gymnasium, made by the video factory below from the
-official **LehrplanPLUS (G9)**, which was checked page by page against the ISB Fachlehrpläne and the Stundentafel of the
-Gymnasialschulordnung (GSO Anlage 1, valid from 1 August 2026).
+The goal is a YouTube lesson for every topic of Jahrgangsstufe 6 at a Bavarian Gymnasium, built from the official **LehrplanPLUS (G9)**,
+which was checked page by page against the ISB Fachlehrpläne and the Stundentafel of the Gymnasialschulordnung (GSO Anlage 1, valid from
+1 August 2026). `klasse6/LEKTIONEN.md` lists all 84 topics as issue titles, Mathematik first.
 
-**Make a lesson (from the GitHub app on a phone):** open an issue titled `Lektion: M6-2.2` (any topic id from
-`klasse6/LEKTIONEN.md`, 84 topics, Mathematik first). Optional line in the body: `minuten: 7`. The factory then:
+**Claude writes, Claude reviews, the factory renders.** No API key and no Hugging Face token are needed for lessons; the writing happens
+in Claude Code on your Claude subscription.
 
-1. builds the German brief from the syllabus (Kompetenzen, Inhalte, hours, a child-friendly core idea) and plans chapters;
-2. writes every scene in German for 11-year-olds, choosing ready-made **3D maths scenes** with real numbers (`math3d`: pizza fractions,
-   place-value blocks, fraction strips, the area model, the distributive law, parallelogram → rectangle, unit cubes in a cuboid, the
-   hundred-square and pie chart) and holding every scene on screen for at least 10 seconds;
-3. has a **second, different model** (Llama 3.3 70B by default, repository variable `REVIEWER_MODEL`) check the script against the 3D
-   scene parameters, the Lehrplan scope and the children's language; anything that would teach something wrong goes back to the writer,
-   up to two correction rounds, and the rest lands in the "verify before publishing" list;
-4. posts the plan on the issue for your `approve` or change requests, exactly like the long lessons below;
-5. renders the video with a **German voice** (Piper, Thorsten; variable `LESSON_TTS` to change it), burned-in captions, chapters,
-   and the YouTube text, and publishes it as a release.
+1. In a Claude Code session on this repository say, for example, *"Plane Lektion M6-1.2"*. Claude writes the lesson in German for
+   11-year-olds as `klasse6/lessons/M6-1.2.lesson.json`: chapters, scenes with narration of at least 32 words (so every scene holds ten
+   seconds or more), on-screen titles, and for the maths topics ready-made **3D scenes** with real numbers (`math3d`, with an optional
+   `segment` that plays exactly the part of the animation the narration talks about).
+2. A **second Claude model** (a Sonnet subagent) reviews the file: every number recomputed, picture against words for each 3D scene,
+   Lehrplan scope and Bavarian Fachbegriffe, children's language. Blocking findings go back to the writer until none remain; the review
+   is recorded in the lesson file.
+3. `node klasse6/tools/make-plan.mjs klasse6/lessons/M6-1.2.lesson.json` turns it into `klasse6/lessons/M6-1.2/plan.json` (the format the
+   factory renders) and a readable `plan.md`; Claude commits both.
+4. You open an issue titled `Lektion: M6-1.2` (from the GitHub app on a phone). The factory finds the committed plan and renders it with
+   the 3D scenes, a **German voice** (Piper, Thorsten), burned-in captions, chapters and the YouTube text, and posts the release links.
 
-Files: `klasse6/SYLLABUS.md` (readable syllabus with sources), `klasse6/data/klasse6-bayern.json` (the same as data; drives the factory),
-`klasse6/LEKTIONEN.md` (the queue: one issue title per video), `klasse6/js/mathscenes.js` and `engine3d.js` (the deterministic 3D scenes,
-also used by the renderer), `klasse6/PIPELINE.md` (the agent design and what is still missing), `klasse6/index.html` (a preview page to
-watch and tune every 3D scene with sliders; not the product, but handy for checking a scene before it goes into a video).
+Without a committed plan, `Lektion: <id>` falls back to the model-driven path below (writer and second reviewer through Hugging Face
+Inference Providers, plan posted for approval), which needs the `HF_TOKEN` secret.
+
+Files: `klasse6/SYLLABUS.md` (readable syllabus with sources), `klasse6/data/klasse6-bayern.json` (the same as data), `klasse6/LEKTIONEN.md`
+(the queue), `klasse6/lessons/` (authored lessons and their plans), `klasse6/tools/make-plan.mjs` (lesson → plan), `klasse6/js/mathscenes.js`
+and `engine3d.js` (the deterministic 3D scenes, shared with the renderer), `klasse6/PIPELINE.md` (the design and what is still missing),
+`klasse6/index.html` (a preview page to watch and tune every 3D scene with sliders before it goes into a video).
 
 Geographie is not taught in Jahrgangsstufe 6 under the G9 Stundentafel (it is in Jgst. 5 and 7); Geschichte starts in Jgst. 6; the second
 foreign language (Latein or Französisch) starts in Jgst. 6.

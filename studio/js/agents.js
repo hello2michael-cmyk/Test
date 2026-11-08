@@ -631,7 +631,7 @@ Each scene is about ${wordsPerBeat} words (hard limit ${wordsPerBeat + 12}).
 
 Visual kinds and when to use them:
 - "scene3d": an animated 3D model of a structure or process; set "model" to one of network (things connected to each other), pipeline (steps in order, loops), hub (one centre with many connections, e.g. connectors or tools), stack (layers), orbit (a core with capabilities around it), grid (a set of options or skills); give 2-6 "labels" of 1-3 words. Use this for at least two scenes per chapter.${this.settings.lesson ? `
-- "math3d": a ready-made animated 3D maths explanation with real numbers. Set "scene" to one of the ids below and "params" to the numbers your narration uses; consecutive scenes with the same scene and params play ONE continuous animation, so spread one explanation over two or three scenes and narrate what the picture shows. Prefer math3d for every scene that explains the maths itself (at least two per chapter when a scene fits the topic).
+- "math3d": a ready-made animated 3D maths explanation with real numbers. Set "scene" to one of the ids below and "params" to the numbers your narration uses; consecutive scenes with the same scene and params play ONE continuous animation, so spread one explanation over two or three scenes and narrate what the picture shows; or give "segment": [from, to] in seconds of the scene's own timeline to show exactly one part of it. Prefer math3d for every scene that explains the maths itself (at least two per chapter when a scene fits the topic).
   Scenes: ${sceneCatalog().join(' | ')}` : ''}
 - "footage": a full-frame cinematic live-action clip for a human, real-world moment; give "shot" (one sentence: subject, action, setting, camera) and "stockQuery" (2-4 search words). At most one per chapter.
 - "bullets" (2-4 items up to 7 words), "diagram" (3-5 nodes of 1-3 words, flat flow), "comparison" (X vs Y, up to 3 items a side), "stat" (only a number you are certain of), "code" (rarely, 3-6 short lines), "quote" (rarely).
@@ -662,7 +662,7 @@ Set "hero": true on the one scene of this chapter that most deserves real live-a
       narration: spoken(String(b.narration || ''), wordsPerBeat + 12),
       onScreenTitle: clip(String(b.onScreenTitle || headlineFrom(b.narration || chapter.title)), 6),
       emphasisWords: Array.isArray(b.emphasisWords) ? b.emphasisWords.map(String).slice(0, 3) : [],
-      kind: String(b.kind || 'bullets'), model: b.model, labels: b.labels, scene: b.scene, params: b.params, bullets: b.bullets, nodes: b.nodes,
+      kind: String(b.kind || 'bullets'), model: b.model, labels: b.labels, scene: b.scene, params: b.params, segment: b.segment, bullets: b.bullets, nodes: b.nodes,
       leftTitle: b.leftTitle, leftItems: b.leftItems, rightTitle: b.rightTitle, rightItems: b.rightItems,
       statValue: b.statValue, statLabel: b.statLabel, code: b.code, codeLanguage: b.codeLanguage, quote: b.quote, attribution: b.attribution,
       hero: !!b.hero, shot: b.shot ? String(b.shot) : null, stockQuery: b.stockQuery ? String(b.stockQuery) : null,
@@ -985,6 +985,7 @@ export function sanitise(v, script) {
     model: MODELS_3D.includes(v.model) ? v.model : null,
     labels: list(v.labels, 6, 3),
     scene: MATH_SCENE_IDS.includes(v.scene) ? v.scene : null, params: null,
+    segment: Array.isArray(v.segment) && v.segment.length === 2 && v.segment.every(x => Number.isFinite(Number(x))) ? [Number(v.segment[0]), Number(v.segment[1])] : null,
     hero: !!v.hero,
     chapterId: v.chapterId != null ? Number(v.chapterId) : (script.chapterId != null ? Number(script.chapterId) : null),
   };

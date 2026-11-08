@@ -36,7 +36,7 @@ import path from 'node:path';
 import { execSync, execFileSync } from 'node:child_process';
 
 const env = (k, d) => (process.env[k] && process.env[k].trim()) || d;
-const phase = env('PHASE', 'all');
+let phase = env('PHASE', 'all');
 const feedback = env('FEEDBACK', '');
 const planFile = env('PLAN_FILE', '');
 let inputPlan = null;
@@ -53,6 +53,16 @@ if (lessonId) {
   const data = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'klasse6/data/klasse6-bayern.json'), 'utf8'));
   for (const subject of data.subjects) for (const lb of subject.lernbereiche) for (const topic of lb.topics) if (topic.id.toLowerCase() === lessonId.toLowerCase()) lesson = { subject, lb, topic };
   if (!lesson) { console.error(`LESSON "${lessonId}" is not a topic id in klasse6/data/klasse6-bayern.json (see klasse6/LEKTIONEN.md)`); process.exit(2); }
+  // A lesson written and reviewed by Claude in a Claude Code session is committed as klasse6/lessons/<id>/plan.json:
+  // it is rendered as it is, so no writer model (and no key) is needed in the factory.
+  const committed = path.join(process.cwd(), 'klasse6', 'lessons', lesson.topic.id, 'plan.json');
+  if (!inputPlan && !feedback && fs.existsSync(committed)) {
+    inputPlan = JSON.parse(fs.readFileSync(committed, 'utf8'));
+    if (inputPlan.plan) inputPlan = inputPlan.plan;
+    prompt = inputPlan.prompt || prompt;
+    phase = 'video';
+    console.log(`[factory] using the committed lesson plan ${path.relative(process.cwd(), committed)} (written and reviewed in Claude Code)`);
+  }
   if (!prompt) prompt = lessonPrompt(lesson, parseFloat(env('MINUTES', String(lesson.topic.videoMinutes || 6))));
 }
 function lessonPrompt({ subject, lb, topic }, minutes) {
@@ -101,6 +111,7 @@ if (lesson) {
   settings.videoStyle = 'course';
   settings.targetDuration = Math.round(minutes * 60); settings.maxDuration = Math.min(600, Math.round(minutes * 60 * 1.08));
   settings.lesson = { id: lesson.topic.id, title: lesson.topic.title, subject: lesson.subject.name, scene: lesson.subject.id === 'mathematik' && lesson.topic.scene ? lesson.topic.scene : null, minWords: 32 };
+  if (inputPlan && inputPlan.settings) { if (inputPlan.settings.targetDuration) settings.targetDuration = inputPlan.settings.targetDuration; if (inputPlan.settings.maxDuration) settings.maxDuration = inputPlan.settings.maxDuration; }
   settings.footageProvider = env('FOOTAGE', 'none');          // lessons are 3D scenes and graphics; no stock clips of offices
   settings.aiClipBudget = parseInt(env('AI_CLIPS', '0'), 10);
   settings.cta = env('CTA', 'Abonniere für die nächste Lektion');

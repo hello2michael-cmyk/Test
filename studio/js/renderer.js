@@ -257,13 +257,20 @@ export class Renderer {
   math3d(v, local, scene) {
     const def = MATH_SCENES[v.scene];
     if (!def) return this.bullets({ ...v, bullets: v.bullets && v.bullets.length ? v.bullets : [v.title] }, local);
-    const key = v.scene + JSON.stringify(v.params || {});
-    const same = sc => sc && sc.visual && sc.visual.kind === 'math3d' && sc.visual.scene + JSON.stringify(sc.visual.params || {}) === key;
-    const all = this.plan.scenes; let i0 = this.sceneIndex, i1 = this.sceneIndex;
-    while (i0 > 0 && same(all[i0 - 1])) i0--;
-    while (i1 < all.length - 1 && same(all[i1 + 1])) i1++;
-    const start = all[i0].start, span = Math.max(0.1, all[i1].start + all[i1].duration - start);
-    const t = Math.max(0, ((scene.start + local - start) / span) * def.duration * 0.985);
+    let t;
+    if (v.segment) {
+      // An exact slice of the animation's own timeline, stretched over this scene.
+      const [a, b] = v.segment;
+      t = Math.max(0, Math.min(def.duration, a + (local / Math.max(0.1, scene.duration)) * (b - a) * 0.985));
+    } else {
+      const key = v.scene + JSON.stringify(v.params || {});
+      const same = sc => sc && sc.visual && sc.visual.kind === 'math3d' && !sc.visual.segment && sc.visual.scene + JSON.stringify(sc.visual.params || {}) === key;
+      const all = this.plan.scenes; let i0 = this.sceneIndex, i1 = this.sceneIndex;
+      while (i0 > 0 && same(all[i0 - 1])) i0--;
+      while (i1 < all.length - 1 && same(all[i1 + 1])) i1++;
+      const start = all[i0].start, span = Math.max(0.1, all[i1].start + all[i1].duration - start);
+      t = Math.max(0, ((scene.start + local - start) / span) * def.duration * 0.985);
+    }
     const cam = def.camera || {};
     const S = new MathScene(this.ctx, this.w, this.h, this.theme, { ...cam, cy: this.h * (this.portrait ? 0.5 : 0.58) });
     def.draw(S, t, v.params || {});
