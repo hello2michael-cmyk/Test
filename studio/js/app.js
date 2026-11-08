@@ -1,5 +1,5 @@
 // UI + production run. Everything happens in this browser tab.
-import { Team, promptTopic } from './agents.js';
+import { Team, promptTopic, detectMode, parseDurationSeconds, wantsVoice } from './agents.js';
 import * as T from './timing.js';
 import { MODELS, hasWebGPU, defaultModelId, describeModel, createEngine } from './llm.js';
 import { loadTTS, synthesize, isLoaded as ttsLoaded } from './tts.js';
@@ -71,6 +71,9 @@ function showTab(name) {
 // ---------- create tab ----------
 for (const s of SAMPLES) { const b = document.createElement('button'); b.textContent = s; b.onclick = () => { $('prompt').value = s; }; $('chips').appendChild(b); }
 $('generate').onclick = () => start();
+$('style').value = settings.videoStyle || 'auto';
+$('style').onchange = () => { settings.videoStyle = $('style').value; saveSettings(settings); renderSummary(); };
+$('prompt').addEventListener('input', () => renderSummary());
 $('cancel').onclick = () => { cancelled = true; log('Studio', 'warning', 'Cancelling…'); };
 renderSummary();
 
@@ -79,6 +82,9 @@ function renderSummary() {
   $('tokenBanner').hidden = !needsToken;
   const m = describeModel(settings.modelId);
   const [w, h] = canvasSize(settings);
+  const mode = detectMode($('prompt').value, settings.videoStyle || 'auto');
+  const asked = parseDurationSeconds($('prompt').value);
+  $('styleHint').textContent = ($('prompt').value.trim() ? (mode === 'cinematic' ? 'Reads as a cinematic piece: one consistent world, full-frame shots, ' + (wantsVoice($('prompt').value) ? 'short voice-over.' : 'music only, no narration.') : 'Reads as an explainer: narrated lesson with titles and captions.') : '') + (asked ? ` Length from your prompt: ${asked} s.` : '');
   $('summary').innerHTML = `Model: <b>${esc(m.name)}</b> · ${esc(aspectLabel())} · ${w}×${h} · ${settings.fps} fps · ${esc(settings.theme)}<br>` +
     `Up to ${settings.maxDuration} s, aiming for ${settings.targetDuration} s · voice: ${esc((VOICES.find(v => v[0] === settings.voice) || [0, settings.voice])[1])}<br>` +
     `Footage: <b>${settings.footageProvider === 'fal' ? esc((FOOTAGE_MODELS.find(m => m.id === settings.falModel) || FOOTAGE_MODELS[0]).name) + (settings.falKey ? '' : ' · <span class="warn">no API key yet</span>')
@@ -196,6 +202,12 @@ function checkCancel() { if (cancelled) throw new Error('Cancelled'); }
 async function produce(prompt, resume) {
   const cp = resume || { id: 'current', prompt, settings: { ...settings }, attempts: 0, createdAt: Date.now() };
   const s = cp.settings;
+  // The creator's words decide the kind of video and its length cap.
+  cp.mode = cp.mode || detectMode(prompt, s.videoStyle || 'auto');
+  const askedSeconds = parseDurationSeconds(prompt);
+  if (askedSeconds && !cp.durationApplied) { s.maxDuration = Math.min(s.maxDuration, askedSeconds); s.targetDuration = Math.min(s.targetDuration, s.maxDuration - 4); cp.durationApplied = true; }
+  const cinematic = cp.mode === 'cinematic';
+  if (cinematic) { s.burnInCaptions = false; s.showProgressBar = false; if (!cp.cineConfigured) { s.footageScope = 'all'; cp.cineConfigured = true; } }
   if (params.get('footage') === 'mock' || params.get('footage') === 'mockimage') s.footageProvider = params.get('footage');
   if (params.get('space')) { s.footageProvider = 'free'; s.aiVideoSpace = params.get('space'); s.aiVideoEnabled = true; s.pexelsKey = ''; s.pixabayKey = ''; s.allowPollinations = params.get('nopoll') !== '1'; }
   const [width, height] = canvasSize(s);
@@ -218,6 +230,32 @@ async function produce(prompt, resume) {
     const sceneCount = T.sceneCountFor(s.targetDuration);
     const budget = () => T.wordBudget(s.targetDuration, cp.brief.outline.length);
 
+    if (cinematic) {
+      // ---- Cinematic pipeline: world bible + shot list, music-first, optional voice-over ----
+      const shotSeconds = Math.min(8.5, Math.max(7, s.footageDuration || 6));   // 7-second shots: 8 clips for a 60-second piece
+      const shotCount = Math.max(3, Math.min(10, Math.floor(s.maxDuration / shotSeconds)));
+      if (!cp.brief) { progress('Planning', 0.2); log('Studio', 'info', `This reads as a cinematic brief, not a lesson: planning ${shotCount} shots with one consistent world, ${wantsVoice(prompt) ? 'a short voice-over' : 'music only'}.`); cp.brief = await team.directorCinematic(prompt, shotCount, shotSeconds); await save('brief'); }
+      checkCancel();
+      if (!cp.script) { progress('Writing', 0.3); cp.script = await team.scriptwriterCinematic(cp.brief, wantsVoice(prompt)); await save('script'); }
+      checkCancel();
+      if (!cp.review) { cp.review = { approved: true, issues: [], claimsToVerify: [], revisedNarration: {} }; await save('review'); }
+      if (!cp.storyboard) { progress('Designing', 0.3); cp.storyboard = team.designerCinematic(cp.brief); await save('storyboard'); }
+      checkCancel();
+      if (!cp.publish) {
+        progress('Metadata', 0.2);
+        const b = cp.brief;
+        const words = `${b.title} ${b.logline}`.toLowerCase().replace(/[^\w\s]/g, '').split(/\s+/).filter(w => w.length > 3);
+        cp.publish = {
+          title: b.title.slice(0, 100),
+          description: `${b.logline}\n\n${[b.bible.character, b.bible.props, b.bible.setting].filter(Boolean).join(' ')}\n\nA cinematic short made with AI Video Studio.`,
+          tags: [...new Set([...words.slice(0, 8), 'cinematic', 'ai video', 'short film', 'aesthetic'])].slice(0, 15),
+          chapters: [], thumbnailText: clipWords(b.title, 3).toUpperCase(), pinnedComment: 'Which shot was your favourite?',
+        };
+        log('Publisher', 'success', `Title: “${cp.publish.title}”`);
+        await save('publish');
+      }
+      if (!MOCK && eng) { await eng.unload(); engine = null; engineModelId = null; $('engineStatus').textContent = 'Model unloaded to free memory; it reloads from cache on the next run.'; await new Promise(r => setTimeout(r, 400)); }
+    } else {
     if (!cp.brief) { progress('Planning', 0.2); cp.brief = await team.director(prompt, sceneCount); await save('brief'); }
     checkCancel();
     if (!cp.script) {
@@ -247,8 +285,20 @@ async function produce(prompt, resume) {
     if (removed) { log('Producer', 'warning', `Script estimated over the ${s.maxDuration} s cap; dropped ${removed} sentence(s) from the wordiest beats.`); await save('publish'); }
     // Free the language model before anything else heavy is loaded.
     if (!MOCK && eng) { await eng.unload(); engine = null; engineModelId = null; $('engineStatus').textContent = 'Model unloaded to free memory; it reloads from cache on the next run.'; await new Promise(r => setTimeout(r, 400)); }
+    }
   } else {
     log('Studio', 'info', 'Script, storyboard and metadata restored from the saved run.');
+  }
+
+  // ---------- Shot review: the creator reads and edits every shot prompt before any GPU time is spent ----------
+  const footageWanted = s.footageProvider && s.footageProvider !== 'none';
+  if (footageWanted && s.reviewShots !== false && !cp.shotsApproved && !params.get('autoapprove')) {
+    progress('Designing', 1, 'waiting for your approval');
+    await save('shots');
+    const edited = await reviewShots(cp);
+    for (const v of cp.storyboard.scenes) if (edited[v.beatId] !== undefined) v.shot = edited[v.beatId];
+    cp.shotsApproved = true; await save('shots');
+    log('Studio', 'success', 'Shot list approved.');
   }
 
   // ---------- Footage phase (cloud video model, optional) ----------
@@ -320,7 +370,9 @@ async function produce(prompt, resume) {
   progress('Mixing', 0.3);
   let music = null;
   if (s.musicName) { const blob = await store.getMusic(s.musicName); if (blob) { try { music = await decodeMusic(blob); } catch { log('Audio', 'warning', 'Could not decode the music file; continuing without it.'); } } }
-  const audioBuffer = await mix(scenes, total, music, { musicVolume: s.musicVolume, ambientBed: s.ambientBed });
+  const spoken = scenes.some(sc => sc.script.narration && sc.script.narration.trim());
+  const audioBuffer = await mix(scenes, total, music, { musicVolume: spoken ? s.musicVolume : Math.max(s.musicVolume, 0.6), ambientBed: s.ambientBed || !spoken });
+  if (!spoken) log('Audio', 'info', music ? 'Music-only soundtrack.' : 'No music file set: using the generated ambient bed. Import a track in Studio → Music for a real soundtrack.');
   log('Audio', 'success', 'Narration mixed' + (music ? ' with music under ducking.' : '.'));
   checkCancel();
 
@@ -397,7 +449,8 @@ async function narrate(cp, s, useMockTTS, save) {
     checkCancel();
     progress('Narrating', i / n, `${i + 1}/${n}`);
     let a;
-    if (useMockTTS) a = mockAudio(sc.narration);
+    if (!sc.narration || !sc.narration.trim()) a = silentSeconds(Math.max(T.MIN_SCENE, s.footageDuration || 6) - T.LEAD_IN - T.TAIL);
+    else if (useMockTTS) a = mockAudio(sc.narration);
     else if (cp.silent) a = silentAudio(sc.narration, s.speed * cp.speedMult);
     else {
       try { a = await synthesize(sc.narration, s.voice, s.speed * cp.speedMult); }
@@ -419,6 +472,11 @@ async function narrate(cp, s, useMockTTS, save) {
   return { scenes, total };
 }
 
+function silentSeconds(seconds) {
+  const sampleRate = 24000, duration = Math.max(0.5, seconds);
+  return { samples: new Float32Array(Math.floor(duration * sampleRate)), sampleRate, duration };
+}
+
 function silentAudio(text, speed = 1) {
   const sampleRate = 24000, duration = Math.max(1.2, T.wordCount(text) / (T.WORDS_PER_SECOND * speed));
   return { samples: new Float32Array(Math.floor(duration * sampleRate)), sampleRate, duration };
@@ -431,13 +489,32 @@ function mockAudio(text) {
   return { samples, sampleRate, duration };
 }
 
+// ---------- shot review UI ----------
+function reviewShots(cp) {
+  return new Promise((resolve) => {
+    const card = $('reviewCard'); card.hidden = false;
+    const b = cp.brief.bible;
+    $('reviewWorld').innerHTML = b ? `<b>World (used in every shot):</b> ${esc([b.character, b.props, b.setting, b.palette].filter(Boolean).join(' '))}` : '';
+    $('reviewList').innerHTML = cp.storyboard.scenes.map(v => `<div class="field"><label>Shot ${v.beatId}${v.title ? ' · ' + esc(v.title) : ''}</label><textarea data-beat="${v.beatId}" style="min-height:70px">${esc(v.shot || '')}</textarea></div>`).join('');
+    card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    const finish = () => {
+      const edited = {};
+      card.querySelectorAll('textarea[data-beat]').forEach(t => { edited[parseInt(t.dataset.beat, 10)] = t.value.trim(); });
+      card.hidden = true; resolve(edited);
+    };
+    $('reviewGo').onclick = finish;
+    $('reviewSkip').onclick = () => { settings.reviewShots = false; saveSettings(settings); finish(); };
+  });
+}
+function clipWords(s, n) { return String(s || '').split(/\s+/).slice(0, n).join(' '); }
+
 // ---------- resume after an interrupted run ----------
 async function checkInterruptedRun() {
   let run = null;
   try { run = await store.getRun(); } catch {}
   if (!run || !run.stage) return;
   const card = $('resumeCard'); card.hidden = false;
-  const stageLabel = { start: 'the start', brief: 'the plan', script: 'the script', review: 'the review', storyboard: 'the storyboard', publish: 'the YouTube text', footage: 'the footage', narration: 'the narration', render: 'the render' }[run.stage] || run.stage;
+  const stageLabel = { start: 'the start', brief: 'the plan', script: 'the script', review: 'the review', storyboard: 'the storyboard', publish: 'the YouTube text', shots: 'the shot review', footage: 'the footage', narration: 'the narration', render: 'the render' }[run.stage] || run.stage;
   $('resumeText').textContent = `A previous run (“${run.prompt.slice(0, 60)}”) was interrupted after ${stageLabel}. This usually means Safari reloaded the page to free memory. Your progress is saved.`;
   const lighter = run.attempts >= 2;
   $('resumeLighter').hidden = !lighter;
@@ -579,6 +656,7 @@ function renderSettings() {
   $('s-space').onchange = () => { const v = $('s-space').value; $('s-spacecustom').hidden = v !== 'custom'; if (v !== 'custom') { settings.aiVideoSpace = v; saveSettings(settings); renderSummary(); } };
   $('s-spacecustom').oninput = () => { settings.aiVideoSpace = $('s-spacecustom').value.trim(); saveSettings(settings); renderSummary(); };
   bind('s-aivideo', 'aiVideoEnabled'); bind('s-hftoken', 'hfToken'); bind('s-patience', 'footagePatienceMin', v => parseInt(v, 10));
+  bind('s-review', 'reviewShots');
   $('testAI').onclick = async () => {
     const btn = $('testAI'); btn.disabled = true; $('testAIStatus').textContent = 'Starting…';
     try {

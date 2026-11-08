@@ -108,6 +108,10 @@ function mockEngine(broken = false) {
         else if (/ideal viewer/i.test(user)) out = 'curious beginners';
         else if (/description/i.test(user)) out = 'A one-minute explainer of attention. You will learn what it does and why it matters.';
         else out = 'Attention is the model deciding which earlier words matter most right now.';
+      } else if (system.includes('DIRECTOR of a short cinematic video')) {
+        const n = parseInt((user.match(/Write exactly (\d+) shots/) || [0, 6])[1], 10);
+        const shots = []; for (let i = 1; i <= n; i++) shots.push({ id: i, action: `Shot ${i}: the man drives through bright city streets, tapping the dashboard screen and smiling.`, camera: i % 2 ? 'slow dolly from the passenger seat' : 'tracking shot from outside the car' });
+        out = json({ title: 'City Drive at Golden Hour', logline: 'A man enjoys music while driving through a colourful city.', bible: { character: 'A man in his early thirties, short dark hair, light stubble, mustard jacket over a white tee.', props: 'A teal vintage-style coupe with cream leather seats and a large glowing centre touchscreen.', setting: 'Downtown avenues at golden hour, light traffic, warm sun flares and neon signs starting to glow.', palette: 'Warm amber, teal and magenta, saturated and pleasant.', lens: '35mm anamorphic, shallow depth of field, smooth motion' }, shots });
       } else if (broken) {
         out = 'Sure! Here is the plan:\n{"title": "Oops", "outline": []}';
       } else if (system.includes('DIRECTOR')) {

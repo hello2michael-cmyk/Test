@@ -25,6 +25,8 @@ const DEFAULTS = {
   footageProvider: 'free',      // 'none' (motion graphics) | 'free' (stock video + free AI stills) | 'fal' (paid generated video)
   pexelsKey: '', pixabayKey: '', allowPollinations: true,
   aiVideoEnabled: true, aiVideoSpace: 'Lightricks/ltx-video-distilled', hfToken: '', footagePatienceMin: 12,
+  videoStyle: 'auto',           // 'auto' | 'explainer' | 'cinematic'
+  reviewShots: true,            // pause to let the creator edit shot prompts before footage is generated
   falKey: '', falModel: 'ltx2-fast', falEndpoint: '', falExtra: '', footageDuration: 6, footageScope: 'all',
 };
 
