@@ -55,6 +55,20 @@ const page = await browser.newPage({ viewport: { width: 1280, height: 2200 } });
 page.on('pageerror', e => console.log('[page error]', e.message));
 page.on('console', m => { if (m.type() === 'error' && !/ERR_|favicon/.test(m.text())) console.log('[console]', m.text().slice(0, 300)); });
 
+// Model files (Kokoro voice, tokenizers) come from huggingface.co. Browsers on CI runners sometimes trip over the
+// Hub's redirect + CORS dance (we saw HTTP 405), so fetch those files from Node, which follows redirects freely,
+// and hand them to the page with permissive CORS headers. Everything else goes straight through.
+await page.route(/^https:\/\/huggingface\.co\/.*\/resolve\//, async (route) => {
+  const req = route.request();
+  try {
+    const r = await fetch(req.url(), { method: req.method() === 'HEAD' ? 'HEAD' : 'GET', redirect: 'follow' });
+    const body = req.method() === 'HEAD' ? undefined : Buffer.from(await r.arrayBuffer());
+    const headers = { 'access-control-allow-origin': '*', 'content-type': r.headers.get('content-type') || 'application/octet-stream' };
+    if (r.headers.get('content-length')) headers['content-length'] = r.headers.get('content-length');
+    await route.fulfill({ status: r.status, headers, body });
+  } catch (e) { console.log('[factory] hub fetch failed', req.url().slice(0, 120), e.message); await route.abort(); }
+});
+
 const url = `${studioUrl}?factory=1&autoapprove=1${extra ? '&' + extra : ''}`;
 await page.goto(url, { waitUntil: 'domcontentloaded' });
 await page.waitForSelector('#generate', { timeout: 60_000 });
