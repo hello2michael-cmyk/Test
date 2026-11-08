@@ -81,6 +81,31 @@ export async function generateFootage(jobs, settings, { log, onUpdate, checkCanc
 }
 
 // ---------- Free AI video: Gradio API of a Hugging Face Space or your own server ----------
+/** For a Hugging Face Space id, ask the Hub what state it is in (building, running, sleeping, build error…). */
+export async function spaceStatus(spaceOrUrl) {
+  const v = String(spaceOrUrl || '').trim();
+  if (!/^[\w.-]+\/[\w.-]+$/.test(v)) return null;
+  try {
+    const r = await fetch(`https://huggingface.co/api/spaces/${v}/runtime`);
+    if (!r.ok) return { stage: r.status === 404 ? 'NOT_FOUND' : `HTTP_${r.status}` };
+    const j = await r.json();
+    return { stage: j.stage || 'UNKNOWN', hardware: j.hardware && (j.hardware.current || j.hardware.requested), error: j.errorMessage ? String(j.errorMessage).split('\n')[0].slice(0, 200) : null };
+  } catch { return null; }
+}
+
+export function describeStage(st) {
+  if (!st) return '';
+  const s = st.stage;
+  if (s === 'RUNNING') return 'The Space is running.';
+  if (s === 'BUILDING' || s === 'RUNNING_BUILDING') return 'The Space is still building (first build takes 5–15 minutes).';
+  if (s === 'SLEEPING' || s === 'PAUSED') return 'The Space is asleep or paused; opening its page on huggingface.co wakes it.';
+  if (s === 'BUILD_ERROR') return `The Space failed to build${st.error ? ` (${st.error})` : ''}. Use “Factory rebuild” in the Space settings, or switch the generator back to the official Lightricks Space.`;
+  if (s === 'RUNTIME_ERROR') return 'The Space crashed at start-up; restart it from its settings page.';
+  if (s === 'NOT_FOUND') return 'No Space with this id exists (check the spelling, it is case-sensitive).';
+  if (s === 'APP_STARTING') return 'The Space is starting; try again in a minute.';
+  return `The Space reports state ${s}.`;
+}
+
 export function gradioRoot(spaceOrUrl) {
   const v = String(spaceOrUrl || '').trim().replace(/\/+$/, '');
   if (/^https?:\/\//i.test(v)) return v;
@@ -117,6 +142,7 @@ async function fromGradio(jobs, s, results, errors, update, checkCancel, log) {
   const negative = 'text, captions, subtitles, logos, watermark, worst quality, inconsistent motion, blurry, jittery, distorted';
   const started = Date.now();
   let quotaHit = false, offline = false;
+  const statusCache = new Map();
   const tier = () => LTX_TIERS[Math.min(ltxTierIndex, LTX_TIERS.length - 1)];
   const dimsFor = (t) => ltxDims(s.aspect, t.w, t.h);
 
@@ -134,6 +160,12 @@ async function fromGradio(jobs, s, results, errors, update, checkCancel, log) {
         const root = gradioRoot(spaceId);
         if (!root) continue;
         const preset = presetOf(spaceId);
+        if (!statusCache.has(spaceId)) statusCache.set(spaceId, await spaceStatus(spaceId));
+        const st = statusCache.get(spaceId);
+        if (st && st.stage && st.stage !== 'RUNNING' && st.stage !== 'UNKNOWN' && !/^HTTP_/.test(st.stage)) {
+          if (!statusCache.get(spaceId + ':logged')) { log && log('Footage', 'warning', `${spaceId}: ${describeStage(st)}`); statusCache.set(spaceId + ':logged', true); }
+          if (st.stage === 'BUILD_ERROR' || st.stage === 'NOT_FOUND' || st.stage === 'RUNTIME_ERROR') continue;   // hopeless for this run
+        }
         let again = true;
         while (again && !done) {
         again = false;
@@ -218,6 +250,10 @@ export async function testAIVideo(s, onStatus) {
     return { ok: true, message: `Real AI video works: ${(blob.size / 1024).toFixed(0)} KB clip in ${Math.round((Date.now() - t0) / 1000)} s from ${root}.`, blob };
   } catch (e) {
     const m = String(e.message || e);
+    if (/HTTP 50[23]|network|Failed to fetch|Load failed|config unavailable/i.test(m)) {
+      const st = await spaceStatus(s.aiVideoSpace);
+      if (st && st.stage !== 'RUNNING') return { ok: false, message: `Failed: ${m.slice(0, 80)}. ${describeStage(st)}` };
+    }
     const hint = isQuotaError(m) ? (headers.Authorization ? ' Your daily free GPU quota is used up; it resets daily, or use the Colab server for unlimited clips.' : ' This is the free-GPU quota check: add a FREE Hugging Face token above and test again.')
       : /network|Failed to fetch|Load failed/i.test(m) ? ' The browser could not reach the Space (offline, blocked network, or the Space is restarting).'
       : m === 'null' ? ' The Space crashed on this job without giving a reason (it hides error details). Wait a minute and test again; if it keeps failing, the Space itself is unhealthy right now and the other LTX Space or the Colab server will be used.' : '';
