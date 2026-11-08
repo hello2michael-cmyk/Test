@@ -21,9 +21,18 @@ export const FOOTAGE_MODELS = [
 ];
 /** Free text-to-video generators: public Hugging Face Spaces (free GPUs) or your own Gradio server (e.g. Colab). */
 export const FREE_VIDEO_SPACES = [
-  { id: 'Lightricks/ltx-video-distilled', name: 'LTX-Video 13B distilled (official Lightricks Space, free GPU)', api: 'text_to_video', preset: 'ltx' },
-  { id: 'DeepRat/LTX-Video-ZeroGPU-Optimized', name: 'LTX-Video optimised (community Space)', api: null, preset: 'auto' },
+  { id: 'Lightricks/LTX-2-3', name: 'LTX-2.3 22B distilled (official, newest, best quality, free GPU)', api: 'generate_video', preset: 'ltx23' },
+  { id: 'linoyts/LTX-2-3-sync', name: 'LTX-2.3 mirror (same model, second queue)', api: 'generate_video', preset: 'ltx23' },
+  { id: 'Lightricks/ltx-video-distilled', name: 'LTX-Video 0.9.8 13B distilled (older, smaller clips)', api: 'text_to_video', preset: 'ltx' },
+  { id: 'DeepRat/LTX-Video-ZeroGPU-Optimized', name: 'LTX-Video 0.9.8 optimised (community Space)', api: null, preset: 'auto' },
   { id: 'custom', name: 'Custom Space id or Gradio URL (e.g. your Colab server)', api: null, preset: 'auto' },
+];
+
+/** Hugging Face Inference Providers (PRO includes monthly credits; beyond them each clip is billed at provider cost). */
+export const HF_PROVIDER_MODELS = [
+  { id: 'Wan-AI/Wan2.2-T2V-A14B', name: 'Wan 2.2 14B · 720p (highest quality, ≈ $0.40 per 5 s clip)', input: (p, a) => ({ prompt: p, aspect_ratio: a, resolution: '720p', enable_prompt_expansion: false }) },
+  { id: 'Wan-AI/Wan2.2-TI2V-5B', name: 'Wan 2.2 5B · 720p (very good, ≈ $0.10 per clip)', input: (p, a) => ({ prompt: p, aspect_ratio: a, resolution: '720p', enable_prompt_expansion: false }) },
+  { id: 'tencent/HunyuanVideo-1.5', name: 'HunyuanVideo 1.5 · 720p (≈ $0.20 per clip)', input: (p, a) => ({ prompt: p, aspect_ratio: a, resolution: '720p' }) },
 ];
 
 export const FOOTAGE_COST = { 'ltx2-fast': 0.04, ltx2: 0.12, wan22: 0.08, kling25: 0.35, veo31fast: 0.80, hailuo02: 0.28, custom: null };
@@ -61,7 +70,9 @@ export async function generateFootage(jobs, settings, { log, onUpdate, checkCanc
     return { results, errors };
   }
 
-  const chain = provider === 'fal' ? ['fal', 'gradio', 'pexels', 'pixabay', 'pollinations'] : ['gradio', 'pexels', 'pixabay', 'pollinations'];
+  const chain = provider === 'fal' ? ['fal', 'gradio', 'pexels', 'pixabay', 'pollinations']
+    : provider === 'hf' ? ['hf', 'gradio', 'pexels', 'pixabay', 'pollinations']
+    : ['gradio', 'pexels', 'pixabay', 'pollinations'];
   for (const source of chain) {
     const todo = pending();
     if (!todo.length) break;
@@ -71,6 +82,7 @@ export async function generateFootage(jobs, settings, { log, onUpdate, checkCanc
       else if (source === 'pollinations' && settings.allowPollinations !== false) await fromPollinations(todo, settings, results, errors, update, checkCancel, log);
       else if (source === 'fal' && settings.falKey) await fromFal(todo, settings, results, errors, update, checkCancel, log);
       else if (source === 'gradio' && settings.aiVideoEnabled !== false && (settings.aiVideoSpace || '').trim()) await fromGradio(todo, settings, results, errors, update, checkCancel, log);
+      else if (source === 'hf' && (settings.hfToken || '').trim()) await fromHFProviders(todo, settings, results, errors, update, checkCancel, log);
     } catch (e) {
       if (e && e.message === 'Cancelled') throw e;
       errors.push(`${source}: ${e.message}`);
@@ -117,15 +129,35 @@ function ltxDims(aspect, w = 768, h = 448) { return aspect === '9x16' ? [w, h] :
 
 /** Request sizes for the free shared GPU, best first. A job that exceeds the GPU time window is killed silently,
  *  so the client steps down this ladder until clips come back, then stays there for the rest of the run. */
-// Always the Space's own two-pass ("Improve Texture") path: it is the only one its UI exercises; the single-pass
-// path crashes without a message. Only length and size vary.
-const LTX_TIERS = [
-  { duration: 4, w: 704, h: 416, texture: true, label: '4 s · 704×416' },
-  { duration: 3, w: 704, h: 416, texture: true, label: '3 s · 704×416' },
-  { duration: 3, w: 576, h: 320, texture: true, label: '3 s · 576×320' },
-  { duration: 2, w: 704, h: 512, texture: true, label: '2 s · 704×512 (Space default)' },
-];
-let ltxTierIndex = 0;   // remembered for the session
+// Request ladders per Space, best first. A job that exceeds the Space's GPU window is killed silently, so the
+// client steps down until clips come back and keeps that size for the session.
+const TIERS = {
+  // LTX-2.3 (75 s GPU window): the Space's own resolution table; "res" picks the high or low row for the aspect.
+  ltx23: [
+    { duration: 4, res: 'high', label: '4 s · high resolution' },
+    { duration: 3, res: 'high', label: '3 s · high resolution (Space default)' },
+    { duration: 5, res: 'low', label: '5 s · standard resolution' },
+    { duration: 3, res: 'low', label: '3 s · standard resolution' },
+  ],
+  // LTX 0.9.8 (60 s window): always its two-pass path, which is the only one its UI exercises.
+  ltx: [
+    { duration: 4, w: 704, h: 416, texture: true, label: '4 s · 704×416' },
+    { duration: 3, w: 704, h: 416, texture: true, label: '3 s · 704×416' },
+    { duration: 3, w: 576, h: 320, texture: true, label: '3 s · 576×320' },
+    { duration: 2, w: 704, h: 512, texture: true, label: '2 s · 704×512 (Space default)' },
+  ],
+  auto: [
+    { duration: 5, w: 768, h: 448, texture: true, label: '5 s' },
+    { duration: 4, w: 704, h: 416, texture: true, label: '4 s' },
+    { duration: 3, w: 576, h: 320, texture: true, label: '3 s' },
+  ],
+};
+const LTX23_RES = { high: { '16x9': [1536, 1024], '9x16': [1024, 1536], '1x1': [1024, 1024] }, low: { '16x9': [768, 512], '9x16': [512, 768], '1x1': [768, 768] } };
+const tierIndex = { ltx23: 0, ltx: 0, auto: 0 };   // remembered for the session
+function tierDims(preset, t, aspect) {
+  if (preset === 'ltx23') { const [w, h] = (LTX23_RES[t.res] || LTX23_RES.low)[aspect] || LTX23_RES.low['16x9']; return [h, w]; }
+  return ltxDims(aspect, t.w, t.h);
+}
 export function isSilentRejection(m) { return /^null$|the Space reported an error|unreadable result|returned no video|GPU task aborted|out of memory|CUDA/i.test(String(m || '')); }
 
 export function isQuotaError(m) { return /quota|exceeded|rate limit|too many requests|sign ?in|log ?in|requires login|unauthorized/i.test(String(m || '')); }
@@ -143,8 +175,8 @@ async function fromGradio(jobs, s, results, errors, update, checkCancel, log) {
   const started = Date.now();
   let quotaHit = false, offline = false;
   const statusCache = new Map();
-  const tier = () => LTX_TIERS[Math.min(ltxTierIndex, LTX_TIERS.length - 1)];
-  const dimsFor = (t) => ltxDims(s.aspect, t.w, t.h);
+  const ladderOf = (preset) => TIERS[preset.preset] || TIERS.auto;
+  const tierOf = (preset) => { const L = ladderOf(preset); return L[Math.min(tierIndex[preset.preset] ?? 0, L.length - 1)]; };
 
   for (const j of jobs) {
     checkCancel && checkCancel();
@@ -171,13 +203,14 @@ async function fromGradio(jobs, s, results, errors, update, checkCancel, log) {
         again = false;
         try {
           update(`scene ${j.beatId}: asking ${preset.name.split(' (')[0]} on the free GPU${attempt ? ` (retry ${attempt})` : ''}`);
-          const t = tier();
-          const [h, w] = dimsFor(t);
+          const t = tierOf(preset);
+          const [h, w] = tierDims(preset.preset, t, s.aspect);
           update(`scene ${j.beatId}: asking ${preset.name.split(' (')[0]} on the free GPU (${t.label})${attempt ? ` · retry ${attempt}` : ''}`);
           let plan = null;
           try { plan = await discoverGradio(root, headers, preset); }
-          catch (e) { if (preset.preset !== 'ltx') throw e; }
+          catch (e) { if (preset.preset === 'auto') throw e; }
           if (!plan && preset.preset === 'ltx') plan = { api: 'text_to_video', build: (prompt) => [prompt, negative, null, null, h, w, 'text-to-video', t.duration, 9, 42, true, 1.0, true] };
+          if (!plan && preset.preset === 'ltx23') plan = { api: 'generate_video', build: (prompt) => [null, prompt, t.duration, false, Math.floor(Math.random() * 2e9), true, h, w] };
           if (!plan) throw new Error('no text-to-video endpoint');
           const data = plan.build(j.prompt, { negative, height: h, width: w, duration: t.duration, texture: t.texture, aspect: s.aspect });
           const out = await gradioRun(root, plan.api, data, headers, Math.min(15 * 60_000, patienceMs), checkCancel, (msg) => update(`scene ${j.beatId}: ${msg}`));
@@ -190,9 +223,9 @@ async function fromGradio(jobs, s, results, errors, update, checkCancel, log) {
         } catch (e) {
           if (e && e.message === 'Cancelled') throw e;
           lastError = String(e.message || e);
-          if (isSilentRejection(lastError) && ltxTierIndex < LTX_TIERS.length - 1) {
-            ltxTierIndex++;
-            log && log('Footage', 'warning', `Scene ${j.beatId}: the free GPU dropped the job without details (usually the per-job time limit). Trying a smaller request on the same Space: ${tier().label}.`);
+          if (isSilentRejection(lastError) && (tierIndex[preset.preset] ?? 0) < ladderOf(preset).length - 1) {
+            tierIndex[preset.preset] = (tierIndex[preset.preset] ?? 0) + 1;
+            log && log('Footage', 'warning', `Scene ${j.beatId}: the free GPU dropped the job without details (usually the per-job time limit). Trying a smaller request on the same Space: ${tierOf(preset).label}.`);
             again = true;   // same Space, smaller job
             continue;
           }
@@ -239,9 +272,11 @@ export async function testAIVideo(s, onStatus) {
     onStatus && onStatus('Reading the Space API…');
     let plan = null;
     try { plan = await discoverGradio(root, headers, preset); } catch (e) { if (preset.preset !== 'ltx') throw e; }
+    if (!plan && preset.preset === 'ltx23') plan = { api: 'generate_video', build: (prompt) => [null, prompt, 2, false, 10, true, 512, 768] };
     if (!plan) plan = { api: 'text_to_video', build: (prompt) => [prompt, 'blurry, distorted', null, null, 512, 704, 'text-to-video', 2, 9, 42, true, 1.0, true] };
     onStatus && onStatus(`Endpoint "${plan.api}" found. Generating a 2-second test clip with the Space's own settings (about a minute)…`);
-    const data = plan.build('A woman walks through a sunlit park, slow cinematic dolly shot', { negative: 'blurry, distorted', height: 512, width: 704, duration: 2, texture: true, aspect: '16x9' });
+    const [th, tw] = preset.preset === 'ltx23' ? [512, 768] : [512, 704];
+    const data = plan.build('A woman walks through a sunlit park, slow cinematic dolly shot', { negative: 'blurry, distorted', height: th, width: tw, duration: 2, texture: true, aspect: '16x9' });
     const out = await gradioRun(root, plan.api, data, headers, 10 * 60_000, null, (m) => onStatus && onStatus(m));
     const file = findVideoFile(out);
     if (!file) return { ok: false, message: 'The Space answered but returned no video: ' + JSON.stringify(out).slice(0, 200) };
@@ -289,6 +324,7 @@ async function discoverGradio(root, headers, preset) {
       if (/width/.test(key) && typeof def === 'number') return ctx.width;
       if (/duration|seconds/.test(key) && typeof def === 'number') return Math.min(ctx.duration, def > 20 ? def : 8.5);
       if (/texture|multi.?scale|two.?pass|upscale/.test(key) && typeof def === 'boolean') return ctx.texture === undefined ? def : !!ctx.texture;
+      if (/enhance/.test(key) && typeof def === 'boolean') return false;   // our prompts are already elaborate; the enhancer costs GPU time
       if (/randomi/.test(key)) return true;
       if (/seed/.test(key) && typeof def === 'number') return Math.floor(Math.random() * 1e9);
       if (/aspect/.test(key) && typeof def === 'string') return ({ '16x9': '16:9', '9x16': '9:16', '1x1': '1:1' })[ctx.aspect] || def;
@@ -428,6 +464,82 @@ function findVideoFile(out) {
     }
   }
   return null;
+}
+
+// ---------- Hugging Face Inference Providers (routed to fal.ai; billed to the HF account) ----------
+export async function hfProviderMapping(modelId) {
+  const r = await fetch(`https://huggingface.co/api/models/${modelId}?expand[]=inferenceProviderMapping`);
+  if (!r.ok) throw new Error(`model lookup failed (HTTP ${r.status})`);
+  const j = await r.json();
+  const map = j.inferenceProviderMapping || {};
+  const fal = Array.isArray(map) ? map.find(m => m.provider === 'fal-ai') : map['fal-ai'];
+  if (!fal || fal.status !== 'live') throw new Error('this model is not served by the fal-ai provider right now');
+  return fal.providerId;
+}
+
+async function fromHFProviders(jobs, s, results, errors, update, checkCancel, log) {
+  const token = (s.hfToken || '').trim();
+  const model = HF_PROVIDER_MODELS.find(m => m.id === s.hfProviderModel) || HF_PROVIDER_MODELS[0];
+  let providerId;
+  try { providerId = s.hfRouterBase ? 'fal-ai/mock/text-to-video' : await hfProviderMapping(model.id); } catch (e) { errors.push(`Inference Providers: ${e.message}`); return; }
+  const base = (s.hfRouterBase || 'https://router.huggingface.co/fal-ai').replace(/\/+$/, '');
+  const headers = { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' };
+  const aspect = aspectString(s.aspect);
+  const submitted = [];
+  for (const j of jobs) {
+    checkCancel && checkCancel();
+    let res = await routerSubmit(`${base}/${providerId}?_subdomain=queue`, headers, model.input(j.prompt, aspect));
+    if (res.status === 422) res = await routerSubmit(`${base}/${providerId}?_subdomain=queue`, headers, { prompt: j.prompt });
+    if (!res.ok) {
+      errors.push(`Scene ${j.beatId}: ${res.error}`);
+      if (res.status === 401) { errors.push('Hugging Face refused the token for Inference Providers.'); break; }
+      if (res.status === 402 || res.status === 403) { errors.push('Inference Providers: no credits left or billing not enabled on your Hugging Face account (Settings → Billing). Remaining scenes use the next source.'); break; }
+      continue;
+    }
+    submitted.push({ beatId: j.beatId, ...res.data });
+    update(`scene ${j.beatId} submitted to ${model.name.split(' ·')[0]}`);
+  }
+  const started = Date.now();
+  const open = new Set(submitted.map(x => x.beatId));
+  while (open.size && Date.now() - started < 20 * 60_000) {
+    checkCancel && checkCancel();
+    await new Promise(r => setTimeout(r, 3000));
+    for (const sub of submitted) {
+      if (!open.has(sub.beatId)) continue;
+      try {
+        const modelPath = new URL(sub.response_url).pathname;
+        const st = await routerGet(`${base}${modelPath}/status?_subdomain=queue`, headers);
+        if (st.status === 'COMPLETED') {
+          const out = await routerGet(`${base}${modelPath}?_subdomain=queue`, headers);
+          const url = out.video?.url || out.videos?.[0]?.url || out.url;
+          if (!url) throw new Error('no video url in result');
+          results[sub.beatId] = { kind: 'video', blob: await downloadMedia(url, 180_000), credit: `Generated with ${model.name.split(' ·')[0]} via Hugging Face Inference Providers`, source: 'ai-video' };
+          open.delete(sub.beatId);
+          update(`AI video ready for scene ${sub.beatId}`);
+        } else if (['FAILED', 'CANCELLED', 'ERROR'].includes(st.status)) throw new Error(`generation ${st.status.toLowerCase()}`);
+        else update(st.queue_position != null ? `scene ${sub.beatId}: queue position ${st.queue_position}` : `scene ${sub.beatId}: generating…`);
+      } catch (e) {
+        if (e && e.message === 'Cancelled') throw e;
+        errors.push(`Scene ${sub.beatId}: ${e.message}`); open.delete(sub.beatId);
+      }
+    }
+  }
+  for (const id of open) errors.push(`Scene ${id}: timed out waiting for the provider.`);
+}
+async function routerSubmit(url, headers, body) {
+  try {
+    const r = await fetch(url, { method: 'POST', headers, body: JSON.stringify(body) });
+    const text = await r.text(); let data = {}; try { data = JSON.parse(text); } catch {}
+    if (!r.ok) return { ok: false, status: r.status, error: summariseError(r.status, data, text) };
+    if (!data.request_id || !data.response_url) return { ok: false, status: 500, error: 'unexpected response from the provider' };
+    return { ok: true, status: r.status, data };
+  } catch (e) { return { ok: false, status: 0, error: `network error (${e.message})` }; }
+}
+async function routerGet(url, headers) {
+  const r = await fetch(url, { headers: { Authorization: headers.Authorization } });
+  const text = await r.text(); let data = {}; try { data = JSON.parse(text); } catch {}
+  if (!r.ok) throw new Error(summariseError(r.status, data, text));
+  return data;
 }
 
 // ---------- Pexels (free key) ----------

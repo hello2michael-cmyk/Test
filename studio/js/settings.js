@@ -24,7 +24,8 @@ const DEFAULTS = {
   channelName: '', cta: 'Subscribe for more AI explainers', modelId: '',
   footageProvider: 'free',      // 'none' (motion graphics) | 'free' (stock video + free AI stills) | 'fal' (paid generated video)
   pexelsKey: '', pixabayKey: '', allowPollinations: true,
-  aiVideoEnabled: true, aiVideoSpace: 'Lightricks/ltx-video-distilled', hfToken: '', footagePatienceMin: 12,
+  aiVideoEnabled: true, aiVideoSpace: 'Lightricks/LTX-2-3', hfToken: '', footagePatienceMin: 12,
+  hfProviderModel: 'Wan-AI/Wan2.2-T2V-A14B',
   videoStyle: 'auto',           // 'auto' | 'explainer' | 'cinematic'
   reviewShots: true,            // pause to let the creator edit shot prompts before footage is generated
   filmLook: true, letterbox: true,   // film finish for cinematic footage
@@ -38,6 +39,8 @@ export function loadSettings() {
   try { s = { ...DEFAULTS, ...JSON.parse(localStorage.getItem(KEY) || '{}') }; } catch { s = { ...DEFAULTS }; }
   // Settings saved before free footage existed default to the free sources once.
   if (!s.footageMigrated) { if (s.footageProvider === 'none') s.footageProvider = 'free'; s.footageMigrated = 1; saveSettings(s); }
+  // Newer, much better free generator: move everyone still on the old default once.
+  if (!s.generatorMigrated) { if (s.aiVideoSpace === 'Lightricks/ltx-video-distilled') s.aiVideoSpace = 'Lightricks/LTX-2-3'; s.generatorMigrated = 1; saveSettings(s); }
   return s;
 }
 export function saveSettings(s) { localStorage.setItem(KEY, JSON.stringify(s)); }
