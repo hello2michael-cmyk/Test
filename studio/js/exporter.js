@@ -77,3 +77,28 @@ export async function shareFiles(files, title) {
 }
 
 export const safeName = s => (s || 'video').replace(/[^\w\- ]+/g, '').trim().replace(/\s+/g, '-').slice(0, 60) || 'video';
+
+/** Human-readable content plan of a chaptered lesson (for the creator's review before anything is rendered). */
+export function planMarkdown(cp) {
+  const b = cp.brief, sc = cp.script.scenes, vis = cp.storyboard.scenes, hero = new Set(cp.heroBeats || []);
+  const words = cp.script.totalWords || sc.reduce((n, x) => n + x.narration.trim().split(/\s+/).length, 0);
+  const est = Math.round(words / 3.1 + sc.length * 0.8);
+  const mm = `${Math.floor(est / 60)}:${pad(est % 60)}`;
+  const visualOf = v => v.kind === 'scene3d' ? `3D ${v.model} (${(v.labels || []).join(', ')})` : v.kind === 'footage' ? 'full-frame AI footage' : v.kind === 'chapter' ? 'chapter card' : v.kind === 'bullets' ? `bullets (${(v.bullets || []).join(' · ')})` : v.kind === 'diagram' ? `flow (${(v.nodes || []).join(' → ')})` : v.kind;
+  let out = `## ${b.title}\n\n*Estimated length ${mm} · ${b.chapters.length} chapters · ${sc.length} scenes · ${words} words · for ${b.audience}*\n\n**Hook:** ${b.hook}\n\n**Takeaway:** ${b.keyTakeaway}\n\n`;
+  for (const ch of b.chapters) {
+    const beats = sc.filter(x => x.chapterId === ch.id);
+    out += `### Chapter ${ch.id} · ${ch.title}\n*${ch.goal}*\n\n`;
+    beats.forEach((x, i) => {
+      const v = vis.find(y => y.beatId === x.beatId) || {};
+      out += `${i + 1}. ${x.narration}\n   ↳ *${visualOf(v)}${hero.has(x.beatId) ? ' + AI video clip' : ''}*\n`;
+    });
+    out += '\n';
+  }
+  const review = cp.review || {};
+  if (review.issues && review.issues.length) out += `### Reviewer notes\n${review.issues.map(x => '- ' + x).join('\n')}\n\n`;
+  if (review.claimsToVerify && review.claimsToVerify.length) out += `### Claims to verify before publishing\n${review.claimsToVerify.map(x => '- ' + x).join('\n')}\n\n`;
+  out += `### Footage\n${hero.size} scene(s) get a generated AI video clip (chapter openers, the hook, the ending and the writer's picks); 3D scenes and graphics carry the rest.\n`;
+  if (cp.publish) out += `\n### YouTube\n**Title:** ${cp.publish.title}\n\n${cp.publish.description}\n`;
+  return out;
+}

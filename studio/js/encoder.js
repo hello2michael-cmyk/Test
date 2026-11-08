@@ -1,6 +1,6 @@
 // MP4 export. Preferred path: WebCodecs through Mediabunny (exact timing, YouTube bitrates, no realtime wait).
 // Fallback: MediaRecorder on a canvas stream (records in real time).
-import { Output, Mp4OutputFormat, BufferTarget, CanvasSource, AudioBufferSource, Quality, getFirstEncodableVideoCodec, canEncodeAudio } from '../vendor/mediabunny.js';
+import { Output, Mp4OutputFormat, BufferTarget, StreamTarget, CanvasSource, AudioBufferSource, Quality, getFirstEncodableVideoCodec, canEncodeAudio } from '../vendor/mediabunny.js';
 
 export async function encodeSupport(width, height) {
   if (typeof VideoEncoder === 'undefined' || typeof AudioEncoder === 'undefined') return null;
@@ -17,10 +17,18 @@ export async function encodeSupport(width, height) {
  * drawFrame(time) paints the frame on `canvas`. audioBuffer is the mixed soundtrack.
  * Returns a Blob (video/mp4).
  */
-export async function encodeWebCodecs({ canvas, fps, duration, drawFrame, prepareFrame, audioBuffer, support, onProgress, shouldCancel }) {
+export async function encodeWebCodecs({ canvas, fps, duration, drawFrame, prepareFrame, audioBuffer, support, onProgress, shouldCancel, sink = null }) {
   const { width, height } = canvas;
-  const bitrate = Math.round(width * height * fps * 0.19);
-  const output = new Output({ format: new Mp4OutputFormat({ fastStart: 'in-memory' }), target: new BufferTarget() });
+  // Long videos use a slightly lower rate (the final YouTube encode is done by ffmpeg anyway) so the file stays manageable.
+  const bitrate = Math.round(width * height * fps * (duration > 180 ? 0.12 : 0.19));
+  // sink: { open(), write(Uint8Array, position), close() } streams the file out (the video factory writes it to disk),
+  // so a ten-minute video never has to fit in the page's memory. Without a sink the MP4 is built in memory.
+  let target;
+  if (sink) {
+    await sink.open();
+    target = new StreamTarget(new WritableStream({ write: (chunk) => sink.write(chunk.data, chunk.position) }), { chunked: true, chunkSize: 4 * 1024 * 1024 });
+  } else target = new BufferTarget();
+  const output = new Output({ format: new Mp4OutputFormat({ fastStart: sink ? false : 'in-memory' }), target });
   const video = new CanvasSource(canvas, { codec: support.codec, quality: new Quality({ bitrate }), keyFrameInterval: 2 });
   output.addVideoTrack(video, { frameRate: fps });
   const audio = new AudioBufferSource({ codec: support.audio, quality: new Quality({ bitrate: 192e3 }) });
@@ -41,6 +49,7 @@ export async function encodeWebCodecs({ canvas, fps, duration, drawFrame, prepar
   video.close();
   await output.finalize();
   onProgress && onProgress(1);
+  if (sink) { await sink.close(); return new Blob([], { type: 'video/mp4' }); }
   const buf = output.target.buffer;
   return new Blob([buf], { type: 'video/mp4' });
 }

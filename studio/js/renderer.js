@@ -1,5 +1,6 @@
 // Draws any frame of the video from the plan. Pure function of (plan, time): deterministic, so the thumbnail is just a frame.
 import { THEMES } from './settings.js';
+import { Scene3D } from './scene3d.js';
 
 const FADE_IN = 0.45, FADE_OUT = 0.3;
 const clamp01 = x => Math.min(1, Math.max(0, x));
@@ -229,7 +230,44 @@ export class Renderer {
       case 'code': return this.code(v, local);
       case 'quote': return this.quote(v, local);
       case 'footage': return this.footageOverlay(v, local);
+      case 'scene3d': return this.scene3d(v, local, scene.duration);
+      case 'chapter': return this.chapter(v, local, scene.duration);
       default: return this.outro(v, local);
+    }
+  }
+
+  /** An explanatory 3D scene (software-rendered) with a heading top-left and labels in the world. */
+  scene3d(v, local, duration) {
+    this.three = this.three || new Scene3D(this);
+    this.three.draw(v.model || 'network', v.labels || v.nodes || v.bullets || [], local, duration || 10);
+    let y = this.my;
+    y = this.kicker(v.kicker, local, y);
+    this.heading(v.title, local, y, 64, 2);
+  }
+
+  /** Chapter card: a large chapter number, the chapter title and a faint 3D backdrop (or footage under it). */
+  chapter(v, local, duration) {
+    const { ctx, theme } = this;
+    if (!this.hasFootageFrame) {
+      this.three = this.three || new Scene3D(this);
+      this.three.draw(v.model || 'orbit', v.labels || [], local, duration || 10, { alpha: 0.55, framing: this.portrait ? 'center' : 'right' });
+    }
+    const p = outCubic(prog(local, 0.1, 0.6));
+    const top = this.h * (this.portrait ? 0.30 : 0.30);
+    const num = v.kicker || 'Chapter';
+    ctx.save(); ctx.globalAlpha *= p; ctx.font = this.font(this.u(30), 700); ctx.fillStyle = theme.accent; ctx.textBaseline = 'top'; ctx.textAlign = 'left';
+    this.fillSpaced(num.toUpperCase(), this.mx, top + (1 - p) * this.u(12), this.u(4));
+    ctx.restore();
+    const px = this.fitFont(v.title, this.u(this.portrait ? 88 : 96), this.u(44), 900, this.cw * 0.85, 3);
+    const font = this.font(px, 900);
+    ctx.save(); ctx.shadowColor = 'rgba(0,0,0,0.45)'; ctx.shadowBlur = this.u(16);
+    const h = this.text(v.title, this.mx, top + this.u(52), this.cw * 0.85, font, theme.text, { alpha: p, offsetY: (1 - p) * this.u(30), lineHeightMultiple: 0.98 });
+    ctx.restore();
+    const rp = outExpo(prog(local, 0.5, 0.8));
+    ctx.fillStyle = theme.accent2; ctx.fillRect(this.mx, top + this.u(52) + h + this.u(22), this.u(180) * rp, this.u(8));
+    if (v.subtitle) {
+      const sp = outCubic(prog(local, 0.8, 0.6));
+      this.text(v.subtitle, this.mx, top + this.u(52) + h + this.u(56), this.cw * 0.8, this.font(this.u(36), 500), theme.muted, { alpha: sp, offsetY: (1 - sp) * this.u(16) });
     }
   }
 

@@ -21,15 +21,25 @@ The same pipeline runs on GitHub's servers. You ask for a video, come back in 10
 
 **Ask for a video, way 1: open an issue**
 
-Open a new issue whose title starts with `Video:` and put the prompt in the body. Optional lines in the body: `style: cinematic` (or explainer), `aspect: 9x16`, `footage: hf` (Wan 2.2 14B, billed) or `footage: none`, `seconds: 45`. The factory replies on the issue when it starts and again with the download links when it is done.
+Open a new issue whose title starts with `Video:` and put the prompt in the body. Optional lines in the body: `style: cinematic` (or explainer, course), `aspect: 9x16`, `footage: hf` (Wan 2.2 14B, billed) or `footage: none`, `seconds: 45`, `review: no`. The factory replies on the issue when it starts and again with the download links when it is done.
 
 **Ask for a video, way 2: the Actions button**
 
 Actions → *Video factory* → Run workflow → fill in the prompt and options. The result appears under Releases as `video-<run number>` and as a run artifact.
 
+**Long lessons with chapters, 3D scenes and your approval (2–10 minutes)**
+
+Say the length in minutes and the lesson becomes a chaptered course: *"Educational video teaching AI basics including agents, skills, connectors, models and memory. 9 minutes, in English."* The team then works in two rounds:
+
+1. **Plan.** The course director plans chapters; a chapter writer-designer writes every scene's narration and picks its picture (an animated 3D model such as a pipeline, hub, stack, network, orbit or grid; a cinematic AI clip; or motion graphics); the reviewer checks facts and clarity; the publisher drafts the YouTube text. The whole plan is posted on the issue, scene by scene.
+2. **Your review.** Reply **approve** and the video is made from exactly that plan (30–60 minutes). Reply with changes instead (*"chapter 3 is too long, add an example about email"*) and a revised plan is posted. Repeat until it is right.
+
+Because free GPU time is limited, about a dozen scenes per lesson get a generated AI clip (the hook, every chapter opener, the ending and the writer's picks); the 3D scenes and graphics carry the rest. Change the number with a repository *variable* `AI_CLIPS`. To skip the review round, add the line `review: no` to the issue body.
+
 **Writing the prompt**
 
 - Explainer: a topic, e.g. *"Why do large language models hallucinate? Three causes and one fix. Maximum duration 60 seconds."*
+- Course: the topics and the length in minutes, e.g. *"Teach AI basics including agents, skills, connectors, models and memory. 9 minutes."*
 - Cinematic: name the world and list the shots after `Shots:` (see the example in the web app section). With a shot list the writer model is not even needed.
 
 **Costs**: GitHub Actions is free for public repositories. Writer: fractions of a cent per video on Inference Providers. Footage: free with LTX‑2.3; about $0.40 per 5‑second clip with Wan 2.2 14B. Everything is credited in the YouTube text.
