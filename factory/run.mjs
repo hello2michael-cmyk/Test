@@ -14,6 +14,9 @@
 //   STUDIO_URL        where the studio is served              (default http://127.0.0.1:8765/studio/index.html)
 //   OUT_DIR           output folder                           (default ./out)
 //   EXTRA_QUERY       extra URL params for tests (e.g. mock=1&footage=mock&tts=mock)
+//   TIMEOUT_MIN, PATIENCE_MIN, PROFILE_DIR
+//   CRASH_TEST=<s>    test hook: crash the page once after <s> seconds (exercises the relaunch path)
+//                     (the studio has a matching hook: EXTRA_QUERY=failonce=1 stops its first attempt once)
 import { chromium } from 'playwright';
 import fs from 'node:fs';
 import path from 'node:path';
