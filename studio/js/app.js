@@ -8,7 +8,7 @@ import { Renderer } from './renderer.js';
 import { encodeSupport, encodeWebCodecs, encodeMediaRecorder } from './encoder.js';
 import { srt, youtubeText, download, shareFiles, safeName, chapterStamp } from './exporter.js';
 import { store, requestPersistentStorage } from './store.js';
-import { generateFootage, shotPrompt, testAIVideo, FOOTAGE_MODELS, FOOTAGE_COST, FREE_VIDEO_SPACES } from './footage.js';
+import { generateFootage, shotPrompt, testAIVideo, FOOTAGE_MODELS, FOOTAGE_COST, FREE_VIDEO_SPACES, HF_PROVIDER_MODELS } from './footage.js';
 import { openAsset } from './clipdecoder.js';
 import { THEMES, VOICES, loadSettings, saveSettings, canvasSize } from './settings.js';
 
@@ -78,7 +78,7 @@ $('cancel').onclick = () => { cancelled = true; log('Studio', 'warning', 'Cancel
 renderSummary();
 
 function renderSummary() {
-  const needsToken = settings.footageProvider === 'free' && settings.aiVideoEnabled !== false && !(settings.hfToken || '').trim();
+  const needsToken = (settings.footageProvider === 'hf' || (settings.footageProvider === 'free' && settings.aiVideoEnabled !== false)) && !(settings.hfToken || '').trim();
   $('tokenBanner').hidden = !needsToken;
   const m = describeModel(settings.modelId);
   const [w, h] = canvasSize(settings);
@@ -88,6 +88,7 @@ function renderSummary() {
   $('summary').innerHTML = `Model: <b>${esc(m.name)}</b> · ${esc(aspectLabel())} · ${w}×${h} · ${settings.fps} fps · ${esc(settings.theme)}<br>` +
     `Up to ${settings.maxDuration} s, aiming for ${settings.targetDuration} s · voice: ${esc((VOICES.find(v => v[0] === settings.voice) || [0, settings.voice])[1])}<br>` +
     `Footage: <b>${settings.footageProvider === 'fal' ? esc((FOOTAGE_MODELS.find(m => m.id === settings.falModel) || FOOTAGE_MODELS[0]).name) + (settings.falKey ? '' : ' · <span class="warn">no API key yet</span>')
+      : settings.footageProvider === 'hf' ? `<b>${esc((HF_PROVIDER_MODELS.find(m => m.id === settings.hfProviderModel) || HF_PROVIDER_MODELS[0]).name.split(' ·')[0])}</b> via Inference Providers (PRO credits, then billed)` + (settings.hfToken ? '' : ' · <span class="warn">needs your Hugging Face token</span>')
       : settings.footageProvider === 'free' ? 'free ' + [settings.aiVideoEnabled !== false && settings.aiVideoSpace ? 'AI video (LTX on a free GPU)' : null, settings.pexelsKey ? 'Pexels video' : null, settings.pixabayKey ? 'Pixabay video' : null, settings.allowPollinations !== false ? 'AI photos with motion' : null].filter(Boolean).join(' → ') + (!settings.hfToken ? ' · <span class="warn">add a free Hugging Face token for more daily GPU time</span>' : '')
       : 'motion graphics only'}</b>` +
     (m.engine === 'webllm' && !hasWebGPU() ? `<br><span class="warn">This browser has no WebGPU; pick a CPU model in the Models tab.</span>` : '');
@@ -218,6 +219,7 @@ async function produce(prompt, resume) {
   if (cinematic) { s.burnInCaptions = false; s.showProgressBar = false; if (!cp.cineConfigured) { s.footageScope = 'all'; s.footageDuration = Math.min(8.5, Math.max(7, s.footageDuration || 6)); cp.cineConfigured = true; } }
   if (params.get('footage') === 'mock' || params.get('footage') === 'mockimage') s.footageProvider = params.get('footage');
   if (params.get('space')) { s.footageProvider = 'free'; s.aiVideoSpace = params.get('space'); s.aiVideoEnabled = true; s.pexelsKey = ''; s.pixabayKey = ''; s.allowPollinations = params.get('nopoll') !== '1'; }
+  if (params.get('router')) { s.footageProvider = 'hf'; s.hfRouterBase = params.get('router'); s.hfToken = s.hfToken || 'hf_test'; s.aiVideoEnabled = false; s.pexelsKey = ''; s.pixabayKey = ''; s.allowPollinations = false; }
   const [width, height] = canvasSize(s);
   const save = async (stage) => { cp.stage = stage; cp.updatedAt = Date.now(); await store.putRun(cp); };
   const kindOf = (id) => ((cp.storyboard && cp.storyboard.scenes.find(v => v.beatId === id)) || cp.brief.outline.find(b => b.id === id) || {}).kind
@@ -323,6 +325,7 @@ async function produce(prompt, resume) {
     if (missing.length) {
       progress('Footage', 0, `${missing.length} clip(s)`);
       const sourceName = footageOn === 'fal' ? (FOOTAGE_MODELS.find(m => m.id === fs.falModel) || FOOTAGE_MODELS[0]).name + ' (then free sources)'
+        : footageOn === 'hf' ? `${(HF_PROVIDER_MODELS.find(m => m.id === fs.hfProviderModel) || HF_PROVIDER_MODELS[0]).name.split(' ·')[0]} via Hugging Face Inference Providers (then the free generator)`
         : footageOn.startsWith('mock') ? 'the test asset'
         : [fs.aiVideoEnabled !== false && fs.aiVideoSpace ? `free AI video (${(FREE_VIDEO_SPACES.find(x => x.id === fs.aiVideoSpace) || { name: fs.aiVideoSpace }).name.split(' (')[0]})` : null, fs.pexelsKey ? 'Pexels stock video' : null, fs.pixabayKey ? 'Pixabay stock video' : null, fs.allowPollinations !== false ? 'free AI images (Pollinations)' : null].filter(Boolean).join(' → ') || 'nothing (no free source enabled)';
       log('Footage', 'info', `Finding footage for ${missing.length} scene(s): ${sourceName}. Searches: ${wanted.map(v => `[${v.beatId}] ${v.stockQuery || ''}`).join(' · ').slice(0, 300)}`);
@@ -662,7 +665,9 @@ function renderSettings() {
   bind('s-musicvol', 'musicVolume', v => parseInt(v, 10) / 100, () => { $('s-musicvol').value = Math.round(settings.musicVolume * 100); $('s-musicvol-v').textContent = Math.round(settings.musicVolume * 100); });
   bind('s-ambient', 'ambientBed');
   $('s-falmodel').innerHTML = FOOTAGE_MODELS.map(m => `<option value="${m.id}">${esc(m.name)}${FOOTAGE_COST[m.id] != null ? ` · ~$${FOOTAGE_COST[m.id].toFixed(2)}/clip` : ''}</option>`).join('');
-  bind('s-footage', 'footageProvider', v => v, () => { $('falFields').hidden = settings.footageProvider !== 'fal'; $('freeFields').hidden = settings.footageProvider === 'none'; });
+  bind('s-footage', 'footageProvider', v => v, () => { $('falFields').hidden = settings.footageProvider !== 'fal'; $('freeFields').hidden = settings.footageProvider === 'none'; $('hfFields').hidden = settings.footageProvider !== 'hf'; });
+  $('s-hfmodel').innerHTML = HF_PROVIDER_MODELS.map(m => `<option value="${esc(m.id)}">${esc(m.name)}</option>`).join('');
+  bind('s-hfmodel', 'hfProviderModel');
   bind('s-pexels', 'pexelsKey'); bind('s-pixabay', 'pixabayKey'); bind('s-pollinations', 'allowPollinations');
   $('s-space').innerHTML = FREE_VIDEO_SPACES.map(x => `<option value="${esc(x.id)}">${esc(x.name)}</option>`).join('');
   const knownSpace = FREE_VIDEO_SPACES.some(x => x.id === settings.aiVideoSpace);
