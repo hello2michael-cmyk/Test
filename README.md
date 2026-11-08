@@ -10,6 +10,21 @@ Plus, unrelated to the TV: **AI Video Studio**, an iPhone app that turns one pro
 
 Live at: https://hello2michael-cmyk.github.io/Test/
 
+## Klasse 6 Bayern: Lernplattform mit 3D-Erklärungen (Mathematik zuerst)
+
+Open it here (after the branch is merged to `main`): https://hello2michael-cmyk.github.io/Test/klasse6/
+
+A learning app for pupils in Jahrgangsstufe 6 of a Bavarian Gymnasium. Its content is the official **LehrplanPLUS (G9)**, checked
+page by page against the ISB Fachlehrpläne and the Stundentafel of the Gymnasialschulordnung (GSO Anlage 1, valid from 1 August 2026):
+
+- `klasse6/SYLLABUS.md`: the readable syllabus for all twelve subjects (Mathematik, Deutsch, Englisch, Latein or Französisch, Natur und Technik, Geschichte, Ethik or Religion, Kunst, Musik, Sport) with every Lernbereich, its hours and its sources.
+- `klasse6/data/klasse6-bayern.json`: the same syllabus as data (84 topics), including a child-friendly explanation and a 3D scene id per maths topic; this file drives the app and will feed the video planner.
+- `klasse6/index.html`: the app. Pick a subject, pick a Lernbereich, read what the Lehrplan expects, and for every one of the eight **Mathematik** Lernbereiche play an interactive 3D explanation (pizza fractions, place-value blocks for decimals, adding fraction strips, the area model for multiplying fractions, the distributive law as blocks, cutting a parallelogram into a rectangle, filling a cuboid with unit cubes, the hundred-square and pie chart for percent). Sliders change the numbers, the narration steps follow the animation, and you can drag to rotate.
+- `klasse6/js/engine3d.js`, `klasse6/js/mathscenes.js`: a dependency-free software-3D renderer on Canvas 2D. Every frame is a pure function of time and parameters, so the same scenes can be rendered to video by the factory below.
+- `klasse6/PIPELINE.md`: the plan for turning each Lernbereich into a YouTube lesson: a Lehrplan planner, a plan reviewer, a 3D designer, a second reviewer on a *different* model that checks the rendered frames against the narration, and a correction loop, with every scene held for at least 10 seconds. The factory and studio already accept that minimum (`MIN_SCENE_SECONDS` / Settings `minSceneSeconds`).
+
+Geographie is not taught in Jahrgangsstufe 6 under the G9 Stundentafel (it is in Jgst. 5 and 7); Geschichte starts in Jgst. 6; the second foreign language (Latein or Französisch) starts in Jgst. 6.
+
 ## Video factory: make videos from GitHub, no app and no phone limits
 
 The same pipeline runs on GitHub's servers. You ask for a video, come back in 10–25 minutes, and download the finished MP4 with captions and YouTube text. The writing is done by a large model (Qwen2.5 72B through Hugging Face Inference Providers, pennies per video), the footage by LTX‑2.3 on free Hugging Face GPUs or Wan 2.2 14B via Inference Providers, and the voice, mix, render and encode run in a headless browser, finished with an H.264 encode for YouTube.

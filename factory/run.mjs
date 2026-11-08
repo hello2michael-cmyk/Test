@@ -20,6 +20,7 @@
 //   PLAN_FILE         path to a plan.json (video phase; or the previous plan when FEEDBACK is given)
 //   FEEDBACK          the creator's change requests: PHASE=plan re-plans from PLAN_FILE with this feedback
 //   AI_CLIPS          long lessons: how many scenes get a generated AI clip (default 12)
+//   MIN_SCENE_SECONDS hold every scene at least this long, e.g. 10 for children's lessons (default: renderer minimum)
 //   TIMEOUT_MIN, PATIENCE_MIN, PROFILE_DIR
 //   CRASH_TEST=<s>    test hook: crash the page once after <s> seconds (exercises the relaunch path)
 //                     (the studio has a matching hook: EXTRA_QUERY=failonce=1 stops its first attempt once)
@@ -66,6 +67,7 @@ const settings = {
   reviewShots: false, burnInCaptions: env('CAPTIONS', '1') !== '0', showProgressBar: true, filmLook: true, letterbox: env('LETTERBOX', '1') !== '0',
   musicVolume: 0.18, ambientBed: true,
   aiClipBudget: parseInt(env('AI_CLIPS', '12'), 10),
+  minSceneSeconds: parseFloat(env('MIN_SCENE_SECONDS', '0')) || 0,
   modelId: env('WRITER', 'hf-text:Qwen/Qwen2.5-72B-Instruct'),
 };
 const mock = /(^|&)mock=1/.test(extra);

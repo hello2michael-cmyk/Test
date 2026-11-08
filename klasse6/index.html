@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0d1229">
+  <title>Klasse 6 Bayern – Lernen mit 3D</title>
+  <link rel="icon" href="../icon-192.png" type="image/png">
+  <link rel="stylesheet" href="klasse6.css">
+</head>
+<body>
+  <div class="wrap">
+    <header class="bar">
+      <div>
+        <h1>Klasse 6 · Gymnasium Bayern</h1>
+        <div class="sub">Lehrplan nach LehrplanPLUS (G9), mit 3D-Erklärungen zum Anfassen. Zuerst Mathematik, dann die anderen Fächer.</div>
+      </div>
+      <div class="row">
+        <span class="badge" id="checkBadge">Lehrplan geprüft am …</span>
+        <button class="badge" id="showPlan" style="cursor:pointer;background:none;color:var(--accent)">Stundentafel</button>
+      </div>
+    </header>
+
+    <div class="layout">
+      <aside>
+        <div class="card">
+          <h2>Fächer</h2>
+          <div class="subjects" id="subjects"></div>
+          <p class="note">Wochenstunden laut GSO Anlage 1. Religion oder Ethik, Latein oder Französisch: eines davon.</p>
+        </div>
+        <div class="card" id="planCard" hidden>
+          <h2>Stundentafel Jgst. 6</h2>
+          <table class="st" id="planTable"></table>
+          <p class="note" id="planNote"></p>
+        </div>
+      </aside>
+
+      <main>
+        <div class="card">
+          <div class="row">
+            <h2 id="subjectTitle" style="margin:0">Mathematik</h2>
+            <span class="badge" id="subjectHours"></span>
+            <span class="spacer"></span>
+            <a id="subjectLink" class="note" target="_blank" rel="noopener">Fachlehrplan öffnen ↗</a>
+          </div>
+          <div id="topics"></div>
+        </div>
+
+        <div class="card" id="lesson" hidden>
+          <div class="row">
+            <h2 id="lessonTitle" style="margin:0"></h2>
+            <span class="badge" id="lessonHours"></span>
+          </div>
+          <div id="sceneBlock">
+            <div class="stage"><canvas id="stage"></canvas></div>
+            <div class="controls">
+              <button class="primary" id="play">Pause</button>
+              <button id="restart">Von vorn</button>
+              <input type="range" id="scrub" min="0" max="1000" value="0">
+              <span class="time" id="time">0,0 s</span>
+            </div>
+            <div class="params" id="params"></div>
+            <div class="steps" id="steps"></div>
+            <p class="note">Tipp: Mit dem Finger oder der Maus über das Bild ziehen, um die Szene zu drehen.</p>
+          </div>
+          <div id="noScene" hidden class="note"></div>
+          <h3>So kannst du es dir vorstellen</h3>
+          <div class="kid" id="kid"></div>
+          <h3>Das steht im Lehrplan</h3>
+          <ul class="plain" id="kompetenzen"></ul>
+          <h3>Inhalte</h3>
+          <ul class="plain" id="inhalte"></ul>
+          <p class="note" id="lessonSource"></p>
+        </div>
+      </main>
+    </div>
+  </div>
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
