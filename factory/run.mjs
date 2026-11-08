@@ -47,6 +47,14 @@ const settings = {
 };
 const mock = /(^|&)mock=1/.test(extra);
 if (mock) settings.modelId = 'mock';
+// Without a Hugging Face token the only writer left is a tiny CPU model inside the browser, which takes the
+// better part of an hour on a CI machine. Skip the writer instead (template script) and say so loudly.
+let extraQuery = extra;
+if (!mock && !settings.hfToken && !process.env.WRITER) {
+  console.log('[factory] WARNING: no HF_TOKEN. Skipping the writer model; the script is built from the prompt lines. Add the HF_TOKEN secret for real scripts and GPU footage.');
+  extraQuery = (extraQuery ? extraQuery + '&' : '') + 'nomodel=1';
+}
+if (process.env.WRITER === 'none') extraQuery = (extraQuery ? extraQuery + '&' : '') + 'nomodel=1';
 
 console.log(`[factory] style=${settings.videoStyle} aspect=${settings.aspect} cap=${settings.maxDuration}s footage=${settings.footageProvider} writer=${settings.modelId} token=${settings.hfToken ? 'yes' : 'no'}`);
 
@@ -79,7 +87,7 @@ async function launch() {
 let finished = false;
 await launch();
 
-const url = `${studioUrl}?factory=1&autoapprove=1${extra ? '&' + extra : ''}`;
+const url = `${studioUrl}?factory=1&autoapprove=1${extraQuery ? '&' + extraQuery : ''}`;
 async function openStudio(firstTime) {
   await page.goto(url, { waitUntil: 'domcontentloaded' });
   await page.waitForSelector('#generate', { timeout: 60_000 });
