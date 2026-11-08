@@ -9,6 +9,10 @@ export function configure() {
   env.allowLocalModels = false;
   env.useBrowserCache = true;
   env.backends.onnx.wasm.wasmPaths = new URL('../vendor/ort/', import.meta.url).href;
+  // ?hub=<base url>: fetch model files from a local mirror laid out as <base>/<model id>/<file> (the video factory
+  // serves one next to the studio, so the files stay same-origin and never cross the browser automation pipe).
+  const hub = new URLSearchParams(location.search).get('hub');
+  if (hub) { env.remoteHost = hub.endsWith('/') ? hub : hub + '/'; env.remotePathTemplate = '{model}/'; }
   // Threads need cross-origin isolation, which GitHub Pages cannot provide; single thread is reliable everywhere.
   env.backends.onnx.wasm.numThreads = 1;
   env.backends.onnx.wasm.proxy = false;

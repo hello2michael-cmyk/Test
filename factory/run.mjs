@@ -87,21 +87,46 @@ async function launch() {
   page.on('close', () => { if (!finished) { crashed = true; } });
   page.on('console', m => { if (m.type() === 'error' && !/ERR_|favicon/.test(m.text())) console.log('[console]', m.text().slice(0, 300)); });
   // Voice-model files come from huggingface.co; CI browsers have tripped over the Hub's redirect + CORS dance
-  // (HTTP 405), so fetch just those (small) files from Node and hand them to the page with CORS headers.
-  await page.route(/^https:\/\/huggingface\.co\/onnx-community\/Kokoro[^?]*\/resolve\//, async (route) => {
+  // (HTTP 405). The studio is told (?hub=) to load them from a same-origin mirror under .hubcache/; this route
+  // fills the mirror from Node on first use and then lets the browser fetch the local file itself. The bytes never
+  // cross the DevTools pipe, which closes the connection above ~100 MB (handing the 92 MB model straight to the
+  // page looked exactly like a browser crash).
+  await page.route(/\/\.hubcache\//, async (route) => {
     const req = route.request();
     try {
-      const r = await fetch(req.url(), { method: req.method() === 'HEAD' ? 'HEAD' : 'GET', redirect: 'follow' });
-      const body = req.method() === 'HEAD' ? undefined : Buffer.from(await r.arrayBuffer());
-      const headers = { 'access-control-allow-origin': '*', 'content-type': r.headers.get('content-type') || 'application/octet-stream' };
-      await route.fulfill({ status: r.status, headers, body });
-    } catch (e) { console.log('[factory] hub fetch failed', req.url().slice(0, 120), e.message); try { await route.abort(); } catch {} }
+      if (req.method() === 'GET') await cacheHubFile(req.url());
+      await route.continue();
+    } catch (e) { console.log('[factory] hub fetch failed', req.url().slice(0, 140), e.message); try { await route.fulfill({ status: 502, body: e.message }); } catch {} }
   });
+}
+// Download a Hub file once into .hubcache/<model id>/<file> (under the directory the studio is served from).
+const hubCacheDir = path.join(process.cwd(), '.hubcache');
+const hubDownloads = new Map();
+async function cacheHubFile(localUrl) {
+  const rel = decodeURIComponent(new URL(localUrl).pathname.split('/.hubcache/')[1] || '');
+  if (!rel || rel.includes('..')) throw new Error('bad path');
+  const file = path.join(hubCacheDir, rel);
+  if (fs.existsSync(file) && fs.statSync(file).size > 0) return;
+  const parts = rel.split('/');
+  const remote = `https://huggingface.co/${parts.slice(0, 2).join('/')}/resolve/main/${parts.slice(2).join('/')}`;
+  if (!hubDownloads.has(rel)) {
+    hubDownloads.set(rel, (async () => {
+      const r = await fetch(remote, { redirect: 'follow' });
+      if (!r.ok) throw new Error(`HTTP ${r.status} for ${remote}`);
+      fs.mkdirSync(path.dirname(file), { recursive: true });
+      const tmp = file + '.part';
+      await fs.promises.writeFile(tmp, Buffer.from(await r.arrayBuffer()));
+      fs.renameSync(tmp, file);
+      console.log(`[factory] cached ${rel} (${(fs.statSync(file).size / 1e6).toFixed(1)} MB)`);
+    })().finally(() => hubDownloads.delete(rel)));
+  }
+  await hubDownloads.get(rel);
 }
 let finished = false;
 await launch();
 
-const url = `${studioUrl}?factory=1&autoapprove=1${extraQuery ? '&' + extraQuery : ''}`;
+const hubBase = `${new URL(studioUrl).origin}/.hubcache/`;
+const url = `${studioUrl}?factory=1&autoapprove=1&hub=${encodeURIComponent(hubBase)}${extraQuery ? '&' + extraQuery : ''}`;
 async function openStudio(firstTime) {
   await page.goto(url, { waitUntil: 'domcontentloaded' });
   await page.waitForSelector('#generate', { timeout: 60_000 });
