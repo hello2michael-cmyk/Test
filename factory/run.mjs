@@ -113,7 +113,8 @@ async function pollOnce() {
     for (let i = lastLog; i < st.logs.length; i++) { console.log('  •', st.logs[i].slice(0, 300)); seenLogs.push(st.logs[i]); }
     lastLog = st.logs.length;
     const line = `${st.stage} ${st.bar} ${st.detail}`;
-    if (line !== lastStage) { console.log(`[${Math.round((Date.now() - started) / 1000)}s] ${line}`); lastStage = line; }
+    console.log(`[${Math.round((Date.now() - started) / 1000)}s] ${line}`); lastStage = line;
+    fs.writeFileSync(path.join(outDir, 'agent-room.log'), seenLogs.join('\n') + `\n\n${line}\n`);
   } catch {}
 }
 const poll = setInterval(pollOnce, 10_000);

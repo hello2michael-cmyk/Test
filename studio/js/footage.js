@@ -213,7 +213,7 @@ async function fromGradio(jobs, s, results, errors, update, checkCancel, log) {
           if (!plan && preset.preset === 'ltx23') plan = { api: 'generate_video', build: (prompt) => [null, prompt, t.duration, false, Math.floor(Math.random() * 2e9), true, h, w] };
           if (!plan) throw new Error('no text-to-video endpoint');
           const data = plan.build(j.prompt, { negative, height: h, width: w, duration: t.duration, texture: t.texture, aspect: s.aspect });
-          const out = await gradioRun(root, plan.api, data, headers, Math.min(15 * 60_000, patienceMs), checkCancel, (msg) => update(`scene ${j.beatId}: ${msg}`));
+          const out = await gradioRun(root, plan.api, data, headers, Math.min(8 * 60_000, patienceMs), checkCancel, (msg) => update(`scene ${j.beatId}: ${msg}`));
           const file = findVideoFile(out);
           if (!file) throw new Error('the Space returned no video');
           const url = file.url || `${root}/gradio_api/file=${file.path}`;
@@ -352,12 +352,15 @@ async function gradioQueueCall(root, api, data, headers, timeoutMs, checkCancel,
   const started = Date.now();
 
   return await new Promise((resolve, reject) => {
-    let done = false, eventId = null, pending = [];
+    let done = false, eventId = null, pending = [], gotMessage = false, streamErrors = 0, joined = false;
     const es = new EventSource(`${root}/gradio_api/queue/data?session_hash=${session_hash}`);
     const finish = (fn, v) => { if (done) return; done = true; clearInterval(timer); try { es.close(); } catch {} fn(v); };
     const timer = setInterval(() => {
       if (checkCancel) { try { checkCancel(); } catch (e) { finish(reject, e); return; } }
-      if (Date.now() - started > timeoutMs) finish(reject, new Error('timed out waiting for the free GPU'));
+      const elapsed = Date.now() - started;
+      if (elapsed > timeoutMs) finish(reject, new Error('timed out waiting for the free GPU'));
+      // No answer at all within 2 minutes (no join, or joined but silent): treat the Space as unresponsive.
+      if (!gotMessage && elapsed > 120_000) finish(reject, new Error(joined ? 'HTTP 503: the Space accepted the job but never answered' : 'HTTP 503: the Space did not answer'));
     }, 1000);
     const handle = (m) => {
       if (!m || typeof m !== 'object') return;
@@ -374,8 +377,12 @@ async function gradioQueueCall(root, api, data, headers, timeoutMs, checkCancel,
           break;
       }
     };
-    es.onmessage = (ev) => { let m; try { m = JSON.parse(ev.data); } catch { return; } if (!eventId) { pending.push(m); return; } handle(m); };
-    es.onerror = () => { if (!done && es.readyState === EventSource.CLOSED) finish(reject, new Error('network: the event stream closed')); };
+    es.onmessage = (ev) => { gotMessage = true; let m; try { m = JSON.parse(ev.data); } catch { return; } if (!eventId) { pending.push(m); return; } handle(m); };
+    es.onerror = () => {
+      if (done) return;
+      if (es.readyState === EventSource.CLOSED) { finish(reject, new Error('network: the event stream closed')); return; }
+      if (++streamErrors >= 3) finish(reject, new Error('network: the event stream keeps dropping'));
+    };
     es.onopen = async () => {
       try {
         const r = await fetch(`${root}/gradio_api/queue/join`, { method: 'POST', headers, body: JSON.stringify({ data, event_data: null, fn_index, trigger_id, session_hash }) });
@@ -384,7 +391,7 @@ async function gradioQueueCall(root, api, data, headers, timeoutMs, checkCancel,
         if (!r.ok) throw new Error(`HTTP ${r.status}: ${text.slice(0, 200)}`);
         let j = {}; try { j = JSON.parse(text); } catch {}
         if (!j.event_id) throw new Error('no event id from the Space');
-        eventId = j.event_id;
+        eventId = j.event_id; joined = true;
         onStatus && onStatus('queued on the free GPU…');
         for (const m of pending) handle(m); pending = [];
       } catch (e) { finish(reject, e); }
