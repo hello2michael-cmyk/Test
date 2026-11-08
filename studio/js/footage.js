@@ -90,49 +90,111 @@ export function gradioRoot(spaceOrUrl) {
 
 function ltxDims(aspect) { return aspect === '9x16' ? [768, 448] : aspect === '1x1' ? [576, 576] : [448, 768]; }  // [height, width], multiples of 32
 
+export function isQuotaError(m) { return /quota|exceeded|rate limit|too many requests|sign ?in|log ?in|requires login|unauthorized/i.test(String(m || '')); }
+function isTransient(m) { return /HTTP 5\d\d|network|timed out|starting up|closed the connection|queue is full|no event id|HTTP 429/i.test(String(m || '')); }
+
 async function fromGradio(jobs, s, results, errors, update, checkCancel, log) {
-  const root = gradioRoot(s.aiVideoSpace);
-  if (!root) { errors.push(`Unrecognised Space id or URL: ${s.aiVideoSpace}`); return; }
+  const chosen = String(s.aiVideoSpace || '').trim();
+  const presetOf = (id) => FREE_VIDEO_SPACES.find(x => x.id === id) || FREE_VIDEO_SPACES[2];
+  // Try the chosen generator first; if it is offline/busy, try the other known LTX Spaces (same free quota pool).
+  const pool = [chosen, ...FREE_VIDEO_SPACES.filter(x => x.id !== 'custom' && x.id !== chosen).map(x => x.id)].filter(Boolean);
+  const patienceMs = Math.max(2, Number(s.footagePatienceMin || 12)) * 60_000;
   const headers = { 'Content-Type': 'application/json' };
   if ((s.hfToken || '').trim()) headers.Authorization = `Bearer ${s.hfToken.trim()}`;
-  const preset = FREE_VIDEO_SPACES.find(x => x.id === s.aiVideoSpace) || FREE_VIDEO_SPACES[2];
   const negative = 'text, captions, subtitles, logos, watermark, worst quality, inconsistent motion, blurry, jittery, distorted';
   const duration = Math.min(7, Math.max(3, s.footageDuration || 5));
   const [h, w] = ltxDims(s.aspect);
+  const started = Date.now();
+  let quotaHit = false, offline = false;
 
-  // Discover the endpoint (works for any Gradio text-to-video app, including a Colab server).
-  let plan = null;
-  try { plan = await discoverGradio(root, headers, preset); }
-  catch (e) {
-    if (/HTTP 5\d\d|network/.test(e.message)) { errors.push(`The AI video Space is waking up or offline (${e.message}); trying the next source.`); return; }
-    if (preset.preset !== 'ltx') { errors.push(`Could not read the Space API (${e.message}); trying the next source.`); return; }
-  }
-  if (!plan && preset.preset === 'ltx') plan = { api: 'text_to_video', build: (prompt) => [prompt, negative, null, null, h, w, 'text-to-video', duration, 9, 42, true, 1.0, true] };
-  if (!plan) { errors.push('This Space has no text-to-video endpoint the studio can use.'); return; }
-
-  let consecutiveFailures = 0;
   for (const j of jobs) {
     checkCancel && checkCancel();
-    try {
-      update(`asking the free GPU for scene ${j.beatId} (can take a few minutes)`);
-      const data = plan.build(j.prompt, { negative, height: h, width: w, duration, aspect: s.aspect });
-      const out = await gradioCall(root, plan.api, data, headers, 12 * 60_000, checkCancel, (msg) => update(`scene ${j.beatId}: ${msg}`));
-      const file = findVideoFile(out);
-      if (!file) throw new Error('the Space returned no video');
-      const url = file.url || `${root}/gradio_api/file=${file.path}`;
-      results[j.beatId] = { kind: 'video', blob: await downloadMedia(url, 180_000), credit: `AI video generated for free with ${preset.name.split(' (')[0]} on Hugging Face (${root})` };
-      consecutiveFailures = 0;
-      update(`AI video ready for scene ${j.beatId}`);
-    } catch (e) {
-      if (e && e.message === 'Cancelled') throw e;
-      const m = String(e.message || e);
-      errors.push(`Scene ${j.beatId}: free AI video failed (${m.slice(0, 200)})`);
-      if (/quota|exceeded|rate limit|too many|sign ?in|login/i.test(m)) {
-        errors.push((s.hfToken ? 'Your free GPU quota for today is used up; the remaining scenes use stock footage or AI photos. It resets daily.' : 'The free GPU quota for anonymous visitors is used up. Add a free Hugging Face token in Studio → Footage for a bigger daily quota; the remaining scenes use stock footage or AI photos.'));
-        return;
+    if (quotaHit || offline) break;
+    let done = false, lastError = '';
+    let attempt = 0, networkRounds = 0;
+    while (!done && Date.now() - started < patienceMs) {
+      let networkFailures = 0, tried = 0;
+      for (const spaceId of pool) {
+        if (done) break;
+        tried++;
+        checkCancel && checkCancel();
+        const root = gradioRoot(spaceId);
+        if (!root) continue;
+        const preset = presetOf(spaceId);
+        try {
+          update(`scene ${j.beatId}: asking ${preset.name.split(' (')[0]} on the free GPU${attempt ? ` (retry ${attempt})` : ''}`);
+          let plan = null;
+          try { plan = await discoverGradio(root, headers, preset); }
+          catch (e) { if (preset.preset !== 'ltx') throw e; }
+          if (!plan && preset.preset === 'ltx') plan = { api: 'text_to_video', build: (prompt) => [prompt, negative, null, null, h, w, 'text-to-video', duration, 9, 42, true, 1.0, false] };
+          if (!plan) throw new Error('no text-to-video endpoint');
+          const data = plan.build(j.prompt, { negative, height: h, width: w, duration, aspect: s.aspect });
+          const out = await gradioCall(root, plan.api, data, headers, Math.min(15 * 60_000, patienceMs), checkCancel, (msg) => update(`scene ${j.beatId}: ${msg}`));
+          const file = findVideoFile(out);
+          if (!file) throw new Error('the Space returned no video');
+          const url = file.url || `${root}/gradio_api/file=${file.path}`;
+          results[j.beatId] = { kind: 'video', blob: await downloadMedia(url, 180_000), credit: `AI video generated for free with ${preset.name.split(' (')[0]} on Hugging Face (${root})`, source: 'ai-video' };
+          update(`AI video ready for scene ${j.beatId}`);
+          done = true;
+        } catch (e) {
+          if (e && e.message === 'Cancelled') throw e;
+          lastError = String(e.message || e);
+          log && log('Footage', 'warning', `Scene ${j.beatId} on ${spaceId}: ${lastError.slice(0, 220)}`);
+          if (isQuotaError(lastError)) { quotaHit = true; break; }
+          if (/network|Failed to fetch|Load failed/i.test(lastError)) networkFailures++;
+          // otherwise try the next Space in the pool
+        }
       }
-      if (++consecutiveFailures >= 2) { errors.push('The AI video Space keeps failing; the remaining scenes use the next source.'); return; }
+      if (quotaHit) break;
+      if (!done) {
+        if (networkFailures === tried && ++networkRounds >= 2) { offline = true; errors.push('The free GPU Spaces cannot be reached from this network right now; remaining scenes use the next source.'); break; }
+        attempt++;
+        if (!isTransient(lastError) && attempt >= 2) break;         // a real error twice in a row: stop retrying this scene
+        const wait = Math.min(90_000, 15_000 * attempt);
+        update(`scene ${j.beatId}: free GPUs are busy, retrying in ${Math.round(wait / 1000)} s (patience ${Math.round((patienceMs - (Date.now() - started)) / 60000)} min left)`);
+        await sleepCancellable(wait, checkCancel);
+      }
     }
+    if (!done && !quotaHit) errors.push(`Scene ${j.beatId}: no AI video after retrying (${lastError.slice(0, 160)}).`);
+  }
+  if (quotaHit) {
+    errors.push(headers.Authorization
+      ? 'Your free Hugging Face GPU quota for today is used up. It resets daily. Remaining scenes use the next source.'
+      : 'The free GPU refused anonymous use (quota). Add a FREE Hugging Face token in Studio → Footage; that is required for real AI video. Remaining scenes use the next source.');
+  }
+}
+
+async function sleepCancellable(ms, checkCancel) {
+  const end = Date.now() + ms;
+  while (Date.now() < end) { checkCancel && checkCancel(); await new Promise(r => setTimeout(r, Math.min(1000, end - Date.now()))); }
+}
+
+/** One short test generation so the user can see exactly what the free GPU replies. */
+export async function testAIVideo(s, onStatus) {
+  const root = gradioRoot(s.aiVideoSpace);
+  if (!root) return { ok: false, message: `Unrecognised Space id or URL: ${s.aiVideoSpace}` };
+  const headers = { 'Content-Type': 'application/json' };
+  if ((s.hfToken || '').trim()) headers.Authorization = `Bearer ${s.hfToken.trim()}`;
+  const preset = FREE_VIDEO_SPACES.find(x => x.id === s.aiVideoSpace) || FREE_VIDEO_SPACES[2];
+  const t0 = Date.now();
+  try {
+    onStatus && onStatus('Reading the Space API…');
+    let plan = null;
+    try { plan = await discoverGradio(root, headers, preset); } catch (e) { if (preset.preset !== 'ltx') throw e; }
+    if (!plan) plan = { api: 'text_to_video', build: (prompt) => [prompt, 'blurry, distorted', null, null, 256, 384, 'text-to-video', 3, 9, 42, true, 1.0, false] };
+    onStatus && onStatus(`Endpoint "${plan.api}" found. Generating a 3-second test clip on the free GPU…`);
+    const data = plan.build('A woman walks through a sunlit park, slow cinematic dolly shot', { negative: 'blurry, distorted', height: 256, width: 384, duration: 3, aspect: '16x9' });
+    const out = await gradioCall(root, plan.api, data, headers, 10 * 60_000, null, (m) => onStatus && onStatus(m));
+    const file = findVideoFile(out);
+    if (!file) return { ok: false, message: 'The Space answered but returned no video: ' + JSON.stringify(out).slice(0, 200) };
+    const url = file.url || `${root}/gradio_api/file=${file.path}`;
+    const blob = await downloadMedia(url, 120_000);
+    return { ok: true, message: `Real AI video works: ${(blob.size / 1024).toFixed(0)} KB clip in ${Math.round((Date.now() - t0) / 1000)} s from ${root}.`, blob };
+  } catch (e) {
+    const m = String(e.message || e);
+    const hint = isQuotaError(m) ? (headers.Authorization ? ' Your daily free GPU quota is used up; it resets daily, or use the Colab server for unlimited clips.' : ' This is the free-GPU quota check: add a FREE Hugging Face token above and test again.')
+      : /network|Failed to fetch|Load failed/i.test(m) ? ' The browser could not reach the Space (offline, blocked network, or the Space is restarting).' : '';
+    return { ok: false, message: `Failed: ${m.slice(0, 300)}.${hint}` };
   }
 }
 

@@ -8,7 +8,7 @@ import { Renderer } from './renderer.js';
 import { encodeSupport, encodeWebCodecs, encodeMediaRecorder } from './encoder.js';
 import { srt, youtubeText, download, shareFiles, safeName, chapterStamp } from './exporter.js';
 import { store, requestPersistentStorage } from './store.js';
-import { generateFootage, shotPrompt, FOOTAGE_MODELS, FOOTAGE_COST, FREE_VIDEO_SPACES } from './footage.js';
+import { generateFootage, shotPrompt, testAIVideo, FOOTAGE_MODELS, FOOTAGE_COST, FREE_VIDEO_SPACES } from './footage.js';
 import { openAsset } from './clipdecoder.js';
 import { THEMES, VOICES, loadSettings, saveSettings, canvasSize } from './settings.js';
 
@@ -52,6 +52,7 @@ requestPersistentStorage();
 const standalone = window.navigator.standalone || matchMedia('(display-mode: standalone)').matches;
 if (standalone || localStorage.getItem('aivideostudio.hideInstall')) $('installCard').hidden = true;
 $('hideInstall').onclick = () => { $('installCard').hidden = true; localStorage.setItem('aivideostudio.hideInstall', '1'); };
+$('tokenGo').onclick = () => { showTab('studio'); setTimeout(() => { const el = $('s-hftoken'); el.scrollIntoView({ behavior: 'smooth', block: 'center' }); el.focus(); }, 150); };
 $('deviceBadge').textContent = hasWebGPU() ? 'WebGPU ready' : 'No WebGPU · CPU mode';
 $('deviceNote').textContent = hasWebGPU()
   ? 'WebGPU is available: GPU models run fast. Models download once over Wi-Fi and stay cached.'
@@ -74,6 +75,8 @@ $('cancel').onclick = () => { cancelled = true; log('Studio', 'warning', 'Cancel
 renderSummary();
 
 function renderSummary() {
+  const needsToken = settings.footageProvider === 'free' && settings.aiVideoEnabled !== false && !(settings.hfToken || '').trim();
+  $('tokenBanner').hidden = !needsToken;
   const m = describeModel(settings.modelId);
   const [w, h] = canvasSize(settings);
   $('summary').innerHTML = `Model: <b>${esc(m.name)}</b> · ${esc(aspectLabel())} · ${w}×${h} · ${settings.fps} fps · ${esc(settings.theme)}<br>` +
@@ -270,8 +273,12 @@ async function produce(prompt, resume) {
       cp.footage = results;
       for (const e of errors) log('Footage', 'warning', e);
       const entries = Object.values(cp.footage).filter(Boolean);
-      const vids = entries.filter(e => e.kind === 'video').length, imgs = entries.filter(e => e.kind === 'image').length;
-      if (entries.length) log('Footage', 'success', `${vids} video clip(s) and ${imgs} photo(s) with camera motion ready for ${jobs.length} scene(s); the rest use motion graphics.`);
+      const ai = entries.filter(e => e.source === 'ai-video').length;
+      const vids = entries.filter(e => e.kind === 'video').length - ai, imgs = entries.filter(e => e.kind === 'image').length;
+      const summary = `${ai} AI-generated video clip(s), ${vids} stock clip(s), ${imgs} photo(s) with motion for ${jobs.length} scene(s); the rest use motion graphics.`;
+      cp.footageSummary = summary + (errors.length ? ` Reasons: ${errors.slice(0, 2).join(' ')}` : '');
+      if (ai === jobs.length) log('Footage', 'success', summary);
+      else if (entries.length) log('Footage', 'warning', summary + (ai < jobs.length && fs.aiVideoEnabled !== false ? ' Real AI video was not available for every scene; see the reasons above.' : ''));
       else log('Footage', 'warning', 'No footage could be fetched; the video uses motion graphics for every scene.');
       await save('footage');
     }
@@ -306,7 +313,8 @@ async function produce(prompt, resume) {
   checkCancel();
 
   const footageCredits = [...new Set(Object.values(cp.footage || {}).filter(Boolean).map(e => e.credit).filter(Boolean))];
-  const plan = { prompt, brief: cp.brief, review: cp.review, publish: cp.publish, scenes, totalDuration: total, claimsToVerify: cp.review.claimsToVerify, width, height, fps: s.fps, footageCredits, createdAt: Date.now() };
+  const footageBySceneLabel = Object.fromEntries(scenes.map(sc => { const e = cp.footage && cp.footage[sc.beatId]; return [sc.beatId, !e ? 'motion graphics' : e.source === 'ai-video' ? 'AI-generated video' : e.kind === 'video' ? 'stock video' : 'AI photo with motion']; }));
+  const plan = { prompt, brief: cp.brief, review: cp.review, publish: cp.publish, scenes, totalDuration: total, claimsToVerify: cp.review.claimsToVerify, width, height, fps: s.fps, footageCredits, footageBySceneLabel, footageSummary: cp.footageSummary || '', createdAt: Date.now() };
 
   // ---------- Mix ----------
   progress('Mixing', 0.3);
@@ -454,7 +462,7 @@ checkInterruptedRun();
 function showResult(p) {
   $('resultCard').hidden = false;
   const url = URL.createObjectURL(p.thumbBlob);
-  $('resultItem').innerHTML = `<img src="${url}" alt=""><div><div class="t">${esc(p.title)}</div><div class="c">${p.duration.toFixed(1)} s · tap to watch, share, and copy the YouTube text</div></div>`;
+  $('resultItem').innerHTML = `<img src="${url}" alt=""><div><div class="t">${esc(p.title)}</div><div class="c">${p.duration.toFixed(1)} s · ${esc((p.plan && p.plan.footageSummary) || '')} · tap to watch, share, and copy the YouTube text</div></div>`;
   $('resultItem').onclick = () => { showTab('videos'); openProject(p.id); };
 }
 
@@ -496,7 +504,8 @@ async function openProject(id) {
   $('detailMeta').innerHTML =
     copyable('YouTube title', pub.title) + copyable('Description', pub.description, 10) + copyable('Tags', pub.tags.join(', ')) +
     (p.plan.claimsToVerify.length ? `<h3>Verify before publishing</h3>${p.plan.claimsToVerify.map(c => `<div class="copy"><span>☐ ${esc(c)}</span></div>`).join('')}` : '') +
-    `<h3>Script</h3>` + p.plan.scenes.map(sc => `<div class="copy"><span><b style="color:var(--muted);font-size:.78rem">${chapterStamp(sc.start)} · ${esc(sc.visual.title)} · ${sc.visual.kind}</b>\n${esc(sc.script.narration)}</span></div>`).join('') +
+    (p.plan.footageSummary ? `<h3>Footage</h3><div class="copy"><span>${esc(p.plan.footageSummary)}</span></div>` : '') +
+    `<h3>Script</h3>` + p.plan.scenes.map(sc => `<div class="copy"><span><b style="color:var(--muted);font-size:.78rem">${chapterStamp(sc.start)} · ${esc(sc.visual.title)} · ${sc.visual.kind}${p.plan.footageBySceneLabel ? ' · ' + esc(p.plan.footageBySceneLabel[sc.beatId] || '') : ''}</b>\n${esc(sc.script.narration)}</span></div>`).join('') +
     copyable('Everything for YouTube Studio', p.youtubeText, 14);
   $('detailMeta').querySelectorAll('[data-copy]').forEach(b => b.onclick = () => navigator.clipboard.writeText(b.dataset.copy).then(() => { b.textContent = 'Copied'; setTimeout(() => b.textContent = 'Copy', 1200); }));
   card.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -569,7 +578,15 @@ function renderSettings() {
   $('s-spacecustom').hidden = knownSpace; $('s-spacecustom').value = knownSpace ? '' : (settings.aiVideoSpace || '');
   $('s-space').onchange = () => { const v = $('s-space').value; $('s-spacecustom').hidden = v !== 'custom'; if (v !== 'custom') { settings.aiVideoSpace = v; saveSettings(settings); renderSummary(); } };
   $('s-spacecustom').oninput = () => { settings.aiVideoSpace = $('s-spacecustom').value.trim(); saveSettings(settings); renderSummary(); };
-  bind('s-aivideo', 'aiVideoEnabled'); bind('s-hftoken', 'hfToken');
+  bind('s-aivideo', 'aiVideoEnabled'); bind('s-hftoken', 'hfToken'); bind('s-patience', 'footagePatienceMin', v => parseInt(v, 10));
+  $('testAI').onclick = async () => {
+    const btn = $('testAI'); btn.disabled = true; $('testAIStatus').textContent = 'Starting…';
+    try {
+      const r = await testAIVideo(settings, (m) => { $('testAIStatus').textContent = m; });
+      $('testAIStatus').innerHTML = r.ok ? `<span class="ok">${esc(r.message)}</span>` : `<span class="bad">${esc(r.message)}</span>`;
+      if (r.ok && r.blob) { const v = $('testAIVideo'); v.hidden = false; v.src = URL.createObjectURL(r.blob); }
+    } finally { btn.disabled = false; }
+  };
   bind('s-falkey', 'falKey'); bind('s-falmodel', 'falModel', v => v, () => { $('falCustom').hidden = settings.falModel !== 'custom'; });
   bind('s-falendpoint', 'falEndpoint'); bind('s-falextra', 'falExtra');
   bind('s-footagedur', 'footageDuration', v => parseInt(v, 10)); bind('s-footagescope', 'footageScope');
