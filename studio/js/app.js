@@ -34,7 +34,7 @@ let currentProject = null;
 // ---------- boot ----------
 // Offline support + self-update: the service worker serves the cached app instantly and fetches updates in
 // the background; when a new version has taken over, reload once so the user never sees a stale build.
-if ('serviceWorker' in navigator && !MOCK) {
+if ('serviceWorker' in navigator && !MOCK && !params.get('factory')) {
   let hadController = !!navigator.serviceWorker.controller;
   navigator.serviceWorker.addEventListener('controllerchange', () => {
     if (hadController && !running && !sessionStorage.getItem('aivideostudio.reloaded')) { sessionStorage.setItem('aivideostudio.reloaded', '1'); location.reload(); }
@@ -131,7 +131,7 @@ async function loadModel(model) {
     progress('Planning', 0, `Loading model ${Math.round(f * 100)}%`);
     $('engineStatus').textContent = `${model.name}: ${text || Math.round(f * 100) + '%'}`;
     $('modelProgress').hidden = false; $('modelProgress').firstElementChild.style.width = Math.round(f * 100) + '%';
-  });
+  }, settings);
   // Watchdog: Safari sometimes stalls a download or a WebAssembly start forever; give up after 150 s of silence.
   const watchdog = new Promise((_, reject) => {
     const t = setInterval(() => { if (Date.now() - lastProgressAt > 150_000) { clearInterval(t); reject(new Error('no progress for 150 s (stalled download or start-up)')); } }, 5000);
@@ -152,7 +152,8 @@ async function ensureEngine(allowFallback = true) {
   const chain = [model];
   if (allowFallback && !MOCK) {
     const cpu = MODELS.find(m => m.engine === 'wllama');
-    if (model.engine === 'webllm' && cpu) chain.push(cpu);
+    if (model.engine === 'hf-text' && hasWebGPU()) chain.push(MODELS.find(m => m.engine === 'webllm'));
+    if ((model.engine === 'webllm' || model.engine === 'hf-text') && cpu) chain.push(cpu);
   }
   for (const m of chain) {
     try { return await loadModel(m); }
@@ -170,7 +171,7 @@ async function ensureEngine(allowFallback = true) {
   return null;
 }
 
-function isSmallModel(model) { return !model || model.engine === 'wllama' || (model.sizeMB && model.sizeMB <= 700); }
+function isSmallModel(model) { return !model || model.engine === 'wllama' || (model.engine !== 'hf-text' && model.sizeMB && model.sizeMB <= 700); }
 
 async function start(resume = null) {
   const prompt = resume ? resume.prompt : $('prompt').value.trim();
@@ -612,11 +613,11 @@ function renderModels() {
   const gpu = hasWebGPU();
   $('modelList').innerHTML = allModels().map(m => {
     const downloaded = localStorage.getItem('aivideostudio.downloaded.' + m.id);
-    const usable = m.engine !== 'webllm' || gpu;
+    const usable = m.engine === 'hf-text' ? !!(settings.hfToken || '').trim() : (m.engine !== 'webllm' || gpu);
     return `<label class="model"><input type="radio" name="model" value="${esc(m.id)}" ${settings.modelId === m.id ? 'checked' : ''} ${usable ? '' : 'disabled'}>
       <div><div class="n">${esc(m.name)} ${downloaded ? '<span class="ok">· downloaded</span>' : ''}</div><div class="d">${esc(m.note)}</div>
-      <div class="d">${m.sizeMB ? m.sizeMB + ' MB · ' : ''}${m.engine === 'webllm' ? (gpu ? 'GPU (WebGPU)' : '<span class="bad">needs WebGPU</span>') : 'CPU (WebAssembly)'}</div></div>
-      ${settings.modelId === m.id && !downloaded ? `<button class="secondary" data-load="${esc(m.id)}">Download</button>` : ''}</label>`;
+      <div class="d">${m.sizeMB ? m.sizeMB + ' MB · ' : ''}${m.engine === 'hf-text' ? (usable ? 'cloud · your Hugging Face token' : '<span class="bad">paste your Hugging Face token in Studio → Footage</span>') : m.engine === 'webllm' ? (gpu ? 'GPU (WebGPU)' : '<span class="bad">needs WebGPU</span>') : 'CPU (WebAssembly)'}</div></div>
+      ${settings.modelId === m.id && !downloaded && m.engine !== 'hf-text' ? `<button class="secondary" data-load="${esc(m.id)}">Download</button>` : ''}</label>`;
   }).join('');
   $('modelList').querySelectorAll('input[name=model]').forEach(r => r.onchange = () => { settings.modelId = r.value; saveSettings(settings); renderModels(); renderSummary(); });
   $('modelList').querySelectorAll('[data-load]').forEach(b => b.onclick = async () => { b.disabled = true; try { await loadModel(MOCK ? { id: 'mock', engine: 'mock', name: 'Mock writer (demo)' } : describeModel(settings.modelId)); renderModels(); } catch (e) { $('engineStatus').innerHTML = `<span class="bad">${esc(e.message)}</span>`; } });

@@ -9,3 +9,6 @@ ios/**/*.xcuserstate
 ios/**/.DS_Store
 studio/test-clip*.mp4
 studio/test-image*.jpg
+out/
+prompt.txt
+server.log
