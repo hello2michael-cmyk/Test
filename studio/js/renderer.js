@@ -38,6 +38,7 @@ export class Renderer {
     if (index < 0) index = time >= plan.totalDuration ? plan.scenes.length - 1 : -1;
     if (footageFrame && index >= 0) this.footage(footageFrame, time - plan.scenes[index].start, plan.scenes[index].duration, plan.scenes[index].visual.kind);
     else this.background(time);
+    this.hasFootageFrame = !!footageFrame;
     if (index < 0) return;
     const scene = plan.scenes[index];
     const local = time - scene.start;
@@ -62,6 +63,13 @@ export class Renderer {
     ctx.translate(w / 2, h / 2); ctx.scale(zoom, zoom); ctx.translate(-w / 2, -h / 2);
     try { ctx.drawImage(frame, 0, 0, w, h); } catch { ctx.fillStyle = this.theme.bgTop; ctx.fillRect(0, 0, w, h); }
     ctx.restore();
+    if (kind === 'footage') {
+      // Cinematic piece: the picture is the point. Only a soft vignette.
+      const v = ctx.createRadialGradient(w / 2, h / 2, Math.min(w, h) * 0.45, w / 2, h / 2, Math.max(w, h) * 0.75);
+      v.addColorStop(0, 'rgba(0,0,0,0)'); v.addColorStop(1, 'rgba(0,0,0,0.35)');
+      ctx.fillStyle = v; ctx.fillRect(0, 0, w, h);
+      return;
+    }
     const g = ctx.createLinearGradient(0, 0, 0, h);
     g.addColorStop(0, 'rgba(5,8,20,0.55)'); g.addColorStop(0.45, 'rgba(5,8,20,0.28)'); g.addColorStop(1, 'rgba(5,8,20,0.82)');
     ctx.fillStyle = g; ctx.fillRect(0, 0, w, h);
@@ -205,8 +213,26 @@ export class Renderer {
       case 'stat': return this.stat(v, local);
       case 'code': return this.code(v, local);
       case 'quote': return this.quote(v, local);
+      case 'footage': return this.footageOverlay(v, local);
       default: return this.outro(v, local);
     }
+  }
+
+  /** Cinematic shot: no text except an optional lower-third title that fades in and out on the first shot. */
+  footageOverlay(v, local) {
+    const { ctx, theme } = this;
+    if (!v.title) { if (!this.hasFootageFrame) this.title({ ...v, title: ' ' }, local); return; }
+    const a = Math.min(outCubic(prog(local, 0.4, 0.8)), clamp01((4.2 - local) / 0.8));
+    if (a <= 0) return;
+    const px = this.fitFont(v.title, this.u(64), this.u(36), 800, this.cw * 0.8, 2);
+    const font = this.font(px, 800);
+    const m = this.wrap(v.title, font, this.cw * 0.8);
+    const y = this.h - this.my * (this.portrait ? 1.6 : 1.3) - m.height;
+    ctx.save(); ctx.globalAlpha *= a;
+    ctx.fillStyle = theme.accent; ctx.fillRect(this.mx, y - this.u(18), this.u(90), this.u(6));
+    ctx.shadowColor = 'rgba(0,0,0,0.6)'; ctx.shadowBlur = this.u(18);
+    this.text(v.title, this.mx, y, this.cw * 0.8, font, '#fff', { offsetY: (1 - a) * this.u(16) });
+    ctx.restore();
   }
 
   kicker(text, local, y) {

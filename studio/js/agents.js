@@ -2,7 +2,33 @@
 // of the deterministic producer (narration, timing, mixing, rendering, packaging).
 import * as T from './timing.js';
 
-export const SCENE_KINDS = ['title', 'bullets', 'diagram', 'comparison', 'stat', 'code', 'quote', 'outro'];
+export const SCENE_KINDS = ['title', 'bullets', 'diagram', 'comparison', 'stat', 'code', 'quote', 'outro', 'footage'];
+
+/** What kind of video the creator wants: a lesson with narration, or a cinematic visual piece. */
+export function detectMode(prompt, preference = 'auto') {
+  if (preference === 'explainer' || preference === 'cinematic') return preference;
+  const p = String(prompt || '').toLowerCase();
+  const cine = /cinematic|visuals? (of|showing|around)|show(ing|s)? (a|an|one|the) |footage|b-roll|montage|music video|trailer|commercial|advert|aesthetic|mood piece|no (narration|voice|text|words)|driving|walking|flying|timelapse|slow motion|drone/.test(p);
+  const edu = /explain|what is|what are|how (does|do|to)|why |teach|tutorial|lesson|learn|understand|guide|introduction to|basics of|difference between|vs\.?|compare|tips|steps/.test(p);
+  if (cine && !edu) return 'cinematic';
+  if (edu && !cine) return 'explainer';
+  return cine ? 'cinematic' : 'explainer';
+}
+
+/** "maximum duration 60 seconds", "45s", "about 30 sec" → seconds, or null. */
+export function parseDurationSeconds(prompt) {
+  const m = String(prompt || '').match(/(\d{1,3})\s*(?:-|to)?\s*(?:s\b|sec\b|secs\b|second|seconds)/i);
+  if (!m) return null;
+  const n = parseInt(m[1], 10);
+  return n >= 10 && n <= 180 ? n : null;
+}
+
+/** Does the creator want a voice at all in a cinematic piece? */
+export function wantsVoice(prompt) {
+  const p = String(prompt || '').toLowerCase();
+  if (/no (narration|voice|voice-?over|speaking|talking|words)|without (narration|voice)|music only/.test(p)) return false;
+  return /narrat|voice|voice-?over|speak|says|dialogue|tells|explain|commentary/.test(p);
+}
 
 const HOUSE_RULES = `You are part of a small production team making short, professional educational videos about AI for YouTube.
 House style: clear, concrete, friendly but precise, no hype, no filler, no emojis, no hashtags.
@@ -177,6 +203,54 @@ JSON schema (fill every field):
     return { title, audience, hook, learningObjectives: [takeaway], keyTakeaway: takeaway, tone: 'calm and precise', outline };
   }
 
+  // ----- Cinematic director: a consistent world + a shot list -----
+  async directorCinematic(prompt, shotCount, shotSeconds) {
+    this.info('Director', `Cinematic brief: ${shotCount} shots of ${shotSeconds} s with one consistent character, vehicle, place and palette.`);
+    let brief = null;
+    if (this.engine && !this.small) {
+      const system = `You are the DIRECTOR of a short cinematic video (no lesson, no explanation). You write a "world bible" that every shot must obey
+so the SAME person, SAME vehicle/objects, SAME place, SAME time of day and SAME colour palette appear in every clip, then a shot list.
+Be concrete and visual: age, build, hair, clothing colours; make/colour/interior of vehicles; city character and weather; palette; lens.
+Never describe on-screen text, charts, logos or subtitles. Answer with a single JSON object only, no markdown.`;
+      const user = `Creator's brief: "${prompt}"
+
+Write exactly ${shotCount} shots, each about ${shotSeconds} seconds, forming one continuous sequence (establishing → details → emotional peak → closing).
+JSON schema:
+{"title": "evocative title, max 6 words", "logline": "one sentence of what we see",
+ "bible": {"character": "one sentence: who, age, look, clothing colours", "props": "one sentence: vehicle/objects with make, colour, interior details",
+           "setting": "one sentence: place, time of day, weather, lighting", "palette": "one sentence: colours and mood", "lens": "one phrase: lens and camera feel"},
+ "shots": [{"id": 1, "action": "what happens in this shot, one sentence, present tense", "camera": "camera position and movement, one phrase"}]}`;
+      try {
+        brief = await this.structured('Director', system, user, { temperature: 0.7 }, (o) => {
+          if (!Array.isArray(o.shots) || o.shots.length < 3) throw new Error('shots missing');
+          if (!o.bible || typeof o.bible !== 'object') throw new Error('bible missing');
+        });
+      } catch (e) { this.warn('Director', `Structured brief failed (${e.message}); building it one question at a time.`); }
+    }
+    if (!brief) brief = await this.directorCinematicStepwise(prompt, shotCount);
+    brief = normaliseCinematicBrief(brief, prompt, shotCount);
+    this.ok('Director', `“${brief.title}” — ${brief.shots.length} shots. World: ${brief.bible.character} ${brief.bible.props}`.slice(0, 300));
+    return brief;
+  }
+
+  async directorCinematicStepwise(prompt, shotCount) {
+    const topic = promptTopic(prompt);
+    const ask = (q, o) => this.ask('Director', q, o);
+    const title = (await ask(`Give an evocative title, at most 6 words, for a short cinematic video about: ${topic}. Reply with the title only.`, { maxTokens: 24, maxWords: 7 })) || titleCase(topic);
+    const character = (await ask(`For a cinematic video about "${topic}", describe the main person in one sentence: age, build, hair, clothing with colours. Reply with the sentence only.`, { maxTokens: 60, maxWords: 30 })) || 'A man in his thirties with short dark hair, wearing a navy jacket and white t-shirt.';
+    const props = (await ask(`For the same video, describe the vehicle or main objects in one sentence with make, colour and interior details. Reply with the sentence only.`, { maxTokens: 60, maxWords: 30 })) || 'A silver sedan with a black leather interior and a large glowing touchscreen on the dashboard.';
+    const setting = (await ask(`For the same video, describe the place, time of day, weather and lighting in one sentence. Reply with the sentence only.`, { maxTokens: 60, maxWords: 30 })) || 'A busy downtown at golden hour, warm sunlight and long shadows, light traffic.';
+    const palette = (await ask(`For the same video, describe the colour palette and mood in one sentence. Reply with the sentence only.`, { maxTokens: 40, maxWords: 20 })) || 'Warm amber and teal, saturated and pleasant, soft contrast.';
+    const shots = [];
+    const stages = ['establishing wide shot', 'medium shot of the person', 'close-up detail', 'point-of-view shot', 'moving exterior shot', 'emotional peak', 'wide closing shot', 'final lingering detail'];
+    for (let i = 0; i < shotCount; i++) {
+      const stage = stages[Math.min(i, stages.length - 1)];
+      const action = (await ask(`Shot ${i + 1} of ${shotCount} (${stage}) for the video "${title}" about ${topic}. In one present-tense sentence, what happens? Reply with the sentence only.`, { maxTokens: 50, maxWords: 28, temperature: 0.6 })) || `${stage}: ${topic}.`;
+      shots.push({ id: i + 1, action, camera: stage });
+    }
+    return { title, logline: topic, bible: { character, props, setting, palette, lens: '35mm anamorphic feel, shallow depth of field' }, shots };
+  }
+
   // ----- Scriptwriter -----
   async scriptwriter(brief, budget, previous = null, feedback = null) {
     if (feedback) this.info('Scriptwriter', `Rewriting the script: ${feedback}`);
@@ -242,6 +316,38 @@ JSON schema:
       scenes.push({ beatId: b.id, narration: spoken(narration, perBeat + 8), onScreenTitle: headlineFrom(b.purpose === 'hook' ? brief.title : b.keyPoint), emphasisWords: [] });
     }
     return scenes;
+  }
+
+  /** Cinematic: either silence (music only) or one short evocative line per shot. */
+  async scriptwriterCinematic(brief, voice, wordsPerLine = 10) {
+    const scenes = [];
+    if (!voice) {
+      this.info('Scriptwriter', 'Music-only piece: no narration, no captions.');
+      for (const sh of brief.shots) scenes.push({ beatId: sh.id, narration: '', onScreenTitle: sh.id === 1 ? brief.title : '', emphasisWords: [] });
+      return { scenes, totalWords: 0 };
+    }
+    this.info('Scriptwriter', 'Writing a short voice-over line per shot.');
+    for (const sh of brief.shots) {
+      let line = null;
+      if (this.engine) line = await this.ask('Scriptwriter', `Write one short, evocative voice-over line (at most ${wordsPerLine} words, present tense, no explanation) for this shot of "${brief.title}": ${sh.action}. Reply with the line only.`, { maxTokens: 40, maxWords: wordsPerLine + 2, temperature: 0.7 });
+      scenes.push({ beatId: sh.id, narration: line ? spoken(line, wordsPerLine + 2) : '', onScreenTitle: sh.id === 1 ? brief.title : '', emphasisWords: [] });
+    }
+    return { scenes, totalWords: scenes.reduce((n, s) => n + T.wordCount(s.narration), 0) };
+  }
+
+  /** Cinematic storyboard: every shot is full-frame footage with the bible baked into the prompt. */
+  designerCinematic(brief) {
+    const b = brief.bible;
+    const bible = [b.character, b.props, b.setting, b.palette, b.lens].filter(Boolean).join(' ');
+    const scenes = brief.shots.map((sh, i) => ({
+      beatId: sh.id, kind: 'footage', kicker: null, title: i === 0 ? brief.title : '', subtitle: null,
+      bullets: null, nodes: null, leftTitle: null, leftItems: null, rightTitle: null, rightItems: null, statValue: null, statLabel: null,
+      code: null, codeLanguage: null, quote: null, attribution: null,
+      shot: `${sh.action} ${sh.camera ? 'Camera: ' + sh.camera + '.' : ''} ${bible}`.replace(/\s+/g, ' ').trim(),
+      stockQuery: autoQuery(`${sh.action} ${b.props} ${b.setting}`, brief.title),
+    }));
+    this.ok('Visual Designer', `Shot list ready: ${scenes.length} full-frame shots sharing one world.`);
+    return { scenes };
   }
 
   // ----- Reviewer (optional: never blocks) -----
@@ -330,12 +436,17 @@ JSON schema:
     // Shot descriptions for generated footage (only needed when footage is on, but cheap to keep).
     if (this.settings.footageProvider && this.settings.footageProvider !== 'none') {
       const topic = promptTopic(brief.title);
+      // One recurring protagonist and place for all b-roll, so the clips feel like one film rather than random stock.
+      let world = brief.bibleLine || null;
+      if (!world && this.engine) world = await this.ask('Visual Designer', `For b-roll in a video about ${topic}, describe in one sentence a recurring protagonist (age, look, clothing colours) and a recurring place (with lighting) that every clip will reuse. Reply with the sentence only.`, { maxTokens: 60, maxWords: 32, temperature: 0.5 });
+      if (!world) world = 'A woman in her thirties with dark curly hair and a mustard sweater, in a bright loft office with large windows and warm afternoon light.';
+      brief.bibleLine = world;
       for (const v of scenes) {
-        if (v.shot && T.wordCount(v.shot) >= 5) continue;
+        if (v.shot && T.wordCount(v.shot) >= 5) { if (!v.shot.includes(world)) v.shot = `${v.shot} ${world}`; continue; }
         const sc = script.scenes.find(x => x.beatId === v.beatId);
         let shot = null;
         if (this.engine) shot = await this.ask('Visual Designer', `Describe, in one sentence, a realistic cinematic six-second video clip with people or real places that illustrates this narration from a video about ${topic}: "${sc.narration}". Mention the subject, the action, the setting and a camera movement. Do not mention text, charts or logos. Reply with the sentence only.`, { maxTokens: 70, maxWords: 36, temperature: 0.6 });
-        v.shot = shot || autoShot(sc, topic, v.kind);
+        v.shot = `${shot || autoShot(sc, topic, v.kind)} ${world}`;
       }
       for (const v of scenes) {
         if (v.stockQuery && T.wordCount(v.stockQuery) >= 1) continue;
@@ -491,6 +602,38 @@ export function autoVisual(scene, kind, brief, index, count, settings) {
   return v;
 }
 
+function normaliseCinematicBrief(brief, prompt, shotCount) {
+  const b = brief || {};
+  const topic = promptTopic(prompt);
+  const bible = b.bible && typeof b.bible === 'object' ? b.bible : {};
+  const str = (x, d) => (typeof x === 'string' && x.trim() ? x.trim() : d);
+  let shots = (Array.isArray(b.shots) ? b.shots : []).filter(x => x && typeof x === 'object').map((x, i) => ({
+    id: i + 1, action: str(x.action || x.description || x.text, ''), camera: str(x.camera, ''),
+  })).filter(x => x.action);
+  const stages = ['wide establishing shot', 'medium shot', 'close-up', 'point-of-view shot', 'tracking exterior shot', 'emotional peak', 'closing wide shot', 'lingering detail'];
+  while (shots.length < Math.min(shotCount, 3)) shots.push({ id: shots.length + 1, action: `${stages[shots.length]} of ${topic}.`, camera: stages[shots.length] });
+  shots = shots.slice(0, shotCount).map((x, i) => ({ ...x, id: i + 1, camera: x.camera || stages[Math.min(i, stages.length - 1)] }));
+  return {
+    mode: 'cinematic',
+    title: clip(str(b.title, titleCase(topic)), 8),
+    logline: str(b.logline, topic),
+    audience: 'viewers',
+    keyTakeaway: str(b.logline, topic),
+    tone: 'cinematic',
+    hook: '',
+    learningObjectives: [],
+    bible: {
+      character: str(bible.character, 'A man in his thirties with short dark hair, wearing a navy jacket.'),
+      props: str(bible.props, 'A silver sedan with a black interior and a glowing dashboard touchscreen.'),
+      setting: str(bible.setting, 'A colourful downtown at golden hour with light traffic.'),
+      palette: str(bible.palette, 'Warm amber and teal, saturated, pleasant.'),
+      lens: str(bible.lens, '35mm, shallow depth of field, smooth motion'),
+    },
+    shots,
+    outline: shots.map(s => ({ id: s.id, purpose: 'shot', keyPoint: s.action, suggestedVisual: 'footage' })),
+  };
+}
+
 function normaliseBrief(brief, prompt, sceneCount) {
   const topic = promptTopic(prompt);
   const b = brief || {};
@@ -543,12 +686,13 @@ export function sanitise(v, script) {
     codeLanguage: v.codeLanguage ? String(v.codeLanguage).slice(0, 16) : null,
     quote: v.quote ? clip(v.quote, 24) : null,
     attribution: v.attribution ? clip(v.attribution, 6) : null,
-    shot: v.shot ? clip(String(v.shot).replace(/\s+/g, ' '), 45) : null,
+    shot: v.shot ? clip(String(v.shot).replace(/\s+/g, ' '), 120) : null,
     stockQuery: v.stockQuery ? clip(String(v.stockQuery).replace(/[^\w\s-]/g, ' '), 4).toLowerCase() : null,
   };
   const fallbackBullets = () => (script.emphasisWords && script.emphasisWords.length ? script.emphasisWords : [script.onScreenTitle]);
   const degrade = () => { out.kind = 'bullets'; if (!out.bullets || !out.bullets.length) out.bullets = fallbackBullets(); };
   switch (out.kind) {
+    case 'footage': break;
     case 'bullets': if (!out.bullets || !out.bullets.length) out.bullets = fallbackBullets(); break;
     case 'diagram': if (!out.nodes || out.nodes.length < 2) degrade(); break;
     case 'comparison': if (!out.leftItems?.length || !out.rightItems?.length) { out.bullets = [...(out.leftItems || []), ...(out.rightItems || [])]; degrade(); } break;

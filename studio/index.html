@@ -46,9 +46,16 @@
         <h2>What should the video teach?</h2>
         <textarea id="prompt" placeholder="e.g. Why do large language models hallucinate? Three causes and one fix."></textarea>
         <div class="chips" id="chips"></div>
+        <div class="field"><label>Video style</label><select id="style"><option value="auto">Auto-detect from my prompt</option><option value="explainer">Educational explainer (narration, titles, captions)</option><option value="cinematic">Cinematic visuals (one consistent world, full-frame shots, music)</option></select><p class="note" id="styleHint"></p></div>
         <button class="primary" id="generate">Generate video</button>
         <button class="danger" id="cancel" hidden style="width:100%;margin-top:8px">Cancel</button>
         <div class="summary" id="summary"></div>
+      </div>
+      <div class="card install" id="reviewCard" hidden style="border-color:var(--accent)">
+        <h2>Check the shots before the GPU runs</h2>
+        <p class="note" id="reviewWorld"></p>
+        <div id="reviewList"></div>
+        <div class="btnrow"><button class="primary" id="reviewGo">Looks right, generate footage</button><button class="secondary" id="reviewSkip">Don't ask again</button></div>
       </div>
       <div class="card" id="progressCard" hidden>
         <div class="row"><h2 id="stageName" style="margin:0">Planning</h2><span id="stageDetail" style="text-align:right;color:var(--muted);font-size:.8rem"></span></div>
@@ -148,6 +155,7 @@
           <label class="toggle"><span><b>Free AI video generation</b> (LTX-Video on a free Hugging Face GPU)</span><input type="checkbox" id="s-aivideo"></label>
           <div class="field"><label>Generator</label><select id="s-space"></select><input type="text" id="s-spacecustom" hidden placeholder="owner/space or https://xxxx.gradio.live" autocapitalize="off" autocorrect="off" spellcheck="false" style="margin-top:6px"></div>
           <div class="field"><label>Hugging Face token (free account, optional: more daily GPU time)</label><input type="text" id="s-hftoken" placeholder="hf_… from huggingface.co/settings/tokens" autocapitalize="off" autocorrect="off" spellcheck="false"></div>
+          <label class="toggle"><span>Show me the shot prompts for approval before generating footage</span><input type="checkbox" id="s-review"></label>
           <div class="field"><label>Patience: how long to keep trying the free GPUs before using other sources</label><select id="s-patience"><option value="5">5 minutes</option><option value="12">12 minutes</option><option value="25">25 minutes</option><option value="45">45 minutes</option></select></div>
           <div class="btnrow"><button class="secondary" id="testAI">Test AI video now (3-second clip)</button></div>
           <p class="note" id="testAIStatus"></p>
