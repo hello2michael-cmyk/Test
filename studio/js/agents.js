@@ -23,6 +23,42 @@ export function parseDurationSeconds(prompt) {
   return n >= 10 && n <= 180 ? n : null;
 }
 
+/**
+ * A cinematic prompt that spells out its shots ("Shots: a wide view of …; a close-up of …") and its world
+ * ("the same man and the same car in every shot: …") needs no writer model. Returns null when the prompt
+ * does not list at least 3 shots.
+ */
+export function parseCinematicPrompt(prompt) {
+  const text = String(prompt || '').replace(/\s+/g, ' ').trim();
+  // The shot list is introduced by "Shots:" (plural preferred; "in every shot:" introduces the world instead).
+  const labels = [...text.matchAll(/\bshots?\s*:/gi)];
+  if (!labels.length) return null;
+  const label = labels.find(x => /shots/i.test(x[0])) || labels[labels.length - 1];
+  const idx = label.index;
+  const after = text.slice(idx + label[0].length);
+  // The list ends at the first sentence about style, audio or length rather than a shot.
+  const styleIdx = after.search(/\b(pleasant|palette|warm [a-z]+ and|smooth slow camera|shallow depth|no narration|music only|maximum duration|no text|voice-?over|soundtrack)\b/i);
+  const list = styleIdx > 0 ? after.slice(0, styleIdx) : after;
+  const tail = styleIdx > 0 ? after.slice(styleIdx) : '';
+  const shots = list.split(/;|\s\(\d+\)\s|\s\d+[.)]\s/).map(x => x.replace(/^(and\s+)?(then\s+)?/i, '').replace(/[.,;\s]+$/, '').trim()).filter(x => x.split(' ').length >= 3);
+  if (shots.length < 3) return null;
+  const before = text.slice(0, idx);
+  const sentences = before.split(/(?<=[.!?])\s+/).map(x => x.trim()).filter(Boolean);
+  const worldSentence = sentences.find(x => /same|every shot|consistent/i.test(x)) || '';
+  const world = worldSentence.includes(':') ? worldSentence.slice(worldSentence.indexOf(':') + 1).trim() : worldSentence;
+  const parts = world.split(/;\s*/).map(x => x.trim()).filter(Boolean);
+  const character = parts.find(x => /\b(man|woman|person|girl|boy|driver|presenter|he|she|year|hair|jacket|dress|shirt)\b/i.test(x)) || parts[0] || '';
+  const props = parts.find(x => x !== character && /\b(car|coupe|sedan|bike|vehicle|truck|boat|phone|laptop|camera|guitar|seats|interior)\b/i.test(x)) || parts.find(x => x !== character) || '';
+  const settingSentence = sentences.find(x => /\b(city|street|avenue|town|forest|beach|office|studio|night|golden hour|dusk|dawn|sunset|sunrise|rain)\b/i.test(x) && !/same/i.test(x)) || sentences[0] || '';
+  const paletteMatch = (tail || text).match(/([^.]*\b(palette|colou?rful|warm [a-z]+ and [a-z]+|neon|pastel|moody|saturated)[^.]*)\./i);
+  const title = clip(titleCase(promptTopic(sentences[0] || text).replace(/^(create (a )?video (that )?show(s|ing)? )?cinematic visuals of\s+/i, '').split(',')[0]), 8) || 'Untitled';
+  return {
+    title, logline: sentences[0] || text,
+    bible: { character, props, setting: settingSentence.replace(/^cinematic visuals of\s+/i, ''), palette: paletteMatch ? paletteMatch[1].trim() : 'natural, pleasant colours', lens: 'smooth slow camera movements, shallow depth of field' },
+    shots: shots.map((a, i) => ({ id: i + 1, action: a.charAt(0).toUpperCase() + a.slice(1), camera: '' })),
+  };
+}
+
 /** Does the creator want a voice at all in a cinematic piece? */
 export function wantsVoice(prompt) {
   const p = String(prompt || '').toLowerCase();
@@ -207,7 +243,12 @@ JSON schema (fill every field):
   async directorCinematic(prompt, shotCount, shotSeconds) {
     this.info('Director', `Cinematic brief: ${shotCount} shots of ${shotSeconds} s with one consistent character, vehicle, place and palette.`);
     let brief = null;
-    if (this.engine && !this.small) {
+    const explicit = parseCinematicPrompt(prompt);
+    if (explicit) {
+      this.ok('Director', `Your prompt lists ${explicit.shots.length} shot(s) and the world itself; using them exactly as written.`);
+      brief = explicit;
+      if (brief.shots.length > shotCount) brief.shots = brief.shots.slice(0, shotCount);
+    } else if (this.engine && !this.small) {
       const system = `You are the DIRECTOR of a short cinematic video (no lesson, no explanation). You write a "world bible" that every shot must obey
 so the SAME person, SAME vehicle/objects, SAME place, SAME time of day and SAME colour palette appear in every clip, then a shot list.
 Be concrete and visual: age, build, hair, clothing colours; exactly ONE vehicle (make, colour, interior) and never a second one; city character and weather; palette; lens.
@@ -228,7 +269,7 @@ JSON schema:
       } catch (e) { this.warn('Director', `Structured brief failed (${e.message}); building it one question at a time.`); }
     }
     if (!brief) brief = await this.directorCinematicStepwise(prompt, shotCount);
-    brief = normaliseCinematicBrief(brief, prompt, shotCount);
+    brief = normaliseCinematicBrief(brief, prompt, explicit ? Math.max(3, Math.min(shotCount, explicit.shots.length)) : shotCount);
     this.ok('Director', `“${brief.title}” — ${brief.shots.length} shots. World: ${brief.bible.character} ${brief.bible.props}`.slice(0, 300));
     return brief;
   }
@@ -343,7 +384,7 @@ JSON schema:
       beatId: sh.id, kind: 'footage', kicker: null, title: i === 0 ? brief.title : '', subtitle: null,
       bullets: null, nodes: null, leftTitle: null, leftItems: null, rightTitle: null, rightItems: null, statValue: null, statLabel: null,
       code: null, codeLanguage: null, quote: null, attribution: null,
-      shot: `${sh.action} ${sh.camera ? 'Camera: ' + sh.camera + '.' : ''} ${bible}`.replace(/\s+/g, ' ').trim(),
+      shot: `${sh.action.replace(/[.\s]*$/, '.')} ${sh.camera ? 'Camera: ' + sh.camera.replace(/[.\s]*$/, '.') : ''} ${bible}`.replace(/\s+/g, ' ').trim(),
       stockQuery: autoQuery(`${sh.action} ${b.props} ${b.setting}`, brief.title),
     }));
     this.ok('Visual Designer', `Shot list ready: ${scenes.length} full-frame shots sharing one world.`);

@@ -1,5 +1,5 @@
 // UI + production run. Everything happens in this browser tab.
-import { Team, promptTopic, detectMode, parseDurationSeconds, wantsVoice } from './agents.js';
+import { Team, promptTopic, detectMode, parseDurationSeconds, wantsVoice, parseCinematicPrompt } from './agents.js';
 import * as T from './timing.js';
 import { MODELS, hasWebGPU, defaultModelId, describeModel, createEngine } from './llm.js';
 import { loadTTS, synthesize, isLoaded as ttsLoaded } from './tts.js';
@@ -124,11 +124,19 @@ async function loadModel(model) {
   if (engine && engineModelId === model.id) return engine;
   if (engine) { await engine.unload(); engine = null; engineModelId = null; }
   $('engineStatus').textContent = `Loading ${model.name}…`;
-  engine = await createEngine(model, (f, text) => {
+  let lastProgressAt = Date.now();
+  const loading = createEngine(model, (f, text) => {
+    lastProgressAt = Date.now();
     progress('Planning', 0, `Loading model ${Math.round(f * 100)}%`);
     $('engineStatus').textContent = `${model.name}: ${text || Math.round(f * 100) + '%'}`;
     $('modelProgress').hidden = false; $('modelProgress').firstElementChild.style.width = Math.round(f * 100) + '%';
   });
+  // Watchdog: Safari sometimes stalls a download or a WebAssembly start forever; give up after 150 s of silence.
+  const watchdog = new Promise((_, reject) => {
+    const t = setInterval(() => { if (Date.now() - lastProgressAt > 150_000) { clearInterval(t); reject(new Error('no progress for 150 s (stalled download or start-up)')); } }, 5000);
+    loading.finally(() => clearInterval(t));
+  });
+  engine = await Promise.race([loading, watchdog]);
   engineModelId = model.id;
   $('engineStatus').innerHTML = `<span class="ok">${esc(model.name)} ready</span>`;
   $('modelProgress').hidden = true;
@@ -222,7 +230,9 @@ async function produce(prompt, resume) {
   const needsLLM = !(cp.brief && cp.script && cp.review && cp.storyboard && cp.publish);
   if (needsLLM) {
     progress('Planning', 0, 'Loading model');
-    const eng = params.get('nomodel') === '1' ? null : await ensureEngine();
+    const explicitCinematic = cinematic && !!parseCinematicPrompt(prompt);
+    if (explicitCinematic) log('Studio', 'info', 'Your prompt already describes the world and every shot, so no writer model is needed for this video.');
+    const eng = (params.get('nomodel') === '1' || explicitCinematic) ? null : await ensureEngine();
     const model = eng ? (MOCK ? { engine: 'mock', sizeMB: params.get('small') === '1' ? 300 : 900 } : describeModel(engineModelId || s.modelId)) : null;
     if (eng) log('Studio', 'info', `Model “${eng.name}” is ready. Everything runs in this browser. Keep this screen open.`);
     const team = new Team(eng, s, (ev) => log(ev.agent, ev.level, ev.message), { small: isSmallModel(model) });
