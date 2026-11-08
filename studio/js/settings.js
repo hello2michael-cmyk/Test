@@ -27,6 +27,7 @@ const DEFAULTS = {
   aiVideoEnabled: true, aiVideoSpace: 'Lightricks/ltx-video-distilled', hfToken: '', footagePatienceMin: 12,
   videoStyle: 'auto',           // 'auto' | 'explainer' | 'cinematic'
   reviewShots: true,            // pause to let the creator edit shot prompts before footage is generated
+  filmLook: true, letterbox: true,   // film finish for cinematic footage
   falKey: '', falModel: 'ltx2-fast', falEndpoint: '', falExtra: '', footageDuration: 6, footageScope: 'all',
 };
 

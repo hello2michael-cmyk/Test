@@ -389,8 +389,13 @@ async function produce(prompt, resume) {
     const idx = plan.scenes.findIndex(sc => t >= sc.start && t < sc.start + sc.duration);
     if (idx < 0) return null;
     const sc = plan.scenes[idx];
-    const entry = cp.footage && cp.footage[sc.beatId];
-    if (!entry) return null;
+    let entry = cp.footage && cp.footage[sc.beatId];
+    if (!entry && cinematic) {
+      // A cinematic piece never drops to text slides: borrow the nearest scene's clip.
+      const order = plan.scenes.map((x, i) => [Math.abs(i - idx) + (i > idx ? 0.5 : 0), x.beatId]).sort((a, b) => a[0] - b[0]);
+      for (const [, id] of order) if (cp.footage && cp.footage[id]) { entry = cp.footage[id]; break; }
+      if (!entry) return null;
+    }
     if (openScene !== sc.beatId) {
       if (openClipHandle) { try { openClipHandle.close(); } catch {} }
       openClipHandle = null; openScene = sc.beatId;
@@ -656,7 +661,7 @@ function renderSettings() {
   $('s-space').onchange = () => { const v = $('s-space').value; $('s-spacecustom').hidden = v !== 'custom'; if (v !== 'custom') { settings.aiVideoSpace = v; saveSettings(settings); renderSummary(); } };
   $('s-spacecustom').oninput = () => { settings.aiVideoSpace = $('s-spacecustom').value.trim(); saveSettings(settings); renderSummary(); };
   bind('s-aivideo', 'aiVideoEnabled'); bind('s-hftoken', 'hfToken'); bind('s-patience', 'footagePatienceMin', v => parseInt(v, 10));
-  bind('s-review', 'reviewShots');
+  bind('s-review', 'reviewShots'); bind('s-filmlook', 'filmLook'); bind('s-letterbox', 'letterbox');
   $('testAI').onclick = async () => {
     const btn = $('testAI'); btn.disabled = true; $('testAIStatus').textContent = 'Starting…';
     try {
