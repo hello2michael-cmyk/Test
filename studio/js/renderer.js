@@ -60,14 +60,29 @@ export class Renderer {
     const { ctx, w, h } = this;
     const zoom = 1 + 0.06 * Math.min(1, local / Math.max(1, duration));
     ctx.save();
+    ctx.imageSmoothingEnabled = true; ctx.imageSmoothingQuality = 'high';
+    if (kind === 'footage' && this.settings.filmLook !== false && 'filter' in ctx) ctx.filter = 'contrast(1.06) saturate(1.12)';
     ctx.translate(w / 2, h / 2); ctx.scale(zoom, zoom); ctx.translate(-w / 2, -h / 2);
     try { ctx.drawImage(frame, 0, 0, w, h); } catch { ctx.fillStyle = this.theme.bgTop; ctx.fillRect(0, 0, w, h); }
     ctx.restore();
     if (kind === 'footage') {
-      // Cinematic piece: the picture is the point. Only a soft vignette.
+      // Cinematic piece: the picture is the point. A film finish hides the upscaling of small free clips:
+      // gentle grade, fine grain, soft vignette and (for 16:9) 2.39:1 letterbox bars.
+      if (this.settings.filmLook !== false) {
+        ctx.save();
+        ctx.globalCompositeOperation = 'soft-light'; ctx.globalAlpha = 0.18;
+        const grade = ctx.createLinearGradient(0, 0, w, h); grade.addColorStop(0, '#ffb070'); grade.addColorStop(1, '#2a8cff');
+        ctx.fillStyle = grade; ctx.fillRect(0, 0, w, h);
+        ctx.restore();
+        this.grain(local);
+      }
       const v = ctx.createRadialGradient(w / 2, h / 2, Math.min(w, h) * 0.45, w / 2, h / 2, Math.max(w, h) * 0.75);
       v.addColorStop(0, 'rgba(0,0,0,0)'); v.addColorStop(1, 'rgba(0,0,0,0.35)');
       ctx.fillStyle = v; ctx.fillRect(0, 0, w, h);
+      if (this.settings.letterbox !== false && !this.portrait && w / h < 2.3) {
+        const bar = Math.round((h - w / 2.39) / 2);
+        ctx.fillStyle = '#000'; ctx.fillRect(0, 0, w, bar); ctx.fillRect(0, h - bar, w, bar);
+      }
       return;
     }
     const g = ctx.createLinearGradient(0, 0, 0, h);
@@ -218,6 +233,23 @@ export class Renderer {
     }
   }
 
+  /** Fine animated film grain from a small noise tile. */
+  grain(time) {
+    const { ctx, w, h } = this;
+    if (!this.grainTile) {
+      const t = document.createElement('canvas'); t.width = 192; t.height = 192;
+      const g = t.getContext('2d'); const img = g.createImageData(192, 192);
+      for (let i = 0; i < img.data.length; i += 4) { const v = 110 + Math.random() * 70; img.data[i] = img.data[i + 1] = img.data[i + 2] = v; img.data[i + 3] = 255; }
+      g.putImageData(img, 0, 0); this.grainTile = t;
+    }
+    ctx.save();
+    ctx.globalCompositeOperation = 'overlay'; ctx.globalAlpha = 0.16;
+    const ox = Math.floor((Math.sin(time * 37.1) * 0.5 + 0.5) * 192), oy = Math.floor((Math.cos(time * 29.3) * 0.5 + 0.5) * 192);
+    const pat = ctx.createPattern(this.grainTile, 'repeat');
+    ctx.translate(-ox, -oy); ctx.fillStyle = pat; ctx.fillRect(0, 0, w + 192, h + 192);
+    ctx.restore();
+  }
+
   /** Cinematic shot: no text except an optional lower-third title that fades in and out on the first shot. */
   footageOverlay(v, local) {
     const { ctx, theme } = this;
@@ -227,7 +259,8 @@ export class Renderer {
     const px = this.fitFont(v.title, this.u(64), this.u(36), 800, this.cw * 0.8, 2);
     const font = this.font(px, 800);
     const m = this.wrap(v.title, font, this.cw * 0.8);
-    const y = this.h - this.my * (this.portrait ? 1.6 : 1.3) - m.height;
+    const bar = (this.settings.letterbox !== false && !this.portrait && this.w / this.h < 2.3) ? Math.round((this.h - this.w / 2.39) / 2) : 0;
+    const y = this.h - bar - this.my * (this.portrait ? 1.6 : 1.1) - m.height;
     ctx.save(); ctx.globalAlpha *= a;
     ctx.fillStyle = theme.accent; ctx.fillRect(this.mx, y - this.u(18), this.u(90), this.u(6));
     ctx.shadowColor = 'rgba(0,0,0,0.6)'; ctx.shadowBlur = this.u(18);

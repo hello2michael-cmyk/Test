@@ -210,7 +210,7 @@ JSON schema (fill every field):
     if (this.engine && !this.small) {
       const system = `You are the DIRECTOR of a short cinematic video (no lesson, no explanation). You write a "world bible" that every shot must obey
 so the SAME person, SAME vehicle/objects, SAME place, SAME time of day and SAME colour palette appear in every clip, then a shot list.
-Be concrete and visual: age, build, hair, clothing colours; make/colour/interior of vehicles; city character and weather; palette; lens.
+Be concrete and visual: age, build, hair, clothing colours; exactly ONE vehicle (make, colour, interior) and never a second one; city character and weather; palette; lens.
 Never describe on-screen text, charts, logos or subtitles. Answer with a single JSON object only, no markdown.`;
       const user = `Creator's brief: "${prompt}"
 

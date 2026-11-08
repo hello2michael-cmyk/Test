@@ -88,7 +88,18 @@ export function gradioRoot(spaceOrUrl) {
   return null;
 }
 
-function ltxDims(aspect) { return aspect === '9x16' ? [768, 448] : aspect === '1x1' ? [576, 576] : [448, 768]; }  // [height, width], multiples of 32
+function ltxDims(aspect, w = 768, h = 448) { return aspect === '9x16' ? [w, h] : aspect === '1x1' ? [Math.round((h + w) / 64) * 32, Math.round((h + w) / 64) * 32] : [h, w]; }  // [height, width], multiples of 32
+
+/** Request sizes for the free shared GPU, best first. A job that exceeds the GPU time window is killed silently,
+ *  so the client steps down this ladder until clips come back, then stays there for the rest of the run. */
+const LTX_TIERS = [
+  { duration: 5, w: 768, h: 448, texture: false, label: '5 s · 768×448' },
+  { duration: 4, w: 704, h: 416, texture: true, label: '4 s · 704×416 · two-pass' },
+  { duration: 4, w: 640, h: 384, texture: false, label: '4 s · 640×384' },
+  { duration: 3, w: 512, h: 320, texture: false, label: '3 s · 512×320' },
+];
+let ltxTierIndex = 0;   // remembered for the session
+export function isSilentRejection(m) { return /^null$|the Space reported an error|unreadable result|returned no video|GPU task aborted|out of memory|CUDA/i.test(String(m || '')); }
 
 export function isQuotaError(m) { return /quota|exceeded|rate limit|too many requests|sign ?in|log ?in|requires login|unauthorized/i.test(String(m || '')); }
 function isTransient(m) { return /HTTP 5\d\d|network|timed out|starting up|closed the connection|queue is full|no event id|HTTP 429/i.test(String(m || '')); }
@@ -102,10 +113,10 @@ async function fromGradio(jobs, s, results, errors, update, checkCancel, log) {
   const headers = { 'Content-Type': 'application/json' };
   if ((s.hfToken || '').trim()) headers.Authorization = `Bearer ${s.hfToken.trim()}`;
   const negative = 'text, captions, subtitles, logos, watermark, worst quality, inconsistent motion, blurry, jittery, distorted';
-  const duration = Math.min(7, Math.max(3, s.footageDuration || 5));
-  const [h, w] = ltxDims(s.aspect);
   const started = Date.now();
   let quotaHit = false, offline = false;
+  const tier = () => LTX_TIERS[Math.min(ltxTierIndex, LTX_TIERS.length - 1)];
+  const dimsFor = (t) => ltxDims(s.aspect, t.w, t.h);
 
   for (const j of jobs) {
     checkCancel && checkCancel();
@@ -115,20 +126,26 @@ async function fromGradio(jobs, s, results, errors, update, checkCancel, log) {
     while (!done && Date.now() - started < patienceMs) {
       let networkFailures = 0, tried = 0;
       for (const spaceId of pool) {
-        if (done) break;
+        if (done || quotaHit) break;
         tried++;
         checkCancel && checkCancel();
         const root = gradioRoot(spaceId);
         if (!root) continue;
         const preset = presetOf(spaceId);
+        let again = true;
+        while (again && !done) {
+        again = false;
         try {
           update(`scene ${j.beatId}: asking ${preset.name.split(' (')[0]} on the free GPU${attempt ? ` (retry ${attempt})` : ''}`);
+          const t = tier();
+          const [h, w] = dimsFor(t);
+          update(`scene ${j.beatId}: asking ${preset.name.split(' (')[0]} on the free GPU (${t.label})${attempt ? ` · retry ${attempt}` : ''}`);
           let plan = null;
           try { plan = await discoverGradio(root, headers, preset); }
           catch (e) { if (preset.preset !== 'ltx') throw e; }
-          if (!plan && preset.preset === 'ltx') plan = { api: 'text_to_video', build: (prompt) => [prompt, negative, null, null, h, w, 'text-to-video', duration, 9, 42, true, 1.0, false] };
+          if (!plan && preset.preset === 'ltx') plan = { api: 'text_to_video', build: (prompt) => [prompt, negative, null, null, h, w, 'text-to-video', t.duration, 9, 42, true, 1.0, t.texture] };
           if (!plan) throw new Error('no text-to-video endpoint');
-          const data = plan.build(j.prompt, { negative, height: h, width: w, duration, aspect: s.aspect });
+          const data = plan.build(j.prompt, { negative, height: h, width: w, duration: t.duration, texture: t.texture, aspect: s.aspect });
           const out = await gradioCall(root, plan.api, data, headers, Math.min(15 * 60_000, patienceMs), checkCancel, (msg) => update(`scene ${j.beatId}: ${msg}`));
           const file = findVideoFile(out);
           if (!file) throw new Error('the Space returned no video');
@@ -139,10 +156,17 @@ async function fromGradio(jobs, s, results, errors, update, checkCancel, log) {
         } catch (e) {
           if (e && e.message === 'Cancelled') throw e;
           lastError = String(e.message || e);
-          log && log('Footage', 'warning', `Scene ${j.beatId} on ${spaceId}: ${lastError.slice(0, 220)}`);
+          if (isSilentRejection(lastError) && ltxTierIndex < LTX_TIERS.length - 1) {
+            ltxTierIndex++;
+            log && log('Footage', 'warning', `Scene ${j.beatId}: the free GPU dropped the job without details (usually the per-job time limit). Trying a smaller request on the same Space: ${tier().label}.`);
+            again = true;   // same Space, smaller job
+            continue;
+          }
+          log && log('Footage', 'warning', `Scene ${j.beatId} on ${spaceId}: ${lastError === 'null' ? 'rejected without details' : lastError.slice(0, 220)}`);
           if (isQuotaError(lastError)) { quotaHit = true; break; }
           if (/network|Failed to fetch|Load failed/i.test(lastError)) networkFailures++;
           // otherwise try the next Space in the pool
+        }
         }
       }
       if (quotaHit) break;
@@ -183,7 +207,7 @@ export async function testAIVideo(s, onStatus) {
     try { plan = await discoverGradio(root, headers, preset); } catch (e) { if (preset.preset !== 'ltx') throw e; }
     if (!plan) plan = { api: 'text_to_video', build: (prompt) => [prompt, 'blurry, distorted', null, null, 256, 384, 'text-to-video', 3, 9, 42, true, 1.0, false] };
     onStatus && onStatus(`Endpoint "${plan.api}" found. Generating a 3-second test clip on the free GPU…`);
-    const data = plan.build('A woman walks through a sunlit park, slow cinematic dolly shot', { negative: 'blurry, distorted', height: 256, width: 384, duration: 3, aspect: '16x9' });
+    const data = plan.build('A woman walks through a sunlit park, slow cinematic dolly shot', { negative: 'blurry, distorted', height: 256, width: 384, duration: 3, texture: false, aspect: '16x9' });
     const out = await gradioCall(root, plan.api, data, headers, 10 * 60_000, null, (m) => onStatus && onStatus(m));
     const file = findVideoFile(out);
     if (!file) return { ok: false, message: 'The Space answered but returned no video: ' + JSON.stringify(out).slice(0, 200) };
@@ -225,6 +249,7 @@ async function discoverGradio(root, headers, preset) {
       if (/height/.test(key) && typeof def === 'number') return ctx.height;
       if (/width/.test(key) && typeof def === 'number') return ctx.width;
       if (/duration|seconds/.test(key) && typeof def === 'number') return Math.min(ctx.duration, def > 20 ? def : 8.5);
+      if (/texture|multi.?scale|two.?pass|upscale/.test(key) && typeof def === 'boolean') return !!ctx.texture;
       if (/randomi/.test(key)) return true;
       if (/seed/.test(key) && typeof def === 'number') return Math.floor(Math.random() * 1e9);
       if (/aspect/.test(key) && typeof def === 'string') return ({ '16x9': '16:9', '9x16': '9:16', '1x1': '1:1' })[ctx.aspect] || def;
@@ -264,7 +289,7 @@ async function gradioCall(root, api, data, headers, timeoutMs, checkCancel, onSt
       else if (line.startsWith('data:')) {
         const payload = line.slice(5).trim();
         if (eventName === 'complete') { try { return JSON.parse(payload); } catch { throw new Error('unreadable result'); } }
-        if (eventName === 'error') { let msg = payload; try { const j = JSON.parse(payload); msg = (j && (j.message || j.error || j.title)) || payload; } catch {} throw new Error(msg || 'the Space reported an error'); }
+        if (eventName === 'error') { let msg = payload; try { const j = JSON.parse(payload); msg = (j && (j.message || j.error || j.title)) || (j === null ? 'null' : payload); } catch {} throw new Error(msg || 'the Space reported an error'); }
         if (eventName === 'generating' || eventName === 'heartbeat') onStatus && onStatus('generating…');
       }
     }
@@ -358,7 +383,7 @@ async function fromPollinations(jobs, s, results, errors, update, checkCancel, l
     let ok = false;
     for (let attempt = 0; attempt < 3 && !ok; attempt++) {
       try {
-        if (attempt) await new Promise(r => setTimeout(r, 4000 * attempt));
+        if (attempt) await new Promise(r => setTimeout(r, 9000 * attempt));
         const blob = await downloadMedia(url, 90_000);
         if (!/^image\//.test(blob.type) && blob.size < 20_000) throw new Error('not an image');
         results[j.beatId] = { kind: 'image', blob, credit: 'AI image generated with Pollinations.ai (free)' };
@@ -369,7 +394,7 @@ async function fromPollinations(jobs, s, results, errors, update, checkCancel, l
         if (attempt === 2) errors.push(`Scene ${j.beatId}: Pollinations ${e.message}`);
       }
     }
-    await new Promise(r => setTimeout(r, 1500));   // be polite to the free service
+    await new Promise(r => setTimeout(r, 6000));   // the free service rate-limits; pace requests
   }
 }
 
