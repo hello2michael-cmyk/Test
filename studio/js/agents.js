@@ -576,7 +576,7 @@ export function headlineFrom(text) {
 export function titleCase(s) { return String(s || '').replace(/\s+/g, ' ').trim().replace(/(^|\s)(\S)/g, (m, sp, c) => sp + c.toUpperCase()); }
 export function promptLines(prompt) { return String(prompt || '').split(/\n+/).map(x => x.trim()).filter(Boolean); }
 export function promptTopic(prompt) {
-  const first = promptLines(prompt)[0] || 'AI';
+  const first = (promptLines(prompt)[0] || 'AI').replace(/[,.;]?\s*(maximum|max\.?|about|around|roughly|under)?\s*(duration|length)?\s*(of)?\s*\d{1,3}\s*(s\b|sec\b|secs\b|second|seconds)\b.*$/i, '').trim() || 'AI';
   return first.replace(/^(explain|describe|teach|make a video about|a video about|what is|what are|how does|how do)\s+/i, '').replace(/[?.!]+$/, '').trim() || first;
 }
 function beatPurposes(n) {

@@ -50,60 +50,102 @@ if (mock) settings.modelId = 'mock';
 
 console.log(`[factory] style=${settings.videoStyle} aspect=${settings.aspect} cap=${settings.maxDuration}s footage=${settings.footageProvider} writer=${settings.modelId} token=${settings.hfToken ? 'yes' : 'no'}`);
 
-const browser = await chromium.launch({ args: ['--autoplay-policy=no-user-gesture-required', '--disable-dev-shm-usage'] });
-const page = await browser.newPage({ viewport: { width: 1280, height: 2200 } });
-page.on('pageerror', e => console.log('[page error]', e.message));
-page.on('console', m => { if (m.type() === 'error' && !/ERR_|favicon/.test(m.text())) console.log('[console]', m.text().slice(0, 300)); });
-
-// Model files (Kokoro voice, tokenizers) come from huggingface.co. Browsers on CI runners sometimes trip over the
-// Hub's redirect + CORS dance (we saw HTTP 405), so fetch those files from Node, which follows redirects freely,
-// and hand them to the page with permissive CORS headers. Everything else goes straight through.
-await page.route(/^https:\/\/huggingface\.co\/.*\/resolve\//, async (route) => {
-  const req = route.request();
-  try {
-    const r = await fetch(req.url(), { method: req.method() === 'HEAD' ? 'HEAD' : 'GET', redirect: 'follow' });
-    const body = req.method() === 'HEAD' ? undefined : Buffer.from(await r.arrayBuffer());
-    const headers = { 'access-control-allow-origin': '*', 'content-type': r.headers.get('content-type') || 'application/octet-stream' };
-    if (r.headers.get('content-length')) headers['content-length'] = r.headers.get('content-length');
-    await route.fulfill({ status: r.status, headers, body });
-  } catch (e) { console.log('[factory] hub fetch failed', req.url().slice(0, 120), e.message); await route.abort(); }
-});
+// A persistent profile keeps IndexedDB (run checkpoints, downloaded voice model) across a relaunch, so a browser
+// crash resumes the run instead of starting over.
+const profileDir = path.resolve(env('PROFILE_DIR', path.join(outDir, '.browser-profile')));
+let context, page, crashed = false;
+async function launch() {
+  context = await chromium.launchPersistentContext(profileDir, {
+    headless: true, viewport: { width: 1280, height: 2200 },
+    args: ['--autoplay-policy=no-user-gesture-required', '--disable-dev-shm-usage', '--no-sandbox', '--js-flags=--max-old-space-size=4096'],
+  });
+  page = context.pages()[0] || await context.newPage();
+  page.on('pageerror', e => console.log('[page error]', e.message));
+  page.on('crash', () => { crashed = true; console.log('[factory] the page crashed'); });
+  page.on('close', () => { if (!finished) { crashed = true; } });
+  page.on('console', m => { if (m.type() === 'error' && !/ERR_|favicon/.test(m.text())) console.log('[console]', m.text().slice(0, 300)); });
+  // Voice-model files come from huggingface.co; CI browsers have tripped over the Hub's redirect + CORS dance
+  // (HTTP 405), so fetch just those (small) files from Node and hand them to the page with CORS headers.
+  await page.route(/^https:\/\/huggingface\.co\/onnx-community\/Kokoro[^?]*\/resolve\//, async (route) => {
+    const req = route.request();
+    try {
+      const r = await fetch(req.url(), { method: req.method() === 'HEAD' ? 'HEAD' : 'GET', redirect: 'follow' });
+      const body = req.method() === 'HEAD' ? undefined : Buffer.from(await r.arrayBuffer());
+      const headers = { 'access-control-allow-origin': '*', 'content-type': r.headers.get('content-type') || 'application/octet-stream' };
+      await route.fulfill({ status: r.status, headers, body });
+    } catch (e) { console.log('[factory] hub fetch failed', req.url().slice(0, 120), e.message); try { await route.abort(); } catch {} }
+  });
+}
+let finished = false;
+await launch();
 
 const url = `${studioUrl}?factory=1&autoapprove=1${extra ? '&' + extra : ''}`;
-await page.goto(url, { waitUntil: 'domcontentloaded' });
-await page.waitForSelector('#generate', { timeout: 60_000 });
-await page.evaluate((s) => localStorage.setItem('aivideostudio.settings.v1', JSON.stringify(s)), settings);
-await page.goto(url, { waitUntil: 'domcontentloaded' });
-await page.waitForSelector('#generate', { timeout: 60_000 });
+async function openStudio(firstTime) {
+  await page.goto(url, { waitUntil: 'domcontentloaded' });
+  await page.waitForSelector('#generate', { timeout: 60_000 });
+  if (firstTime) {
+    await page.evaluate((s) => localStorage.setItem('aivideostudio.settings.v1', JSON.stringify(s)), settings);
+    await page.goto(url, { waitUntil: 'domcontentloaded' });
+    await page.waitForSelector('#generate', { timeout: 60_000 });
+  }
+}
+await openStudio(true);
 await page.fill('#prompt', prompt);
 await page.selectOption('#style', settings.videoStyle).catch(() => {});
 
 const started = Date.now();
 let lastLog = 0, lastStage = '';
-const poll = setInterval(async () => {
+const seenLogs = [];
+async function pollOnce() {
   try {
     const st = await page.evaluate(() => ({
       stage: document.getElementById('stageName').textContent, detail: document.getElementById('stageDetail').textContent,
       bar: document.getElementById('bar').style.width, logs: [...document.querySelectorAll('#log .e')].map(e => e.textContent.trim().replace(/\s+/g, ' ')),
     }));
-    for (let i = lastLog; i < st.logs.length; i++) console.log('  •', st.logs[i].slice(0, 300));
+    for (let i = lastLog; i < st.logs.length; i++) { console.log('  •', st.logs[i].slice(0, 300)); seenLogs.push(st.logs[i]); }
     lastLog = st.logs.length;
     const line = `${st.stage} ${st.bar} ${st.detail}`;
     if (line !== lastStage) { console.log(`[${Math.round((Date.now() - started) / 1000)}s] ${line}`); lastStage = line; }
   } catch {}
-}, 10_000);
+}
+const poll = setInterval(pollOnce, 10_000);
 
 await page.click('#generate');
-try {
-  await page.waitForSelector('#resultCard:not([hidden])', { timeout: parseInt(env('TIMEOUT_MIN', '110'), 10) * 60_000 });
-} catch (e) {
-  clearInterval(poll);
-  const logs = await page.$$eval('#log .e', els => els.map(e => e.textContent.trim().replace(/\s+/g, ' ')));
-  console.error('[factory] FAILED or timed out. Agent room:\n' + logs.join('\n'));
-  await page.screenshot({ path: path.join(outDir, 'failure.png'), fullPage: true });
-  await browser.close();
-  process.exit(1);
+const deadline = Date.now() + parseInt(env('TIMEOUT_MIN', '110'), 10) * 60_000;
+let relaunches = 0;
+while (true) {
+  try {
+    await page.waitForSelector('#resultCard:not([hidden])', { timeout: Math.max(10_000, deadline - Date.now()) });
+    break;
+  } catch (e) {
+    if (Date.now() >= deadline) {
+      clearInterval(poll);
+      console.error('[factory] FAILED or timed out. Agent room:\n' + seenLogs.join('\n'));
+      try { await page.screenshot({ path: path.join(outDir, 'failure.png'), fullPage: true }); } catch {}
+      try { await context.close(); } catch {}
+      process.exit(1);
+    }
+    if (!crashed && page && !page.isClosed()) {
+      // Not a crash: the result card did not appear in time.
+      clearInterval(poll);
+      console.error('[factory] FAILED. Agent room:\n' + seenLogs.join('\n'));
+      try { await page.screenshot({ path: path.join(outDir, 'failure.png'), fullPage: true }); } catch {}
+      try { await context.close(); } catch {}
+      process.exit(1);
+    }
+    if (++relaunches > 3) { clearInterval(poll); console.error('[factory] the browser kept crashing; giving up. Agent room:\n' + seenLogs.join('\n')); process.exit(1); }
+    console.log(`[factory] browser crashed; relaunching and resuming from the saved checkpoint (attempt ${relaunches})…`);
+    crashed = false; lastLog = 0;
+    try { await context.close(); } catch {}
+    await launch();
+    await openStudio(false);
+    // The studio offers to resume an interrupted run; take it. Otherwise start again with the same prompt.
+    const resume = await page.waitForSelector('#resumeCard:not([hidden])', { timeout: 15_000 }).catch(() => null);
+    if (resume) await page.click('#resumeBtn');
+    else { await page.fill('#prompt', prompt); await page.click('#generate'); }
+  }
 }
+finished = true;
 clearInterval(poll);
 console.log(`[factory] generation finished in ${Math.round((Date.now() - started) / 1000)} s; exporting…`);
 
@@ -135,4 +177,4 @@ fs.writeFileSync(path.join(outDir, 'youtube.txt'), meta.youtubeText);
 fs.writeFileSync(path.join(outDir, 'plan.json'), meta.plan);
 fs.writeFileSync(path.join(outDir, 'summary.json'), JSON.stringify({ title: meta.title, duration: meta.duration, footage: meta.footageSummary, prompt }, null, 2));
 console.log(`[factory] wrote ${outDir}/video-raw.${ext} (${(meta.size / 1048576).toFixed(1)} MB), ${meta.duration.toFixed(1)} s. Footage: ${meta.footageSummary}`);
-await browser.close();
+await context.close();
