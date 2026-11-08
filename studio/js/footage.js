@@ -607,26 +607,29 @@ async function fromPixabay(jobs, s, results, errors, update, checkCancel, log) {
 // ---------- Pollinations (free AI stills, no key) ----------
 async function fromPollinations(jobs, s, results, errors, update, checkCancel, log) {
   const [w, h] = s.aspect === '9x16' ? [768, 1344] : s.aspect === '1x1' ? [1024, 1024] : [1344, 768];
+  const budgetEnd = Date.now() + 5 * 60_000;   // the free image service can be slow or refuse; never let it eat the run
   for (const j of jobs) {
     checkCancel && checkCancel();
+    if (Date.now() > budgetEnd) { errors.push('Pollinations: time budget used up; remaining scenes use motion graphics.'); break; }
     const prompt = `${(j.prompt || '').split('. Cinematic')[0]}, ${IMAGE_STYLE}`;
     const seed = Math.abs(hash(prompt + j.beatId)) % 1_000_000;
     const url = `https://image.pollinations.ai/prompt/${encodeURIComponent(prompt.slice(0, 600))}?width=${w}&height=${h}&nologo=true&seed=${seed}&model=flux&enhance=true`;
     let ok = false;
-    for (let attempt = 0; attempt < 3 && !ok; attempt++) {
+    for (let attempt = 0; attempt < 2 && !ok; attempt++) {
       try {
-        if (attempt) await new Promise(r => setTimeout(r, 9000 * attempt));
-        const blob = await downloadMedia(url, 90_000);
+        if (attempt) await new Promise(r => setTimeout(r, 8000));
+        const blob = await downloadMedia(url, 60_000);
         if (!/^image\//.test(blob.type) && blob.size < 20_000) throw new Error('not an image');
         results[j.beatId] = { kind: 'image', blob, credit: 'AI image generated with Pollinations.ai (free)' };
         ok = true;
         update(`AI image for scene ${j.beatId}`);
       } catch (e) {
         if (e && e.message === 'Cancelled') throw e;
-        if (attempt === 2) errors.push(`Scene ${j.beatId}: Pollinations ${e.message}`);
+        if (attempt === 1) errors.push(`Scene ${j.beatId}: Pollinations ${e.message}`);
+        if (/HTTP 402|HTTP 401|HTTP 403/.test(e.message)) { errors.push('Pollinations now requires payment for this request; skipping it for the remaining scenes.'); return; }
       }
     }
-    await new Promise(r => setTimeout(r, 6000));   // the free service rate-limits; pace requests
+    await new Promise(r => setTimeout(r, 4000));   // the free service rate-limits; pace requests
   }
 }
 
