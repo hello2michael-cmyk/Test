@@ -32,7 +32,22 @@ let customModels = JSON.parse(localStorage.getItem('aivideostudio.customModels')
 let currentProject = null;
 
 // ---------- boot ----------
-if ('serviceWorker' in navigator && !MOCK) navigator.serviceWorker.register('sw.js').catch(() => {});
+// Offline support + self-update: the service worker serves the cached app instantly and fetches updates in
+// the background; when a new version has taken over, reload once so the user never sees a stale build.
+if ('serviceWorker' in navigator && !MOCK) {
+  let hadController = !!navigator.serviceWorker.controller;
+  navigator.serviceWorker.addEventListener('controllerchange', () => {
+    if (hadController && !running && !sessionStorage.getItem('aivideostudio.reloaded')) { sessionStorage.setItem('aivideostudio.reloaded', '1'); location.reload(); }
+    hadController = true;
+  });
+  navigator.serviceWorker.register('sw.js').then(reg => {
+    // Check for a new version each time the app is opened or comes back to the foreground.
+    const check = () => reg.update().catch(() => {});
+    document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'visible') check(); });
+    setTimeout(check, 3000);
+  }).catch(() => {});
+  sessionStorage.removeItem('aivideostudio.reloaded');
+}
 requestPersistentStorage();
 const standalone = window.navigator.standalone || matchMedia('(display-mode: standalone)').matches;
 if (standalone || localStorage.getItem('aivideostudio.hideInstall')) $('installCard').hidden = true;

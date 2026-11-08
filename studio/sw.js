@@ -1,9 +1,9 @@
 // App shell + libraries are cached so the studio opens offline. Model weights are cached by
 // WebLLM / Transformers.js themselves (Cache API), so cross-origin requests are left alone.
-const CACHE = 'ai-video-studio-v1';
+const CACHE = 'ai-video-studio-v2';
 const SHELL = ['./', './index.html', './studio.css', './studio.webmanifest', './icon-192.png', './icon-512.png',
   './js/app.js', './js/agents.js', './js/encoder.js', './js/exporter.js', './js/llm.js', './js/mixer.js', './js/renderer.js',
-  './js/settings.js', './js/store.js', './js/timing.js', './js/tts.js',
+  './js/settings.js', './js/store.js', './js/timing.js', './js/tts.js', './js/footage.js', './js/clipdecoder.js',
   './vendor/mediabunny.js', './vendor/kokoro.js'];
 self.addEventListener('install', e => {
   e.waitUntil(caches.open(CACHE).then(c => c.addAll(SHELL)).then(() => self.skipWaiting()));
