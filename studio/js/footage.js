@@ -148,7 +148,7 @@ async function fromGradio(jobs, s, results, errors, update, checkCancel, log) {
           if (!plan && preset.preset === 'ltx') plan = { api: 'text_to_video', build: (prompt) => [prompt, negative, null, null, h, w, 'text-to-video', t.duration, 9, 42, true, 1.0, true] };
           if (!plan) throw new Error('no text-to-video endpoint');
           const data = plan.build(j.prompt, { negative, height: h, width: w, duration: t.duration, texture: t.texture, aspect: s.aspect });
-          const out = await gradioCall(root, plan.api, data, headers, Math.min(15 * 60_000, patienceMs), checkCancel, (msg) => update(`scene ${j.beatId}: ${msg}`));
+          const out = await gradioRun(root, plan.api, data, headers, Math.min(15 * 60_000, patienceMs), checkCancel, (msg) => update(`scene ${j.beatId}: ${msg}`));
           const file = findVideoFile(out);
           if (!file) throw new Error('the Space returned no video');
           const url = file.url || `${root}/gradio_api/file=${file.path}`;
@@ -210,7 +210,7 @@ export async function testAIVideo(s, onStatus) {
     if (!plan) plan = { api: 'text_to_video', build: (prompt) => [prompt, 'blurry, distorted', null, null, 512, 704, 'text-to-video', 2, 9, 42, true, 1.0, true] };
     onStatus && onStatus(`Endpoint "${plan.api}" found. Generating a 2-second test clip with the Space's own settings (about a minute)…`);
     const data = plan.build('A woman walks through a sunlit park, slow cinematic dolly shot', { negative: 'blurry, distorted', height: 512, width: 704, duration: 2, texture: true, aspect: '16x9' });
-    const out = await gradioCall(root, plan.api, data, headers, 10 * 60_000, null, (m) => onStatus && onStatus(m));
+    const out = await gradioRun(root, plan.api, data, headers, 10 * 60_000, null, (m) => onStatus && onStatus(m));
     const file = findVideoFile(out);
     if (!file) return { ok: false, message: 'The Space answered but returned no video: ' + JSON.stringify(out).slice(0, 200) };
     const url = file.url || `${root}/gradio_api/file=${file.path}`;
@@ -259,6 +259,87 @@ async function discoverGradio(root, headers, preset) {
       return def === undefined ? null : def;
     }),
   };
+}
+
+/**
+ * Gradio's full queue protocol, as used by its official clients. Required for ZeroGPU Spaces: while a job waits for
+ * a free GPU the Space checks that the caller's event stream is still open and otherwise aborts with a hidden error.
+ *  1. open  GET  {root}/gradio_api/queue/data?session_hash=…   (kept open for the whole job)
+ *  2. join  POST {root}/gradio_api/queue/join  {data, fn_index, trigger_id, session_hash}
+ *  3. read messages on the stream until process_completed for our event_id.
+ */
+async function gradioQueueCall(root, api, data, headers, timeoutMs, checkCancel, onStatus) {
+  const cfg = await fetchGradioConfig(root, headers);
+  const deps = Array.isArray(cfg.dependencies) ? cfg.dependencies : [];
+  const depIndex = deps.findIndex(d => d && (d.api_name === api || d.api_name === '/' + api));
+  if (depIndex < 0) throw new Error(`endpoint ${api} not in config`);
+  const dep = deps[depIndex];
+  const fn_index = typeof dep.id === 'number' ? dep.id : depIndex;
+  const trigger_id = Array.isArray(dep.targets) && dep.targets[0] ? (Array.isArray(dep.targets[0]) ? dep.targets[0][0] : dep.targets[0]) : null;
+  const session_hash = Math.random().toString(36).slice(2, 13);
+  const started = Date.now();
+
+  return await new Promise((resolve, reject) => {
+    let done = false, eventId = null, pending = [];
+    const es = new EventSource(`${root}/gradio_api/queue/data?session_hash=${session_hash}`);
+    const finish = (fn, v) => { if (done) return; done = true; clearInterval(timer); try { es.close(); } catch {} fn(v); };
+    const timer = setInterval(() => {
+      if (checkCancel) { try { checkCancel(); } catch (e) { finish(reject, e); return; } }
+      if (Date.now() - started > timeoutMs) finish(reject, new Error('timed out waiting for the free GPU'));
+    }, 1000);
+    const handle = (m) => {
+      if (!m || typeof m !== 'object') return;
+      if (m.msg === 'close_stream') { if (!done) finish(reject, new Error('the Space closed the connection before finishing')); return; }
+      if (m.event_id && eventId && m.event_id !== eventId) return;
+      switch (m.msg) {
+        case 'estimation': onStatus && onStatus(m.rank != null ? `in the queue, position ${m.rank + 1}${m.rank_eta ? `, about ${Math.round(m.rank_eta)} s` : ''}` : 'in the queue'); break;
+        case 'process_starts': onStatus && onStatus('GPU acquired, generating…'); break;
+        case 'progress': case 'process_generating': onStatus && onStatus('generating…'); break;
+        case 'log': if (m.log) onStatus && onStatus(String(m.log).slice(0, 80)); break;
+        case 'process_completed':
+          if (m.success && m.output && Array.isArray(m.output.data)) finish(resolve, m.output.data);
+          else { const err = m.output && m.output.error; finish(reject, new Error(err == null ? 'null' : (typeof err === 'string' ? err : JSON.stringify(err)))); }
+          break;
+      }
+    };
+    es.onmessage = (ev) => { let m; try { m = JSON.parse(ev.data); } catch { return; } if (!eventId) { pending.push(m); return; } handle(m); };
+    es.onerror = () => { if (!done && es.readyState === EventSource.CLOSED) finish(reject, new Error('network: the event stream closed')); };
+    es.onopen = async () => {
+      try {
+        const r = await fetch(`${root}/gradio_api/queue/join`, { method: 'POST', headers, body: JSON.stringify({ data, event_data: null, fn_index, trigger_id, session_hash }) });
+        const text = await r.text();
+        if (r.status === 503) throw new Error('queue is full');
+        if (!r.ok) throw new Error(`HTTP ${r.status}: ${text.slice(0, 200)}`);
+        let j = {}; try { j = JSON.parse(text); } catch {}
+        if (!j.event_id) throw new Error('no event id from the Space');
+        eventId = j.event_id;
+        onStatus && onStatus('queued on the free GPU…');
+        for (const m of pending) handle(m); pending = [];
+      } catch (e) { finish(reject, e); }
+    };
+  });
+}
+
+async function fetchGradioConfig(root, headers) {
+  const h = headers.Authorization ? { Authorization: headers.Authorization } : {};
+  for (const path of ['/gradio_api/config', '/config']) {
+    try {
+      const r = await fetch(`${root}${path}`, { headers: h });
+      if (r.ok) return await r.json();
+    } catch {}
+  }
+  throw new Error('config unavailable');
+}
+
+/** Runs a job: queue protocol first (ZeroGPU-safe), simple call API as a fallback. */
+async function gradioRun(root, api, data, headers, timeoutMs, checkCancel, onStatus) {
+  try {
+    return await gradioQueueCall(root, api, data, headers, timeoutMs, checkCancel, onStatus);
+  } catch (e) {
+    const m = String(e.message || e);
+    if (/not in config|config unavailable|no event id/.test(m)) { onStatus && onStatus('queue API unavailable, using the simple API'); return gradioCall(root, api, data, headers, timeoutMs, checkCancel, onStatus); }
+    throw e;
+  }
 }
 
 /** Gradio's simple HTTP API: POST .../call/{api} → event_id, then GET the SSE stream until "complete". */
