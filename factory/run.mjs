@@ -91,6 +91,18 @@ async function launch() {
   // fills the mirror from Node on first use and then lets the browser fetch the local file itself. The bytes never
   // cross the DevTools pipe, which closes the connection above ~100 MB (handing the 92 MB model straight to the
   // page looked exactly like a browser crash).
+  // The voice files (about 0.5 MB each) are requested by the voice library from a hard-coded Hub URL, which the
+  // runner's browser cannot fetch (HTTP 405). They are small, so fetch them from Node and hand them to the page.
+  await page.route(/^https:\/\/huggingface\.co\/onnx-community\/Kokoro[^?]*\/resolve\/[^/]+\/voices\//, async (route) => {
+    const req = route.request();
+    try {
+      const r = await fetch(req.url(), { redirect: 'follow' });
+      if (!r.ok) throw new Error(`HTTP ${r.status}`);
+      const body = Buffer.from(await r.arrayBuffer());
+      console.log(`[factory] voice ${req.url().split('/').pop()} (${(body.length / 1e6).toFixed(2)} MB)`);
+      await route.fulfill({ status: 200, headers: { 'access-control-allow-origin': '*', 'content-type': 'application/octet-stream' }, body });
+    } catch (e) { console.log('[factory] voice fetch failed', req.url().slice(0, 140), e.message); try { await route.fulfill({ status: 502, body: e.message }); } catch {} }
+  });
   await page.route(/\/\.hubcache\//, async (route) => {
     const req = route.request();
     try {
