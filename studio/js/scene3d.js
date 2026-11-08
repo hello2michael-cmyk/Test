@@ -70,7 +70,7 @@ export class Scene3D {
    * Draws a template full-frame (floor + objects + in-world labels). Objects are framed in the lower-right area so
    * a heading can sit top-left. local: seconds since the scene started; duration: scene length.
    */
-  draw(model, labels, local, duration, { alpha = 1, framing = 'side' } = {}) {
+  draw(model, labels, local, duration, { alpha = 1, framing = 'side', showLabels = true } = {}) {
     const { ctx } = this;
     const r = this.r, w = r.w, h = r.h;
     labels = (labels || []).map(l => String(l || '').trim()).filter(Boolean).slice(0, 6);
@@ -90,7 +90,7 @@ export class Scene3D {
     const fn = this[model] || this.network;
     fn.call(this, labels, t, duration);
     this.painter.flush();
-    this.drawLabels();
+    if (showLabels) this.drawLabels();
     ctx.restore();
   }
 
