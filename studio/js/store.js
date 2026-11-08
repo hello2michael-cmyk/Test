@@ -4,7 +4,9 @@ let dbPromise;
 
 function open() {
   if (dbPromise) return dbPromise;
-  dbPromise = new Promise((resolve, reject) => {
+  // The browser occasionally fails to open the database right after a crash or reload ("Internal error opening
+  // backing store"); retry a few times before giving up, and forget a failed attempt so later calls try again.
+  const attempt = () => new Promise((resolve, reject) => {
     const req = indexedDB.open(DB, 2);
     req.onupgradeneeded = () => {
       const db = req.result;
@@ -14,7 +16,16 @@ function open() {
     };
     req.onsuccess = () => resolve(req.result);
     req.onerror = () => reject(req.error);
+    req.onblocked = () => reject(new Error('database blocked by another tab'));
   });
+  dbPromise = (async () => {
+    let last;
+    for (let i = 0; i < 5; i++) {
+      try { return await attempt(); } catch (e) { last = e; await new Promise(r => setTimeout(r, 800 * (i + 1))); }
+    }
+    dbPromise = null;
+    throw last;
+  })();
   return dbPromise;
 }
 
