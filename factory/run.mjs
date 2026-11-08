@@ -76,11 +76,20 @@ async function hardClose() {
   await new Promise(r => setTimeout(r, 2000));
   for (const f of ['SingletonLock', 'SingletonSocket', 'SingletonCookie']) { try { fs.rmSync(path.join(profileDir, f), { force: true }); } catch {} }
 }
+// BROWSER_CHANNEL=chrome uses the machine's Google Chrome instead of the bundled test build of Chromium. The
+// bundled build has no H.264 decoder, so AI clips (MP4/H.264) could not be decoded and scenes fell back to motion
+// graphics; Chrome decodes and encodes them natively. Falls back to the bundled build if Chrome is missing.
+const browserChannel = process.env.BROWSER_CHANNEL || '';
 async function launch() {
-  context = await chromium.launchPersistentContext(profileDir, {
+  const opts = {
     headless: true, viewport: { width: 1280, height: 2200 },
     args: ['--autoplay-policy=no-user-gesture-required', '--disable-dev-shm-usage', '--no-sandbox', '--js-flags=--max-old-space-size=4096'],
-  });
+  };
+  if (browserChannel) {
+    try { context = await chromium.launchPersistentContext(profileDir, { ...opts, channel: browserChannel }); console.log(`[factory] browser: ${browserChannel}`); }
+    catch (e) { console.log(`[factory] could not start ${browserChannel} (${e.message.split('\n')[0]}); using the bundled Chromium`); context = null; }
+  }
+  if (!context) context = await chromium.launchPersistentContext(profileDir, opts);
   page = context.pages()[0] || await context.newPage();
   page.on('pageerror', e => console.log('[page error]', e.message));
   page.on('crash', () => { crashed = true; console.log('[factory] the page crashed'); });
@@ -149,6 +158,17 @@ async function openStudio(firstTime) {
   }
 }
 await openStudio(true);
+// Say which codecs this browser has, so a build without H.264 is visible in the log rather than a mystery.
+try {
+  const codecs = await page.evaluate(async () => {
+    const dec = await VideoDecoder.isConfigSupported({ codec: 'avc1.42E01E' }).catch(() => ({ supported: false }));
+    const enc = await VideoEncoder.isConfigSupported({ codec: 'avc1.640028', width: 1920, height: 1080 }).catch(() => ({ supported: false }));
+    const el = document.createElement('video');
+    return { h264Decode: !!dec.supported, h264Encode: !!enc.supported, mp4Tag: el.canPlayType('video/mp4; codecs="avc1.42E01E"') || 'no', ua: navigator.userAgent.replace(/^.*?(Chrome\/[\d.]+).*$/, '$1') };
+  });
+  console.log(`[factory] codecs: H.264 decode=${codecs.h264Decode ? 'yes' : 'NO'} encode=${codecs.h264Encode ? 'yes' : 'NO'} <video> mp4=${codecs.mp4Tag} (${codecs.ua})`);
+  if (!codecs.h264Decode) console.log('[factory] WARNING: this browser cannot decode H.264, so AI/stock clips will fall back to motion graphics. Set BROWSER_CHANNEL=chrome.');
+} catch (e) { console.log('[factory] codec check failed', e.message); }
 await page.fill('#prompt', prompt);
 await page.selectOption('#style', settings.videoStyle).catch(() => {});
 

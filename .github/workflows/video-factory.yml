@@ -83,6 +83,7 @@ jobs:
       - name: Install the browser
         run: |
           cd factory && npm install --no-audit --no-fund
+          google-chrome --version || echo "::warning::Google Chrome not found on this runner; the bundled Chromium (no H.264) will be used"
           npx playwright install --with-deps chromium
       - name: Install ffmpeg
         run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
@@ -101,6 +102,8 @@ jobs:
           PEXELS_KEY: ${{ secrets.PEXELS_KEY }}
           CHANNEL: ${{ vars.CHANNEL_NAME }}
           OUT_DIR: out
+          # The runner's Google Chrome decodes and encodes H.264 (the bundled test Chromium cannot, so AI clips were dropped).
+          BROWSER_CHANNEL: chrome
         run: |
           export PROMPT="$(cat prompt.txt)"
           if [ -z "$HF_TOKEN" ]; then echo "::warning::No HF_TOKEN secret: the writer falls back to a CPU model and free GPU priority is anonymous. Add it under Settings → Secrets and variables → Actions."; fi
