@@ -1,12 +1,12 @@
 // UI + production run. Everything happens in this browser tab.
-import { Team, promptTopic, detectMode, parseDurationSeconds, wantsVoice, parseCinematicPrompt } from './agents.js';
+import { Team, promptTopic, detectMode, parseDurationSeconds, wantsVoice, parseCinematicPrompt, sanitise, autoShot, autoQuery, headlineFrom, clip as clipTo } from './agents.js';
 import * as T from './timing.js';
 import { MODELS, hasWebGPU, defaultModelId, describeModel, createEngine } from './llm.js';
 import { loadTTS, synthesize, isLoaded as ttsLoaded } from './tts.js';
 import { mix, decodeMusic } from './mixer.js';
 import { Renderer } from './renderer.js';
 import { encodeSupport, encodeWebCodecs, encodeMediaRecorder } from './encoder.js';
-import { srt, youtubeText, download, shareFiles, safeName, chapterStamp } from './exporter.js';
+import { srt, youtubeText, download, shareFiles, safeName, chapterStamp, planMarkdown } from './exporter.js';
 import { store, requestPersistentStorage } from './store.js';
 import { generateFootage, shotPrompt, testAIVideo, FOOTAGE_MODELS, FOOTAGE_COST, FREE_VIDEO_SPACES, HF_PROVIDER_MODELS } from './footage.js';
 import { openAsset } from './clipdecoder.js';
@@ -189,6 +189,7 @@ async function start(resume = null) {
   const t0 = Date.now();
   try {
     const project = await produce(prompt, resume);
+    if (project && project.planOnly) { log('Studio', 'success', 'The lesson plan is ready for review.'); return; }
     currentProject = project;
     const secs = Math.round((Date.now() - t0) / 1000);
     log('Studio', 'success', `Done in ${Math.floor(secs / 60)} min ${secs % 60} s. Open the Videos tab to watch, share and copy the YouTube text.`);
@@ -214,10 +215,15 @@ async function produce(prompt, resume) {
   const cp = resume || { id: 'current', prompt, settings: { ...settings }, attempts: 0, createdAt: Date.now() };
   const s = cp.settings;
   // The creator's words decide the kind of video and its length cap.
-  cp.mode = cp.mode || detectMode(prompt, s.videoStyle || 'auto');
   const askedSeconds = parseDurationSeconds(prompt);
-  if (askedSeconds && !cp.durationApplied) { s.maxDuration = Math.min(s.maxDuration, askedSeconds); s.targetDuration = Math.min(s.targetDuration, s.maxDuration - 4); cp.durationApplied = true; }
-  const cinematic = cp.mode === 'cinematic';
+  if (askedSeconds && !cp.durationApplied) {
+    // Seconds read as a cap ("maximum 60 seconds"); minutes read as the length wanted ("a 9 minute video").
+    if (askedSeconds > 120) { s.targetDuration = askedSeconds; s.maxDuration = Math.min(600, Math.round(askedSeconds * 1.08)); }
+    else { s.maxDuration = Math.min(s.maxDuration, askedSeconds); s.targetDuration = Math.min(s.targetDuration, s.maxDuration - 4); }
+    cp.durationApplied = true;
+  }
+  cp.mode = cp.mode || detectMode(prompt, s.videoStyle || 'auto', s.maxDuration);
+  const cinematic = cp.mode === 'cinematic', course = cp.mode === 'course';
   if (cinematic) { s.burnInCaptions = false; s.showProgressBar = false; if (!cp.cineConfigured) { s.footageScope = 'all'; s.footageDuration = Math.min(8.5, Math.max(7, s.footageDuration || 6)); cp.cineConfigured = true; } }
   if (params.get('footage') === 'mock' || params.get('footage') === 'mockimage') s.footageProvider = params.get('footage');
   if (params.get('space')) { s.footageProvider = 'free'; s.aiVideoSpace = params.get('space'); s.aiVideoEnabled = true; s.pexelsKey = ''; s.pixabayKey = ''; s.allowPollinations = params.get('nopoll') !== '1'; }
@@ -273,6 +279,100 @@ async function produce(prompt, resume) {
         await save('publish');
       }
       if (!MOCK && eng) { await eng.unload(); engine = null; engineModelId = null; $('engineStatus').textContent = 'Model unloaded to free memory; it reloads from cache on the next run.'; await new Promise(r => setTimeout(r, 400)); }
+    } else if (course) {
+      // ---- Course pipeline: chapters → one writer-designer call per chapter → whole-script review → metadata ----
+      const totalSeconds = s.targetDuration;
+      const chapterCount = Math.max(3, Math.min(10, Math.round(totalSeconds / 75)));
+      if (!cp.brief) {
+        progress('Planning', 0.2);
+        log('Studio', 'info', `This is a ${Math.round(totalSeconds / 60)}-minute lesson: planning chapters, then writing and designing each chapter, with 3D scenes and a few AI clips.`);
+        cp.brief = await team.directorCourse(prompt, totalSeconds, chapterCount, cp.feedback ? { previous: cp.previousPlan || '', feedback: cp.feedback } : null);
+        await save('brief');
+      }
+      checkCancel();
+      const chapters = cp.brief.chapters;
+      cp.chapterBeats = cp.chapterBeats || {};
+      const chapterSeconds = totalSeconds / chapters.length;
+      const beatCount = Math.max(3, Math.min(7, Math.round(chapterSeconds / 14)));
+      const wordsPerBeat = Math.max(20, Math.round((chapterSeconds / beatCount - T.LEAD_IN - T.TAIL) * T.WORDS_PER_SECOND * s.speed));
+      for (let i = 0; i < chapters.length; i++) {
+        const ch = chapters[i];
+        if (cp.chapterBeats[ch.id]) continue;
+        checkCancel();
+        progress('Writing', i / chapters.length, `chapter ${i + 1}/${chapters.length}`);
+        const prev = cp.previousBeats && (cp.previousBeats[ch.id] || Object.values(cp.previousBeats).find(bs => bs && bs.title === ch.title));
+        cp.chapterBeats[ch.id] = await team.chapterWriter(cp.brief, ch, beatCount, wordsPerBeat, { previousBeats: prev ? prev.beats || prev : null, feedback: cp.feedback || null, index: i, total: chapters.length });
+        await save('script');
+      }
+      if (!cp.script) {
+        // Flatten chapters into the beat list the rest of the pipeline understands.
+        const outline = [], scenes = [], visuals = [];
+        let id = 0;
+        chapters.forEach((ch, ci) => {
+          const beats = cp.chapterBeats[ch.id] || [];
+          beats.forEach((b, bi) => {
+            id++;
+            let kind = b.kind;
+            if (bi === 0) kind = ci === 0 ? 'title' : 'chapter';
+            else if (ci === chapters.length - 1 && bi === beats.length - 1) kind = 'outro';
+            else if (['title', 'chapter', 'outro'].includes(kind)) kind = b.labels && b.labels.length >= 2 ? 'scene3d' : 'bullets';
+            outline.push({ id, chapterId: ch.id, purpose: bi === 0 ? (ci === 0 ? 'hook' : 'chapter') : kind === 'outro' ? 'takeaway' : 'explain', keyPoint: b.narration, suggestedVisual: kind });
+            const sc = { beatId: id, chapterId: ch.id, narration: b.narration, onScreenTitle: b.onScreenTitle, emphasisWords: b.emphasisWords || [] };
+            scenes.push(sc);
+            const v = sanitise({
+              ...b, kind, chapterId: ch.id,
+              kicker: kind === 'chapter' ? `Chapter ${ci + 1} of ${chapters.length}` : (kind === 'title' || kind === 'outro') ? null : ch.title,
+              title: kind === 'chapter' ? ch.title : kind === 'title' ? cp.brief.title : kind === 'outro' ? clipWords(cp.brief.keyTakeaway, 10) : b.onScreenTitle,
+              subtitle: kind === 'chapter' ? ch.goal : kind === 'title' ? `For ${cp.brief.audience}` : kind === 'outro' ? s.cta : null,
+              labels: kind === 'chapter' ? (b.labels && b.labels.length >= 2 ? b.labels : (ch.keyPoints || []).slice(0, 4).map(k => headlineFrom(k))) : b.labels,
+              hero: bi === 0 || kind === 'outro' || kind === 'footage' || !!b.hero,
+            }, sc);
+            visuals.push(v);
+          });
+        });
+        cp.brief.outline = outline;
+        cp.script = { scenes, totalWords: scenes.reduce((n, x) => n + T.wordCount(x.narration), 0) };
+        cp.storyboard = { scenes: visuals };
+        log('Studio', 'info', `${scenes.length} scenes across ${chapters.length} chapters, ${cp.script.totalWords} words (about ${Math.round(cp.script.totalWords / T.WORDS_PER_SECOND / 60)} minutes of narration).`);
+        await save('script');
+      }
+      checkCancel();
+      if (!cp.review) {
+        progress('Reviewing', 0.3);
+        cp.review = await team.reviewer(cp.brief, cp.script, Math.round(totalSeconds * T.WORDS_PER_SECOND));
+        for (const sc of cp.script.scenes) if (cp.review.revisedNarration[sc.beatId]) sc.narration = cp.review.revisedNarration[sc.beatId];
+        cp.script.totalWords = cp.script.scenes.reduce((n, x) => n + T.wordCount(x.narration), 0);
+        await save('review');
+      }
+      checkCancel();
+      if (!cp.publish) { progress('Metadata', 0.3); cp.publish = await team.publisher(cp.brief, cp.script); await save('publish'); }
+      checkCancel();
+      if (!cp.heroBeats) {
+        // Footage world + which scenes get an AI clip (the free GPU quota pays for roughly a dozen clips a day).
+        const topic = promptTopic(cp.brief.title);
+        const world = cp.brief.bibleLine || 'A woman in her thirties with dark curly hair and a mustard sweater, in a bright loft office with large windows and warm afternoon light.';
+        cp.brief.bibleLine = world;
+        for (const v of cp.storyboard.scenes) {
+          const sc = cp.script.scenes.find(x => x.beatId === v.beatId);
+          if (!v.shot || T.wordCount(v.shot) < 5) v.shot = autoShot(sc, topic, v.kind);
+          if (!v.shot.includes(world)) v.shot = `${v.shot} ${world}`;
+          if (!v.stockQuery) v.stockQuery = autoQuery(v.shot, topic);
+        }
+        const budget = Math.max(0, parseInt(s.aiClipBudget ?? 12, 10));
+        const rank = v => (v.kind === 'title' || v.kind === 'chapter' || v.kind === 'outro') ? 0 : v.kind === 'footage' ? 1 : v.hero ? 2 : 9;
+        const candidates = cp.storyboard.scenes.filter(v => rank(v) < 9).sort((a, b) => rank(a) - rank(b) || a.beatId - b.beatId);
+        cp.heroBeats = candidates.slice(0, budget).map(v => v.beatId);
+        // Full-frame footage scenes that did not make the budget become 3D or bullet scenes instead of empty frames.
+        for (const v of cp.storyboard.scenes) if (v.kind === 'footage' && !cp.heroBeats.includes(v.beatId)) {
+          const sc = cp.script.scenes.find(x => x.beatId === v.beatId);
+          Object.assign(v, sanitise({ ...v, kind: v.labels && v.labels.length >= 2 ? 'scene3d' : 'bullets', model: v.model || 'network' }, sc));
+        }
+        log('Visual Designer', 'success', `${cp.heroBeats.length} scene(s) will get a generated AI clip; ${cp.storyboard.scenes.filter(v => v.kind === 'scene3d').length} 3D scenes; the rest are motion graphics.`);
+        await save('publish');
+      }
+      const removed = T.tighten(cp.script, kindOf, s.maxDuration, s.speed);
+      if (removed) { log('Producer', 'warning', `Script estimated over the ${s.maxDuration} s cap; dropped ${removed} sentence(s) from the wordiest scenes.`); await save('publish'); }
+      if (!MOCK && eng) { await eng.unload(); engine = null; engineModelId = null; $('engineStatus').textContent = 'Model unloaded to free memory; it reloads from cache on the next run.'; await new Promise(r => setTimeout(r, 400)); }
     } else {
     if (!cp.brief) { progress('Planning', 0.2); cp.brief = await team.director(prompt, sceneCount); await save('brief'); }
     checkCancel();
@@ -308,9 +408,35 @@ async function produce(prompt, resume) {
     log('Studio', 'info', 'Script, storyboard and metadata restored from the saved run.');
   }
 
+  // ---------- Content review (course): the creator approves the plan, or asks for changes and we re-plan ----------
+  if (course && !cp.planApproved) {
+    window.__studio.plan = () => exportPlan(cp, prompt);
+    if (params.get('planonly') === '1') {
+      await save('plan');
+      $('planCard').hidden = false; $('planSummary').textContent = 'Plan exported for review.'; $('planList').innerHTML = '';
+      return { planOnly: true };
+    }
+    if (!params.get('autoapprove')) {
+      progress('Designing', 1, 'waiting for your review');
+      await save('plan');
+      const decision = await reviewPlan(cp);
+      if (decision.feedback) {
+        log('Studio', 'info', `Re-planning with your changes: “${decision.feedback.slice(0, 120)}”`);
+        const next = { ...cp, feedback: decision.feedback, previousPlan: Team.summarisePlan(cp.brief, cp.script), previousBeats: Object.fromEntries(cp.brief.chapters.map(c => [c.id, { title: c.title, beats: cp.chapterBeats[c.id] }])) };
+        delete next.brief; delete next.chapterBeats; delete next.script; delete next.review; delete next.storyboard; delete next.publish; delete next.heroBeats; next.stage = 'start';
+        await store.putRun(next);
+        return produce(prompt, next);
+      }
+      for (const sc of cp.script.scenes) if (decision.edits[sc.beatId] !== undefined && decision.edits[sc.beatId].trim()) sc.narration = decision.edits[sc.beatId].trim();
+      cp.script.totalWords = cp.script.scenes.reduce((n, x) => n + T.wordCount(x.narration), 0);
+    }
+    cp.planApproved = true; await save('plan');
+    log('Studio', 'success', 'Lesson plan approved.');
+  }
+
   // ---------- Shot review: the creator reads and edits every shot prompt before any GPU time is spent ----------
   const footageWanted = s.footageProvider && s.footageProvider !== 'none';
-  if (footageWanted && s.reviewShots !== false && !cp.shotsApproved && !params.get('autoapprove')) {
+  if (footageWanted && !course && s.reviewShots !== false && !cp.shotsApproved && !params.get('autoapprove')) {
     progress('Designing', 1, 'waiting for your approval');
     await save('shots');
     const edited = await reviewShots(cp);
@@ -325,7 +451,8 @@ async function produce(prompt, resume) {
   if (footageOn) {
     const fs = { ...s, footageProvider: footageOn };
     const topic = promptTopic(cp.brief.title);
-    const wanted = cp.storyboard.scenes.filter((v, i) => fs.footageScope !== 'hero' || i === 0 || i === cp.storyboard.scenes.length - 1);
+    const wanted = course ? cp.storyboard.scenes.filter(v => (cp.heroBeats || []).includes(v.beatId))
+      : cp.storyboard.scenes.filter((v, i) => fs.footageScope !== 'hero' || i === 0 || i === cp.storyboard.scenes.length - 1);
     const jobs = wanted.map(v => ({ beatId: v.beatId, prompt: shotPrompt(v.shot, topic), query: v.stockQuery || topic }));
     const missing = jobs.filter(j => !(j.beatId in cp.footage));
     if (missing.length) {
@@ -383,7 +510,8 @@ async function produce(prompt, resume) {
 
   const footageCredits = [...new Set(Object.values(cp.footage || {}).filter(Boolean).map(e => e.credit).filter(Boolean))];
   const footageBySceneLabel = Object.fromEntries(scenes.map(sc => { const e = cp.footage && cp.footage[sc.beatId]; return [sc.beatId, !e ? 'motion graphics' : e.source === 'ai-video' ? 'AI-generated video' : e.kind === 'video' ? 'stock video' : 'AI photo with motion']; }));
-  const plan = { prompt, brief: cp.brief, review: cp.review, publish: cp.publish, scenes, totalDuration: total, claimsToVerify: cp.review.claimsToVerify, width, height, fps: s.fps, footageCredits, footageBySceneLabel, footageSummary: cp.footageSummary || '', createdAt: Date.now() };
+  const chapters = course && cp.brief.chapters ? cp.brief.chapters.map(c => { const first = scenes.find(sc => sc.script.chapterId === c.id); return first ? { id: c.id, title: c.title, start: first.start } : null; }).filter(Boolean) : [];
+  const plan = { prompt, mode: cp.mode, brief: cp.brief, review: cp.review, publish: cp.publish, scenes, chapters, totalDuration: total, claimsToVerify: cp.review.claimsToVerify, width, height, fps: s.fps, footageCredits, footageBySceneLabel, footageSummary: cp.footageSummary || '', createdAt: Date.now() };
 
   // ---------- Mix ----------
   progress('Mixing', 0.3);
@@ -413,8 +541,8 @@ async function produce(prompt, resume) {
       // A cinematic piece never drops to text slides: borrow the nearest scene's clip.
       const order = plan.scenes.map((x, i) => [Math.abs(i - idx) + (i > idx ? 0.5 : 0), x.beatId]).sort((a, b) => a[0] - b[0]);
       for (const [, id] of order) if (cp.footage && cp.footage[id]) { entry = cp.footage[id]; break; }
-      if (!entry) return null;
     }
+    if (!entry) return null;
     if (openScene !== sc.beatId) {
       if (openClipHandle) { try { openClipHandle.close(); } catch {} }
       openClipHandle = null; openScene = sc.beatId;
@@ -423,7 +551,11 @@ async function produce(prompt, resume) {
     if (!openClipHandle) return null;
     const local = t - sc.start;
     if (openClipHandle.isImage) { try { return await openClipHandle.frameAt(local, local, sc.duration); } catch { return null; } }
-    const clipT = openClipHandle.duration >= sc.duration ? local : local * (openClipHandle.duration / sc.duration);
+    // Short clip under a long scene: slow it a little (never below 0.6x) and loop, instead of stretching it to a crawl.
+    const d = openClipHandle.duration;
+    let clipT;
+    if (d >= sc.duration) clipT = local;
+    else { const stretch = Math.min(1.6, sc.duration / d); clipT = (local / stretch) % d; }
     try { return await openClipHandle.frameAt(clipT); } catch { return null; }
   };
   const hasFootage = Object.values(cp.footage || {}).some(Boolean);
@@ -434,14 +566,16 @@ async function produce(prompt, resume) {
   let videoBlob;
   if (support) {
     log('Render', 'info', `Encoding with WebCodecs (${support.codec.toUpperCase()} + ${support.audio.toUpperCase()}), ${width}×${height} at ${s.fps} fps.`);
-    videoBlob = await encodeWebCodecs({ canvas, fps: s.fps, duration: total, drawFrame, prepareFrame, audioBuffer, support, onProgress, shouldCancel: () => cancelled });
+    const sink = window.__factorySink || null;
+    if (sink) log('Render', 'info', 'Streaming the file to the factory as it is encoded.');
+    videoBlob = await encodeWebCodecs({ canvas, fps: s.fps, duration: total, drawFrame, prepareFrame, audioBuffer, support, onProgress, shouldCancel: () => cancelled, sink });
   } else {
     log('Render', 'warning', 'WebCodecs is not available here; recording in real time instead (takes as long as the video).');
     videoBlob = await encodeMediaRecorder({ canvas, fps: s.fps, duration: total, drawFrame, prepareFrame, audioBuffer, onProgress, shouldCancel: () => cancelled });
   }
   if (openClipHandle) { try { openClipHandle.close(); } catch {} }
   renderer._pendingFrame = null;
-  log('Render', 'success', `Encoded ${(videoBlob.size / 1048576).toFixed(1)} MB.`);
+  log('Render', 'success', window.__factorySink ? 'Encoded and streamed to the factory.' : `Encoded ${(videoBlob.size / 1048576).toFixed(1)} MB.`);
 
   // ---------- Package ----------
   progress('Packaging', 0.5);
@@ -453,7 +587,7 @@ async function produce(prompt, resume) {
   canvas.hidden = true;
   const project = {
     id: (crypto.randomUUID ? crypto.randomUUID() : String(Date.now())), createdAt: Date.now(), prompt, title: cp.publish.title,
-    duration: total, aspect: s.aspect, width, height, videoType: videoBlob.type || 'video/mp4',
+    duration: total, aspect: s.aspect, width, height, videoType: videoBlob.type || 'video/mp4', external: !!window.__factorySink,
     videoBlob, thumbBlob, srt: srt(plan), youtubeText: youtubeText(plan, s),
     plan: { ...plan, scenes: scenes.map(({ audio, ...rest }) => rest) },
   };
@@ -532,13 +666,44 @@ function reviewShots(cp) {
 }
 function clipWords(s, n) { return String(s || '').split(/\s+/).slice(0, n).join(' '); }
 
+/** The plan as plain JSON (no audio, no footage blobs): the factory posts it for review and later resumes from it. */
+function exportPlan(cp, prompt) {
+  const { audios, footage, ...rest } = cp;
+  const plan = JSON.parse(JSON.stringify({ ...rest, id: 'current', prompt, audios: {}, footage: {}, attempts: 0 }));
+  // Never export keys: the plan may be posted publicly; the factory merges its own settings back in.
+  for (const k of ['hfToken', 'pexelsKey', 'pixabayKey', 'falKey']) if (plan.settings) delete plan.settings[k];
+  return { plan, markdown: planMarkdown(cp) };
+}
+
+// ---------- plan review UI (course) ----------
+function reviewPlan(cp) {
+  return new Promise((resolve) => {
+    const card = $('planCard'); card.hidden = false;
+    const b = cp.brief;
+    const words = cp.script.totalWords, est = Math.round(words / T.WORDS_PER_SECOND + cp.script.scenes.length * 0.8);
+    $('planSummary').textContent = `“${b.title}” · about ${Math.floor(est / 60)} min ${est % 60} s · ${b.chapters.length} chapters · ${cp.script.scenes.length} scenes · ${(cp.heroBeats || []).length} AI clips. Edit any narration below, or describe changes and ask for a revision.`;
+    const visualOf = v => v.kind === 'scene3d' ? `3D ${v.model}: ${(v.labels || []).join(', ')}` : v.kind === 'footage' ? 'AI footage' : v.kind;
+    $('planList').innerHTML = b.chapters.map(ch => `<h3>Chapter ${ch.id} · ${esc(ch.title)}</h3><p class="note">${esc(ch.goal)}</p>` +
+      cp.script.scenes.filter(sc => sc.chapterId === ch.id).map(sc => { const v = cp.storyboard.scenes.find(x => x.beatId === sc.beatId) || {}; return `<div class="field"><label>Scene ${sc.beatId} · ${esc(visualOf(v))}${(cp.heroBeats || []).includes(sc.beatId) ? ' · + AI clip' : ''}</label><textarea data-beat="${sc.beatId}" style="min-height:64px">${esc(sc.narration)}</textarea></div>`; }).join('')).join('');
+    card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    const finish = (feedback) => {
+      const edits = {};
+      card.querySelectorAll('textarea[data-beat]').forEach(t => { edits[parseInt(t.dataset.beat, 10)] = t.value; });
+      card.hidden = true; $('planFeedback').value = '';
+      resolve(feedback ? { feedback } : { approve: true, edits });
+    };
+    $('planGo').onclick = () => finish(null);
+    $('planRevise').onclick = () => { const f = $('planFeedback').value.trim(); if (!f) { $('planFeedback').focus(); return; } finish(f); };
+  });
+}
+
 // ---------- resume after an interrupted run ----------
 async function checkInterruptedRun() {
   let run = null;
   try { run = await store.getRun(); } catch {}
   if (!run || !run.stage) return;
   const card = $('resumeCard'); card.hidden = false;
-  const stageLabel = { start: 'the start', brief: 'the plan', script: 'the script', review: 'the review', storyboard: 'the storyboard', publish: 'the YouTube text', shots: 'the shot review', footage: 'the footage', narration: 'the narration', render: 'the render' }[run.stage] || run.stage;
+  const stageLabel = { start: 'the start', brief: 'the plan', script: 'the script', review: 'the review', storyboard: 'the storyboard', publish: 'the YouTube text', plan: 'the plan review', shots: 'the shot review', footage: 'the footage', narration: 'the narration', render: 'the render' }[run.stage] || run.stage;
   $('resumeText').textContent = `A previous run (“${run.prompt.slice(0, 60)}”) was interrupted after ${stageLabel}. This usually means Safari reloaded the page to free memory. Your progress is saved.`;
   const lighter = run.attempts >= 2;
   $('resumeLighter').hidden = !lighter;
@@ -706,4 +871,4 @@ $('musicFile').onchange = async () => {
 function esc(s) { return String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]); }
 
 // Expose for tests
-window.__studio = { start, produce, store, settings: () => settings };
+window.__studio = { start, produce, store, settings: () => settings, plan: null };

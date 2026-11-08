@@ -46,10 +46,17 @@
         <h2>What should the video teach?</h2>
         <textarea id="prompt" placeholder="e.g. Why do large language models hallucinate? Three causes and one fix."></textarea>
         <div class="chips" id="chips"></div>
-        <div class="field"><label>Video style</label><select id="style"><option value="auto">Auto-detect from my prompt</option><option value="explainer">Educational explainer (narration, titles, captions)</option><option value="cinematic">Cinematic visuals (one consistent world, full-frame shots, music)</option></select><p class="note" id="styleHint"></p></div>
+        <div class="field"><label>Video style</label><select id="style"><option value="auto">Auto-detect from my prompt</option><option value="explainer">Educational explainer (narration, titles, captions)</option><option value="course">Long lesson with chapters and 3D scenes (2–10 minutes)</option><option value="cinematic">Cinematic visuals (one consistent world, full-frame shots, music)</option></select><p class="note" id="styleHint"></p></div>
         <button class="primary" id="generate">Generate video</button>
         <button class="danger" id="cancel" hidden style="width:100%;margin-top:8px">Cancel</button>
         <div class="summary" id="summary"></div>
+      </div>
+      <div class="card install" id="planCard" hidden style="border-color:var(--accent)">
+        <h2>Review the lesson plan</h2>
+        <p class="note" id="planSummary"></p>
+        <div id="planList"></div>
+        <div class="field"><label>Changes you want (optional)</label><textarea id="planFeedback" style="min-height:70px" placeholder="e.g. Make chapter 3 shorter and add an example about email. Everything else is fine."></textarea></div>
+        <div class="btnrow"><button class="primary" id="planGo">Approve and make the video</button><button class="secondary" id="planRevise">Revise the plan with my changes</button></div>
       </div>
       <div class="card install" id="reviewCard" hidden style="border-color:var(--accent)">
         <h2>Check the shots before the GPU runs</h2>
@@ -131,8 +138,8 @@
       </div>
       <div class="card">
         <h2>Length</h2>
-        <div class="field"><label>Hard cap: <span id="s-max-v"></span> s</label><input type="range" id="s-max" min="20" max="60" step="5"></div>
-        <div class="field"><label>Aim for: <span id="s-target-v"></span> s</label><input type="range" id="s-target" min="15" max="55" step="1"></div>
+        <div class="field"><label>Hard cap: <span id="s-max-v"></span> s</label><input type="range" id="s-max" min="20" max="600" step="5"></div>
+        <div class="field"><label>Aim for: <span id="s-target-v"></span> s</label><input type="range" id="s-target" min="15" max="595" step="1"></div>
         <p class="note">Agents write for the target; the producer then guarantees the cap by speeding narration slightly or trimming the script.</p>
       </div>
       <div class="card">

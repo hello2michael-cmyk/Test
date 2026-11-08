@@ -1,17 +1,22 @@
 name: Video factory (make a video from a prompt)
 
+# Three ways in:
+#  1. Open an issue titled "Video: <what you want>". Long lessons get a content plan posted on the issue first;
+#     reply "approve" to make the video, or reply with changes to get a revised plan.
+#  2. Reply on such an issue: "approve" makes the video from the last plan; anything else revises the plan.
+#  3. Actions → Run workflow (the form). With review = yes a tracking issue is created for the plan round-trip.
 on:
   workflow_dispatch:
     inputs:
       prompt:
-        description: 'What the video should be (topic for an explainer, or a cinematic brief; add "Maximum duration 60 seconds")'
+        description: 'What the video should teach or show. Say the length: "9 minutes" for a chaptered lesson, "Maximum duration 60 seconds" for a short.'
         required: true
         type: string
       style:
         description: 'Video style'
         type: choice
         default: auto
-        options: [auto, explainer, cinematic]
+        options: [auto, explainer, course, cinematic]
       aspect:
         description: 'Aspect'
         type: choice
@@ -23,60 +28,154 @@ on:
         default: free
         options: [free, hf, none]
       max_seconds:
-        description: 'Length cap in seconds'
-        default: '60'
+        description: 'Length cap in seconds (leave empty to take it from the prompt)'
+        default: ''
         type: string
+      review:
+        description: 'Post the content plan for approval before making the video (long lessons only)'
+        type: choice
+        default: 'yes'
+        options: ['yes', 'no']
   issues:
     types: [opened]
+  issue_comment:
+    types: [created]
 
 permissions:
   contents: write
   issues: write
+  actions: read
 
 concurrency:
-  group: video-factory-${{ github.run_id }}
+  group: video-factory-${{ github.event.issue.number || github.run_id }}
+  cancel-in-progress: false
 
 jobs:
   make:
-    # Runs for the button, or for a new issue whose title starts with "Video:"
-    if: github.event_name == 'workflow_dispatch' || startsWith(github.event.issue.title, 'Video:')
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      (github.event_name == 'issues' && startsWith(github.event.issue.title, 'Video:')) ||
+      (github.event_name == 'issue_comment' && startsWith(github.event.issue.title, 'Video:') && !github.event.issue.pull_request && github.event.comment.user.type != 'Bot')
     runs-on: ubuntu-latest
-    timeout-minutes: 150
+    timeout-minutes: 170
     steps:
       - uses: actions/checkout@v4
 
       - name: Work out the request
         id: req
         env:
+          GH_TOKEN: ${{ github.token }}
+          EVENT: ${{ github.event_name }}
           IN_PROMPT: ${{ github.event.inputs.prompt }}
+          IN_STYLE: ${{ github.event.inputs.style }}
+          IN_ASPECT: ${{ github.event.inputs.aspect }}
+          IN_FOOTAGE: ${{ github.event.inputs.footage }}
+          IN_SECS: ${{ github.event.inputs.max_seconds }}
+          IN_REVIEW: ${{ github.event.inputs.review }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
           ISSUE_TITLE: ${{ github.event.issue.title }}
           ISSUE_BODY: ${{ github.event.issue.body }}
+          COMMENT_BODY: ${{ github.event.comment.body }}
+          REPO: ${{ github.repository }}
         run: |
           python3 - <<'PY'
-          import os, re, json
+          import os, re, json, subprocess
           ev = os.environ
-          if ev.get('IN_PROMPT'):
-              prompt = ev['IN_PROMPT']; style = '${{ github.event.inputs.style }}' or 'auto'
-              aspect = '${{ github.event.inputs.aspect }}' or '16x9'; footage = '${{ github.event.inputs.footage }}' or 'free'
-              secs = '${{ github.event.inputs.max_seconds }}' or '60'
+          event = ev['EVENT']
+          out = {}
+          def opts_from(body):
+              o = dict(re.findall(r'^(style|aspect|footage|seconds|review)\s*:\s*(.+?)\s*$', body or '', flags=re.I | re.M))
+              return {k.lower(): v.strip() for k, v in o.items()}
+          def strip_opts(body):
+              return re.sub(r'^(style|aspect|footage|seconds|review)\s*:.*$', '', body or '', flags=re.I | re.M).strip()
+          if event == 'workflow_dispatch':
+              prompt = ev['IN_PROMPT'].strip()
+              style, aspect, footage = ev.get('IN_STYLE') or 'auto', ev.get('IN_ASPECT') or '16x9', ev.get('IN_FOOTAGE') or 'free'
+              secs = ev.get('IN_SECS') or ''
+              phase = 'plan' if (ev.get('IN_REVIEW') or 'yes') == 'yes' else 'all'
+              issue = ''
           else:
-              body = (ev.get('ISSUE_BODY') or '').strip(); title = ev.get('ISSUE_TITLE') or ''
-              # Options may be given as lines "style: cinematic", "aspect: 9x16", "footage: hf", "seconds: 45"
-              opts = dict(re.findall(r'^(style|aspect|footage|seconds)\s*:\s*(\S+)\s*$', body, flags=re.I | re.M))
-              opts = {k.lower(): v for k, v in opts.items()}
-              prompt = re.sub(r'^(style|aspect|footage|seconds)\s*:.*$', '', body, flags=re.I | re.M).strip() or title.split(':', 1)[1].strip()
-              style = opts.get('style', 'auto'); aspect = opts.get('aspect', '16x9'); footage = opts.get('footage', 'free'); secs = opts.get('seconds', '60')
+              title = ev.get('ISSUE_TITLE') or ''
+              body = ev.get('ISSUE_BODY') or ''
+              o = opts_from(body)
+              prompt = strip_opts(body) or title.split(':', 1)[1].strip()
+              style, aspect, footage = o.get('style', 'auto'), o.get('aspect', '16x9'), o.get('footage', 'free')
+              secs = o.get('seconds', '')
+              issue = ev['ISSUE_NUMBER']
+              phase = 'all' if o.get('review', 'yes').lower() in ('no', 'off', 'false') else 'plan'
+          feedback = ''
+          prev_run = ''
+          if event == 'issue_comment':
+              comment = (ev.get('COMMENT_BODY') or '').strip()
+              # The last plan the factory posted on this issue carries a marker with the run that made it.
+              try:
+                  comments = json.loads(subprocess.check_output(['gh', 'api', f'repos/{ev["REPO"]}/issues/{issue}/comments', '--paginate'], text=True) or '[]')
+              except Exception as e:
+                  comments = []
+              for c in comments:
+                  m = re.search(r'<!-- plan-run:(\d+) -->', c.get('body') or '')
+                  if m: prev_run = m.group(1)
+              approve = re.match(r'^\s*(approve|approved|ok|okay|go|yes|lgtm|looks good|make it|make the video|proceed|ship it)\b', comment, flags=re.I)
+              if approve and prev_run: phase = 'video'
+              elif approve: phase = 'all'
+              elif prev_run: phase, feedback = 'plan', comment
+              else: phase, feedback = 'plan', comment
+          # The prompt carries the length ("9 minutes"); the cap input only applies when given.
+          if not secs:
+              m = re.search(r'(\d{1,2}(?:[.,]\d)?)\s*-?\s*(?:min\b|mins\b|minute|minutes)', prompt, flags=re.I)
+              secs = str(min(600, round(float(m.group(1).replace(',', '.')) * 60 * 1.08))) if m else ''
+              if not secs:
+                  m = re.search(r'(\d{1,3})\s*-?\s*(?:s\b|sec\b|secs\b|second|seconds)', prompt, flags=re.I)
+                  secs = m.group(1) if m else '60'
           with open(os.environ['GITHUB_OUTPUT'], 'a') as f:
-              f.write('style=%s\naspect=%s\nfootage=%s\nsecs=%s\n' % (style, aspect, footage, secs))
-          with open('prompt.txt', 'w') as f: f.write(prompt)
+              f.write('phase=%s\nstyle=%s\naspect=%s\nfootage=%s\nsecs=%s\nissue=%s\nprev_run=%s\n' % (phase, style, aspect, footage, secs, issue, prev_run))
+          open('prompt.txt', 'w').write(prompt)
+          open('feedback.txt', 'w').write(feedback)
+          print('event', event, 'phase', phase, 'issue', issue or '-', 'prev_run', prev_run or '-')
           print('PROMPT:', prompt[:300]); print('style', style, 'aspect', aspect, 'footage', footage, 'secs', secs)
+          if feedback: print('FEEDBACK:', feedback[:300])
           PY
 
-      - name: Tell the issue we started
-        if: github.event_name == 'issues'
+      - name: Create a tracking issue (form run with review)
+        id: tracker
+        if: github.event_name == 'workflow_dispatch' && steps.req.outputs.phase == 'plan'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          STYLE: ${{ steps.req.outputs.style }}
+          ASPECT: ${{ steps.req.outputs.aspect }}
+          FOOTAGE: ${{ steps.req.outputs.footage }}
+        run: |
+          TITLE="Video: $(head -c 90 prompt.txt | tr '\n' ' ')"
+          printf '%s\n\nstyle: %s\naspect: %s\nfootage: %s\n' "$(cat prompt.txt)" "$STYLE" "$ASPECT" "$FOOTAGE" > issue-body.txt
+          URL=$(gh issue create --title "$TITLE" --body-file issue-body.txt)
+          echo "issue=${URL##*/}" >> "$GITHUB_OUTPUT"
+          echo "Tracking issue: $URL"
+
+      - name: Settle the issue number
+        id: issue
+        run: echo "number=${{ steps.req.outputs.issue || steps.tracker.outputs.issue }}" >> "$GITHUB_OUTPUT"
+
+      - name: Fetch the previous plan
+        if: steps.req.outputs.prev_run != ''
         env: { GH_TOKEN: '${{ github.token }}' }
         run: |
-          gh issue comment ${{ github.event.issue.number }} --body "Making your video now (run ${{ github.run_number }}). This usually takes 10–25 minutes; I will post the download links here. Progress: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          mkdir -p plan-in
+          gh run download ${{ steps.req.outputs.prev_run }} -n "plan-issue-${{ steps.issue.outputs.number }}" -D plan-in
+          ls -la plan-in
+
+      - name: Tell the issue we started
+        if: steps.issue.outputs.number != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PHASE: ${{ steps.req.outputs.phase }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          case "$PHASE" in
+            plan)  MSG="Working on the content plan now (run ${{ github.run_number }}). For a long lesson this takes 3–6 minutes; I will post the chapters and every scene here for your review. Progress: $RUN_URL" ;;
+            video) MSG="Plan approved. Making the video now (run ${{ github.run_number }}): AI clips on the free GPU, 3D scenes, narration and the final render take 30–60 minutes for a long lesson. I will post the links here. Progress: $RUN_URL" ;;
+            *)     MSG="Making your video now (run ${{ github.run_number }}). I will post the download links here. Progress: $RUN_URL" ;;
+          esac
+          gh issue comment ${{ steps.issue.outputs.number }} --body "$MSG"
 
       - uses: actions/setup-node@v4
         with: { node-version: '22' }
@@ -86,14 +185,15 @@ jobs:
           google-chrome --version || echo "::warning::Google Chrome not found on this runner; the bundled Chromium (no H.264) will be used"
           npx playwright install --with-deps chromium
       - name: Install ffmpeg
+        if: steps.req.outputs.phase != 'plan'
         run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
 
       - name: Serve the studio
         run: (python3 -m http.server 8765 --bind 127.0.0.1 > server.log 2>&1 &) && sleep 1 && curl -sf http://127.0.0.1:8765/studio/index.html > /dev/null
 
-      - name: Make the video
+      - name: Run the agents
         env:
-          PROMPT_FILE: prompt.txt
+          PHASE: ${{ steps.req.outputs.phase }}
           STYLE: ${{ steps.req.outputs.style }}
           ASPECT: ${{ steps.req.outputs.aspect }}
           FOOTAGE: ${{ steps.req.outputs.footage }}
@@ -101,15 +201,49 @@ jobs:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
           PEXELS_KEY: ${{ secrets.PEXELS_KEY }}
           CHANNEL: ${{ vars.CHANNEL_NAME }}
+          AI_CLIPS: ${{ vars.AI_CLIPS || '12' }}
           OUT_DIR: out
           # The runner's Google Chrome decodes and encodes H.264 (the bundled test Chromium cannot, so AI clips were dropped).
           BROWSER_CHANNEL: chrome
+          TIMEOUT_MIN: '150'
         run: |
           export PROMPT="$(cat prompt.txt)"
-          if [ -z "$HF_TOKEN" ]; then echo "::warning::No HF_TOKEN secret: the writer falls back to a CPU model and free GPU priority is anonymous. Add it under Settings → Secrets and variables → Actions."; fi
+          export FEEDBACK="$(cat feedback.txt)"
+          if [ -f plan-in/plan.json ]; then export PLAN_FILE=plan-in/plan.json; fi
+          if [ -z "$HF_TOKEN" ]; then echo "::warning::No HF_TOKEN secret: the writer falls back to a template script and free GPU priority is anonymous. Add it under Settings → Secrets and variables → Actions."; fi
           node factory/run.mjs
 
+      # ---------- Plan phase: post the plan for review ----------
+      - name: Keep the plan for the approval step
+        if: hashFiles('out/plan.json') != ''
+        uses: actions/upload-artifact@v4
+        with:
+          name: plan-issue-${{ steps.issue.outputs.number || github.run_number }}
+          path: |
+            out/plan.json
+            out/plan.md
+          retention-days: 90
+          overwrite: true
+
+      - name: Post the plan on the issue
+        if: hashFiles('out/plan.json') != '' && steps.issue.outputs.number != ''
+        env: { GH_TOKEN: '${{ github.token }}' }
+        run: |
+          python3 - <<'PY'
+          import json
+          md = open('out/plan.md', encoding='utf-8').read()
+          if len(md) > 58000: md = md[:58000] + '\n\n*(plan shortened for display; the full plan is used for the video)*\n'
+          foot = ('\n\n---\n**Your turn.** Reply **approve** to make the video from this plan, or reply with the changes you want '
+                  '(for example: "chapter 3 is too long, add an example about email, make the ending warmer"). '
+                  'Each reply gives you a revised plan here. You can also edit any scene by quoting it with your new wording.\n'
+                  '<!-- plan-run:${{ github.run_id }} -->')
+          open('plan-comment.md', 'w', encoding='utf-8').write(md + foot)
+          PY
+          gh issue comment ${{ steps.issue.outputs.number }} --body-file plan-comment.md
+
+      # ---------- Video phases ----------
       - name: Final encode (H.264 + AAC, YouTube-ready)
+        if: hashFiles('out/plan.json') == ''
         run: |
           set -e
           RAW=$(ls out/video-raw.* | head -1)
@@ -123,16 +257,17 @@ jobs:
           cp out/video.mp4 "out/release/$SAFE.mp4"; cp out/youtube.txt "out/release/$SAFE-youtube.txt"; cp out/thumbnail.jpg "out/release/$SAFE-thumbnail.jpg"
           # Music-only pieces have no captions; GitHub rejects empty release files.
           if [ -s out/captions.srt ]; then cp out/captions.srt "out/release/$SAFE.srt"; fi
+          rm -f out/video-raw.*
 
       - uses: actions/upload-artifact@v4
-        if: always()
+        if: always() && hashFiles('out/plan.json') == ''
         with:
           name: video-${{ github.run_number }}
           path: out/
           retention-days: 30
 
       - name: Publish as a release (same links for 90 days)
-        id: release
+        if: hashFiles('out/plan.json') == ''
         uses: softprops/action-gh-release@v2
         with:
           tag_name: video-${{ github.run_number }}
@@ -140,29 +275,33 @@ jobs:
           body: |
             Prompt: ${{ github.event.inputs.prompt || github.event.issue.title }}
 
-            Files: the MP4 (H.264, YouTube-ready), captions (.srt), the YouTube title/description/tags (-youtube.txt) and a thumbnail.
+            Files: the MP4 (H.264, YouTube-ready), captions (.srt), the YouTube title/description/tags/chapters (-youtube.txt) and a thumbnail.
             Footage: see youtube.txt for credits. Made by the AI Video Studio factory, run ${{ github.run_number }}.
           files: out/release/*
           make_latest: false
 
       - name: Post the links on the issue
-        if: github.event_name == 'issues'
+        if: hashFiles('out/plan.json') == '' && steps.issue.outputs.number != ''
         env: { GH_TOKEN: '${{ github.token }}' }
         run: |
           FOOT=$(python3 -c "import json;print(json.load(open('out/summary.json')).get('footage',''))")
-          gh issue comment ${{ github.event.issue.number }} --body "Your video is ready: **${TITLE}**
+          CHAP=$(python3 -c "import json;c=json.load(open('out/summary.json')).get('chapters',[]);print('\n'.join('  - %d:%02d %s' % (x['start']//60, x['start']%60, x['title']) for x in c))")
+          gh issue comment ${{ steps.issue.outputs.number }} --body "Your video is ready: **${TITLE}**
 
           - Video (MP4): ${{ github.server_url }}/${{ github.repository }}/releases/download/video-${{ github.run_number }}/${SAFE}.mp4
-          - Captions (explainers only): ${{ github.server_url }}/${{ github.repository }}/releases/download/video-${{ github.run_number }}/${SAFE}.srt
-          - YouTube title/description/tags: ${{ github.server_url }}/${{ github.repository }}/releases/download/video-${{ github.run_number }}/${SAFE}-youtube.txt
+          - Captions: ${{ github.server_url }}/${{ github.repository }}/releases/download/video-${{ github.run_number }}/${SAFE}.srt
+          - YouTube title/description/tags/chapters: ${{ github.server_url }}/${{ github.repository }}/releases/download/video-${{ github.run_number }}/${SAFE}-youtube.txt
           - Thumbnail: ${{ github.server_url }}/${{ github.repository }}/releases/download/video-${{ github.run_number }}/${SAFE}-thumbnail.jpg
+
+          Chapters:
+          ${CHAP}
 
           Footage: ${FOOT}
 
           Open the MP4 link on your phone, save it, and upload from the YouTube app. To make another video, open a new issue whose title starts with \`Video:\`."
 
       - name: Report a failure on the issue
-        if: failure() && github.event_name == 'issues'
+        if: failure() && steps.issue.outputs.number != ''
         env: { GH_TOKEN: '${{ github.token }}' }
         run: |
-          gh issue comment ${{ github.event.issue.number }} --body "The video run failed. Log: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }} (the 'Make the video' step shows the agent room)."
+          gh issue comment ${{ steps.issue.outputs.number }} --body "This run failed. Log: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }} (the 'Run the agents' step shows the agent room). Reply **approve** or write changes to try again."

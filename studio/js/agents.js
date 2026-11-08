@@ -2,25 +2,34 @@
 // of the deterministic producer (narration, timing, mixing, rendering, packaging).
 import * as T from './timing.js';
 
-export const SCENE_KINDS = ['title', 'bullets', 'diagram', 'comparison', 'stat', 'code', 'quote', 'outro', 'footage'];
+export const SCENE_KINDS = ['title', 'bullets', 'diagram', 'comparison', 'stat', 'code', 'quote', 'outro', 'footage', 'scene3d', 'chapter'];
+export const MODELS_3D = ['network', 'pipeline', 'hub', 'stack', 'orbit', 'grid'];
+/** Long-form lessons: above this many seconds the explainer becomes a chaptered course. */
+export const COURSE_MIN_SECONDS = 120;
 
 /** What kind of video the creator wants: a lesson with narration, or a cinematic visual piece. */
-export function detectMode(prompt, preference = 'auto') {
-  if (preference === 'explainer' || preference === 'cinematic') return preference;
+export function detectMode(prompt, preference = 'auto', maxSeconds = 60) {
+  if (preference === 'course') return 'course';
+  if (preference === 'explainer') return maxSeconds > COURSE_MIN_SECONDS ? 'course' : 'explainer';
+  if (preference === 'cinematic') return preference;
   const p = String(prompt || '').toLowerCase();
   const cine = /cinematic|visuals? (of|showing|around)|show(ing|s)? (a|an|one|the) |footage|b-roll|montage|music video|trailer|commercial|advert|aesthetic|mood piece|no (narration|voice|text|words)|driving|walking|flying|timelapse|slow motion|drone/.test(p);
   const edu = /explain|what is|what are|how (does|do|to)|why |teach|tutorial|lesson|learn|understand|guide|introduction to|basics of|difference between|vs\.?|compare|tips|steps/.test(p);
+  const lesson = maxSeconds > COURSE_MIN_SECONDS ? 'course' : 'explainer';
   if (cine && !edu) return 'cinematic';
-  if (edu && !cine) return 'explainer';
-  return cine ? 'cinematic' : 'explainer';
+  if (edu && !cine) return lesson;
+  return cine ? 'cinematic' : lesson;
 }
 
 /** "maximum duration 60 seconds", "45s", "about 30 sec" → seconds, or null. */
 export function parseDurationSeconds(prompt) {
-  const m = String(prompt || '').match(/(\d{1,3})\s*(?:-|to)?\s*(?:s\b|sec\b|secs\b|second|seconds)/i);
+  const text = String(prompt || '');
+  const mins = text.match(/(\d{1,2}(?:[.,]\d)?)\s*(?:-|to)?\s*(?:min\b|mins\b|minute|minutes)/i);
+  if (mins) { const n = Math.round(parseFloat(mins[1].replace(',', '.')) * 60); if (n >= 60 && n <= 600) return n; }
+  const m = text.match(/(\d{1,3})\s*(?:-|to)?\s*(?:s\b|sec\b|secs\b|second|seconds)/i);
   if (!m) return null;
   const n = parseInt(m[1], 10);
-  return n >= 10 && n <= 180 ? n : null;
+  return n >= 10 && n <= 600 ? n : null;
 }
 
 /**
@@ -414,10 +423,10 @@ JSON schema:
  "revisedNarration": {"2": "improved narration for beat 2"}}
 Use an empty object for revisedNarration when nothing needs rewriting.`;
     let review;
-    try { review = await this.structured('Reviewer', system, user, { temperature: 0.3 }); }
+    try { review = await this.structured('Reviewer', system, user, { temperature: 0.3, maxTokens: script.scenes.length > 10 ? 3000 : 1200 }); }
     catch (e) { this.warn('Reviewer', `Skipped: ${e.message}`); return { ...empty, claimsToVerify: claims }; }
-    review.issues = Array.isArray(review.issues) ? review.issues.map(String).slice(0, 8) : [];
-    review.claimsToVerify = [...new Set([...(Array.isArray(review.claimsToVerify) ? review.claimsToVerify.map(String) : []), ...claims])].slice(0, 10);
+    review.issues = Array.isArray(review.issues) ? review.issues.map(String).slice(0, script.scenes.length > 10 ? 16 : 8) : [];
+    review.claimsToVerify = [...new Set([...(Array.isArray(review.claimsToVerify) ? review.claimsToVerify.map(String) : []), ...claims])].slice(0, script.scenes.length > 10 ? 20 : 10);
     const revisions = {};
     if (review.revisedNarration && typeof review.revisedNarration === 'object') {
       for (const [k, v] of Object.entries(review.revisedNarration)) {
@@ -501,6 +510,119 @@ JSON schema:
     return { scenes };
   }
 
+
+  // ----- Course director: a chaptered lesson (several minutes) -----
+  /**
+   * totalSeconds: the whole lesson; chapterCount: how many chapters to plan.
+   * revision: { previous: <summary text of the last plan>, feedback: <creator's words> } when re-planning.
+   */
+  async directorCourse(prompt, totalSeconds, chapterCount, revision = null) {
+    const mins = (totalSeconds / 60).toFixed(0);
+    this.info('Director', revision ? `Revising the lesson plan from your feedback: “${clip(revision.feedback, 30)}”` : `Planning a ${mins}-minute lesson in ${chapterCount} chapters.`);
+    let brief = null;
+    if (this.engine && !this.small) {
+      try { brief = await this.courseJSON(prompt, totalSeconds, chapterCount, revision); }
+      catch (e) { this.warn('Director', `Structured lesson plan failed (${e.message}); using a template plan from your prompt.`); }
+    }
+    brief = normaliseCourseBrief(brief, prompt, chapterCount);
+    this.ok('Director', `Lesson: “${brief.title}” — ${brief.chapters.length} chapters: ${brief.chapters.map(c => c.title).join(' · ')}`);
+    return brief;
+  }
+
+  async courseJSON(prompt, totalSeconds, chapterCount, revision) {
+    const system = HOUSE_RULES + `\n\nYou are the COURSE DIRECTOR. You turn a creator's request into the plan of a ${Math.round(totalSeconds / 60)}-minute educational video with ${chapterCount} chapters.
+A great lesson: a hook that promises a concrete payoff, then chapters that each teach ONE idea with a plain-words definition,
+a concrete example or analogy and why it matters, building on each other, then a recap that ties the ideas together.
+Cover every topic the creator lists, in a sensible teaching order. Chapter titles are short and specific.`;
+    let user = `Creator's request: "${prompt}"
+
+Produce exactly ${chapterCount} chapters. Chapter 1 opens the video (hook + what the viewer will learn). The last chapter recaps and ends with one memorable takeaway and a call to action.
+Also describe the b-roll world: one recurring protagonist (age, look, clothing colours) and one recurring place (with lighting) that every live-action clip reuses.
+
+JSON schema (fill every field):
+{"title": "video title, max 60 characters", "audience": "who this is for, one phrase", "hook": "the opening idea in one sentence",
+ "learningObjectives": ["3 to 5 short objectives"], "keyTakeaway": "one sentence the viewer should remember", "tone": "e.g. warm and precise",
+ "broll": "one sentence: the recurring protagonist and place for live-action clips",
+ "chapters": [{"id": 1, "title": "2-6 words", "goal": "what the viewer understands after this chapter, one sentence", "keyPoints": ["3 to 5 concrete points, one sentence each"], "example": "one concrete example or analogy for this chapter"}]}`;
+    if (revision) user += `\n\nPrevious plan:\n${revision.previous}\n\nCreator feedback on the previous plan: "${revision.feedback}"\nApply the feedback faithfully. Keep everything the creator did not criticise.`;
+    const o = await this.structured('Director', system, user, { temperature: 0.6, maxTokens: 2200 }, (o) => {
+      if (!Array.isArray(o.chapters) || o.chapters.length < 2) throw new Error('chapters missing');
+    });
+    return o;
+  }
+
+  /**
+   * Writes one chapter: narration AND visual design for each beat in a single call (writer-designer).
+   * Returns beats with narration, onScreenTitle, emphasisWords and a visual spec (kind, labels, fields, hero, shot).
+   */
+  async chapterWriter(brief, chapter, beatCount, wordsPerBeat, { previousBeats = null, feedback = null, index = 0, total = 1 } = {}) {
+    this.info('Scriptwriter', `Chapter ${chapter.id}/${total} “${chapter.title}”: ${beatCount} scenes, about ${wordsPerBeat} words each.`);
+    let beats = null;
+    if (this.engine && !this.small) {
+      try { beats = await this.chapterJSON(brief, chapter, beatCount, wordsPerBeat, { previousBeats, feedback, index, total }); }
+      catch (e) { this.warn('Scriptwriter', `Chapter ${chapter.id} failed (${e.message}); writing it from the key points instead.`); }
+    }
+    if (!beats) beats = templateChapterBeats(brief, chapter, beatCount, wordsPerBeat, index, total);
+    const words = beats.reduce((n, b) => n + T.wordCount(b.narration), 0);
+    this.ok('Scriptwriter', `Chapter ${chapter.id} drafted: ${beats.length} scenes, ${words} words (${beats.map(b => b.kind).join(' → ')}).`);
+    return beats;
+  }
+
+  async chapterJSON(brief, chapter, beatCount, wordsPerBeat, { previousBeats, feedback, index, total }) {
+    const first = index === 0, last = index === total - 1;
+    const system = HOUSE_RULES + `\n\nYou are the CHAPTER WRITER and visual designer of a multi-chapter lesson. For one chapter you write the narration a text-to-speech voice reads aloud,
+and you choose the picture for every scene. Write for the ear: short sentences, everyday words, active voice, no parentheses, no bullet symbols, no abbreviations the voice would mispronounce
+(write "for example", not "e.g."). Define every term in plain words the first time. Use concrete examples. Do not say "in this video" or "in this chapter".
+Each scene is about ${wordsPerBeat} words (hard limit ${wordsPerBeat + 12}).
+
+Visual kinds and when to use them:
+- "scene3d": an animated 3D model of a structure or process; set "model" to one of network (things connected to each other), pipeline (steps in order, loops), hub (one centre with many connections, e.g. connectors or tools), stack (layers), orbit (a core with capabilities around it), grid (a set of options or skills); give 2-6 "labels" of 1-3 words. Use this for at least two scenes per chapter.
+- "footage": a full-frame cinematic live-action clip for a human, real-world moment; give "shot" (one sentence: subject, action, setting, camera) and "stockQuery" (2-4 search words). At most one per chapter.
+- "bullets" (2-4 items up to 7 words), "diagram" (3-5 nodes of 1-3 words, flat flow), "comparison" (X vs Y, up to 3 items a side), "stat" (only a number you are certain of), "code" (rarely, 3-6 short lines), "quote" (rarely).
+Every scene also gets "shot" and "stockQuery" so b-roll can sit behind it when wanted.`;
+    let user = `Lesson: ${brief.title}\nAudience: ${brief.audience}\nTone: ${brief.tone}\nKey takeaway of the whole lesson: ${brief.keyTakeaway}
+All chapters: ${brief.chapters.map(c => `${c.id}. ${c.title}`).join(' | ')}
+
+THIS chapter (${index + 1} of ${total}): "${chapter.title}"
+Goal: ${chapter.goal}
+Key points:
+${(chapter.keyPoints || []).map((k, i) => `- ${k}`).join('\n')}
+Example or analogy to use: ${chapter.example || '(choose one)'}
+
+Write exactly ${beatCount} scenes. ${first ? 'Scene 1 is the hook for the whole video (kind "title"): a surprising or useful promise, then what the viewer will learn.' : 'Scene 1 introduces this chapter in one or two sentences (kind "chapter").'} ${last ? 'The last scene is the recap and takeaway of the whole lesson (kind "outro"), ending with a short call to action.' : 'The last scene of the chapter hands over to the next topic in one sentence.'}
+
+JSON schema:
+{"beats": [{"narration": "...", "onScreenTitle": "2-6 words", "emphasisWords": ["1-3 words"],
+ "kind": "scene3d", "model": "network", "labels": ["..."], "bullets": null, "nodes": null, "leftTitle": null, "leftItems": null, "rightTitle": null, "rightItems": null,
+ "statValue": null, "statLabel": null, "code": null, "codeLanguage": null, "quote": null, "attribution": null,
+ "hero": false, "shot": "one sentence describing a realistic cinematic clip", "stockQuery": "2-4 words"}]}
+Set "hero": true on the one scene of this chapter that most deserves real live-action footage.`;
+    if (previousBeats && previousBeats.length) user += `\n\nPrevious version of this chapter:\n${previousBeats.map((b, i) => `${i + 1}. ${b.narration}`).join('\n')}`;
+    if (feedback) user += `\n\nCreator feedback on the previous plan: "${feedback}"\nApply it where it concerns this chapter; keep the rest.`;
+    const out = await this.structured('Scriptwriter', system, user, { temperature: 0.65, maxTokens: 3200 }, (o) => {
+      if (!Array.isArray(o.beats) || !o.beats.length) throw new Error('beats missing');
+    });
+    const beats = out.beats.filter(b => b && typeof b === 'object').slice(0, beatCount + 2).map((b, i) => ({
+      narration: spoken(String(b.narration || ''), wordsPerBeat + 12),
+      onScreenTitle: clip(String(b.onScreenTitle || headlineFrom(b.narration || chapter.title)), 6),
+      emphasisWords: Array.isArray(b.emphasisWords) ? b.emphasisWords.map(String).slice(0, 3) : [],
+      kind: String(b.kind || 'bullets'), model: b.model, labels: b.labels, bullets: b.bullets, nodes: b.nodes,
+      leftTitle: b.leftTitle, leftItems: b.leftItems, rightTitle: b.rightTitle, rightItems: b.rightItems,
+      statValue: b.statValue, statLabel: b.statLabel, code: b.code, codeLanguage: b.codeLanguage, quote: b.quote, attribution: b.attribution,
+      hero: !!b.hero, shot: b.shot ? String(b.shot) : null, stockQuery: b.stockQuery ? String(b.stockQuery) : null,
+    })).filter(b => T.wordCount(b.narration) >= 3);
+    if (beats.length < 2) throw new Error('too few usable scenes');
+    return beats;
+  }
+
+  /** One-paragraph summary of a plan, for revision prompts and for the creator's review. */
+  static summarisePlan(brief, script) {
+    return brief.chapters.map(c => {
+      const beats = (script ? script.scenes : []).filter(sc => sc.chapterId === c.id);
+      return `Chapter ${c.id}: ${c.title} — ${c.goal}\n${beats.map((b, i) => `  ${i + 1}. ${b.narration}`).join('\n')}`;
+    }).join('\n');
+  }
+
   // ----- Publisher -----
   async publisher(brief, script) {
     this.info('Publisher', 'Preparing the YouTube title, description and tags.');
@@ -529,12 +651,16 @@ JSON schema:
     }
     const known = new Set(script.scenes.map(s => s.beatId));
     const topic = promptTopic(brief.title);
+    if (Array.isArray(brief.chapters) && brief.chapters.length) {
+      // Course: chapters are fixed by the plan; the first beat of each chapter is its timestamp.
+      pkg.chapters = brief.chapters.map(c => { const first = script.scenes.find(sc => sc.chapterId === c.id); return first ? { beatId: first.beatId, label: c.title } : null; }).filter(Boolean);
+    }
     const result = {
       title: clip(String(pkg.title || brief.title), 12).slice(0, 100),
-      description: String(pkg.description || `${brief.keyTakeaway}\n\nIn under a minute: ${script.scenes.map(s => s.onScreenTitle.toLowerCase()).join(', ')}.`),
+      description: String(pkg.description || (brief.chapters ? `${brief.keyTakeaway}\n\nIn this lesson: ${brief.chapters.map(c => c.title).join(', ')}.` : `${brief.keyTakeaway}\n\nIn under a minute: ${script.scenes.map(s => s.onScreenTitle.toLowerCase()).join(', ')}.`)),
       tags: [...new Set([...(Array.isArray(pkg.tags) ? pkg.tags : []).map(t => String(t).toLowerCase()), ...autoTags(topic)])].slice(0, 15),
       chapters: (Array.isArray(pkg.chapters) && pkg.chapters.length ? pkg.chapters : script.scenes.map(s => ({ beatId: s.beatId, label: s.onScreenTitle })))
-        .filter(c => c && known.has(Number(c.beatId))).map(c => ({ beatId: Number(c.beatId), label: clip(String(c.label || ''), 4) })),
+        .filter(c => c && known.has(Number(c.beatId))).map(c => ({ beatId: Number(c.beatId), label: clip(String(c.label || ''), 8) })),
       thumbnailText: clip(String(pkg.thumbnailText || headlineFrom(brief.title)), 4).toUpperCase(),
       pinnedComment: String(pkg.pinnedComment || 'What should we explain next? Tell us in the comments.'),
     };
@@ -576,8 +702,11 @@ export function headlineFrom(text) {
 export function titleCase(s) { return String(s || '').replace(/\s+/g, ' ').trim().replace(/(^|\s)(\S)/g, (m, sp, c) => sp + c.toUpperCase()); }
 export function promptLines(prompt) { return String(prompt || '').split(/\n+/).map(x => x.trim()).filter(Boolean); }
 export function promptTopic(prompt) {
-  const first = (promptLines(prompt)[0] || 'AI').replace(/[,.;]?\s*(maximum|max\.?|about|around|roughly|under)?\s*(duration|length)?\s*(of)?\s*\d{1,3}\s*(s\b|sec\b|secs\b|second|seconds)\b.*$/i, '').trim() || 'AI';
-  return first.replace(/^(explain|describe|teach|make a video about|a video about|what is|what are|how does|how do)\s+/i, '').replace(/[?.!]+$/, '').trim() || first;
+  const first = (promptLines(prompt)[0] || 'AI')
+    .replace(/[,.;]?\s*(maximum|max\.?|about|around|roughly|under)?\s*(duration|length)?\s*(of)?\s*\d{1,3}\s*(s\b|sec\b|secs\b|second|seconds)\b.*$/i, '')
+    .replace(/[,.;]?\s*(with|as|in|for)?\s*(a|an)?\s*\d{1,2}(?:[.,]\d)?[\s-]*(min\b|mins\b|minute|minutes)\b.*$/i, '')
+    .trim() || 'AI';
+  return first.replace(/^(if i want to make |i want |please |can you )?(make|create|produce|explain|describe|teach(ing)?|(an? )?(educational |explainer )?video)?\s*(about|teaching about|on|that teaches)?\s*/i, '').replace(/^(what is|what are|how does|how do)\s+/i, '').replace(/[?.!]+$/, '').trim() || first;
 }
 function beatPurposes(n) {
   const middle = ['define', 'how it works', 'example', 'why it matters', 'common mistake', 'comparison'];
@@ -706,6 +835,72 @@ function normaliseBrief(brief, prompt, sceneCount) {
   };
 }
 
+
+// ---------- Course (chaptered lesson) helpers ----------
+/** Topics the creator lists ("AI basics including agents, skills, connectors, models, memory") → chapter seeds. */
+function topicsFromPrompt(prompt) {
+  const text = String(prompt || '').replace(/\s+/g, ' ');
+  const m = text.match(/(?:including|covering|such as|topics?:|namely)\s+([^.]+?)(?:\.|$| with | in \d| for | as )/i) || text.match(/(?:about|on)\s+([^.]+?)(?:\.|$| with | in \d| for )/i);
+  const list = (m ? m[1] : '').split(/,|;| and /).map(x => x.trim().replace(/^(and|the)\s+/i, '')).filter(x => x && x.split(' ').length <= 4);
+  return list.length >= 2 ? list : [];
+}
+
+export function normaliseCourseBrief(brief, prompt, chapterCount) {
+  const b = brief || {};
+  const topic = promptTopic(prompt);
+  const str = (x, d) => (typeof x === 'string' && x.trim() ? x.trim() : d);
+  let chapters = (Array.isArray(b.chapters) ? b.chapters : []).filter(c => c && typeof c === 'object').map((c, i) => ({
+    id: i + 1, title: clip(str(c.title || c.name, `Part ${i + 1}`), 8), goal: str(c.goal || c.summary, ''),
+    keyPoints: (Array.isArray(c.keyPoints) ? c.keyPoints : Array.isArray(c.points) ? c.points : []).map(String).filter(Boolean).slice(0, 5),
+    example: str(c.example || c.analogy, ''),
+  }));
+  if (chapters.length < 2) {
+    const seeds = topicsFromPrompt(prompt);
+    const middle = seeds.length ? seeds : ['What it is', 'How it works', 'A worked example', 'Common mistakes', 'Why it matters'];
+    const names = ['Welcome and what you will learn', ...middle.map(titleCase), 'Recap and next steps'];
+    chapters = names.slice(0, Math.max(3, chapterCount)).map((t, i) => ({ id: i + 1, title: clip(t, 8), goal: i === 0 ? `Why ${topic} matters and what the lesson covers.` : i === names.length - 1 ? 'The ideas, tied together.' : `Understand ${t.toLowerCase()} in plain words.`, keyPoints: i === 0 ? [`Why ${topic} matters today`, 'What this lesson covers'] : [`What ${t.toLowerCase()} means`, 'How it works, step by step', 'A concrete example', 'Why it matters in practice'], example: '' }));
+  }
+  if (chapters.length > chapterCount + 2) chapters = chapters.slice(0, chapterCount + 2);
+  chapters.forEach((c, i) => { c.id = i + 1; if (!c.goal) c.goal = `Understand ${c.title.toLowerCase()}.`; if (!c.keyPoints.length) c.keyPoints = [`What ${c.title.toLowerCase()} means`, 'How it works', 'One concrete example']; });
+  return {
+    mode: 'course',
+    title: clip(str(b.title, titleCase(topic)), 12).slice(0, 80),
+    audience: clip(str(b.audience, 'curious beginners'), 6),
+    hook: str(b.hook, `By the end of this lesson you will understand ${topic}.`),
+    learningObjectives: Array.isArray(b.learningObjectives) ? b.learningObjectives.map(String).slice(0, 5) : chapters.slice(1, -1).map(c => `Understand ${c.title.toLowerCase()}`),
+    keyTakeaway: str(b.keyTakeaway, `${titleCase(topic)} is a set of simple ideas that fit together.`),
+    tone: str(b.tone, 'warm and precise'),
+    bibleLine: str(b.broll || b.bibleLine, ''),
+    chapters,
+    outline: [],
+  };
+}
+
+/** Deterministic chapter beats when there is no model: one scene per key point, visuals chosen from the words. */
+function templateChapterBeats(brief, chapter, beatCount, wordsPerBeat, index, total) {
+  const first = index === 0, last = index === total - 1;
+  const points = chapter.keyPoints && chapter.keyPoints.length ? chapter.keyPoints : [chapter.goal];
+  const beats = [];
+  const introKind = first ? 'title' : 'chapter';
+  beats.push({ narration: spoken(first ? `${brief.hook} ${brief.learningObjectives.length ? 'We will cover ' + brief.learningObjectives.slice(0, 4).join(', ').toLowerCase() + '.' : ''}` : `${chapter.title}. ${chapter.goal}`, wordsPerBeat + 12), onScreenTitle: clip(first ? brief.title : chapter.title, 6), emphasisWords: [], kind: introKind, model: 'orbit', labels: [chapter.title], hero: true, shot: null, stockQuery: null });
+  const models = ['network', 'pipeline', 'hub', 'stack', 'orbit', 'grid'];
+  for (let i = 0; i < points.length && beats.length < beatCount - (last ? 1 : 0); i++) {
+    const text = points[i];
+    const words = text.toLowerCase();
+    let kind = 'bullets', model = models[(chapter.id + i) % models.length];
+    if (/step|loop|then|process|pipeline|cycle/.test(words)) { kind = 'scene3d'; model = 'pipeline'; }
+    else if (/connect|tool|service|api|integrat/.test(words)) { kind = 'scene3d'; model = 'hub'; }
+    else if (/layer|memory|store|long-term|short-term/.test(words)) { kind = 'scene3d'; model = 'stack'; }
+    else if (/skill|option|set of|library|many/.test(words)) { kind = 'scene3d'; model = 'grid'; }
+    else if (i % 2 === 1) kind = 'scene3d';
+    const labels = clip(text.replace(/[^\w\s-]/g, ''), 24).split(/\s+/).filter(w => w.length > 3).slice(0, 4).map(titleCase);
+    beats.push({ narration: spoken(text.endsWith('.') ? text : text + '.', wordsPerBeat + 12), onScreenTitle: headlineFrom(text), emphasisWords: [], kind, model, labels: labels.length >= 2 ? labels : [chapter.title, 'Example', 'Result'], hero: false, shot: null, stockQuery: null });
+  }
+  if (chapter.example && beats.length < beatCount) beats.push({ narration: spoken(`For example: ${chapter.example}`, wordsPerBeat + 12), onScreenTitle: 'For example', emphasisWords: [], kind: 'footage', hero: true, shot: null, stockQuery: null });
+  if (last) beats.push({ narration: spoken(`${brief.keyTakeaway} Thanks for watching, and see you in the next lesson.`, wordsPerBeat + 12), onScreenTitle: clip(brief.keyTakeaway, 8), emphasisWords: [], kind: 'outro', hero: false, shot: null, stockQuery: null });
+  return beats;
+}
+
 // ---------- Storyboard sanitiser (same limits as the iOS app) ----------
 
 export function sanitise(v, script) {
@@ -729,11 +924,21 @@ export function sanitise(v, script) {
     attribution: v.attribution ? clip(v.attribution, 6) : null,
     shot: v.shot ? clip(String(v.shot).replace(/\s+/g, ' '), 120) : null,
     stockQuery: v.stockQuery ? clip(String(v.stockQuery).replace(/[^\w\s-]/g, ' '), 4).toLowerCase() : null,
+    model: MODELS_3D.includes(v.model) ? v.model : null,
+    labels: list(v.labels, 6, 3),
+    hero: !!v.hero,
+    chapterId: v.chapterId != null ? Number(v.chapterId) : (script.chapterId != null ? Number(script.chapterId) : null),
   };
   const fallbackBullets = () => (script.emphasisWords && script.emphasisWords.length ? script.emphasisWords : [script.onScreenTitle]);
   const degrade = () => { out.kind = 'bullets'; if (!out.bullets || !out.bullets.length) out.bullets = fallbackBullets(); };
   switch (out.kind) {
     case 'footage': break;
+    case 'chapter': if (!out.model) out.model = 'orbit'; break;
+    case 'scene3d':
+      if (!out.labels || out.labels.length < 2) out.labels = [...(out.nodes || []), ...(out.bullets || [])].slice(0, 6);
+      if (!out.labels || out.labels.length < 2) { degrade(); break; }
+      if (!out.model) out.model = out.labels.length > 4 ? 'network' : 'pipeline';
+      break;
     case 'bullets': if (!out.bullets || !out.bullets.length) out.bullets = fallbackBullets(); break;
     case 'diagram': if (!out.nodes || out.nodes.length < 2) degrade(); break;
     case 'comparison': if (!out.leftItems?.length || !out.rightItems?.length) { out.bullets = [...(out.leftItems || []), ...(out.rightItems || [])]; degrade(); } break;

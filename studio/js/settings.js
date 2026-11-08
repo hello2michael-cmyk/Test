@@ -26,7 +26,8 @@ const DEFAULTS = {
   pexelsKey: '', pixabayKey: '', allowPollinations: true,
   aiVideoEnabled: true, aiVideoSpace: 'Lightricks/LTX-2-3', hfToken: '', footagePatienceMin: 12,
   hfProviderModel: 'Wan-AI/Wan2.2-T2V-A14B',
-  videoStyle: 'auto',           // 'auto' | 'explainer' | 'cinematic'
+  videoStyle: 'auto',           // 'auto' | 'explainer' | 'course' | 'cinematic'
+  aiClipBudget: 12,             // long lessons: how many scenes get a generated AI clip (free GPU quota is limited)
   reviewShots: true,            // pause to let the creator edit shot prompts before footage is generated
   filmLook: true, letterbox: true,   // film finish for cinematic footage
   falKey: '', falModel: 'ltx2-fast', falEndpoint: '', falExtra: '', footageDuration: 6, footageScope: 'all',

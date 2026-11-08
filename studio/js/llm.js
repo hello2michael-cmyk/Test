@@ -155,6 +155,25 @@ function mockEngine(broken = false) {
         out = json({ title: 'City Drive at Golden Hour', logline: 'A man enjoys music while driving through a colourful city.', bible: { character: 'A man in his early thirties, short dark hair, light stubble, mustard jacket over a white tee.', props: 'A teal vintage-style coupe with cream leather seats and a large glowing centre touchscreen.', setting: 'Downtown avenues at golden hour, light traffic, warm sun flares and neon signs starting to glow.', palette: 'Warm amber, teal and magenta, saturated and pleasant.', lens: '35mm anamorphic, shallow depth of field, smooth motion' }, shots });
       } else if (broken) {
         out = 'Sure! Here is the plan:\n{"title": "Oops", "outline": []}';
+      } else if (system.includes('COURSE DIRECTOR')) {
+        const n = parseInt((user.match(/Produce exactly (\d+) chapters/) || [0, 5])[1], 10);
+        const topics = ['Welcome: what AI can do for you', 'Models: the engine', 'Agents: models that act', 'Skills: reusable know-how', 'Connectors: reaching your tools', 'Memory: how it remembers', 'Recap and next steps'];
+        const chapters = []; for (let i = 1; i <= n; i++) { const t = i === n ? topics[topics.length - 1] : topics[(i - 1) % (topics.length - 1)]; chapters.push({ id: i, title: t, goal: `Understand ${t.toLowerCase()} in plain words.`, keyPoints: [`What ${t.split(':')[0].toLowerCase()} means in one sentence.`, 'How it works, step by step, with the key parts named.', 'One concrete everyday example you can picture.', 'Why it matters when you use AI tools.'], example: 'Planning a weekend trip with an assistant that books the train, checks the weather and remembers your preferences.' }); }
+        out = json({ title: 'AI Basics: Models, Agents, Skills, Connectors and Memory', audience: 'curious beginners', hook: 'Most people use AI every day without knowing the five ideas that make it work.', learningObjectives: ['Tell a model from an agent', 'Know what skills and connectors add', 'Understand how memory works'], keyTakeaway: 'An AI assistant is a model that acts, with skills, connections and memory around it.', tone: 'warm and precise', broll: 'A woman in her thirties with dark curly hair and a mustard sweater, in a bright loft office with large windows and warm afternoon light.', chapters });
+      } else if (system.includes('CHAPTER WRITER')) {
+        const n = parseInt((user.match(/Write exactly (\d+) scenes/) || [0, 5])[1], 10);
+        const first = /Scene 1 is the hook/.test(user), last = /last scene is the recap/.test(user);
+        const title = (user.match(/THIS chapter \(\d+ of \d+\): "([^"]+)"/) || [0, 'Topic'])[1];
+        const models = ['pipeline', 'hub', 'stack', 'orbit', 'grid', 'network'];
+        const beats = [];
+        for (let i = 1; i <= n; i++) {
+          const kind = i === 1 ? (first ? 'title' : 'chapter') : (i === n && last) ? 'outro' : i === 2 ? 'scene3d' : i === 3 ? 'footage' : i % 2 ? 'scene3d' : 'bullets';
+          beats.push({ narration: i === 1 ? (first ? 'Most people use AI every day without knowing the five ideas that make it work. In the next few minutes you will learn them all.' : `Now let us look at ${title.toLowerCase()}. This is the part most people skip, and it changes everything.`) : (i === n && last) ? 'So remember: a model thinks, an agent acts, skills and connectors extend it, and memory makes it personal. Thanks for watching.' : `Here is scene ${i} of ${title.split(':')[0]}. It explains one idea with a short, concrete example that a voice can read easily and a viewer can picture.`,
+            onScreenTitle: i === 1 ? title : `Idea ${i}`, emphasisWords: ['idea'], kind, model: models[(i + beats.length) % models.length], labels: ['Input', 'Model', 'Plan', 'Action', 'Result'].slice(0, 3 + (i % 3)),
+            bullets: kind === 'bullets' ? ['A clear first point', 'A second concrete point', 'Why it matters'] : null, nodes: null, leftTitle: null, leftItems: null, rightTitle: null, rightItems: null, statValue: null, statLabel: null, code: null, codeLanguage: null, quote: null, attribution: null,
+            hero: i === 3, shot: 'A woman in a bright loft office talks to a laptop assistant while planning a trip, slow push-in.', stockQuery: 'woman laptop office' });
+        }
+        out = json({ beats });
       } else if (system.includes('DIRECTOR')) {
         const n = parseInt((user.match(/Produce exactly (\d+) beats/) || [0, 6])[1], 10);
         const topic = (user.match(/creator: "([^"]+)"/) || [0, 'AI'])[1];
