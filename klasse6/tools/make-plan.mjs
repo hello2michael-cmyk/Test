@@ -59,7 +59,7 @@ lesson.chapters.forEach((c, ci) => {
 });
 const totalWords = scenes.reduce((n, s) => n + words(s.narration), 0);
 const estimate = Math.round(scenes.reduce((n, s) => { const v = visuals.find(x => x.beatId === s.beatId) || {}; return n + Math.max(10, words(s.narration) / (WORDS_PER_SECOND_DE * 0.92) + 2.0 + (v.kind === 'question' ? (v.think || 5) : 0)); }, 0));
-const targetDuration = estimate, maxDuration = Math.min(600, Math.round(estimate * 1.15));
+const targetDuration = estimate, maxDuration = Math.min(1500, Math.round(estimate * 1.15));   // lessons may run up to 25 minutes
 if (problems.length) { console.error('Problems:\n- ' + problems.join('\n- ')); process.exit(1); }
 
 const prompt = `Lektion ${topic.id} „${topic.title}“ (${subject.name}, Klasse 6 Gymnasium Bayern), aus klasse6/lessons/${path.basename(file)}. ${Math.round(estimate / 60)} Minuten, auf Deutsch, für Kinder von etwa 11 Jahren.`;

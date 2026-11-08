@@ -222,7 +222,7 @@ async function produce(prompt, resume) {
   const askedSeconds = parseDurationSeconds(prompt);
   if (askedSeconds && !cp.durationApplied) {
     // Seconds read as a cap ("maximum 60 seconds"); minutes read as the length wanted ("a 9 minute video").
-    if (askedSeconds > 120) { s.targetDuration = askedSeconds; s.maxDuration = Math.min(600, Math.round(askedSeconds * 1.08)); }
+    if (askedSeconds > 120) { s.targetDuration = askedSeconds; s.maxDuration = Math.min(s.lesson ? 1500 : 600, Math.round(askedSeconds * 1.08)); }
     else { s.maxDuration = Math.min(s.maxDuration, askedSeconds); s.targetDuration = Math.min(s.targetDuration, s.maxDuration - 4); }
     cp.durationApplied = true;
   }
