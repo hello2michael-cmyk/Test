@@ -295,15 +295,20 @@ async function produce(prompt, resume) {
       const chapterSeconds = totalSeconds / chapters.length;
       const beatCount = Math.max(3, Math.min(7, Math.round(chapterSeconds / 14)));
       const wordsPerBeat = Math.max(20, Math.round((chapterSeconds / beatCount - T.LEAD_IN - T.TAIL) * T.WORDS_PER_SECOND * s.speed));
-      for (let i = 0; i < chapters.length; i++) {
-        const ch = chapters[i];
-        if (cp.chapterBeats[ch.id]) continue;
-        checkCancel();
-        progress('Writing', i / chapters.length, `chapter ${i + 1}/${chapters.length}`);
+      // Chapters are written a few at a time (each call to a cloud writer takes a minute or two); each result is
+      // checkpointed as it lands, so an interrupted run only redoes the chapters still missing.
+      const todo = chapters.map((ch, i) => [ch, i]).filter(([ch]) => !cp.chapterBeats[ch.id]);
+      const concurrency = eng && describeModel(engineModelId || s.modelId).engine === 'hf-text' ? 3 : 1;
+      let doneCount = chapters.length - todo.length;
+      const writeOne = async ([ch, i]) => {
         const prev = cp.previousBeats && (cp.previousBeats[ch.id] || Object.values(cp.previousBeats).find(bs => bs && bs.title === ch.title));
-        cp.chapterBeats[ch.id] = await team.chapterWriter(cp.brief, ch, beatCount, wordsPerBeat, { previousBeats: prev ? prev.beats || prev : null, feedback: cp.feedback || null, index: i, total: chapters.length });
+        const beats = await team.chapterWriter(cp.brief, ch, beatCount, wordsPerBeat, { previousBeats: prev ? prev.beats || prev : null, feedback: cp.feedback || null, index: i, total: chapters.length });
+        cp.chapterBeats[ch.id] = beats; doneCount++;
+        progress('Writing', doneCount / chapters.length, `chapter ${doneCount}/${chapters.length}`);
         await save('script');
-      }
+      };
+      progress('Writing', doneCount / chapters.length, `${todo.length} chapter(s) to write`);
+      for (let k = 0; k < todo.length; k += concurrency) { checkCancel(); await Promise.all(todo.slice(k, k + concurrency).map(writeOne)); }
       if (!cp.script) {
         // Flatten chapters into the beat list the rest of the pipeline understands.
         const outline = [], scenes = [], visuals = [];
