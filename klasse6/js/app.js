@@ -1,6 +1,6 @@
 // Klasse 6 learning app: subject browser from the verified syllabus + interactive 3D explanations (maths first).
 import { Scene } from './engine3d.js';
-import { SCENES } from './mathscenes.js';
+import { SCENES } from './scenes.js';
 
 const $ = id => document.getElementById(id);
 const THEME = { bgTop: '#0d1229', bgBottom: '#170d38', accent: '#5c9eff', accent2: '#6bedb8', text: '#ffffff', muted: 'rgba(255,255,255,0.7)', dark: true };

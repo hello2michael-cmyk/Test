@@ -2,7 +2,7 @@
 import { THEMES } from './settings.js';
 import { Scene3D } from './scene3d.js';
 import { Scene as MathScene } from '../../klasse6/js/engine3d.js';
-import { SCENES as MATH_SCENES } from '../../klasse6/js/mathscenes.js';
+import { SCENES as MATH_SCENES } from '../../klasse6/js/scenes.js';
 
 const FADE_IN = 0.45, FADE_OUT = 0.3;
 const clamp01 = x => Math.min(1, Math.max(0, x));

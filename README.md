@@ -35,8 +35,8 @@ Without a committed plan, `Lektion: <id>` falls back to the model-driven path be
 Inference Providers, plan posted for approval), which needs the `HF_TOKEN` secret.
 
 Files: `klasse6/SYLLABUS.md` (readable syllabus with sources), `klasse6/data/klasse6-bayern.json` (the same as data), `klasse6/LEKTIONEN.md`
-(the queue), `klasse6/lessons/` (authored lessons and their plans), `klasse6/tools/make-plan.mjs` (lesson → plan), `klasse6/js/mathscenes.js`
-and `engine3d.js` (the deterministic 3D scenes, shared with the renderer), `klasse6/PIPELINE.md` (the design and what is still missing),
+(the queue), `klasse6/lessons/` (authored lessons and their plans), `klasse6/tools/make-plan.mjs` (lesson → plan), `klasse6/js/mathscenes.js`,
+`langscenes.js` (a sentence as movable blocks for Satzglieder) and `engine3d.js` (the deterministic 3D scenes, shared with the renderer), `klasse6/PIPELINE.md` (the design and what is still missing),
 `klasse6/index.html` (a preview page to watch and tune every 3D scene with sliders before it goes into a video).
 
 Geographie is not taught in Jahrgangsstufe 6 under the G9 Stundentafel (it is in Jgst. 5 and 7); Geschichte starts in Jgst. 6; the second

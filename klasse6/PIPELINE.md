@@ -62,6 +62,6 @@ Ohne eingecheckten Plan läuft weiterhin der modellgestützte Weg (Hugging Face 
 ## Noch offen
 
 1. Bild-Prüfung der gerenderten Standbilder durch den Prüfer (heute: Text gegen Szenen-Parameter und Segment-Zeiten).
-2. 3D-Szenen für Natur und Technik, Geschichte und Sprachen.
+2. 3D-Szenen für Natur und Technik und Geschichte (Deutsch hat die Satzglieder-Szene `sentence`; Fremdsprachen folgen).
 3. Deutsche Wortrate (2,5 Wörter/s) in der Zeitplanung des modellgestützten Wegs.
 4. Automatischer YouTube-Upload über den Token in der Umgebung.

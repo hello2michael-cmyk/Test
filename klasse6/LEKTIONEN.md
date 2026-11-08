@@ -5,7 +5,7 @@ Deutsch, ein zweites Claude-Modell prüft sie, beides wird eingecheckt (`klasse6
 aus der Tabelle öffnen (zum Beispiel `Lektion: M6-1.1`): die Fabrik rendert den eingecheckten Plan mit 3D-Szenen und deutscher
 Stimme (Piper, Thorsten) und postet die Links. Spalte „Plan“: ✅ = geschrieben, geprüft und eingecheckt.
 
-Reihenfolge: zuerst Mathematik (fertige 3D-Szenen), dann Natur und Technik, Geschichte, Sprachen, dann der Rest.
+Reihenfolge: zuerst Mathematik (fertige 3D-Szenen), dann Deutsch (Satzglieder-Szene vorhanden), Natur und Technik, Geschichte, Fremdsprachen, dann der Rest.
 
 ## Mathematik (4 Wochenstunden)
 
@@ -61,7 +61,7 @@ Reihenfolge: zuerst Mathematik (fertige 3D-Szenen), dann Natur und Technik, Gesc
 | `Lektion: D6-3.2` | Texte planen und schreiben | – | 5 | – | – |
 | `Lektion: D6-3.3` | Texte überarbeiten | – | 5 | – | – |
 | `Lektion: D6-4.1` | Sprachliche Verständigung untersuchen | – | 5 | – | – |
-| `Lektion: D6-4.2` | Sprachliche Strukturen untersuchen | – | 5 | geplant: sentence | – |
+| `Lektion: D6-4.2` | Sprachliche Strukturen untersuchen | – | 7 | ✅ sentence | ✅ |
 | `Lektion: D6-4.3` | Richtig schreiben | – | 5 | – | – |
 
 ## Englisch (1. Fremdsprache) (4 Wochenstunden)

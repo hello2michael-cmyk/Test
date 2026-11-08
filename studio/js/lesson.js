@@ -1,6 +1,6 @@
 // Lesson mode ("Lektion"): a Klasse-6 topic from the verified Bavarian syllabus (klasse6/data/klasse6-bayern.json)
 // becomes a German YouTube lesson for children. The ready-made 3D maths scenes become a scene kind the writer can pick.
-import { SCENES } from '../../klasse6/js/mathscenes.js';
+import { SCENES } from '../../klasse6/js/scenes.js';
 
 export const MATH_SCENE_IDS = Object.keys(SCENES);
 
