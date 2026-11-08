@@ -114,12 +114,19 @@ function hfTextEngine(model, settings) {
     async complete(system, user, opts = {}, onToken) {
       const body = { model: model.model, messages: [{ role: 'system', content: system }, { role: 'user', content: user }],
         temperature: opts.temperature ?? 0.4, top_p: 0.9, max_tokens: opts.maxTokens ?? 1200, stream: false };
-      let r;
-      for (let attempt = 0; attempt < 3; attempt++) {
-        r = await fetch(base, { method: 'POST', headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
-        if (r.status === 429 || r.status >= 500) { await new Promise(res => setTimeout(res, 3000 * (attempt + 1))); continue; }
+      let r, lastErr = null;
+      for (let attempt = 0; attempt < 4; attempt++) {
+        try {
+          r = await fetch(base, { method: 'POST', headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
+          lastErr = null;
+        } catch (e) {
+          // A dropped connection or a gateway error without CORS headers surfaces as "Failed to fetch": retry.
+          lastErr = e; await new Promise(res => setTimeout(res, 4000 * (attempt + 1))); continue;
+        }
+        if (r.status === 429 || r.status >= 500) { await new Promise(res => setTimeout(res, 4000 * (attempt + 1))); continue; }
         break;
       }
+      if (lastErr) throw new Error(`The Hugging Face writer could not be reached (${lastErr.message}).`);
       const text = await r.text();
       if (!r.ok) {
         if (r.status === 401) throw new Error('Hugging Face refused the token for the writer model.');
@@ -160,6 +167,9 @@ function mockEngine(broken = false) {
         const topics = ['Welcome: what AI can do for you', 'Models: the engine', 'Agents: models that act', 'Skills: reusable know-how', 'Connectors: reaching your tools', 'Memory: how it remembers', 'Recap and next steps'];
         const chapters = []; for (let i = 1; i <= n; i++) { const t = i === n ? topics[topics.length - 1] : topics[(i - 1) % (topics.length - 1)]; chapters.push({ id: i, title: t, goal: `Understand ${t.toLowerCase()} in plain words.`, keyPoints: [`What ${t.split(':')[0].toLowerCase()} means in one sentence.`, 'How it works, step by step, with the key parts named.', 'One concrete everyday example you can picture.', 'Why it matters when you use AI tools.'], example: 'Planning a weekend trip with an assistant that books the train, checks the weather and remembers your preferences.' }); }
         out = json({ title: 'AI Basics: Models, Agents, Skills, Connectors and Memory', audience: 'curious beginners', hook: 'Most people use AI every day without knowing the five ideas that make it work.', learningObjectives: ['Tell a model from an agent', 'Know what skills and connectors add', 'Understand how memory works'], keyTakeaway: 'An AI assistant is a model that acts, with skills, connections and memory around it.', tone: 'warm and precise', broll: 'A woman in her thirties with dark curly hair and a mustard sweater, in a bright loft office with large windows and warm afternoon light.', chapters });
+      } else if (system.includes('CHAPTER WRITER') && /Scenes to expand/.test(user)) {
+        const rows = [...user.matchAll(/^(\d+)\. \[[^\]]*\] (.+)$/gm)];
+        out = json({ narrations: Object.fromEntries(rows.map(([, id, text]) => [id, `${text} Put simply, this is the part that does the work. For example, think of an assistant that plans a trip and books the train for you. That is why it matters when you use these tools every day.`])) });
       } else if (system.includes('CHAPTER WRITER')) {
         const n = parseInt((user.match(/Write exactly (\d+) scenes/) || [0, 5])[1], 10);
         const first = /Scene 1 is the hook/.test(user), last = /last scene is the recap/.test(user);

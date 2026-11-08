@@ -563,9 +563,38 @@ JSON schema (fill every field):
       catch (e) { this.warn('Scriptwriter', `Chapter ${chapter.id} failed (${e.message}); writing it from the key points instead.`); }
     }
     if (!beats) beats = templateChapterBeats(brief, chapter, beatCount, wordsPerBeat, index, total);
+    // Large models tend to write terse one-liners for long lists; the lesson then runs half its length. Expand.
+    const avg = () => beats.reduce((n, b) => n + T.wordCount(b.narration), 0) / Math.max(1, beats.length);
+    if (this.engine && !this.small && avg() < wordsPerBeat * 0.75) {
+      this.info('Scriptwriter', `Chapter ${chapter.id} averages ${Math.round(avg())} words per scene; the lesson needs about ${wordsPerBeat}. Expanding with examples and plain-words definitions.`);
+      try { beats = await this.expandChapter(brief, chapter, beats, wordsPerBeat); }
+      catch (e) { this.warn('Scriptwriter', `Could not expand chapter ${chapter.id} (${e.message}); keeping the short version.`); }
+    }
     const words = beats.reduce((n, b) => n + T.wordCount(b.narration), 0);
     this.ok('Scriptwriter', `Chapter ${chapter.id} drafted: ${beats.length} scenes, ${words} words (${beats.map(b => b.kind).join(' → ')}).`);
     return beats;
+  }
+
+  /** Rewrites each scene's narration to the target length; visuals stay as designed. */
+  async expandChapter(brief, chapter, beats, wordsPerBeat) {
+    const lo = Math.round(wordsPerBeat * 0.85), hi = Math.round(wordsPerBeat * 1.15);
+    const sentences = wordsPerBeat >= 55 ? '4 to 5' : wordsPerBeat >= 38 ? '3 to 4' : '2 to 3';
+    const system = HOUSE_RULES + `\n\nYou are the CHAPTER WRITER revising narration for a text-to-speech voice. Every scene must be ${sentences} sentences and between ${lo} and ${hi} words.
+Keep each scene's meaning and order. Add what makes a lesson land: a plain-words definition the first time a term appears, one concrete everyday example, and the "so what" for the viewer.
+Short sentences, active voice, no lists, no parentheses, no abbreviations. Do not say "in this video" or "in this chapter".`;
+    const user = `Lesson: ${brief.title} (for ${brief.audience}). Chapter: "${chapter.title}" — ${chapter.goal}
+Example or analogy to draw on: ${chapter.example || '(choose one)'}
+
+Scenes to expand (keep the numbering):
+${beats.map((b, i) => `${i + 1}. [${b.kind}${b.labels && b.labels.length ? ': ' + b.labels.join(', ') : ''}] ${b.narration}`).join('\n')}
+
+JSON schema: {"narrations": {"1": "expanded narration for scene 1", "2": "..."}}`;
+    const out = await this.structured('Scriptwriter', system, user, { temperature: 0.6, maxTokens: 3200 }, (o) => { if (!o.narrations || typeof o.narrations !== 'object') throw new Error('narrations missing'); });
+    return beats.map((b, i) => {
+      const n = out.narrations[String(i + 1)] ?? (Array.isArray(out.narrations) ? out.narrations[i] : undefined);
+      if (typeof n !== 'string' || T.wordCount(n) < T.wordCount(b.narration)) return b;
+      return { ...b, narration: spoken(n, hi + 10) };
+    });
   }
 
   async chapterJSON(brief, chapter, beatCount, wordsPerBeat, { previousBeats, feedback, index, total }) {
@@ -893,7 +922,8 @@ function templateChapterBeats(brief, chapter, beatCount, wordsPerBeat, index, to
     else if (/layer|memory|store|long-term|short-term/.test(words)) { kind = 'scene3d'; model = 'stack'; }
     else if (/skill|option|set of|library|many/.test(words)) { kind = 'scene3d'; model = 'grid'; }
     else if (i % 2 === 1) kind = 'scene3d';
-    const labels = clip(text.replace(/[^\w\s-]/g, ''), 24).split(/\s+/).filter(w => w.length > 3).slice(0, 4).map(titleCase);
+    const stop = /^(this|that|these|those|with|from|into|over|time|more|most|make|makes|making|like|them|they|their|what|when|which|about|than|then|also|some|very|just|each|every|such|other|being|have|has)$/i;
+    const labels = [...new Set(clip(text.replace(/[^\w\s-]/g, ''), 24).split(/\s+/).filter(w => w.length > 3 && !stop.test(w)).map(titleCase))].slice(0, 4);
     beats.push({ narration: spoken(text.endsWith('.') ? text : text + '.', wordsPerBeat + 12), onScreenTitle: headlineFrom(text), emphasisWords: [], kind, model, labels: labels.length >= 2 ? labels : [chapter.title, 'Example', 'Result'], hero: false, shot: null, stockQuery: null });
   }
   if (chapter.example && beats.length < beatCount) beats.push({ narration: spoken(`For example: ${chapter.example}`, wordsPerBeat + 12), onScreenTitle: 'For example', emphasisWords: [], kind: 'footage', hero: true, shot: null, stockQuery: null });
