@@ -207,7 +207,7 @@ async function produce(prompt, resume) {
   const askedSeconds = parseDurationSeconds(prompt);
   if (askedSeconds && !cp.durationApplied) { s.maxDuration = Math.min(s.maxDuration, askedSeconds); s.targetDuration = Math.min(s.targetDuration, s.maxDuration - 4); cp.durationApplied = true; }
   const cinematic = cp.mode === 'cinematic';
-  if (cinematic) { s.burnInCaptions = false; s.showProgressBar = false; if (!cp.cineConfigured) { s.footageScope = 'all'; cp.cineConfigured = true; } }
+  if (cinematic) { s.burnInCaptions = false; s.showProgressBar = false; if (!cp.cineConfigured) { s.footageScope = 'all'; s.footageDuration = Math.min(8.5, Math.max(7, s.footageDuration || 6)); cp.cineConfigured = true; } }
   if (params.get('footage') === 'mock' || params.get('footage') === 'mockimage') s.footageProvider = params.get('footage');
   if (params.get('space')) { s.footageProvider = 'free'; s.aiVideoSpace = params.get('space'); s.aiVideoEnabled = true; s.pexelsKey = ''; s.pixabayKey = ''; s.allowPollinations = params.get('nopoll') !== '1'; }
   const [width, height] = canvasSize(s);
@@ -232,7 +232,7 @@ async function produce(prompt, resume) {
 
     if (cinematic) {
       // ---- Cinematic pipeline: world bible + shot list, music-first, optional voice-over ----
-      const shotSeconds = Math.min(8.5, Math.max(7, s.footageDuration || 6));   // 7-second shots: 8 clips for a 60-second piece
+      const shotSeconds = s.footageDuration;   // 7-second shots by default: 8 clips for a 60-second piece
       const shotCount = Math.max(3, Math.min(10, Math.floor(s.maxDuration / shotSeconds)));
       if (!cp.brief) { progress('Planning', 0.2); log('Studio', 'info', `This reads as a cinematic brief, not a lesson: planning ${shotCount} shots with one consistent world, ${wantsVoice(prompt) ? 'a short voice-over' : 'music only'}.`); cp.brief = await team.directorCinematic(prompt, shotCount, shotSeconds); await save('brief'); }
       checkCancel();
