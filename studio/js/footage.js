@@ -92,11 +92,13 @@ function ltxDims(aspect, w = 768, h = 448) { return aspect === '9x16' ? [w, h] :
 
 /** Request sizes for the free shared GPU, best first. A job that exceeds the GPU time window is killed silently,
  *  so the client steps down this ladder until clips come back, then stays there for the rest of the run. */
+// Always the Space's own two-pass ("Improve Texture") path: it is the only one its UI exercises; the single-pass
+// path crashes without a message. Only length and size vary.
 const LTX_TIERS = [
-  { duration: 5, w: 768, h: 448, texture: false, label: '5 s · 768×448' },
-  { duration: 4, w: 704, h: 416, texture: true, label: '4 s · 704×416 · two-pass' },
-  { duration: 4, w: 640, h: 384, texture: false, label: '4 s · 640×384' },
-  { duration: 3, w: 512, h: 320, texture: false, label: '3 s · 512×320' },
+  { duration: 4, w: 704, h: 416, texture: true, label: '4 s · 704×416' },
+  { duration: 3, w: 704, h: 416, texture: true, label: '3 s · 704×416' },
+  { duration: 3, w: 576, h: 320, texture: true, label: '3 s · 576×320' },
+  { duration: 2, w: 704, h: 512, texture: true, label: '2 s · 704×512 (Space default)' },
 ];
 let ltxTierIndex = 0;   // remembered for the session
 export function isSilentRejection(m) { return /^null$|the Space reported an error|unreadable result|returned no video|GPU task aborted|out of memory|CUDA/i.test(String(m || '')); }
@@ -143,7 +145,7 @@ async function fromGradio(jobs, s, results, errors, update, checkCancel, log) {
           let plan = null;
           try { plan = await discoverGradio(root, headers, preset); }
           catch (e) { if (preset.preset !== 'ltx') throw e; }
-          if (!plan && preset.preset === 'ltx') plan = { api: 'text_to_video', build: (prompt) => [prompt, negative, null, null, h, w, 'text-to-video', t.duration, 9, 42, true, 1.0, t.texture] };
+          if (!plan && preset.preset === 'ltx') plan = { api: 'text_to_video', build: (prompt) => [prompt, negative, null, null, h, w, 'text-to-video', t.duration, 9, 42, true, 1.0, true] };
           if (!plan) throw new Error('no text-to-video endpoint');
           const data = plan.build(j.prompt, { negative, height: h, width: w, duration: t.duration, texture: t.texture, aspect: s.aspect });
           const out = await gradioCall(root, plan.api, data, headers, Math.min(15 * 60_000, patienceMs), checkCancel, (msg) => update(`scene ${j.beatId}: ${msg}`));
@@ -205,9 +207,9 @@ export async function testAIVideo(s, onStatus) {
     onStatus && onStatus('Reading the Space API…');
     let plan = null;
     try { plan = await discoverGradio(root, headers, preset); } catch (e) { if (preset.preset !== 'ltx') throw e; }
-    if (!plan) plan = { api: 'text_to_video', build: (prompt) => [prompt, 'blurry, distorted', null, null, 256, 384, 'text-to-video', 3, 9, 42, true, 1.0, false] };
-    onStatus && onStatus(`Endpoint "${plan.api}" found. Generating a 3-second test clip on the free GPU…`);
-    const data = plan.build('A woman walks through a sunlit park, slow cinematic dolly shot', { negative: 'blurry, distorted', height: 256, width: 384, duration: 3, texture: false, aspect: '16x9' });
+    if (!plan) plan = { api: 'text_to_video', build: (prompt) => [prompt, 'blurry, distorted', null, null, 512, 704, 'text-to-video', 2, 9, 42, true, 1.0, true] };
+    onStatus && onStatus(`Endpoint "${plan.api}" found. Generating a 2-second test clip with the Space's own settings (about a minute)…`);
+    const data = plan.build('A woman walks through a sunlit park, slow cinematic dolly shot', { negative: 'blurry, distorted', height: 512, width: 704, duration: 2, texture: true, aspect: '16x9' });
     const out = await gradioCall(root, plan.api, data, headers, 10 * 60_000, null, (m) => onStatus && onStatus(m));
     const file = findVideoFile(out);
     if (!file) return { ok: false, message: 'The Space answered but returned no video: ' + JSON.stringify(out).slice(0, 200) };
@@ -217,7 +219,8 @@ export async function testAIVideo(s, onStatus) {
   } catch (e) {
     const m = String(e.message || e);
     const hint = isQuotaError(m) ? (headers.Authorization ? ' Your daily free GPU quota is used up; it resets daily, or use the Colab server for unlimited clips.' : ' This is the free-GPU quota check: add a FREE Hugging Face token above and test again.')
-      : /network|Failed to fetch|Load failed/i.test(m) ? ' The browser could not reach the Space (offline, blocked network, or the Space is restarting).' : '';
+      : /network|Failed to fetch|Load failed/i.test(m) ? ' The browser could not reach the Space (offline, blocked network, or the Space is restarting).'
+      : m === 'null' ? ' The Space crashed on this job without giving a reason (it hides error details). Wait a minute and test again; if it keeps failing, the Space itself is unhealthy right now and the other LTX Space or the Colab server will be used.' : '';
     return { ok: false, message: `Failed: ${m.slice(0, 300)}.${hint}` };
   }
 }
@@ -249,7 +252,7 @@ async function discoverGradio(root, headers, preset) {
       if (/height/.test(key) && typeof def === 'number') return ctx.height;
       if (/width/.test(key) && typeof def === 'number') return ctx.width;
       if (/duration|seconds/.test(key) && typeof def === 'number') return Math.min(ctx.duration, def > 20 ? def : 8.5);
-      if (/texture|multi.?scale|two.?pass|upscale/.test(key) && typeof def === 'boolean') return !!ctx.texture;
+      if (/texture|multi.?scale|two.?pass|upscale/.test(key) && typeof def === 'boolean') return ctx.texture === undefined ? def : !!ctx.texture;
       if (/randomi/.test(key)) return true;
       if (/seed/.test(key) && typeof def === 'number') return Math.floor(Math.random() * 1e9);
       if (/aspect/.test(key) && typeof def === 'string') return ({ '16x9': '16:9', '9x16': '9:16', '1x1': '1:1' })[ctx.aspect] || def;
