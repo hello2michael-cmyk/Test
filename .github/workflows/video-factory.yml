@@ -116,7 +116,10 @@ jobs:
           SAFE=$(python3 -c "import re,json;t=json.load(open('out/summary.json'))['title'];print(re.sub(r'[^A-Za-z0-9]+','-',t).strip('-')[:60] or 'video')")
           echo "SAFE=$SAFE" >> $GITHUB_ENV
           echo "TITLE=$TITLE" >> $GITHUB_ENV
-          cp out/video.mp4 "out/$SAFE.mp4"; cp out/captions.srt "out/$SAFE.srt"; cp out/youtube.txt "out/$SAFE-youtube.txt"; cp out/thumbnail.jpg "out/$SAFE-thumbnail.jpg"
+          mkdir -p out/release
+          cp out/video.mp4 "out/release/$SAFE.mp4"; cp out/youtube.txt "out/release/$SAFE-youtube.txt"; cp out/thumbnail.jpg "out/release/$SAFE-thumbnail.jpg"
+          # Music-only pieces have no captions; GitHub rejects empty release files.
+          if [ -s out/captions.srt ]; then cp out/captions.srt "out/release/$SAFE.srt"; fi
 
       - uses: actions/upload-artifact@v4
         if: always()
@@ -136,11 +139,7 @@ jobs:
 
             Files: the MP4 (H.264, YouTube-ready), captions (.srt), the YouTube title/description/tags (-youtube.txt) and a thumbnail.
             Footage: see youtube.txt for credits. Made by the AI Video Studio factory, run ${{ github.run_number }}.
-          files: |
-            out/${{ env.SAFE }}.mp4
-            out/${{ env.SAFE }}.srt
-            out/${{ env.SAFE }}-youtube.txt
-            out/${{ env.SAFE }}-thumbnail.jpg
+          files: out/release/*
           make_latest: false
 
       - name: Post the links on the issue
@@ -151,7 +150,7 @@ jobs:
           gh issue comment ${{ github.event.issue.number }} --body "Your video is ready: **${TITLE}**
 
           - Video (MP4): ${{ github.server_url }}/${{ github.repository }}/releases/download/video-${{ github.run_number }}/${SAFE}.mp4
-          - Captions: ${{ github.server_url }}/${{ github.repository }}/releases/download/video-${{ github.run_number }}/${SAFE}.srt
+          - Captions (explainers only): ${{ github.server_url }}/${{ github.repository }}/releases/download/video-${{ github.run_number }}/${SAFE}.srt
           - YouTube title/description/tags: ${{ github.server_url }}/${{ github.repository }}/releases/download/video-${{ github.run_number }}/${SAFE}-youtube.txt
           - Thumbnail: ${{ github.server_url }}/${{ github.repository }}/releases/download/video-${{ github.run_number }}/${SAFE}-thumbnail.jpg
 
