@@ -17,6 +17,7 @@
 import { chromium } from 'playwright';
 import fs from 'node:fs';
 import path from 'node:path';
+import { execSync } from 'node:child_process';
 
 const env = (k, d) => (process.env[k] && process.env[k].trim()) || d;
 const prompt = env('PROMPT', '');
@@ -62,6 +63,16 @@ console.log(`[factory] style=${settings.videoStyle} aspect=${settings.aspect} ca
 // crash resumes the run instead of starting over.
 const profileDir = path.resolve(env('PROFILE_DIR', path.join(outDir, '.browser-profile')));
 let context, page, crashed = false;
+// Close the browser for real. After a renderer crash context.close() can hang or leave the browser process alive,
+// and a surviving process keeps the profile's IndexedDB locked ("Internal error opening backing store"), which
+// stalls the relaunched studio. So: polite close with a timeout, then kill anything still holding the profile,
+// then remove the profile lock files.
+async function hardClose() {
+  await Promise.race([context?.close().catch(() => {}), new Promise(r => setTimeout(r, 10_000))]);
+  try { execSync(`pkill -f -- "--user-data-dir=${profileDir}"`, { stdio: 'ignore' }); } catch {}
+  await new Promise(r => setTimeout(r, 2000));
+  for (const f of ['SingletonLock', 'SingletonSocket', 'SingletonCookie']) { try { fs.rmSync(path.join(profileDir, f), { force: true }); } catch {} }
+}
 async function launch() {
   context = await chromium.launchPersistentContext(profileDir, {
     headless: true, viewport: { width: 1280, height: 2200 },
@@ -119,39 +130,60 @@ async function pollOnce() {
 }
 const poll = setInterval(pollOnce, 10_000);
 
-await page.click('#generate');
+// Click Generate and wait until the studio has actually taken the run (the button hides), so the end-of-run
+// detection below cannot fire on the idle moment just after the click.
+async function clickGenerate() {
+  await page.click('#generate');
+  await page.waitForSelector('#generate', { state: 'hidden', timeout: 30_000 }).catch(() => {});
+}
+await clickGenerate();
+// Test hook: CRASH_TEST=<seconds> crashes the renderer once, that long after the start, to exercise the relaunch path.
+if (process.env.CRASH_TEST) setTimeout(() => { console.log('[factory] test hook: crashing the page'); page.goto('chrome://crash').catch(() => {}); }, parseInt(process.env.CRASH_TEST, 10) * 1000);
 const deadline = Date.now() + parseInt(env('TIMEOUT_MIN', '110'), 10) * 60_000;
-let relaunches = 0;
+let relaunches = 0, errorRetries = 0;
+async function fail(msg) {
+  clearInterval(poll);
+  console.error(`[factory] ${msg}. Agent room:\n` + seenLogs.join('\n'));
+  try { await page.screenshot({ path: path.join(outDir, 'failure.png'), fullPage: true }); } catch {}
+  await hardClose();
+  process.exit(1);
+}
+async function relaunchAndResume(why) {
+  if (++relaunches > 3) await fail('the browser kept crashing; giving up');
+  console.log(`[factory] ${why}; relaunching and resuming from the saved checkpoint (attempt ${relaunches})…`);
+  crashed = false; lastLog = 0;
+  await hardClose();
+  await launch();
+  await openStudio(false);
+  // The studio offers to resume an interrupted run; take it. Otherwise start again with the same prompt
+  // (the studio continues a saved run with the same prompt from its checkpoint).
+  const resume = await page.waitForSelector('#resumeCard:not([hidden])', { timeout: 15_000 }).catch(() => null);
+  if (resume) { await page.click('#resumeBtn'); await page.waitForSelector('#generate', { state: 'hidden', timeout: 30_000 }).catch(() => {}); }
+  else { await page.fill('#prompt', prompt); await clickGenerate(); }
+}
 while (true) {
   try {
-    await page.waitForSelector('#resultCard:not([hidden])', { timeout: Math.max(10_000, deadline - Date.now()) });
-    break;
+    // Wait until the run ends: either the result card appears, or the Generate button comes back without a
+    // result (the studio stopped on an error and saved its checkpoint).
+    await page.waitForFunction(() => {
+      const done = !document.getElementById('resultCard').hidden;
+      const idle = !document.getElementById('generate').hidden && document.getElementById('progressCard').hidden;
+      const errored = !!document.querySelector('#log .e.error');
+      return done || (idle && errored);
+    }, null, { timeout: Math.max(10_000, deadline - Date.now()), polling: 2000 });
+    await pollOnce();
+    const done = await page.evaluate(() => !document.getElementById('resultCard').hidden);
+    if (done) break;
+    const err = await page.evaluate(() => { const e = [...document.querySelectorAll('#log .e.error')].pop(); return e ? e.textContent.trim().replace(/\s+/g, ' ') : ''; });
+    if (/indexeddb|backing store|database/i.test(err)) { await relaunchAndResume('the studio could not open its storage'); continue; }
+    if (++errorRetries > 3) await fail('the studio stopped with an error three times');
+    console.log(`[factory] the studio stopped with an error; continuing from its checkpoint (retry ${errorRetries}): ${err.slice(0, 200)}`);
+    lastLog = 0;
+    await clickGenerate();
   } catch (e) {
-    if (Date.now() >= deadline) {
-      clearInterval(poll);
-      console.error('[factory] FAILED or timed out. Agent room:\n' + seenLogs.join('\n'));
-      try { await page.screenshot({ path: path.join(outDir, 'failure.png'), fullPage: true }); } catch {}
-      try { await context.close(); } catch {}
-      process.exit(1);
-    }
-    if (!crashed && page && !page.isClosed()) {
-      // Not a crash: the result card did not appear in time.
-      clearInterval(poll);
-      console.error('[factory] FAILED. Agent room:\n' + seenLogs.join('\n'));
-      try { await page.screenshot({ path: path.join(outDir, 'failure.png'), fullPage: true }); } catch {}
-      try { await context.close(); } catch {}
-      process.exit(1);
-    }
-    if (++relaunches > 3) { clearInterval(poll); console.error('[factory] the browser kept crashing; giving up. Agent room:\n' + seenLogs.join('\n')); process.exit(1); }
-    console.log(`[factory] browser crashed; relaunching and resuming from the saved checkpoint (attempt ${relaunches})…`);
-    crashed = false; lastLog = 0;
-    try { await context.close(); } catch {}
-    await launch();
-    await openStudio(false);
-    // The studio offers to resume an interrupted run; take it. Otherwise start again with the same prompt.
-    const resume = await page.waitForSelector('#resumeCard:not([hidden])', { timeout: 15_000 }).catch(() => null);
-    if (resume) await page.click('#resumeBtn');
-    else { await page.fill('#prompt', prompt); await page.click('#generate'); }
+    if (Date.now() >= deadline) await fail('FAILED or timed out');
+    if (!crashed && page && !page.isClosed()) await fail('FAILED: ' + (e.message || e).toString().slice(0, 200));
+    await relaunchAndResume('browser crashed');
   }
 }
 finished = true;

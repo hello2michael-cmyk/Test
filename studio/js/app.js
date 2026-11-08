@@ -176,12 +176,13 @@ function isSmallModel(model) { return !model || model.engine === 'wllama' || (mo
 async function start(resume = null) {
   const prompt = resume ? resume.prompt : $('prompt').value.trim();
   if (!prompt || running) return;
+  // Mark the run as started before the first await, so a second tap cannot start a parallel run.
+  running = true; cancelled = false;
+  $('generate').hidden = true; $('cancel').hidden = false; $('resumeCard').hidden = true;
   if (!resume) {
     // Same prompt as a saved, interrupted run: continue it instead of starting over.
     try { const saved = await store.getRun(); if (saved && saved.prompt === prompt) resume = saved; else if (saved) await store.deleteRun(); } catch {}
   }
-  running = true; cancelled = false;
-  $('generate').hidden = true; $('cancel').hidden = false; $('resumeCard').hidden = true;
   $('log').innerHTML = ''; $('logCard').hidden = true; $('resultCard').hidden = true; $('stream').hidden = true; $('canvas').hidden = true;
   let wakeLock = null;
   try { wakeLock = await navigator.wakeLock?.request('screen'); } catch {}
@@ -222,7 +223,11 @@ async function produce(prompt, resume) {
   if (params.get('space')) { s.footageProvider = 'free'; s.aiVideoSpace = params.get('space'); s.aiVideoEnabled = true; s.pexelsKey = ''; s.pixabayKey = ''; s.allowPollinations = params.get('nopoll') !== '1'; }
   if (params.get('router')) { s.footageProvider = 'hf'; s.hfRouterBase = params.get('router'); s.hfToken = s.hfToken || 'hf_test'; s.aiVideoEnabled = false; s.pexelsKey = ''; s.pixabayKey = ''; s.allowPollinations = false; }
   const [width, height] = canvasSize(s);
-  const save = async (stage) => { cp.stage = stage; cp.updatedAt = Date.now(); await store.putRun(cp); };
+  const save = async (stage) => {
+    cp.stage = stage; cp.updatedAt = Date.now(); await store.putRun(cp);
+    // Test hook: ?failonce=1 stops the first run after its first checkpoint past the plan, so the resume path can be exercised.
+    if (params.has('failonce') && stage !== 'start' && cp.attempts === 1 && !sessionStorage.getItem('failedOnce')) { sessionStorage.setItem('failedOnce', '1'); throw new Error('Simulated interruption (test hook)'); }
+  };
   const kindOf = (id) => ((cp.storyboard && cp.storyboard.scenes.find(v => v.beatId === id)) || cp.brief.outline.find(b => b.id === id) || {}).kind
     || ((cp.brief.outline.find(b => b.id === id) || {}).suggestedVisual) || 'bullets';
   if (resume) log('Studio', 'info', `Resuming from “${cp.stage}” (attempt ${cp.attempts + 1}).`);
