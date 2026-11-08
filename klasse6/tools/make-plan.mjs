@@ -38,7 +38,8 @@ lesson.chapters.forEach((c, ci) => {
     if (/[a-z]\.[A-Z]/.test(b.narration)) problems.push(`scene ${id}: missing space after a full stop`);
     for (const bl of b.bullets || []) if (words(bl) > 9) problems.push(`scene ${id}: bullet longer than 9 words would be clipped: "${bl}"`);
     if (b.onScreenTitle && words(b.onScreenTitle) > 8) problems.push(`scene ${id}: on-screen title longer than 8 words`);
-    const beat = { narration: b.narration.trim(), onScreenTitle: b.onScreenTitle || ch.title, emphasisWords: b.emphasisWords || [], kind, model: b.model || null, labels: b.labels || null,
+    if (kind === 'question' && !b.question) problems.push(`scene ${id}: question scene without a "question"`);
+    const beat = { narration: b.narration.trim(), onScreenTitle: b.onScreenTitle || ch.title, question: b.question || null, think: b.think ?? (kind === 'question' ? 5 : null), hint: b.hint || null, emphasisWords: b.emphasisWords || [], kind, model: b.model || null, labels: b.labels || null,
       scene: kind === 'math3d' ? b.scene : null, params: kind === 'math3d' ? cleanParams(b.scene, b.params || {}) : null, segment: kind === 'math3d' && Array.isArray(b.segment) ? b.segment : null, formula: kind === 'math3d' && typeof b.formula === 'string' ? b.formula : null,
       bullets: b.bullets || null, nodes: b.nodes || null, leftTitle: b.leftTitle || null, leftItems: b.leftItems || null, rightTitle: b.rightTitle || null, rightItems: b.rightItems || null,
       statValue: b.statValue || null, statLabel: b.statLabel || null, code: null, codeLanguage: null, quote: b.quote || null, attribution: b.attribution || null, hero: false, shot: null, stockQuery: null };
@@ -57,14 +58,14 @@ lesson.chapters.forEach((c, ci) => {
   });
 });
 const totalWords = scenes.reduce((n, s) => n + words(s.narration), 0);
-const estimate = Math.round(scenes.reduce((n, s) => n + Math.max(10, words(s.narration) / WORDS_PER_SECOND_DE + 0.8), 0));
+const estimate = Math.round(scenes.reduce((n, s) => { const v = visuals.find(x => x.beatId === s.beatId) || {}; return n + Math.max(10, words(s.narration) / (WORDS_PER_SECOND_DE * 0.92) + 2.0 + (v.kind === 'question' ? (v.think || 5) : 0)); }, 0));
 const targetDuration = estimate, maxDuration = Math.min(600, Math.round(estimate * 1.15));
 if (problems.length) { console.error('Problems:\n- ' + problems.join('\n- ')); process.exit(1); }
 
 const prompt = `Lektion ${topic.id} „${topic.title}“ (${subject.name}, Klasse 6 Gymnasium Bayern), aus klasse6/lessons/${path.basename(file)}. ${Math.round(estimate / 60)} Minuten, auf Deutsch, für Kinder von etwa 11 Jahren.`;
 const plan = {
   id: 'current', prompt, attempts: 0, createdAt: Date.now(), updatedAt: Date.now(), stage: 'plan', mode: 'course', durationApplied: true, audios: {}, footage: {}, heroBeats: [],
-  settings: { videoStyle: 'course', aspect: '16x9', quality: '1080', fps: 30, theme: 'Midnight', burnInCaptions: true, showProgressBar: true, voice: 'af_heart', speed: 1.0, musicVolume: 0.18, ambientBed: true,
+  settings: { videoStyle: 'course', aspect: '16x9', quality: '1080', fps: 30, theme: 'Midnight', burnInCaptions: true, showProgressBar: true, voice: 'af_heart', speed: 0.92, sceneHoldSeconds: 1.2, musicVolume: 0.18, ambientBed: true,
     channelName: '', cta: lesson.cta || 'Abonniere für die nächste Lektion', footageProvider: 'none', aiClipBudget: 0, minSceneSeconds: 10, maxDuration, targetDuration,
     lesson: { id: topic.id, title: topic.title, subject: subject.name, scene: topic.scene || null, minWords: MIN_WORDS, authored: path.basename(file) } },
   brief: { title: lesson.title, audience: lesson.audience, hook: lesson.hook, learningObjectives: lesson.learningObjectives || [], keyTakeaway: lesson.keyTakeaway, tone: lesson.tone || 'warm und genau', mode: 'course', lessonScene: topic.scene || null, bibleLine: '', chapters, outline },

@@ -50,6 +50,17 @@ Fabrik auf GitHub Actions braucht kein Sprachmodell mehr:
 
 Ohne eingecheckten Plan läuft weiterhin der modellgestützte Weg (Hugging Face als Autor und zweiter Prüfer, Plan zur Freigabe auf dem Issue).
 
+## Tempo und Mitdenken (Rückmeldung aus dem Test mit einer Sechstklässlerin)
+
+Die erste Fassung war zu schnell. Seitdem gilt für Lektionen:
+
+- **Stimme** etwas langsamer (Faktor 0,92) und längere Pausen zwischen Sätzen (0,5 s).
+- **Nachhall**: jedes Bild bleibt 1,2 s stehen, nachdem der Sprecher fertig ist (`sceneHoldSeconds`).
+- **Frage-Szenen** (`kind: "question"`): die Frage wird gesprochen und groß gezeigt, dann läuft ein sichtbarer Countdown
+  (`think`, 8 bis 12 s), danach folgt die Antwort in der nächsten Szene. Jedes Kapitel hat mindestens eine Frage.
+- **Mehr Beispiele**: jede Regel wird an zwei Beispielen gezeigt, bevor die Frage kommt.
+- **Mehr Bilder**: Zahlengerade (`numberline`), Pizza-Vergleich (`compare`), Satzglieder-Blöcke (`sentence`) statt Textkarten.
+
 ## Was im Code läuft
 
 - **Eingang** `Lektion: <Thema-ID>` als Issue-Titel oder Feld im Actions-Formular; Themen-IDs in `klasse6/LEKTIONEN.md`.

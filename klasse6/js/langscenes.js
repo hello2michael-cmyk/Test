@@ -8,6 +8,9 @@ const SENTENCES = [
   'Der kleine Hund/S/Wer? | bellt/P/Was tut er? | laut/A/Wie?',
   'Gestern/A/Wann? | schenkte/P/Was tat sie? | mir/O/Wem? | Oma/S/Wer? | ein Buch/O/Wen oder was?',
   'Wir/S/Wer? | fahren/P/Was tun wir? | morgen/A/Wann? | mit dem Zug/A/Womit? | nach München/A/Wohin?',
+  'Im Sommer/A/Wann? | schwimmen/P/Was tun sie? | die Kinder/S/Wer? | im See/A/Wo?',
+  'Nach der Schule/A/Wann? | spielt/P/Was tut sie? | Mia/S/Wer? | Fußball/O/Wen oder was?',
+  'Mein Bruder/S/Wer? | baut/P/Was tut er? | mir/O/Wem? | ein Regal/O/Wen oder was?',
 ];
 const parse = s => s.split('|').map((p, i) => { const [text, type, q] = p.trim().split('/'); return { text: text.trim(), type: type.trim(), q: (q || '').trim(), orig: i }; });
 /** Umstellprobe: the Prädikat stays second, the third Satzglied moves to the front, the first moves behind the Prädikat. */
@@ -27,7 +30,7 @@ const sentence = {
       { t: 0, text: `Der Satz: „${sentenceText(parts, false)}“ Jeder Block ist ein Satzglied.` },
       { t: 4, text: swap ? `Umstellprobe: Wir stellen den Satz um. Was zusammen wandert, ist ein Satzglied: „${sentenceText(moved, true)}“` : 'Wir schauen uns die Satzglieder der Reihe nach an.' },
       { t: 10, text: `Frageprobe: Zu jedem Satzglied passt eine Frage. ${parts.map(x => `${x.q} ${x.text}`).join(' · ')}.` },
-      { t: 16, text: `Das Prädikat steht im Hauptsatz immer an zweiter Stelle, egal wie wir umstellen.` },
+      { t: 16, text: `Das Prädikat steht im Aussagesatz immer an zweiter Stelle, egal wie wir umstellen.` },
       { t: 22, text: `Die Namen: ${parts.map(x => `${x.text} = ${TYPES[x.type].name}`).join(', ')}.` },
     ];
   },
@@ -56,7 +59,7 @@ const sentence = {
       if (names > 0.1) S.label([x, y0, 0.75], type.name, { above: 0, size: S.u(24), color: type.color });
       void grey; void appear;
     });
-    if (t >= 16 && t < 22) { const P = parts.find(q => q.type === 'P'); S.label([pos1.get(P.orig), y0 + 1.9, 0], 'Prädikat: im Hauptsatz an 2. Stelle', { above: 0, strong: true, color: TYPES.P.color }); }
+    if (t >= 16 && t < 22) { const P = parts.find(q => q.type === 'P'); S.label([pos1.get(P.orig), y0 + 1.9, 0], 'Prädikat: im Aussagesatz an 2. Stelle', { above: 0, strong: true, color: TYPES.P.color }); }
     if (swap && t >= 4 && t < 10) S.label([0, y0 + 1.9, 0], 'Umstellprobe', { above: 0, strong: true });
     if (t >= 10 && t < 16) S.label([0, y0 + 1.9, 0], 'Frageprobe', { above: 0, strong: true });
   },

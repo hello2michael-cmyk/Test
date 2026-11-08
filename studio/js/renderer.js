@@ -235,6 +235,7 @@ export class Renderer {
       case 'footage': return this.footageOverlay(v, local);
       case 'scene3d': return this.scene3d(v, local, scene.duration);
       case 'math3d': return this.math3d(v, local, scene);
+      case 'question': return this.question(v, local, scene);
       case 'chapter': return this.chapter(v, local, scene.duration);
       default: return this.outro(v, local);
     }
@@ -277,6 +278,47 @@ export class Renderer {
     if (typeof v.formula === 'string') S.formulaOverride = v.formula;
     def.draw(S, t, v.params || {});
     S.flush();
+  }
+
+  /**
+   * Question for the viewer: the question in large type, then a visible countdown during the silent think-pause
+   * (scene.think seconds after the spoken question), then "Die Antwort kommt gleich".
+   */
+  question(v, local, scene) {
+    const { ctx, theme } = this;
+    let y = this.my;
+    y = this.kicker(v.kicker || 'Frage an dich', local, y);
+    const px = this.fitFont(v.question || v.title, this.u(this.portrait ? 72 : 84), this.u(40), 800, this.cw, 3);
+    const p = outCubic(prog(local, 0.1, 0.6));
+    ctx.save(); ctx.shadowColor = 'rgba(0,0,0,0.45)'; ctx.shadowBlur = this.u(16);
+    const h = this.text(v.question || v.title, this.mx, y, this.cw, this.font(px, 800), theme.text, { alpha: p, offsetY: (1 - p) * this.u(24), lineHeightMultiple: 1.0 });
+    ctx.restore();
+    y += h + this.u(40);
+    if (v.hint) y += this.text(v.hint, this.mx, y, this.cw * 0.9, this.font(this.u(36), 500), theme.muted, { alpha: p }) + this.u(30);
+    // scene.narrationDuration is the spoken part only; the think-pause follows it.
+    const think = Math.max(0, scene.think || 0), speechEnd = (scene.narrationStart - scene.start) + scene.narrationDuration;
+    if (think <= 0) return;
+    const elapsed = local - speechEnd;
+    const cx = this.portrait ? this.w / 2 : this.mx + this.u(110), cy = Math.min(this.h - this.my * 1.9, y + this.u(130)), r = this.u(90);
+    if (elapsed < 0) {
+      // Before the pause: a quiet hint that a pause is coming.
+      this.text('Gleich hast du Zeit zum Nachdenken.', this.mx, cy - this.u(18), this.cw, this.font(this.u(32), 500), theme.muted, { alpha: 0.8 });
+      return;
+    }
+    const remaining = Math.max(0, think - elapsed), frac = clamp01(remaining / think);
+    if (remaining > 0.05) {
+      ctx.save();
+      ctx.lineWidth = this.u(12); ctx.lineCap = 'round';
+      ctx.strokeStyle = withAlpha(theme.text, 0.15); ctx.beginPath(); ctx.arc(cx, cy, r, 0, Math.PI * 2); ctx.stroke();
+      ctx.strokeStyle = theme.accent2; ctx.beginPath(); ctx.arc(cx, cy, r, -Math.PI / 2, -Math.PI / 2 + Math.PI * 2 * frac); ctx.stroke();
+      ctx.fillStyle = theme.text; ctx.font = this.font(this.u(64), 800); ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+      ctx.fillText(String(Math.ceil(remaining)), cx, cy + this.u(4));
+      ctx.restore();
+      this.text('Denk kurz nach. Halte das Video an, wenn du mehr Zeit brauchst.', cx + r + this.u(40), cy - this.u(20), this.cw - r * 2 - this.u(60), this.font(this.u(34), 600), theme.text, { alpha: 0.9 });
+    } else {
+      const a = outCubic(prog(elapsed, think, 0.5));
+      this.text('Die Antwort kommt gleich.', cx - r, cy - this.u(20), this.cw, this.font(this.u(40), 700), theme.accent2, { alpha: a });
+    }
   }
 
   /** Chapter card: a large chapter number, the chapter title and a faint 3D backdrop (or footage under it). */

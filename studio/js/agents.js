@@ -3,7 +3,7 @@
 import * as T from './timing.js';
 import { MATH_SCENE_IDS, lessonRules, sceneCatalog, cleanParams } from './lesson.js';
 
-export const SCENE_KINDS = ['title', 'bullets', 'diagram', 'comparison', 'stat', 'code', 'quote', 'outro', 'footage', 'scene3d', 'chapter', 'math3d'];
+export const SCENE_KINDS = ['title', 'bullets', 'diagram', 'comparison', 'stat', 'code', 'quote', 'outro', 'footage', 'scene3d', 'chapter', 'math3d', 'question'];
 export const MODELS_3D = ['network', 'pipeline', 'hub', 'stack', 'orbit', 'grid'];
 /** Long-form lessons: above this many seconds the explainer becomes a chaptered course. */
 export const COURSE_MIN_SECONDS = 120;
@@ -986,6 +986,9 @@ export function sanitise(v, script) {
     labels: list(v.labels, 6, 3),
     scene: MATH_SCENE_IDS.includes(v.scene) ? v.scene : null, params: null,
     formula: typeof v.formula === 'string' ? clip(v.formula, 10) : null,
+    question: v.question ? clip(String(v.question), 30) : null,
+    think: Number.isFinite(Number(v.think)) ? Math.max(0, Math.min(20, Number(v.think))) : null,
+    hint: v.hint ? clip(String(v.hint), 22) : null,
     segment: Array.isArray(v.segment) && v.segment.length === 2 && v.segment.every(x => Number.isFinite(Number(x))) ? [Number(v.segment[0]), Number(v.segment[1])] : null,
     hero: !!v.hero,
     chapterId: v.chapterId != null ? Number(v.chapterId) : (script.chapterId != null ? Number(script.chapterId) : null),
@@ -995,6 +998,7 @@ export function sanitise(v, script) {
   switch (out.kind) {
     case 'footage': break;
     case 'chapter': if (!out.model) out.model = 'orbit'; break;
+    case 'question': if (!out.question) out.question = clip(script.narration, 30); if (out.think == null) out.think = 5; break;
     case 'math3d':
       if (!out.scene) { if (out.labels && out.labels.length >= 2) { out.kind = 'scene3d'; if (!out.model) out.model = 'pipeline'; } else degrade(); break; }
       out.params = cleanParams(out.scene, v.params);

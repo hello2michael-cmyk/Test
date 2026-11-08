@@ -7,7 +7,7 @@
   "keyTakeaway": "Ein Satzglied wandert bei der Umstellprobe als Ganzes und beantwortet bei der Frageprobe eine Frage: Wer? Was tut? Wen oder was? Wem? Wann? Wo? Wie? Warum?",
   "learningObjectives": [
     "Satzglieder mit der Umstellprobe finden",
-    "Subjekt und Prädikat mit der Frageprobe bestimmen; das Prädikat steht an zweiter Stelle",
+    "Subjekt und Prädikat mit der Frageprobe bestimmen; im Aussagesatz steht das Prädikat an zweiter Stelle",
     "Akkusativobjekt und Dativobjekt unterscheiden",
     "Adverbialien nach Zeit, Ort, Art und Weise und Grund erkennen",
     "Attribute als Satzgliedteile erkennen"
@@ -26,7 +26,7 @@
         {
           "kind": "title",
           "onScreenTitle": "Satzglieder erkennen",
-          "narration": "Am Morgen füttert Lena die Katze im Garten. Ein ganz normaler Satz. Aber er besteht aus Bausteinen, die man verschieben kann wie Klötze. Diese Bausteine heißen Satzglieder. In dieser Lektion lernst du zwei Tricks, mit denen du jedes Satzglied findest und benennst: die Umstellprobe und die Frageprobe."
+          "narration": "Am Morgen füttert Lena die Katze im Garten. Ein ganz normaler Satz. Aber er besteht aus Bausteinen, die man verschieben kann wie Klötze. Diese Bausteine heißen Satzglieder. In dieser Lektion lernst du in Ruhe zwei Tricks, mit denen du jedes Satzglied findest und benennst: die Umstellprobe und die Frageprobe. Zwischendurch stelle ich dir Fragen, und du bekommst Zeit zum Nachdenken."
         },
         {
           "kind": "math3d",
@@ -39,7 +39,7 @@
             3.9
           ],
           "onScreenTitle": "Fünf Bausteine",
-          "narration": "Hier ist unser Satz als Blöcke. Jeder Block ist ein Satzglied: Am Morgen, füttert, Lena, die Katze, im Garten. Manche Satzglieder bestehen aus einem Wort, andere aus zwei oder mehr Wörtern. Die Katze ist ein Satzglied, obwohl es zwei Wörter sind. Woher wir das wissen, siehst du gleich."
+          "narration": "Hier ist unser Satz als Blöcke. Jeder Block ist ein Satzglied: Am Morgen, füttert, Lena, die Katze, im Garten. Manche Satzglieder bestehen aus einem Wort, andere aus zwei oder mehr Wörtern. Die Katze ist ein einziges Satzglied, obwohl es zwei Wörter sind. Woher wir das wissen, siehst du jetzt."
         },
         {
           "kind": "math3d",
@@ -48,27 +48,50 @@
             "satz": "Am Morgen/A/Wann? | füttert/P/Was tut sie? | Lena/S/Wer? | die Katze/O/Wen oder was? | im Garten/A/Wo?"
           },
           "segment": [
-            4,
+            4.2,
             9.9
           ],
           "onScreenTitle": "Die Umstellprobe",
           "narration": "Das ist die Umstellprobe. Wir stellen den Satz um: Lena füttert am Morgen die Katze im Garten. Der Satz bleibt richtig, und die Blöcke wandern als Ganzes. Die Katze kann man nicht auseinanderreißen: Die füttert Lena Katze wäre falsch. Alles, was bei der Umstellung zusammenbleibt, ist ein Satzglied."
         },
         {
-          "kind": "bullets",
-          "onScreenTitle": "Merke: Umstellprobe",
-          "bullets": [
-            "Stelle den Satz um, er muss richtig bleiben",
-            "Was zusammen wandert, ist ein Satzglied",
-            "Ein Satzglied kann aus mehreren Wörtern bestehen"
+          "kind": "math3d",
+          "scene": "sentence",
+          "params": {
+            "satz": "Im Sommer/A/Wann? | schwimmen/P/Was tun sie? | die Kinder/S/Wer? | im See/A/Wo?"
+          },
+          "segment": [
+            0,
+            9.9
           ],
-          "narration": "Merke dir: Bei der Umstellprobe stellst du den Satz so um, dass er richtig bleibt. Alles, was dabei zusammen wandert, ist ein Satzglied. Ein Satzglied kann aus einem Wort bestehen, wie Lena, oder aus mehreren Wörtern, wie am Morgen oder die Katze. Probier es mit deinem Lieblingssatz aus."
+          "onScreenTitle": "Noch ein Beispiel",
+          "narration": "Noch ein Beispiel. Im Sommer schwimmen die Kinder im See. Wir stellen um: Die Kinder schwimmen im Sommer im See. Im Sommer wandert als ein Block, die Kinder wandert als ein Block, im See bleibt ein Block. Vier Blöcke, also vier Satzglieder. Die Umstellprobe funktioniert bei jedem Satz."
+        },
+        {
+          "kind": "question",
+          "question": "Wie viele Satzglieder hat der Satz: Nach der Schule spielt Mia Fußball?",
+          "think": 10,
+          "hint": "Stelle den Satz um. Was wandert zusammen?",
+          "narration": "Jetzt bist du dran. Wie viele Satzglieder hat der Satz: Nach der Schule spielt Mia Fußball? Stelle den Satz in Gedanken um und zähle, was zusammen wandert. Du hast ein paar Sekunden. Halte das Video an, wenn du mehr Zeit brauchst."
+        },
+        {
+          "kind": "math3d",
+          "scene": "sentence",
+          "params": {
+            "satz": "Nach der Schule/A/Wann? | spielt/P/Was tut sie? | Mia/S/Wer? | Fußball/O/Wen oder was?"
+          },
+          "segment": [
+            0,
+            9.9
+          ],
+          "onScreenTitle": "Antwort: vier Satzglieder",
+          "narration": "Die Antwort: vier Satzglieder. Nach der Schule ist ein Block aus drei Wörtern. Spielt, Mia und Fußball sind je ein Block. Umgestellt: Mia spielt nach der Schule Fußball. Nach der Schule wandert als Ganzes. Merke dir: Ein Satzglied kann aus einem Wort bestehen oder aus mehreren, und die Umstellprobe zeigt dir, was zusammengehört."
         }
       ]
     },
     {
       "title": "Subjekt und Prädikat",
-      "goal": "Du bestimmst Subjekt und Prädikat mit der Frageprobe und weißt, dass das Prädikat an zweiter Stelle steht.",
+      "goal": "Du bestimmst Subjekt und Prädikat mit der Frageprobe und weißt, dass das Prädikat im Hauptsatz an zweiter Stelle steht.",
       "keyPoints": [
         "Wer oder was?",
         "Was tut?",
@@ -109,7 +132,7 @@
             21.9
           ],
           "onScreenTitle": "Das Prädikat steht an 2. Stelle",
-          "narration": "Schau auf das Prädikat. Egal wie wir den Satz umstellen: Am Morgen füttert Lena die Katze im Garten. Lena füttert am Morgen die Katze im Garten. Im Garten füttert Lena am Morgen die Katze. Die Bedeutung bleibt gleich, und das Prädikat füttert steht im Aussagesatz, also im Hauptsatz, immer an zweiter Stelle. So findest du das Prädikat schnell. In einem Nebensatz steht es übrigens am Ende."
+          "narration": "Schau auf das Prädikat. Der Satz, den du siehst, heißt Lena füttert am Morgen die Katze im Garten. Stell dir vor, wir stellen ihn noch einmal um: Am Morgen füttert Lena die Katze im Garten. Oder: Im Garten füttert Lena am Morgen die Katze. Die Bedeutung bleibt gleich, und das Prädikat füttert steht im Aussagesatz immer an zweiter Stelle. So findest du das Prädikat schnell. Ein Hauptsatz wie dieser kann allein stehen. Ein Nebensatz braucht einen Hauptsatz, und im Nebensatz steht das Prädikat am Ende. Dazu kommen wir später."
         },
         {
           "kind": "bullets",
@@ -119,7 +142,28 @@
             "Prädikat: hat … gefüttert",
             "Die beiden Teile bilden eine Klammer"
           ],
-          "narration": "Manchmal besteht das Prädikat aus zwei Teilen. Lena hat am Morgen die Katze gefüttert. Das Prädikat ist hier hat gefüttert. Der erste Teil steht im Hauptsatz an zweiter Stelle, der zweite Teil ganz am Ende. Die beiden Teile bilden eine Klammer um den Rest des Satzes. Beide Teile zusammen sind ein Prädikat."
+          "narration": "Manchmal besteht das Prädikat aus zwei Teilen. Lena hat am Morgen die Katze gefüttert. Das Prädikat ist hier hat gefüttert. Der erste Teil steht im Aussagesatz an zweiter Stelle, der zweite Teil ganz am Ende. Die beiden Teile bilden eine Klammer um den Rest des Satzes. Beide Teile zusammen sind ein Prädikat. Auch Verben wie ausfallen oder anrufen bilden so eine Klammer: Der Unterricht fällt heute aus. Prädikat: fällt aus."
+        },
+        {
+          "kind": "question",
+          "question": "Im Sommer schwimmen die Kinder im See. Was ist das Subjekt, was das Prädikat?",
+          "think": 9,
+          "hint": "Wer oder was? Und: Was tun sie?",
+          "narration": "Jetzt du. Im Sommer schwimmen die Kinder im See. Was ist das Subjekt, und was ist das Prädikat? Frage: Wer oder was schwimmt? Und: Was tun sie? Du hast ein paar Sekunden."
+        },
+        {
+          "kind": "math3d",
+          "scene": "sentence",
+          "params": {
+            "satz": "Im Sommer/A/Wann? | schwimmen/P/Was tun sie? | die Kinder/S/Wer? | im See/A/Wo?",
+            "probe": "ohne Umstellprobe"
+          },
+          "segment": [
+            10,
+            15.9
+          ],
+          "onScreenTitle": "Antwort: die Kinder, schwimmen",
+          "narration": "Die Antwort: Wer schwimmt? Die Kinder. Die Kinder ist das Subjekt. Was tun die Kinder? Sie schwimmen. Schwimmen ist das Prädikat, und es steht an zweiter Stelle. Im Sommer und im See sind die anderen beiden Satzglieder, zu denen wir noch kommen. Achte darauf: Das Subjekt muss nicht am Satzanfang stehen."
         }
       ]
     },
@@ -155,7 +199,21 @@
             15.9
           ],
           "onScreenTitle": "Zwei Objekte",
-          "narration": "Gestern schenkte mir Oma ein Buch. Wer schenkte? Oma, das Subjekt. Was tat Oma? Sie schenkte, das Prädikat. Wen oder was schenkte sie? Ein Buch. Das ist das Akkusativobjekt. Und wem schenkte sie das Buch? Mir. Das ist das Dativobjekt. Die Frage Wem? führt immer zum Dativobjekt."
+          "narration": "Gestern schenkte mir Oma ein Buch. Wer schenkte? Oma, das Subjekt. Du siehst: Das Subjekt steht hier nicht am Anfang, das ist erlaubt. Was tat Oma? Sie schenkte, das Prädikat. Wen oder was schenkte sie? Ein Buch. Das ist das Akkusativobjekt. Und wem schenkte sie das Buch? Mir. Das ist das Dativobjekt. Die Frage Wem? führt immer zum Dativobjekt."
+        },
+        {
+          "kind": "math3d",
+          "scene": "sentence",
+          "params": {
+            "satz": "Mein Bruder/S/Wer? | baut/P/Was tut er? | mir/O/Wem? | ein Regal/O/Wen oder was?",
+            "probe": "ohne Umstellprobe"
+          },
+          "segment": [
+            10,
+            15.9
+          ],
+          "onScreenTitle": "Noch ein Beispiel",
+          "narration": "Noch ein Beispiel. Mein Bruder baut mir ein Regal. Wer baut? Mein Bruder, das Subjekt. Was tut er? Er baut, das Prädikat. Wen oder was baut er? Ein Regal, das Akkusativobjekt. Wem baut er es? Mir, das Dativobjekt. Oft gehören beide Objekte zu Verben wie schenken, geben, bauen oder zeigen: Jemand gibt jemandem etwas."
         },
         {
           "kind": "bullets",
@@ -166,17 +224,24 @@
             "Wessen? → Genitivobjekt (selten)",
             "Mit Präposition: Woran? An wen? → Präpositionalobjekt"
           ],
-          "narration": "Merke dir die Fragen. Wen oder was? führt zum Akkusativobjekt. Wem? führt zum Dativobjekt. Wessen? führt zum Genitivobjekt, das ist selten, zum Beispiel: Wir gedenken der Opfer. Und wenn die Frage eine Präposition enthält, wie Woran denkst du? oder An wen denkst du?, dann ist es ein Präpositionalobjekt."
+          "narration": "Merke dir die Fragen. Wen oder was? führt zum Akkusativobjekt. Wem? führt zum Dativobjekt. Wessen? führt zum Genitivobjekt, das ist selten, zum Beispiel: Wir gedenken der Opfer. Und manche Verben brauchen eine feste Präposition, wie denken an oder warten auf. Dann fragst du mit der Präposition: Woran denkst du? An wen denkst du? Das ist ein Präpositionalobjekt. Für den Anfang reichen dir die ersten beiden Fragen."
+        },
+        {
+          "kind": "question",
+          "question": "Der Lehrer gibt den Kindern ein Rätsel. Welches Satzglied ist „den Kindern“?",
+          "think": 9,
+          "hint": "Welche Frage passt: Wen oder was? oder Wem?",
+          "narration": "Jetzt du. Der Lehrer gibt den Kindern ein Rätsel. Welches Satzglied ist den Kindern? Stelle die Frage: Wem gibt der Lehrer etwas? Oder: Wen oder was gibt er? Welche Frage passt zu den Kindern? Du hast ein paar Sekunden."
         },
         {
           "kind": "bullets",
-          "onScreenTitle": "Übung",
+          "onScreenTitle": "Antwort: Dativobjekt",
           "bullets": [
-            "Der Lehrer gibt den Kindern ein Rätsel.",
             "Wem? → den Kindern: Dativobjekt",
-            "Wen oder was? → ein Rätsel: Akkusativobjekt"
+            "Wen oder was? → ein Rätsel: Akkusativobjekt",
+            "Wer? → der Lehrer: Subjekt"
           ],
-          "narration": "Probier es selbst: Der Lehrer gibt den Kindern ein Rätsel. Halte das Video kurz an und frage: Wem gibt der Lehrer etwas? Und wen oder was gibt er? Die Lösung: Den Kindern ist das Dativobjekt, denn es antwortet auf Wem? Ein Rätsel ist das Akkusativobjekt, denn es antwortet auf Wen oder was?"
+          "narration": "Die Antwort: Den Kindern ist das Dativobjekt, denn es antwortet auf die Frage Wem? Wem gibt der Lehrer ein Rätsel? Den Kindern. Ein Rätsel ist das Akkusativobjekt, denn es antwortet auf Wen oder was? Und der Lehrer ist das Subjekt. Wenn du das richtig hattest, kannst du Objekte schon sicher unterscheiden."
         }
       ]
     },
@@ -198,7 +263,7 @@
             "Wie?",
             "Warum?"
           ],
-          "narration": "Jetzt fehlen noch die Blöcke, die erzählen, wann, wo, wie oder warum etwas passiert. Diese Satzglieder heißen Adverbialien, in der Einzahl Adverbiale. Sie machen einen Satz genau und lebendig. Schauen wir uns einen Satz an, der gleich drei davon enthält."
+          "narration": "Jetzt fehlen noch die Blöcke, die erzählen, wann, wo, wie oder warum etwas passiert. Diese Satzglieder heißen Adverbialien, in der Einzahl Adverbiale. In manchen Büchern heißen sie auch adverbiale Bestimmungen. Sie machen einen Satz genau und lebendig. Schauen wir uns einen Satz an, der gleich drei davon enthält."
         },
         {
           "kind": "math3d",
@@ -226,18 +291,18 @@
             30
           ],
           "onScreenTitle": "Die Namen der Satzglieder",
-          "narration": "So sieht der ganze Satz mit Namen aus: Subjekt, Prädikat und drei Adverbialien. In manchen Büchern heißen sie auch adverbiale Bestimmungen. Stell dir vor, du verschiebst sie: Morgen fahren wir mit dem Zug nach München. Oder: Nach München fahren wir morgen mit dem Zug. Das Prädikat bleibt an zweiter Stelle, und jedes Satzglied wandert als Ganzes."
+          "narration": "So sieht der ganze Satz mit Namen aus: Subjekt, Prädikat und drei Adverbialien. Stell dir vor, du verschiebst sie: Morgen fahren wir mit dem Zug nach München. Oder: Nach München fahren wir morgen mit dem Zug. Das Prädikat bleibt an zweiter Stelle, und jedes Satzglied wandert als Ganzes. Adverbialien lassen sich besonders leicht verschieben."
         },
         {
           "kind": "bullets",
           "onScreenTitle": "Vier Arten von Adverbialien",
           "bullets": [
-            "Zeit: Wann? Wie lange? → morgen",
-            "Ort: Wo? Wohin? Woher? → nach München",
-            "Art und Weise: Wie? Womit? → mit dem Zug",
-            "Grund: Warum? Weshalb? → wegen des Regens"
+            "Zeit (temporal): Wann? Wie lange?",
+            "Ort (lokal): Wo? Wohin? Woher?",
+            "Art und Weise (modal): Wie? Womit?",
+            "Grund (kausal): Warum? Weshalb?"
           ],
-          "narration": "Es gibt vier wichtige Arten. Die Adverbiale der Zeit antwortet auf Wann? oder Wie lange? Die Adverbiale des Ortes antwortet auf Wo? Wohin? oder Woher? Die Adverbiale der Art und Weise antwortet auf Wie? oder Womit? Und die Adverbiale des Grundes antwortet auf Warum? Zum Beispiel: Wegen des Regens bleiben wir zu Hause."
+          "narration": "Es gibt vier wichtige Arten, und jede hat auch einen Fachnamen. Die Adverbiale der Zeit, temporal, antwortet auf Wann? oder Wie lange? Die Adverbiale des Ortes, lokal, antwortet auf Wo? Wohin? oder Woher? Die Adverbiale der Art und Weise, modal, antwortet auf Wie? oder Womit? Und die Adverbiale des Grundes, kausal, antwortet auf Warum? Zum Beispiel: Wegen des Regens bleiben wir zu Hause."
         },
         {
           "kind": "bullets",
@@ -247,7 +312,24 @@
             "Warum? → weil es regnet",
             "Der Nebensatz ist ein Adverbialsatz des Grundes"
           ],
-          "narration": "Eine Adverbiale kann sogar ein ganzer Nebensatz sein. Weil es regnet, bleiben wir zu Hause. Warum bleiben wir zu Hause? Weil es regnet. Dieser Nebensatz ist ein Adverbialsatz des Grundes. Und schau: Der ganze Nebensatz ist ein Satzglied, darum steht das Prädikat bleiben wieder an zweiter Stelle."
+          "narration": "Eine Adverbiale kann sogar ein ganzer Nebensatz sein. Weil es regnet, bleiben wir zu Hause. Warum bleiben wir zu Hause? Weil es regnet. Dieser Nebensatz ist ein Adverbialsatz des Grundes. Und schau: Der ganze Nebensatz ist ein Satzglied, darum steht das Prädikat bleiben wieder an zweiter Stelle. Im Nebensatz selbst steht das Prädikat regnet am Ende."
+        },
+        {
+          "kind": "question",
+          "question": "Wegen des Sturms fällt der Unterricht aus. Welche Art von Adverbiale ist „wegen des Sturms“?",
+          "think": 9,
+          "hint": "Welche Frage passt: Wann? Wo? Wie? oder Warum?",
+          "narration": "Jetzt du. Wegen des Sturms fällt der Unterricht aus. Welche Art von Adverbiale ist wegen des Sturms? Überlege, welche Frage dazu passt: Wann? Wo? Wie? Oder Warum? Die passende Frage verrät dir die Art. Du hast ein paar Sekunden."
+        },
+        {
+          "kind": "bullets",
+          "onScreenTitle": "Antwort: Adverbiale des Grundes",
+          "bullets": [
+            "Warum fällt der Unterricht aus? → wegen des Sturms",
+            "Adverbiale des Grundes",
+            "Prädikat: fällt … aus (zweiteilig, 2. Stelle)"
+          ],
+          "narration": "Die Antwort: Warum fällt der Unterricht aus? Wegen des Sturms. Das ist eine Adverbiale des Grundes. Übrigens ist das Prädikat hier wieder zweiteilig: fällt aus. Der erste Teil fällt steht an zweiter Stelle, der zweite Teil aus steht am Ende. Und der Unterricht ist das Subjekt: Wer oder was fällt aus? Der Unterricht."
         }
       ]
     },
@@ -277,11 +359,11 @@
             "satz": "Der kleine Hund/S/Wer? | bellt/P/Was tut er? | laut/A/Wie?"
           },
           "segment": [
-            4,
+            4.2,
             9.9
           ],
           "onScreenTitle": "Das Attribut wandert mit",
-          "narration": "Der kleine Hund bellt laut. Umstellprobe: Laut bellt der kleine Hund. Das Wort kleine wandert mit dem Hund zusammen. Es ist also kein eigenes Satzglied, sondern ein Teil des Subjekts: ein Attribut. Die Frage zum Attribut lautet: Was für ein Hund? Ein kleiner Hund."
+          "narration": "Der kleine Hund bellt laut. Umstellprobe: Laut bellt der kleine Hund. Das Wort kleine wandert mit dem Hund zusammen. Es ist also kein eigenes Satzglied, sondern ein Teil des Subjekts: ein Attribut. Die Frage zum Attribut lautet: Was für ein Hund? Ein kleiner Hund. Und laut ist eine Adverbiale der Art und Weise: Wie bellt er? Laut."
         },
         {
           "kind": "bullets",
@@ -294,6 +376,23 @@
           "narration": "Attribute gibt es in verschiedenen Formen. Ein Adjektiv: der kleine Hund. Ein Genitiv: das Haus meiner Oma. Oder ein ganzer Relativsatz: der Hund, der laut bellt. Alle drei beschreiben das Nomen genauer und gehören zum selben Satzglied. Frage immer: Was für ein? oder Welcher? Dann hast du das Attribut gefunden."
         },
         {
+          "kind": "question",
+          "question": "Das rote Fahrrad steht im Hof. Welches Wort ist das Attribut?",
+          "think": 8,
+          "hint": "Was für ein Fahrrad?",
+          "narration": "Jetzt du. Das rote Fahrrad steht im Hof. Welches Wort ist das Attribut, und zu welchem Satzglied gehört es? Frage: Was für ein Fahrrad steht im Hof? Und prüfe mit der Umstellprobe, was zusammen wandert. Du hast ein paar Sekunden."
+        },
+        {
+          "kind": "bullets",
+          "onScreenTitle": "Antwort: rote",
+          "bullets": [
+            "Was für ein Fahrrad? → das rote Fahrrad",
+            "rote = Adjektivattribut",
+            "Es gehört zum Subjekt: das rote Fahrrad"
+          ],
+          "narration": "Die Antwort: Das Attribut ist rote. Was für ein Fahrrad? Ein rotes Fahrrad. Rote gehört zum Subjekt das rote Fahrrad und wandert bei der Umstellprobe mit: Im Hof steht das rote Fahrrad. Steht ist das Prädikat an zweiter Stelle, und im Hof ist eine Adverbiale des Ortes."
+        },
+        {
           "kind": "outro",
           "narration": "Das war die Lektion zu den Satzgliedern. Die Umstellprobe zeigt dir, was zusammengehört. Die Frageprobe gibt jedem Satzglied seinen Namen: Wer? Subjekt. Was tut? Prädikat. Wen oder was? Wem? Objekt. Wann, wo, wie, warum? Adverbiale. Und Attribute wandern als Teil eines Satzglieds mit. In der nächsten Lektion geht es um Satzreihe und Satzgefüge. Bis dann."
         }
@@ -302,7 +401,7 @@
   ],
   "youtube": {
     "title": "Satzglieder erkennen: Umstellprobe und Frageprobe | Deutsch Klasse 6 Gymnasium Bayern",
-    "description": "Wie findest du die Satzglieder eines Satzes? In dieser Lektion siehst du Sätze als 3D-Bausteine: Mit der Umstellprobe erkennst du, was zusammengehört, mit der Frageprobe gibst du jedem Satzglied seinen Namen. Subjekt, Prädikat (immer an zweiter Stelle), Akkusativ- und Dativobjekt, Adverbialien der Zeit, des Ortes, der Art und Weise und des Grundes, und zum Schluss die Attribute als Satzgliedteile.\n\nPasst zum LehrplanPLUS Gymnasium Bayern, Deutsch Jahrgangsstufe 6, Lernbereich 4.2 Sprachliche Strukturen untersuchen und reflektieren.\n\nDu lernst: Umstellprobe · Frageprobe · Subjekt und Prädikat · Objekte · Adverbialien · Adverbialsatz · Attribute",
+    "description": "Wie findest du die Satzglieder eines Satzes? In dieser Lektion siehst du Sätze als 3D-Bausteine: Mit der Umstellprobe erkennst du, was zusammengehört, mit der Frageprobe gibst du jedem Satzglied seinen Namen. Subjekt, Prädikat (im Hauptsatz an zweiter Stelle), Akkusativ- und Dativobjekt, Adverbialien der Zeit, des Ortes, der Art und Weise und des Grundes, und zum Schluss die Attribute als Satzgliedteile. In jedem Kapitel gibt es eine Frage an dich mit Zeit zum Nachdenken.\n\nPasst zum LehrplanPLUS Gymnasium Bayern, Deutsch Jahrgangsstufe 6, Lernbereich 4.2 Sprachliche Strukturen untersuchen.\n\nDu lernst: Umstellprobe · Frageprobe · Subjekt und Prädikat · Objekte · Adverbialien · Adverbialsatz · Attribute",
     "tags": [
       "satzglieder",
       "umstellprobe",
@@ -326,17 +425,20 @@
     "reviewer": "Claude Sonnet (Claude Code subagent), independent of the writer (Claude Fable 5.1 in Claude Code)",
     "date": "2026-11-08",
     "mustFixApplied": [
-      "Kapitel 2 Szene 3: „Die Katze füttert Lena am Morgen“ war keine gültige Umstellung (Bedeutung und Subjekt ändern sich). Ersetzt durch bedeutungsgleiche Umstellungen."
+      "Version 1: bedeutungsverändernde Umstellung entfernt.",
+      "Version 2: Aussagesatz nicht mehr mit Hauptsatz gleichgesetzt; Verbzweitstellung gilt für den Aussagesatz (Fragen und Aufforderungen haben das Verb vorn). Szenenbeschriftung angepasst."
     ],
     "suggestionsApplied": [
-      "Verbzweitstellung auf den Hauptsatz bezogen, Nebensatz-Endstellung erwähnt (Text und Szenenbeschriftung)",
-      "Subjekt: „wer oder was etwas tut oder ist“",
-      "Kapitel 4: Verschiebungen als Vorstellung formuliert, da das Bild die Ausgangsstellung zeigt; „adverbiale Bestimmung“ als Zweitname genannt",
-      "Kapitel 2: Hinweis, dass Lena nach der Umstellprobe vorn steht",
-      "Kapitel 5: Behauptung erst nach der Demonstration"
+      "Hauptsatz und Nebensatz in einem Satz erklärt",
+      "Denkpausen 8 bis 10 Sekunden",
+      "Fachnamen temporal, lokal, modal, kausal ergänzt",
+      "Trennbare Verben (fällt aus) vor der Frage eingeführt",
+      "Hinweis: Subjekt muss nicht am Anfang stehen",
+      "Präpositionalobjekt als feste Verb-Präposition erklärt",
+      "Segmente der Umstellprobe beginnen bei 4,2 s"
     ],
     "issues": [
-      "Nicht abgedeckt aus D6 4.2 (eigene Lektionen): Prädikativ, Subjekt- und Objektsatz, Adverbialsätze temporal/final/modal, Satzreihe und Satzgefüge, Aktiv und Passiv, Tempora, Wortarten"
+      "Nicht abgedeckt (eigene Lektionen): Prädikativ, Adverbialsätze temporal/final/modal, Subjekt- und Objektsatz, Satzreihe und Satzgefüge, Aktiv und Passiv, Tempora, Wortarten"
     ],
     "claimsToVerify": []
   }

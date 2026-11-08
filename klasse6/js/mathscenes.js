@@ -390,4 +390,82 @@ const percent = {
 };
 function pctFrac(p) { const g = gcd(p || 100, 100); return g > 1 && p > 0 && p < 100 ? ` = ${frac(p / g, 100 / g)}` : ''; }
 
-export const SCENES = { fraction, decimal, fracadd, fracmul, terms, area, volume, percent };
+
+/* ------------------------------------------------------------------ Zahlengerade (M6 1.1) */
+const NL_MARKS = ['0 | 1/2 | 1', '0 | 1/4 | 1/2 | 3/4 | 1', '0 | 1/3 | 2/3 | 1', '-1 | -1/2 | 0 | 1/2 | 1', '-1 | -3/4 | -1/2 | 0 | 1/2 | 1'];
+const parseVal = s => { const m = String(s).trim().match(/^(-?)(\d+)(?:\/(\d+))?$/); if (!m) return 0; const v = m[3] ? +m[2] / +m[3] : +m[2]; return m[1] ? -v : v; };
+const numberline = {
+  id: 'numberline', title: 'Brüche auf der Zahlengeraden', duration: 30,
+  camera: { azimuth: 0.0, elevation: 0.5, distance: 8.4, target: [0, -0.5, 0] },
+  params: [{ id: 'marks', label: 'Zahlen', options: NL_MARKS, value: NL_MARKS[1] }],
+  steps: p => {
+    const marks = p.marks.split('|').map(x => x.trim());
+    return [
+      { t: 0, text: 'Die Zahlengerade: Jede Zahl hat genau einen Platz. Die ganzen Zahlen stehen an den großen Strichen.' },
+      ...marks.map((m, i) => ({ t: 2.5 + i * 2.2, text: `${m} findet seinen Platz.` })),
+      { t: 2.5 + marks.length * 2.2 + 1, text: 'Zwischen zwei Brüchen liegen immer noch mehr Brüche, unendlich viele.' },
+    ];
+  },
+  draw(S, t, p) {
+    const marks = p.marks.split('|').map(x => x.trim()), vals = marks.map(parseVal), th = S.theme, y0 = -1.05;
+    const lo = Math.floor(Math.min(...vals, 0)), hi = Math.ceil(Math.max(...vals, 1));
+    const L = 6.4, X = v => -L / 2 + ((v - lo) / Math.max(1, hi - lo)) * L;
+    S.heading('Brüche sind Zahlen', marks.join('   '));
+    S.floor();
+    const a0 = outCubic(ease(t, 0, 1.2));
+    S.box([(-L / 2 + X(lo + (hi - lo) * a0)) / 2 + 0, y0 + 0.06, 0], [((X(lo + (hi - lo) * a0) + L / 2) / 2), 0.06, 0.14], rgba(th.text, 0.85));
+    for (let v = lo; v <= hi; v++) { const a = ease(t, 0.8 + (v - lo) * 0.3, 0.5); if (a <= 0) continue; S.box([X(v), y0 + 0.25 * a, 0], [0.04, 0.25 * a, 0.16], '#fff'); S.label([X(v), y0, 0.55], String(v), { above: 0, size: S.u(30) }); }
+    marks.forEach((m, i) => {
+      if (Number.isInteger(vals[i])) return;
+      const a = outBack(ease(t, 2.5 + i * 2.2, 1.0)); if (a <= 0.01) return;
+      const x = X(vals[i]), drop = (1 - a) * 1.6;
+      S.box([x, y0 + 0.2, 0], [0.03, 0.2, 0.16], th.accent2);
+      S.sphere ? null : null;
+      S.box([x, y0 + 0.85 + drop, 0], [0.16 * a, 0.16 * a, 0.16 * a], vals[i] < 0 ? '#fa739e' : th.accent2);
+      S.label([x, y0 + 1.05 + drop, 0], m, { above: 0.25, strong: true, color: vals[i] < 0 ? '#fa739e' : th.accent2 });
+    });
+    const last = 2.5 + marks.length * 2.2 + 1;
+    if (t > last) S.label([0, y0 + 1.9, 0], 'Zwischen zwei Brüchen liegen unendlich viele weitere', { above: 0, size: S.u(26), color: th.muted });
+  },
+};
+
+/* ------------------------------------------------------------------ Zwei Brüche vergleichen (M6 1.1) */
+const CMP_TASKS = ['2/3 und 3/4', '1/2 und 2/5', '3/5 und 2/3', '5/8 und 3/8', '1/3 und 1/4'];
+const parseCmp = s => s.split(/und/).map(x => x.trim().split('/').map(Number));
+const compare = {
+  id: 'compare', title: 'Brüche vergleichen: der Hauptnenner', duration: 30,
+  camera: { azimuth: -0.2, elevation: 0.7, distance: 9.0, target: [0, -0.6, 0.2] },
+  params: [{ id: 'task', label: 'Aufgabe', options: CMP_TASKS, value: CMP_TASKS[0] }],
+  steps: p => {
+    const [[a, b], [c, d]] = parseCmp(p.task), L = lcm(b, d), a2 = a * L / b, c2 = c * L / d, bigger = a2 > c2 ? frac(a, b) : a2 < c2 ? frac(c, d) : null;
+    return [
+      { t: 0, text: `Zwei gleich große Pizzen: links ${frac(a, b)}, rechts ${frac(c, d)}. Welche Portion ist größer?` },
+      { t: 8, text: b === d ? 'Die Nenner sind gleich, also vergleichen wir einfach die Zähler.' : `Wir schneiden beide Pizzen in ${L} gleich große Stücke: der Hauptnenner ist ${L}.` },
+      { t: 14, text: `${frac(a, b)} = ${frac(a2, L)} und ${frac(c, d)} = ${frac(c2, L)}. ${bigger ? `${bigger} ist größer, um ${frac(Math.abs(a2 - c2), L)}.` : 'Beide sind gleich groß.'}` },
+      { t: 21, text: 'Mit gleichen Stücken kann man zählen und vergleichen. Das ist der ganze Trick.' },
+    ];
+  },
+  draw(S, t, p) {
+    const [[a, b], [c, d]] = parseCmp(p.task), L = lcm(b, d), a2 = a * L / b, c2 = c * L / d, th = S.theme, y0 = -1.05;
+    const common = ease(t, 8, 2), result = ease(t, 14, 1.5);
+    S.heading('Brüche vergleichen', result > 0 ? `${frac(a, b)} = ${frac(a2, L)}   ${a2 > c2 ? '>' : a2 < c2 ? '<' : '='}   ${frac(c2, L)} = ${frac(c, d)}` : common > 0 ? `Hauptnenner ${L}` : `${frac(a, b)} oder ${frac(c, d)}?`);
+    S.floor();
+    const pizza = (cx, num, den, color, isBigger) => {
+      const R = 1.45 * outBack(ease(t, 0, 1.2)); if (R <= 0.01) return;
+      const lift = isBigger ? 0.45 * result : 0;
+      for (let i = 0; i < den; i++) {
+        const a0 = (i / den) * Math.PI * 2 + 0.03, a1 = ((i + 1) / den) * Math.PI * 2 - 0.03;
+        const taken = i < num;
+        S.sector([cx, 0], 0, R, a0, a1, y0 + (taken ? lift : 0), 0.22, taken ? color : '#e8b06a');
+      }
+      if (common > 0.02) { const sub = L / den; for (let i = 0; i < den; i++) for (let k = 1; k < sub; k++) { const ang = ((i + k / sub) / den) * Math.PI * 2; const r = R * common; S.line([cx, y0 + 0.225 + (i < num ? lift : 0), 0], [cx + Math.cos(ang) * r, y0 + 0.225 + (i < num ? lift : 0), Math.sin(ang) * r], 'rgba(60,30,10,0.9)', 0.025, 1, null, 0.01); } }
+      S.label([cx, y0 + 0.9 + lift, 0], common > 0.5 ? `${frac(num, den)} = ${frac(num * L / den, L)}` : frac(num, den), { strong: true, color });
+    };
+    pizza(-1.9, a, b, th.accent, a2 > c2);
+    pizza(1.9, c, d, th.accent2, c2 > a2);
+    if (result > 0.3) S.label([0, y0 + 0.6, 0], a2 === c2 ? '=' : a2 > c2 ? '>' : '<', { strong: true, size: S.u(64) });
+    if (common > 0.5 && result < 0.3) S.label([0, y0 + 2.1, 0], `Hauptnenner ${L}: beide in ${L} Stücke`, { above: 0, size: S.u(26) });
+  },
+};
+
+export const SCENES = { fraction, decimal, fracadd, fracmul, terms, area, volume, percent, numberline, compare };

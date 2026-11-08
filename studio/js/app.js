@@ -15,6 +15,8 @@ import { THEMES, VOICES, loadSettings, saveSettings, canvasSize } from './settin
 const $ = (id) => document.getElementById(id);
 // Lessons for children hold every scene on screen for at least this long (settings.minSceneSeconds; factory MIN_SCENE_SECONDS).
 const minScene = (s) => Math.max(T.MIN_SCENE, parseFloat(s.minSceneSeconds) || 0);
+// Extra seconds every scene stays on screen after the narration ends (children's lessons: about one second).
+const holdScene = (s) => Math.max(0, parseFloat(s.sceneHoldSeconds) || 0);
 const params = new URLSearchParams(location.search);
 const MOCK = params.get('mock') === '1';
 const STAGES = ['Planning', 'Writing', 'Reviewing', 'Designing', 'Metadata', 'Footage', 'Narrating', 'Mixing', 'Rendering', 'Packaging'];
@@ -397,7 +399,7 @@ async function produce(prompt, resume) {
         log('Visual Designer', 'success', `${cp.heroBeats.length} scene(s) will get a generated AI clip; ${cp.storyboard.scenes.filter(v => v.kind === 'scene3d' || v.kind === 'math3d').length} 3D scenes; the rest are motion graphics.`);
         await save('publish');
       }
-      const removed = T.tighten(cp.script, kindOf, s.maxDuration, s.speed, minScene(s));
+      const removed = T.tighten(cp.script, kindOf, s.maxDuration, s.speed, minScene(s), holdScene(s));
       if (removed) { log('Producer', 'warning', `Script estimated over the ${s.maxDuration} s cap; dropped ${removed} sentence(s) from the wordiest scenes.`); await save('publish'); }
       if (!MOCK && eng) { await eng.unload(); engine = null; engineModelId = null; $('engineStatus').textContent = 'Model unloaded to free memory; it reloads from cache on the next run.'; await new Promise(r => setTimeout(r, 400)); }
     } else {
@@ -426,7 +428,7 @@ async function produce(prompt, resume) {
     if (!cp.publish) { progress('Metadata', 0.2); cp.publish = await team.publisher(cp.brief, cp.script); await save('publish'); }
     checkCancel();
     // Fit the cap from word counts while the writer is still here; the voice is measured later.
-    const removed = T.tighten(cp.script, kindOf, s.maxDuration, s.speed, minScene(s));
+    const removed = T.tighten(cp.script, kindOf, s.maxDuration, s.speed, minScene(s), holdScene(s));
     if (removed) { log('Producer', 'warning', `Script estimated over the ${s.maxDuration} s cap; dropped ${removed} sentence(s) from the wordiest beats.`); await save('publish'); }
     // Free the language model before anything else heavy is loaded.
     if (!MOCK && eng) { await eng.unload(); engine = null; engineModelId = null; $('engineStatus').textContent = 'Model unloaded to free memory; it reloads from cache on the next run.'; await new Promise(r => setTimeout(r, 400)); }
@@ -668,14 +670,16 @@ async function narrate(cp, s, useMockTTS, save) {
     await save('narration');
   }
   progress('Narrating', 1, `${n}/${n}`);
-  const inputs = script.scenes.map(sc => ({ beatId: sc.beatId, kind: (storyboard.scenes.find(v => v.beatId === sc.beatId) || {}).kind || 'bullets', narrationDuration: cp.audios[sc.beatId].duration }));
-  const { placements, total } = T.layout(inputs, minScene(s));
+  // A "question" scene adds a silent think-pause after the spoken question; the countdown is drawn by the renderer.
+  const thinkOf = (beatId) => { const v = storyboard.scenes.find(x => x.beatId === beatId); return v && v.kind === 'question' ? Math.max(0, Math.min(20, Number(v.think) || 0)) : 0; };
+  const inputs = script.scenes.map(sc => ({ beatId: sc.beatId, kind: (storyboard.scenes.find(v => v.beatId === sc.beatId) || {}).kind || 'bullets', narrationDuration: cp.audios[sc.beatId].duration + thinkOf(sc.beatId) }));
+  const { placements, total } = T.layout(inputs, minScene(s), holdScene(s));
   const scenes = placements.map(p => {
     const sc = script.scenes.find(x => x.beatId === p.beatId);
     const visual = storyboard.scenes.find(v => v.beatId === p.beatId);
     const a = cp.audios[p.beatId];
     return { beatId: p.beatId, script: sc, visual, start: p.start, duration: p.duration, narrationStart: p.narrationStart,
-      narrationDuration: a.duration, audio: a, captions: T.captions(sc.narration, p.narrationStart, a.duration) };
+      narrationDuration: a.duration, think: thinkOf(p.beatId), audio: a, captions: T.captions(sc.narration, p.narrationStart, a.duration) };
   });
   return { scenes, total };
 }

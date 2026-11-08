@@ -17,12 +17,12 @@ export function sceneCountFor(target) {
 }
 
 /** inputs: [{beatId, kind, narrationDuration}] → {placements:[{beatId,start,duration,narrationStart}], total} */
-export function layout(inputs, minScene = MIN_SCENE) {
+export function layout(inputs, minScene = MIN_SCENE, hold = 0) {
   let t = 0;
   const placements = [];
   for (const i of inputs) {
     const minimum = Math.max(minScene, i.kind === 'title' ? MIN_TITLE : MIN_SCENE);
-    const duration = Math.max(minimum, LEAD_IN + i.narrationDuration + TAIL);
+    const duration = Math.max(minimum, LEAD_IN + i.narrationDuration + TAIL + hold);
     placements.push({ beatId: i.beatId, start: t, duration, narrationStart: t + LEAD_IN });
     t += duration;
   }
@@ -61,16 +61,16 @@ export function captions(narration, start, duration, maxChars = 40) {
 }
 
 /** Estimated timeline length from word counts (before any audio exists). */
-export function estimateTotal(script, kindOf, speed = 1, minScene = MIN_SCENE) {
+export function estimateTotal(script, kindOf, speed = 1, minScene = MIN_SCENE, hold = 0) {
   const inputs = script.scenes.map(s => ({ beatId: s.beatId, kind: kindOf(s.beatId), narrationDuration: wordCount(s.narration) / (WORDS_PER_SECOND * speed) }));
-  return layout(inputs, minScene).total;
+  return layout(inputs, minScene, hold).total;
 }
 
 /** Shorten the script without the language model: drop trailing sentences from the wordiest beats. */
-export function tighten(script, kindOf, cap, speed = 1, minScene = MIN_SCENE) {
+export function tighten(script, kindOf, cap, speed = 1, minScene = MIN_SCENE, hold = 0) {
   const sentences = t => (t.match(/[^.!?]+[.!?]+["')\]]*|[^.!?]+$/g) || []).map(x => x.trim()).filter(Boolean);
   let guard = 0, removed = 0;
-  while (estimateTotal(script, kindOf, speed, minScene) > cap * 0.97 && guard++ < 40) {
+  while (estimateTotal(script, kindOf, speed, minScene, hold) > cap * 0.97 && guard++ < 40) {
     const candidates = script.scenes.map(s => ({ s, n: sentences(s.narration) })).filter(c => c.n.length > 1);
     if (!candidates.length) break;
     candidates.sort((a, b) => wordCount(b.s.narration) - wordCount(a.s.narration));

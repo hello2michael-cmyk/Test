@@ -11,7 +11,7 @@ Reihenfolge: zuerst Mathematik (fertige 3D-Szenen), dann Deutsch (Satzglieder-Sz
 
 | Issue-Titel | Thema | Lehrplan-Std. | Video (min) | 3D-Szene | Plan |
 |---|---|---|---|---|---|
-| `Lektion: M6-1.1` | Bruchteile und Bruchzahlen | 13 | 6 | ✅ fraction | ✅ |
+| `Lektion: M6-1.1` | Bruchteile und Bruchzahlen | 13 | 15 | ✅ fraction, compare, numberline, percent | ✅ |
 | `Lektion: M6-1.2` | Dezimalbrüche | 11 | 6 | ✅ decimal | – |
 | `Lektion: M6-1.3` | Addition und Subtraktion rationaler Zahlen | 15 | 7 | ✅ fracadd | – |
 | `Lektion: M6-1.4` | Multiplikation und Division rationaler Zahlen | 14 | 7 | ✅ fracmul | – |
@@ -61,7 +61,7 @@ Reihenfolge: zuerst Mathematik (fertige 3D-Szenen), dann Deutsch (Satzglieder-Sz
 | `Lektion: D6-3.2` | Texte planen und schreiben | – | 5 | – | – |
 | `Lektion: D6-3.3` | Texte überarbeiten | – | 5 | – | – |
 | `Lektion: D6-4.1` | Sprachliche Verständigung untersuchen | – | 5 | – | – |
-| `Lektion: D6-4.2` | Sprachliche Strukturen untersuchen | – | 7 | ✅ sentence | ✅ |
+| `Lektion: D6-4.2` | Sprachliche Strukturen untersuchen | – | 13 | ✅ sentence | ✅ |
 | `Lektion: D6-4.3` | Richtig schreiben | – | 5 | – | – |
 
 ## Englisch (1. Fremdsprache) (4 Wochenstunden)

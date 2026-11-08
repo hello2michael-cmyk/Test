@@ -112,6 +112,8 @@ if (lesson) {
   settings.targetDuration = Math.round(minutes * 60); settings.maxDuration = Math.min(600, Math.round(minutes * 60 * 1.08));
   settings.lesson = { id: lesson.topic.id, title: lesson.topic.title, subject: lesson.subject.name, scene: lesson.subject.id === 'mathematik' && lesson.topic.scene ? lesson.topic.scene : null, minWords: 32 };
   if (inputPlan && inputPlan.settings) { if (inputPlan.settings.targetDuration) settings.targetDuration = inputPlan.settings.targetDuration; if (inputPlan.settings.maxDuration) settings.maxDuration = inputPlan.settings.maxDuration; }
+  settings.speed = parseFloat(env('SPEED', '0.92')) || 0.92;   // children: a slightly slower voice
+  settings.sceneHoldSeconds = parseFloat(env('SCENE_HOLD_SECONDS', '1.2')) || 0;   // the picture stays a moment after the words
   settings.footageProvider = env('FOOTAGE', 'none');          // lessons are 3D scenes and graphics; no stock clips of offices
   settings.aiClipBudget = parseInt(env('AI_CLIPS', '0'), 10);
   settings.cta = env('CTA', 'Abonniere für die nächste Lektion');
@@ -258,7 +260,7 @@ if (ttsSpec.startsWith('piper:') && phase !== 'plan') {
 function synthPiper(text, speed) {
   const t = String(text || '').replace(/\s+/g, ' ').trim();
   if (!t) return { b64: '', sampleRate: piper.sampleRate };
-  const out = execFileSync('piper', ['-m', piper.model, '--output-raw', '--length-scale', String(1 / Math.max(0.6, Math.min(1.6, speed || 1))), '--sentence-silence', '0.25'], { input: t, maxBuffer: 256 * 1024 * 1024, stdio: ['pipe', 'pipe', 'ignore'] });
+  const out = execFileSync('piper', ['-m', piper.model, '--output-raw', '--length-scale', String(1 / Math.max(0.6, Math.min(1.6, speed || 1))), '--sentence-silence', String(process.env.SENTENCE_SILENCE || (lessonId ? '0.5' : '0.25'))], { input: t, maxBuffer: 256 * 1024 * 1024, stdio: ['pipe', 'pipe', 'ignore'] });
   return { b64: out.toString('base64'), sampleRate: piper.sampleRate };
 }
 let finished = false;

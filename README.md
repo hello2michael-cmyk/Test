@@ -22,7 +22,9 @@ in Claude Code on your Claude subscription.
 1. In a Claude Code session on this repository say, for example, *"Plane Lektion M6-1.2"*. Claude writes the lesson in German for
    11-year-olds as `klasse6/lessons/M6-1.2.lesson.json`: chapters, scenes with narration of at least 32 words (so every scene holds ten
    seconds or more), on-screen titles, and for the maths topics ready-made **3D scenes** with real numbers (`math3d`, with an optional
-   `segment` that plays exactly the part of the animation the narration talks about).
+   `segment` that plays exactly the part of the animation the narration talks about). Every chapter has at least one **question
+   scene**: the question is spoken and shown, a visible countdown gives the child eight to twelve seconds to think, then the answer
+   follows. The voice is slightly slower and every picture stays a moment after the words end.
 2. A **second Claude model** (a Sonnet subagent) reviews the file: every number recomputed, picture against words for each 3D scene,
    Lehrplan scope and Bavarian Fachbegriffe, children's language. Blocking findings go back to the writer until none remain; the review
    is recorded in the lesson file.

@@ -1,9 +1,9 @@
 {
  "id": "current",
- "prompt": "Lektion M6-1.1 „Bruchteile und Bruchzahlen“ (Mathematik, Klasse 6 Gymnasium Bayern), aus klasse6/lessons/M6-1.1.lesson.json. 7 Minuten, auf Deutsch, für Kinder von etwa 11 Jahren.",
+ "prompt": "Lektion M6-1.1 „Bruchteile und Bruchzahlen“ (Mathematik, Klasse 6 Gymnasium Bayern), aus klasse6/lessons/M6-1.1.lesson.json. 15 Minuten, auf Deutsch, für Kinder von etwa 11 Jahren.",
  "attempts": 0,
- "createdAt": 1794162326528,
- "updatedAt": 1794162326528,
+ "createdAt": 1794167222021,
+ "updatedAt": 1794167222021,
  "stage": "plan",
  "mode": "course",
  "durationApplied": true,
@@ -19,7 +19,8 @@
   "burnInCaptions": true,
   "showProgressBar": true,
   "voice": "af_heart",
-  "speed": 1,
+  "speed": 0.92,
+  "sceneHoldSeconds": 1.2,
   "musicVolume": 0.18,
   "ambientBed": true,
   "channelName": "",
@@ -27,8 +28,8 @@
   "footageProvider": "none",
   "aiClipBudget": 0,
   "minSceneSeconds": 10,
-  "maxDuration": 513,
-  "targetDuration": 446,
+  "maxDuration": 600,
+  "targetDuration": 928,
   "lesson": {
    "id": "M6-1.1",
    "title": "Bruchteile und Bruchzahlen",
@@ -118,147 +119,245 @@
     "id": 1,
     "chapterId": 1,
     "purpose": "hook",
-    "keyPoint": "Stell dir vor, du bestellst mit Freunden eine Pizza. Jeder bekommt ein Stück. Aber wie viel von der ganzen Pizza ist das eigentlich? Genau dafür gibt es Brüche. In dieser Lektion lernst du, was ein Bruch ist, wie du ihn liest, wie du ihn veränderst und wie du Brüche vergleichst.",
+    "keyPoint": "Stell dir vor, du bestellst mit Freunden eine Pizza. Jeder bekommt ein Stück. Aber wie viel von der ganzen Pizza ist das eigentlich? Genau dafür gibt es Brüche. In dieser Lektion lernst du in Ruhe, was ein Bruch ist, wie du ihn liest, wie du ihn veränderst und wie du Brüche vergleichst. Zwischendurch stelle ich dir Fragen. Dann hast du ein paar Sekunden Zeit zum Nachdenken.",
     "suggestedVisual": "title"
    },
    {
     "id": 2,
     "chapterId": 1,
     "purpose": "explain",
-    "keyPoint": "Hier ist eine ganze Pizza. Wir sagen dazu: ein Ganzes. Jetzt schneiden wir sie in acht gleich große Stücke. Das Wort gleich groß ist wichtig. Nur wenn alle Stücke gleich groß sind, können wir mit Brüchen rechnen. Jedes Stück ist dann ein Achtel der ganzen Pizza.",
+    "keyPoint": "Hier ist eine ganze Pizza. Wir sagen dazu: ein Ganzes. Jetzt schneiden wir sie in acht gleich große Stücke. Das Wort gleich groß ist wichtig. Nur wenn alle Stücke gleich groß sind, können wir mit Brüchen rechnen. Jedes Stück ist dann ein Achtel der ganzen Pizza. Acht Achtel zusammen sind wieder die ganze Pizza.",
     "suggestedVisual": "math3d"
    },
    {
     "id": 3,
     "chapterId": 1,
     "purpose": "explain",
-    "keyPoint": "Du nimmst dir drei von den acht Stücken. Das schreibt man als Bruch: drei Achtel. Oben steht die Drei, so viele Stücke hast du. Unten steht die Acht, in so viele Stücke wurde die Pizza geteilt. Der Strich dazwischen heißt Bruchstrich. Drei Achtel der Pizza gehören jetzt dir.",
+    "keyPoint": "Du nimmst dir drei von den acht Stücken. Das schreibt man als Bruch: drei Achtel. Oben steht die Drei, so viele Stücke hast du. Unten steht die Acht, in so viele Stücke wurde die Pizza geteilt. Der Strich dazwischen heißt Bruchstrich. Drei Achtel der Pizza gehören jetzt dir. Fünf Achtel bleiben für die anderen übrig.",
     "suggestedVisual": "math3d"
    },
    {
     "id": 4,
     "chapterId": 1,
     "purpose": "explain",
-    "keyPoint": "Ein Bruch beschreibt also einen Anteil von einem Ganzen. Das Ganze kann alles Mögliche sein: eine Pizza, eine Tafel Schokolade, eine Stunde oder deine ganze Klasse. Wichtig ist nur, dass du weißt, was das Ganze ist und in wie viele gleich große Teile es geteilt wird.",
-    "suggestedVisual": "bullets"
+    "keyPoint": "Noch ein Beispiel. Diese Pizza ist in sechs gleich große Stücke geschnitten. Fünf Stücke werden gegessen. Welcher Bruch ist das? Unten steht die Sechs, denn es gibt sechs Stücke. Oben steht die Fünf, denn fünf Stücke sind weg. Fünf Sechstel der Pizza sind gegessen. Ein Sechstel bleibt übrig.",
+    "suggestedVisual": "math3d"
    },
    {
     "id": 5,
-    "chapterId": 2,
-    "purpose": "chapter",
-    "keyPoint": "Jeder Bruch hat zwei Zahlen mit eigenen Namen. Die Zahl oben heißt Zähler, denn sie zählt die Stücke. Die Zahl unten heißt Nenner, denn sie nennt, wie groß die Stücke sind: Achtel, Viertel oder Zehntel. Merk dir den Spruch: Der Zähler zählt, der Nenner nennt.",
-    "suggestedVisual": "chapter"
+    "chapterId": 1,
+    "purpose": "explain",
+    "keyPoint": "Jetzt bist du dran. Eine Pizza ist in zehn gleich große Stücke geschnitten. Du nimmst sieben Stücke. Welcher Bruch ist das? Überlege: Welche Zahl kommt nach oben, welche nach unten? Du hast ein paar Sekunden Zeit. Wenn du länger brauchst, halte das Video einfach an.",
+    "suggestedVisual": "question"
    },
    {
     "id": 6,
-    "chapterId": 2,
+    "chapterId": 1,
     "purpose": "explain",
-    "keyPoint": "Eine Pizza ist in vier gleich große Stücke geschnitten. Du isst eins davon. Welcher Bruch ist das? Der Nenner ist vier, denn es gibt vier Stücke. Der Zähler ist eins, denn du hast ein Stück gegessen. Du hast also ein Viertel der Pizza gegessen. Bei einer Tafel Schokolade mit vier Riegeln wäre es genauso.",
-    "suggestedVisual": "math3d"
+    "keyPoint": "Die Antwort: sieben Zehntel. Oben steht die Sieben, denn du hast sieben Stücke. Unten steht die Zehn, denn die Pizza wurde in zehn Stücke geteilt. Wenn du das herausgefunden hast, sehr gut. Wenn nicht, ist das kein Problem. Merke dir: Ein Bruch ist ein Anteil von einem Ganzen. Das Ganze kann eine Pizza sein, eine Tafel Schokolade, eine Stunde oder deine ganze Klasse.",
+    "suggestedVisual": "bullets"
    },
    {
     "id": 7,
     "chapterId": 2,
-    "purpose": "explain",
-    "keyPoint": "Oft kennst du das Ganze als Zahl und sollst den Bruchteil ausrechnen. Drei Viertel von zwanzig Euro: Teile die zwanzig Euro zuerst durch den Nenner vier. Das sind fünf Euro für ein Viertel. Dann nimm das mal den Zähler drei. Drei Viertel von zwanzig Euro sind fünfzehn Euro.",
-    "suggestedVisual": "bullets"
+    "purpose": "chapter",
+    "keyPoint": "Jeder Bruch hat zwei Zahlen mit eigenen Namen. Die Zahl oben heißt Zähler, denn sie zählt die Stücke. Die Zahl unten heißt Nenner, denn sie nennt, wie groß die Stücke sind: Achtel, Viertel oder Zehntel. Merk dir den Spruch: Der Zähler zählt, der Nenner nennt. Schauen wir uns das an einem ganz einfachen Bruch an.",
+    "suggestedVisual": "chapter"
    },
    {
     "id": 8,
     "chapterId": 2,
     "purpose": "explain",
-    "keyPoint": "Es geht auch rückwärts. Zwei Fünftel einer Wanderstrecke sind sechs Kilometer. Wie lang ist die ganze Strecke? Wenn zwei Fünftel sechs Kilometer sind, ist ein Fünftel drei Kilometer. Fünf Fünftel sind das Ganze: fünf mal drei Kilometer, also fünfzehn Kilometer. Probier es selbst: Drei Viertel sind neun Kilometer. Wie lang ist das Ganze?",
-    "suggestedVisual": "bullets"
+    "keyPoint": "Eine Pizza ist in vier gleich große Stücke geschnitten. Du isst eins davon. Welcher Bruch ist das? Der Nenner ist vier, denn es gibt vier Stücke. Der Zähler ist eins, denn du hast ein Stück gegessen. Du hast also ein Viertel der Pizza gegessen. Bei einer Tafel Schokolade mit vier Riegeln wäre es genauso: ein Riegel ist ein Viertel der Tafel.",
+    "suggestedVisual": "math3d"
    },
    {
     "id": 9,
-    "chapterId": 3,
-    "purpose": "chapter",
-    "keyPoint": "Zuerst die Lösung von eben: Drei Viertel sind neun Kilometer, also ist ein Viertel drei Kilometer, und das Ganze sind zwölf Kilometer. Jetzt kommt ein Trick, den du in der Bruchrechnung ständig brauchst. Ein und derselbe Anteil kann ganz unterschiedlich aussehen. Drei Achtel, sechs Sechzehntel oder zwölf Zweiunddreißigstel: Das ist immer gleich viel Pizza. Das Verfahren dazu heißt Erweitern und Kürzen.",
-    "suggestedVisual": "chapter"
+    "chapterId": 2,
+    "purpose": "explain",
+    "keyPoint": "Oft kennst du das Ganze als Zahl und sollst den Bruchteil ausrechnen. Drei Viertel von zwanzig Euro: Teile die zwanzig Euro zuerst durch den Nenner vier. Das sind fünf Euro für ein Viertel. Dann nimm das mal den Zähler drei. Drei Viertel von zwanzig Euro sind fünfzehn Euro. Die Regel lautet: erst durch den Nenner teilen, dann mal den Zähler nehmen.",
+    "suggestedVisual": "bullets"
    },
    {
     "id": 10,
+    "chapterId": 2,
+    "purpose": "explain",
+    "keyPoint": "Noch ein Beispiel mit der Zeit. Zwei Fünftel von dreißig Minuten: Teile die dreißig Minuten durch den Nenner fünf. Ein Fünftel sind sechs Minuten. Dann mal den Zähler zwei: zwei Fünftel sind zwölf Minuten. Siehst du, es ist immer dieselbe Regel. Erst durch den Nenner, dann mal den Zähler.",
+    "suggestedVisual": "bullets"
+   },
+   {
+    "id": 11,
+    "chapterId": 2,
+    "purpose": "explain",
+    "keyPoint": "Jetzt du. In einem Korb liegen zwölf Äpfel. Drei Viertel davon sind rot. Wie viele rote Äpfel sind das? Rechne in zwei Schritten: erst durch den Nenner, dann mal den Zähler. Du hast ein paar Sekunden.",
+    "suggestedVisual": "question"
+   },
+   {
+    "id": 12,
+    "chapterId": 2,
+    "purpose": "explain",
+    "keyPoint": "Die Antwort: neun Äpfel. Zwölf geteilt durch vier ist drei, das ist ein Viertel. Drei mal drei ist neun, das sind drei Viertel. Neun von den zwölf Äpfeln sind also rot. Wenn du das herausgefunden hast, sehr gut. Falls nicht: Rechne noch einmal langsam mit, erst teilen, dann malnehmen.",
+    "suggestedVisual": "bullets"
+   },
+   {
+    "id": 13,
+    "chapterId": 2,
+    "purpose": "explain",
+    "keyPoint": "Es geht auch rückwärts. Zwei Fünftel einer Wanderstrecke sind sechs Kilometer. Wie lang ist die ganze Strecke? Wenn zwei Fünftel sechs Kilometer sind, ist ein Fünftel die Hälfte davon, also drei Kilometer. Das Ganze sind fünf Fünftel: fünf mal drei Kilometer, also fünfzehn Kilometer. Erst ein Teil ausrechnen, dann mal den Nenner.",
+    "suggestedVisual": "bullets"
+   },
+   {
+    "id": 14,
+    "chapterId": 3,
+    "purpose": "chapter",
+    "keyPoint": "Jetzt kommt ein Trick, den du in der Bruchrechnung ständig brauchst. Ein und derselbe Anteil kann ganz unterschiedlich aussehen. Drei Achtel, sechs Sechzehntel oder zwölf Zweiunddreißigstel: Das ist immer gleich viel Pizza. Das Verfahren dazu heißt Erweitern und Kürzen. Wir schauen es uns langsam an der Pizza an.",
+    "suggestedVisual": "chapter"
+   },
+   {
+    "id": 15,
     "chapterId": 3,
     "purpose": "explain",
     "keyPoint": "Schau auf deine drei Achtel. Jetzt schneiden wir jedes Stück der Pizza noch einmal in der Mitte durch. Aus acht Stücken werden sechzehn, und aus deinen drei Stücken werden sechs. Du hast jetzt sechs Sechzehntel. Aber hast du mehr Pizza? Nein. Es ist genau dieselbe Menge, nur in kleineren Stücken.",
     "suggestedVisual": "math3d"
    },
    {
-    "id": 11,
-    "chapterId": 3,
-    "purpose": "explain",
-    "keyPoint": "Das nennt man Erweitern. Zähler und Nenner werden mit derselben Zahl multipliziert, hier mit der Zwei. Der Wert des Bruchs bleibt dabei gleich. Am Streifen siehst du es noch einmal: Drei von acht Feldern sind genauso viel wie sechs von sechzehn Feldern. Nur die Felder sind kleiner geworden.",
-    "suggestedVisual": "math3d"
-   },
-   {
-    "id": 12,
-    "chapterId": 3,
-    "purpose": "explain",
-    "keyPoint": "Kürzen ist der Weg zurück. Diese Pizza hat zwölf Stücke, und du nimmst vier davon: vier Zwölftel. Zähler und Nenner kannst du beide durch vier teilen. Dann steht da ein Drittel. Vier Zwölftel und ein Drittel sind gleich viel. Ein Bruch, den man nicht weiter kürzen kann, heißt vollständig gekürzt.",
-    "suggestedVisual": "math3d"
-   },
-   {
-    "id": 13,
-    "chapterId": 3,
-    "purpose": "explain",
-    "keyPoint": "Merke dir: Beim Erweitern multiplizierst du Zähler und Nenner mit derselben Zahl. Beim Kürzen teilst du beide durch dieselbe Zahl. Der Anteil bleibt immer gleich, nur die Stücke werden kleiner oder größer. Probier es gleich aus: Kürze sechs Achtel so weit wie möglich. Die Lösung hörst du im nächsten Kapitel.",
-    "suggestedVisual": "bullets"
-   },
-   {
-    "id": 14,
-    "chapterId": 4,
-    "purpose": "chapter",
-    "keyPoint": "Sechs Achtel gekürzt sind drei Viertel: Das war die Lösung der Übung. Drei Viertel ist vollständig gekürzt, denn drei und vier haben keinen gemeinsamen Teiler außer der Eins. Jetzt vergleichen wir Brüche. Bei gleichem Nenner ist es leicht: Fünf Achtel sind mehr als drei Achtel, weil fünf Stücke mehr sind als drei. Bei verschiedenen Nennern brauchen wir einen Trick.",
-    "suggestedVisual": "chapter"
-   },
-   {
-    "id": 15,
-    "chapterId": 4,
-    "purpose": "explain",
-    "keyPoint": "Der Trick heißt Hauptnenner. Wir erweitern beide Brüche so, dass sie denselben Nenner haben. Zwei Drittel und drei Viertel: Der kleinste gemeinsame Nenner von drei und vier ist zwölf. Zwei Drittel sind acht Zwölftel, drei Viertel sind neun Zwölftel. Also sind drei Viertel mehr, aber nur um ein Zwölftel.",
-    "suggestedVisual": "bullets"
-   },
-   {
     "id": 16,
-    "chapterId": 4,
+    "chapterId": 3,
     "purpose": "explain",
-    "keyPoint": "Hier siehst du zwei Streifen: oben ein Drittel, unten ein Viertel. Beide Streifen werden in Zwölftel geteilt. Ein Drittel sind vier Zwölftel, ein Viertel sind drei Zwölftel. Jetzt sind alle Stücke gleich groß, und du siehst sofort: Ein Drittel ist größer als ein Viertel, um genau ein Zwölftel.",
+    "keyPoint": "Das nennt man Erweitern. Zähler und Nenner werden mit derselben Zahl multipliziert, hier mit der Zwei. Drei mal zwei ist sechs, acht mal zwei ist sechzehn. Der Wert des Bruchs bleibt gleich. Am Streifen siehst du es noch einmal: Drei von acht Feldern sind genauso viel wie sechs von sechzehn Feldern.",
     "suggestedVisual": "math3d"
    },
    {
     "id": 17,
-    "chapterId": 4,
+    "chapterId": 3,
     "purpose": "explain",
-    "keyPoint": "Brüche begegnen dir auch als Prozent. Prozent heißt von Hundert. Das Hunderterfeld hat hundert Felder. Fünfundzwanzig davon sind fünfundzwanzig Prozent, und das ist genau ein Viertel. Bei fünfundzwanzig Prozent Rabatt bekommst du also ein Viertel geschenkt. Fünfzig Prozent sind die Hälfte.",
-    "suggestedVisual": "math3d"
-   },
-   {
-    "id": 18,
-    "chapterId": 5,
-    "purpose": "chapter",
-    "keyPoint": "Bisher waren Brüche Stücke von Pizza oder Schokolade. Aber ein Bruch ist auch einfach eine Zahl, genau wie drei oder zehn. Auf der Zahlengeraden liegt ein Halb genau in der Mitte zwischen null und eins. Drei Viertel liegen zwischen ein Halb und eins, näher an der Eins.",
-    "suggestedVisual": "chapter"
-   },
-   {
-    "id": 19,
-    "chapterId": 5,
-    "purpose": "explain",
-    "keyPoint": "Die Zahlengerade hört bei null nicht auf. Links von der Null liegen die negativen Zahlen, zum Beispiel Temperaturen unter null. Auch Brüche können negativ sein. Minus ein Halb liegt genau in der Mitte zwischen null und minus eins. Und wo liegt minus drei Viertel? Zwischen minus ein Halb und minus eins, näher an der minus eins.",
+    "keyPoint": "Du kannst mit jeder Zahl erweitern. Zwei Drittel mit drei erweitert: zwei mal drei ist sechs, drei mal drei ist neun, also sechs Neuntel. Ein Viertel mit fünf erweitert: eins mal fünf ist fünf, vier mal fünf ist zwanzig, also fünf Zwanzigstel. Beide Brüche sehen anders aus, aber der Anteil ist jedes Mal gleich geblieben.",
     "suggestedVisual": "bullets"
    },
    {
-    "id": 20,
-    "chapterId": 5,
+    "id": 18,
+    "chapterId": 3,
     "purpose": "explain",
-    "keyPoint": "Die Zahlen eins, zwei, drei und so weiter heißen natürliche Zahlen. Nimmst du die Null dazu, schreibt man N mit einer kleinen Null. Nimmst du auch die negativen Zahlen dazu, hast du die ganzen Zahlen. Nimmst du alle Brüche dazu, hast du die rationalen Zahlen. Bei den ganzen Zahlen hat jede Zahl einen Nachfolger: Nach drei kommt vier. Bei Brüchen gibt es das nicht. Zwischen zwei Brüchen liegen immer unendlich viele weitere.",
+    "keyPoint": "Kürzen ist der Weg zurück. Diese Pizza hat zwölf Stücke, und du nimmst vier davon: vier Zwölftel. Zähler und Nenner kannst du beide durch vier teilen. Vier durch vier ist eins, zwölf durch vier ist drei. Dann steht da ein Drittel. Vier Zwölftel und ein Drittel sind gleich viel. Ein Bruch, den man nicht weiter kürzen kann, heißt vollständig gekürzt.",
+    "suggestedVisual": "math3d"
+   },
+   {
+    "id": 19,
+    "chapterId": 3,
+    "purpose": "explain",
+    "keyPoint": "Jetzt du. Kürze sechs Achtel so weit wie möglich. Überlege: Durch welche Zahl kannst du die Sechs und die Acht beide teilen? Und geht es danach noch weiter? Du hast ein paar Sekunden.",
+    "suggestedVisual": "question"
+   },
+   {
+    "id": 20,
+    "chapterId": 3,
+    "purpose": "explain",
+    "keyPoint": "Die Antwort: drei Viertel. Sechs und acht kannst du beide durch zwei teilen: sechs durch zwei ist drei, acht durch zwei ist vier. Drei Viertel lässt sich nicht weiter kürzen, denn drei und vier haben keinen gemeinsamen Teiler außer der Eins. Merke dir: Beim Erweitern multiplizierst du Zähler und Nenner mit derselben Zahl, beim Kürzen teilst du beide durch dieselbe Zahl.",
     "suggestedVisual": "bullets"
    },
    {
     "id": 21,
+    "chapterId": 4,
+    "purpose": "chapter",
+    "keyPoint": "Jetzt vergleichen wir Brüche. Bei gleichem Nenner ist es leicht: Fünf Achtel sind mehr als drei Achtel, weil fünf Stücke mehr sind als drei. Aber was ist mehr: zwei Drittel oder drei Viertel? Die Stücke sind verschieden groß. Dafür brauchen wir einen Trick, und den siehst du jetzt an zwei Pizzen.",
+    "suggestedVisual": "chapter"
+   },
+   {
+    "id": 22,
+    "chapterId": 4,
+    "purpose": "explain",
+    "keyPoint": "Links eine Pizza, von der zwei Drittel gegessen sind. Rechts eine gleich große Pizza, von der drei Viertel gegessen sind. Welche Portion ist größer? Mit dem Auge ist das schwer. Der Trick heißt Hauptnenner: Wir schneiden beide Pizzen so, dass alle Stücke gleich groß sind. Dafür suchen wir die kleinste Zahl, in die drei und vier beide passen. Das ist die Zwölf. Also schneiden wir beide Pizzen in zwölf Stücke.",
+    "suggestedVisual": "math3d"
+   },
+   {
+    "id": 23,
+    "chapterId": 4,
+    "purpose": "explain",
+    "keyPoint": "Zwei Drittel sind acht Zwölftel, denn wir erweitern mit vier. Drei Viertel sind neun Zwölftel, denn wir erweitern mit drei. Jetzt haben beide Pizzen gleich große Stücke, und wir zählen einfach: Neun Stücke sind mehr als acht Stücke. Drei Viertel sind also größer als zwei Drittel, aber nur um ein einziges Zwölftel.",
+    "suggestedVisual": "math3d"
+   },
+   {
+    "id": 24,
+    "chapterId": 4,
+    "purpose": "explain",
+    "keyPoint": "Noch ein Beispiel: ein Halb oder zwei Fünftel? Der Hauptnenner von zwei und fünf ist zehn. Ein Halb mit fünf erweitert sind fünf Zehntel. Zwei Fünftel mit zwei erweitert sind vier Zehntel. Fünf Stücke sind mehr als vier Stücke. Ein Halb ist also größer als zwei Fünftel. Der Weg ist immer gleich: Hauptnenner finden, erweitern, Zähler vergleichen.",
+    "suggestedVisual": "math3d"
+   },
+   {
+    "id": 25,
+    "chapterId": 4,
+    "purpose": "explain",
+    "keyPoint": "Jetzt du. Was ist mehr: drei Fünftel oder zwei Drittel? Der Hauptnenner von fünf und drei ist fünfzehn. Erweitere beide Brüche auf Fünfzehntel und vergleiche die Zähler. Du hast ein paar Sekunden Zeit. Halte das Video an, wenn du mehr brauchst.",
+    "suggestedVisual": "question"
+   },
+   {
+    "id": 26,
+    "chapterId": 4,
+    "purpose": "explain",
+    "keyPoint": "Die Antwort: Drei Fünftel sind neun Fünfzehntel, denn drei mal drei ist neun und fünf mal drei ist fünfzehn. Zwei Drittel sind zehn Fünfzehntel, denn zwei mal fünf ist zehn und drei mal fünf ist fünfzehn. Zehn ist mehr als neun. Zwei Drittel sind also größer als drei Fünftel, um ein Fünfzehntel.",
+    "suggestedVisual": "math3d"
+   },
+   {
+    "id": 27,
+    "chapterId": 4,
+    "purpose": "explain",
+    "keyPoint": "Brüche begegnen dir auch als Prozent. Prozent heißt von Hundert. Das Hunderterfeld hat hundert Felder. Fünfundzwanzig davon sind fünfundzwanzig Prozent, und das ist genau ein Viertel, denn fünfundzwanzig Hundertstel gekürzt durch fünfundzwanzig ergibt ein Viertel. Bei fünfundzwanzig Prozent Rabatt bekommst du also ein Viertel geschenkt. Fünfzig Prozent sind die Hälfte.",
+    "suggestedVisual": "math3d"
+   },
+   {
+    "id": 28,
+    "chapterId": 5,
+    "purpose": "chapter",
+    "keyPoint": "Bisher waren Brüche Stücke von Pizza oder Schokolade. Aber ein Bruch ist auch einfach eine Zahl, genau wie drei oder zehn. Und jede Zahl hat ihren festen Platz auf der Zahlengeraden. Schauen wir uns an, wo die Brüche zwischen null und eins wohnen.",
+    "suggestedVisual": "chapter"
+   },
+   {
+    "id": 29,
+    "chapterId": 5,
+    "purpose": "explain",
+    "keyPoint": "Das ist die Zahlengerade. Links die Null, rechts die Eins. Ein Viertel liegt ein Viertel des Weges von null bis eins. Ein Halb liegt genau in der Mitte. Drei Viertel liegen zwischen ein Halb und eins, näher an der Eins. Je größer der Bruch, desto weiter rechts steht er.",
+    "suggestedVisual": "math3d"
+   },
+   {
+    "id": 30,
+    "chapterId": 5,
+    "purpose": "explain",
+    "keyPoint": "Die Zahlengerade hört bei null nicht auf. Links von der Null liegen die negativen Zahlen, zum Beispiel Temperaturen unter null. Auch Brüche können negativ sein. Rechts von der Null liegt plus ein Halb, und spiegelbildlich links von der Null liegt minus ein Halb: genau in der Mitte zwischen null und minus eins. Minus ein halbes Grad ist also ein bisschen kälter als null Grad.",
+    "suggestedVisual": "math3d"
+   },
+   {
+    "id": 31,
+    "chapterId": 5,
+    "purpose": "explain",
+    "keyPoint": "Jetzt du. Zwischen welchen beiden ganzen Zahlen liegt minus drei Viertel? Und liegt es näher an der Null oder näher an der minus eins? Denk an den Spiegel: Wo liegt plus drei Viertel, und was passiert beim Spiegeln an der Null? Du hast ein paar Sekunden Zeit.",
+    "suggestedVisual": "question"
+   },
+   {
+    "id": 32,
+    "chapterId": 5,
+    "purpose": "explain",
+    "keyPoint": "Die Antwort: Minus drei Viertel liegt zwischen minus eins und null, und zwar näher an der minus eins. Von der minus eins ist es nur ein Viertel entfernt, von der Null aber drei Viertel. Es liegt genau in der Mitte zwischen minus eins und minus ein Halb. Auf der Zahlengeraden siehst du es: Plus drei Viertel rechts, minus drei Viertel spiegelbildlich links.",
+    "suggestedVisual": "math3d"
+   },
+   {
+    "id": 33,
+    "chapterId": 5,
+    "purpose": "explain",
+    "keyPoint": "Zum Schluss ordnen wir die Zahlen. Die Zahlen eins, zwei, drei und so weiter heißen natürliche Zahlen, kurz N. Nimmst du die Null dazu, schreibt man N mit einer kleinen Null. Nimmst du auch die negativen Zahlen dazu, hast du die ganzen Zahlen, kurz Z. Bei den ganzen Zahlen kommt nach jeder Zahl die nächste: Nach drei kommt vier.",
+    "suggestedVisual": "bullets"
+   },
+   {
+    "id": 34,
+    "chapterId": 5,
+    "purpose": "explain",
+    "keyPoint": "Nimmst du zu den ganzen Zahlen alle Brüche dazu, positive und negative, dann hast du die rationalen Zahlen, kurz Q. Bei den Brüchen gibt es keine nächste Zahl: Zwischen ein Halb und drei Viertel liegt fünf Achtel, dazwischen liegt wieder ein Bruch, und so weiter. Zwischen zwei Brüchen liegen immer unendlich viele weitere Brüche.",
+    "suggestedVisual": "bullets"
+   },
+   {
+    "id": 35,
     "chapterId": 5,
     "purpose": "takeaway",
-    "keyPoint": "Das war die Lektion zu Bruchteilen und Bruchzahlen. Ein Bruch ist ein Anteil von einem Ganzen. Der Zähler zählt die Stücke, der Nenner nennt ihre Größe. Erweitern und Kürzen ändern den Wert nicht, und mit dem Hauptnenner kannst du jeden Bruch vergleichen. In der nächsten Lektion geht es um Dezimalbrüche. Bis dann.",
+    "keyPoint": "Das war die Lektion zu Bruchteilen und Bruchzahlen. Ein Bruch ist ein Anteil von einem Ganzen. Der Zähler zählt die Stücke, der Nenner nennt ihre Größe. Erweitern und Kürzen ändern den Wert nicht, und mit dem Hauptnenner kannst du jeden Bruch vergleichen. Brüche sind Zahlen mit einem festen Platz auf der Zahlengeraden, auch die negativen. In der nächsten Lektion geht es um Dezimalbrüche. Bis dann.",
     "suggestedVisual": "outro"
    }
   ]
@@ -266,8 +365,11 @@
  "chapterBeats": {
   "1": [
    {
-    "narration": "Stell dir vor, du bestellst mit Freunden eine Pizza. Jeder bekommt ein Stück. Aber wie viel von der ganzen Pizza ist das eigentlich? Genau dafür gibt es Brüche. In dieser Lektion lernst du, was ein Bruch ist, wie du ihn liest, wie du ihn veränderst und wie du Brüche vergleichst.",
+    "narration": "Stell dir vor, du bestellst mit Freunden eine Pizza. Jeder bekommt ein Stück. Aber wie viel von der ganzen Pizza ist das eigentlich? Genau dafür gibt es Brüche. In dieser Lektion lernst du in Ruhe, was ein Bruch ist, wie du ihn liest, wie du ihn veränderst und wie du Brüche vergleichst. Zwischendurch stelle ich dir Fragen. Dann hast du ein paar Sekunden Zeit zum Nachdenken.",
     "onScreenTitle": "Bruchteile und Bruchzahlen",
+    "question": null,
+    "think": null,
+    "hint": null,
     "emphasisWords": [],
     "kind": "title",
     "model": null,
@@ -293,8 +395,11 @@
     "stockQuery": null
    },
    {
-    "narration": "Hier ist eine ganze Pizza. Wir sagen dazu: ein Ganzes. Jetzt schneiden wir sie in acht gleich große Stücke. Das Wort gleich groß ist wichtig. Nur wenn alle Stücke gleich groß sind, können wir mit Brüchen rechnen. Jedes Stück ist dann ein Achtel der ganzen Pizza.",
+    "narration": "Hier ist eine ganze Pizza. Wir sagen dazu: ein Ganzes. Jetzt schneiden wir sie in acht gleich große Stücke. Das Wort gleich groß ist wichtig. Nur wenn alle Stücke gleich groß sind, können wir mit Brüchen rechnen. Jedes Stück ist dann ein Achtel der ganzen Pizza. Acht Achtel zusammen sind wieder die ganze Pizza.",
     "onScreenTitle": "Ein Ganzes in 8 Stücke",
+    "question": null,
+    "think": null,
+    "hint": null,
     "emphasisWords": [],
     "kind": "math3d",
     "model": null,
@@ -326,8 +431,11 @@
     "stockQuery": null
    },
    {
-    "narration": "Du nimmst dir drei von den acht Stücken. Das schreibt man als Bruch: drei Achtel. Oben steht die Drei, so viele Stücke hast du. Unten steht die Acht, in so viele Stücke wurde die Pizza geteilt. Der Strich dazwischen heißt Bruchstrich. Drei Achtel der Pizza gehören jetzt dir.",
+    "narration": "Du nimmst dir drei von den acht Stücken. Das schreibt man als Bruch: drei Achtel. Oben steht die Drei, so viele Stücke hast du. Unten steht die Acht, in so viele Stücke wurde die Pizza geteilt. Der Strich dazwischen heißt Bruchstrich. Drei Achtel der Pizza gehören jetzt dir. Fünf Achtel bleiben für die anderen übrig.",
     "onScreenTitle": "Drei Achtel",
+    "question": null,
+    "think": null,
+    "hint": null,
     "emphasisWords": [],
     "kind": "math3d",
     "model": null,
@@ -359,8 +467,77 @@
     "stockQuery": null
    },
    {
-    "narration": "Ein Bruch beschreibt also einen Anteil von einem Ganzen. Das Ganze kann alles Mögliche sein: eine Pizza, eine Tafel Schokolade, eine Stunde oder deine ganze Klasse. Wichtig ist nur, dass du weißt, was das Ganze ist und in wie viele gleich große Teile es geteilt wird.",
-    "onScreenTitle": "Was ist ein Bruch?",
+    "narration": "Noch ein Beispiel. Diese Pizza ist in sechs gleich große Stücke geschnitten. Fünf Stücke werden gegessen. Welcher Bruch ist das? Unten steht die Sechs, denn es gibt sechs Stücke. Oben steht die Fünf, denn fünf Stücke sind weg. Fünf Sechstel der Pizza sind gegessen. Ein Sechstel bleibt übrig.",
+    "onScreenTitle": "Noch ein Beispiel: fünf Sechstel",
+    "question": null,
+    "think": null,
+    "hint": null,
+    "emphasisWords": [],
+    "kind": "math3d",
+    "model": null,
+    "labels": null,
+    "scene": "fraction",
+    "params": {
+     "n": 6,
+     "k": 5
+    },
+    "segment": [
+     0,
+     13.9
+    ],
+    "formula": null,
+    "bullets": null,
+    "nodes": null,
+    "leftTitle": null,
+    "leftItems": null,
+    "rightTitle": null,
+    "rightItems": null,
+    "statValue": null,
+    "statLabel": null,
+    "code": null,
+    "codeLanguage": null,
+    "quote": null,
+    "attribution": null,
+    "hero": false,
+    "shot": null,
+    "stockQuery": null
+   },
+   {
+    "narration": "Jetzt bist du dran. Eine Pizza ist in zehn gleich große Stücke geschnitten. Du nimmst sieben Stücke. Welcher Bruch ist das? Überlege: Welche Zahl kommt nach oben, welche nach unten? Du hast ein paar Sekunden Zeit. Wenn du länger brauchst, halte das Video einfach an.",
+    "onScreenTitle": "Ein Stück vom Ganzen",
+    "question": "Eine Pizza ist in 10 Stücke geschnitten. Du nimmst 7 Stücke. Welcher Bruch ist das?",
+    "think": 8,
+    "hint": "Oben: Wie viele Stücke hast du? Unten: In wie viele Stücke wurde geteilt?",
+    "emphasisWords": [],
+    "kind": "question",
+    "model": null,
+    "labels": null,
+    "scene": null,
+    "params": null,
+    "segment": null,
+    "formula": null,
+    "bullets": null,
+    "nodes": null,
+    "leftTitle": null,
+    "leftItems": null,
+    "rightTitle": null,
+    "rightItems": null,
+    "statValue": null,
+    "statLabel": null,
+    "code": null,
+    "codeLanguage": null,
+    "quote": null,
+    "attribution": null,
+    "hero": false,
+    "shot": null,
+    "stockQuery": null
+   },
+   {
+    "narration": "Die Antwort: sieben Zehntel. Oben steht die Sieben, denn du hast sieben Stücke. Unten steht die Zehn, denn die Pizza wurde in zehn Stücke geteilt. Wenn du das herausgefunden hast, sehr gut. Wenn nicht, ist das kein Problem. Merke dir: Ein Bruch ist ein Anteil von einem Ganzen. Das Ganze kann eine Pizza sein, eine Tafel Schokolade, eine Stunde oder deine ganze Klasse.",
+    "onScreenTitle": "Antwort: sieben Zehntel",
+    "question": null,
+    "think": null,
+    "hint": null,
     "emphasisWords": [],
     "kind": "bullets",
     "model": null,
@@ -370,9 +547,9 @@
     "segment": null,
     "formula": null,
     "bullets": [
-     "Das Ganze: Pizza, Schokolade, eine Stunde",
-     "Gleich große Teile",
-     "Ein Anteil: einige dieser Teile"
+     "Oben 7: so viele Stücke hast du",
+     "Unten 10: in so viele Stücke geteilt",
+     "7/10 der Pizza"
     ],
     "nodes": null,
     "leftTitle": null,
@@ -392,8 +569,11 @@
   ],
   "2": [
    {
-    "narration": "Jeder Bruch hat zwei Zahlen mit eigenen Namen. Die Zahl oben heißt Zähler, denn sie zählt die Stücke. Die Zahl unten heißt Nenner, denn sie nennt, wie groß die Stücke sind: Achtel, Viertel oder Zehntel. Merk dir den Spruch: Der Zähler zählt, der Nenner nennt.",
+    "narration": "Jeder Bruch hat zwei Zahlen mit eigenen Namen. Die Zahl oben heißt Zähler, denn sie zählt die Stücke. Die Zahl unten heißt Nenner, denn sie nennt, wie groß die Stücke sind: Achtel, Viertel oder Zehntel. Merk dir den Spruch: Der Zähler zählt, der Nenner nennt. Schauen wir uns das an einem ganz einfachen Bruch an.",
     "onScreenTitle": "Zähler und Nenner",
+    "question": null,
+    "think": null,
+    "hint": null,
     "emphasisWords": [],
     "kind": "chapter",
     "model": null,
@@ -423,8 +603,11 @@
     "stockQuery": null
    },
    {
-    "narration": "Eine Pizza ist in vier gleich große Stücke geschnitten. Du isst eins davon. Welcher Bruch ist das? Der Nenner ist vier, denn es gibt vier Stücke. Der Zähler ist eins, denn du hast ein Stück gegessen. Du hast also ein Viertel der Pizza gegessen. Bei einer Tafel Schokolade mit vier Riegeln wäre es genauso.",
+    "narration": "Eine Pizza ist in vier gleich große Stücke geschnitten. Du isst eins davon. Welcher Bruch ist das? Der Nenner ist vier, denn es gibt vier Stücke. Der Zähler ist eins, denn du hast ein Stück gegessen. Du hast also ein Viertel der Pizza gegessen. Bei einer Tafel Schokolade mit vier Riegeln wäre es genauso: ein Riegel ist ein Viertel der Tafel.",
     "onScreenTitle": "Ein Viertel gegessen",
+    "question": null,
+    "think": null,
+    "hint": null,
     "emphasisWords": [],
     "kind": "math3d",
     "model": null,
@@ -456,8 +639,11 @@
     "stockQuery": null
    },
    {
-    "narration": "Oft kennst du das Ganze als Zahl und sollst den Bruchteil ausrechnen. Drei Viertel von zwanzig Euro: Teile die zwanzig Euro zuerst durch den Nenner vier. Das sind fünf Euro für ein Viertel. Dann nimm das mal den Zähler drei. Drei Viertel von zwanzig Euro sind fünfzehn Euro.",
+    "narration": "Oft kennst du das Ganze als Zahl und sollst den Bruchteil ausrechnen. Drei Viertel von zwanzig Euro: Teile die zwanzig Euro zuerst durch den Nenner vier. Das sind fünf Euro für ein Viertel. Dann nimm das mal den Zähler drei. Drei Viertel von zwanzig Euro sind fünfzehn Euro. Die Regel lautet: erst durch den Nenner teilen, dann mal den Zähler nehmen.",
     "onScreenTitle": "Drei Viertel von 20 Euro",
+    "question": null,
+    "think": null,
+    "hint": null,
     "emphasisWords": [],
     "kind": "bullets",
     "model": null,
@@ -487,8 +673,11 @@
     "stockQuery": null
    },
    {
-    "narration": "Es geht auch rückwärts. Zwei Fünftel einer Wanderstrecke sind sechs Kilometer. Wie lang ist die ganze Strecke? Wenn zwei Fünftel sechs Kilometer sind, ist ein Fünftel drei Kilometer. Fünf Fünftel sind das Ganze: fünf mal drei Kilometer, also fünfzehn Kilometer. Probier es selbst: Drei Viertel sind neun Kilometer. Wie lang ist das Ganze?",
-    "onScreenTitle": "Das Ganze finden",
+    "narration": "Noch ein Beispiel mit der Zeit. Zwei Fünftel von dreißig Minuten: Teile die dreißig Minuten durch den Nenner fünf. Ein Fünftel sind sechs Minuten. Dann mal den Zähler zwei: zwei Fünftel sind zwölf Minuten. Siehst du, es ist immer dieselbe Regel. Erst durch den Nenner, dann mal den Zähler.",
+    "onScreenTitle": "Zwei Fünftel von 30 Minuten",
+    "question": null,
+    "think": null,
+    "hint": null,
     "emphasisWords": [],
     "kind": "bullets",
     "model": null,
@@ -498,9 +687,107 @@
     "segment": null,
     "formula": null,
     "bullets": [
-     "2/5 = 6 km, also 1/5 = 3 km",
-     "Ganzes: 5 · 3 km = 15 km",
-     "Aufgabe: 3/4 sind 9 km. Das Ganze?"
+     "30 min : 5 = 6 min (ein Fünftel)",
+     "6 min · 2 = 12 min (zwei Fünftel)",
+     "Dieselbe Regel, andere Zahlen"
+    ],
+    "nodes": null,
+    "leftTitle": null,
+    "leftItems": null,
+    "rightTitle": null,
+    "rightItems": null,
+    "statValue": null,
+    "statLabel": null,
+    "code": null,
+    "codeLanguage": null,
+    "quote": null,
+    "attribution": null,
+    "hero": false,
+    "shot": null,
+    "stockQuery": null
+   },
+   {
+    "narration": "Jetzt du. In einem Korb liegen zwölf Äpfel. Drei Viertel davon sind rot. Wie viele rote Äpfel sind das? Rechne in zwei Schritten: erst durch den Nenner, dann mal den Zähler. Du hast ein paar Sekunden.",
+    "onScreenTitle": "Zähler und Nenner",
+    "question": "Wie viel sind 3/4 von 12 Äpfeln?",
+    "think": 10,
+    "hint": "Erst durch den Nenner 4 teilen, dann mal den Zähler 3.",
+    "emphasisWords": [],
+    "kind": "question",
+    "model": null,
+    "labels": null,
+    "scene": null,
+    "params": null,
+    "segment": null,
+    "formula": null,
+    "bullets": null,
+    "nodes": null,
+    "leftTitle": null,
+    "leftItems": null,
+    "rightTitle": null,
+    "rightItems": null,
+    "statValue": null,
+    "statLabel": null,
+    "code": null,
+    "codeLanguage": null,
+    "quote": null,
+    "attribution": null,
+    "hero": false,
+    "shot": null,
+    "stockQuery": null
+   },
+   {
+    "narration": "Die Antwort: neun Äpfel. Zwölf geteilt durch vier ist drei, das ist ein Viertel. Drei mal drei ist neun, das sind drei Viertel. Neun von den zwölf Äpfeln sind also rot. Wenn du das herausgefunden hast, sehr gut. Falls nicht: Rechne noch einmal langsam mit, erst teilen, dann malnehmen.",
+    "onScreenTitle": "Antwort: 9 Äpfel",
+    "question": null,
+    "think": null,
+    "hint": null,
+    "emphasisWords": [],
+    "kind": "bullets",
+    "model": null,
+    "labels": null,
+    "scene": null,
+    "params": null,
+    "segment": null,
+    "formula": null,
+    "bullets": [
+     "12 : 4 = 3 (ein Viertel)",
+     "3 · 3 = 9 (drei Viertel)",
+     "9 von 12 Äpfeln sind rot"
+    ],
+    "nodes": null,
+    "leftTitle": null,
+    "leftItems": null,
+    "rightTitle": null,
+    "rightItems": null,
+    "statValue": null,
+    "statLabel": null,
+    "code": null,
+    "codeLanguage": null,
+    "quote": null,
+    "attribution": null,
+    "hero": false,
+    "shot": null,
+    "stockQuery": null
+   },
+   {
+    "narration": "Es geht auch rückwärts. Zwei Fünftel einer Wanderstrecke sind sechs Kilometer. Wie lang ist die ganze Strecke? Wenn zwei Fünftel sechs Kilometer sind, ist ein Fünftel die Hälfte davon, also drei Kilometer. Das Ganze sind fünf Fünftel: fünf mal drei Kilometer, also fünfzehn Kilometer. Erst ein Teil ausrechnen, dann mal den Nenner.",
+    "onScreenTitle": "Rückwärts: das Ganze finden",
+    "question": null,
+    "think": null,
+    "hint": null,
+    "emphasisWords": [],
+    "kind": "bullets",
+    "model": null,
+    "labels": null,
+    "scene": null,
+    "params": null,
+    "segment": null,
+    "formula": null,
+    "bullets": [
+     "2/5 einer Strecke sind 6 km",
+     "1/5 = 6 km : 2 = 3 km",
+     "Ganzes = 5 · 3 km = 15 km"
     ],
     "nodes": null,
     "leftTitle": null,
@@ -520,8 +807,11 @@
   ],
   "3": [
    {
-    "narration": "Zuerst die Lösung von eben: Drei Viertel sind neun Kilometer, also ist ein Viertel drei Kilometer, und das Ganze sind zwölf Kilometer. Jetzt kommt ein Trick, den du in der Bruchrechnung ständig brauchst. Ein und derselbe Anteil kann ganz unterschiedlich aussehen. Drei Achtel, sechs Sechzehntel oder zwölf Zweiunddreißigstel: Das ist immer gleich viel Pizza. Das Verfahren dazu heißt Erweitern und Kürzen.",
+    "narration": "Jetzt kommt ein Trick, den du in der Bruchrechnung ständig brauchst. Ein und derselbe Anteil kann ganz unterschiedlich aussehen. Drei Achtel, sechs Sechzehntel oder zwölf Zweiunddreißigstel: Das ist immer gleich viel Pizza. Das Verfahren dazu heißt Erweitern und Kürzen. Wir schauen es uns langsam an der Pizza an.",
     "onScreenTitle": "Erweitern und Kürzen",
+    "question": null,
+    "think": null,
+    "hint": null,
     "emphasisWords": [],
     "kind": "chapter",
     "model": null,
@@ -553,6 +843,9 @@
    {
     "narration": "Schau auf deine drei Achtel. Jetzt schneiden wir jedes Stück der Pizza noch einmal in der Mitte durch. Aus acht Stücken werden sechzehn, und aus deinen drei Stücken werden sechs. Du hast jetzt sechs Sechzehntel. Aber hast du mehr Pizza? Nein. Es ist genau dieselbe Menge, nur in kleineren Stücken.",
     "onScreenTitle": "3/8 = 6/16",
+    "question": null,
+    "think": null,
+    "hint": null,
     "emphasisWords": [],
     "kind": "math3d",
     "model": null,
@@ -584,8 +877,11 @@
     "stockQuery": null
    },
    {
-    "narration": "Das nennt man Erweitern. Zähler und Nenner werden mit derselben Zahl multipliziert, hier mit der Zwei. Der Wert des Bruchs bleibt dabei gleich. Am Streifen siehst du es noch einmal: Drei von acht Feldern sind genauso viel wie sechs von sechzehn Feldern. Nur die Felder sind kleiner geworden.",
+    "narration": "Das nennt man Erweitern. Zähler und Nenner werden mit derselben Zahl multipliziert, hier mit der Zwei. Drei mal zwei ist sechs, acht mal zwei ist sechzehn. Der Wert des Bruchs bleibt gleich. Am Streifen siehst du es noch einmal: Drei von acht Feldern sind genauso viel wie sechs von sechzehn Feldern.",
     "onScreenTitle": "Erweitern mit 2",
+    "question": null,
+    "think": null,
+    "hint": null,
     "emphasisWords": [],
     "kind": "math3d",
     "model": null,
@@ -617,8 +913,45 @@
     "stockQuery": null
    },
    {
-    "narration": "Kürzen ist der Weg zurück. Diese Pizza hat zwölf Stücke, und du nimmst vier davon: vier Zwölftel. Zähler und Nenner kannst du beide durch vier teilen. Dann steht da ein Drittel. Vier Zwölftel und ein Drittel sind gleich viel. Ein Bruch, den man nicht weiter kürzen kann, heißt vollständig gekürzt.",
-    "onScreenTitle": "4/12 = 1/3",
+    "narration": "Du kannst mit jeder Zahl erweitern. Zwei Drittel mit drei erweitert: zwei mal drei ist sechs, drei mal drei ist neun, also sechs Neuntel. Ein Viertel mit fünf erweitert: eins mal fünf ist fünf, vier mal fünf ist zwanzig, also fünf Zwanzigstel. Beide Brüche sehen anders aus, aber der Anteil ist jedes Mal gleich geblieben.",
+    "onScreenTitle": "Erweitern mit 3 und mit 5",
+    "question": null,
+    "think": null,
+    "hint": null,
+    "emphasisWords": [],
+    "kind": "bullets",
+    "model": null,
+    "labels": null,
+    "scene": null,
+    "params": null,
+    "segment": null,
+    "formula": null,
+    "bullets": [
+     "2/3 = 6/9 (Zähler und Nenner · 3)",
+     "1/4 = 5/20 (Zähler und Nenner · 5)",
+     "Der Anteil bleibt gleich"
+    ],
+    "nodes": null,
+    "leftTitle": null,
+    "leftItems": null,
+    "rightTitle": null,
+    "rightItems": null,
+    "statValue": null,
+    "statLabel": null,
+    "code": null,
+    "codeLanguage": null,
+    "quote": null,
+    "attribution": null,
+    "hero": false,
+    "shot": null,
+    "stockQuery": null
+   },
+   {
+    "narration": "Kürzen ist der Weg zurück. Diese Pizza hat zwölf Stücke, und du nimmst vier davon: vier Zwölftel. Zähler und Nenner kannst du beide durch vier teilen. Vier durch vier ist eins, zwölf durch vier ist drei. Dann steht da ein Drittel. Vier Zwölftel und ein Drittel sind gleich viel. Ein Bruch, den man nicht weiter kürzen kann, heißt vollständig gekürzt.",
+    "onScreenTitle": "Kürzen: 4/12 = 1/3",
+    "question": null,
+    "think": null,
+    "hint": null,
     "emphasisWords": [],
     "kind": "math3d",
     "model": null,
@@ -650,8 +983,41 @@
     "stockQuery": null
    },
    {
-    "narration": "Merke dir: Beim Erweitern multiplizierst du Zähler und Nenner mit derselben Zahl. Beim Kürzen teilst du beide durch dieselbe Zahl. Der Anteil bleibt immer gleich, nur die Stücke werden kleiner oder größer. Probier es gleich aus: Kürze sechs Achtel so weit wie möglich. Die Lösung hörst du im nächsten Kapitel.",
-    "onScreenTitle": "Merke",
+    "narration": "Jetzt du. Kürze sechs Achtel so weit wie möglich. Überlege: Durch welche Zahl kannst du die Sechs und die Acht beide teilen? Und geht es danach noch weiter? Du hast ein paar Sekunden.",
+    "onScreenTitle": "Erweitern und Kürzen",
+    "question": "Kürze 6/8 so weit wie möglich.",
+    "think": 8,
+    "hint": "Durch welche Zahl kannst du 6 und 8 beide teilen?",
+    "emphasisWords": [],
+    "kind": "question",
+    "model": null,
+    "labels": null,
+    "scene": null,
+    "params": null,
+    "segment": null,
+    "formula": null,
+    "bullets": null,
+    "nodes": null,
+    "leftTitle": null,
+    "leftItems": null,
+    "rightTitle": null,
+    "rightItems": null,
+    "statValue": null,
+    "statLabel": null,
+    "code": null,
+    "codeLanguage": null,
+    "quote": null,
+    "attribution": null,
+    "hero": false,
+    "shot": null,
+    "stockQuery": null
+   },
+   {
+    "narration": "Die Antwort: drei Viertel. Sechs und acht kannst du beide durch zwei teilen: sechs durch zwei ist drei, acht durch zwei ist vier. Drei Viertel lässt sich nicht weiter kürzen, denn drei und vier haben keinen gemeinsamen Teiler außer der Eins. Merke dir: Beim Erweitern multiplizierst du Zähler und Nenner mit derselben Zahl, beim Kürzen teilst du beide durch dieselbe Zahl.",
+    "onScreenTitle": "Antwort: 3/4",
+    "question": null,
+    "think": null,
+    "hint": null,
     "emphasisWords": [],
     "kind": "bullets",
     "model": null,
@@ -661,10 +1027,9 @@
     "segment": null,
     "formula": null,
     "bullets": [
-     "Erweitern: Zähler und Nenner · dieselbe Zahl",
-     "Kürzen: Zähler und Nenner : dieselbe Zahl",
-     "Der Wert bleibt gleich",
-     "Übung: Kürze 6/8 so weit wie möglich"
+     "6:2 = 3 und 8:2 = 4",
+     "6/8 = 3/4",
+     "3 und 4 haben keinen gemeinsamen Teiler: vollständig gekürzt"
     ],
     "nodes": null,
     "leftTitle": null,
@@ -684,8 +1049,11 @@
   ],
   "4": [
    {
-    "narration": "Sechs Achtel gekürzt sind drei Viertel: Das war die Lösung der Übung. Drei Viertel ist vollständig gekürzt, denn drei und vier haben keinen gemeinsamen Teiler außer der Eins. Jetzt vergleichen wir Brüche. Bei gleichem Nenner ist es leicht: Fünf Achtel sind mehr als drei Achtel, weil fünf Stücke mehr sind als drei. Bei verschiedenen Nennern brauchen wir einen Trick.",
+    "narration": "Jetzt vergleichen wir Brüche. Bei gleichem Nenner ist es leicht: Fünf Achtel sind mehr als drei Achtel, weil fünf Stücke mehr sind als drei. Aber was ist mehr: zwei Drittel oder drei Viertel? Die Stücke sind verschieden groß. Dafür brauchen wir einen Trick, und den siehst du jetzt an zwei Pizzen.",
     "onScreenTitle": "Brüche vergleichen",
+    "question": null,
+    "think": null,
+    "hint": null,
     "emphasisWords": [],
     "kind": "chapter",
     "model": null,
@@ -715,52 +1083,24 @@
     "stockQuery": null
    },
    {
-    "narration": "Der Trick heißt Hauptnenner. Wir erweitern beide Brüche so, dass sie denselben Nenner haben. Zwei Drittel und drei Viertel: Der kleinste gemeinsame Nenner von drei und vier ist zwölf. Zwei Drittel sind acht Zwölftel, drei Viertel sind neun Zwölftel. Also sind drei Viertel mehr, aber nur um ein Zwölftel.",
-    "onScreenTitle": "Hauptnenner 12",
-    "emphasisWords": [],
-    "kind": "bullets",
-    "model": null,
-    "labels": null,
-    "scene": null,
-    "params": null,
-    "segment": null,
-    "formula": null,
-    "bullets": [
-     "2/3 = 8/12",
-     "3/4 = 9/12",
-     "9/12 > 8/12, also 3/4 > 2/3"
-    ],
-    "nodes": null,
-    "leftTitle": null,
-    "leftItems": null,
-    "rightTitle": null,
-    "rightItems": null,
-    "statValue": null,
-    "statLabel": null,
-    "code": null,
-    "codeLanguage": null,
-    "quote": null,
-    "attribution": null,
-    "hero": false,
-    "shot": null,
-    "stockQuery": null
-   },
-   {
-    "narration": "Hier siehst du zwei Streifen: oben ein Drittel, unten ein Viertel. Beide Streifen werden in Zwölftel geteilt. Ein Drittel sind vier Zwölftel, ein Viertel sind drei Zwölftel. Jetzt sind alle Stücke gleich groß, und du siehst sofort: Ein Drittel ist größer als ein Viertel, um genau ein Zwölftel.",
-    "onScreenTitle": "1/3 und 1/4 im Vergleich",
+    "narration": "Links eine Pizza, von der zwei Drittel gegessen sind. Rechts eine gleich große Pizza, von der drei Viertel gegessen sind. Welche Portion ist größer? Mit dem Auge ist das schwer. Der Trick heißt Hauptnenner: Wir schneiden beide Pizzen so, dass alle Stücke gleich groß sind. Dafür suchen wir die kleinste Zahl, in die drei und vier beide passen. Das ist die Zwölf. Also schneiden wir beide Pizzen in zwölf Stücke.",
+    "onScreenTitle": "Zwei Drittel oder drei Viertel?",
+    "question": null,
+    "think": null,
+    "hint": null,
     "emphasisWords": [],
     "kind": "math3d",
     "model": null,
     "labels": null,
-    "scene": "fracadd",
+    "scene": "compare",
     "params": {
-     "task": "1/3 + 1/4"
+     "task": "2/3 und 3/4"
     },
     "segment": [
      0,
-     11
+     14
     ],
-    "formula": "1/3 = 4/12 · 1/4 = 3/12",
+    "formula": null,
     "bullets": null,
     "nodes": null,
     "leftTitle": null,
@@ -778,8 +1118,146 @@
     "stockQuery": null
    },
    {
-    "narration": "Brüche begegnen dir auch als Prozent. Prozent heißt von Hundert. Das Hunderterfeld hat hundert Felder. Fünfundzwanzig davon sind fünfundzwanzig Prozent, und das ist genau ein Viertel. Bei fünfundzwanzig Prozent Rabatt bekommst du also ein Viertel geschenkt. Fünfzig Prozent sind die Hälfte.",
+    "narration": "Zwei Drittel sind acht Zwölftel, denn wir erweitern mit vier. Drei Viertel sind neun Zwölftel, denn wir erweitern mit drei. Jetzt haben beide Pizzen gleich große Stücke, und wir zählen einfach: Neun Stücke sind mehr als acht Stücke. Drei Viertel sind also größer als zwei Drittel, aber nur um ein einziges Zwölftel.",
+    "onScreenTitle": "8/12 und 9/12",
+    "question": null,
+    "think": null,
+    "hint": null,
+    "emphasisWords": [],
+    "kind": "math3d",
+    "model": null,
+    "labels": null,
+    "scene": "compare",
+    "params": {
+     "task": "2/3 und 3/4"
+    },
+    "segment": [
+     14,
+     30
+    ],
+    "formula": null,
+    "bullets": null,
+    "nodes": null,
+    "leftTitle": null,
+    "leftItems": null,
+    "rightTitle": null,
+    "rightItems": null,
+    "statValue": null,
+    "statLabel": null,
+    "code": null,
+    "codeLanguage": null,
+    "quote": null,
+    "attribution": null,
+    "hero": false,
+    "shot": null,
+    "stockQuery": null
+   },
+   {
+    "narration": "Noch ein Beispiel: ein Halb oder zwei Fünftel? Der Hauptnenner von zwei und fünf ist zehn. Ein Halb mit fünf erweitert sind fünf Zehntel. Zwei Fünftel mit zwei erweitert sind vier Zehntel. Fünf Stücke sind mehr als vier Stücke. Ein Halb ist also größer als zwei Fünftel. Der Weg ist immer gleich: Hauptnenner finden, erweitern, Zähler vergleichen.",
+    "onScreenTitle": "Ein Halb oder zwei Fünftel?",
+    "question": null,
+    "think": null,
+    "hint": null,
+    "emphasisWords": [],
+    "kind": "math3d",
+    "model": null,
+    "labels": null,
+    "scene": "compare",
+    "params": {
+     "task": "1/2 und 2/5"
+    },
+    "segment": [
+     0,
+     30
+    ],
+    "formula": null,
+    "bullets": null,
+    "nodes": null,
+    "leftTitle": null,
+    "leftItems": null,
+    "rightTitle": null,
+    "rightItems": null,
+    "statValue": null,
+    "statLabel": null,
+    "code": null,
+    "codeLanguage": null,
+    "quote": null,
+    "attribution": null,
+    "hero": false,
+    "shot": null,
+    "stockQuery": null
+   },
+   {
+    "narration": "Jetzt du. Was ist mehr: drei Fünftel oder zwei Drittel? Der Hauptnenner von fünf und drei ist fünfzehn. Erweitere beide Brüche auf Fünfzehntel und vergleiche die Zähler. Du hast ein paar Sekunden Zeit. Halte das Video an, wenn du mehr brauchst.",
+    "onScreenTitle": "Brüche vergleichen",
+    "question": "Was ist mehr: 3/5 oder 2/3?",
+    "think": 12,
+    "hint": "Hauptnenner von 5 und 3 ist 15.",
+    "emphasisWords": [],
+    "kind": "question",
+    "model": null,
+    "labels": null,
+    "scene": null,
+    "params": null,
+    "segment": null,
+    "formula": null,
+    "bullets": null,
+    "nodes": null,
+    "leftTitle": null,
+    "leftItems": null,
+    "rightTitle": null,
+    "rightItems": null,
+    "statValue": null,
+    "statLabel": null,
+    "code": null,
+    "codeLanguage": null,
+    "quote": null,
+    "attribution": null,
+    "hero": false,
+    "shot": null,
+    "stockQuery": null
+   },
+   {
+    "narration": "Die Antwort: Drei Fünftel sind neun Fünfzehntel, denn drei mal drei ist neun und fünf mal drei ist fünfzehn. Zwei Drittel sind zehn Fünfzehntel, denn zwei mal fünf ist zehn und drei mal fünf ist fünfzehn. Zehn ist mehr als neun. Zwei Drittel sind also größer als drei Fünftel, um ein Fünfzehntel.",
+    "onScreenTitle": "Antwort: 2/3 ist größer",
+    "question": null,
+    "think": null,
+    "hint": null,
+    "emphasisWords": [],
+    "kind": "math3d",
+    "model": null,
+    "labels": null,
+    "scene": "compare",
+    "params": {
+     "task": "3/5 und 2/3"
+    },
+    "segment": [
+     8,
+     30
+    ],
+    "formula": null,
+    "bullets": null,
+    "nodes": null,
+    "leftTitle": null,
+    "leftItems": null,
+    "rightTitle": null,
+    "rightItems": null,
+    "statValue": null,
+    "statLabel": null,
+    "code": null,
+    "codeLanguage": null,
+    "quote": null,
+    "attribution": null,
+    "hero": false,
+    "shot": null,
+    "stockQuery": null
+   },
+   {
+    "narration": "Brüche begegnen dir auch als Prozent. Prozent heißt von Hundert. Das Hunderterfeld hat hundert Felder. Fünfundzwanzig davon sind fünfundzwanzig Prozent, und das ist genau ein Viertel, denn fünfundzwanzig Hundertstel gekürzt durch fünfundzwanzig ergibt ein Viertel. Bei fünfundzwanzig Prozent Rabatt bekommst du also ein Viertel geschenkt. Fünfzig Prozent sind die Hälfte.",
     "onScreenTitle": "25 % = 1/4",
+    "question": null,
+    "think": null,
+    "hint": null,
     "emphasisWords": [],
     "kind": "math3d",
     "model": null,
@@ -813,8 +1291,11 @@
   ],
   "5": [
    {
-    "narration": "Bisher waren Brüche Stücke von Pizza oder Schokolade. Aber ein Bruch ist auch einfach eine Zahl, genau wie drei oder zehn. Auf der Zahlengeraden liegt ein Halb genau in der Mitte zwischen null und eins. Drei Viertel liegen zwischen ein Halb und eins, näher an der Eins.",
+    "narration": "Bisher waren Brüche Stücke von Pizza oder Schokolade. Aber ein Bruch ist auch einfach eine Zahl, genau wie drei oder zehn. Und jede Zahl hat ihren festen Platz auf der Zahlengeraden. Schauen wir uns an, wo die Brüche zwischen null und eins wohnen.",
     "onScreenTitle": "Brüche sind Zahlen",
+    "question": null,
+    "think": null,
+    "hint": null,
     "emphasisWords": [],
     "kind": "chapter",
     "model": null,
@@ -845,21 +1326,25 @@
     "stockQuery": null
    },
    {
-    "narration": "Die Zahlengerade hört bei null nicht auf. Links von der Null liegen die negativen Zahlen, zum Beispiel Temperaturen unter null. Auch Brüche können negativ sein. Minus ein Halb liegt genau in der Mitte zwischen null und minus eins. Und wo liegt minus drei Viertel? Zwischen minus ein Halb und minus eins, näher an der minus eins.",
-    "onScreenTitle": "Negative Brüche",
+    "narration": "Das ist die Zahlengerade. Links die Null, rechts die Eins. Ein Viertel liegt ein Viertel des Weges von null bis eins. Ein Halb liegt genau in der Mitte. Drei Viertel liegen zwischen ein Halb und eins, näher an der Eins. Je größer der Bruch, desto weiter rechts steht er.",
+    "onScreenTitle": "Brüche zwischen 0 und 1",
+    "question": null,
+    "think": null,
+    "hint": null,
     "emphasisWords": [],
-    "kind": "bullets",
+    "kind": "math3d",
     "model": null,
     "labels": null,
-    "scene": null,
-    "params": null,
-    "segment": null,
-    "formula": null,
-    "bullets": [
-     "Links von der 0: negative Zahlen",
-     "−1/2: in der Mitte zwischen 0 und −1",
-     "Frage: Wo liegt −3/4? Zwischen −1/2 und −1"
+    "scene": "numberline",
+    "params": {
+     "marks": "0 | 1/4 | 1/2 | 3/4 | 1"
+    },
+    "segment": [
+     0,
+     14
     ],
+    "formula": null,
+    "bullets": null,
     "nodes": null,
     "leftTitle": null,
     "leftItems": null,
@@ -876,8 +1361,111 @@
     "stockQuery": null
    },
    {
-    "narration": "Die Zahlen eins, zwei, drei und so weiter heißen natürliche Zahlen. Nimmst du die Null dazu, schreibt man N mit einer kleinen Null. Nimmst du auch die negativen Zahlen dazu, hast du die ganzen Zahlen. Nimmst du alle Brüche dazu, hast du die rationalen Zahlen. Bei den ganzen Zahlen hat jede Zahl einen Nachfolger: Nach drei kommt vier. Bei Brüchen gibt es das nicht. Zwischen zwei Brüchen liegen immer unendlich viele weitere.",
-    "onScreenTitle": "Drei Zahlenmengen",
+    "narration": "Die Zahlengerade hört bei null nicht auf. Links von der Null liegen die negativen Zahlen, zum Beispiel Temperaturen unter null. Auch Brüche können negativ sein. Rechts von der Null liegt plus ein Halb, und spiegelbildlich links von der Null liegt minus ein Halb: genau in der Mitte zwischen null und minus eins. Minus ein halbes Grad ist also ein bisschen kälter als null Grad.",
+    "onScreenTitle": "Negative Brüche",
+    "question": null,
+    "think": null,
+    "hint": null,
+    "emphasisWords": [],
+    "kind": "math3d",
+    "model": null,
+    "labels": null,
+    "scene": "numberline",
+    "params": {
+     "marks": "-1 | -1/2 | 0 | 1/2 | 1"
+    },
+    "segment": [
+     0,
+     14
+    ],
+    "formula": null,
+    "bullets": null,
+    "nodes": null,
+    "leftTitle": null,
+    "leftItems": null,
+    "rightTitle": null,
+    "rightItems": null,
+    "statValue": null,
+    "statLabel": null,
+    "code": null,
+    "codeLanguage": null,
+    "quote": null,
+    "attribution": null,
+    "hero": false,
+    "shot": null,
+    "stockQuery": null
+   },
+   {
+    "narration": "Jetzt du. Zwischen welchen beiden ganzen Zahlen liegt minus drei Viertel? Und liegt es näher an der Null oder näher an der minus eins? Denk an den Spiegel: Wo liegt plus drei Viertel, und was passiert beim Spiegeln an der Null? Du hast ein paar Sekunden Zeit.",
+    "onScreenTitle": "Brüche sind Zahlen",
+    "question": "Zwischen welchen ganzen Zahlen liegt −3/4? Und liegt es näher an 0 oder an −1?",
+    "think": 8,
+    "hint": "Spiegle 3/4 an der Null.",
+    "emphasisWords": [],
+    "kind": "question",
+    "model": null,
+    "labels": null,
+    "scene": null,
+    "params": null,
+    "segment": null,
+    "formula": null,
+    "bullets": null,
+    "nodes": null,
+    "leftTitle": null,
+    "leftItems": null,
+    "rightTitle": null,
+    "rightItems": null,
+    "statValue": null,
+    "statLabel": null,
+    "code": null,
+    "codeLanguage": null,
+    "quote": null,
+    "attribution": null,
+    "hero": false,
+    "shot": null,
+    "stockQuery": null
+   },
+   {
+    "narration": "Die Antwort: Minus drei Viertel liegt zwischen minus eins und null, und zwar näher an der minus eins. Von der minus eins ist es nur ein Viertel entfernt, von der Null aber drei Viertel. Es liegt genau in der Mitte zwischen minus eins und minus ein Halb. Auf der Zahlengeraden siehst du es: Plus drei Viertel rechts, minus drei Viertel spiegelbildlich links.",
+    "onScreenTitle": "Antwort: zwischen −1 und 0, näher an −1",
+    "question": null,
+    "think": null,
+    "hint": null,
+    "emphasisWords": [],
+    "kind": "math3d",
+    "model": null,
+    "labels": null,
+    "scene": "numberline",
+    "params": {
+     "marks": "-1 | -3/4 | -1/2 | 0 | 1/2 | 1"
+    },
+    "segment": [
+     0,
+     16
+    ],
+    "formula": null,
+    "bullets": null,
+    "nodes": null,
+    "leftTitle": null,
+    "leftItems": null,
+    "rightTitle": null,
+    "rightItems": null,
+    "statValue": null,
+    "statLabel": null,
+    "code": null,
+    "codeLanguage": null,
+    "quote": null,
+    "attribution": null,
+    "hero": false,
+    "shot": null,
+    "stockQuery": null
+   },
+   {
+    "narration": "Zum Schluss ordnen wir die Zahlen. Die Zahlen eins, zwei, drei und so weiter heißen natürliche Zahlen, kurz N. Nimmst du die Null dazu, schreibt man N mit einer kleinen Null. Nimmst du auch die negativen Zahlen dazu, hast du die ganzen Zahlen, kurz Z. Bei den ganzen Zahlen kommt nach jeder Zahl die nächste: Nach drei kommt vier.",
+    "onScreenTitle": "Natürliche und ganze Zahlen",
+    "question": null,
+    "think": null,
+    "hint": null,
     "emphasisWords": [],
     "kind": "bullets",
     "model": null,
@@ -889,8 +1477,7 @@
     "bullets": [
      "Natürliche Zahlen ℕ: 1, 2, 3, …",
      "Mit der Null dazu: ℕ₀",
-     "Ganze Zahlen ℤ: …, −1, 0, 1, …",
-     "Rationale Zahlen ℚ: alle Brüche dazu"
+     "Ganze Zahlen ℤ: …, −1, 0, 1, …"
     ],
     "nodes": null,
     "leftTitle": null,
@@ -908,8 +1495,45 @@
     "stockQuery": null
    },
    {
-    "narration": "Das war die Lektion zu Bruchteilen und Bruchzahlen. Ein Bruch ist ein Anteil von einem Ganzen. Der Zähler zählt die Stücke, der Nenner nennt ihre Größe. Erweitern und Kürzen ändern den Wert nicht, und mit dem Hauptnenner kannst du jeden Bruch vergleichen. In der nächsten Lektion geht es um Dezimalbrüche. Bis dann.",
+    "narration": "Nimmst du zu den ganzen Zahlen alle Brüche dazu, positive und negative, dann hast du die rationalen Zahlen, kurz Q. Bei den Brüchen gibt es keine nächste Zahl: Zwischen ein Halb und drei Viertel liegt fünf Achtel, dazwischen liegt wieder ein Bruch, und so weiter. Zwischen zwei Brüchen liegen immer unendlich viele weitere Brüche.",
+    "onScreenTitle": "Rationale Zahlen",
+    "question": null,
+    "think": null,
+    "hint": null,
+    "emphasisWords": [],
+    "kind": "bullets",
+    "model": null,
+    "labels": null,
+    "scene": null,
+    "params": null,
+    "segment": null,
+    "formula": null,
+    "bullets": [
+     "Rationale Zahlen ℚ: alle Brüche dazu",
+     "Positiv und negativ",
+     "Zwischen zwei Brüchen: unendlich viele weitere"
+    ],
+    "nodes": null,
+    "leftTitle": null,
+    "leftItems": null,
+    "rightTitle": null,
+    "rightItems": null,
+    "statValue": null,
+    "statLabel": null,
+    "code": null,
+    "codeLanguage": null,
+    "quote": null,
+    "attribution": null,
+    "hero": false,
+    "shot": null,
+    "stockQuery": null
+   },
+   {
+    "narration": "Das war die Lektion zu Bruchteilen und Bruchzahlen. Ein Bruch ist ein Anteil von einem Ganzen. Der Zähler zählt die Stücke, der Nenner nennt ihre Größe. Erweitern und Kürzen ändern den Wert nicht, und mit dem Hauptnenner kannst du jeden Bruch vergleichen. Brüche sind Zahlen mit einem festen Platz auf der Zahlengeraden, auch die negativen. In der nächsten Lektion geht es um Dezimalbrüche. Bis dann.",
     "onScreenTitle": "Brüche sind Zahlen",
+    "question": null,
+    "think": null,
+    "hint": null,
     "emphasisWords": [],
     "kind": "outro",
     "model": null,
@@ -941,158 +1565,255 @@
    {
     "beatId": 1,
     "chapterId": 1,
-    "narration": "Stell dir vor, du bestellst mit Freunden eine Pizza. Jeder bekommt ein Stück. Aber wie viel von der ganzen Pizza ist das eigentlich? Genau dafür gibt es Brüche. In dieser Lektion lernst du, was ein Bruch ist, wie du ihn liest, wie du ihn veränderst und wie du Brüche vergleichst.",
+    "narration": "Stell dir vor, du bestellst mit Freunden eine Pizza. Jeder bekommt ein Stück. Aber wie viel von der ganzen Pizza ist das eigentlich? Genau dafür gibt es Brüche. In dieser Lektion lernst du in Ruhe, was ein Bruch ist, wie du ihn liest, wie du ihn veränderst und wie du Brüche vergleichst. Zwischendurch stelle ich dir Fragen. Dann hast du ein paar Sekunden Zeit zum Nachdenken.",
     "onScreenTitle": "Bruchteile und Bruchzahlen",
     "emphasisWords": []
    },
    {
     "beatId": 2,
     "chapterId": 1,
-    "narration": "Hier ist eine ganze Pizza. Wir sagen dazu: ein Ganzes. Jetzt schneiden wir sie in acht gleich große Stücke. Das Wort gleich groß ist wichtig. Nur wenn alle Stücke gleich groß sind, können wir mit Brüchen rechnen. Jedes Stück ist dann ein Achtel der ganzen Pizza.",
+    "narration": "Hier ist eine ganze Pizza. Wir sagen dazu: ein Ganzes. Jetzt schneiden wir sie in acht gleich große Stücke. Das Wort gleich groß ist wichtig. Nur wenn alle Stücke gleich groß sind, können wir mit Brüchen rechnen. Jedes Stück ist dann ein Achtel der ganzen Pizza. Acht Achtel zusammen sind wieder die ganze Pizza.",
     "onScreenTitle": "Ein Ganzes in 8 Stücke",
     "emphasisWords": []
    },
    {
     "beatId": 3,
     "chapterId": 1,
-    "narration": "Du nimmst dir drei von den acht Stücken. Das schreibt man als Bruch: drei Achtel. Oben steht die Drei, so viele Stücke hast du. Unten steht die Acht, in so viele Stücke wurde die Pizza geteilt. Der Strich dazwischen heißt Bruchstrich. Drei Achtel der Pizza gehören jetzt dir.",
+    "narration": "Du nimmst dir drei von den acht Stücken. Das schreibt man als Bruch: drei Achtel. Oben steht die Drei, so viele Stücke hast du. Unten steht die Acht, in so viele Stücke wurde die Pizza geteilt. Der Strich dazwischen heißt Bruchstrich. Drei Achtel der Pizza gehören jetzt dir. Fünf Achtel bleiben für die anderen übrig.",
     "onScreenTitle": "Drei Achtel",
     "emphasisWords": []
    },
    {
     "beatId": 4,
     "chapterId": 1,
-    "narration": "Ein Bruch beschreibt also einen Anteil von einem Ganzen. Das Ganze kann alles Mögliche sein: eine Pizza, eine Tafel Schokolade, eine Stunde oder deine ganze Klasse. Wichtig ist nur, dass du weißt, was das Ganze ist und in wie viele gleich große Teile es geteilt wird.",
-    "onScreenTitle": "Was ist ein Bruch?",
+    "narration": "Noch ein Beispiel. Diese Pizza ist in sechs gleich große Stücke geschnitten. Fünf Stücke werden gegessen. Welcher Bruch ist das? Unten steht die Sechs, denn es gibt sechs Stücke. Oben steht die Fünf, denn fünf Stücke sind weg. Fünf Sechstel der Pizza sind gegessen. Ein Sechstel bleibt übrig.",
+    "onScreenTitle": "Noch ein Beispiel: fünf Sechstel",
     "emphasisWords": []
    },
    {
     "beatId": 5,
-    "chapterId": 2,
-    "narration": "Jeder Bruch hat zwei Zahlen mit eigenen Namen. Die Zahl oben heißt Zähler, denn sie zählt die Stücke. Die Zahl unten heißt Nenner, denn sie nennt, wie groß die Stücke sind: Achtel, Viertel oder Zehntel. Merk dir den Spruch: Der Zähler zählt, der Nenner nennt.",
-    "onScreenTitle": "Zähler und Nenner",
+    "chapterId": 1,
+    "narration": "Jetzt bist du dran. Eine Pizza ist in zehn gleich große Stücke geschnitten. Du nimmst sieben Stücke. Welcher Bruch ist das? Überlege: Welche Zahl kommt nach oben, welche nach unten? Du hast ein paar Sekunden Zeit. Wenn du länger brauchst, halte das Video einfach an.",
+    "onScreenTitle": "Ein Stück vom Ganzen",
     "emphasisWords": []
    },
    {
     "beatId": 6,
-    "chapterId": 2,
-    "narration": "Eine Pizza ist in vier gleich große Stücke geschnitten. Du isst eins davon. Welcher Bruch ist das? Der Nenner ist vier, denn es gibt vier Stücke. Der Zähler ist eins, denn du hast ein Stück gegessen. Du hast also ein Viertel der Pizza gegessen. Bei einer Tafel Schokolade mit vier Riegeln wäre es genauso.",
-    "onScreenTitle": "Ein Viertel gegessen",
+    "chapterId": 1,
+    "narration": "Die Antwort: sieben Zehntel. Oben steht die Sieben, denn du hast sieben Stücke. Unten steht die Zehn, denn die Pizza wurde in zehn Stücke geteilt. Wenn du das herausgefunden hast, sehr gut. Wenn nicht, ist das kein Problem. Merke dir: Ein Bruch ist ein Anteil von einem Ganzen. Das Ganze kann eine Pizza sein, eine Tafel Schokolade, eine Stunde oder deine ganze Klasse.",
+    "onScreenTitle": "Antwort: sieben Zehntel",
     "emphasisWords": []
    },
    {
     "beatId": 7,
     "chapterId": 2,
-    "narration": "Oft kennst du das Ganze als Zahl und sollst den Bruchteil ausrechnen. Drei Viertel von zwanzig Euro: Teile die zwanzig Euro zuerst durch den Nenner vier. Das sind fünf Euro für ein Viertel. Dann nimm das mal den Zähler drei. Drei Viertel von zwanzig Euro sind fünfzehn Euro.",
-    "onScreenTitle": "Drei Viertel von 20 Euro",
+    "narration": "Jeder Bruch hat zwei Zahlen mit eigenen Namen. Die Zahl oben heißt Zähler, denn sie zählt die Stücke. Die Zahl unten heißt Nenner, denn sie nennt, wie groß die Stücke sind: Achtel, Viertel oder Zehntel. Merk dir den Spruch: Der Zähler zählt, der Nenner nennt. Schauen wir uns das an einem ganz einfachen Bruch an.",
+    "onScreenTitle": "Zähler und Nenner",
     "emphasisWords": []
    },
    {
     "beatId": 8,
     "chapterId": 2,
-    "narration": "Es geht auch rückwärts. Zwei Fünftel einer Wanderstrecke sind sechs Kilometer. Wie lang ist die ganze Strecke? Wenn zwei Fünftel sechs Kilometer sind, ist ein Fünftel drei Kilometer. Fünf Fünftel sind das Ganze: fünf mal drei Kilometer, also fünfzehn Kilometer. Probier es selbst: Drei Viertel sind neun Kilometer. Wie lang ist das Ganze?",
-    "onScreenTitle": "Das Ganze finden",
+    "narration": "Eine Pizza ist in vier gleich große Stücke geschnitten. Du isst eins davon. Welcher Bruch ist das? Der Nenner ist vier, denn es gibt vier Stücke. Der Zähler ist eins, denn du hast ein Stück gegessen. Du hast also ein Viertel der Pizza gegessen. Bei einer Tafel Schokolade mit vier Riegeln wäre es genauso: ein Riegel ist ein Viertel der Tafel.",
+    "onScreenTitle": "Ein Viertel gegessen",
     "emphasisWords": []
    },
    {
     "beatId": 9,
-    "chapterId": 3,
-    "narration": "Zuerst die Lösung von eben: Drei Viertel sind neun Kilometer, also ist ein Viertel drei Kilometer, und das Ganze sind zwölf Kilometer. Jetzt kommt ein Trick, den du in der Bruchrechnung ständig brauchst. Ein und derselbe Anteil kann ganz unterschiedlich aussehen. Drei Achtel, sechs Sechzehntel oder zwölf Zweiunddreißigstel: Das ist immer gleich viel Pizza. Das Verfahren dazu heißt Erweitern und Kürzen.",
-    "onScreenTitle": "Erweitern und Kürzen",
+    "chapterId": 2,
+    "narration": "Oft kennst du das Ganze als Zahl und sollst den Bruchteil ausrechnen. Drei Viertel von zwanzig Euro: Teile die zwanzig Euro zuerst durch den Nenner vier. Das sind fünf Euro für ein Viertel. Dann nimm das mal den Zähler drei. Drei Viertel von zwanzig Euro sind fünfzehn Euro. Die Regel lautet: erst durch den Nenner teilen, dann mal den Zähler nehmen.",
+    "onScreenTitle": "Drei Viertel von 20 Euro",
     "emphasisWords": []
    },
    {
     "beatId": 10,
+    "chapterId": 2,
+    "narration": "Noch ein Beispiel mit der Zeit. Zwei Fünftel von dreißig Minuten: Teile die dreißig Minuten durch den Nenner fünf. Ein Fünftel sind sechs Minuten. Dann mal den Zähler zwei: zwei Fünftel sind zwölf Minuten. Siehst du, es ist immer dieselbe Regel. Erst durch den Nenner, dann mal den Zähler.",
+    "onScreenTitle": "Zwei Fünftel von 30 Minuten",
+    "emphasisWords": []
+   },
+   {
+    "beatId": 11,
+    "chapterId": 2,
+    "narration": "Jetzt du. In einem Korb liegen zwölf Äpfel. Drei Viertel davon sind rot. Wie viele rote Äpfel sind das? Rechne in zwei Schritten: erst durch den Nenner, dann mal den Zähler. Du hast ein paar Sekunden.",
+    "onScreenTitle": "Zähler und Nenner",
+    "emphasisWords": []
+   },
+   {
+    "beatId": 12,
+    "chapterId": 2,
+    "narration": "Die Antwort: neun Äpfel. Zwölf geteilt durch vier ist drei, das ist ein Viertel. Drei mal drei ist neun, das sind drei Viertel. Neun von den zwölf Äpfeln sind also rot. Wenn du das herausgefunden hast, sehr gut. Falls nicht: Rechne noch einmal langsam mit, erst teilen, dann malnehmen.",
+    "onScreenTitle": "Antwort: 9 Äpfel",
+    "emphasisWords": []
+   },
+   {
+    "beatId": 13,
+    "chapterId": 2,
+    "narration": "Es geht auch rückwärts. Zwei Fünftel einer Wanderstrecke sind sechs Kilometer. Wie lang ist die ganze Strecke? Wenn zwei Fünftel sechs Kilometer sind, ist ein Fünftel die Hälfte davon, also drei Kilometer. Das Ganze sind fünf Fünftel: fünf mal drei Kilometer, also fünfzehn Kilometer. Erst ein Teil ausrechnen, dann mal den Nenner.",
+    "onScreenTitle": "Rückwärts: das Ganze finden",
+    "emphasisWords": []
+   },
+   {
+    "beatId": 14,
+    "chapterId": 3,
+    "narration": "Jetzt kommt ein Trick, den du in der Bruchrechnung ständig brauchst. Ein und derselbe Anteil kann ganz unterschiedlich aussehen. Drei Achtel, sechs Sechzehntel oder zwölf Zweiunddreißigstel: Das ist immer gleich viel Pizza. Das Verfahren dazu heißt Erweitern und Kürzen. Wir schauen es uns langsam an der Pizza an.",
+    "onScreenTitle": "Erweitern und Kürzen",
+    "emphasisWords": []
+   },
+   {
+    "beatId": 15,
     "chapterId": 3,
     "narration": "Schau auf deine drei Achtel. Jetzt schneiden wir jedes Stück der Pizza noch einmal in der Mitte durch. Aus acht Stücken werden sechzehn, und aus deinen drei Stücken werden sechs. Du hast jetzt sechs Sechzehntel. Aber hast du mehr Pizza? Nein. Es ist genau dieselbe Menge, nur in kleineren Stücken.",
     "onScreenTitle": "3/8 = 6/16",
     "emphasisWords": []
    },
    {
-    "beatId": 11,
+    "beatId": 16,
     "chapterId": 3,
-    "narration": "Das nennt man Erweitern. Zähler und Nenner werden mit derselben Zahl multipliziert, hier mit der Zwei. Der Wert des Bruchs bleibt dabei gleich. Am Streifen siehst du es noch einmal: Drei von acht Feldern sind genauso viel wie sechs von sechzehn Feldern. Nur die Felder sind kleiner geworden.",
+    "narration": "Das nennt man Erweitern. Zähler und Nenner werden mit derselben Zahl multipliziert, hier mit der Zwei. Drei mal zwei ist sechs, acht mal zwei ist sechzehn. Der Wert des Bruchs bleibt gleich. Am Streifen siehst du es noch einmal: Drei von acht Feldern sind genauso viel wie sechs von sechzehn Feldern.",
     "onScreenTitle": "Erweitern mit 2",
     "emphasisWords": []
    },
    {
-    "beatId": 12,
-    "chapterId": 3,
-    "narration": "Kürzen ist der Weg zurück. Diese Pizza hat zwölf Stücke, und du nimmst vier davon: vier Zwölftel. Zähler und Nenner kannst du beide durch vier teilen. Dann steht da ein Drittel. Vier Zwölftel und ein Drittel sind gleich viel. Ein Bruch, den man nicht weiter kürzen kann, heißt vollständig gekürzt.",
-    "onScreenTitle": "4/12 = 1/3",
-    "emphasisWords": []
-   },
-   {
-    "beatId": 13,
-    "chapterId": 3,
-    "narration": "Merke dir: Beim Erweitern multiplizierst du Zähler und Nenner mit derselben Zahl. Beim Kürzen teilst du beide durch dieselbe Zahl. Der Anteil bleibt immer gleich, nur die Stücke werden kleiner oder größer. Probier es gleich aus: Kürze sechs Achtel so weit wie möglich. Die Lösung hörst du im nächsten Kapitel.",
-    "onScreenTitle": "Merke",
-    "emphasisWords": []
-   },
-   {
-    "beatId": 14,
-    "chapterId": 4,
-    "narration": "Sechs Achtel gekürzt sind drei Viertel: Das war die Lösung der Übung. Drei Viertel ist vollständig gekürzt, denn drei und vier haben keinen gemeinsamen Teiler außer der Eins. Jetzt vergleichen wir Brüche. Bei gleichem Nenner ist es leicht: Fünf Achtel sind mehr als drei Achtel, weil fünf Stücke mehr sind als drei. Bei verschiedenen Nennern brauchen wir einen Trick.",
-    "onScreenTitle": "Brüche vergleichen",
-    "emphasisWords": []
-   },
-   {
-    "beatId": 15,
-    "chapterId": 4,
-    "narration": "Der Trick heißt Hauptnenner. Wir erweitern beide Brüche so, dass sie denselben Nenner haben. Zwei Drittel und drei Viertel: Der kleinste gemeinsame Nenner von drei und vier ist zwölf. Zwei Drittel sind acht Zwölftel, drei Viertel sind neun Zwölftel. Also sind drei Viertel mehr, aber nur um ein Zwölftel.",
-    "onScreenTitle": "Hauptnenner 12",
-    "emphasisWords": []
-   },
-   {
-    "beatId": 16,
-    "chapterId": 4,
-    "narration": "Hier siehst du zwei Streifen: oben ein Drittel, unten ein Viertel. Beide Streifen werden in Zwölftel geteilt. Ein Drittel sind vier Zwölftel, ein Viertel sind drei Zwölftel. Jetzt sind alle Stücke gleich groß, und du siehst sofort: Ein Drittel ist größer als ein Viertel, um genau ein Zwölftel.",
-    "onScreenTitle": "1/3 und 1/4 im Vergleich",
-    "emphasisWords": []
-   },
-   {
     "beatId": 17,
-    "chapterId": 4,
-    "narration": "Brüche begegnen dir auch als Prozent. Prozent heißt von Hundert. Das Hunderterfeld hat hundert Felder. Fünfundzwanzig davon sind fünfundzwanzig Prozent, und das ist genau ein Viertel. Bei fünfundzwanzig Prozent Rabatt bekommst du also ein Viertel geschenkt. Fünfzig Prozent sind die Hälfte.",
-    "onScreenTitle": "25 % = 1/4",
+    "chapterId": 3,
+    "narration": "Du kannst mit jeder Zahl erweitern. Zwei Drittel mit drei erweitert: zwei mal drei ist sechs, drei mal drei ist neun, also sechs Neuntel. Ein Viertel mit fünf erweitert: eins mal fünf ist fünf, vier mal fünf ist zwanzig, also fünf Zwanzigstel. Beide Brüche sehen anders aus, aber der Anteil ist jedes Mal gleich geblieben.",
+    "onScreenTitle": "Erweitern mit 3 und mit 5",
     "emphasisWords": []
    },
    {
     "beatId": 18,
-    "chapterId": 5,
-    "narration": "Bisher waren Brüche Stücke von Pizza oder Schokolade. Aber ein Bruch ist auch einfach eine Zahl, genau wie drei oder zehn. Auf der Zahlengeraden liegt ein Halb genau in der Mitte zwischen null und eins. Drei Viertel liegen zwischen ein Halb und eins, näher an der Eins.",
-    "onScreenTitle": "Brüche sind Zahlen",
+    "chapterId": 3,
+    "narration": "Kürzen ist der Weg zurück. Diese Pizza hat zwölf Stücke, und du nimmst vier davon: vier Zwölftel. Zähler und Nenner kannst du beide durch vier teilen. Vier durch vier ist eins, zwölf durch vier ist drei. Dann steht da ein Drittel. Vier Zwölftel und ein Drittel sind gleich viel. Ein Bruch, den man nicht weiter kürzen kann, heißt vollständig gekürzt.",
+    "onScreenTitle": "Kürzen: 4/12 = 1/3",
     "emphasisWords": []
    },
    {
     "beatId": 19,
-    "chapterId": 5,
-    "narration": "Die Zahlengerade hört bei null nicht auf. Links von der Null liegen die negativen Zahlen, zum Beispiel Temperaturen unter null. Auch Brüche können negativ sein. Minus ein Halb liegt genau in der Mitte zwischen null und minus eins. Und wo liegt minus drei Viertel? Zwischen minus ein Halb und minus eins, näher an der minus eins.",
-    "onScreenTitle": "Negative Brüche",
+    "chapterId": 3,
+    "narration": "Jetzt du. Kürze sechs Achtel so weit wie möglich. Überlege: Durch welche Zahl kannst du die Sechs und die Acht beide teilen? Und geht es danach noch weiter? Du hast ein paar Sekunden.",
+    "onScreenTitle": "Erweitern und Kürzen",
     "emphasisWords": []
    },
    {
     "beatId": 20,
-    "chapterId": 5,
-    "narration": "Die Zahlen eins, zwei, drei und so weiter heißen natürliche Zahlen. Nimmst du die Null dazu, schreibt man N mit einer kleinen Null. Nimmst du auch die negativen Zahlen dazu, hast du die ganzen Zahlen. Nimmst du alle Brüche dazu, hast du die rationalen Zahlen. Bei den ganzen Zahlen hat jede Zahl einen Nachfolger: Nach drei kommt vier. Bei Brüchen gibt es das nicht. Zwischen zwei Brüchen liegen immer unendlich viele weitere.",
-    "onScreenTitle": "Drei Zahlenmengen",
+    "chapterId": 3,
+    "narration": "Die Antwort: drei Viertel. Sechs und acht kannst du beide durch zwei teilen: sechs durch zwei ist drei, acht durch zwei ist vier. Drei Viertel lässt sich nicht weiter kürzen, denn drei und vier haben keinen gemeinsamen Teiler außer der Eins. Merke dir: Beim Erweitern multiplizierst du Zähler und Nenner mit derselben Zahl, beim Kürzen teilst du beide durch dieselbe Zahl.",
+    "onScreenTitle": "Antwort: 3/4",
     "emphasisWords": []
    },
    {
     "beatId": 21,
+    "chapterId": 4,
+    "narration": "Jetzt vergleichen wir Brüche. Bei gleichem Nenner ist es leicht: Fünf Achtel sind mehr als drei Achtel, weil fünf Stücke mehr sind als drei. Aber was ist mehr: zwei Drittel oder drei Viertel? Die Stücke sind verschieden groß. Dafür brauchen wir einen Trick, und den siehst du jetzt an zwei Pizzen.",
+    "onScreenTitle": "Brüche vergleichen",
+    "emphasisWords": []
+   },
+   {
+    "beatId": 22,
+    "chapterId": 4,
+    "narration": "Links eine Pizza, von der zwei Drittel gegessen sind. Rechts eine gleich große Pizza, von der drei Viertel gegessen sind. Welche Portion ist größer? Mit dem Auge ist das schwer. Der Trick heißt Hauptnenner: Wir schneiden beide Pizzen so, dass alle Stücke gleich groß sind. Dafür suchen wir die kleinste Zahl, in die drei und vier beide passen. Das ist die Zwölf. Also schneiden wir beide Pizzen in zwölf Stücke.",
+    "onScreenTitle": "Zwei Drittel oder drei Viertel?",
+    "emphasisWords": []
+   },
+   {
+    "beatId": 23,
+    "chapterId": 4,
+    "narration": "Zwei Drittel sind acht Zwölftel, denn wir erweitern mit vier. Drei Viertel sind neun Zwölftel, denn wir erweitern mit drei. Jetzt haben beide Pizzen gleich große Stücke, und wir zählen einfach: Neun Stücke sind mehr als acht Stücke. Drei Viertel sind also größer als zwei Drittel, aber nur um ein einziges Zwölftel.",
+    "onScreenTitle": "8/12 und 9/12",
+    "emphasisWords": []
+   },
+   {
+    "beatId": 24,
+    "chapterId": 4,
+    "narration": "Noch ein Beispiel: ein Halb oder zwei Fünftel? Der Hauptnenner von zwei und fünf ist zehn. Ein Halb mit fünf erweitert sind fünf Zehntel. Zwei Fünftel mit zwei erweitert sind vier Zehntel. Fünf Stücke sind mehr als vier Stücke. Ein Halb ist also größer als zwei Fünftel. Der Weg ist immer gleich: Hauptnenner finden, erweitern, Zähler vergleichen.",
+    "onScreenTitle": "Ein Halb oder zwei Fünftel?",
+    "emphasisWords": []
+   },
+   {
+    "beatId": 25,
+    "chapterId": 4,
+    "narration": "Jetzt du. Was ist mehr: drei Fünftel oder zwei Drittel? Der Hauptnenner von fünf und drei ist fünfzehn. Erweitere beide Brüche auf Fünfzehntel und vergleiche die Zähler. Du hast ein paar Sekunden Zeit. Halte das Video an, wenn du mehr brauchst.",
+    "onScreenTitle": "Brüche vergleichen",
+    "emphasisWords": []
+   },
+   {
+    "beatId": 26,
+    "chapterId": 4,
+    "narration": "Die Antwort: Drei Fünftel sind neun Fünfzehntel, denn drei mal drei ist neun und fünf mal drei ist fünfzehn. Zwei Drittel sind zehn Fünfzehntel, denn zwei mal fünf ist zehn und drei mal fünf ist fünfzehn. Zehn ist mehr als neun. Zwei Drittel sind also größer als drei Fünftel, um ein Fünfzehntel.",
+    "onScreenTitle": "Antwort: 2/3 ist größer",
+    "emphasisWords": []
+   },
+   {
+    "beatId": 27,
+    "chapterId": 4,
+    "narration": "Brüche begegnen dir auch als Prozent. Prozent heißt von Hundert. Das Hunderterfeld hat hundert Felder. Fünfundzwanzig davon sind fünfundzwanzig Prozent, und das ist genau ein Viertel, denn fünfundzwanzig Hundertstel gekürzt durch fünfundzwanzig ergibt ein Viertel. Bei fünfundzwanzig Prozent Rabatt bekommst du also ein Viertel geschenkt. Fünfzig Prozent sind die Hälfte.",
+    "onScreenTitle": "25 % = 1/4",
+    "emphasisWords": []
+   },
+   {
+    "beatId": 28,
     "chapterId": 5,
-    "narration": "Das war die Lektion zu Bruchteilen und Bruchzahlen. Ein Bruch ist ein Anteil von einem Ganzen. Der Zähler zählt die Stücke, der Nenner nennt ihre Größe. Erweitern und Kürzen ändern den Wert nicht, und mit dem Hauptnenner kannst du jeden Bruch vergleichen. In der nächsten Lektion geht es um Dezimalbrüche. Bis dann.",
+    "narration": "Bisher waren Brüche Stücke von Pizza oder Schokolade. Aber ein Bruch ist auch einfach eine Zahl, genau wie drei oder zehn. Und jede Zahl hat ihren festen Platz auf der Zahlengeraden. Schauen wir uns an, wo die Brüche zwischen null und eins wohnen.",
+    "onScreenTitle": "Brüche sind Zahlen",
+    "emphasisWords": []
+   },
+   {
+    "beatId": 29,
+    "chapterId": 5,
+    "narration": "Das ist die Zahlengerade. Links die Null, rechts die Eins. Ein Viertel liegt ein Viertel des Weges von null bis eins. Ein Halb liegt genau in der Mitte. Drei Viertel liegen zwischen ein Halb und eins, näher an der Eins. Je größer der Bruch, desto weiter rechts steht er.",
+    "onScreenTitle": "Brüche zwischen 0 und 1",
+    "emphasisWords": []
+   },
+   {
+    "beatId": 30,
+    "chapterId": 5,
+    "narration": "Die Zahlengerade hört bei null nicht auf. Links von der Null liegen die negativen Zahlen, zum Beispiel Temperaturen unter null. Auch Brüche können negativ sein. Rechts von der Null liegt plus ein Halb, und spiegelbildlich links von der Null liegt minus ein Halb: genau in der Mitte zwischen null und minus eins. Minus ein halbes Grad ist also ein bisschen kälter als null Grad.",
+    "onScreenTitle": "Negative Brüche",
+    "emphasisWords": []
+   },
+   {
+    "beatId": 31,
+    "chapterId": 5,
+    "narration": "Jetzt du. Zwischen welchen beiden ganzen Zahlen liegt minus drei Viertel? Und liegt es näher an der Null oder näher an der minus eins? Denk an den Spiegel: Wo liegt plus drei Viertel, und was passiert beim Spiegeln an der Null? Du hast ein paar Sekunden Zeit.",
+    "onScreenTitle": "Brüche sind Zahlen",
+    "emphasisWords": []
+   },
+   {
+    "beatId": 32,
+    "chapterId": 5,
+    "narration": "Die Antwort: Minus drei Viertel liegt zwischen minus eins und null, und zwar näher an der minus eins. Von der minus eins ist es nur ein Viertel entfernt, von der Null aber drei Viertel. Es liegt genau in der Mitte zwischen minus eins und minus ein Halb. Auf der Zahlengeraden siehst du es: Plus drei Viertel rechts, minus drei Viertel spiegelbildlich links.",
+    "onScreenTitle": "Antwort: zwischen −1 und 0, näher an −1",
+    "emphasisWords": []
+   },
+   {
+    "beatId": 33,
+    "chapterId": 5,
+    "narration": "Zum Schluss ordnen wir die Zahlen. Die Zahlen eins, zwei, drei und so weiter heißen natürliche Zahlen, kurz N. Nimmst du die Null dazu, schreibt man N mit einer kleinen Null. Nimmst du auch die negativen Zahlen dazu, hast du die ganzen Zahlen, kurz Z. Bei den ganzen Zahlen kommt nach jeder Zahl die nächste: Nach drei kommt vier.",
+    "onScreenTitle": "Natürliche und ganze Zahlen",
+    "emphasisWords": []
+   },
+   {
+    "beatId": 34,
+    "chapterId": 5,
+    "narration": "Nimmst du zu den ganzen Zahlen alle Brüche dazu, positive und negative, dann hast du die rationalen Zahlen, kurz Q. Bei den Brüchen gibt es keine nächste Zahl: Zwischen ein Halb und drei Viertel liegt fünf Achtel, dazwischen liegt wieder ein Bruch, und so weiter. Zwischen zwei Brüchen liegen immer unendlich viele weitere Brüche.",
+    "onScreenTitle": "Rationale Zahlen",
+    "emphasisWords": []
+   },
+   {
+    "beatId": 35,
+    "chapterId": 5,
+    "narration": "Das war die Lektion zu Bruchteilen und Bruchzahlen. Ein Bruch ist ein Anteil von einem Ganzen. Der Zähler zählt die Stücke, der Nenner nennt ihre Größe. Erweitern und Kürzen ändern den Wert nicht, und mit dem Hauptnenner kannst du jeden Bruch vergleichen. Brüche sind Zahlen mit einem festen Platz auf der Zahlengeraden, auch die negativen. In der nächsten Lektion geht es um Dezimalbrüche. Bis dann.",
     "onScreenTitle": "Brüche sind Zahlen",
     "emphasisWords": []
    }
   ],
-  "totalWords": 1073
+  "totalWords": 1868
  },
  "review": {
   "approved": true,
   "issues": [
-   "Hauptnenner über Primfaktorzerlegung wird nicht behandelt (Ausblick für eine eigene kurze Lektion)",
-   "Kürzen von 4/12 wird nur gesprochen und im Titel gezeigt, nicht in der Animation"
+   "Nicht behandelt (eigene Lektionen): Hauptnenner über Primfaktorzerlegung, Brüche größer als 1 (gemischte Zahlen), Kürzen von 4/12 wird im Bild nicht gruppiert gezeigt"
   ],
   "claimsToVerify": [],
   "revisedNarration": {},
@@ -1126,6 +1847,9 @@
     "scene": null,
     "params": null,
     "formula": null,
+    "question": null,
+    "think": 0,
+    "hint": null,
     "segment": null,
     "hero": false,
     "chapterId": 1
@@ -1158,6 +1882,9 @@
      "k": 3
     },
     "formula": null,
+    "question": null,
+    "think": 0,
+    "hint": null,
     "segment": [
      0,
      8
@@ -1193,6 +1920,9 @@
      "k": 3
     },
     "formula": null,
+    "question": null,
+    "think": 0,
+    "hint": null,
     "segment": [
      8,
      13.9
@@ -1202,14 +1932,84 @@
    },
    {
     "beatId": 4,
+    "kind": "math3d",
+    "kicker": "Ein Stück vom Ganzen",
+    "title": "Noch ein Beispiel: fünf Sechstel",
+    "subtitle": null,
+    "bullets": null,
+    "nodes": null,
+    "leftTitle": null,
+    "leftItems": null,
+    "rightTitle": null,
+    "rightItems": null,
+    "statValue": null,
+    "statLabel": null,
+    "code": null,
+    "codeLanguage": null,
+    "quote": null,
+    "attribution": null,
+    "shot": null,
+    "stockQuery": null,
+    "model": null,
+    "labels": null,
+    "scene": "fraction",
+    "params": {
+     "n": 6,
+     "k": 5
+    },
+    "formula": null,
+    "question": null,
+    "think": 0,
+    "hint": null,
+    "segment": [
+     0,
+     13.9
+    ],
+    "hero": false,
+    "chapterId": 1
+   },
+   {
+    "beatId": 5,
+    "kind": "question",
+    "kicker": "Ein Stück vom Ganzen",
+    "title": "Ein Stück vom Ganzen",
+    "subtitle": null,
+    "bullets": null,
+    "nodes": null,
+    "leftTitle": null,
+    "leftItems": null,
+    "rightTitle": null,
+    "rightItems": null,
+    "statValue": null,
+    "statLabel": null,
+    "code": null,
+    "codeLanguage": null,
+    "quote": null,
+    "attribution": null,
+    "shot": null,
+    "stockQuery": null,
+    "model": null,
+    "labels": null,
+    "scene": null,
+    "params": null,
+    "formula": null,
+    "question": "Eine Pizza ist in 10 Stücke geschnitten. Du nimmst 7 Stücke. Welcher Bruch ist das?",
+    "think": 8,
+    "hint": "Oben: Wie viele Stücke hast du? Unten: In wie viele Stücke wurde geteilt?",
+    "segment": null,
+    "hero": false,
+    "chapterId": 1
+   },
+   {
+    "beatId": 6,
     "kind": "bullets",
     "kicker": "Ein Stück vom Ganzen",
-    "title": "Was ist ein Bruch?",
+    "title": "Antwort: sieben Zehntel",
     "subtitle": null,
     "bullets": [
-     "Das Ganze: Pizza, Schokolade, eine Stunde",
-     "Gleich große Teile",
-     "Ein Anteil: einige dieser Teile"
+     "Oben 7: so viele Stücke hast du",
+     "Unten 10: in so viele Stücke geteilt",
+     "7/10 der Pizza"
     ],
     "nodes": null,
     "leftTitle": null,
@@ -1229,12 +2029,15 @@
     "scene": null,
     "params": null,
     "formula": null,
+    "question": null,
+    "think": 0,
+    "hint": null,
     "segment": null,
     "hero": false,
     "chapterId": 1
    },
    {
-    "beatId": 5,
+    "beatId": 7,
     "kind": "chapter",
     "kicker": "Kapitel 2 von 5",
     "title": "Zähler und Nenner",
@@ -1262,12 +2065,15 @@
     "scene": null,
     "params": null,
     "formula": null,
+    "question": null,
+    "think": 0,
+    "hint": null,
     "segment": null,
     "hero": false,
     "chapterId": 2
    },
    {
-    "beatId": 6,
+    "beatId": 8,
     "kind": "math3d",
     "kicker": "Zähler und Nenner",
     "title": "Ein Viertel gegessen",
@@ -1294,6 +2100,9 @@
      "k": 1
     },
     "formula": null,
+    "question": null,
+    "think": 0,
+    "hint": null,
     "segment": [
      0,
      13.9
@@ -1302,7 +2111,7 @@
     "chapterId": 2
    },
    {
-    "beatId": 7,
+    "beatId": 9,
     "kind": "bullets",
     "kicker": "Zähler und Nenner",
     "title": "Drei Viertel von 20 Euro",
@@ -1330,20 +2139,23 @@
     "scene": null,
     "params": null,
     "formula": null,
+    "question": null,
+    "think": 0,
+    "hint": null,
     "segment": null,
     "hero": false,
     "chapterId": 2
    },
    {
-    "beatId": 8,
+    "beatId": 10,
     "kind": "bullets",
     "kicker": "Zähler und Nenner",
-    "title": "Das Ganze finden",
+    "title": "Zwei Fünftel von 30 Minuten",
     "subtitle": null,
     "bullets": [
-     "2/5 = 6 km, also 1/5 = 3 km",
-     "Ganzes: 5 · 3 km = 15 km",
-     "Aufgabe: 3/4 sind 9 km. Das Ganze?"
+     "30 min : 5 = 6 min (ein Fünftel)",
+     "6 min · 2 = 12 min (zwei Fünftel)",
+     "Dieselbe Regel, andere Zahlen"
     ],
     "nodes": null,
     "leftTitle": null,
@@ -1363,12 +2175,119 @@
     "scene": null,
     "params": null,
     "formula": null,
+    "question": null,
+    "think": 0,
+    "hint": null,
     "segment": null,
     "hero": false,
     "chapterId": 2
    },
    {
-    "beatId": 9,
+    "beatId": 11,
+    "kind": "question",
+    "kicker": "Zähler und Nenner",
+    "title": "Zähler und Nenner",
+    "subtitle": null,
+    "bullets": null,
+    "nodes": null,
+    "leftTitle": null,
+    "leftItems": null,
+    "rightTitle": null,
+    "rightItems": null,
+    "statValue": null,
+    "statLabel": null,
+    "code": null,
+    "codeLanguage": null,
+    "quote": null,
+    "attribution": null,
+    "shot": null,
+    "stockQuery": null,
+    "model": null,
+    "labels": null,
+    "scene": null,
+    "params": null,
+    "formula": null,
+    "question": "Wie viel sind 3/4 von 12 Äpfeln?",
+    "think": 10,
+    "hint": "Erst durch den Nenner 4 teilen, dann mal den Zähler 3.",
+    "segment": null,
+    "hero": false,
+    "chapterId": 2
+   },
+   {
+    "beatId": 12,
+    "kind": "bullets",
+    "kicker": "Zähler und Nenner",
+    "title": "Antwort: 9 Äpfel",
+    "subtitle": null,
+    "bullets": [
+     "12 : 4 = 3 (ein Viertel)",
+     "3 · 3 = 9 (drei Viertel)",
+     "9 von 12 Äpfeln sind rot"
+    ],
+    "nodes": null,
+    "leftTitle": null,
+    "leftItems": null,
+    "rightTitle": null,
+    "rightItems": null,
+    "statValue": null,
+    "statLabel": null,
+    "code": null,
+    "codeLanguage": null,
+    "quote": null,
+    "attribution": null,
+    "shot": null,
+    "stockQuery": null,
+    "model": null,
+    "labels": null,
+    "scene": null,
+    "params": null,
+    "formula": null,
+    "question": null,
+    "think": 0,
+    "hint": null,
+    "segment": null,
+    "hero": false,
+    "chapterId": 2
+   },
+   {
+    "beatId": 13,
+    "kind": "bullets",
+    "kicker": "Zähler und Nenner",
+    "title": "Rückwärts: das Ganze finden",
+    "subtitle": null,
+    "bullets": [
+     "2/5 einer Strecke sind 6 km",
+     "1/5 = 6 km : 2 = 3 km",
+     "Ganzes = 5 · 3 km = 15 km"
+    ],
+    "nodes": null,
+    "leftTitle": null,
+    "leftItems": null,
+    "rightTitle": null,
+    "rightItems": null,
+    "statValue": null,
+    "statLabel": null,
+    "code": null,
+    "codeLanguage": null,
+    "quote": null,
+    "attribution": null,
+    "shot": null,
+    "stockQuery": null,
+    "model": null,
+    "labels": null,
+    "scene": null,
+    "params": null,
+    "formula": null,
+    "question": null,
+    "think": 0,
+    "hint": null,
+    "segment": null,
+    "hero": false,
+    "chapterId": 2
+   },
+   {
+    "beatId": 14,
     "kind": "chapter",
     "kicker": "Kapitel 3 von 5",
     "title": "Erweitern und Kürzen",
@@ -1396,12 +2315,15 @@
     "scene": null,
     "params": null,
     "formula": null,
+    "question": null,
+    "think": 0,
+    "hint": null,
     "segment": null,
     "hero": false,
     "chapterId": 3
    },
    {
-    "beatId": 10,
+    "beatId": 15,
     "kind": "math3d",
     "kicker": "Erweitern und Kürzen",
     "title": "3/8 = 6/16",
@@ -1428,6 +2350,9 @@
      "k": 3
     },
     "formula": null,
+    "question": null,
+    "think": 0,
+    "hint": null,
     "segment": [
      12,
      21
@@ -1436,7 +2361,7 @@
     "chapterId": 3
    },
    {
-    "beatId": 11,
+    "beatId": 16,
     "kind": "math3d",
     "kicker": "Erweitern und Kürzen",
     "title": "Erweitern mit 2",
@@ -1463,6 +2388,9 @@
      "k": 3
     },
     "formula": null,
+    "question": null,
+    "think": 0,
+    "hint": null,
     "segment": [
      21,
      30
@@ -1471,10 +2399,46 @@
     "chapterId": 3
    },
    {
-    "beatId": 12,
+    "beatId": 17,
+    "kind": "bullets",
+    "kicker": "Erweitern und Kürzen",
+    "title": "Erweitern mit 3 und mit 5",
+    "subtitle": null,
+    "bullets": [
+     "2/3 = 6/9 (Zähler und Nenner · 3)",
+     "1/4 = 5/20 (Zähler und Nenner · 5)",
+     "Der Anteil bleibt gleich"
+    ],
+    "nodes": null,
+    "leftTitle": null,
+    "leftItems": null,
+    "rightTitle": null,
+    "rightItems": null,
+    "statValue": null,
+    "statLabel": null,
+    "code": null,
+    "codeLanguage": null,
+    "quote": null,
+    "attribution": null,
+    "shot": null,
+    "stockQuery": null,
+    "model": null,
+    "labels": null,
+    "scene": null,
+    "params": null,
+    "formula": null,
+    "question": null,
+    "think": 0,
+    "hint": null,
+    "segment": null,
+    "hero": false,
+    "chapterId": 3
+   },
+   {
+    "beatId": 18,
     "kind": "math3d",
     "kicker": "Erweitern und Kürzen",
-    "title": "4/12 = 1/3",
+    "title": "Kürzen: 4/12 = 1/3",
     "subtitle": null,
     "bullets": null,
     "nodes": null,
@@ -1498,6 +2462,9 @@
      "k": 4
     },
     "formula": null,
+    "question": null,
+    "think": 0,
+    "hint": null,
     "segment": [
      6,
      13.9
@@ -1506,16 +2473,47 @@
     "chapterId": 3
    },
    {
-    "beatId": 13,
+    "beatId": 19,
+    "kind": "question",
+    "kicker": "Erweitern und Kürzen",
+    "title": "Erweitern und Kürzen",
+    "subtitle": null,
+    "bullets": null,
+    "nodes": null,
+    "leftTitle": null,
+    "leftItems": null,
+    "rightTitle": null,
+    "rightItems": null,
+    "statValue": null,
+    "statLabel": null,
+    "code": null,
+    "codeLanguage": null,
+    "quote": null,
+    "attribution": null,
+    "shot": null,
+    "stockQuery": null,
+    "model": null,
+    "labels": null,
+    "scene": null,
+    "params": null,
+    "formula": null,
+    "question": "Kürze 6/8 so weit wie möglich.",
+    "think": 8,
+    "hint": "Durch welche Zahl kannst du 6 und 8 beide teilen?",
+    "segment": null,
+    "hero": false,
+    "chapterId": 3
+   },
+   {
+    "beatId": 20,
     "kind": "bullets",
     "kicker": "Erweitern und Kürzen",
-    "title": "Merke",
+    "title": "Antwort: 3/4",
     "subtitle": null,
     "bullets": [
-     "Erweitern: Zähler und Nenner · dieselbe Zahl",
-     "Kürzen: Zähler und Nenner : dieselbe Zahl",
-     "Der Wert bleibt gleich",
-     "Übung: Kürze 6/8 so weit wie möglich"
+     "6:2 = 3 und 8:2 = 4",
+     "6/8 = 3/4",
+     "3 und 4 haben keinen gemeinsamen Teiler: vollständig gekürzt"
     ],
     "nodes": null,
     "leftTitle": null,
@@ -1535,12 +2533,15 @@
     "scene": null,
     "params": null,
     "formula": null,
+    "question": null,
+    "think": 0,
+    "hint": null,
     "segment": null,
     "hero": false,
     "chapterId": 3
    },
    {
-    "beatId": 14,
+    "beatId": 21,
     "kind": "chapter",
     "kicker": "Kapitel 4 von 5",
     "title": "Brüche vergleichen",
@@ -1568,21 +2569,131 @@
     "scene": null,
     "params": null,
     "formula": null,
+    "question": null,
+    "think": 0,
+    "hint": null,
     "segment": null,
     "hero": false,
     "chapterId": 4
    },
    {
-    "beatId": 15,
-    "kind": "bullets",
+    "beatId": 22,
+    "kind": "math3d",
     "kicker": "Brüche vergleichen",
-    "title": "Hauptnenner 12",
+    "title": "Zwei Drittel oder drei Viertel?",
     "subtitle": null,
-    "bullets": [
-     "2/3 = 8/12",
-     "3/4 = 9/12",
-     "9/12 > 8/12, also 3/4 > 2/3"
+    "bullets": null,
+    "nodes": null,
+    "leftTitle": null,
+    "leftItems": null,
+    "rightTitle": null,
+    "rightItems": null,
+    "statValue": null,
+    "statLabel": null,
+    "code": null,
+    "codeLanguage": null,
+    "quote": null,
+    "attribution": null,
+    "shot": null,
+    "stockQuery": null,
+    "model": null,
+    "labels": null,
+    "scene": "compare",
+    "params": {
+     "task": "2/3 und 3/4"
+    },
+    "formula": null,
+    "question": null,
+    "think": 0,
+    "hint": null,
+    "segment": [
+     0,
+     14
     ],
+    "hero": false,
+    "chapterId": 4
+   },
+   {
+    "beatId": 23,
+    "kind": "math3d",
+    "kicker": "Brüche vergleichen",
+    "title": "8/12 und 9/12",
+    "subtitle": null,
+    "bullets": null,
+    "nodes": null,
+    "leftTitle": null,
+    "leftItems": null,
+    "rightTitle": null,
+    "rightItems": null,
+    "statValue": null,
+    "statLabel": null,
+    "code": null,
+    "codeLanguage": null,
+    "quote": null,
+    "attribution": null,
+    "shot": null,
+    "stockQuery": null,
+    "model": null,
+    "labels": null,
+    "scene": "compare",
+    "params": {
+     "task": "2/3 und 3/4"
+    },
+    "formula": null,
+    "question": null,
+    "think": 0,
+    "hint": null,
+    "segment": [
+     14,
+     30
+    ],
+    "hero": false,
+    "chapterId": 4
+   },
+   {
+    "beatId": 24,
+    "kind": "math3d",
+    "kicker": "Brüche vergleichen",
+    "title": "Ein Halb oder zwei Fünftel?",
+    "subtitle": null,
+    "bullets": null,
+    "nodes": null,
+    "leftTitle": null,
+    "leftItems": null,
+    "rightTitle": null,
+    "rightItems": null,
+    "statValue": null,
+    "statLabel": null,
+    "code": null,
+    "codeLanguage": null,
+    "quote": null,
+    "attribution": null,
+    "shot": null,
+    "stockQuery": null,
+    "model": null,
+    "labels": null,
+    "scene": "compare",
+    "params": {
+     "task": "1/2 und 2/5"
+    },
+    "formula": null,
+    "question": null,
+    "think": 0,
+    "hint": null,
+    "segment": [
+     0,
+     30
+    ],
+    "hero": false,
+    "chapterId": 4
+   },
+   {
+    "beatId": 25,
+    "kind": "question",
+    "kicker": "Brüche vergleichen",
+    "title": "Brüche vergleichen",
+    "subtitle": null,
+    "bullets": null,
     "nodes": null,
     "leftTitle": null,
     "leftItems": null,
@@ -1601,15 +2712,18 @@
     "scene": null,
     "params": null,
     "formula": null,
+    "question": "Was ist mehr: 3/5 oder 2/3?",
+    "think": 12,
+    "hint": "Hauptnenner von 5 und 3 ist 15.",
     "segment": null,
     "hero": false,
     "chapterId": 4
    },
    {
-    "beatId": 16,
+    "beatId": 26,
     "kind": "math3d",
     "kicker": "Brüche vergleichen",
-    "title": "1/3 und 1/4 im Vergleich",
+    "title": "Antwort: 2/3 ist größer",
     "subtitle": null,
     "bullets": null,
     "nodes": null,
@@ -1627,20 +2741,23 @@
     "stockQuery": null,
     "model": null,
     "labels": null,
-    "scene": "fracadd",
+    "scene": "compare",
     "params": {
-     "task": "1/3 + 1/4"
+     "task": "3/5 und 2/3"
     },
-    "formula": "1/3 = 4/12 · 1/4 = 3/12",
+    "formula": null,
+    "question": null,
+    "think": 0,
+    "hint": null,
     "segment": [
-     0,
-     11
+     8,
+     30
     ],
     "hero": false,
     "chapterId": 4
    },
    {
-    "beatId": 17,
+    "beatId": 27,
     "kind": "math3d",
     "kicker": "Brüche vergleichen",
     "title": "25 % = 1/4",
@@ -1667,6 +2784,9 @@
      "G": 100
     },
     "formula": "25 % = 25/100 = 1/4",
+    "question": null,
+    "think": 0,
+    "hint": null,
     "segment": [
      0,
      10.5
@@ -1675,7 +2795,7 @@
     "chapterId": 4
    },
    {
-    "beatId": 18,
+    "beatId": 28,
     "kind": "chapter",
     "kicker": "Kapitel 5 von 5",
     "title": "Brüche sind Zahlen",
@@ -1704,21 +2824,94 @@
     "scene": null,
     "params": null,
     "formula": null,
+    "question": null,
+    "think": 0,
+    "hint": null,
     "segment": null,
     "hero": false,
     "chapterId": 5
    },
    {
-    "beatId": 19,
-    "kind": "bullets",
+    "beatId": 29,
+    "kind": "math3d",
+    "kicker": "Brüche sind Zahlen",
+    "title": "Brüche zwischen 0 und 1",
+    "subtitle": null,
+    "bullets": null,
+    "nodes": null,
+    "leftTitle": null,
+    "leftItems": null,
+    "rightTitle": null,
+    "rightItems": null,
+    "statValue": null,
+    "statLabel": null,
+    "code": null,
+    "codeLanguage": null,
+    "quote": null,
+    "attribution": null,
+    "shot": null,
+    "stockQuery": null,
+    "model": null,
+    "labels": null,
+    "scene": "numberline",
+    "params": {
+     "marks": "0 | 1/4 | 1/2 | 3/4 | 1"
+    },
+    "formula": null,
+    "question": null,
+    "think": 0,
+    "hint": null,
+    "segment": [
+     0,
+     14
+    ],
+    "hero": false,
+    "chapterId": 5
+   },
+   {
+    "beatId": 30,
+    "kind": "math3d",
     "kicker": "Brüche sind Zahlen",
     "title": "Negative Brüche",
     "subtitle": null,
-    "bullets": [
-     "Links von der 0: negative Zahlen",
-     "−1/2: in der Mitte zwischen 0 und −1",
-     "Frage: Wo liegt −3/4? Zwischen −1/2 und −1"
+    "bullets": null,
+    "nodes": null,
+    "leftTitle": null,
+    "leftItems": null,
+    "rightTitle": null,
+    "rightItems": null,
+    "statValue": null,
+    "statLabel": null,
+    "code": null,
+    "codeLanguage": null,
+    "quote": null,
+    "attribution": null,
+    "shot": null,
+    "stockQuery": null,
+    "model": null,
+    "labels": null,
+    "scene": "numberline",
+    "params": {
+     "marks": "-1 | -1/2 | 0 | 1/2 | 1"
+    },
+    "formula": null,
+    "question": null,
+    "think": 0,
+    "hint": null,
+    "segment": [
+     0,
+     14
     ],
+    "hero": false,
+    "chapterId": 5
+   },
+   {
+    "beatId": 31,
+    "kind": "question",
+    "kicker": "Brüche sind Zahlen",
+    "title": "Brüche sind Zahlen",
+    "subtitle": null,
+    "bullets": null,
     "nodes": null,
     "leftTitle": null,
     "leftItems": null,
@@ -1737,21 +2930,60 @@
     "scene": null,
     "params": null,
     "formula": null,
+    "question": "Zwischen welchen ganzen Zahlen liegt −3/4? Und liegt es näher an 0 oder an −1?",
+    "think": 8,
+    "hint": "Spiegle 3/4 an der Null.",
     "segment": null,
     "hero": false,
     "chapterId": 5
    },
    {
-    "beatId": 20,
+    "beatId": 32,
+    "kind": "math3d",
+    "kicker": "Brüche sind Zahlen",
+    "title": "Antwort: zwischen −1 und 0, näher an −1",
+    "subtitle": null,
+    "bullets": null,
+    "nodes": null,
+    "leftTitle": null,
+    "leftItems": null,
+    "rightTitle": null,
+    "rightItems": null,
+    "statValue": null,
+    "statLabel": null,
+    "code": null,
+    "codeLanguage": null,
+    "quote": null,
+    "attribution": null,
+    "shot": null,
+    "stockQuery": null,
+    "model": null,
+    "labels": null,
+    "scene": "numberline",
+    "params": {
+     "marks": "-1 | -3/4 | -1/2 | 0 | 1/2 | 1"
+    },
+    "formula": null,
+    "question": null,
+    "think": 0,
+    "hint": null,
+    "segment": [
+     0,
+     16
+    ],
+    "hero": false,
+    "chapterId": 5
+   },
+   {
+    "beatId": 33,
     "kind": "bullets",
     "kicker": "Brüche sind Zahlen",
-    "title": "Drei Zahlenmengen",
+    "title": "Natürliche und ganze Zahlen",
     "subtitle": null,
     "bullets": [
      "Natürliche Zahlen ℕ: 1, 2, 3, …",
      "Mit der Null dazu: ℕ₀",
-     "Ganze Zahlen ℤ: …, −1, 0, 1, …",
-     "Rationale Zahlen ℚ: alle Brüche dazu"
+     "Ganze Zahlen ℤ: …, −1, 0, 1, …"
     ],
     "nodes": null,
     "leftTitle": null,
@@ -1771,12 +3003,51 @@
     "scene": null,
     "params": null,
     "formula": null,
+    "question": null,
+    "think": 0,
+    "hint": null,
     "segment": null,
     "hero": false,
     "chapterId": 5
    },
    {
-    "beatId": 21,
+    "beatId": 34,
+    "kind": "bullets",
+    "kicker": "Brüche sind Zahlen",
+    "title": "Rationale Zahlen",
+    "subtitle": null,
+    "bullets": [
+     "Rationale Zahlen ℚ: alle Brüche dazu",
+     "Positiv und negativ",
+     "Zwischen zwei Brüchen: unendlich viele weitere"
+    ],
+    "nodes": null,
+    "leftTitle": null,
+    "leftItems": null,
+    "rightTitle": null,
+    "rightItems": null,
+    "statValue": null,
+    "statLabel": null,
+    "code": null,
+    "codeLanguage": null,
+    "quote": null,
+    "attribution": null,
+    "shot": null,
+    "stockQuery": null,
+    "model": null,
+    "labels": null,
+    "scene": null,
+    "params": null,
+    "formula": null,
+    "question": null,
+    "think": 0,
+    "hint": null,
+    "segment": null,
+    "hero": false,
+    "chapterId": 5
+   },
+   {
+    "beatId": 35,
     "kind": "outro",
     "kicker": null,
     "title": "Ein Bruch ist ein Anteil von einem Ganzen:",
@@ -1800,6 +3071,9 @@
     "scene": null,
     "params": null,
     "formula": null,
+    "question": null,
+    "think": 0,
+    "hint": null,
     "segment": null,
     "hero": false,
     "chapterId": 5
@@ -1808,7 +3082,7 @@
  },
  "publish": {
   "title": "Brüche verstehen: Bruchteile und Bruchzahlen | Mathe Klasse 6 Gymnasium Bayern",
-  "description": "Was ist ein Bruch? In dieser Lektion lernst du mit einer 3D-Pizza, was Zähler und Nenner bedeuten, wie du Bruchteile und das Ganze berechnest, warum Erweitern und Kürzen den Wert nicht ändern, wie du Brüche mit dem Hauptnenner vergleichst und warum 25 % dasselbe ist wie ein Viertel. Zum Schluss siehst du, dass Brüche Zahlen auf der Zahlengeraden sind, auch negative.\n\nPasst zum LehrplanPLUS Gymnasium Bayern, Mathematik Jahrgangsstufe 6, Lernbereich M6 1.1 Bruchteile und Bruchzahlen.\n\nDu lernst: Zähler und Nenner · Bruchteil und Ganzes berechnen · Erweitern und Kürzen · Hauptnenner · Prozent als Bruch · Zahlengerade und negative Brüche",
+  "description": "Was ist ein Bruch? In dieser Lektion lernst du mit 3D-Pizzen, einem Streifen, einem Hunderterfeld und der Zahlengeraden, was Zähler und Nenner bedeuten, wie du Bruchteile und das Ganze berechnest, warum Erweitern und Kürzen den Wert nicht ändern, wie du Brüche mit dem Hauptnenner vergleichst und warum 25 % dasselbe ist wie ein Viertel. In jedem Kapitel gibt es eine Frage an dich mit Zeit zum Nachdenken.\n\nPasst zum LehrplanPLUS Gymnasium Bayern, Mathematik Jahrgangsstufe 6, Lernbereich M6 1.1 Bruchteile und Bruchzahlen.\n\nDu lernst: Zähler und Nenner · Bruchteil und Ganzes berechnen · Erweitern und Kürzen · Hauptnenner · Prozent als Bruch · Zahlengerade und negative Brüche",
   "tags": [
    "brüche",
    "bruchrechnung",
@@ -1831,23 +3105,23 @@
     "label": "Ein Stück vom Ganzen"
    },
    {
-    "beatId": 5,
+    "beatId": 7,
     "label": "Zähler und Nenner"
    },
    {
-    "beatId": 9,
+    "beatId": 14,
     "label": "Erweitern und Kürzen"
    },
    {
-    "beatId": 14,
+    "beatId": 21,
     "label": "Brüche vergleichen"
    },
    {
-    "beatId": 18,
+    "beatId": 28,
     "label": "Brüche sind Zahlen"
    }
   ],
   "thumbnailText": "BRÜCHE VERSTEHEN",
-  "pinnedComment": "Welche Aufgabe fandest du am schwersten? Schreib sie in die Kommentare, dann erkläre ich sie in einem kurzen Video."
+  "pinnedComment": "Welche Frage im Video fandest du am schwersten? Schreib sie in die Kommentare."
  }
 }
