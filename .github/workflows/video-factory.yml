@@ -5,6 +5,9 @@ name: Video factory (make a video from a prompt)
 #     reply "approve" to make the video, or reply with changes to get a revised plan.
 #  2. Reply on such an issue: "approve" makes the video from the last plan; anything else revises the plan.
 #  3. Actions → Run workflow (the form). With review = yes a tracking issue is created for the plan round-trip.
+#  4. Open an issue titled "Lektion: M6-2.2" (a topic id from klasse6/LEKTIONEN.md): a German lesson for Klasse 6
+#     from the verified Bavarian syllabus, with 3D maths scenes, a German voice and a second reviewer model.
+#     Optional lines in the body: "minuten: 7", "footage: free".
 on:
   workflow_dispatch:
     inputs:
@@ -36,6 +39,10 @@ on:
         type: choice
         default: 'yes'
         options: ['yes', 'no']
+      lesson:
+        description: 'Klasse-6 lesson: a topic id from klasse6/LEKTIONEN.md (e.g. M6-2.2). Leave empty for a normal video.'
+        default: ''
+        type: string
   issues:
     types: [opened]
   issue_comment:
@@ -54,8 +61,8 @@ jobs:
   make:
     if: >-
       github.event_name == 'workflow_dispatch' ||
-      (github.event_name == 'issues' && startsWith(github.event.issue.title, 'Video:')) ||
-      (github.event_name == 'issue_comment' && startsWith(github.event.issue.title, 'Video:') && !github.event.issue.pull_request && github.event.comment.user.type != 'Bot')
+      (github.event_name == 'issues' && (startsWith(github.event.issue.title, 'Video:') || startsWith(github.event.issue.title, 'Lektion:'))) ||
+      (github.event_name == 'issue_comment' && (startsWith(github.event.issue.title, 'Video:') || startsWith(github.event.issue.title, 'Lektion:')) && !github.event.issue.pull_request && github.event.comment.user.type != 'Bot')
     runs-on: ubuntu-latest
     timeout-minutes: 170
     steps:
@@ -72,6 +79,7 @@ jobs:
           IN_FOOTAGE: ${{ github.event.inputs.footage }}
           IN_SECS: ${{ github.event.inputs.max_seconds }}
           IN_REVIEW: ${{ github.event.inputs.review }}
+          IN_LESSON: ${{ github.event.inputs.lesson }}
           ISSUE_NUMBER: ${{ github.event.issue.number }}
           ISSUE_TITLE: ${{ github.event.issue.title }}
           ISSUE_BODY: ${{ github.event.issue.body }}
@@ -84,22 +92,31 @@ jobs:
           event = ev['EVENT']
           out = {}
           def opts_from(body):
-              o = dict(re.findall(r'^(style|aspect|footage|seconds|review)\s*:\s*(.+?)\s*$', body or '', flags=re.I | re.M))
+              o = dict(re.findall(r'^(style|aspect|footage|seconds|review|minuten|minutes)\s*:\s*(.+?)\s*$', body or '', flags=re.I | re.M))
               return {k.lower(): v.strip() for k, v in o.items()}
           def strip_opts(body):
-              return re.sub(r'^(style|aspect|footage|seconds|review)\s*:.*$', '', body or '', flags=re.I | re.M).strip()
+              return re.sub(r'^(style|aspect|footage|seconds|review|minuten|minutes)\s*:.*$', '', body or '', flags=re.I | re.M).strip()
+          lesson, minutes = '', ''
           if event == 'workflow_dispatch':
               prompt = ev['IN_PROMPT'].strip()
               style, aspect, footage = ev.get('IN_STYLE') or 'auto', ev.get('IN_ASPECT') or '16x9', ev.get('IN_FOOTAGE') or 'free'
               secs = ev.get('IN_SECS') or ''
               phase = 'plan' if (ev.get('IN_REVIEW') or 'yes') == 'yes' else 'all'
               issue = ''
+              lesson = (ev.get('IN_LESSON') or '').strip()
+              if lesson and not ev.get('IN_FOOTAGE'): footage = 'none'
           else:
               title = ev.get('ISSUE_TITLE') or ''
               body = ev.get('ISSUE_BODY') or ''
               o = opts_from(body)
-              prompt = strip_opts(body) or title.split(':', 1)[1].strip()
-              style, aspect, footage = o.get('style', 'auto'), o.get('aspect', '16x9'), o.get('footage', 'free')
+              if title.lower().startswith('lektion:'):
+                  m = re.search(r'([A-Za-z]+\d+-[0-9][0-9.]*|[A-Za-z]+\d+)', title.split(':', 1)[1])
+                  lesson = m.group(1) if m else ''
+                  minutes = o.get('minuten', o.get('minutes', ''))
+                  prompt = ''          # the factory builds the German prompt from the syllabus
+              else:
+                  prompt = strip_opts(body) or title.split(':', 1)[1].strip()
+              style, aspect, footage = o.get('style', 'auto'), o.get('aspect', '16x9'), o.get('footage', 'none' if lesson else 'free')
               secs = o.get('seconds', '')
               issue = ev['ISSUE_NUMBER']
               phase = 'all' if o.get('review', 'yes').lower() in ('no', 'off', 'false') else 'plan'
@@ -121,17 +138,19 @@ jobs:
               elif prev_run: phase, feedback = 'plan', comment
               else: phase, feedback = 'plan', comment
           # The prompt carries the length ("9 minutes"); the cap input only applies when given.
-          if not secs:
+          if lesson and not prompt and not secs:
+              secs = str(round(float((minutes or '0').replace(',', '.')) * 60 * 1.08)) if minutes else ''
+          if not secs and prompt:
               m = re.search(r'(\d{1,2}(?:[.,]\d)?)\s*-?\s*(?:min\b|mins\b|minute|minutes)', prompt, flags=re.I)
               secs = str(min(600, round(float(m.group(1).replace(',', '.')) * 60 * 1.08))) if m else ''
               if not secs:
                   m = re.search(r'(\d{1,3})\s*-?\s*(?:s\b|sec\b|secs\b|second|seconds)', prompt, flags=re.I)
                   secs = m.group(1) if m else '60'
           with open(os.environ['GITHUB_OUTPUT'], 'a') as f:
-              f.write('phase=%s\nstyle=%s\naspect=%s\nfootage=%s\nsecs=%s\nissue=%s\nprev_run=%s\n' % (phase, style, aspect, footage, secs, issue, prev_run))
+              f.write('phase=%s\nstyle=%s\naspect=%s\nfootage=%s\nsecs=%s\nissue=%s\nprev_run=%s\nlesson=%s\nminutes=%s\n' % (phase, style, aspect, footage, secs, issue, prev_run, lesson, minutes))
           open('prompt.txt', 'w').write(prompt)
           open('feedback.txt', 'w').write(feedback)
-          print('event', event, 'phase', phase, 'issue', issue or '-', 'prev_run', prev_run or '-')
+          print('event', event, 'phase', phase, 'issue', issue or '-', 'prev_run', prev_run or '-', 'lesson', lesson or '-')
           print('PROMPT:', prompt[:300]); print('style', style, 'aspect', aspect, 'footage', footage, 'secs', secs)
           if feedback: print('FEEDBACK:', feedback[:300])
           PY
@@ -145,7 +164,7 @@ jobs:
           ASPECT: ${{ steps.req.outputs.aspect }}
           FOOTAGE: ${{ steps.req.outputs.footage }}
         run: |
-          TITLE="Video: $(head -c 90 prompt.txt | tr '\n' ' ')"
+          if [ -n "${{ steps.req.outputs.lesson }}" ]; then TITLE="Lektion: ${{ steps.req.outputs.lesson }}"; else TITLE="Video: $(head -c 90 prompt.txt | tr '\n' ' ')"; fi
           printf '%s\n\nstyle: %s\naspect: %s\nfootage: %s\n' "$(cat prompt.txt)" "$STYLE" "$ASPECT" "$FOOTAGE" > issue-body.txt
           URL=$(gh issue create --title "$TITLE" --body-file issue-body.txt)
           echo "issue=${URL##*/}" >> "$GITHUB_OUTPUT"
@@ -187,6 +206,9 @@ jobs:
       - name: Install ffmpeg
         if: steps.req.outputs.phase != 'plan'
         run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+      - name: Install the German voice (Piper) for lessons
+        if: steps.req.outputs.phase != 'plan' && steps.req.outputs.lesson != ''
+        run: pip install --quiet piper-tts && piper --help > /dev/null
 
       - name: Serve the studio
         run: (python3 -m http.server 8765 --bind 127.0.0.1 > server.log 2>&1 &) && sleep 1 && curl -sf http://127.0.0.1:8765/studio/index.html > /dev/null
@@ -201,7 +223,12 @@ jobs:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
           PEXELS_KEY: ${{ secrets.PEXELS_KEY }}
           CHANNEL: ${{ vars.CHANNEL_NAME }}
-          AI_CLIPS: ${{ vars.AI_CLIPS || '12' }}
+          AI_CLIPS: ${{ steps.req.outputs.lesson != '' && (vars.LESSON_AI_CLIPS || '0') || (vars.AI_CLIPS || '12') }}
+          LESSON: ${{ steps.req.outputs.lesson }}
+          MINUTES: ${{ steps.req.outputs.minutes }}
+          MIN_SCENE_SECONDS: ${{ vars.MIN_SCENE_SECONDS || '' }}
+          REVIEWER: ${{ vars.REVIEWER_MODEL || '' }}
+          TTS: ${{ vars.LESSON_TTS || '' }}
           OUT_DIR: out
           # The runner's Google Chrome decodes and encodes H.264 (the bundled test Chromium cannot, so AI clips were dropped).
           BROWSER_CHANNEL: chrome
@@ -298,7 +325,7 @@ jobs:
 
           Footage: ${FOOT}
 
-          Open the MP4 link on your phone, save it, and upload from the YouTube app. To make another video, open a new issue whose title starts with \`Video:\`."
+          Open the MP4 link on your phone, save it, and upload from the YouTube app. To make another video, open a new issue whose title starts with \`Video:\`; for the next Klasse-6 lesson use \`Lektion: <topic id>\` from klasse6/LEKTIONEN.md."
 
       - name: Report a failure on the issue
         if: failure() && steps.issue.outputs.number != ''

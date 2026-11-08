@@ -252,6 +252,11 @@ async function produce(prompt, resume) {
     const model = eng ? (MOCK ? { engine: 'mock', sizeMB: params.get('small') === '1' ? 300 : 900 } : describeModel(engineModelId || s.modelId)) : null;
     if (eng) log('Studio', 'info', `Model “${eng.name}” is ready. Everything runs in this browser. Keep this screen open.`);
     const team = new Team(eng, s, (ev) => log(ev.agent, ev.level, ev.message), { small: isSmallModel(model) });
+    // Lessons: a second, different model reviews what the writer wrote (settings.reviewerModelId; factory REVIEWER).
+    if (eng && !MOCK && s.reviewerModelId && s.reviewerModelId !== (engineModelId || s.modelId)) {
+      try { team.reviewEngine = await createEngine(describeModel(s.reviewerModelId), null, s); log('Reviewer', 'info', `A second model reviews the script: ${team.reviewEngine.name}.`); }
+      catch (e) { log('Reviewer', 'warning', `Second reviewer model unavailable (${e.message}); the writer model reviews instead.`); }
+    }
     if (eng && isSmallModel(model)) log('Studio', 'info', 'Small model: the agents will work one question at a time.');
     const sceneCount = T.sceneCountFor(s.targetDuration);
     const budget = () => T.wordBudget(s.targetDuration, cp.brief.outline.length);
@@ -293,10 +298,12 @@ async function produce(prompt, resume) {
       }
       checkCancel();
       const chapters = cp.brief.chapters;
+      if (s.lesson && s.lesson.scene) cp.brief.lessonScene = s.lesson.scene;
       cp.chapterBeats = cp.chapterBeats || {};
       const chapterSeconds = totalSeconds / chapters.length;
-      const beatCount = Math.max(3, Math.min(7, Math.round(chapterSeconds / 14)));
-      const wordsPerBeat = Math.max(20, Math.round((chapterSeconds / beatCount - T.LEAD_IN - T.TAIL) * T.WORDS_PER_SECOND * s.speed));
+      const minS = minScene(s);
+      const beatCount = Math.max(3, Math.min(7, Math.round(chapterSeconds / Math.max(14, minS + 3))));
+      const wordsPerBeat = Math.max(20, Math.ceil((minS - T.LEAD_IN - T.TAIL) * T.WORDS_PER_SECOND * s.speed) + 2, Math.round((chapterSeconds / beatCount - T.LEAD_IN - T.TAIL) * T.WORDS_PER_SECOND * s.speed));
       // Chapters are written a few at a time (each call to a cloud writer takes a minute or two); each result is
       // checkpointed as it lands, so an interrupted run only redoes the chapters still missing.
       const todo = chapters.map((ch, i) => [ch, i]).filter(([ch]) => !cp.chapterBeats[ch.id]);
@@ -328,9 +335,9 @@ async function produce(prompt, resume) {
             scenes.push(sc);
             const v = sanitise({
               ...b, kind, chapterId: ch.id,
-              kicker: kind === 'chapter' ? `Chapter ${ci + 1} of ${chapters.length}` : (kind === 'title' || kind === 'outro') ? null : ch.title,
+              kicker: kind === 'chapter' ? (s.lesson ? `Kapitel ${ci + 1} von ${chapters.length}` : `Chapter ${ci + 1} of ${chapters.length}`) : (kind === 'title' || kind === 'outro') ? null : ch.title,
               title: kind === 'chapter' ? ch.title : kind === 'title' ? cp.brief.title : kind === 'outro' ? clipWords(cp.brief.keyTakeaway, 10) : b.onScreenTitle,
-              subtitle: kind === 'chapter' ? ch.goal : kind === 'title' ? `For ${cp.brief.audience}` : kind === 'outro' ? s.cta : null,
+              subtitle: kind === 'chapter' ? ch.goal : kind === 'title' ? (s.lesson ? `Für ${cp.brief.audience}` : `For ${cp.brief.audience}`) : kind === 'outro' ? s.cta : null,
               labels: kind === 'chapter' ? (b.labels && b.labels.length >= 2 ? b.labels : (ch.keyPoints || []).slice(0, 4).map(k => headlineFrom(k))) : b.labels,
               hero: bi === 0 || kind === 'outro' || kind === 'footage' || !!b.hero,
             }, sc);
@@ -346,9 +353,22 @@ async function produce(prompt, resume) {
       checkCancel();
       if (!cp.review) {
         progress('Reviewing', 0.3);
+        team.storyboardScenes = cp.storyboard.scenes;   // the reviewer sees which 3D scene and numbers sit under each narration
+        const applyReview = () => { for (const sc of cp.script.scenes) if (cp.review.revisedNarration[sc.beatId]) sc.narration = cp.review.revisedNarration[sc.beatId]; cp.script.totalWords = cp.script.scenes.reduce((n, x) => n + T.wordCount(x.narration), 0); };
         cp.review = await team.reviewer(cp.brief, cp.script, Math.round(totalSeconds * T.WORDS_PER_SECOND));
-        for (const sc of cp.script.scenes) if (cp.review.revisedNarration[sc.beatId]) sc.narration = cp.review.revisedNarration[sc.beatId];
-        cp.script.totalWords = cp.script.scenes.reduce((n, x) => n + T.wordCount(x.narration), 0);
+        applyReview();
+        // Lessons: correction loop. Blocking findings go back to the writer, then the reviewer checks again (at most two rounds).
+        for (let round = 1; s.lesson && cp.review.mustFix && cp.review.mustFix.length && round <= 2; round++) {
+          log('Reviewer', 'warning', `${cp.review.mustFix.length} blocking finding(s): ${cp.review.mustFix.map(m => `scene ${m.beatId}: ${m.problem}`).join(' · ')}. Correction round ${round}.`);
+          const fixed = await team.fixScenes(cp.brief, cp.script, cp.review.mustFix);
+          if (!Object.keys(fixed).length) break;
+          for (const sc of cp.script.scenes) if (fixed[sc.beatId]) sc.narration = fixed[sc.beatId];
+          const previousIssues = cp.review.issues;
+          cp.review = await team.reviewer(cp.brief, cp.script, Math.round(totalSeconds * T.WORDS_PER_SECOND));
+          cp.review.issues = [...new Set([...previousIssues, ...cp.review.issues])].slice(0, 16);
+          applyReview();
+        }
+        if (s.lesson && cp.review.mustFix && cp.review.mustFix.length) cp.review.claimsToVerify = [...cp.review.mustFix.map(m => `Szene ${m.beatId}: ${m.problem}`), ...cp.review.claimsToVerify].slice(0, 20);
         await save('review');
       }
       checkCancel();
@@ -374,7 +394,7 @@ async function produce(prompt, resume) {
           const sc = cp.script.scenes.find(x => x.beatId === v.beatId);
           Object.assign(v, sanitise({ ...v, kind: v.labels && v.labels.length >= 2 ? 'scene3d' : 'bullets', model: v.model || 'network' }, sc));
         }
-        log('Visual Designer', 'success', `${cp.heroBeats.length} scene(s) will get a generated AI clip; ${cp.storyboard.scenes.filter(v => v.kind === 'scene3d').length} 3D scenes; the rest are motion graphics.`);
+        log('Visual Designer', 'success', `${cp.heroBeats.length} scene(s) will get a generated AI clip; ${cp.storyboard.scenes.filter(v => v.kind === 'scene3d' || v.kind === 'math3d').length} 3D scenes; the rest are motion graphics.`);
         await save('publish');
       }
       const removed = T.tighten(cp.script, kindOf, s.maxDuration, s.speed, minScene(s));
@@ -492,7 +512,7 @@ async function produce(prompt, resume) {
   cp.speedMult = cp.speedMult || 1;
   const useMockTTS = MOCK && params.get('tts') === 'mock';
   let voiceOK = !useMockTTS;
-  if (!useMockTTS && cp.script.scenes.some(sc => !cp.audios[sc.beatId])) {
+  if (!useMockTTS && !window.__factoryTTS && cp.script.scenes.some(sc => !cp.audios[sc.beatId])) {
     progress('Narrating', 0, 'Loading voice');
     try {
       await loadTTS((f, file) => { progress('Narrating', 0, `Downloading voice ${Math.round(f * 100)}%`); $('ttsStatus').textContent = `Downloading voice: ${Math.round(f * 100)}% ${file || ''}`; });
@@ -604,6 +624,24 @@ async function produce(prompt, resume) {
   return project;
 }
 
+/** Voice from the factory process: 16-bit PCM as base64 plus its sample rate → trimmed Float32 samples. */
+async function externalTTS(text, voice, speed) {
+  const r = await window.__factoryTTS(text.replace(/\s+/g, ' ').trim(), voice || '', speed || 1);
+  if (!r || !r.b64) throw new Error((r && r.error) || 'no audio returned');
+  const bin = atob(r.b64), bytes = new Uint8Array(bin.length);
+  for (let i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);
+  const pcm = new Int16Array(bytes.buffer, 0, Math.floor(bytes.length / 2));
+  const samples = new Float32Array(pcm.length);
+  for (let i = 0; i < pcm.length; i++) samples[i] = pcm[i] / 32768;
+  const sr = r.sampleRate || 22050;
+  let a = 0, b = samples.length;
+  while (a < b && Math.abs(samples[a]) < 0.004) a++;
+  while (b > a && Math.abs(samples[b - 1]) < 0.004) b--;
+  const pad = Math.floor(0.06 * sr); a = Math.max(0, a - pad); b = Math.min(samples.length, b + pad);
+  const t = samples.slice(a, b);
+  return { samples: t, sampleRate: sr, duration: t.length / sr };
+}
+
 /** Synthesises any scene that has no audio yet (saving after each), then lays the timeline out. */
 async function narrate(cp, s, useMockTTS, save) {
   const script = cp.script, storyboard = cp.storyboard;
@@ -616,6 +654,11 @@ async function narrate(cp, s, useMockTTS, save) {
     let a;
     if (!sc.narration || !sc.narration.trim()) a = silentSeconds(Math.max(T.MIN_SCENE, s.footageDuration || 6) - T.LEAD_IN - T.TAIL);
     else if (useMockTTS) a = mockAudio(sc.narration);
+    else if (window.__factoryTTS) {
+      // The factory voices scenes outside the browser (Piper: German and other languages Kokoro lacks).
+      try { a = await externalTTS(sc.narration, s.voice, s.speed * cp.speedMult); }
+      catch (e) { log('Narrator', 'warning', `External voice failed for scene ${sc.beatId} (${(e && e.message) || e}); leaving it silent.`); a = silentAudio(sc.narration, s.speed * cp.speedMult); }
+    }
     else if (cp.silent) a = silentAudio(sc.narration, s.speed * cp.speedMult);
     else {
       try { a = await synthesize(sc.narration, s.voice, s.speed * cp.speedMult); }

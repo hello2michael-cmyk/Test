@@ -84,7 +84,7 @@ export function planMarkdown(cp) {
   const words = cp.script.totalWords || sc.reduce((n, x) => n + x.narration.trim().split(/\s+/).length, 0);
   const est = Math.round(words / 3.1 + sc.length * 0.8);
   const mm = `${Math.floor(est / 60)}:${pad(est % 60)}`;
-  const visualOf = v => v.kind === 'scene3d' ? `3D ${v.model} (${(v.labels || []).join(', ')})` : v.kind === 'footage' ? 'full-frame AI footage' : v.kind === 'chapter' ? 'chapter card' : v.kind === 'bullets' ? `bullets (${(v.bullets || []).join(' · ')})` : v.kind === 'diagram' ? `flow (${(v.nodes || []).join(' → ')})` : v.kind;
+  const visualOf = v => v.kind === 'math3d' ? `3D-Mathe „${v.scene}“ ${JSON.stringify(v.params || {})}` : v.kind === 'scene3d' ? `3D ${v.model} (${(v.labels || []).join(', ')})` : v.kind === 'footage' ? 'full-frame AI footage' : v.kind === 'chapter' ? 'chapter card' : v.kind === 'bullets' ? `bullets (${(v.bullets || []).join(' · ')})` : v.kind === 'diagram' ? `flow (${(v.nodes || []).join(' → ')})` : v.kind;
   let out = `## ${b.title}\n\n*Estimated length ${mm} · ${b.chapters.length} chapters · ${sc.length} scenes · ${words} words · for ${b.audience}*\n\n**Hook:** ${b.hook}\n\n**Takeaway:** ${b.keyTakeaway}\n\n`;
   for (const ch of b.chapters) {
     const beats = sc.filter(x => x.chapterId === ch.id);

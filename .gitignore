@@ -13,3 +13,5 @@ out/
 prompt.txt
 server.log
 .hubcache/
+.piper/
+factory/node_modules/

@@ -10,20 +10,33 @@ Plus, unrelated to the TV: **AI Video Studio**, an iPhone app that turns one pro
 
 Live at: https://hello2michael-cmyk.github.io/Test/
 
-## Klasse 6 Bayern: Lernplattform mit 3D-Erklärungen (Mathematik zuerst)
+## Klasse 6 Bayern: ein YouTube-Video pro Lehrplan-Thema
 
-Open it here (after the branch is merged to `main`): https://hello2michael-cmyk.github.io/Test/klasse6/
+The goal is a YouTube lesson for every topic of Jahrgangsstufe 6 at a Bavarian Gymnasium, made by the video factory below from the
+official **LehrplanPLUS (G9)**, which was checked page by page against the ISB Fachlehrpläne and the Stundentafel of the
+Gymnasialschulordnung (GSO Anlage 1, valid from 1 August 2026).
 
-A learning app for pupils in Jahrgangsstufe 6 of a Bavarian Gymnasium. Its content is the official **LehrplanPLUS (G9)**, checked
-page by page against the ISB Fachlehrpläne and the Stundentafel of the Gymnasialschulordnung (GSO Anlage 1, valid from 1 August 2026):
+**Make a lesson (from the GitHub app on a phone):** open an issue titled `Lektion: M6-2.2` (any topic id from
+`klasse6/LEKTIONEN.md`, 84 topics, Mathematik first). Optional line in the body: `minuten: 7`. The factory then:
 
-- `klasse6/SYLLABUS.md`: the readable syllabus for all twelve subjects (Mathematik, Deutsch, Englisch, Latein or Französisch, Natur und Technik, Geschichte, Ethik or Religion, Kunst, Musik, Sport) with every Lernbereich, its hours and its sources.
-- `klasse6/data/klasse6-bayern.json`: the same syllabus as data (84 topics), including a child-friendly explanation and a 3D scene id per maths topic; this file drives the app and will feed the video planner.
-- `klasse6/index.html`: the app. Pick a subject, pick a Lernbereich, read what the Lehrplan expects, and for every one of the eight **Mathematik** Lernbereiche play an interactive 3D explanation (pizza fractions, place-value blocks for decimals, adding fraction strips, the area model for multiplying fractions, the distributive law as blocks, cutting a parallelogram into a rectangle, filling a cuboid with unit cubes, the hundred-square and pie chart for percent). Sliders change the numbers, the narration steps follow the animation, and you can drag to rotate.
-- `klasse6/js/engine3d.js`, `klasse6/js/mathscenes.js`: a dependency-free software-3D renderer on Canvas 2D. Every frame is a pure function of time and parameters, so the same scenes can be rendered to video by the factory below.
-- `klasse6/PIPELINE.md`: the plan for turning each Lernbereich into a YouTube lesson: a Lehrplan planner, a plan reviewer, a 3D designer, a second reviewer on a *different* model that checks the rendered frames against the narration, and a correction loop, with every scene held for at least 10 seconds. The factory and studio already accept that minimum (`MIN_SCENE_SECONDS` / Settings `minSceneSeconds`).
+1. builds the German brief from the syllabus (Kompetenzen, Inhalte, hours, a child-friendly core idea) and plans chapters;
+2. writes every scene in German for 11-year-olds, choosing ready-made **3D maths scenes** with real numbers (`math3d`: pizza fractions,
+   place-value blocks, fraction strips, the area model, the distributive law, parallelogram → rectangle, unit cubes in a cuboid, the
+   hundred-square and pie chart) and holding every scene on screen for at least 10 seconds;
+3. has a **second, different model** (Llama 3.3 70B by default, repository variable `REVIEWER_MODEL`) check the script against the 3D
+   scene parameters, the Lehrplan scope and the children's language; anything that would teach something wrong goes back to the writer,
+   up to two correction rounds, and the rest lands in the "verify before publishing" list;
+4. posts the plan on the issue for your `approve` or change requests, exactly like the long lessons below;
+5. renders the video with a **German voice** (Piper, Thorsten; variable `LESSON_TTS` to change it), burned-in captions, chapters,
+   and the YouTube text, and publishes it as a release.
 
-Geographie is not taught in Jahrgangsstufe 6 under the G9 Stundentafel (it is in Jgst. 5 and 7); Geschichte starts in Jgst. 6; the second foreign language (Latein or Französisch) starts in Jgst. 6.
+Files: `klasse6/SYLLABUS.md` (readable syllabus with sources), `klasse6/data/klasse6-bayern.json` (the same as data; drives the factory),
+`klasse6/LEKTIONEN.md` (the queue: one issue title per video), `klasse6/js/mathscenes.js` and `engine3d.js` (the deterministic 3D scenes,
+also used by the renderer), `klasse6/PIPELINE.md` (the agent design and what is still missing), `klasse6/index.html` (a preview page to
+watch and tune every 3D scene with sliders; not the product, but handy for checking a scene before it goes into a video).
+
+Geographie is not taught in Jahrgangsstufe 6 under the G9 Stundentafel (it is in Jgst. 5 and 7); Geschichte starts in Jgst. 6; the second
+foreign language (Latein or Französisch) starts in Jgst. 6.
 
 ## Video factory: make videos from GitHub, no app and no phone limits
 

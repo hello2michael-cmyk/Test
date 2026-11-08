@@ -35,16 +35,19 @@ Kinder dem Bild folgen können.
 - Jede Zahl im Bild muss zum Sprechertext passen (der Prüfer rechnet nach).
 - Kein Inhalt außerhalb des Lernbereichs, außer als kurzer Ausblick mit Hinweis „kommt später“.
 
-## Was im Code schon vorbereitet ist
+## Was im Code bereits läuft
 
-- `klasse6/js/engine3d.js` und `klasse6/js/mathscenes.js`: deterministische 3D-Szenen für alle acht Mathematik-Lernbereiche mit Parametern und Schrittzeiten; sie lassen sich 1:1 im Studio-Renderer als neue Szenenart `math3d` einhängen (Zeichnen über `Scene.draw(S, t, params)`).
-- `studio/js/timing.js`: die Mindestdauer einer Szene ist jetzt einstellbar (`minSceneSeconds` in den Einstellungen; Fabrik: Umgebungsvariable `MIN_SCENE_SECONDS`). Für Kinder-Lektionen wird 10 gesetzt.
-- Syllabus-JSON mit `scene`- und `videoMinutes`-Feldern pro Thema als Eingabe für den Planer.
+- **Eingang** `Lektion: <Thema-ID>` als Issue-Titel oder Feld im Actions-Formular (`.github/workflows/video-factory.yml`); die Themen-IDs stehen in `klasse6/LEKTIONEN.md`.
+- **Brief aus dem Lehrplan**: `factory/run.mjs` liest `klasse6/data/klasse6-bayern.json` und baut den deutschen Auftrag (Kompetenzen, Inhalte, Stunden, Grundidee); Stil `course`, keine Stock-Clips, Mindestdauer 10 s je Szene.
+- **Agenten-Regeln für Kinder** (`studio/js/lesson.js`): Deutsch, du-Form, bayerische Fachbegriffe, Reihenfolge Bild → Regel → Beispiel → Frage, mindestens 32 Wörter je Szene.
+- **Szenenart `math3d`**: der Kapitel-Autor wählt eine der acht Mathe-Szenen mit Parametern; aufeinanderfolgende Szenen mit gleicher Szene und gleichen Zahlen spielen eine durchgehende Animation (`studio/js/renderer.js`).
+- **Zweites Prüf-Modell** (`REVIEWER`, Standard Llama 3.3 70B über Hugging Face) prüft Zahlen gegen die Szenen-Parameter, Lehrplan-Rahmen und Kindersprache; blockierende Befunde (`mustFix`) gehen an den Autor zurück, höchstens zwei Korrekturrunden; Rest landet in der Liste „vor Veröffentlichung prüfen“.
+- **Deutsche Stimme**: Piper (Thorsten, 22 kHz) läuft im Fabrik-Prozess und reicht die Audiodaten in die Seite (`__factoryTTS`); Stimme per `TTS=piper:<voice>` wählbar.
+- **Plan-Freigabe** auf dem Issue wie bisher (`approve` oder Änderungswünsche).
 
-## Nächste Schritte
+## Noch offen
 
-1. Szenenart `math3d` im Studio-Renderer registrieren und im Chapter-Writer-Prompt anbieten (Liste der Szenen und Parameter aus `mathscenes.js`).
-2. Zweiten Prüf-Agenten mit anderem Modell und Bild-Eingabe in `agents.js` ergänzen (Standbilder je Szene aus dem Renderer).
-3. Deutsche Stimme (z. B. Thorsten-Voice/Piper oder eine deutsche Kokoro-Stimme) im Studio einbauen.
-4. Workflow-Eingang `Lektion:` neben `Video:` in `.github/workflows/video-factory.yml`.
-5. Danach dieselbe Kette für Natur und Technik (Photosynthese, Wirbeltiere, Dateisystem-Baum) und Geschichte (Zeitleiste, Imperium Romanum).
+1. Bild-Prüfung: Standbilder jeder Szene an ein Vision-Modell geben (prüft, ob das Bild zur Aussage passt). Heute prüft der zweite Prüfer den Text gegen die Szenen-Parameter.
+2. 3D-Szenen für Natur und Technik (Photosynthese, Wirbeltiere, Dateisystem-Baum, Objekte und Klassen), Geschichte (Zeitleiste, Pyramide, Imperium Romanum), Deutsch/Englisch/Latein (Satzglieder, Zeitformen, Deklinationen).
+3. Deutsche Wortrate für die Zeitplanung (Piper spricht etwa 2,5 Wörter/s statt 3,1): Längenabschätzung vor der Vertonung anpassen.
+4. Automatischer YouTube-Upload über den Token in der Umgebung.

@@ -20,14 +20,20 @@
 //   PLAN_FILE         path to a plan.json (video phase; or the previous plan when FEEDBACK is given)
 //   FEEDBACK          the creator's change requests: PHASE=plan re-plans from PLAN_FILE with this feedback
 //   AI_CLIPS          long lessons: how many scenes get a generated AI clip (default 12)
-//   MIN_SCENE_SECONDS hold every scene at least this long, e.g. 10 for children's lessons (default: renderer minimum)
+//   MIN_SCENE_SECONDS hold every scene at least this long (default: renderer minimum; lessons: 10)
+//   LESSON            a Klasse-6 topic id from klasse6/data/klasse6-bayern.json, e.g. M6-2.2: makes a German lesson
+//                     for children from the verified Bavarian syllabus (style course, 3D maths scenes, German voice)
+//   MINUTES           lesson length in minutes (default: the topic's videoMinutes)
+//   TTS               piper:<voice>  e.g. piper:de_DE-thorsten-high (default for lessons): the voice is synthesised here
+//                     with Piper and handed to the page; the voice files are fetched into .piper/ on first use
+//   REVIEWER          hf-text:<model id> for a second, different reviewer model (lessons default to Llama 3.3 70B)
 //   TIMEOUT_MIN, PATIENCE_MIN, PROFILE_DIR
 //   CRASH_TEST=<s>    test hook: crash the page once after <s> seconds (exercises the relaunch path)
 //                     (the studio has a matching hook: EXTRA_QUERY=failonce=1 stops its first attempt once)
 import { chromium } from 'playwright';
 import fs from 'node:fs';
 import path from 'node:path';
-import { execSync } from 'node:child_process';
+import { execSync, execFileSync } from 'node:child_process';
 
 const env = (k, d) => (process.env[k] && process.env[k].trim()) || d;
 const phase = env('PHASE', 'all');
@@ -40,6 +46,26 @@ if (planFile) {
   if (inputPlan.plan) inputPlan = inputPlan.plan;
 }
 let prompt = (inputPlan && inputPlan.prompt) || env('PROMPT', '');
+// ---- Lesson mode: the topic comes from the verified syllabus, the prompt is built here in German ----
+const lessonId = env('LESSON', '');
+let lesson = null;
+if (lessonId) {
+  const data = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'klasse6/data/klasse6-bayern.json'), 'utf8'));
+  for (const subject of data.subjects) for (const lb of subject.lernbereiche) for (const topic of lb.topics) if (topic.id.toLowerCase() === lessonId.toLowerCase()) lesson = { subject, lb, topic };
+  if (!lesson) { console.error(`LESSON "${lessonId}" is not a topic id in klasse6/data/klasse6-bayern.json (see klasse6/LEKTIONEN.md)`); process.exit(2); }
+  if (!prompt) prompt = lessonPrompt(lesson, parseFloat(env('MINUTES', String(lesson.topic.videoMinutes || 6))));
+}
+function lessonPrompt({ subject, lb, topic }, minutes) {
+  const lines = [
+    `Lektion für die 6. Klasse Gymnasium in Bayern (LehrplanPLUS G9). Fach ${subject.name}, Lernbereich ${lb.id.replace('-', ' ')} „${lb.title}“, Thema ${topic.id.replace('-', ' ')} „${topic.title}“${topic.hours ? ` (ca. ${topic.hours} Unterrichtsstunden im Lehrplan)` : ''}.`,
+    `${minutes} Minuten, auf Deutsch, für Kinder von etwa 11 Jahren. Jede Szene mindestens zehn Sekunden.`,
+  ];
+  if (topic.kompetenzen && topic.kompetenzen.length) lines.push('Kompetenzerwartungen laut Lehrplan:', ...topic.kompetenzen.map(k => `- ${k}`));
+  if (topic.inhalte && topic.inhalte.length) lines.push(`Inhalte: ${topic.inhalte.join('; ')}.`);
+  if (topic.kidExplanation) lines.push(`Kindgerechte Grundidee: ${topic.kidExplanation}`);
+  lines.push(`Quelle: ${subject.url}`);
+  return lines.join('\n');
+}
 // Feedback without a previous plan (someone replied before any plan existed): fold it into the request.
 if (feedback && !inputPlan && prompt) prompt += `\n\nCreator notes: ${feedback}`;
 if (!prompt) { console.error('PROMPT is required'); process.exit(2); }
@@ -67,9 +93,20 @@ const settings = {
   reviewShots: false, burnInCaptions: env('CAPTIONS', '1') !== '0', showProgressBar: true, filmLook: true, letterbox: env('LETTERBOX', '1') !== '0',
   musicVolume: 0.18, ambientBed: true,
   aiClipBudget: parseInt(env('AI_CLIPS', '12'), 10),
-  minSceneSeconds: parseFloat(env('MIN_SCENE_SECONDS', '0')) || 0,
+  minSceneSeconds: parseFloat(env('MIN_SCENE_SECONDS', lessonId ? '10' : '0')) || 0,
   modelId: env('WRITER', 'hf-text:Qwen/Qwen2.5-72B-Instruct'),
 };
+if (lesson) {
+  const minutes = parseFloat(env('MINUTES', String(lesson.topic.videoMinutes || 6)));
+  settings.videoStyle = 'course';
+  settings.targetDuration = Math.round(minutes * 60); settings.maxDuration = Math.min(600, Math.round(minutes * 60 * 1.08));
+  settings.lesson = { id: lesson.topic.id, title: lesson.topic.title, subject: lesson.subject.name, scene: lesson.subject.id === 'mathematik' && lesson.topic.scene ? lesson.topic.scene : null, minWords: 32 };
+  settings.footageProvider = env('FOOTAGE', 'none');          // lessons are 3D scenes and graphics; no stock clips of offices
+  settings.aiClipBudget = parseInt(env('AI_CLIPS', '0'), 10);
+  settings.cta = env('CTA', 'Abonniere für die nächste Lektion');
+  settings.reviewerModelId = env('REVIEWER', 'hf-text:meta-llama/Llama-3.3-70B-Instruct');
+  console.log(`[factory] lesson ${lesson.topic.id} „${lesson.topic.title}“ (${lesson.subject.name}), ${minutes} min, min scene ${settings.minSceneSeconds} s, 3D scene ${settings.lesson.scene || 'none'}`);
+}
 const mock = /(^|&)mock=1/.test(extra);
 if (mock) settings.modelId = 'mock';
 // Without a Hugging Face token the only writer left is a tiny CPU model inside the browser, which takes the
@@ -127,6 +164,7 @@ async function launch() {
       };
     });
   }
+  if (piper) await context.exposeFunction('__factoryTTS', (text, voice, speed) => { try { return synthPiper(text, speed); } catch (e) { return { error: e.message }; } });
   page = context.pages()[0] || await context.newPage();
   page.on('pageerror', e => console.log('[page error]', e.message));
   page.on('crash', () => { crashed = true; console.log('[factory] the page crashed'); });
@@ -179,6 +217,38 @@ async function cacheHubFile(localUrl) {
     })().finally(() => hubDownloads.delete(rel)));
   }
   await hubDownloads.get(rel);
+}
+// ---- External voice (Piper): German and other languages the in-browser Kokoro voice lacks ----
+const ttsSpec = env('TTS', lessonId ? 'piper:de_DE-thorsten-high' : '');
+let piper = null;
+if (ttsSpec.startsWith('piper:') && phase !== 'plan') {
+  const voice = ttsSpec.slice(6);
+  const dir = path.resolve(env('PIPER_DIR', '.piper'));
+  const model = path.join(dir, `${voice}.onnx`), config = model + '.json';
+  try {
+    execSync('piper --help', { stdio: 'ignore' });
+    fs.mkdirSync(dir, { recursive: true });
+    for (const [file, local] of [[`${voice}.onnx`, model], [`${voice}.onnx.json`, config]]) {
+      if (fs.existsSync(local) && fs.statSync(local).size > 0) continue;
+      // de_DE-thorsten-high → de/de_DE/thorsten/high/
+      const m = voice.match(/^([a-z]{2})_([A-Z]{2})-([a-z0-9_]+)-([a-z_]+)$/);
+      if (!m) throw new Error(`cannot derive the Hugging Face path for voice ${voice}`);
+      const url = `https://huggingface.co/rhasspy/piper-voices/resolve/main/${m[1]}/${m[1]}_${m[2]}/${m[3]}/${m[4]}/${file}`;
+      console.log(`[factory] fetching voice ${file}…`);
+      try { const r = await fetch(url, { redirect: 'follow' }); if (!r.ok) throw new Error(`HTTP ${r.status}`); fs.writeFileSync(local, Buffer.from(await r.arrayBuffer())); }
+      catch (e) { execFileSync('curl', ['-sSL', '--fail', '-o', local, url], { stdio: 'ignore' }); }   // curl honours HTTPS_PROXY where Node's fetch does not
+      if (!fs.existsSync(local) || fs.statSync(local).size < 1000) throw new Error(`could not download ${url}`);
+    }
+    const sampleRate = JSON.parse(fs.readFileSync(config, 'utf8')).audio?.sample_rate || 22050;
+    piper = { model, sampleRate, voice };
+    console.log(`[factory] voice: Piper ${voice} (${sampleRate} Hz)`);
+  } catch (e) { console.log(`[factory] WARNING: Piper voice unavailable (${e.message}); falling back to the in-browser Kokoro voice (English only). Install with: pip install piper-tts`); }
+}
+function synthPiper(text, speed) {
+  const t = String(text || '').replace(/\s+/g, ' ').trim();
+  if (!t) return { b64: '', sampleRate: piper.sampleRate };
+  const out = execFileSync('piper', ['-m', piper.model, '--output-raw', '--length-scale', String(1 / Math.max(0.6, Math.min(1.6, speed || 1))), '--sentence-silence', '0.25'], { input: t, maxBuffer: 256 * 1024 * 1024, stdio: ['pipe', 'pipe', 'ignore'] });
+  return { b64: out.toString('base64'), sampleRate: piper.sampleRate };
 }
 let finished = false;
 await launch();

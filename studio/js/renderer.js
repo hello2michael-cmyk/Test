@@ -1,6 +1,8 @@
 // Draws any frame of the video from the plan. Pure function of (plan, time): deterministic, so the thumbnail is just a frame.
 import { THEMES } from './settings.js';
 import { Scene3D } from './scene3d.js';
+import { Scene as MathScene } from '../../klasse6/js/engine3d.js';
+import { SCENES as MATH_SCENES } from '../../klasse6/js/mathscenes.js';
 
 const FADE_IN = 0.45, FADE_OUT = 0.3;
 const clamp01 = x => Math.min(1, Math.max(0, x));
@@ -42,6 +44,7 @@ export class Renderer {
     this.hasFootageFrame = !!footageFrame;
     if (index < 0) return;
     const scene = plan.scenes[index];
+    this.plan = plan; this.sceneIndex = index;
     const local = time - scene.start;
     const aIn = outCubic(prog(local, 0, FADE_IN));
     const aOut = index === plan.scenes.length - 1 ? 1 : clamp01((scene.start + scene.duration - time) / FADE_OUT);
@@ -231,6 +234,7 @@ export class Renderer {
       case 'quote': return this.quote(v, local);
       case 'footage': return this.footageOverlay(v, local);
       case 'scene3d': return this.scene3d(v, local, scene.duration);
+      case 'math3d': return this.math3d(v, local, scene);
       case 'chapter': return this.chapter(v, local, scene.duration);
       default: return this.outro(v, local);
     }
@@ -243,6 +247,27 @@ export class Renderer {
     let y = this.my;
     y = this.kicker(v.kicker, local, y);
     this.heading(v.title, local, y, 64, 2);
+  }
+
+  /**
+   * A ready-made maths explanation from klasse6/js/mathscenes.js. Consecutive scenes that share the same scene id and
+   * parameters play one continuous animation, stretched over their combined duration, so the writer can narrate a
+   * single 3D explanation across several scenes.
+   */
+  math3d(v, local, scene) {
+    const def = MATH_SCENES[v.scene];
+    if (!def) return this.bullets({ ...v, bullets: v.bullets && v.bullets.length ? v.bullets : [v.title] }, local);
+    const key = v.scene + JSON.stringify(v.params || {});
+    const same = sc => sc && sc.visual && sc.visual.kind === 'math3d' && sc.visual.scene + JSON.stringify(sc.visual.params || {}) === key;
+    const all = this.plan.scenes; let i0 = this.sceneIndex, i1 = this.sceneIndex;
+    while (i0 > 0 && same(all[i0 - 1])) i0--;
+    while (i1 < all.length - 1 && same(all[i1 + 1])) i1++;
+    const start = all[i0].start, span = Math.max(0.1, all[i1].start + all[i1].duration - start);
+    const t = Math.max(0, ((scene.start + local - start) / span) * def.duration * 0.985);
+    const cam = def.camera || {};
+    const S = new MathScene(this.ctx, this.w, this.h, this.theme, { ...cam, cy: this.h * (this.portrait ? 0.5 : 0.58) });
+    def.draw(S, t, v.params || {});
+    S.flush();
   }
 
   /** Chapter card: a large chapter number, the chapter title and a faint 3D backdrop (or footage under it). */
