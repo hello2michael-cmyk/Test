@@ -75,7 +75,8 @@ jobs:
       - name: Tell the issue we started
         if: github.event_name == 'issues'
         env: { GH_TOKEN: '${{ github.token }}' }
-        run: gh issue comment ${{ github.event.issue.number }} --body "Making your video now (run ${{ github.run_number }}). This usually takes 10–25 minutes; I will post the download links here. Progress: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+        run: |
+          gh issue comment ${{ github.event.issue.number }} --body "Making your video now (run ${{ github.run_number }}). This usually takes 10–25 minutes; I will post the download links here. Progress: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
 
       - uses: actions/setup-node@v4
         with: { node-version: '22' }
@@ -161,4 +162,5 @@ jobs:
       - name: Report a failure on the issue
         if: failure() && github.event_name == 'issues'
         env: { GH_TOKEN: '${{ github.token }}' }
-        run: gh issue comment ${{ github.event.issue.number }} --body "The video run failed. Log: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }} (the 'Make the video' step shows the agent room)."
+        run: |
+          gh issue comment ${{ github.event.issue.number }} --body "The video run failed. Log: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }} (the 'Make the video' step shows the agent room)."
