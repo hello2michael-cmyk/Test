@@ -985,6 +985,7 @@ export function sanitise(v, script) {
     model: MODELS_3D.includes(v.model) ? v.model : null,
     labels: list(v.labels, 6, 3),
     scene: MATH_SCENE_IDS.includes(v.scene) ? v.scene : null, params: null,
+    formula: typeof v.formula === 'string' ? clip(v.formula, 10) : null,
     segment: Array.isArray(v.segment) && v.segment.length === 2 && v.segment.every(x => Number.isFinite(Number(x))) ? [Number(v.segment[0]), Number(v.segment[1])] : null,
     hero: !!v.hero,
     chapterId: v.chapterId != null ? Number(v.chapterId) : (script.chapterId != null ? Number(script.chapterId) : null),

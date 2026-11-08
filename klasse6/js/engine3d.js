@@ -201,6 +201,8 @@ export class Scene {
   }
   heading(title, formula = '') {
     const { w, h, theme } = this;
+    if (this.titleOverride) title = this.titleOverride;                 // a lesson may name the scene itself
+    if (typeof this.formulaOverride === 'string') formula = this.formulaOverride;
     this.text(this.u(56), this.u(96), title, this.u(50), '#fff');
     if (formula) this.text(this.u(56), this.u(156), formula, this.u(38), theme.accent2, 'left', 700);
   }

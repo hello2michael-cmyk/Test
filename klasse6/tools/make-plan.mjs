@@ -36,8 +36,10 @@ lesson.chapters.forEach((c, ci) => {
     if (kind === 'math3d' && !MATH_SCENE_IDS.includes(b.scene)) problems.push(`scene ${id}: unknown 3D scene ${b.scene}`);
     if (words(b.narration) < MIN_WORDS) problems.push(`scene ${id}: only ${words(b.narration)} words (minimum ${MIN_WORDS})`);
     if (/[a-z]\.[A-Z]/.test(b.narration)) problems.push(`scene ${id}: missing space after a full stop`);
+    for (const bl of b.bullets || []) if (words(bl) > 9) problems.push(`scene ${id}: bullet longer than 9 words would be clipped: "${bl}"`);
+    if (b.onScreenTitle && words(b.onScreenTitle) > 8) problems.push(`scene ${id}: on-screen title longer than 8 words`);
     const beat = { narration: b.narration.trim(), onScreenTitle: b.onScreenTitle || ch.title, emphasisWords: b.emphasisWords || [], kind, model: b.model || null, labels: b.labels || null,
-      scene: kind === 'math3d' ? b.scene : null, params: kind === 'math3d' ? cleanParams(b.scene, b.params || {}) : null, segment: kind === 'math3d' && Array.isArray(b.segment) ? b.segment : null,
+      scene: kind === 'math3d' ? b.scene : null, params: kind === 'math3d' ? cleanParams(b.scene, b.params || {}) : null, segment: kind === 'math3d' && Array.isArray(b.segment) ? b.segment : null, formula: kind === 'math3d' && typeof b.formula === 'string' ? b.formula : null,
       bullets: b.bullets || null, nodes: b.nodes || null, leftTitle: b.leftTitle || null, leftItems: b.leftItems || null, rightTitle: b.rightTitle || null, rightItems: b.rightItems || null,
       statValue: b.statValue || null, statLabel: b.statLabel || null, code: null, codeLanguage: null, quote: b.quote || null, attribution: b.attribution || null, hero: false, shot: null, stockQuery: null };
     chapterBeats[ch.id].push(beat);

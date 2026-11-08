@@ -2,8 +2,8 @@
  "id": "current",
  "prompt": "Lektion M6-1.1 „Bruchteile und Bruchzahlen“ (Mathematik, Klasse 6 Gymnasium Bayern), aus klasse6/lessons/M6-1.1.lesson.json. 7 Minuten, auf Deutsch, für Kinder von etwa 11 Jahren.",
  "attempts": 0,
- "createdAt": 1794161907205,
- "updatedAt": 1794161907205,
+ "createdAt": 1794162326528,
+ "updatedAt": 1794162326528,
  "stage": "plan",
  "mode": "course",
  "durationApplied": true,
@@ -275,6 +275,7 @@
     "scene": null,
     "params": null,
     "segment": null,
+    "formula": null,
     "bullets": null,
     "nodes": null,
     "leftTitle": null,
@@ -307,6 +308,7 @@
      0,
      8
     ],
+    "formula": null,
     "bullets": null,
     "nodes": null,
     "leftTitle": null,
@@ -339,6 +341,7 @@
      8,
      13.9
     ],
+    "formula": null,
     "bullets": null,
     "nodes": null,
     "leftTitle": null,
@@ -365,6 +368,7 @@
     "scene": null,
     "params": null,
     "segment": null,
+    "formula": null,
     "bullets": [
      "Das Ganze: Pizza, Schokolade, eine Stunde",
      "Gleich große Teile",
@@ -401,6 +405,7 @@
     "scene": null,
     "params": null,
     "segment": null,
+    "formula": null,
     "bullets": null,
     "nodes": null,
     "leftTitle": null,
@@ -433,6 +438,7 @@
      0,
      13.9
     ],
+    "formula": null,
     "bullets": null,
     "nodes": null,
     "leftTitle": null,
@@ -459,9 +465,10 @@
     "scene": null,
     "params": null,
     "segment": null,
+    "formula": null,
     "bullets": [
-     "20 € : 4 = 5 € · das ist ein Viertel",
-     "5 € · 3 = 15 € · das sind drei Viertel",
+     "20 € : 4 = 5 € (ein Viertel)",
+     "5 € · 3 = 15 € (drei Viertel)",
      "Erst durch den Nenner, dann mal den Zähler"
     ],
     "nodes": null,
@@ -489,10 +496,11 @@
     "scene": null,
     "params": null,
     "segment": null,
+    "formula": null,
     "bullets": [
-     "2/5 sind 6 km, also ist 1/5 = 3 km",
-     "5/5 = 5 · 3 km = 15 km",
-     "Deine Aufgabe: 3/4 sind 9 km. Wie lang ist das Ganze?"
+     "2/5 = 6 km, also 1/5 = 3 km",
+     "Ganzes: 5 · 3 km = 15 km",
+     "Aufgabe: 3/4 sind 9 km. Das Ganze?"
     ],
     "nodes": null,
     "leftTitle": null,
@@ -525,6 +533,7 @@
     "scene": null,
     "params": null,
     "segment": null,
+    "formula": null,
     "bullets": null,
     "nodes": null,
     "leftTitle": null,
@@ -557,6 +566,7 @@
      12,
      21
     ],
+    "formula": null,
     "bullets": null,
     "nodes": null,
     "leftTitle": null,
@@ -589,6 +599,7 @@
      21,
      30
     ],
+    "formula": null,
     "bullets": null,
     "nodes": null,
     "leftTitle": null,
@@ -621,6 +632,7 @@
      6,
      13.9
     ],
+    "formula": null,
     "bullets": null,
     "nodes": null,
     "leftTitle": null,
@@ -647,6 +659,7 @@
     "scene": null,
     "params": null,
     "segment": null,
+    "formula": null,
     "bullets": [
      "Erweitern: Zähler und Nenner · dieselbe Zahl",
      "Kürzen: Zähler und Nenner : dieselbe Zahl",
@@ -684,6 +697,7 @@
     "scene": null,
     "params": null,
     "segment": null,
+    "formula": null,
     "bullets": null,
     "nodes": null,
     "leftTitle": null,
@@ -710,10 +724,11 @@
     "scene": null,
     "params": null,
     "segment": null,
+    "formula": null,
     "bullets": [
      "2/3 = 8/12",
      "3/4 = 9/12",
-     "9/12 ist mehr als 8/12, also 3/4 > 2/3"
+     "9/12 > 8/12, also 3/4 > 2/3"
     ],
     "nodes": null,
     "leftTitle": null,
@@ -745,6 +760,7 @@
      0,
      11
     ],
+    "formula": "1/3 = 4/12 · 1/4 = 3/12",
     "bullets": null,
     "nodes": null,
     "leftTitle": null,
@@ -777,6 +793,7 @@
      0,
      10.5
     ],
+    "formula": "25 % = 25/100 = 1/4",
     "bullets": null,
     "nodes": null,
     "leftTitle": null,
@@ -810,6 +827,7 @@
     "scene": null,
     "params": null,
     "segment": null,
+    "formula": null,
     "bullets": null,
     "nodes": null,
     "leftTitle": null,
@@ -836,9 +854,10 @@
     "scene": null,
     "params": null,
     "segment": null,
+    "formula": null,
     "bullets": [
      "Links von der 0: negative Zahlen",
-     "−1/2 liegt in der Mitte zwischen 0 und −1",
+     "−1/2: in der Mitte zwischen 0 und −1",
      "Frage: Wo liegt −3/4? Zwischen −1/2 und −1"
     ],
     "nodes": null,
@@ -866,11 +885,12 @@
     "scene": null,
     "params": null,
     "segment": null,
+    "formula": null,
     "bullets": [
-     "Natürliche Zahlen: 1, 2, 3, … (mit der Null: ℕ₀)",
-     "Ganze Zahlen: …, −2, −1, 0, 1, 2, …",
-     "Rationale Zahlen: alle Brüche dazu",
-     "Zwischen zwei Brüchen liegen unendlich viele weitere"
+     "Natürliche Zahlen ℕ: 1, 2, 3, …",
+     "Mit der Null dazu: ℕ₀",
+     "Ganze Zahlen ℤ: …, −1, 0, 1, …",
+     "Rationale Zahlen ℚ: alle Brüche dazu"
     ],
     "nodes": null,
     "leftTitle": null,
@@ -897,6 +917,7 @@
     "scene": null,
     "params": null,
     "segment": null,
+    "formula": null,
     "bullets": null,
     "nodes": null,
     "leftTitle": null,
@@ -1104,6 +1125,7 @@
     "labels": null,
     "scene": null,
     "params": null,
+    "formula": null,
     "segment": null,
     "hero": false,
     "chapterId": 1
@@ -1135,6 +1157,7 @@
      "n": 8,
      "k": 3
     },
+    "formula": null,
     "segment": [
      0,
      8
@@ -1169,6 +1192,7 @@
      "n": 8,
      "k": 3
     },
+    "formula": null,
     "segment": [
      8,
      13.9
@@ -1204,6 +1228,7 @@
     "labels": null,
     "scene": null,
     "params": null,
+    "formula": null,
     "segment": null,
     "hero": false,
     "chapterId": 1
@@ -1236,6 +1261,7 @@
     ],
     "scene": null,
     "params": null,
+    "formula": null,
     "segment": null,
     "hero": false,
     "chapterId": 2
@@ -1267,6 +1293,7 @@
      "n": 4,
      "k": 1
     },
+    "formula": null,
     "segment": [
      0,
      13.9
@@ -1281,8 +1308,8 @@
     "title": "Drei Viertel von 20 Euro",
     "subtitle": null,
     "bullets": [
-     "20 € : 4 = 5 € · das",
-     "5 € · 3 = 15 € · das",
+     "20 € : 4 = 5 € (ein Viertel)",
+     "5 € · 3 = 15 € (drei Viertel)",
      "Erst durch den Nenner, dann mal den Zähler"
     ],
     "nodes": null,
@@ -1302,6 +1329,7 @@
     "labels": null,
     "scene": null,
     "params": null,
+    "formula": null,
     "segment": null,
     "hero": false,
     "chapterId": 2
@@ -1313,9 +1341,9 @@
     "title": "Das Ganze finden",
     "subtitle": null,
     "bullets": [
-     "2/5 sind 6 km, also ist 1/5 = 3",
-     "5/5 = 5 · 3 km = 15 km",
-     "Deine Aufgabe: 3/4 sind 9 km. Wie lang ist"
+     "2/5 = 6 km, also 1/5 = 3 km",
+     "Ganzes: 5 · 3 km = 15 km",
+     "Aufgabe: 3/4 sind 9 km. Das Ganze?"
     ],
     "nodes": null,
     "leftTitle": null,
@@ -1334,6 +1362,7 @@
     "labels": null,
     "scene": null,
     "params": null,
+    "formula": null,
     "segment": null,
     "hero": false,
     "chapterId": 2
@@ -1366,6 +1395,7 @@
     ],
     "scene": null,
     "params": null,
+    "formula": null,
     "segment": null,
     "hero": false,
     "chapterId": 3
@@ -1397,6 +1427,7 @@
      "n": 8,
      "k": 3
     },
+    "formula": null,
     "segment": [
      12,
      21
@@ -1431,6 +1462,7 @@
      "n": 8,
      "k": 3
     },
+    "formula": null,
     "segment": [
      21,
      30
@@ -1465,6 +1497,7 @@
      "n": 12,
      "k": 4
     },
+    "formula": null,
     "segment": [
      6,
      13.9
@@ -1501,6 +1534,7 @@
     "labels": null,
     "scene": null,
     "params": null,
+    "formula": null,
     "segment": null,
     "hero": false,
     "chapterId": 3
@@ -1533,6 +1567,7 @@
     ],
     "scene": null,
     "params": null,
+    "formula": null,
     "segment": null,
     "hero": false,
     "chapterId": 4
@@ -1546,7 +1581,7 @@
     "bullets": [
      "2/3 = 8/12",
      "3/4 = 9/12",
-     "9/12 ist mehr als 8/12, also 3/4 > 2/3"
+     "9/12 > 8/12, also 3/4 > 2/3"
     ],
     "nodes": null,
     "leftTitle": null,
@@ -1565,6 +1600,7 @@
     "labels": null,
     "scene": null,
     "params": null,
+    "formula": null,
     "segment": null,
     "hero": false,
     "chapterId": 4
@@ -1595,6 +1631,7 @@
     "params": {
      "task": "1/3 + 1/4"
     },
+    "formula": "1/3 = 4/12 · 1/4 = 3/12",
     "segment": [
      0,
      11
@@ -1629,6 +1666,7 @@
      "p": 25,
      "G": 100
     },
+    "formula": "25 % = 25/100 = 1/4",
     "segment": [
      0,
      10.5
@@ -1665,6 +1703,7 @@
     ],
     "scene": null,
     "params": null,
+    "formula": null,
     "segment": null,
     "hero": false,
     "chapterId": 5
@@ -1677,7 +1716,7 @@
     "subtitle": null,
     "bullets": [
      "Links von der 0: negative Zahlen",
-     "−1/2 liegt in der Mitte zwischen 0 und −1",
+     "−1/2: in der Mitte zwischen 0 und −1",
      "Frage: Wo liegt −3/4? Zwischen −1/2 und −1"
     ],
     "nodes": null,
@@ -1697,6 +1736,7 @@
     "labels": null,
     "scene": null,
     "params": null,
+    "formula": null,
     "segment": null,
     "hero": false,
     "chapterId": 5
@@ -1708,10 +1748,10 @@
     "title": "Drei Zahlenmengen",
     "subtitle": null,
     "bullets": [
-     "Natürliche Zahlen: 1, 2, 3, … (mit der Null:",
-     "Ganze Zahlen: …, −2, −1, 0, 1, 2, …",
-     "Rationale Zahlen: alle Brüche dazu",
-     "Zwischen zwei Brüchen liegen unendlich viele weitere"
+     "Natürliche Zahlen ℕ: 1, 2, 3, …",
+     "Mit der Null dazu: ℕ₀",
+     "Ganze Zahlen ℤ: …, −1, 0, 1, …",
+     "Rationale Zahlen ℚ: alle Brüche dazu"
     ],
     "nodes": null,
     "leftTitle": null,
@@ -1730,6 +1770,7 @@
     "labels": null,
     "scene": null,
     "params": null,
+    "formula": null,
     "segment": null,
     "hero": false,
     "chapterId": 5
@@ -1758,6 +1799,7 @@
     "labels": null,
     "scene": null,
     "params": null,
+    "formula": null,
     "segment": null,
     "hero": false,
     "chapterId": 5

@@ -27,9 +27,9 @@
 2. Eine Pizza ist in vier gleich große Stücke geschnitten. Du isst eins davon. Welcher Bruch ist das? Der Nenner ist vier, denn es gibt vier Stücke. Der Zähler ist eins, denn du hast ein Stück gegessen. Du hast also ein Viertel der Pizza gegessen. Bei einer Tafel Schokolade mit vier Riegeln wäre es genauso.
    ↳ *3D-Mathe „fraction“ {"n":4,"k":1}*
 3. Oft kennst du das Ganze als Zahl und sollst den Bruchteil ausrechnen. Drei Viertel von zwanzig Euro: Teile die zwanzig Euro zuerst durch den Nenner vier. Das sind fünf Euro für ein Viertel. Dann nimm das mal den Zähler drei. Drei Viertel von zwanzig Euro sind fünfzehn Euro.
-   ↳ *bullets (20 € : 4 = 5 € · das · 5 € · 3 = 15 € · das · Erst durch den Nenner, dann mal den Zähler)*
+   ↳ *bullets (20 € : 4 = 5 € (ein Viertel) · 5 € · 3 = 15 € (drei Viertel) · Erst durch den Nenner, dann mal den Zähler)*
 4. Es geht auch rückwärts. Zwei Fünftel einer Wanderstrecke sind sechs Kilometer. Wie lang ist die ganze Strecke? Wenn zwei Fünftel sechs Kilometer sind, ist ein Fünftel drei Kilometer. Fünf Fünftel sind das Ganze: fünf mal drei Kilometer, also fünfzehn Kilometer. Probier es selbst: Drei Viertel sind neun Kilometer. Wie lang ist das Ganze?
-   ↳ *bullets (2/5 sind 6 km, also ist 1/5 = 3 · 5/5 = 5 · 3 km = 15 km · Deine Aufgabe: 3/4 sind 9 km. Wie lang ist)*
+   ↳ *bullets (2/5 = 6 km, also 1/5 = 3 km · Ganzes: 5 · 3 km = 15 km · Aufgabe: 3/4 sind 9 km. Das Ganze?)*
 
 ### Chapter 3 · Erweitern und Kürzen
 *Du weißt, warum Erweitern und Kürzen den Wert eines Bruchs nicht ändern.*
@@ -51,7 +51,7 @@
 1. Sechs Achtel gekürzt sind drei Viertel: Das war die Lösung der Übung. Drei Viertel ist vollständig gekürzt, denn drei und vier haben keinen gemeinsamen Teiler außer der Eins. Jetzt vergleichen wir Brüche. Bei gleichem Nenner ist es leicht: Fünf Achtel sind mehr als drei Achtel, weil fünf Stücke mehr sind als drei. Bei verschiedenen Nennern brauchen wir einen Trick.
    ↳ *chapter card*
 2. Der Trick heißt Hauptnenner. Wir erweitern beide Brüche so, dass sie denselben Nenner haben. Zwei Drittel und drei Viertel: Der kleinste gemeinsame Nenner von drei und vier ist zwölf. Zwei Drittel sind acht Zwölftel, drei Viertel sind neun Zwölftel. Also sind drei Viertel mehr, aber nur um ein Zwölftel.
-   ↳ *bullets (2/3 = 8/12 · 3/4 = 9/12 · 9/12 ist mehr als 8/12, also 3/4 > 2/3)*
+   ↳ *bullets (2/3 = 8/12 · 3/4 = 9/12 · 9/12 > 8/12, also 3/4 > 2/3)*
 3. Hier siehst du zwei Streifen: oben ein Drittel, unten ein Viertel. Beide Streifen werden in Zwölftel geteilt. Ein Drittel sind vier Zwölftel, ein Viertel sind drei Zwölftel. Jetzt sind alle Stücke gleich groß, und du siehst sofort: Ein Drittel ist größer als ein Viertel, um genau ein Zwölftel.
    ↳ *3D-Mathe „fracadd“ {"task":"1/3 + 1/4"}*
 4. Brüche begegnen dir auch als Prozent. Prozent heißt von Hundert. Das Hunderterfeld hat hundert Felder. Fünfundzwanzig davon sind fünfundzwanzig Prozent, und das ist genau ein Viertel. Bei fünfundzwanzig Prozent Rabatt bekommst du also ein Viertel geschenkt. Fünfzig Prozent sind die Hälfte.
@@ -63,9 +63,9 @@
 1. Bisher waren Brüche Stücke von Pizza oder Schokolade. Aber ein Bruch ist auch einfach eine Zahl, genau wie drei oder zehn. Auf der Zahlengeraden liegt ein Halb genau in der Mitte zwischen null und eins. Drei Viertel liegen zwischen ein Halb und eins, näher an der Eins.
    ↳ *chapter card*
 2. Die Zahlengerade hört bei null nicht auf. Links von der Null liegen die negativen Zahlen, zum Beispiel Temperaturen unter null. Auch Brüche können negativ sein. Minus ein Halb liegt genau in der Mitte zwischen null und minus eins. Und wo liegt minus drei Viertel? Zwischen minus ein Halb und minus eins, näher an der minus eins.
-   ↳ *bullets (Links von der 0: negative Zahlen · −1/2 liegt in der Mitte zwischen 0 und −1 · Frage: Wo liegt −3/4? Zwischen −1/2 und −1)*
+   ↳ *bullets (Links von der 0: negative Zahlen · −1/2: in der Mitte zwischen 0 und −1 · Frage: Wo liegt −3/4? Zwischen −1/2 und −1)*
 3. Die Zahlen eins, zwei, drei und so weiter heißen natürliche Zahlen. Nimmst du die Null dazu, schreibt man N mit einer kleinen Null. Nimmst du auch die negativen Zahlen dazu, hast du die ganzen Zahlen. Nimmst du alle Brüche dazu, hast du die rationalen Zahlen. Bei den ganzen Zahlen hat jede Zahl einen Nachfolger: Nach drei kommt vier. Bei Brüchen gibt es das nicht. Zwischen zwei Brüchen liegen immer unendlich viele weitere.
-   ↳ *bullets (Natürliche Zahlen: 1, 2, 3, … (mit der Null: · Ganze Zahlen: …, −2, −1, 0, 1, 2, … · Rationale Zahlen: alle Brüche dazu · Zwischen zwei Brüchen liegen unendlich viele weitere)*
+   ↳ *bullets (Natürliche Zahlen ℕ: 1, 2, 3, … · Mit der Null dazu: ℕ₀ · Ganze Zahlen ℤ: …, −1, 0, 1, … · Rationale Zahlen ℚ: alle Brüche dazu)*
 4. Das war die Lektion zu Bruchteilen und Bruchzahlen. Ein Bruch ist ein Anteil von einem Ganzen. Der Zähler zählt die Stücke, der Nenner nennt ihre Größe. Erweitern und Kürzen ändern den Wert nicht, und mit dem Hauptnenner kannst du jeden Bruch vergleichen. In der nächsten Lektion geht es um Dezimalbrüche. Bis dann.
    ↳ *outro*
 

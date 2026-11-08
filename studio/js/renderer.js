@@ -273,6 +273,8 @@ export class Renderer {
     }
     const cam = def.camera || {};
     const S = new MathScene(this.ctx, this.w, this.h, this.theme, { ...cam, cy: this.h * (this.portrait ? 0.5 : 0.58) });
+    S.titleOverride = v.title || null;
+    if (typeof v.formula === 'string') S.formulaOverride = v.formula;
     def.draw(S, t, v.params || {});
     S.flush();
   }
