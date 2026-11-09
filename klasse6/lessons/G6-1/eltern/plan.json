@@ -2,8 +2,8 @@
  "id": "current",
  "prompt": "Eltern-Lektion G6-1 „Der Mensch und seine Geschichte“ (Geschichte, Klasse 6 Gymnasium Bayern), aus klasse6/lessons/G6-1.eltern.lesson.json. 12 Minuten, auf Deutsch, für Eltern und Lehrkräfte.",
  "attempts": 0,
- "createdAt": 1794219249800,
- "updatedAt": 1794219249800,
+ "createdAt": 1794219305423,
+ "updatedAt": 1794219305423,
  "stage": "plan",
  "mode": "course",
  "durationApplied": true,
@@ -28,8 +28,8 @@
   "footageProvider": "none",
   "aiClipBudget": 0,
   "minSceneSeconds": 10,
-  "maxDuration": 846,
-  "targetDuration": 736,
+  "maxDuration": 823,
+  "targetDuration": 716,
   "lesson": {
    "id": "G6-1",
    "title": "Der Mensch und seine Geschichte",
@@ -127,14 +127,14 @@
     "id": 2,
     "chapterId": 1,
     "purpose": "explain",
-    "keyPoint": "Geschichte wird in Jahrgangsstufe 6 in der Regel mit zwei Wochenstunden unterrichtet. Das Schuljahr spannt einen Bogen von den ersten Menschen bis zur Kaiserkrönung Karls des Großen. Der erste Lernbereich, Der Mensch und seine Geschichte, ist im LehrplanPLUS mit etwa sechs Stunden angesetzt. Danach folgen Ägypten, die griechische Antike, ein Längsschnitt zu Menschen, die Geschichte machen, das Imperium Romanum, der Übergang zum Mittelalter und ein Längsschnitt zum Leben in der Familie. Für den ersten Lernbereich verweist der Lehrplan auf die Lernbereiche Bildende Kunst sowie Architektur und Produktdesign im Fach Kunst der fünften Klasse.",
+    "keyPoint": "Geschichte wird in Jahrgangsstufe 6 in der Regel mit zwei Wochenstunden unterrichtet. Das Schuljahr spannt einen Bogen von den ersten Menschen bis zur Kaiserkrönung Karls des Großen. Der erste Lernbereich, Der Mensch und seine Geschichte, ist im LehrplanPLUS mit etwa sechs Stunden angesetzt. Danach folgen Ägypten, die griechische Antike, ein Längsschnitt zu Menschen, die Geschichte machen, das Imperium Romanum, der Übergang zum Mittelalter und ein Längsschnitt zum Leben in der Familie. Der Lehrplan verweist außerdem auf das Fach Kunst der fünften Klasse.",
     "suggestedVisual": "bullets"
    },
    {
     "id": 3,
     "chapterId": 1,
     "purpose": "explain",
-    "keyPoint": "Der Lehrplan formuliert fünf Kompetenzerwartungen. Erstens: Die Kinder erfassen Vergangenheit, Gegenwart und Zukunft als grundlegendes Muster menschlicher Orientierung und setzen sie in Bezug zur eigenen Lebenswelt. Zweitens: Sie unterscheiden Bestandteile des Schulgeschichtsbuchs, insbesondere Quellen von Darstellungstexten, und entnehmen einfachen Darstellungen Informationen. Drittens: Sie erklären an Beispielen aus vorgeschichtlicher Zeit, wie Überlebenstechniken wie die Beherrschung des Feuers, Wohnungsbau sowie Werkzeug- und Waffentechnik die menschliche Kultur beeinflusst haben, und beurteilen in Ansätzen die Veränderung der Lebensformen. Viertens: Sie erklären den Wandel von der Altsteinzeit zur Jungsteinzeit durch den Vergleich der Lebensumstände an anschaulichen Beispielen. Fünftens: Sie verwenden die Grundlegenden Begriffe Quelle, Altsteinzeit und Jungsteinzeit.",
+    "keyPoint": "Der Lehrplan formuliert fünf Kompetenzerwartungen. Erstens: Die Kinder erfassen Vergangenheit, Gegenwart und Zukunft als grundlegendes Muster menschlicher Orientierung und setzen sie in Bezug zur eigenen Lebenswelt. Zweitens: Sie unterscheiden im Schulgeschichtsbuch Quellen von Darstellungstexten und entnehmen einfachen Darstellungen Informationen. Drittens: Sie erklären an Beispielen aus vorgeschichtlicher Zeit, wie Überlebenstechniken, etwa die Beherrschung des Feuers, Wohnungsbau, Werkzeug- und Waffentechnik, die menschliche Kultur beeinflusst haben, und beurteilen in Ansätzen die Veränderung der Lebensformen. Viertens: Sie erklären den Wandel von der Altsteinzeit zur Jungsteinzeit durch den Vergleich der Lebensumstände an anschaulichen Beispielen. Fünftens: Sie verwenden die Grundlegenden Begriffe Quelle, Altsteinzeit und Jungsteinzeit.",
     "suggestedVisual": "bullets"
    },
    {
@@ -183,7 +183,7 @@
     "id": 10,
     "chapterId": 3,
     "purpose": "explain",
-    "keyPoint": "Die erste Frage: Wer hat das gemacht, und wann? Ein Faustkeil stammt von einem Menschen der Altsteinzeit, ein Denkmal von einem Herrscher, der gesehen werden wollte. Die zweite: Wozu, und für wen? Hier liegt der Unterschied zwischen Überrest und Überlieferung; wer für die Nachwelt schreibt oder baut, wählt aus und schönt. Die dritte, oft die wichtigste: Was zeigt die Quelle nicht? Eine Höhlenmalerei zeigt Tiere, aber kaum Alltag, kaum Kinder, kaum Krankheit. Wer diese Lücke bemerkt, denkt historisch. In der sechsten Klasse geschieht das in Ansätzen und an einfachen Beispielen.",
+    "keyPoint": "Die erste Frage: Wer hat das gemacht, und wann? Ein Faustkeil stammt von einem Jäger, ein Denkmal von einem Herrscher. Die zweite: Wozu, und für wen? Hier liegt der Unterschied zwischen Überrest und Überlieferung; wer für die Nachwelt schreibt oder baut, wählt aus und schönt. Die dritte, oft die wichtigste: Was zeigt die Quelle nicht? Eine Höhlenmalerei zeigt Tiere, aber kaum Alltag, kaum Kinder, kaum Krankheit. Wer diese Lücke bemerkt, denkt historisch. In der sechsten Klasse geschieht das in Ansätzen und an einfachen Beispielen.",
     "suggestedVisual": "bullets"
    },
    {
@@ -218,7 +218,7 @@
     "id": 15,
     "chapterId": 4,
     "purpose": "explain",
-    "keyPoint": "Idee zwei: der eigene Zeitstrahl. Ein langer Papierstreifen, Christi Geburt in der Mitte, zuerst die Familie: die eigene Geburt, die Einschulung, die Geburtsjahre der Eltern und Großeltern. Dann die Schuldaten: die Gründung Roms 753 vor Christus, die frühen Hochkulturen um 3000 vor Christus, das Ende der Altsteinzeit um zehntausend vor Christus. Spätestens hier merkt Ihr Kind, dass der Streifen nicht reicht, und erlebt den Maßstab körperlich. Nebenbei wird das Rückwärtszählen geübt, ohne dass es wie Üben wirkt. Der Streifen kann das ganze Schuljahr hängen bleiben und mit jedem Lernbereich wachsen.",
+    "keyPoint": "Idee zwei: der eigene Zeitstrahl. Ein langer Papierstreifen, Christi Geburt in der Mitte, zuerst die Familie: die eigene Geburt, die Einschulung, die Geburtsjahre der Eltern und Großeltern. Dann die Schuldaten: die Gründung Roms 753 vor Christus, die frühen Hochkulturen um 3000 vor Christus, das Ende der Altsteinzeit um zehntausend vor Christus. Spätestens hier merkt Ihr Kind, dass der Streifen nicht reicht, und erlebt den Maßstab körperlich. Nebenbei wird das Rückwärtszählen geübt, ohne dass es wie Üben wirkt. Der Streifen kann das ganze Schuljahr mitwachsen.",
     "suggestedVisual": "bullets"
    },
    {
@@ -239,21 +239,21 @@
     "id": 18,
     "chapterId": 5,
     "purpose": "explain",
-    "keyPoint": "Erstens: Steinzeitmenschen hätten mit Dinosauriern gelebt. Die Dinosaurier starben vor rund 66 Millionen Jahren aus, die ersten Menschen erschienen vor etwa zwei bis drei Millionen Jahren; dazwischen liegt ein Vielfaches der gesamten Menschheitsgeschichte. Zweitens: Eine Quelle sei immer ein Text. Für die Steinzeit gibt es keine Schrift; hier zählen Gegenstände, Bilder und Befunde. Drittens: Früher sei alles primitiv gewesen. Wer mit Feuerstein, Sehne und Knochen in der Eiszeit überlebt, ist hoch spezialisiert; Fortschritt ist kein gerader Weg nach oben. Und eine kleine vierte: Vor Christi Geburt bedeutet die größere Zahl das frühere Jahr. Diese Umkehrung braucht Übung am Zeitstrahl.",
+    "keyPoint": "Erstens: Steinzeitmenschen hätten mit Dinosauriern gelebt. Die Dinosaurier starben vor rund 66 Millionen Jahren aus, die ersten Menschen erschienen vor etwa zwei bis drei Millionen Jahren. Zweitens: Eine Quelle sei immer ein Text. Für die Steinzeit gibt es keine Schrift; hier zählen Gegenstände, Bilder und Befunde. Drittens: Früher sei alles primitiv gewesen. Wer mit Feuerstein, Sehne und Knochen in der Eiszeit überlebt, ist hoch spezialisiert; Fortschritt ist kein gerader Weg nach oben. Viertens: Vor Christi Geburt bedeutet die größere Zahl das frühere Jahr. Diese Umkehrung braucht Übung am Zeitstrahl.",
     "suggestedVisual": "bullets"
    },
    {
     "id": 19,
     "chapterId": 5,
     "purpose": "explain",
-    "keyPoint": "Geschichte zählt in Jahrgangsstufe 6 in der Regel zu den Fächern ohne Schulaufgaben. Bewertet wird üblicherweise mit kleinen Leistungsnachweisen: Stegreifaufgaben, mündliche Mitarbeit, kurze Abfragen, gelegentlich Referate. Typische Aufgaben in diesem Lernbereich wären, eine abgebildete Quelle einer Quellenart zuzuordnen und als Überrest oder Überlieferung zu bestimmen, Jahreszahlen auf einem Zeitstrahl zu ordnen oder einem Jahrhundert zuzuweisen und die Lebensweisen der Alt- und Jungsteinzeit zu vergleichen. Wie viele Nachweise es gibt und wie sie gewichtet werden, legt die Lehrkraft im Rahmen der Schulordnung fest. Das Heft Ihres Kindes und die Hinweise zu Schuljahresbeginn geben den verlässlichsten Eindruck.",
+    "keyPoint": "Geschichte zählt in Jahrgangsstufe 6 in der Regel zu den Fächern ohne Schulaufgaben. Bewertet wird üblicherweise mit kleinen Leistungsnachweisen: Stegreifaufgaben, mündliche Mitarbeit, kurze Abfragen, gelegentlich Referate. Typische Aufgaben in diesem Lernbereich wären, eine abgebildete Quelle einer Quellenart zuzuordnen und als Überrest oder Überlieferung zu bestimmen, Jahreszahlen auf einem Zeitstrahl zu ordnen und die Lebensweisen der Alt- und Jungsteinzeit zu vergleichen. Wie viele Nachweise es gibt und wie sie gewichtet werden, legt die Lehrkraft im Rahmen der Schulordnung fest. Das Heft Ihres Kindes zeigt, wie es gehandhabt wird.",
     "suggestedVisual": "bullets"
    },
    {
     "id": 20,
     "chapterId": 5,
     "purpose": "explain",
-    "keyPoint": "Der Ausblick lässt sich am Zeitstrahl ablesen. Nach der Steinzeit folgt Ägypten als frühe Hochkultur ab etwa 3000 vor Christus: der Nil, der Pharao, die Pyramiden. Dann die griechische Antike mit Polis, Olympischen Spielen und der Demokratie Athens im fünften Jahrhundert vor Christus. Ein Längsschnitt zu Hatschepsut, Themistokles und Alexander fragt nach Möglichkeiten und Grenzen von Herrschaft. Es folgen das Imperium Romanum von der Gründungssage bis zu Augustus und den Provinzen, darunter das römische Bayern, und der Übergang zum Mittelalter bis zur Kaiserkrönung Karls des Großen im Jahr 800. Der Zeitstrahl bleibt dabei das Ordnungsgerüst.",
+    "keyPoint": "Der Ausblick lässt sich am Zeitstrahl ablesen. Nach der Steinzeit folgt Ägypten als frühe Hochkultur ab etwa 3000 vor Christus: Nil, Pharao, Pyramiden. Dann die griechische Antike mit Polis, Olympischen Spielen und der Demokratie Athens im fünften Jahrhundert vor Christus. Ein Längsschnitt fragt an Hatschepsut, Themistokles und Alexander nach Grenzen von Herrschaft. Es folgen das Imperium Romanum von der Gründungssage bis zu Augustus und den Provinzen, darunter das römische Bayern, und der Übergang zum Mittelalter bis zur Kaiserkrönung Karls des Großen im Jahr 800. Der Zeitstrahl bleibt das Ordnungsgerüst.",
     "suggestedVisual": "math3d"
    },
    {
@@ -298,7 +298,7 @@
     "stockQuery": null
    },
    {
-    "narration": "Geschichte wird in Jahrgangsstufe 6 in der Regel mit zwei Wochenstunden unterrichtet. Das Schuljahr spannt einen Bogen von den ersten Menschen bis zur Kaiserkrönung Karls des Großen. Der erste Lernbereich, Der Mensch und seine Geschichte, ist im LehrplanPLUS mit etwa sechs Stunden angesetzt. Danach folgen Ägypten, die griechische Antike, ein Längsschnitt zu Menschen, die Geschichte machen, das Imperium Romanum, der Übergang zum Mittelalter und ein Längsschnitt zum Leben in der Familie. Für den ersten Lernbereich verweist der Lehrplan auf die Lernbereiche Bildende Kunst sowie Architektur und Produktdesign im Fach Kunst der fünften Klasse.",
+    "narration": "Geschichte wird in Jahrgangsstufe 6 in der Regel mit zwei Wochenstunden unterrichtet. Das Schuljahr spannt einen Bogen von den ersten Menschen bis zur Kaiserkrönung Karls des Großen. Der erste Lernbereich, Der Mensch und seine Geschichte, ist im LehrplanPLUS mit etwa sechs Stunden angesetzt. Danach folgen Ägypten, die griechische Antike, ein Längsschnitt zu Menschen, die Geschichte machen, das Imperium Romanum, der Übergang zum Mittelalter und ein Längsschnitt zum Leben in der Familie. Der Lehrplan verweist außerdem auf das Fach Kunst der fünften Klasse.",
     "onScreenTitle": "Das Fach und der Lernbereich",
     "question": null,
     "think": null,
@@ -333,7 +333,7 @@
     "stockQuery": null
    },
    {
-    "narration": "Der Lehrplan formuliert fünf Kompetenzerwartungen. Erstens: Die Kinder erfassen Vergangenheit, Gegenwart und Zukunft als grundlegendes Muster menschlicher Orientierung und setzen sie in Bezug zur eigenen Lebenswelt. Zweitens: Sie unterscheiden Bestandteile des Schulgeschichtsbuchs, insbesondere Quellen von Darstellungstexten, und entnehmen einfachen Darstellungen Informationen. Drittens: Sie erklären an Beispielen aus vorgeschichtlicher Zeit, wie Überlebenstechniken wie die Beherrschung des Feuers, Wohnungsbau sowie Werkzeug- und Waffentechnik die menschliche Kultur beeinflusst haben, und beurteilen in Ansätzen die Veränderung der Lebensformen. Viertens: Sie erklären den Wandel von der Altsteinzeit zur Jungsteinzeit durch den Vergleich der Lebensumstände an anschaulichen Beispielen. Fünftens: Sie verwenden die Grundlegenden Begriffe Quelle, Altsteinzeit und Jungsteinzeit.",
+    "narration": "Der Lehrplan formuliert fünf Kompetenzerwartungen. Erstens: Die Kinder erfassen Vergangenheit, Gegenwart und Zukunft als grundlegendes Muster menschlicher Orientierung und setzen sie in Bezug zur eigenen Lebenswelt. Zweitens: Sie unterscheiden im Schulgeschichtsbuch Quellen von Darstellungstexten und entnehmen einfachen Darstellungen Informationen. Drittens: Sie erklären an Beispielen aus vorgeschichtlicher Zeit, wie Überlebenstechniken, etwa die Beherrschung des Feuers, Wohnungsbau, Werkzeug- und Waffentechnik, die menschliche Kultur beeinflusst haben, und beurteilen in Ansätzen die Veränderung der Lebensformen. Viertens: Sie erklären den Wandel von der Altsteinzeit zur Jungsteinzeit durch den Vergleich der Lebensumstände an anschaulichen Beispielen. Fünftens: Sie verwenden die Grundlegenden Begriffe Quelle, Altsteinzeit und Jungsteinzeit.",
     "onScreenTitle": "Das verlangt der Lehrplan",
     "question": null,
     "think": null,
@@ -584,7 +584,7 @@
     "stockQuery": null
    },
    {
-    "narration": "Die erste Frage: Wer hat das gemacht, und wann? Ein Faustkeil stammt von einem Menschen der Altsteinzeit, ein Denkmal von einem Herrscher, der gesehen werden wollte. Die zweite: Wozu, und für wen? Hier liegt der Unterschied zwischen Überrest und Überlieferung; wer für die Nachwelt schreibt oder baut, wählt aus und schönt. Die dritte, oft die wichtigste: Was zeigt die Quelle nicht? Eine Höhlenmalerei zeigt Tiere, aber kaum Alltag, kaum Kinder, kaum Krankheit. Wer diese Lücke bemerkt, denkt historisch. In der sechsten Klasse geschieht das in Ansätzen und an einfachen Beispielen.",
+    "narration": "Die erste Frage: Wer hat das gemacht, und wann? Ein Faustkeil stammt von einem Jäger, ein Denkmal von einem Herrscher. Die zweite: Wozu, und für wen? Hier liegt der Unterschied zwischen Überrest und Überlieferung; wer für die Nachwelt schreibt oder baut, wählt aus und schönt. Die dritte, oft die wichtigste: Was zeigt die Quelle nicht? Eine Höhlenmalerei zeigt Tiere, aber kaum Alltag, kaum Kinder, kaum Krankheit. Wer diese Lücke bemerkt, denkt historisch. In der sechsten Klasse geschieht das in Ansätzen und an einfachen Beispielen.",
     "onScreenTitle": "Drei Fragen an jede Quelle",
     "question": null,
     "think": null,
@@ -760,7 +760,7 @@
     "stockQuery": null
    },
    {
-    "narration": "Idee zwei: der eigene Zeitstrahl. Ein langer Papierstreifen, Christi Geburt in der Mitte, zuerst die Familie: die eigene Geburt, die Einschulung, die Geburtsjahre der Eltern und Großeltern. Dann die Schuldaten: die Gründung Roms 753 vor Christus, die frühen Hochkulturen um 3000 vor Christus, das Ende der Altsteinzeit um zehntausend vor Christus. Spätestens hier merkt Ihr Kind, dass der Streifen nicht reicht, und erlebt den Maßstab körperlich. Nebenbei wird das Rückwärtszählen geübt, ohne dass es wie Üben wirkt. Der Streifen kann das ganze Schuljahr hängen bleiben und mit jedem Lernbereich wachsen.",
+    "narration": "Idee zwei: der eigene Zeitstrahl. Ein langer Papierstreifen, Christi Geburt in der Mitte, zuerst die Familie: die eigene Geburt, die Einschulung, die Geburtsjahre der Eltern und Großeltern. Dann die Schuldaten: die Gründung Roms 753 vor Christus, die frühen Hochkulturen um 3000 vor Christus, das Ende der Altsteinzeit um zehntausend vor Christus. Spätestens hier merkt Ihr Kind, dass der Streifen nicht reicht, und erlebt den Maßstab körperlich. Nebenbei wird das Rückwärtszählen geübt, ohne dass es wie Üben wirkt. Der Streifen kann das ganze Schuljahr mitwachsen.",
     "onScreenTitle": "Idee 2: Einen Zeitstrahl basteln",
     "question": null,
     "think": null,
@@ -866,7 +866,7 @@
     "stockQuery": null
    },
    {
-    "narration": "Erstens: Steinzeitmenschen hätten mit Dinosauriern gelebt. Die Dinosaurier starben vor rund 66 Millionen Jahren aus, die ersten Menschen erschienen vor etwa zwei bis drei Millionen Jahren; dazwischen liegt ein Vielfaches der gesamten Menschheitsgeschichte. Zweitens: Eine Quelle sei immer ein Text. Für die Steinzeit gibt es keine Schrift; hier zählen Gegenstände, Bilder und Befunde. Drittens: Früher sei alles primitiv gewesen. Wer mit Feuerstein, Sehne und Knochen in der Eiszeit überlebt, ist hoch spezialisiert; Fortschritt ist kein gerader Weg nach oben. Und eine kleine vierte: Vor Christi Geburt bedeutet die größere Zahl das frühere Jahr. Diese Umkehrung braucht Übung am Zeitstrahl.",
+    "narration": "Erstens: Steinzeitmenschen hätten mit Dinosauriern gelebt. Die Dinosaurier starben vor rund 66 Millionen Jahren aus, die ersten Menschen erschienen vor etwa zwei bis drei Millionen Jahren. Zweitens: Eine Quelle sei immer ein Text. Für die Steinzeit gibt es keine Schrift; hier zählen Gegenstände, Bilder und Befunde. Drittens: Früher sei alles primitiv gewesen. Wer mit Feuerstein, Sehne und Knochen in der Eiszeit überlebt, ist hoch spezialisiert; Fortschritt ist kein gerader Weg nach oben. Viertens: Vor Christi Geburt bedeutet die größere Zahl das frühere Jahr. Diese Umkehrung braucht Übung am Zeitstrahl.",
     "onScreenTitle": "Drei typische Fehlvorstellungen",
     "question": null,
     "think": null,
@@ -901,7 +901,7 @@
     "stockQuery": null
    },
    {
-    "narration": "Geschichte zählt in Jahrgangsstufe 6 in der Regel zu den Fächern ohne Schulaufgaben. Bewertet wird üblicherweise mit kleinen Leistungsnachweisen: Stegreifaufgaben, mündliche Mitarbeit, kurze Abfragen, gelegentlich Referate. Typische Aufgaben in diesem Lernbereich wären, eine abgebildete Quelle einer Quellenart zuzuordnen und als Überrest oder Überlieferung zu bestimmen, Jahreszahlen auf einem Zeitstrahl zu ordnen oder einem Jahrhundert zuzuweisen und die Lebensweisen der Alt- und Jungsteinzeit zu vergleichen. Wie viele Nachweise es gibt und wie sie gewichtet werden, legt die Lehrkraft im Rahmen der Schulordnung fest. Das Heft Ihres Kindes und die Hinweise zu Schuljahresbeginn geben den verlässlichsten Eindruck.",
+    "narration": "Geschichte zählt in Jahrgangsstufe 6 in der Regel zu den Fächern ohne Schulaufgaben. Bewertet wird üblicherweise mit kleinen Leistungsnachweisen: Stegreifaufgaben, mündliche Mitarbeit, kurze Abfragen, gelegentlich Referate. Typische Aufgaben in diesem Lernbereich wären, eine abgebildete Quelle einer Quellenart zuzuordnen und als Überrest oder Überlieferung zu bestimmen, Jahreszahlen auf einem Zeitstrahl zu ordnen und die Lebensweisen der Alt- und Jungsteinzeit zu vergleichen. Wie viele Nachweise es gibt und wie sie gewichtet werden, legt die Lehrkraft im Rahmen der Schulordnung fest. Das Heft Ihres Kindes zeigt, wie es gehandhabt wird.",
     "onScreenTitle": "So wird in Geschichte 6 meist geprüft",
     "question": null,
     "think": null,
@@ -936,7 +936,7 @@
     "stockQuery": null
    },
    {
-    "narration": "Der Ausblick lässt sich am Zeitstrahl ablesen. Nach der Steinzeit folgt Ägypten als frühe Hochkultur ab etwa 3000 vor Christus: der Nil, der Pharao, die Pyramiden. Dann die griechische Antike mit Polis, Olympischen Spielen und der Demokratie Athens im fünften Jahrhundert vor Christus. Ein Längsschnitt zu Hatschepsut, Themistokles und Alexander fragt nach Möglichkeiten und Grenzen von Herrschaft. Es folgen das Imperium Romanum von der Gründungssage bis zu Augustus und den Provinzen, darunter das römische Bayern, und der Übergang zum Mittelalter bis zur Kaiserkrönung Karls des Großen im Jahr 800. Der Zeitstrahl bleibt dabei das Ordnungsgerüst.",
+    "narration": "Der Ausblick lässt sich am Zeitstrahl ablesen. Nach der Steinzeit folgt Ägypten als frühe Hochkultur ab etwa 3000 vor Christus: Nil, Pharao, Pyramiden. Dann die griechische Antike mit Polis, Olympischen Spielen und der Demokratie Athens im fünften Jahrhundert vor Christus. Ein Längsschnitt fragt an Hatschepsut, Themistokles und Alexander nach Grenzen von Herrschaft. Es folgen das Imperium Romanum von der Gründungssage bis zu Augustus und den Provinzen, darunter das römische Bayern, und der Übergang zum Mittelalter bis zur Kaiserkrönung Karls des Großen im Jahr 800. Der Zeitstrahl bleibt das Ordnungsgerüst.",
     "onScreenTitle": "Ausblick: Ägypten, Griechenland, Rom",
     "question": null,
     "think": null,
@@ -1015,14 +1015,14 @@
    {
     "beatId": 2,
     "chapterId": 1,
-    "narration": "Geschichte wird in Jahrgangsstufe 6 in der Regel mit zwei Wochenstunden unterrichtet. Das Schuljahr spannt einen Bogen von den ersten Menschen bis zur Kaiserkrönung Karls des Großen. Der erste Lernbereich, Der Mensch und seine Geschichte, ist im LehrplanPLUS mit etwa sechs Stunden angesetzt. Danach folgen Ägypten, die griechische Antike, ein Längsschnitt zu Menschen, die Geschichte machen, das Imperium Romanum, der Übergang zum Mittelalter und ein Längsschnitt zum Leben in der Familie. Für den ersten Lernbereich verweist der Lehrplan auf die Lernbereiche Bildende Kunst sowie Architektur und Produktdesign im Fach Kunst der fünften Klasse.",
+    "narration": "Geschichte wird in Jahrgangsstufe 6 in der Regel mit zwei Wochenstunden unterrichtet. Das Schuljahr spannt einen Bogen von den ersten Menschen bis zur Kaiserkrönung Karls des Großen. Der erste Lernbereich, Der Mensch und seine Geschichte, ist im LehrplanPLUS mit etwa sechs Stunden angesetzt. Danach folgen Ägypten, die griechische Antike, ein Längsschnitt zu Menschen, die Geschichte machen, das Imperium Romanum, der Übergang zum Mittelalter und ein Längsschnitt zum Leben in der Familie. Der Lehrplan verweist außerdem auf das Fach Kunst der fünften Klasse.",
     "onScreenTitle": "Das Fach und der Lernbereich",
     "emphasisWords": []
    },
    {
     "beatId": 3,
     "chapterId": 1,
-    "narration": "Der Lehrplan formuliert fünf Kompetenzerwartungen. Erstens: Die Kinder erfassen Vergangenheit, Gegenwart und Zukunft als grundlegendes Muster menschlicher Orientierung und setzen sie in Bezug zur eigenen Lebenswelt. Zweitens: Sie unterscheiden Bestandteile des Schulgeschichtsbuchs, insbesondere Quellen von Darstellungstexten, und entnehmen einfachen Darstellungen Informationen. Drittens: Sie erklären an Beispielen aus vorgeschichtlicher Zeit, wie Überlebenstechniken wie die Beherrschung des Feuers, Wohnungsbau sowie Werkzeug- und Waffentechnik die menschliche Kultur beeinflusst haben, und beurteilen in Ansätzen die Veränderung der Lebensformen. Viertens: Sie erklären den Wandel von der Altsteinzeit zur Jungsteinzeit durch den Vergleich der Lebensumstände an anschaulichen Beispielen. Fünftens: Sie verwenden die Grundlegenden Begriffe Quelle, Altsteinzeit und Jungsteinzeit.",
+    "narration": "Der Lehrplan formuliert fünf Kompetenzerwartungen. Erstens: Die Kinder erfassen Vergangenheit, Gegenwart und Zukunft als grundlegendes Muster menschlicher Orientierung und setzen sie in Bezug zur eigenen Lebenswelt. Zweitens: Sie unterscheiden im Schulgeschichtsbuch Quellen von Darstellungstexten und entnehmen einfachen Darstellungen Informationen. Drittens: Sie erklären an Beispielen aus vorgeschichtlicher Zeit, wie Überlebenstechniken, etwa die Beherrschung des Feuers, Wohnungsbau, Werkzeug- und Waffentechnik, die menschliche Kultur beeinflusst haben, und beurteilen in Ansätzen die Veränderung der Lebensformen. Viertens: Sie erklären den Wandel von der Altsteinzeit zur Jungsteinzeit durch den Vergleich der Lebensumstände an anschaulichen Beispielen. Fünftens: Sie verwenden die Grundlegenden Begriffe Quelle, Altsteinzeit und Jungsteinzeit.",
     "onScreenTitle": "Das verlangt der Lehrplan",
     "emphasisWords": []
    },
@@ -1071,7 +1071,7 @@
    {
     "beatId": 10,
     "chapterId": 3,
-    "narration": "Die erste Frage: Wer hat das gemacht, und wann? Ein Faustkeil stammt von einem Menschen der Altsteinzeit, ein Denkmal von einem Herrscher, der gesehen werden wollte. Die zweite: Wozu, und für wen? Hier liegt der Unterschied zwischen Überrest und Überlieferung; wer für die Nachwelt schreibt oder baut, wählt aus und schönt. Die dritte, oft die wichtigste: Was zeigt die Quelle nicht? Eine Höhlenmalerei zeigt Tiere, aber kaum Alltag, kaum Kinder, kaum Krankheit. Wer diese Lücke bemerkt, denkt historisch. In der sechsten Klasse geschieht das in Ansätzen und an einfachen Beispielen.",
+    "narration": "Die erste Frage: Wer hat das gemacht, und wann? Ein Faustkeil stammt von einem Jäger, ein Denkmal von einem Herrscher. Die zweite: Wozu, und für wen? Hier liegt der Unterschied zwischen Überrest und Überlieferung; wer für die Nachwelt schreibt oder baut, wählt aus und schönt. Die dritte, oft die wichtigste: Was zeigt die Quelle nicht? Eine Höhlenmalerei zeigt Tiere, aber kaum Alltag, kaum Kinder, kaum Krankheit. Wer diese Lücke bemerkt, denkt historisch. In der sechsten Klasse geschieht das in Ansätzen und an einfachen Beispielen.",
     "onScreenTitle": "Drei Fragen an jede Quelle",
     "emphasisWords": []
    },
@@ -1106,7 +1106,7 @@
    {
     "beatId": 15,
     "chapterId": 4,
-    "narration": "Idee zwei: der eigene Zeitstrahl. Ein langer Papierstreifen, Christi Geburt in der Mitte, zuerst die Familie: die eigene Geburt, die Einschulung, die Geburtsjahre der Eltern und Großeltern. Dann die Schuldaten: die Gründung Roms 753 vor Christus, die frühen Hochkulturen um 3000 vor Christus, das Ende der Altsteinzeit um zehntausend vor Christus. Spätestens hier merkt Ihr Kind, dass der Streifen nicht reicht, und erlebt den Maßstab körperlich. Nebenbei wird das Rückwärtszählen geübt, ohne dass es wie Üben wirkt. Der Streifen kann das ganze Schuljahr hängen bleiben und mit jedem Lernbereich wachsen.",
+    "narration": "Idee zwei: der eigene Zeitstrahl. Ein langer Papierstreifen, Christi Geburt in der Mitte, zuerst die Familie: die eigene Geburt, die Einschulung, die Geburtsjahre der Eltern und Großeltern. Dann die Schuldaten: die Gründung Roms 753 vor Christus, die frühen Hochkulturen um 3000 vor Christus, das Ende der Altsteinzeit um zehntausend vor Christus. Spätestens hier merkt Ihr Kind, dass der Streifen nicht reicht, und erlebt den Maßstab körperlich. Nebenbei wird das Rückwärtszählen geübt, ohne dass es wie Üben wirkt. Der Streifen kann das ganze Schuljahr mitwachsen.",
     "onScreenTitle": "Idee 2: Einen Zeitstrahl basteln",
     "emphasisWords": []
    },
@@ -1127,21 +1127,21 @@
    {
     "beatId": 18,
     "chapterId": 5,
-    "narration": "Erstens: Steinzeitmenschen hätten mit Dinosauriern gelebt. Die Dinosaurier starben vor rund 66 Millionen Jahren aus, die ersten Menschen erschienen vor etwa zwei bis drei Millionen Jahren; dazwischen liegt ein Vielfaches der gesamten Menschheitsgeschichte. Zweitens: Eine Quelle sei immer ein Text. Für die Steinzeit gibt es keine Schrift; hier zählen Gegenstände, Bilder und Befunde. Drittens: Früher sei alles primitiv gewesen. Wer mit Feuerstein, Sehne und Knochen in der Eiszeit überlebt, ist hoch spezialisiert; Fortschritt ist kein gerader Weg nach oben. Und eine kleine vierte: Vor Christi Geburt bedeutet die größere Zahl das frühere Jahr. Diese Umkehrung braucht Übung am Zeitstrahl.",
+    "narration": "Erstens: Steinzeitmenschen hätten mit Dinosauriern gelebt. Die Dinosaurier starben vor rund 66 Millionen Jahren aus, die ersten Menschen erschienen vor etwa zwei bis drei Millionen Jahren. Zweitens: Eine Quelle sei immer ein Text. Für die Steinzeit gibt es keine Schrift; hier zählen Gegenstände, Bilder und Befunde. Drittens: Früher sei alles primitiv gewesen. Wer mit Feuerstein, Sehne und Knochen in der Eiszeit überlebt, ist hoch spezialisiert; Fortschritt ist kein gerader Weg nach oben. Viertens: Vor Christi Geburt bedeutet die größere Zahl das frühere Jahr. Diese Umkehrung braucht Übung am Zeitstrahl.",
     "onScreenTitle": "Drei typische Fehlvorstellungen",
     "emphasisWords": []
    },
    {
     "beatId": 19,
     "chapterId": 5,
-    "narration": "Geschichte zählt in Jahrgangsstufe 6 in der Regel zu den Fächern ohne Schulaufgaben. Bewertet wird üblicherweise mit kleinen Leistungsnachweisen: Stegreifaufgaben, mündliche Mitarbeit, kurze Abfragen, gelegentlich Referate. Typische Aufgaben in diesem Lernbereich wären, eine abgebildete Quelle einer Quellenart zuzuordnen und als Überrest oder Überlieferung zu bestimmen, Jahreszahlen auf einem Zeitstrahl zu ordnen oder einem Jahrhundert zuzuweisen und die Lebensweisen der Alt- und Jungsteinzeit zu vergleichen. Wie viele Nachweise es gibt und wie sie gewichtet werden, legt die Lehrkraft im Rahmen der Schulordnung fest. Das Heft Ihres Kindes und die Hinweise zu Schuljahresbeginn geben den verlässlichsten Eindruck.",
+    "narration": "Geschichte zählt in Jahrgangsstufe 6 in der Regel zu den Fächern ohne Schulaufgaben. Bewertet wird üblicherweise mit kleinen Leistungsnachweisen: Stegreifaufgaben, mündliche Mitarbeit, kurze Abfragen, gelegentlich Referate. Typische Aufgaben in diesem Lernbereich wären, eine abgebildete Quelle einer Quellenart zuzuordnen und als Überrest oder Überlieferung zu bestimmen, Jahreszahlen auf einem Zeitstrahl zu ordnen und die Lebensweisen der Alt- und Jungsteinzeit zu vergleichen. Wie viele Nachweise es gibt und wie sie gewichtet werden, legt die Lehrkraft im Rahmen der Schulordnung fest. Das Heft Ihres Kindes zeigt, wie es gehandhabt wird.",
     "onScreenTitle": "So wird in Geschichte 6 meist geprüft",
     "emphasisWords": []
    },
    {
     "beatId": 20,
     "chapterId": 5,
-    "narration": "Der Ausblick lässt sich am Zeitstrahl ablesen. Nach der Steinzeit folgt Ägypten als frühe Hochkultur ab etwa 3000 vor Christus: der Nil, der Pharao, die Pyramiden. Dann die griechische Antike mit Polis, Olympischen Spielen und der Demokratie Athens im fünften Jahrhundert vor Christus. Ein Längsschnitt zu Hatschepsut, Themistokles und Alexander fragt nach Möglichkeiten und Grenzen von Herrschaft. Es folgen das Imperium Romanum von der Gründungssage bis zu Augustus und den Provinzen, darunter das römische Bayern, und der Übergang zum Mittelalter bis zur Kaiserkrönung Karls des Großen im Jahr 800. Der Zeitstrahl bleibt dabei das Ordnungsgerüst.",
+    "narration": "Der Ausblick lässt sich am Zeitstrahl ablesen. Nach der Steinzeit folgt Ägypten als frühe Hochkultur ab etwa 3000 vor Christus: Nil, Pharao, Pyramiden. Dann die griechische Antike mit Polis, Olympischen Spielen und der Demokratie Athens im fünften Jahrhundert vor Christus. Ein Längsschnitt fragt an Hatschepsut, Themistokles und Alexander nach Grenzen von Herrschaft. Es folgen das Imperium Romanum von der Gründungssage bis zu Augustus und den Provinzen, darunter das römische Bayern, und der Übergang zum Mittelalter bis zur Kaiserkrönung Karls des Großen im Jahr 800. Der Zeitstrahl bleibt das Ordnungsgerüst.",
     "onScreenTitle": "Ausblick: Ägypten, Griechenland, Rom",
     "emphasisWords": []
    },
@@ -1153,7 +1153,7 @@
     "emphasisWords": []
    }
   ],
-  "totalWords": 1767
+  "totalWords": 1717
  },
  "review": {
   "approved": true,
