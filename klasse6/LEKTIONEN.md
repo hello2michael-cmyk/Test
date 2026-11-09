@@ -13,14 +13,15 @@ Dazu kommt für ausgewählte Themen die **English-Lektion** (`English: <ID>`, au
 die deutschen Fachbegriffe stehen in «…» und werden von der deutschen Stimme gesprochen, Glossar im Lehrplan-JSON).
 Eingecheckt: M6-1.1 (`klasse6/lessons/M6-1.1/international/`).
 
-Fertige Videos (GitHub-Releases, 90 Tage abrufbar):
+Fertige Videos (GitHub-Releases, 90 Tage abrufbar; alle ohne Hintergrundmusik):
 
 | Video | Stimme | Länge | Link |
 |---|---|---|---|
-| Kinder-Lektion M6-1.1 Brüche | Leda | ca. 13:30 | https://github.com/hello2michael-cmyk/Test/releases/tag/video-23 |
-| Kinder-Lektion D6-4.2 Satzglieder | Leda | ca. 13:00 | https://github.com/hello2michael-cmyk/Test/releases/tag/video-24 |
-| Eltern-Lektion M6-1.1 Brüche | Charon | ca. 10:00 | https://github.com/hello2michael-cmyk/Test/releases/tag/video-21 |
-| Eltern-Lektion M6-1.1, Stimmvergleich | Kore / Leda | ca. 10:00 | video-20 / video-22 |
+| Kinder-Lektion M6-1.1 Brüche | Leda | ca. 13:30 | https://github.com/hello2michael-cmyk/Test/releases/tag/video-25 |
+| Kinder-Lektion D6-4.2 Satzglieder | Leda | ca. 13:00 | https://github.com/hello2michael-cmyk/Test/releases/tag/video-26 |
+| Eltern-Lektion M6-1.1 Brüche | Charon | ca. 10:00 | https://github.com/hello2michael-cmyk/Test/releases/tag/video-27 |
+| English-Lektion M6-1.1 Fractions | Charon (en-US + de-DE) | ca. 12:00 | https://github.com/hello2michael-cmyk/Test/releases/tag/video-28 |
+| Stimmvergleich Eltern M6-1.1 | Kore / Charon / Leda | ca. 10:00 | video-20 / video-21 / video-22 |
 
 Reihenfolge: zuerst Mathematik (fertige 3D-Szenen), dann Deutsch (Satzglieder-Szene vorhanden), Natur und Technik, Geschichte, Fremdsprachen, dann der Rest.
 
