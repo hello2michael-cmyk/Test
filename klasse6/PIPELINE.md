@@ -54,7 +54,7 @@ Ohne eingecheckten Plan läuft weiterhin der modellgestützte Weg (Hugging Face 
 
 Die erste Fassung war zu schnell. Seitdem gilt für Lektionen:
 
-- **Stimme** etwas langsamer (Faktor 0,92) und längere Pausen zwischen Sätzen (0,5 s).
+- **Stimme** etwas langsamer (Faktor 0,92) und längere Pausen zwischen Sätzen (0,5 s). Keine Hintergrundmusik: nur Stimme.
 - **Nachhall**: jedes Bild bleibt 1,2 s stehen, nachdem der Sprecher fertig ist (`sceneHoldSeconds`).
 - **Frage-Szenen** (`kind: "question"`): die Frage wird gesprochen und groß gezeigt, dann läuft ein sichtbarer Countdown
   (`think`, 8 bis 12 s), danach folgt die Antwort in der nächsten Szene. Jedes Kapitel hat mindestens eine Frage.

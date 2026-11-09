@@ -25,6 +25,7 @@
 //                     for children from the verified Bavarian syllabus (style course, 3D maths scenes, German voice)
 //   MINUTES           lesson length in minutes (default: the topic's videoMinutes)
 //   VARIANT           kinder (default) | eltern: the parents-and-teachers version of the topic (normal pace, Sie-form)
+//   MUSIC             1 = ambient music bed under lesson narration (default off: voice only)
 //   TTS               google:<voice>  (default for lessons when GOOGLE_TTS_KEY is set: de-DE-Chirp3-HD-Leda for children,
 //                     de-DE-Chirp3-HD-Charon for the parents' version):
 //                     Google Cloud Text-to-Speech, a studio-grade German voice; synthesised here and handed to the page
@@ -126,6 +127,7 @@ if (lesson) {
   settings.footageProvider = env('FOOTAGE', 'none');          // lessons are 3D scenes and graphics; no stock clips of offices
   settings.aiClipBudget = parseInt(env('AI_CLIPS', '0'), 10);
   settings.cta = env('CTA', 'Abonniere für die nächste Lektion');
+  settings.ambientBed = env('MUSIC', '0') === '1'; settings.musicVolume = settings.ambientBed ? 0.18 : 0;   // lessons: voice only, no synthetic music bed (MUSIC=1 brings it back)
   settings.reviewerModelId = env('REVIEWER', 'hf-text:meta-llama/Llama-3.3-70B-Instruct');
   console.log(`[factory] lesson ${lesson.topic.id} „${lesson.topic.title}“ (${lesson.subject.name}, ${variant}), ${minutes} min, min scene ${settings.minSceneSeconds} s, 3D scene ${settings.lesson.scene || 'none'}`);
 }
