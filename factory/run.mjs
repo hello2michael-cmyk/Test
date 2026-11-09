@@ -121,7 +121,7 @@ if (lesson) {
   const minutes = parseFloat(env('MINUTES', String(lesson.topic.videoMinutes || 6)));
   settings.videoStyle = 'course';
   settings.targetDuration = Math.round(minutes * 60); settings.maxDuration = Math.min(1500, Math.round(minutes * 60 * 1.08));   // lessons may run up to 25 minutes
-  const variant = env('VARIANT', 'kinder') === 'eltern' ? 'eltern' : 'kinder';
+  const variant = ['eltern', 'international'].includes(env('VARIANT', 'kinder')) ? env('VARIANT', 'kinder') : 'kinder';
   settings.lesson = { id: lesson.topic.id, title: lesson.topic.title, subject: lesson.subject.name, scene: lesson.subject.id === 'mathematik' && lesson.topic.scene ? lesson.topic.scene : null, minWords: 32, variant };
   if (inputPlan && inputPlan.settings) { if (inputPlan.settings.targetDuration) settings.targetDuration = inputPlan.settings.targetDuration; if (inputPlan.settings.maxDuration) settings.maxDuration = inputPlan.settings.maxDuration; }
   settings.speed = parseFloat(env('SPEED', variant === 'kinder' ? '0.92' : '1.0')) || 1;   // children: a slightly slower voice
