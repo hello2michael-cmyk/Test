@@ -289,7 +289,31 @@
       "lernbereiche": [
         { "id": "NT6-1", "title": "Schwerpunkt Biologie", "hours": 56, "topics": [
           { "id": "NT6-1.1", "title": "Erkenntnisse gewinnen – kommunizieren – bewerten", "inhalte": ["naturwissenschaftlicher Erkenntnisweg: Frage, Hypothese, Untersuchung, Auswertung; Variable, Konstante, Kontrollversuch", "Mikroskopieren, Messwerte erfassen, Präparieren, Schulgarten", "Modelle; Säulen- und Liniendiagramme", "Quellen einschätzen; Tierschutz, biologische Vielfalt"], "note": "integriert in die anderen Lernbereiche" },
-          { "id": "NT6-1.2", "title": "Samenpflanzen als Lebewesen", "hours": 16, "inhalte": ["Frucht und Samen: Schale, Embryo, Nährgewebe; Ausbreitung durch Tiere und Wind; Bionik (Ahornfrucht – Propeller)", "ungeschlechtliche Fortpflanzung (Ausläufer); Keimung: Wasser, Licht, Temperatur, Sauerstoff", "Wurzel, Sprossachse, Blatt", "Photosynthese und Zellatmung: Stoff- und Energieumwandlung, Biomasse; Bedeutung für Nahrung, Rohstoffe, fossile Brennstoffe", "Reizbarkeit: Phototropismus, Blüten öffnen und schließen"], "scene": "photosynthesis", "videoMinutes": 8 },
+          { "id": "NT6-1.2", "title": "Samenpflanzen als Lebewesen", "hours": 16, "inhalte": ["Frucht und Samen: Schale, Embryo, Nährgewebe; Ausbreitung durch Tiere und Wind; Bionik (Ahornfrucht – Propeller)", "ungeschlechtliche Fortpflanzung (Ausläufer); Keimung: Wasser, Licht, Temperatur, Sauerstoff", "Wurzel, Sprossachse, Blatt", "Photosynthese und Zellatmung: Stoff- und Energieumwandlung, Biomasse; Bedeutung für Nahrung, Rohstoffe, fossile Brennstoffe", "Reizbarkeit: Phototropismus, Blüten öffnen und schließen"],"scene": "seed", "videoMinutes": 8,
+            "glossary": [
+              { "de": "der Same, die Samen", "en": "seed(s)" },
+              { "de": "die Frucht", "en": "fruit: the seed's packaging and travel unit" },
+              { "de": "die Samenschale", "en": "seed coat" },
+              { "de": "das Nährgewebe", "en": "food store inside the seed" },
+              { "de": "der Embryo, der Keimling", "en": "embryo, the tiny young plant" },
+              { "de": "die Keimwurzel", "en": "embryonic root" },
+              { "de": "der Keimspross", "en": "embryonic shoot" },
+              { "de": "die Keimblätter", "en": "seed leaves (cotyledons); in a bean they hold the store" },
+              { "de": "die Keimung", "en": "germination" },
+              { "de": "die Ausbreitung", "en": "dispersal" },
+              { "de": "die Ahornfrucht", "en": "maple fruit, the winged 'helicopter' seed" },
+              { "de": "die Klettfrucht", "en": "burr, a fruit with hooks" },
+              { "de": "das Schirmchen", "en": "parachute of a dandelion fruit" },
+              { "de": "die Bionik", "en": "bionics: technology inspired by nature" },
+              { "de": "die Mutterpflanze", "en": "parent plant" },
+              { "de": "der Ausläufer", "en": "runner (asexual reproduction, e.g. strawberry)" },
+              { "de": "ungeschlechtliche Fortpflanzung", "en": "asexual reproduction" },
+              { "de": "der Kontrollversuch", "en": "control experiment" },
+              { "de": "die Variable", "en": "variable: the one thing you change" },
+              { "de": "das Versuchsprotokoll", "en": "experiment record" },
+              { "de": "die Stegreifaufgabe", "en": "short unannounced test" },
+              { "de": "Natur und Technik (NT)", "en": "the Year 5-7 science subject: biology, physics, informatics" }
+            ] },
           { "id": "NT6-1.3", "title": "Biodiversität bei Wirbeltieren – Variabilität und Angepasstheit", "hours": 26, "inhalte": ["Fortbewegung im Wasser, an Land, in der Luft; Bionik (Schiff, Flugzeug)", "Nahrungserwerb: Räuber, Weidegänger, Fleisch- und Pflanzenfresser", "Temperaturregulation: Thermokonforme und Thermoregulatoren; Isolation durch Haut, Haare, Federn", "Winterschlaf, Winterruhe, Kältestarre, Vogelzug, Vorräte", "Sauerstoffaufnahme aus Wasser und Luft", "Fortpflanzung: äußere und innere Befruchtung, Eihülle; Metamorphose, Nesthocker, Nestflüchter; Elternaufwand, Brutpflege", "Sinnesleistungen: Ultraschallortung, Seitenlinienorgan, Grubenorgan"], "scene": "vertebrates", "videoMinutes": 9 },
           { "id": "NT6-1.4", "title": "Verwandtschaft der Wirbeltiere und Evolution", "hours": 8, "inhalte": ["Wirbeltierklassen: Körperbedeckung, Körpertemperatur, Atmung, Fortpflanzung", "vereinfachtes Modell der Evolution: Vorteile durch variierte Merkmale", "Nutz- und Heimtiere: Züchtung, tiergerechte Haltung"], "videoMinutes": 6 },
           { "id": "NT6-1.5", "title": "Ökosystem Gewässer", "hours": 6, "inhalte": ["abiotische Faktoren: Wassertemperatur, Sichttiefe, Fließgeschwindigkeit", "typische Lebewesen, Nahrungsnetz", "Ökosystem = Lebewesen + unbelebte Natur; Nutzen und Einfluss des Menschen"], "videoMinutes": 6 }
