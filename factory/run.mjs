@@ -25,7 +25,8 @@
 //                     for children from the verified Bavarian syllabus (style course, 3D maths scenes, German voice)
 //   MINUTES           lesson length in minutes (default: the topic's videoMinutes)
 //   VARIANT           kinder (default) | eltern: the parents-and-teachers version of the topic (normal pace, Sie-form)
-//   TTS               google:<voice>  e.g. google:de-DE-Chirp3-HD-Kore (default for lessons when GOOGLE_TTS_KEY is set):
+//   TTS               google:<voice>  (default for lessons when GOOGLE_TTS_KEY is set: de-DE-Chirp3-HD-Leda for children,
+//                     de-DE-Chirp3-HD-Charon for the parents' version):
 //                     Google Cloud Text-to-Speech, a studio-grade German voice; synthesised here and handed to the page
 //                     piper:<voice>   e.g. piper:de_DE-thorsten-high (default for lessons without a Google key): the voice
 //                     is synthesised here with Piper; the voice files are fetched into .piper/ on first use
@@ -249,7 +250,10 @@ async function cacheHubFile(localUrl) {
 // ---- External voices: German and other languages the in-browser Kokoro voice lacks ----
 // Google Cloud Text-to-Speech (studio-grade, needs GOOGLE_TTS_KEY) with Piper (free, local) as the fallback.
 const googleKey = env('GOOGLE_TTS_KEY', '');
-const ttsSpec = env('TTS', lessonId ? (googleKey ? 'google:de-DE-Chirp3-HD-Kore' : 'piper:de_DE-thorsten-high') : '');
+// Default voices, chosen after a side-by-side listen: Leda (lighter, younger) for the children's lessons,
+// Charon (deep, informative) for the parents-and-teachers version.
+const defaultGoogleVoice = env('VARIANT', 'kinder') === 'eltern' ? 'de-DE-Chirp3-HD-Charon' : 'de-DE-Chirp3-HD-Leda';
+const ttsSpec = env('TTS', lessonId ? (googleKey ? `google:${defaultGoogleVoice}` : 'piper:de_DE-thorsten-high') : '');
 let google = null, piper = null;
 if (ttsSpec.startsWith('google:') && phase !== 'plan') {
   const voice = ttsSpec.slice(7);

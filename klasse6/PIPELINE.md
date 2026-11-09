@@ -73,7 +73,8 @@ Die erste Fassung war zu schnell. Seitdem gilt für Lektionen:
 - **Eingang** `Lektion: <Thema-ID>` als Issue-Titel oder Feld im Actions-Formular; Themen-IDs in `klasse6/LEKTIONEN.md`.
 - **Eingecheckte Pläne** werden direkt gerendert (Workflow erkennt `klasse6/lessons/<ID>/plan.json`).
 - **Szenenart `math3d`** mit Parametern und `segment`; aufeinanderfolgende Szenen ohne `segment` spielen eine durchgehende Animation.
-- **Deutsche Stimme**: Google Cloud Text-to-Speech (Chirp 3 HD, 24 kHz; Standard `de-DE-Chirp3-HD-Kore`) im Fabrik-Prozess, sobald das
+- **Deutsche Stimme**: Google Cloud Text-to-Speech (Chirp 3 HD, 24 kHz; Standard `de-DE-Chirp3-HD-Leda` für die Kinder-Lektion,
+  `de-DE-Chirp3-HD-Charon` für die Eltern-Lektion) im Fabrik-Prozess, sobald das
   Repository-Secret `GOOGLE_TTS_KEY` gesetzt ist; sonst und als Rückfall Piper (Thorsten, 22 kHz). Audiodaten per `__factoryTTS` in die Seite.
   Andere Stimme pro Video: Issue-Zeile `stimme: de-DE-Chirp3-HD-Charon` (oder `stimme: piper:de_DE-thorsten-high`). Synthese wird je Text
   zwischengespeichert, ein Neustart nach Absturz kostet nichts doppelt. Kosten: etwa 30 US-Dollar je Million Zeichen, eine Lektion hat rund
