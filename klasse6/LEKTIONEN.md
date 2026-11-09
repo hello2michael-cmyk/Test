@@ -26,6 +26,9 @@ Fertige Videos (GitHub-Releases, 90 Tage abrufbar; ohne Hintergrundmusik, mit Tr
 | Kinder-Lektion NT6-1.2 Samen und Früchte | Leda | ca. 17:00 | https://github.com/hello2michael-cmyk/Test/releases/tag/video-36 |
 | Eltern-Lektion NT6-1.2 Samenpflanzen | Charon | ca. 11:30 | https://github.com/hello2michael-cmyk/Test/releases/tag/video-37 |
 | English-Lektion NT6-1.2 Seeds and fruits | Charon (en-US + de-DE) | ca. 13:00 | https://github.com/hello2michael-cmyk/Test/releases/tag/video-38 |
+| Kinder-Lektion NT6-2.3 Dateisystem | Leda | ca. 16:00 | https://github.com/hello2michael-cmyk/Test/releases/tag/video-39 |
+| Eltern-Lektion NT6-2.3 Informatik | Charon | ca. 11:00 | https://github.com/hello2michael-cmyk/Test/releases/tag/video-40 |
+| English-Lektion NT6-2.3 File system | Charon (en-US + de-DE) | ca. 12:30 | https://github.com/hello2michael-cmyk/Test/releases/tag/video-41 |
 | Stimmvergleich Eltern M6-1.1 | Kore / Charon / Leda | ca. 10:00 | video-20 / video-21 / video-22 |
 
 Reihenfolge: zuerst Mathematik (fertige 3D-Szenen), dann Deutsch (Satzglieder-Szene vorhanden), Natur und Technik, Geschichte, Fremdsprachen, dann der Rest.
