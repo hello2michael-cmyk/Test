@@ -11,7 +11,7 @@ Kennzeichnung „für Kinder“) und die **Eltern-Lektion** (`Eltern: <ID>`, 8 b
 Lehrkräfte: Lehrplan, Kernideen, typische Fehler, Üben zu Hause, Schulaufgabe). Spalte „Eltern“: ✅ = eingecheckt.
 Dazu kommt für ausgewählte Themen die **English-Lektion** (`English: <ID>`, auf Englisch für Eltern, die kein Deutsch sprechen;
 die deutschen Fachbegriffe stehen in «…» und werden von der deutschen Stimme gesprochen, Glossar im Lehrplan-JSON).
-Eingecheckt: M6-1.1 (`klasse6/lessons/M6-1.1/international/`).
+Eingecheckt: M6-1.1 und D6-4.2 (`klasse6/lessons/<ID>/international/`).
 
 Fertige Videos (GitHub-Releases, 90 Tage abrufbar; ohne Hintergrundmusik, mit Transparenzhinweis auf der Schlusskarte):
 
@@ -79,7 +79,7 @@ Reihenfolge: zuerst Mathematik (fertige 3D-Szenen), dann Deutsch (Satzglieder-Sz
 | `Lektion: D6-3.2` | Texte planen und schreiben | – | 5 | – | – | – |
 | `Lektion: D6-3.3` | Texte überarbeiten | – | 5 | – | – | – |
 | `Lektion: D6-4.1` | Sprachliche Verständigung untersuchen | – | 5 | – | – | – |
-| `Lektion: D6-4.2` | Sprachliche Strukturen untersuchen | – | 13 | ✅ sentence | ✅ | – |
+| `Lektion: D6-4.2` | Sprachliche Strukturen untersuchen | – | 13 | ✅ sentence | ✅ | ✅ |
 | `Lektion: D6-4.3` | Richtig schreiben | – | 5 | – | – | – |
 
 ## Englisch (1. Fremdsprache) (4 Wochenstunden)

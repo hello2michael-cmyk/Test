@@ -1,9 +1,9 @@
 {
  "id": "current",
- "prompt": "Eltern-Lektion D6-4.2 „Sprachliche Strukturen untersuchen“ (Deutsch, Klasse 6 Gymnasium Bayern), aus klasse6/lessons/D6-4.2.eltern.lesson.json. 10 Minuten, auf Deutsch, für Eltern und Lehrkräfte.",
+ "prompt": "Eltern-Lektion D6-4.2 „Sprachliche Strukturen untersuchen“ (Deutsch, Klasse 6 Gymnasium Bayern), aus klasse6/lessons/D6-4.2.eltern.lesson.json. 11 Minuten, auf Deutsch, für Eltern und Lehrkräfte.",
  "attempts": 0,
- "createdAt": 1794212961153,
- "updatedAt": 1794212961153,
+ "createdAt": 1794213132361,
+ "updatedAt": 1794213132361,
  "stage": "plan",
  "mode": "course",
  "durationApplied": true,
@@ -28,8 +28,8 @@
   "footageProvider": "none",
   "aiClipBudget": 0,
   "minSceneSeconds": 10,
-  "maxDuration": 715,
-  "targetDuration": 622,
+  "maxDuration": 745,
+  "targetDuration": 648,
   "lesson": {
    "id": "D6-4.2",
    "title": "Sprachliche Strukturen untersuchen",
@@ -41,9 +41,9 @@
   }
  },
  "brief": {
-  "title": "Satzglieder in der 6. Klasse: Was Ihr Kind können muss",
+  "title": "Satzglieder in der 6. Klasse: Was Ihr Kind können sollte",
   "audience": "Eltern und Lehrkräfte von Sechstklässlern am Gymnasium in Bayern",
-  "hook": "Satzglieder klingen nach trockener Grammatik. Tatsächlich entscheiden sie über Kommas, über die Fälle in Latein und Englisch und über das Verstehen langer Sätze.",
+  "hook": "Satzglieder klingen nach trockener Grammatik. Tatsächlich helfen sie bei Kommas, bei den Fällen in Latein und beim Verstehen langer Sätze.",
   "learningObjectives": [
    "Den Lehrplan-Lernbereich D6 4.2 einordnen und wissen, wofür Satzglieder später gebraucht werden",
    "Umstellprobe und Frageprobe kennen und selbst anwenden",
@@ -51,7 +51,7 @@
    "Die fünf typischen Fehler erkennen und mit einer Frage korrigieren",
    "Eine Zehn-Minuten-Übung für zu Hause anwenden"
   ],
-  "keyTakeaway": "Zwei Proben genügen: Was bei der Umstellprobe zusammen wandert, ist ein Satzglied. Was auf eine Frage antwortet, hat seinen Namen. Üben Sie mit echten Sätzen aus dem Alltag, nicht mit Regeltabellen.",
+  "keyTakeaway": "Zwei Proben helfen bei den Satzgliedern: Was bei der Umstellprobe zusammen wandert, ist ein Satzglied. Was auf eine Frage antwortet, hat seinen Namen. Üben Sie mit echten Sätzen aus dem Alltag, nicht mit Regeltabellen.",
   "tone": "ruhig, präzise, ohne Panikmache",
   "mode": "course",
   "lessonScene": "sentence",
@@ -122,14 +122,14 @@
     "id": 1,
     "chapterId": 1,
     "purpose": "hook",
-    "keyPoint": "Satzglieder klingen nach trockener Grammatik. Tatsächlich entscheiden sie über vieles, was später Noten kostet oder bringt: die Kommasetzung, die Fälle in Latein und Englisch, das Verstehen langer Sätze in jedem Fach. Dieses Video richtet sich an Eltern und Lehrkräfte. Sie erfahren in zehn Minuten, was der bayerische Lehrplan verlangt, wie die zwei Proben funktionieren, mit denen Kinder Satzglieder finden, welche Fehler typisch sind und wie Sie zu Hause sinnvoll üben.",
+    "keyPoint": "Satzglieder klingen nach trockener Grammatik. Tatsächlich helfen sie bei vielem, was später zählt: bei der Kommasetzung, bei den Fällen in Latein, beim Satzbau in Englisch und beim Verstehen langer Sätze in jedem Fach. Dieses Video richtet sich an Eltern und Lehrkräfte. Sie erfahren in zehn Minuten, was der bayerische Lehrplan verlangt, wie die zwei Proben funktionieren, mit denen Kinder Satzglieder finden, welche Fehler typisch sind und wie Sie zu Hause sinnvoll üben.",
     "suggestedVisual": "title"
    },
    {
     "id": 2,
     "chapterId": 1,
     "purpose": "explain",
-    "keyPoint": "Im LehrplanPLUS für das bayerische Gymnasium gehört das Thema zum Lernbereich D6 4.2, Sprachliche Strukturen untersuchen. Dort stehen die Satzglieder neben den Wortarten, Aktiv und Passiv, den Zeitformen sowie Satzreihe und Satzgefüge. Die Satzglieder sind der Teil, der am häufigsten geübt wird, weil alles andere darauf aufbaut: Wer Satzglieder sicher findet, erkennt später Haupt- und Nebensätze und setzt Kommas an der richtigen Stelle.",
+    "keyPoint": "Im LehrplanPLUS für das bayerische Gymnasium gehört das Thema zum Lernbereich D6 4.2, Sprachliche Strukturen untersuchen. Dort stehen die Satzglieder, Prädikativ, Objekte und Adverbialien, neben Attributen und Relativsatz, Adverbialsätzen, Subjekt- und Objektsatz, den Wortarten, Aktiv und Passiv, den Zeitformen sowie Satzreihe und Satzgefüge. Dieses Video behandelt die Satzglieder und das Attribut. Prädikativ und die Nebensätze als Satzglieder folgen in eigenen Lektionen. Die Satzglieder sind eine wichtige Grundlage für Satzreihe und Satzgefüge und damit für die Kommasetzung.",
     "suggestedVisual": "bullets"
    },
    {
@@ -143,7 +143,7 @@
     "id": 4,
     "chapterId": 2,
     "purpose": "chapter",
-    "keyPoint": "In Bayern lernen die Kinder Satzglieder über zwei Proben, nicht über Definitionen. Die Umstellprobe zeigt, wo ein Satzglied anfängt und aufhört. Die Frageprobe gibt ihm einen Namen. Dazu kommt eine Beobachtung, die alles zusammenhält: Im Aussagesatz steht das Prädikat an zweiter Stelle. Schauen wir uns die drei Schritte an einem Satz an, den Ihr Kind so ähnlich im Heft hat.",
+    "keyPoint": "Satzglieder findet und benennt man mit zwei Proben, nicht über Definitionen. Die Umstellprobe zeigt, wo ein Satzglied anfängt und aufhört. Die Frageprobe gibt ihm einen Namen. Dazu kommt eine Beobachtung, die alles zusammenhält: Im Aussagesatz steht das Prädikat an zweiter Stelle. Schauen wir uns die drei Schritte an einem Satz an, den Ihr Kind so ähnlich im Heft hat.",
     "suggestedVisual": "chapter"
    },
    {
@@ -157,28 +157,28 @@
     "id": 6,
     "chapterId": 2,
     "purpose": "explain",
-    "keyPoint": "Die Frageprobe gibt jedem Block einen Namen. Wer füttert? Lena: das Subjekt. Was tut Lena? Sie füttert: das Prädikat. Wen oder was füttert sie? Die Katze: das Akkusativobjekt. Wann? Am Morgen. Wo? Im Garten: zwei Adverbialien. Die Fragen stehen im Bild über den Blöcken. Ihr Kind soll diese Fragen auswendig können, denn sie sind in jeder Grammatikaufgabe der Schlüssel, auch später in Latein.",
+    "keyPoint": "Die Frageprobe gibt jedem Block einen Namen. Wer füttert? Lena: das Subjekt. Was tut Lena? Sie füttert: das Prädikat. Wen oder was füttert sie? Die Katze: das Akkusativobjekt. Wann? Am Morgen. Wo? Im Garten: zwei Adverbialien. Die Fragen stehen im Bild über den Blöcken. Ihr Kind sollte diese Fragen sicher anwenden können; sie sind in vielen Grammatikaufgaben hilfreich, auch später in Latein.",
     "suggestedVisual": "math3d"
    },
    {
     "id": 7,
     "chapterId": 2,
     "purpose": "explain",
-    "keyPoint": "Die Beobachtung, die alles zusammenhält: Im Aussagesatz steht das Prädikat an zweiter Stelle, egal welches Satzglied vorn steht. Am Morgen füttert Lena. Lena füttert am Morgen. Die Katze füttert Lena am Morgen, das wäre grammatisch möglich, ändert aber den Sinn, deshalb gilt es nicht als Umstellung. Das Prädikat bleibt immer an Position zwei. Wer das weiß, findet das Prädikat sofort und hat damit den festen Punkt, von dem aus alle anderen Satzglieder bestimmt werden.",
+    "keyPoint": "Die Beobachtung, die alles zusammenhält: Im Aussagesatz steht das Prädikat an zweiter Stelle, egal welches Satzglied vorn steht. Am Morgen füttert Lena. Lena füttert am Morgen. Die Katze füttert Lena am Morgen im Garten wäre grammatisch möglich, ändert aber den Sinn, deshalb gilt es nicht als Umstellung. Im Aussagesatz bleibt das gebeugte Verb an Position zwei; bei Fragen und Aufforderungen steht es vorn, im Nebensatz am Ende. Das hilft, das Prädikat schnell zu finden und von dort aus die anderen Satzglieder zu bestimmen.",
     "suggestedVisual": "math3d"
    },
    {
     "id": 8,
     "chapterId": 2,
     "purpose": "explain",
-    "keyPoint": "Zum Schluss die Namen unter den Blöcken: Adverbiale, Prädikat, Subjekt, Objekt, Adverbiale. Das sind die Fachbegriffe, die Ihr Kind im Heft stehen hat und in Aufgaben verwenden soll. In Bayern werden sie in der sechsten Klasse mit den lateinischen Begriffen gelernt, also Subjekt statt Satzgegenstand und Prädikat statt Satzaussage. Wenn Ihr Kind noch die deutschen Begriffe aus der Grundschule verwendet, ist das kein Fehler, aber die lateinischen sind die, die bleiben.",
+    "keyPoint": "Zum Schluss die Namen unter den Blöcken: Adverbiale, Prädikat, Subjekt, Objekt, Adverbiale. Das sind die Fachbegriffe, die Ihr Kind im Heft stehen hat und in Aufgaben verwenden soll. Welche Begriffe die Lehrkraft genau verlangt, etwa Subjekt oder Satzgegenstand, steht im Heft Ihres Kindes. Wichtig ist weniger das Wort als die Probe dahinter: Wer die Frage stellen kann, findet auch den Namen. Die Begriffe kehren in Latein und in den Nebensätzen des Deutschunterrichts wieder.",
     "suggestedVisual": "math3d"
    },
    {
     "id": 9,
     "chapterId": 3,
     "purpose": "chapter",
-    "keyPoint": "Subjekt und Prädikat sind schnell gefunden. Die eigentliche Arbeit der sechsten Klasse liegt bei drei Gruppen: den Objekten, die sich nach dem Fall unterscheiden, den Adverbialien, die sich nach der Bedeutung unterscheiden, und den Attributen, die gar kein eigenes Satzglied sind. Für jede Gruppe gibt es eine Frage, und mit dieser Frage lässt sich jede Aufgabe lösen.",
+    "keyPoint": "Subjekt und Prädikat sind schnell gefunden. Viel Arbeit der sechsten Klasse liegt bei drei Gruppen: den Objekten, die sich nach dem Fall unterscheiden, den Adverbialien, die sich nach der Bedeutung unterscheiden, und den Attributen, die gar kein eigenes Satzglied sind. Für jede Gruppe gibt es eine Frage, und mit dieser Frage lassen sich viele Aufgaben lösen. Das Prädikativ und die Nebensätze als Satzglieder lassen wir hier bewusst aus.",
     "suggestedVisual": "chapter"
    },
    {
@@ -192,7 +192,7 @@
     "id": 11,
     "chapterId": 3,
     "purpose": "explain",
-    "keyPoint": "Wir fahren morgen mit dem Zug nach München. Drei Adverbialien in einem Satz. Wann fahren wir? Morgen: Adverbiale der Zeit. Womit? Mit dem Zug: Adverbiale der Art und Weise. Wohin? Nach München: Adverbiale des Ortes. Die vierte Art fragt nach dem Grund: Warum? Wegen des Sturms fällt der Unterricht aus. Ihr Kind lernt dafür auch die lateinischen Beiwörter temporal, lokal, modal und kausal; sie kommen in den Aufgaben oft vor.",
+    "keyPoint": "Wir fahren morgen mit dem Zug nach München. Drei Adverbialien in einem Satz. Wann fahren wir? Morgen: Adverbiale der Zeit. Womit? Mit dem Zug: Adverbiale der Art und Weise. Wohin? Nach München: Adverbiale des Ortes. Die vierte Art fragt nach dem Grund: Warum? Wegen des Sturms fällt der Unterricht aus. Ihr Kind lernt dafür auch die Fachbegriffe temporal, lokal, modal und kausal; bei den Adverbialsätzen kommt später final, der Zweck, dazu.",
     "suggestedVisual": "math3d"
    },
    {
@@ -213,21 +213,21 @@
     "id": 14,
     "chapterId": 4,
     "purpose": "explain",
-    "keyPoint": "Fehler eins: Wortarten und Satzglieder verwechseln. Ein Nomen ist eine Wortart, ein Subjekt ist ein Satzglied. Die Katze ist ein Nomen, aber im Beispielsatz Akkusativobjekt, nicht Subjekt. Fragen Sie: Wer tut etwas? Fehler zwei: Ein Attribut wird als eigenes Satzglied gezählt, der kleine Hund wird zu zwei Satzgliedern. Fragen Sie: Kannst du kleine allein an den Satzanfang stellen? Es geht nicht, also ist es ein Teil des Subjekts.",
+    "keyPoint": "Fehler eins: Wortarten und Satzglieder verwechseln. Ein Nomen ist eine Wortart, ein Subjekt ist ein Satzglied. Katze ist ein Nomen, aber die Katze ist im Beispielsatz Akkusativobjekt, nicht Subjekt. Fragen Sie: Wer tut etwas? Fehler zwei: Ein Attribut wird als eigenes Satzglied gezählt, der kleine Hund wird zu zwei Satzgliedern. Fragen Sie Ihr Kind: Lässt sich kleine allein an den Satzanfang stellen? Es geht nicht, also ist es ein Teil des Subjekts.",
     "suggestedVisual": "bullets"
    },
    {
     "id": 15,
     "chapterId": 4,
     "purpose": "explain",
-    "keyPoint": "Fehler drei: Das Prädikat wird zu kurz genommen. In Lena hat am Morgen die Katze gefüttert besteht das Prädikat aus zwei Teilen, hat und gefüttert, die eine Klammer um den Satz bilden. Fragen Sie: Was hat Lena getan? Die Antwort nennt beide Teile. Fehler vier: Dativ und Akkusativ vertauscht, oft weil der Artikel gleich klingt. Der Lehrer gibt den Kindern ein Rätsel. Fragen Sie: Wem gibt er es? Den Kindern. Wen oder was gibt er? Ein Rätsel.",
+    "keyPoint": "Fehler drei: Das Prädikat wird zu kurz genommen. In Lena hat am Morgen die Katze gefüttert besteht das Prädikat aus zwei Teilen, hat und gefüttert, die eine Klammer um den Satz bilden. Fragen Sie: Welches Verb steht an zweiter Stelle, und welcher Teil steht am Satzende? Beide gehören zusammen. Fehler vier: Dativ und Akkusativ vertauscht, oft weil beide Objekte ohne Präposition dastehen. Der Lehrer gibt den Kindern ein Rätsel. Fragen Sie: Wem gibt er es? Den Kindern. Wen oder was gibt er? Ein Rätsel.",
     "suggestedVisual": "bullets"
    },
    {
     "id": 16,
     "chapterId": 4,
     "purpose": "explain",
-    "keyPoint": "Fehler fünf ist subtiler. Bei der Umstellprobe dürfen die Satzglieder nur ihre Plätze tauschen, der Sinn muss gleich bleiben. Die Katze füttert Lena ist grammatisch ein Satz, aber jetzt füttert die Katze, und das war nicht gemeint. Kinder nehmen solche Umstellungen manchmal als Beleg, dass die Katze Subjekt sein könne. Fragen Sie: Sagt der Satz noch dasselbe? Wenn nein, war es keine Umstellprobe, sondern ein neuer Satz.",
+    "keyPoint": "Fehler fünf ist subtiler. Bei der Umstellprobe dürfen die Satzglieder nur ihre Plätze tauschen, der Sinn muss gleich bleiben. Die Katze füttert Lena ist grammatisch ein Satz, aber jetzt füttert die Katze, und das war nicht gemeint. Manche Kinder nehmen solche Umstellungen als Beleg, dass die Katze Subjekt sein könne. Fragen Sie: Sagt der Satz noch dasselbe? Wenn nein, war es keine Umstellprobe, sondern ein neuer Satz.",
     "suggestedVisual": "bullets"
    },
    {
@@ -241,7 +241,7 @@
     "id": 18,
     "chapterId": 5,
     "purpose": "explain",
-    "keyPoint": "Schritt eins: Nehmen Sie einen Satz, den jemand gerade gesagt hat. Morgen fahren wir nach dem Training zu Oma. Ihr Kind schreibt ihn auf, stellt ihn zwei- oder dreimal um und kreist ein, was zusammen wandert. Dann kommen die Fragen: Wer? Was tun wir? Wann? Wohin? Das dauert drei Minuten und übt genau das, was in der Schule verlangt wird. Längere Sätze aus einem Buch sind der nächste Schritt.",
+    "keyPoint": "Schritt eins: Nehmen Sie einen vollständigen Satz, den jemand gerade gesagt hat. Morgen fahren wir mit dem Rad zu Oma. Ihr Kind schreibt ihn auf, stellt ihn zwei- oder dreimal um und kreist ein, was zusammen wandert. Dann kommen die Fragen: Wer? Was tun wir? Wann? Womit? Wohin? Das dauert drei Minuten und übt genau das, was in der Schule verlangt wird. Längere Sätze aus einem Buch sind der nächste Schritt.",
     "suggestedVisual": "bullets"
    },
    {
@@ -262,14 +262,14 @@
     "id": 21,
     "chapterId": 5,
     "purpose": "explain",
-    "keyPoint": "Was kommt danach? Im selben Lernbereich folgen Satzreihe und Satzgefüge, also Sätze aus mehreren Teilsätzen, und damit die Kommasetzung. Ein Nebensatz wie weil es regnet ist selbst ein Satzglied, ein Adverbialsatz des Grundes. Wer Satzglieder kann, erkennt solche Nebensätze und setzt das Komma richtig. Und in Latein wie in Englisch stellen die Kinder dieselben Fragen: Wer? Wen oder was? Wem? Die Arbeit aus der sechsten Klasse zahlt sich dort direkt aus.",
+    "keyPoint": "Was kommt danach? Im selben Lernbereich gehören Satzreihe und Satzgefüge dazu, also Sätze aus mehreren Teilsätzen, und damit die Kommasetzung: Zwischen Hauptsätzen steht meist ein Komma, bei und oder oder oft keines; zwischen Hauptsatz und Nebensatz steht es immer. Ein Nebensatz wie weil es regnet ist selbst ein Satzglied, ein Adverbialsatz des Grundes. Wer Satzglieder kann, dem fällt es leichter, solche Nebensätze zu erkennen. Und in Latein stellen die Kinder dieselben Fragen: Wer? Wen oder was? Wem? Die Arbeit aus der sechsten Klasse zahlt sich dort direkt aus.",
     "suggestedVisual": "bullets"
    },
    {
     "id": 22,
     "chapterId": 5,
     "purpose": "takeaway",
-    "keyPoint": "Kurz gesagt: Zwei Proben genügen. Was bei der Umstellprobe zusammen wandert, ist ein Satzglied. Was auf eine Frage antwortet, hat seinen Namen: Wer, Was tut, Wen oder was, Wem, Wann, Wo, Wie, Warum. Üben Sie mit echten Sätzen vom Esstisch, lassen Sie sich die Proben erklären und stellen Sie bei Fehlern die passende Frage statt der Lösung. Die Kinder-Lektion zu diesem Thema finden Sie auf diesem Kanal. Abonnieren Sie für die nächsten Lernbereiche.",
+    "keyPoint": "Kurz gesagt: Zwei Proben tragen weit. Was bei der Umstellprobe zusammen wandert, ist ein Satzglied. Was auf eine Frage antwortet, hat seinen Namen: Wer, Was tut, Wen oder was, Wem, Wann, Wo, Wie, Warum. Üben Sie mit echten Sätzen vom Esstisch, lassen Sie sich die Proben erklären und stellen Sie bei Fehlern die passende Frage statt der Lösung. Die Kinder-Lektion zu diesem Thema finden Sie auf diesem Kanal. Abonnieren Sie für die nächsten Lernbereiche.",
     "suggestedVisual": "outro"
    }
   ]
@@ -277,8 +277,8 @@
  "chapterBeats": {
   "1": [
    {
-    "narration": "Satzglieder klingen nach trockener Grammatik. Tatsächlich entscheiden sie über vieles, was später Noten kostet oder bringt: die Kommasetzung, die Fälle in Latein und Englisch, das Verstehen langer Sätze in jedem Fach. Dieses Video richtet sich an Eltern und Lehrkräfte. Sie erfahren in zehn Minuten, was der bayerische Lehrplan verlangt, wie die zwei Proben funktionieren, mit denen Kinder Satzglieder finden, welche Fehler typisch sind und wie Sie zu Hause sinnvoll üben.",
-    "onScreenTitle": "Satzglieder: Was Ihr Kind können muss",
+    "narration": "Satzglieder klingen nach trockener Grammatik. Tatsächlich helfen sie bei vielem, was später zählt: bei der Kommasetzung, bei den Fällen in Latein, beim Satzbau in Englisch und beim Verstehen langer Sätze in jedem Fach. Dieses Video richtet sich an Eltern und Lehrkräfte. Sie erfahren in zehn Minuten, was der bayerische Lehrplan verlangt, wie die zwei Proben funktionieren, mit denen Kinder Satzglieder finden, welche Fehler typisch sind und wie Sie zu Hause sinnvoll üben.",
+    "onScreenTitle": "Satzglieder: Was Ihr Kind können sollte",
     "question": null,
     "think": null,
     "hint": null,
@@ -307,7 +307,7 @@
     "stockQuery": null
    },
    {
-    "narration": "Im LehrplanPLUS für das bayerische Gymnasium gehört das Thema zum Lernbereich D6 4.2, Sprachliche Strukturen untersuchen. Dort stehen die Satzglieder neben den Wortarten, Aktiv und Passiv, den Zeitformen sowie Satzreihe und Satzgefüge. Die Satzglieder sind der Teil, der am häufigsten geübt wird, weil alles andere darauf aufbaut: Wer Satzglieder sicher findet, erkennt später Haupt- und Nebensätze und setzt Kommas an der richtigen Stelle.",
+    "narration": "Im LehrplanPLUS für das bayerische Gymnasium gehört das Thema zum Lernbereich D6 4.2, Sprachliche Strukturen untersuchen. Dort stehen die Satzglieder, Prädikativ, Objekte und Adverbialien, neben Attributen und Relativsatz, Adverbialsätzen, Subjekt- und Objektsatz, den Wortarten, Aktiv und Passiv, den Zeitformen sowie Satzreihe und Satzgefüge. Dieses Video behandelt die Satzglieder und das Attribut. Prädikativ und die Nebensätze als Satzglieder folgen in eigenen Lektionen. Die Satzglieder sind eine wichtige Grundlage für Satzreihe und Satzgefüge und damit für die Kommasetzung.",
     "onScreenTitle": "Der Lehrplan: D6 4.2 Sprachliche Strukturen untersuchen",
     "question": null,
     "think": null,
@@ -322,8 +322,9 @@
     "formula": null,
     "bullets": [
      "LehrplanPLUS Gymnasium Bayern, Deutsch 6",
-     "Satzglieder: Prädikat, Objekte, Adverbialien, Attribute",
-     "Dazu: Wortarten, Aktiv und Passiv, Satzreihe und Satzgefüge"
+     "Satzglieder: Prädikativ, Objekte, Adverbialien",
+     "Dazu: Attribute, Relativsatz, Adverbialsätze, Subjekt- und Objektsatz",
+     "Außerdem: Wortarten, Aktiv und Passiv, Zeitformen, Satzgefüge"
     ],
     "nodes": null,
     "leftTitle": null,
@@ -378,7 +379,7 @@
   ],
   "2": [
    {
-    "narration": "In Bayern lernen die Kinder Satzglieder über zwei Proben, nicht über Definitionen. Die Umstellprobe zeigt, wo ein Satzglied anfängt und aufhört. Die Frageprobe gibt ihm einen Namen. Dazu kommt eine Beobachtung, die alles zusammenhält: Im Aussagesatz steht das Prädikat an zweiter Stelle. Schauen wir uns die drei Schritte an einem Satz an, den Ihr Kind so ähnlich im Heft hat.",
+    "narration": "Satzglieder findet und benennt man mit zwei Proben, nicht über Definitionen. Die Umstellprobe zeigt, wo ein Satzglied anfängt und aufhört. Die Frageprobe gibt ihm einen Namen. Dazu kommt eine Beobachtung, die alles zusammenhält: Im Aussagesatz steht das Prädikat an zweiter Stelle. Schauen wir uns die drei Schritte an einem Satz an, den Ihr Kind so ähnlich im Heft hat.",
     "onScreenTitle": "Die zwei Proben in Bildern",
     "question": null,
     "think": null,
@@ -449,7 +450,7 @@
     "stockQuery": null
    },
    {
-    "narration": "Die Frageprobe gibt jedem Block einen Namen. Wer füttert? Lena: das Subjekt. Was tut Lena? Sie füttert: das Prädikat. Wen oder was füttert sie? Die Katze: das Akkusativobjekt. Wann? Am Morgen. Wo? Im Garten: zwei Adverbialien. Die Fragen stehen im Bild über den Blöcken. Ihr Kind soll diese Fragen auswendig können, denn sie sind in jeder Grammatikaufgabe der Schlüssel, auch später in Latein.",
+    "narration": "Die Frageprobe gibt jedem Block einen Namen. Wer füttert? Lena: das Subjekt. Was tut Lena? Sie füttert: das Prädikat. Wen oder was füttert sie? Die Katze: das Akkusativobjekt. Wann? Am Morgen. Wo? Im Garten: zwei Adverbialien. Die Fragen stehen im Bild über den Blöcken. Ihr Kind sollte diese Fragen sicher anwenden können; sie sind in vielen Grammatikaufgaben hilfreich, auch später in Latein.",
     "onScreenTitle": "Schritt 2: die Frageprobe",
     "question": null,
     "think": null,
@@ -485,7 +486,7 @@
     "stockQuery": null
    },
    {
-    "narration": "Die Beobachtung, die alles zusammenhält: Im Aussagesatz steht das Prädikat an zweiter Stelle, egal welches Satzglied vorn steht. Am Morgen füttert Lena. Lena füttert am Morgen. Die Katze füttert Lena am Morgen, das wäre grammatisch möglich, ändert aber den Sinn, deshalb gilt es nicht als Umstellung. Das Prädikat bleibt immer an Position zwei. Wer das weiß, findet das Prädikat sofort und hat damit den festen Punkt, von dem aus alle anderen Satzglieder bestimmt werden.",
+    "narration": "Die Beobachtung, die alles zusammenhält: Im Aussagesatz steht das Prädikat an zweiter Stelle, egal welches Satzglied vorn steht. Am Morgen füttert Lena. Lena füttert am Morgen. Die Katze füttert Lena am Morgen im Garten wäre grammatisch möglich, ändert aber den Sinn, deshalb gilt es nicht als Umstellung. Im Aussagesatz bleibt das gebeugte Verb an Position zwei; bei Fragen und Aufforderungen steht es vorn, im Nebensatz am Ende. Das hilft, das Prädikat schnell zu finden und von dort aus die anderen Satzglieder zu bestimmen.",
     "onScreenTitle": "Schritt 3: das Prädikat an zweiter Stelle",
     "question": null,
     "think": null,
@@ -521,7 +522,7 @@
     "stockQuery": null
    },
    {
-    "narration": "Zum Schluss die Namen unter den Blöcken: Adverbiale, Prädikat, Subjekt, Objekt, Adverbiale. Das sind die Fachbegriffe, die Ihr Kind im Heft stehen hat und in Aufgaben verwenden soll. In Bayern werden sie in der sechsten Klasse mit den lateinischen Begriffen gelernt, also Subjekt statt Satzgegenstand und Prädikat statt Satzaussage. Wenn Ihr Kind noch die deutschen Begriffe aus der Grundschule verwendet, ist das kein Fehler, aber die lateinischen sind die, die bleiben.",
+    "narration": "Zum Schluss die Namen unter den Blöcken: Adverbiale, Prädikat, Subjekt, Objekt, Adverbiale. Das sind die Fachbegriffe, die Ihr Kind im Heft stehen hat und in Aufgaben verwenden soll. Welche Begriffe die Lehrkraft genau verlangt, etwa Subjekt oder Satzgegenstand, steht im Heft Ihres Kindes. Wichtig ist weniger das Wort als die Probe dahinter: Wer die Frage stellen kann, findet auch den Namen. Die Begriffe kehren in Latein und in den Nebensätzen des Deutschunterrichts wieder.",
     "onScreenTitle": "Die Namen der Satzglieder",
     "question": null,
     "think": null,
@@ -533,7 +534,7 @@
     "scene": "sentence",
     "params": {
      "satz": "Am Morgen/A/Wann? | füttert/P/Was tut sie? | Lena/S/Wer? | die Katze/O/Wen oder was? | im Garten/A/Wo?",
-     "probe": "mit Umstellprobe"
+     "probe": "ohne Umstellprobe"
     },
     "segment": [
      22,
@@ -559,7 +560,7 @@
   ],
   "3": [
    {
-    "narration": "Subjekt und Prädikat sind schnell gefunden. Die eigentliche Arbeit der sechsten Klasse liegt bei drei Gruppen: den Objekten, die sich nach dem Fall unterscheiden, den Adverbialien, die sich nach der Bedeutung unterscheiden, und den Attributen, die gar kein eigenes Satzglied sind. Für jede Gruppe gibt es eine Frage, und mit dieser Frage lässt sich jede Aufgabe lösen.",
+    "narration": "Subjekt und Prädikat sind schnell gefunden. Viel Arbeit der sechsten Klasse liegt bei drei Gruppen: den Objekten, die sich nach dem Fall unterscheiden, den Adverbialien, die sich nach der Bedeutung unterscheiden, und den Attributen, die gar kein eigenes Satzglied sind. Für jede Gruppe gibt es eine Frage, und mit dieser Frage lassen sich viele Aufgaben lösen. Das Prädikativ und die Nebensätze als Satzglieder lassen wir hier bewusst aus.",
     "onScreenTitle": "Die Satzglieder im Einzelnen",
     "question": null,
     "think": null,
@@ -629,7 +630,7 @@
     "stockQuery": null
    },
    {
-    "narration": "Wir fahren morgen mit dem Zug nach München. Drei Adverbialien in einem Satz. Wann fahren wir? Morgen: Adverbiale der Zeit. Womit? Mit dem Zug: Adverbiale der Art und Weise. Wohin? Nach München: Adverbiale des Ortes. Die vierte Art fragt nach dem Grund: Warum? Wegen des Sturms fällt der Unterricht aus. Ihr Kind lernt dafür auch die lateinischen Beiwörter temporal, lokal, modal und kausal; sie kommen in den Aufgaben oft vor.",
+    "narration": "Wir fahren morgen mit dem Zug nach München. Drei Adverbialien in einem Satz. Wann fahren wir? Morgen: Adverbiale der Zeit. Womit? Mit dem Zug: Adverbiale der Art und Weise. Wohin? Nach München: Adverbiale des Ortes. Die vierte Art fragt nach dem Grund: Warum? Wegen des Sturms fällt der Unterricht aus. Ihr Kind lernt dafür auch die Fachbegriffe temporal, lokal, modal und kausal; bei den Adverbialsätzen kommt später final, der Zweck, dazu.",
     "onScreenTitle": "Adverbialien: Wann? Wo? Wie? Warum?",
     "question": null,
     "think": null,
@@ -739,7 +740,7 @@
     "stockQuery": null
    },
    {
-    "narration": "Fehler eins: Wortarten und Satzglieder verwechseln. Ein Nomen ist eine Wortart, ein Subjekt ist ein Satzglied. Die Katze ist ein Nomen, aber im Beispielsatz Akkusativobjekt, nicht Subjekt. Fragen Sie: Wer tut etwas? Fehler zwei: Ein Attribut wird als eigenes Satzglied gezählt, der kleine Hund wird zu zwei Satzgliedern. Fragen Sie: Kannst du kleine allein an den Satzanfang stellen? Es geht nicht, also ist es ein Teil des Subjekts.",
+    "narration": "Fehler eins: Wortarten und Satzglieder verwechseln. Ein Nomen ist eine Wortart, ein Subjekt ist ein Satzglied. Katze ist ein Nomen, aber die Katze ist im Beispielsatz Akkusativobjekt, nicht Subjekt. Fragen Sie: Wer tut etwas? Fehler zwei: Ein Attribut wird als eigenes Satzglied gezählt, der kleine Hund wird zu zwei Satzgliedern. Fragen Sie Ihr Kind: Lässt sich kleine allein an den Satzanfang stellen? Es geht nicht, also ist es ein Teil des Subjekts.",
     "onScreenTitle": "Fehler 1 und 2",
     "question": null,
     "think": null,
@@ -773,7 +774,7 @@
     "stockQuery": null
    },
    {
-    "narration": "Fehler drei: Das Prädikat wird zu kurz genommen. In Lena hat am Morgen die Katze gefüttert besteht das Prädikat aus zwei Teilen, hat und gefüttert, die eine Klammer um den Satz bilden. Fragen Sie: Was hat Lena getan? Die Antwort nennt beide Teile. Fehler vier: Dativ und Akkusativ vertauscht, oft weil der Artikel gleich klingt. Der Lehrer gibt den Kindern ein Rätsel. Fragen Sie: Wem gibt er es? Den Kindern. Wen oder was gibt er? Ein Rätsel.",
+    "narration": "Fehler drei: Das Prädikat wird zu kurz genommen. In Lena hat am Morgen die Katze gefüttert besteht das Prädikat aus zwei Teilen, hat und gefüttert, die eine Klammer um den Satz bilden. Fragen Sie: Welches Verb steht an zweiter Stelle, und welcher Teil steht am Satzende? Beide gehören zusammen. Fehler vier: Dativ und Akkusativ vertauscht, oft weil beide Objekte ohne Präposition dastehen. Der Lehrer gibt den Kindern ein Rätsel. Fragen Sie: Wem gibt er es? Den Kindern. Wen oder was gibt er? Ein Rätsel.",
     "onScreenTitle": "Fehler 3 und 4",
     "question": null,
     "think": null,
@@ -807,7 +808,7 @@
     "stockQuery": null
    },
    {
-    "narration": "Fehler fünf ist subtiler. Bei der Umstellprobe dürfen die Satzglieder nur ihre Plätze tauschen, der Sinn muss gleich bleiben. Die Katze füttert Lena ist grammatisch ein Satz, aber jetzt füttert die Katze, und das war nicht gemeint. Kinder nehmen solche Umstellungen manchmal als Beleg, dass die Katze Subjekt sein könne. Fragen Sie: Sagt der Satz noch dasselbe? Wenn nein, war es keine Umstellprobe, sondern ein neuer Satz.",
+    "narration": "Fehler fünf ist subtiler. Bei der Umstellprobe dürfen die Satzglieder nur ihre Plätze tauschen, der Sinn muss gleich bleiben. Die Katze füttert Lena ist grammatisch ein Satz, aber jetzt füttert die Katze, und das war nicht gemeint. Manche Kinder nehmen solche Umstellungen als Beleg, dass die Katze Subjekt sein könne. Fragen Sie: Sagt der Satz noch dasselbe? Wenn nein, war es keine Umstellprobe, sondern ein neuer Satz.",
     "onScreenTitle": "Fehler 5: die Umstellung ändert den Sinn",
     "question": null,
     "think": null,
@@ -878,7 +879,7 @@
     "stockQuery": null
    },
    {
-    "narration": "Schritt eins: Nehmen Sie einen Satz, den jemand gerade gesagt hat. Morgen fahren wir nach dem Training zu Oma. Ihr Kind schreibt ihn auf, stellt ihn zwei- oder dreimal um und kreist ein, was zusammen wandert. Dann kommen die Fragen: Wer? Was tun wir? Wann? Wohin? Das dauert drei Minuten und übt genau das, was in der Schule verlangt wird. Längere Sätze aus einem Buch sind der nächste Schritt.",
+    "narration": "Schritt eins: Nehmen Sie einen vollständigen Satz, den jemand gerade gesagt hat. Morgen fahren wir mit dem Rad zu Oma. Ihr Kind schreibt ihn auf, stellt ihn zwei- oder dreimal um und kreist ein, was zusammen wandert. Dann kommen die Fragen: Wer? Was tun wir? Wann? Womit? Wohin? Das dauert drei Minuten und übt genau das, was in der Schule verlangt wird. Längere Sätze aus einem Buch sind der nächste Schritt.",
     "onScreenTitle": "Schritt 1: ein Satz vom Esstisch",
     "question": null,
     "think": null,
@@ -892,7 +893,7 @@
     "segment": null,
     "formula": null,
     "bullets": [
-     "Einen gesprochenen Satz aufschreiben lassen",
+     "Einen vollständigen gesprochenen Satz aufschreiben lassen",
      "Umstellprobe: Wie oft lässt er sich umstellen?",
      "Blöcke einkreisen, dann die Fragen stellen"
     ],
@@ -947,7 +948,7 @@
    },
    {
     "narration": "Was wird geprüft? In Deutsch sind die Schulaufgaben meist Aufsätze; Grammatik wird häufig in kleineren Leistungsnachweisen wie Stegreifaufgaben abgefragt, manchmal auch als Teil einer Schulaufgabe. Typische Aufgaben: Satzglieder in einem Text abgrenzen und benennen, Objekte nach dem Fall unterscheiden, Adverbialien nach der Bedeutung bestimmen, Attribute erkennen und die Umstellprobe schriftlich vorführen. Wie genau das bei Ihrem Kind aussieht, legt die Lehrkraft fest; das Heft ist der beste Hinweis.",
-    "onScreenTitle": "Das wird meist geprüft",
+    "onScreenTitle": "Was geprüft werden kann",
     "question": null,
     "think": null,
     "hint": null,
@@ -981,7 +982,7 @@
     "stockQuery": null
    },
    {
-    "narration": "Was kommt danach? Im selben Lernbereich folgen Satzreihe und Satzgefüge, also Sätze aus mehreren Teilsätzen, und damit die Kommasetzung. Ein Nebensatz wie weil es regnet ist selbst ein Satzglied, ein Adverbialsatz des Grundes. Wer Satzglieder kann, erkennt solche Nebensätze und setzt das Komma richtig. Und in Latein wie in Englisch stellen die Kinder dieselben Fragen: Wer? Wen oder was? Wem? Die Arbeit aus der sechsten Klasse zahlt sich dort direkt aus.",
+    "narration": "Was kommt danach? Im selben Lernbereich gehören Satzreihe und Satzgefüge dazu, also Sätze aus mehreren Teilsätzen, und damit die Kommasetzung: Zwischen Hauptsätzen steht meist ein Komma, bei und oder oder oft keines; zwischen Hauptsatz und Nebensatz steht es immer. Ein Nebensatz wie weil es regnet ist selbst ein Satzglied, ein Adverbialsatz des Grundes. Wer Satzglieder kann, dem fällt es leichter, solche Nebensätze zu erkennen. Und in Latein stellen die Kinder dieselben Fragen: Wer? Wen oder was? Wem? Die Arbeit aus der sechsten Klasse zahlt sich dort direkt aus.",
     "onScreenTitle": "Ausblick: Satzreihe, Satzgefüge, Kommas",
     "question": null,
     "think": null,
@@ -995,10 +996,10 @@
     "segment": null,
     "formula": null,
     "bullets": [
-     "Satzreihe: zwei Hauptsätze, Komma dazwischen",
+     "Satzreihe: Hauptsätze, meist durch Komma getrennt",
      "Satzgefüge: Hauptsatz und Nebensatz, Komma",
      "Adverbialsätze: Weil es regnet, bleiben wir zu Hause",
-     "Latein und Englisch: dieselben Fragen, dieselben Fälle"
+     "Latein: dieselben Fragen, dieselben Fälle"
     ],
     "nodes": null,
     "leftTitle": null,
@@ -1016,7 +1017,7 @@
     "stockQuery": null
    },
    {
-    "narration": "Kurz gesagt: Zwei Proben genügen. Was bei der Umstellprobe zusammen wandert, ist ein Satzglied. Was auf eine Frage antwortet, hat seinen Namen: Wer, Was tut, Wen oder was, Wem, Wann, Wo, Wie, Warum. Üben Sie mit echten Sätzen vom Esstisch, lassen Sie sich die Proben erklären und stellen Sie bei Fehlern die passende Frage statt der Lösung. Die Kinder-Lektion zu diesem Thema finden Sie auf diesem Kanal. Abonnieren Sie für die nächsten Lernbereiche.",
+    "narration": "Kurz gesagt: Zwei Proben tragen weit. Was bei der Umstellprobe zusammen wandert, ist ein Satzglied. Was auf eine Frage antwortet, hat seinen Namen: Wer, Was tut, Wen oder was, Wem, Wann, Wo, Wie, Warum. Üben Sie mit echten Sätzen vom Esstisch, lassen Sie sich die Proben erklären und stellen Sie bei Fehlern die passende Frage statt der Lösung. Die Kinder-Lektion zu diesem Thema finden Sie auf diesem Kanal. Abonnieren Sie für die nächsten Lernbereiche.",
     "onScreenTitle": "So üben Sie zu Hause, und was kommt danach",
     "question": null,
     "think": null,
@@ -1052,14 +1053,14 @@
    {
     "beatId": 1,
     "chapterId": 1,
-    "narration": "Satzglieder klingen nach trockener Grammatik. Tatsächlich entscheiden sie über vieles, was später Noten kostet oder bringt: die Kommasetzung, die Fälle in Latein und Englisch, das Verstehen langer Sätze in jedem Fach. Dieses Video richtet sich an Eltern und Lehrkräfte. Sie erfahren in zehn Minuten, was der bayerische Lehrplan verlangt, wie die zwei Proben funktionieren, mit denen Kinder Satzglieder finden, welche Fehler typisch sind und wie Sie zu Hause sinnvoll üben.",
-    "onScreenTitle": "Satzglieder: Was Ihr Kind können muss",
+    "narration": "Satzglieder klingen nach trockener Grammatik. Tatsächlich helfen sie bei vielem, was später zählt: bei der Kommasetzung, bei den Fällen in Latein, beim Satzbau in Englisch und beim Verstehen langer Sätze in jedem Fach. Dieses Video richtet sich an Eltern und Lehrkräfte. Sie erfahren in zehn Minuten, was der bayerische Lehrplan verlangt, wie die zwei Proben funktionieren, mit denen Kinder Satzglieder finden, welche Fehler typisch sind und wie Sie zu Hause sinnvoll üben.",
+    "onScreenTitle": "Satzglieder: Was Ihr Kind können sollte",
     "emphasisWords": []
    },
    {
     "beatId": 2,
     "chapterId": 1,
-    "narration": "Im LehrplanPLUS für das bayerische Gymnasium gehört das Thema zum Lernbereich D6 4.2, Sprachliche Strukturen untersuchen. Dort stehen die Satzglieder neben den Wortarten, Aktiv und Passiv, den Zeitformen sowie Satzreihe und Satzgefüge. Die Satzglieder sind der Teil, der am häufigsten geübt wird, weil alles andere darauf aufbaut: Wer Satzglieder sicher findet, erkennt später Haupt- und Nebensätze und setzt Kommas an der richtigen Stelle.",
+    "narration": "Im LehrplanPLUS für das bayerische Gymnasium gehört das Thema zum Lernbereich D6 4.2, Sprachliche Strukturen untersuchen. Dort stehen die Satzglieder, Prädikativ, Objekte und Adverbialien, neben Attributen und Relativsatz, Adverbialsätzen, Subjekt- und Objektsatz, den Wortarten, Aktiv und Passiv, den Zeitformen sowie Satzreihe und Satzgefüge. Dieses Video behandelt die Satzglieder und das Attribut. Prädikativ und die Nebensätze als Satzglieder folgen in eigenen Lektionen. Die Satzglieder sind eine wichtige Grundlage für Satzreihe und Satzgefüge und damit für die Kommasetzung.",
     "onScreenTitle": "Der Lehrplan: D6 4.2 Sprachliche Strukturen untersuchen",
     "emphasisWords": []
    },
@@ -1073,7 +1074,7 @@
    {
     "beatId": 4,
     "chapterId": 2,
-    "narration": "In Bayern lernen die Kinder Satzglieder über zwei Proben, nicht über Definitionen. Die Umstellprobe zeigt, wo ein Satzglied anfängt und aufhört. Die Frageprobe gibt ihm einen Namen. Dazu kommt eine Beobachtung, die alles zusammenhält: Im Aussagesatz steht das Prädikat an zweiter Stelle. Schauen wir uns die drei Schritte an einem Satz an, den Ihr Kind so ähnlich im Heft hat.",
+    "narration": "Satzglieder findet und benennt man mit zwei Proben, nicht über Definitionen. Die Umstellprobe zeigt, wo ein Satzglied anfängt und aufhört. Die Frageprobe gibt ihm einen Namen. Dazu kommt eine Beobachtung, die alles zusammenhält: Im Aussagesatz steht das Prädikat an zweiter Stelle. Schauen wir uns die drei Schritte an einem Satz an, den Ihr Kind so ähnlich im Heft hat.",
     "onScreenTitle": "Die zwei Proben in Bildern",
     "emphasisWords": []
    },
@@ -1087,28 +1088,28 @@
    {
     "beatId": 6,
     "chapterId": 2,
-    "narration": "Die Frageprobe gibt jedem Block einen Namen. Wer füttert? Lena: das Subjekt. Was tut Lena? Sie füttert: das Prädikat. Wen oder was füttert sie? Die Katze: das Akkusativobjekt. Wann? Am Morgen. Wo? Im Garten: zwei Adverbialien. Die Fragen stehen im Bild über den Blöcken. Ihr Kind soll diese Fragen auswendig können, denn sie sind in jeder Grammatikaufgabe der Schlüssel, auch später in Latein.",
+    "narration": "Die Frageprobe gibt jedem Block einen Namen. Wer füttert? Lena: das Subjekt. Was tut Lena? Sie füttert: das Prädikat. Wen oder was füttert sie? Die Katze: das Akkusativobjekt. Wann? Am Morgen. Wo? Im Garten: zwei Adverbialien. Die Fragen stehen im Bild über den Blöcken. Ihr Kind sollte diese Fragen sicher anwenden können; sie sind in vielen Grammatikaufgaben hilfreich, auch später in Latein.",
     "onScreenTitle": "Schritt 2: die Frageprobe",
     "emphasisWords": []
    },
    {
     "beatId": 7,
     "chapterId": 2,
-    "narration": "Die Beobachtung, die alles zusammenhält: Im Aussagesatz steht das Prädikat an zweiter Stelle, egal welches Satzglied vorn steht. Am Morgen füttert Lena. Lena füttert am Morgen. Die Katze füttert Lena am Morgen, das wäre grammatisch möglich, ändert aber den Sinn, deshalb gilt es nicht als Umstellung. Das Prädikat bleibt immer an Position zwei. Wer das weiß, findet das Prädikat sofort und hat damit den festen Punkt, von dem aus alle anderen Satzglieder bestimmt werden.",
+    "narration": "Die Beobachtung, die alles zusammenhält: Im Aussagesatz steht das Prädikat an zweiter Stelle, egal welches Satzglied vorn steht. Am Morgen füttert Lena. Lena füttert am Morgen. Die Katze füttert Lena am Morgen im Garten wäre grammatisch möglich, ändert aber den Sinn, deshalb gilt es nicht als Umstellung. Im Aussagesatz bleibt das gebeugte Verb an Position zwei; bei Fragen und Aufforderungen steht es vorn, im Nebensatz am Ende. Das hilft, das Prädikat schnell zu finden und von dort aus die anderen Satzglieder zu bestimmen.",
     "onScreenTitle": "Schritt 3: das Prädikat an zweiter Stelle",
     "emphasisWords": []
    },
    {
     "beatId": 8,
     "chapterId": 2,
-    "narration": "Zum Schluss die Namen unter den Blöcken: Adverbiale, Prädikat, Subjekt, Objekt, Adverbiale. Das sind die Fachbegriffe, die Ihr Kind im Heft stehen hat und in Aufgaben verwenden soll. In Bayern werden sie in der sechsten Klasse mit den lateinischen Begriffen gelernt, also Subjekt statt Satzgegenstand und Prädikat statt Satzaussage. Wenn Ihr Kind noch die deutschen Begriffe aus der Grundschule verwendet, ist das kein Fehler, aber die lateinischen sind die, die bleiben.",
+    "narration": "Zum Schluss die Namen unter den Blöcken: Adverbiale, Prädikat, Subjekt, Objekt, Adverbiale. Das sind die Fachbegriffe, die Ihr Kind im Heft stehen hat und in Aufgaben verwenden soll. Welche Begriffe die Lehrkraft genau verlangt, etwa Subjekt oder Satzgegenstand, steht im Heft Ihres Kindes. Wichtig ist weniger das Wort als die Probe dahinter: Wer die Frage stellen kann, findet auch den Namen. Die Begriffe kehren in Latein und in den Nebensätzen des Deutschunterrichts wieder.",
     "onScreenTitle": "Die Namen der Satzglieder",
     "emphasisWords": []
    },
    {
     "beatId": 9,
     "chapterId": 3,
-    "narration": "Subjekt und Prädikat sind schnell gefunden. Die eigentliche Arbeit der sechsten Klasse liegt bei drei Gruppen: den Objekten, die sich nach dem Fall unterscheiden, den Adverbialien, die sich nach der Bedeutung unterscheiden, und den Attributen, die gar kein eigenes Satzglied sind. Für jede Gruppe gibt es eine Frage, und mit dieser Frage lässt sich jede Aufgabe lösen.",
+    "narration": "Subjekt und Prädikat sind schnell gefunden. Viel Arbeit der sechsten Klasse liegt bei drei Gruppen: den Objekten, die sich nach dem Fall unterscheiden, den Adverbialien, die sich nach der Bedeutung unterscheiden, und den Attributen, die gar kein eigenes Satzglied sind. Für jede Gruppe gibt es eine Frage, und mit dieser Frage lassen sich viele Aufgaben lösen. Das Prädikativ und die Nebensätze als Satzglieder lassen wir hier bewusst aus.",
     "onScreenTitle": "Die Satzglieder im Einzelnen",
     "emphasisWords": []
    },
@@ -1122,7 +1123,7 @@
    {
     "beatId": 11,
     "chapterId": 3,
-    "narration": "Wir fahren morgen mit dem Zug nach München. Drei Adverbialien in einem Satz. Wann fahren wir? Morgen: Adverbiale der Zeit. Womit? Mit dem Zug: Adverbiale der Art und Weise. Wohin? Nach München: Adverbiale des Ortes. Die vierte Art fragt nach dem Grund: Warum? Wegen des Sturms fällt der Unterricht aus. Ihr Kind lernt dafür auch die lateinischen Beiwörter temporal, lokal, modal und kausal; sie kommen in den Aufgaben oft vor.",
+    "narration": "Wir fahren morgen mit dem Zug nach München. Drei Adverbialien in einem Satz. Wann fahren wir? Morgen: Adverbiale der Zeit. Womit? Mit dem Zug: Adverbiale der Art und Weise. Wohin? Nach München: Adverbiale des Ortes. Die vierte Art fragt nach dem Grund: Warum? Wegen des Sturms fällt der Unterricht aus. Ihr Kind lernt dafür auch die Fachbegriffe temporal, lokal, modal und kausal; bei den Adverbialsätzen kommt später final, der Zweck, dazu.",
     "onScreenTitle": "Adverbialien: Wann? Wo? Wie? Warum?",
     "emphasisWords": []
    },
@@ -1143,21 +1144,21 @@
    {
     "beatId": 14,
     "chapterId": 4,
-    "narration": "Fehler eins: Wortarten und Satzglieder verwechseln. Ein Nomen ist eine Wortart, ein Subjekt ist ein Satzglied. Die Katze ist ein Nomen, aber im Beispielsatz Akkusativobjekt, nicht Subjekt. Fragen Sie: Wer tut etwas? Fehler zwei: Ein Attribut wird als eigenes Satzglied gezählt, der kleine Hund wird zu zwei Satzgliedern. Fragen Sie: Kannst du kleine allein an den Satzanfang stellen? Es geht nicht, also ist es ein Teil des Subjekts.",
+    "narration": "Fehler eins: Wortarten und Satzglieder verwechseln. Ein Nomen ist eine Wortart, ein Subjekt ist ein Satzglied. Katze ist ein Nomen, aber die Katze ist im Beispielsatz Akkusativobjekt, nicht Subjekt. Fragen Sie: Wer tut etwas? Fehler zwei: Ein Attribut wird als eigenes Satzglied gezählt, der kleine Hund wird zu zwei Satzgliedern. Fragen Sie Ihr Kind: Lässt sich kleine allein an den Satzanfang stellen? Es geht nicht, also ist es ein Teil des Subjekts.",
     "onScreenTitle": "Fehler 1 und 2",
     "emphasisWords": []
    },
    {
     "beatId": 15,
     "chapterId": 4,
-    "narration": "Fehler drei: Das Prädikat wird zu kurz genommen. In Lena hat am Morgen die Katze gefüttert besteht das Prädikat aus zwei Teilen, hat und gefüttert, die eine Klammer um den Satz bilden. Fragen Sie: Was hat Lena getan? Die Antwort nennt beide Teile. Fehler vier: Dativ und Akkusativ vertauscht, oft weil der Artikel gleich klingt. Der Lehrer gibt den Kindern ein Rätsel. Fragen Sie: Wem gibt er es? Den Kindern. Wen oder was gibt er? Ein Rätsel.",
+    "narration": "Fehler drei: Das Prädikat wird zu kurz genommen. In Lena hat am Morgen die Katze gefüttert besteht das Prädikat aus zwei Teilen, hat und gefüttert, die eine Klammer um den Satz bilden. Fragen Sie: Welches Verb steht an zweiter Stelle, und welcher Teil steht am Satzende? Beide gehören zusammen. Fehler vier: Dativ und Akkusativ vertauscht, oft weil beide Objekte ohne Präposition dastehen. Der Lehrer gibt den Kindern ein Rätsel. Fragen Sie: Wem gibt er es? Den Kindern. Wen oder was gibt er? Ein Rätsel.",
     "onScreenTitle": "Fehler 3 und 4",
     "emphasisWords": []
    },
    {
     "beatId": 16,
     "chapterId": 4,
-    "narration": "Fehler fünf ist subtiler. Bei der Umstellprobe dürfen die Satzglieder nur ihre Plätze tauschen, der Sinn muss gleich bleiben. Die Katze füttert Lena ist grammatisch ein Satz, aber jetzt füttert die Katze, und das war nicht gemeint. Kinder nehmen solche Umstellungen manchmal als Beleg, dass die Katze Subjekt sein könne. Fragen Sie: Sagt der Satz noch dasselbe? Wenn nein, war es keine Umstellprobe, sondern ein neuer Satz.",
+    "narration": "Fehler fünf ist subtiler. Bei der Umstellprobe dürfen die Satzglieder nur ihre Plätze tauschen, der Sinn muss gleich bleiben. Die Katze füttert Lena ist grammatisch ein Satz, aber jetzt füttert die Katze, und das war nicht gemeint. Manche Kinder nehmen solche Umstellungen als Beleg, dass die Katze Subjekt sein könne. Fragen Sie: Sagt der Satz noch dasselbe? Wenn nein, war es keine Umstellprobe, sondern ein neuer Satz.",
     "onScreenTitle": "Fehler 5: die Umstellung ändert den Sinn",
     "emphasisWords": []
    },
@@ -1171,7 +1172,7 @@
    {
     "beatId": 18,
     "chapterId": 5,
-    "narration": "Schritt eins: Nehmen Sie einen Satz, den jemand gerade gesagt hat. Morgen fahren wir nach dem Training zu Oma. Ihr Kind schreibt ihn auf, stellt ihn zwei- oder dreimal um und kreist ein, was zusammen wandert. Dann kommen die Fragen: Wer? Was tun wir? Wann? Wohin? Das dauert drei Minuten und übt genau das, was in der Schule verlangt wird. Längere Sätze aus einem Buch sind der nächste Schritt.",
+    "narration": "Schritt eins: Nehmen Sie einen vollständigen Satz, den jemand gerade gesagt hat. Morgen fahren wir mit dem Rad zu Oma. Ihr Kind schreibt ihn auf, stellt ihn zwei- oder dreimal um und kreist ein, was zusammen wandert. Dann kommen die Fragen: Wer? Was tun wir? Wann? Womit? Wohin? Das dauert drei Minuten und übt genau das, was in der Schule verlangt wird. Längere Sätze aus einem Buch sind der nächste Schritt.",
     "onScreenTitle": "Schritt 1: ein Satz vom Esstisch",
     "emphasisWords": []
    },
@@ -1186,32 +1187,33 @@
     "beatId": 20,
     "chapterId": 5,
     "narration": "Was wird geprüft? In Deutsch sind die Schulaufgaben meist Aufsätze; Grammatik wird häufig in kleineren Leistungsnachweisen wie Stegreifaufgaben abgefragt, manchmal auch als Teil einer Schulaufgabe. Typische Aufgaben: Satzglieder in einem Text abgrenzen und benennen, Objekte nach dem Fall unterscheiden, Adverbialien nach der Bedeutung bestimmen, Attribute erkennen und die Umstellprobe schriftlich vorführen. Wie genau das bei Ihrem Kind aussieht, legt die Lehrkraft fest; das Heft ist der beste Hinweis.",
-    "onScreenTitle": "Das wird meist geprüft",
+    "onScreenTitle": "Was geprüft werden kann",
     "emphasisWords": []
    },
    {
     "beatId": 21,
     "chapterId": 5,
-    "narration": "Was kommt danach? Im selben Lernbereich folgen Satzreihe und Satzgefüge, also Sätze aus mehreren Teilsätzen, und damit die Kommasetzung. Ein Nebensatz wie weil es regnet ist selbst ein Satzglied, ein Adverbialsatz des Grundes. Wer Satzglieder kann, erkennt solche Nebensätze und setzt das Komma richtig. Und in Latein wie in Englisch stellen die Kinder dieselben Fragen: Wer? Wen oder was? Wem? Die Arbeit aus der sechsten Klasse zahlt sich dort direkt aus.",
+    "narration": "Was kommt danach? Im selben Lernbereich gehören Satzreihe und Satzgefüge dazu, also Sätze aus mehreren Teilsätzen, und damit die Kommasetzung: Zwischen Hauptsätzen steht meist ein Komma, bei und oder oder oft keines; zwischen Hauptsatz und Nebensatz steht es immer. Ein Nebensatz wie weil es regnet ist selbst ein Satzglied, ein Adverbialsatz des Grundes. Wer Satzglieder kann, dem fällt es leichter, solche Nebensätze zu erkennen. Und in Latein stellen die Kinder dieselben Fragen: Wer? Wen oder was? Wem? Die Arbeit aus der sechsten Klasse zahlt sich dort direkt aus.",
     "onScreenTitle": "Ausblick: Satzreihe, Satzgefüge, Kommas",
     "emphasisWords": []
    },
    {
     "beatId": 22,
     "chapterId": 5,
-    "narration": "Kurz gesagt: Zwei Proben genügen. Was bei der Umstellprobe zusammen wandert, ist ein Satzglied. Was auf eine Frage antwortet, hat seinen Namen: Wer, Was tut, Wen oder was, Wem, Wann, Wo, Wie, Warum. Üben Sie mit echten Sätzen vom Esstisch, lassen Sie sich die Proben erklären und stellen Sie bei Fehlern die passende Frage statt der Lösung. Die Kinder-Lektion zu diesem Thema finden Sie auf diesem Kanal. Abonnieren Sie für die nächsten Lernbereiche.",
+    "narration": "Kurz gesagt: Zwei Proben tragen weit. Was bei der Umstellprobe zusammen wandert, ist ein Satzglied. Was auf eine Frage antwortet, hat seinen Namen: Wer, Was tut, Wen oder was, Wem, Wann, Wo, Wie, Warum. Üben Sie mit echten Sätzen vom Esstisch, lassen Sie sich die Proben erklären und stellen Sie bei Fehlern die passende Frage statt der Lösung. Die Kinder-Lektion zu diesem Thema finden Sie auf diesem Kanal. Abonnieren Sie für die nächsten Lernbereiche.",
     "onScreenTitle": "So üben Sie zu Hause, und was kommt danach",
     "emphasisWords": []
    }
   ],
-  "totalWords": 1477
+  "totalWords": 1544
  },
  "review": {
   "approved": true,
   "issues": [],
   "claimsToVerify": [],
   "revisedNarration": {},
-  "mustFix": []
+  "mustFix": [],
+  "reviewer": "Claude Sonnet (Claude Code subagent), independent of the writer (Claude in Claude Code)"
  },
  "storyboard": {
   "scenes": [
@@ -1259,8 +1261,9 @@
     "subtitle": null,
     "bullets": [
      "LehrplanPLUS Gymnasium Bayern, Deutsch 6",
-     "Satzglieder: Prädikat, Objekte, Adverbialien, Attribute",
-     "Dazu: Wortarten, Aktiv und Passiv, Satzreihe und Satzgefüge"
+     "Satzglieder: Prädikativ, Objekte, Adverbialien",
+     "Dazu: Attribute, Relativsatz, Adverbialsätze, Subjekt- und Objektsatz",
+     "Außerdem: Wortarten, Aktiv und Passiv, Zeitformen, Satzgefüge"
     ],
     "nodes": null,
     "leftTitle": null,
@@ -1524,7 +1527,7 @@
     "scene": "sentence",
     "params": {
      "satz": "Am Morgen/A/Wann? | füttert/P/Was tut sie? | Lena/S/Wer? | die Katze/O/Wen oder was? | im Garten/A/Wo?",
-     "probe": "mit Umstellprobe"
+     "probe": "ohne Umstellprobe"
     },
     "formula": null,
     "question": null,
@@ -1917,7 +1920,7 @@
     "title": "Schritt 1: ein Satz vom Esstisch",
     "subtitle": null,
     "bullets": [
-     "Einen gesprochenen Satz aufschreiben lassen",
+     "Einen vollständigen gesprochenen Satz aufschreiben lassen",
      "Umstellprobe: Wie oft lässt er sich umstellen?",
      "Blöcke einkreisen, dann die Fragen stellen"
     ],
@@ -1994,7 +1997,7 @@
     "beatId": 20,
     "kind": "bullets",
     "kicker": "So üben Sie zu",
-    "title": "Das wird meist geprüft",
+    "title": "Was geprüft werden kann",
     "subtitle": null,
     "bullets": [
      "Satzglieder abgrenzen und benennen",
@@ -2038,10 +2041,10 @@
     "title": "Ausblick: Satzreihe, Satzgefüge, Kommas",
     "subtitle": null,
     "bullets": [
-     "Satzreihe: zwei Hauptsätze, Komma dazwischen",
+     "Satzreihe: Hauptsätze, meist durch Komma getrennt",
      "Satzgefüge: Hauptsatz und Nebensatz, Komma",
      "Adverbialsätze: Weil es regnet, bleiben wir zu Hause",
-     "Latein und Englisch: dieselben Fragen, dieselben Fälle"
+     "Latein: dieselben Fragen, dieselben Fälle"
     ],
     "nodes": null,
     "leftTitle": null,
@@ -2076,7 +2079,7 @@
     "beatId": 22,
     "kind": "outro",
     "kicker": null,
-    "title": "Zwei Proben genügen: Was bei der Umstellprobe zusammen",
+    "title": "Zwei Proben helfen bei den Satzgliedern: Was bei",
     "subtitle": "Abonnieren Sie für die nächsten Lernbereiche",
     "bullets": null,
     "nodes": null,
@@ -2111,7 +2114,7 @@
   ]
  },
  "publish": {
-  "title": "Satzglieder in der 6. Klasse: Was Ihr Kind können muss | Eltern-Guide Deutsch Gymnasium Bayern",
+  "title": "Satzglieder in der 6. Klasse: Was Ihr Kind können sollte | Eltern-Guide Deutsch Gymnasium Bayern",
   "description": "Für Eltern und Lehrkräfte: Was der bayerische LehrplanPLUS im Lernbereich D6 4.2 Sprachliche Strukturen untersuchen zu den Satzgliedern verlangt, die zwei Proben in Bildern (Umstellprobe und Frageprobe), die Satzglieder Subjekt, Prädikat, Akkusativ- und Dativobjekt, Adverbialien und das Attribut als Satzgliedteil, die fünf typischen Fehler und wie Sie zu Hause in zehn Minuten sinnvoll üben. Mit Ausblick auf Satzreihe, Satzgefüge und Kommasetzung.\n\nDie Kinder-Lektion zum selben Thema gibt es auf diesem Kanal. Lehrplan: LehrplanPLUS Gymnasium Bayern, Deutsch 6, Lernbereich 4.2.\n\nTransparenz: Die Sprecherstimme ist computergeneriert (Text-to-Speech). Das Skript folgt dem LehrplanPLUS Bayern und wurde von einem zweiten KI-Modell geprüft; vor der Veröffentlichung sieht ein Elternteil jedes Video durch.",
   "tags": [
    "Satzglieder",
