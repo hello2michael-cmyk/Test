@@ -3,11 +3,21 @@
 Jede Zeile ist ein YouTube-Video. Ablauf: (1) In Claude Code sagen „Plane Lektion M6-1.2“: Claude schreibt die Lektion auf
 Deutsch, ein zweites Claude-Modell prüft sie, beides wird eingecheckt (`klasse6/lessons/`). (2) Ein Issue mit genau dem Titel
 aus der Tabelle öffnen (zum Beispiel `Lektion: M6-1.1`): die Fabrik rendert den eingecheckten Plan mit 3D-Szenen und deutscher
-Stimme (Piper, Thorsten) und postet die Links. Spalte „Plan“: ✅ = geschrieben, geprüft und eingecheckt.
+Stimme (Google Cloud Text-to-Speech, Chirp 3 HD: Leda für Kinder, Charon für Eltern; ohne Schlüssel Piper/Thorsten) und postet
+die Links. Spalte „Plan“: ✅ = geschrieben, geprüft und eingecheckt.
 
 Zu jedem Thema gibt es zwei Videos: die **Kinder-Lektion** (`Lektion: <ID>`, langsam, du-Form, Fragen mit Denkpause,
 Kennzeichnung „für Kinder“) und die **Eltern-Lektion** (`Eltern: <ID>`, 8 bis 10 Minuten, Sie-Form, für Eltern und
 Lehrkräfte: Lehrplan, Kernideen, typische Fehler, Üben zu Hause, Schulaufgabe). Spalte „Eltern“: ✅ = eingecheckt.
+
+Fertige Videos (GitHub-Releases, 90 Tage abrufbar):
+
+| Video | Stimme | Länge | Link |
+|---|---|---|---|
+| Kinder-Lektion M6-1.1 Brüche | Leda | ca. 13:30 | https://github.com/hello2michael-cmyk/Test/releases/tag/video-23 |
+| Kinder-Lektion D6-4.2 Satzglieder | Leda | ca. 13:00 | https://github.com/hello2michael-cmyk/Test/releases/tag/video-24 |
+| Eltern-Lektion M6-1.1 Brüche | Charon | ca. 10:00 | https://github.com/hello2michael-cmyk/Test/releases/tag/video-21 |
+| Eltern-Lektion M6-1.1, Stimmvergleich | Kore / Leda | ca. 10:00 | video-20 / video-22 |
 
 Reihenfolge: zuerst Mathematik (fertige 3D-Szenen), dann Deutsch (Satzglieder-Szene vorhanden), Natur und Technik, Geschichte, Fremdsprachen, dann der Rest.
 
