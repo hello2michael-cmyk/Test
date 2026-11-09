@@ -4,7 +4,7 @@
   "title": "Brüche in der 6. Klasse: Was Ihr Kind können muss",
   "audience": "Eltern und Lehrkräfte von Sechstklässlern am Gymnasium in Bayern",
   "tone": "ruhig, präzise, ohne Panikmache",
-  "hook": "Brüche sind das Fundament der gesamten Schulmathematik bis zum Abitur. In der 6. Klasse entscheidet sich, ob sie sitzen.",
+  "hook": "Brüche sind das Fundament der gesamten Schulmathematik bis zum Abitur. In der 6. Klasse wird die Grundlage gelegt.",
   "keyTakeaway": "Wer Brüche als Bilder versteht, statt Regeln auswendig zu lernen, macht die typischen Fehler nicht. Üben Sie mit Pizza, Streifen und Zahlengerade, nicht mit Regelzetteln.",
   "learningObjectives": [
     "Den Lehrplan-Lernbereich M6 1.1 und seine Rolle für die nächsten Schuljahre einordnen",
@@ -27,7 +27,7 @@
         {
           "kind": "title",
           "onScreenTitle": "Brüche: Was Ihr Kind können muss",
-          "narration": "Brüche sind das Fundament der gesamten Schulmathematik bis zum Abitur. Prozentrechnung, Gleichungen, Wahrscheinlichkeit, Funktionen: Überall stecken Brüche drin. In der sechsten Klasse entscheidet sich, ob sie sitzen. Dieses Video richtet sich an Eltern und Lehrkräfte. Sie erfahren in zehn Minuten, was der bayerische Lehrplan verlangt, welche vier Ideen den Kern bilden, welche Fehler fast alle Kinder machen und wie Sie zu Hause sinnvoll üben."
+          "narration": "Brüche sind das Fundament der gesamten Schulmathematik bis zum Abitur. Prozentrechnung, Gleichungen, Wahrscheinlichkeit, Funktionen: Überall stecken Brüche drin. In der sechsten Klasse wird die Grundlage dafür gelegt. Dieses Video richtet sich an Eltern und Lehrkräfte. Sie erfahren in zehn Minuten, was der bayerische Lehrplan verlangt, welche vier Ideen den Kern bilden, welche Fehler viele Kinder machen und wie Sie zu Hause sinnvoll üben."
         },
         {
           "kind": "bullets",
@@ -48,7 +48,7 @@
             "Brüche vergleichen, Prozent als Schreibweise",
             "Brüche als Zahlen: Zahlengerade, auch negativ"
           ],
-          "narration": "Vier Kompetenzen stehen im Lehrplan. Erstens: Anteile deuten und mit Kreis- und Rechteckbildern veranschaulichen, Bruchteil und Ganzes bestimmen. Zweitens: verstehen, dass Erweitern und Kürzen den Wert nicht ändern, und den Hauptnenner finden, später auch über die Primfaktorzerlegung. Drittens: Brüche vergleichen und Prozent als andere Schreibweise kennen. Viertens: Brüche als Zahlen auf der Zahlengeraden einordnen, auch negative. Genau diese vier Punkte prüft die Schulaufgabe."
+          "narration": "Vier Kompetenzen stehen im Lehrplan. Erstens: Anteile deuten und mit Kreis- und Rechteckbildern veranschaulichen, Bruchteil und Ganzes bestimmen. Zweitens: verstehen, dass Erweitern und Kürzen den Wert nicht ändern, und den Hauptnenner finden, später auch über die Primfaktorzerlegung. Drittens: Brüche vergleichen und Prozent als andere Schreibweise kennen. Viertens: Brüche als Zahlen auf der Zahlengeraden einordnen, auch negative. Diese vier Punkte bilden die Grundlage dessen, was in der Schulaufgabe typischerweise abgefragt wird. Die genaue Auswahl legt die Lehrkraft fest."
         }
       ]
     },
@@ -70,7 +70,7 @@
             "Vergleichen",
             "Zahlengerade"
           ],
-          "narration": "Der Lehrplan betont ausdrücklich die Grundvorstellungen: Ein Bruch ist zuerst ein Bild, nicht eine Regel. Kinder, die Regeln ohne Bild lernen, verwechseln sie spätestens bei der Addition. Darum zeige ich Ihnen die vier Bilder, mit denen der Unterricht arbeitet und mit denen Sie zu Hause anknüpfen können. Jedes Bild beantwortet eine Frage, die Ihr Kind sich selbst stellen soll."
+          "narration": "Der Lehrplan spricht von Grundvorstellungen: Ein Bruch ist zuerst ein Bild, nicht eine Regel. Kinder, die Regeln ohne Bild lernen, verwechseln sie oft spätestens bei der Addition. Darum zeige ich Ihnen die vier Bilder, mit denen der Unterricht arbeitet und mit denen Sie zu Hause anknüpfen können. Jedes Bild beantwortet eine Frage, die Ihr Kind sich selbst stellen soll."
         },
         {
           "kind": "math3d",
@@ -94,7 +94,7 @@
             "k": 3
           },
           "segment": [
-            12,
+            13.5,
             30
           ],
           "onScreenTitle": "Idee 2: Erweitern ändert den Wert nicht",
@@ -121,10 +121,10 @@
           },
           "segment": [
             0,
-            16
+            22
           ],
           "onScreenTitle": "Idee 4: Brüche sind Zahlen",
-          "narration": "Die vierte Idee ist die abstrakteste und wird am häufigsten unterschätzt: Ein Bruch ist eine Zahl mit einem festen Platz auf der Zahlengeraden, auch eine negative. Minus drei Viertel liegt zwischen minus eins und minus ein Halb. Der Lehrplan verlangt außerdem, dass Kinder natürliche, ganze und rationale Zahlen unterscheiden und wissen, dass Brüche keinen Nachfolger haben: Zwischen zwei Brüchen liegen immer unendlich viele weitere. Das ist eine typische Verständnisfrage in Schulaufgaben."
+          "narration": "Die vierte Idee ist die abstrakteste und wird am häufigsten unterschätzt: Ein Bruch ist eine Zahl mit einem festen Platz auf der Zahlengeraden, auch eine negative. Minus drei Viertel liegt zwischen minus eins und minus ein Halb. Der Lehrplan verlangt außerdem, natürliche, ganze und rationale Zahlen zu unterscheiden. Gut zu wissen: Zwischen zwei Brüchen liegen immer unendlich viele weitere. Das kann in Schulaufgaben als Verständnisfrage vorkommen."
         }
       ]
     },
@@ -145,19 +145,20 @@
             "Ungleiche Teile",
             "Falsch addieren",
             "Falsch vergleichen",
-            "Falsch kürzen"
+            "Falsch kürzen",
+            "Ganzes vergessen"
           ],
-          "narration": "Aus Korrekturen von Schulaufgaben kennt jede Lehrkraft dieselben fünf Fehler. Sie sind so verbreitet, weil sie aus einer falschen Regel entstehen, die an anderer Stelle richtig war. Wenn Sie die Fehler kennen, erkennen Sie in den Hausaufgaben Ihres Kindes sofort, wo das Verständnis fehlt. Und bei jedem Fehler gibt es ein Bild, das ihn korrigiert."
+          "narration": "Aus Korrekturen von Schulaufgaben kennen viele Lehrkräfte dieselben fünf Fehler. Sie sind so verbreitet, weil sie aus einer Regel entstehen, die an anderer Stelle richtig war. Wenn Sie die Fehler kennen, erkennen Sie in den Hausaufgaben Ihres Kindes schnell, wo das Verständnis fehlt. Und bei jedem Fehler gibt es ein Bild, das ihn korrigiert."
         },
         {
           "kind": "bullets",
           "onScreenTitle": "Fehler 1 und 2",
           "bullets": [
-            "Ungleiche Teile gezählt: das sind keine 2/5",
-            "Zähler plus Zähler: 1/2 + 1/3 = 2/5 (falsch)",
-            "Korrektur: Pizza zeichnen, Stücke gleich groß"
+            "Ungleiche Teile gezählt: ein Kreis, schief geteilt",
+            "Zähler plus Zähler: 1/2 + 1/3 ist nicht 2/5",
+            "Richtig wäre 5/6 (kommt in M6 1.3)"
           ],
-          "narration": "Fehler eins: Ihr Kind zählt Teile, die nicht gleich groß sind, und schreibt zwei Fünftel, obwohl die fünf Teile verschieden groß sind. Fehler zwei, der Klassiker der nächsten Wochen: Zähler plus Zähler, Nenner plus Nenner. Ein Halb plus ein Drittel gleich zwei Fünftel. Das Bild entlarvt ihn sofort: Zwei Fünftel ist weniger als ein Halb, aber wir haben ja etwas dazugelegt. Lassen Sie das Kind die Pizza zeichnen, und der Fehler verschwindet."
+          "narration": "Fehler eins: Ihr Kind zählt Teile, die nicht gleich groß sind. Ein Kreis wird mit zwei schiefen Strichen in fünf verschieden große Stücke geteilt, zwei davon markiert, und das Kind schreibt zwei Fünftel. Das stimmt nur bei gleich großen Stücken. Fehler zwei, der Klassiker der nächsten Wochen: Zähler plus Zähler, Nenner plus Nenner. Ein Halb plus ein Drittel gleich zwei Fünftel. Das Bild zeigt den Fehler sofort: Zwei Fünftel ist weniger als ein Halb, obwohl etwas dazugekommen ist. Richtig sind fünf Sechstel, das lernt Ihr Kind im Lernbereich Addition."
         },
         {
           "kind": "bullets",
@@ -187,7 +188,7 @@
       "keyPoints": [
         "Alltag statt Arbeitsblatt",
         "Erklären lassen",
-        "Drei Aufgaben pro Tag",
+        "Drei Aufgaben pro Übung",
         "Fehler als Information"
       ],
       "scenes": [
@@ -199,17 +200,17 @@
             "Drei Aufgaben",
             "Fehlerkultur"
           ],
-          "narration": "Üben muss nicht lange dauern, aber regelmäßig sein. Zehn Minuten an drei Tagen pro Woche bringen mehr als eine Stunde am Sonntag vor der Schulaufgabe. Und es muss nicht wie Schule aussehen. Die besten Übungen für Brüche stecken im Alltag: in der Küche, beim Einkaufen, auf der Uhr. Ich zeige Ihnen eine Routine in vier Schritten."
+          "narration": "Üben muss nicht lange dauern, aber regelmäßig sein. Zehn Minuten an drei Tagen pro Woche bringen erfahrungsgemäß mehr als eine Stunde am Sonntag vor der Schulaufgabe. Und es muss nicht wie Schule aussehen. Die besten Übungen für Brüche stecken im Alltag: in der Küche, beim Einkaufen, auf der Uhr, am Maßband. Ich zeige Ihnen eine Routine in vier Schritten."
         },
         {
           "kind": "bullets",
           "onScreenTitle": "Schritt 1: Brüche im Alltag finden",
           "bullets": [
             "Pizza, Schokolade, Kuchen teilen und benennen",
-            "Messbecher: 1/4 Liter, 3/4 Liter",
-            "Uhr: eine halbe, eine Viertelstunde, drei Viertel"
+            "Messbecher: 1/4 Liter, 3/4 Liter; Uhr: Viertelstunde",
+            "Maßband als Zahlengerade: Wo liegt 3/4 Meter?"
           ],
-          "narration": "Schritt eins: Brüche im Alltag benennen. Beim Pizzaschneiden fragen Sie, welcher Bruch auf dem Teller liegt und welcher übrig bleibt. Der Messbecher zeigt Viertelliter und Dreiviertelliter. Die Uhr kennt die halbe Stunde und die Viertelstunde. Diese Bilder sind genau die Grundvorstellungen, die der Lehrplan verlangt, und sie kosten keine Minute Extra-Zeit."
+          "narration": "Schritt eins: Brüche im Alltag benennen. Beim Pizzaschneiden fragen Sie, welcher Bruch auf dem Teller liegt und welcher übrig bleibt. Der Messbecher zeigt Viertelliter und Dreiviertelliter, die Uhr die halbe und die Viertelstunde. Und ein Maßband ist eine fertige Zahlengerade: Wo liegt drei Viertel Meter, wo liegt ein halber Meter? Diese Bilder sind genau die Grundvorstellungen, die der Lehrplan meint, und sie kosten kaum Extra-Zeit."
         },
         {
           "kind": "bullets",
@@ -227,9 +228,9 @@
           "bullets": [
             "Bruchteil berechnen: 3/4 von 12 Äpfeln",
             "Kürzen oder erweitern: 6/8 so weit wie möglich",
-            "Vergleichen: 3/5 oder 2/3?"
+            "Vergleichen: 3/5 oder 2/3? Dazu: 1/2 = 50 %"
           ],
-          "narration": "Schritt drei: drei Aufgaben, jede aus einem anderen Typ. Ein Bruchteil: drei Viertel von zwölf Äpfeln, das sind neun. Eine Umformung: sechs Achtel so weit wie möglich kürzen, das sind drei Viertel. Ein Vergleich: drei Fünftel oder zwei Drittel? Über den Hauptnenner fünfzehn: neun Fünfzehntel gegen zehn Fünfzehntel, also sind zwei Drittel größer. Diese drei Typen decken den größten Teil jeder Schulaufgabe ab."
+          "narration": "Schritt drei: drei Aufgaben, jede aus einem anderen Typ. Ein Bruchteil: drei Viertel von zwölf Äpfeln, das sind neun. Eine Umformung: sechs Achtel so weit wie möglich kürzen, das sind drei Viertel. Ein Vergleich: drei Fünftel oder zwei Drittel? Über den Hauptnenner fünfzehn: neun Fünfzehntel gegen zehn Fünfzehntel, also sind zwei Drittel größer. Zur Abwechslung die Prozentschreibweise: ein Halb sind fünfzig Prozent, ein Viertel fünfundzwanzig. Diese Typen gehören in vielen Schulaufgaben zum Kern; dazu kommen Zahlengerade und Textaufgaben."
         },
         {
           "kind": "bullets",
@@ -260,7 +261,7 @@
             "Addition",
             "Prozent"
           ],
-          "narration": "Zum Schluss der Blick nach vorn. Die erste Mathematik-Schulaufgabe der sechsten Klasse prüft in vielen Schulen genau diesen Lernbereich, oft zusammen mit den Dezimalbrüchen. Die Aufgabentypen sind seit Jahren stabil, weil sie direkt aus den vier Kompetenzen des Lehrplans folgen. Und danach geht es nahtlos weiter."
+          "narration": "Zum Schluss der Blick nach vorn. Die erste Mathematik-Schulaufgabe der sechsten Klasse prüft an vielen Schulen diesen Lernbereich, oft zusammen mit den Dezimalbrüchen. Die Aufgabentypen folgen meist direkt aus den vier Kompetenzen des Lehrplans; Details können je nach Schule und Lehrkraft abweichen. Wenn Sie unsicher sind, fragen Sie die Lehrkraft nach dem Stoffumfang. Und danach geht es nahtlos weiter."
         },
         {
           "kind": "bullets",
@@ -271,7 +272,7 @@
             "Brüche ordnen, auf der Zahlengeraden eintragen",
             "Textaufgabe: Bruchteil vom Ganzen, Ganzes finden"
           ],
-          "narration": "Typische Aufgaben: einen Bruchteil in einer Figur ablesen oder einzeichnen. Brüche erweitern und vollständig kürzen, den Hauptnenner bestimmen. Mehrere Brüche der Größe nach ordnen und auf der Zahlengeraden eintragen, auch negative. Und mindestens eine Textaufgabe: einen Bruchteil von einer Größe berechnen oder aus einem Bruchteil das Ganze zurückrechnen. Wer die Bilder beherrscht, schafft alle vier Typen."
+          "narration": "Typische Aufgaben: einen Bruchteil in einer Figur ablesen oder einzeichnen. Brüche erweitern und vollständig kürzen, den Hauptnenner bestimmen. Mehrere Brüche der Größe nach ordnen und auf der Zahlengeraden eintragen, auch negative. Und meist eine Textaufgabe: einen Bruchteil von einer Größe berechnen oder aus einem Bruchteil das Ganze zurückrechnen. Wer die Bilder sicher nutzt, ist für diese Aufgabentypen gut vorbereitet."
         },
         {
           "kind": "math3d",
@@ -286,7 +287,7 @@
           ],
           "onScreenTitle": "Ausblick: Prozent ist ein Bruch",
           "formula": "25 % = 1/4 · 25 % von 200 € = 50 €",
-          "narration": "Der Ausblick: Als Nächstes kommen die Dezimalbrüche, dann Addition und Subtraktion, dann Multiplikation und Division von Brüchen. Am Ende des Schuljahres steht die Prozentrechnung, und die ist nichts anderes als Bruchrechnung mit dem Nenner hundert. Fünfundzwanzig Prozent sind ein Viertel; fünfundzwanzig Prozent von zweihundert Euro sind fünfzig Euro. Wer jetzt die Bilder versteht, hat für das ganze Jahr vorgesorgt."
+          "narration": "Der Ausblick: Als Nächstes kommen die Dezimalbrüche, dann Addition und Subtraktion, dann Multiplikation und Division von Brüchen, danach Flächeninhalt und Volumen. Am Ende des Schuljahres steht die Prozentrechnung, und die ist nichts anderes als Bruchrechnung mit dem Nenner hundert. Prozent als Schreibweise lernt Ihr Kind schon jetzt kennen: Fünfundzwanzig Prozent sind ein Viertel, fünfundzwanzig Prozent von zweihundert Euro sind fünfzig Euro. Wer jetzt die Bilder versteht, hat eine gute Grundlage für das ganze Jahr."
         },
         {
           "kind": "outro",
@@ -318,9 +319,24 @@
     "pinnedComment": "Welcher der fünf Fehler kommt bei Ihrem Kind am häufigsten vor? Schreiben Sie es in die Kommentare."
   },
   "review": {
-    "reviewer": "",
-    "date": "",
-    "issues": [],
-    "claimsToVerify": []
+    "reviewer": "Claude Sonnet (Claude Code subagent), independent of the writer (Claude Fable 5.1 in Claude Code)",
+    "date": "2026-11-09",
+    "mustFixApplied": [
+      "Aussagen über „die Schulaufgabe“ und Versprechen („schafft alle vier Typen“, „für das ganze Jahr vorgesorgt“) abgeschwächt und auf die Lehrkraft verwiesen",
+      "Zahlengeraden-Segment verlängert, damit die Aussage über unendlich viele Brüche im Bild sichtbar ist; Lehrplan-Formulierung korrigiert",
+      "Ausblick: Prozent als Schreibweise ist Teil von M6 1.1, Prozentrechnung folgt nach Flächeninhalt und Volumen"
+    ],
+    "suggestionsApplied": [
+      "Fehler 1 konkret beschrieben; bei Fehler 2 das richtige Ergebnis 5/6 genannt",
+      "Übungsroutine um Maßband als Zahlengerade und Prozentschreibweise ergänzt",
+      "Sprachliche Verallgemeinerungen abgeschwächt (viele Lehrkräfte, erfahrungsgemäß, meist)",
+      "Hook ohne Druck formuliert"
+    ],
+    "issues": [
+      "Kein ausgearbeiteter Zehn-Minuten-Plan mit Zeitangaben; Hauptnenner mit schwierigeren Paaren und negative Brüche werden zu Hause nicht geübt"
+    ],
+    "claimsToVerify": [
+      "Aussagen zu typischen Schulaufgaben beruhen auf Erfahrung, nicht auf einer Vorgabe des Lehrplans"
+    ]
   }
 }
