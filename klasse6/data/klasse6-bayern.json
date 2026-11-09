@@ -199,7 +199,29 @@
         ]},
         { "id": "D6-4", "title": "Sprachgebrauch und Sprache untersuchen und reflektieren", "topics": [
           { "id": "D6-4.1", "title": "Sprachliche Verständigung untersuchen", "inhalte": ["Dialekt und Standardsprache", "Wirkung von Passiv, Dialekt, Redewendungen"] },
-          { "id": "D6-4.2", "title": "Sprachliche Strukturen untersuchen", "inhalte": ["alle Wortarten mit lateinischen Fachbegriffen", "Aktiv und Passiv; Tempusformen", "Satzglieder: Prädikativ, Objekte, Adverbialien; Adverbialsätze (temporal, kausal, final, modal), Subjekt- und Objektsatz; Attribute, Relativsatz", "Satzreihe und Satzgefüge", "Ober- und Unterbegriffe, bildhafte Sprache"], "scene": "sentence" },
+          { "id": "D6-4.2", "title": "Sprachliche Strukturen untersuchen", "inhalte": ["alle Wortarten mit lateinischen Fachbegriffen", "Aktiv und Passiv; Tempusformen", "Satzglieder: Prädikativ, Objekte, Adverbialien; Adverbialsätze (temporal, kausal, final, modal), Subjekt- und Objektsatz; Attribute, Relativsatz", "Satzreihe und Satzgefüge", "Ober- und Unterbegriffe, bildhafte Sprache"],"scene": "sentence",
+            "glossary": [
+              { "de": "das Satzglied", "en": "sentence part (a unit that moves as a whole)" },
+              { "de": "die Umstellprobe", "en": "rearranging test" },
+              { "de": "die Frageprobe", "en": "question test" },
+              { "de": "das Subjekt", "en": "subject (Wer oder was?)" },
+              { "de": "das Prädikat", "en": "predicate, the verb part (Was tut …?)" },
+              { "de": "das Objekt", "en": "object" },
+              { "de": "das Akkusativobjekt", "en": "accusative object (Wen oder was?)" },
+              { "de": "das Dativobjekt", "en": "dative object (Wem?)" },
+              { "de": "das Genitivobjekt", "en": "genitive object (Wessen?)" },
+              { "de": "das Präpositionalobjekt", "en": "prepositional object (Woran? An wen?)" },
+              { "de": "die Adverbiale", "en": "adverbial (Wann? Wo? Wie? Warum?)" },
+              { "de": "temporal, lokal, modal, kausal", "en": "of time, place, manner, reason" },
+              { "de": "das Attribut", "en": "attribute, part of a sentence part (Was für ein?)" },
+              { "de": "der Aussagesatz", "en": "statement; the predicate stands in second position" },
+              { "de": "der Hauptsatz", "en": "main clause" },
+              { "de": "der Nebensatz", "en": "subordinate clause" },
+              { "de": "die Satzreihe", "en": "two or more main clauses joined" },
+              { "de": "das Satzgefüge", "en": "main clause plus subordinate clause" },
+              { "de": "das Komma", "en": "comma" },
+              { "de": "die Wortart", "en": "word class (noun, verb, adjective …)" }
+            ] },
           { "id": "D6-4.3", "title": "Richtig schreiben", "inhalte": ["Dehnung, Schärfung, das/dass, Groß- und Kleinschreibung, gleich klingende Wörter, Fremdwörter", "Zeichensetzung: wörtliche Rede, Kommas bei Aufzählung, Satzreihe, Satzgefüge", "Rechtschreibstrategien: Ableiten, Verlängern, Mehrzahlprobe"] }
         ]}
       ]
