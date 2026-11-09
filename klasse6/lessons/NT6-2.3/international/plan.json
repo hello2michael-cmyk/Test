@@ -2,8 +2,8 @@
  "id": "current",
  "prompt": "International lesson NT6-2.3 \"Hierarchische Informationsstrukturen – Dateisystem\" (Natur und Technik, Jahrgangsstufe 6, Gymnasium Bavaria), from klasse6/lessons/NT6-2.3.international.lesson.json. 12 minutes, in English with the German school terms, for parents who do not speak German.",
  "attempts": 0,
- "createdAt": 1794219093697,
- "updatedAt": 1794219093698,
+ "createdAt": 1794219206664,
+ "updatedAt": 1794219206664,
  "stage": "plan",
  "mode": "course",
  "durationApplied": true,
@@ -28,8 +28,8 @@
   "footageProvider": "none",
   "aiClipBudget": 0,
   "minSceneSeconds": 10,
-  "maxDuration": 813,
-  "targetDuration": 707,
+  "maxDuration": 861,
+  "targetDuration": 749,
   "lesson": {
    "id": "NT6-2.3",
    "title": "Hierarchische Informationsstrukturen – Dateisystem",
@@ -120,14 +120,14 @@
     "id": 1,
     "chapterId": 1,
     "purpose": "hook",
-    "keyPoint": "Many parents are surprised that their eleven-year-old already has informatics. At a Bavarian Gymnasium it sits inside the science subject «Natur und Technik», and it does not start with coding. It starts with order: how do you describe the things inside a computer, and how are they arranged? This video is for parents who do not speak German. In about twelve minutes you learn what the curriculum expects, which pictures carry the ideas, the German words your child will use, and how to practise at the computer at home without reading a single worksheet.",
+    "keyPoint": "Many parents are surprised that their eleven-year-old already has informatics. At a Bavarian Gymnasium it sits inside the science subject «Natur und Technik», and it does not start with coding. It starts with order: how do you describe the things inside a computer, and how are they arranged? This video is for parents who do not speak German. You learn what the curriculum expects, which pictures carry the ideas, the German words your child will use, and how to practise at the computer at home without needing any German.",
     "suggestedVisual": "title"
    },
    {
     "id": 2,
     "chapterId": 1,
     "purpose": "explain",
-    "keyPoint": "In the Bavarian curriculum, the «LehrplanPLUS», the subject «Natur und Technik» in Year six has a biology part and an informatics part. The informatics part has three topics. The first is about representing information in graphics, text and multimedia documents, and introduces objects, attributes, methods and classes. The second is a project, a multimedia presentation. The third, the subject of this video, is called «Hierarchische Informationsstrukturen», hierarchical information structures, with the file system as the example. It is short, about five lessons, but it introduces the tree, one of the most important structures in informatics.",
+    "keyPoint": "In the Bavarian curriculum, the «LehrplanPLUS», the subject «Natur und Technik» in Year six has an informatics part alongside the science part. The informatics part has three topics. The first, by far the biggest with about eighteen lessons, is about representing information as text, images, diagrams and sound, and introduces objects, attributes, methods and classes. The second is a project, a multimedia presentation. The third, the subject of this video, is called «Hierarchische Informationsstrukturen», hierarchical information structures, with the file system as the example. It is short, about five lessons, but it introduces the tree, one of the most important structures in informatics.",
     "suggestedVisual": "bullets"
    },
    {
@@ -155,21 +155,21 @@
     "id": 6,
     "chapterId": 2,
     "purpose": "explain",
-    "keyPoint": "Idea two: the path, «der Pfad». It describes the way from the root to a file, folder by folder, separated by slashes: Mia, Fotos, Urlaub, strand dot j p g. «Fotos» is photos, «Urlaub» is holiday. On Windows the backslash appears instead; the meaning is the same. What matters is uniqueness: two files may share a name if they sit in different folders, because their paths differ. Every computer relies on this, and it is the reason the file system must be a tree and not a web.",
+    "keyPoint": "Idea two: the path, «der Pfad». It describes the way from the root to a file, folder by folder, separated by slashes: Mia, «Fotos», «Urlaub», strand dot j p g, a photo of the beach. «Fotos» is photos, «Urlaub» is holiday. On Windows the backslash appears instead; the meaning is the same. What matters is uniqueness: two files may share a name if they sit in different folders, because their paths differ. This is why the school model is a tree and not a web: every file has exactly one parent folder, so exactly one way leads from the root to it.",
     "suggestedVisual": "math3d"
    },
    {
     "id": 7,
     "chapterId": 2,
     "purpose": "explain",
-    "keyPoint": "Idea three: the classes. Bavarian school informatics describes the world in an object-oriented way from the very start. The class «ORDNER» has the attribute «name». The class «DATEI» has «name» and «größe», size. The relationship «enthält», contains, is drawn as an arrow. Every actual folder and file is an object of its class. The arrow from folder to file means contains. The arrow from folder back to folder is the recursive link, «rekursiv»: a folder contains folders. That one word explains why a tree can grow as deep as you like.",
+    "keyPoint": "Idea three: the classes. Bavarian school informatics describes the world in an object-oriented way from the very start. The class «ORDNER» has the attribute «name». The class «DATEI» has «name» and «größe», size. The relationship «enthält», contains, is drawn as an arrow. Every actual folder and file is an object of its class, written in lower case: the object «aufsatz» of class «DATEI» has the name Aufsatz dot t x t, in dot notation «aufsatz Punkt name». The arrow from folder to file means contains; «enthält» is a relationship drawn as an arrow, not an attribute. The arrow from folder back to folder is the recursive link, «rekursiv»: a folder contains folders. That one word explains why a tree can grow as deep as you like.",
     "suggestedVisual": "math3d"
    },
    {
     "id": 8,
     "chapterId": 2,
     "purpose": "explain",
-    "keyPoint": "Idea four: a little statistics. In this model only files have a size; a folder's size is the sum of all files inside it, down to the leaves. «Schule», school, ten megabytes; photos seventeen; music fifteen. As a bar chart, «Säulendiagramm», the comparison is visible at a glance, and this links the topic to the first informatics topic: the same information shown as a list, as a tree or as a chart. And the calculation itself is recursive again: a folder's size needs the sizes of its subfolders.",
+    "keyPoint": "Idea four: a little statistics. In this model only files have a size; a folder's size is the sum of all files inside it, down to the leaves. «Schule», school, ten megabytes; «Fotos», photos, seventeen, the biggest bar and therefore highlighted; «Musik», music, fifteen. As a bar chart, «Säulendiagramm», the comparison is visible at a glance, and this links the topic to the first informatics topic: the same information shown as a list, as a tree or as a chart. And the calculation itself is recursive again: a folder's size needs the sizes of its subfolders.",
     "suggestedVisual": "math3d"
    },
    {
@@ -183,21 +183,21 @@
     "id": 10,
     "chapterId": 3,
     "purpose": "explain",
-    "keyPoint": "A file is «die Datei», a folder «der Ordner», and the whole arrangement «das Dateisystem». The tree is «der Baum», its root «die Wurzel», a node «der Knoten», plural «die Knoten». An edge is «die Kante», a leaf «das Blatt», plural «die Blätter». The path is «der Pfad». The file extension, the part after the dot, is «die Dateiendung». One trap: «Ordner» in everyday German also means a ring binder, the thing with paper in it, which is exactly the picture the word is meant to give.",
+    "keyPoint": "A file is «die Datei», plural «die Dateien»; a folder is «der Ordner», unchanged in the plural; the whole arrangement is «das Dateisystem». The tree is «der Baum», its root «die Wurzel», a node «der Knoten», plural «die Knoten». An edge is «die Kante», a leaf «das Blatt», plural «die Blätter». The path is «der Pfad». The file extension, the part after the dot, is «die Dateiendung». One trap: «Ordner» in everyday German also means a ring binder, the thing with paper in it, much like the English word folder, which also comes from paper filing.",
     "suggestedVisual": "bullets"
    },
    {
     "id": 11,
     "chapterId": 3,
     "purpose": "explain",
-    "keyPoint": "The class is «die Klasse», written in capitals in Bavarian schoolbooks: «ORDNER», «DATEI». An object is «das Objekt», one concrete folder or file, written in lower case. An attribute is «das Attribut»: «name», or «größe», which means size. Dot notation is «die Punktnotation»: object dot attribute, as in «aufsatz Punkt name». The link between classes is «die Beziehung», relationship, and when it points back to the same class it is «rekursiv». These words will follow your child through every informatics lesson until the Abitur.",
+    "keyPoint": "The class is «die Klasse», written in capitals in Bavarian schoolbooks: «ORDNER», «DATEI». An object is «das Objekt», one concrete folder or file, written in lower case. An attribute is «das Attribut»: «name», or «größe», which means size. Dot notation is «die Punktnotation»: object dot attribute, as in «aufsatz Punkt name». The link between classes is «die Beziehung», relationship, and when it points back to the same class it is «rekursiv». These words come back in later informatics lessons, though how far depends on the school and the course your child chooses.",
     "suggestedVisual": "bullets"
    },
    {
     "id": 12,
     "chapterId": 3,
     "purpose": "explain",
-    "keyPoint": "A quick check for you. Your child points at the picture and says: «Der Ordner Urlaub ist kein Blatt». The folder Urlaub is not a leaf. Is that right, and why? Take a moment. Remember the definition: a leaf is a node without children. What hangs below the holiday folder?",
+    "keyPoint": "A quick check for you. Your child points at the picture and says: «Der Ordner Urlaub ist kein Blatt». The folder «Urlaub», holiday, is not a leaf. Is that right, and why? Take a moment. Remember the definition: a leaf is a node without children. What hangs below the holiday folder?",
     "suggestedVisual": "question"
    },
    {
@@ -232,7 +232,7 @@
     "id": 17,
     "chapterId": 4,
     "purpose": "explain",
-    "keyPoint": "Exercise three: show the sizes of the top folders, on a computer via properties or get info, and sketch a bar chart together. Ask: why is this folder so big, which files inside make it so? That is the recursive idea in practice. Then tidy up: create sensible folders, give files meaningful names, delete duplicates. A child who organises their own tree has understood the topic, and finds their homework again as a bonus.",
+    "keyPoint": "Exercise three: show the sizes of the top folders, on a computer via properties or get info, and sketch a bar chart together. Ask: why is this folder so big, which files inside make it so? That is the recursive idea in practice. Then tidy up: create sensible folders, give files meaningful names, delete duplicates. A child who organises their own tree is well on the way to understanding the topic, and finds their homework again as a bonus.",
     "suggestedVisual": "bullets"
    },
    {
@@ -246,21 +246,21 @@
     "id": 19,
     "chapterId": 5,
     "purpose": "explain",
-    "keyPoint": "Four misconceptions from many classes. One: a folder stores content itself. No, it only contains; only files carry information and size. Two: the tree grows upwards like a real one. In informatics the root is at the top. Three: leaf is just another word for file. Almost, but the definition is a node without children, and an empty folder counts. Four, the most stubborn: with a search box nobody needs structure. Phones hide the tree, but it is there, and a child who understands paths finds files even when search fails.",
+    "keyPoint": "Four misconceptions from many classes. One: a folder stores content itself. No, it only contains; in the school model only files carry information and size, and the computer shows a folder's size as the sum of its files. Two: the tree grows upwards like a real one. In informatics the root is at the top. Three: leaf is just another word for file. Almost, but the definition is a node without children, and an empty folder counts. Four, the most stubborn: with a search box nobody needs structure. Phones hide the tree, but it is there, and a child who understands paths finds files even when search fails.",
     "suggestedVisual": "bullets"
    },
    {
     "id": 20,
     "chapterId": 5,
     "purpose": "explain",
-    "keyPoint": "In Year six, «Natur und Technik» is usually one of the subjects without the big written tests called «Schulaufgaben». Grades come from smaller pieces: short unannounced tests, «Stegreifaufgaben», oral participation, practical work at the computer, and in the informatics part often the presentation project from the second topic. Typical tasks on the file system: label a tree with the four terms, give the path of a file or find a file from its path, read a class diagram, assign objects to their class. How exactly your child's school handles this is the teacher's decision.",
+    "keyPoint": "In Year six, «Natur und Technik» is usually one of the subjects without the big written tests called «Schulaufgaben». Grades usually come from smaller pieces: short unannounced tests, «Stegreifaufgaben», oral participation, practical work at the computer, and in the informatics part often the presentation project from the second topic. Possible tasks on the file system include: label a tree with the four terms, give the path of a file or find a file from its path, read a class diagram, assign objects to their class. How exactly your child's school handles this is the teacher's decision.",
     "suggestedVisual": "bullets"
    },
    {
     "id": 21,
     "chapterId": 5,
     "purpose": "explain",
-    "keyPoint": "How does it continue? In Year seven, informatics stays inside «Natur und Technik» and turns to algorithms and first programs. In later years informatics becomes a subject of its own. The way of thinking from Year six stays throughout: objects, classes, attributes and relationships are the foundation for everything that follows. And the tree keeps coming back, in document outlines, menus, databases and the structure of web pages. What your child learns now at the file system is a basic pattern of the whole discipline, not a side topic.",
+    "keyPoint": "How does it continue? In the following years informatics usually continues, first inside «Natur und Technik» and later in lessons of its own; the exact timetable depends on the school and the branch of the Gymnasium, so check the school's own information. The way of thinking from Year six carries on: objects, classes, attributes and relationships are the foundation for everything that follows. And the tree keeps coming back, in document outlines, menus, databases and the structure of web pages. What your child learns now at the file system is a basic pattern of the whole discipline, not a side topic.",
     "suggestedVisual": "bullets"
    },
    {
@@ -275,7 +275,7 @@
  "chapterBeats": {
   "1": [
    {
-    "narration": "Many parents are surprised that their eleven-year-old already has informatics. At a Bavarian Gymnasium it sits inside the science subject «Natur und Technik», and it does not start with coding. It starts with order: how do you describe the things inside a computer, and how are they arranged? This video is for parents who do not speak German. In about twelve minutes you learn what the curriculum expects, which pictures carry the ideas, the German words your child will use, and how to practise at the computer at home without reading a single worksheet.",
+    "narration": "Many parents are surprised that their eleven-year-old already has informatics. At a Bavarian Gymnasium it sits inside the science subject «Natur und Technik», and it does not start with coding. It starts with order: how do you describe the things inside a computer, and how are they arranged? This video is for parents who do not speak German. You learn what the curriculum expects, which pictures carry the ideas, the German words your child will use, and how to practise at the computer at home without needing any German.",
     "onScreenTitle": "Informatics: the file system as a tree",
     "question": null,
     "think": null,
@@ -305,7 +305,7 @@
     "stockQuery": null
    },
    {
-    "narration": "In the Bavarian curriculum, the «LehrplanPLUS», the subject «Natur und Technik» in Year six has a biology part and an informatics part. The informatics part has three topics. The first is about representing information in graphics, text and multimedia documents, and introduces objects, attributes, methods and classes. The second is a project, a multimedia presentation. The third, the subject of this video, is called «Hierarchische Informationsstrukturen», hierarchical information structures, with the file system as the example. It is short, about five lessons, but it introduces the tree, one of the most important structures in informatics.",
+    "narration": "In the Bavarian curriculum, the «LehrplanPLUS», the subject «Natur und Technik» in Year six has an informatics part alongside the science part. The informatics part has three topics. The first, by far the biggest with about eighteen lessons, is about representing information as text, images, diagrams and sound, and introduces objects, attributes, methods and classes. The second is a project, a multimedia presentation. The third, the subject of this video, is called «Hierarchische Informationsstrukturen», hierarchical information structures, with the file system as the example. It is short, about five lessons, but it introduces the tree, one of the most important structures in informatics.",
     "onScreenTitle": "Informatics inside Natur und Technik",
     "question": null,
     "think": null,
@@ -448,7 +448,7 @@
     "stockQuery": null
    },
    {
-    "narration": "Idea two: the path, «der Pfad». It describes the way from the root to a file, folder by folder, separated by slashes: Mia, Fotos, Urlaub, strand dot j p g. «Fotos» is photos, «Urlaub» is holiday. On Windows the backslash appears instead; the meaning is the same. What matters is uniqueness: two files may share a name if they sit in different folders, because their paths differ. Every computer relies on this, and it is the reason the file system must be a tree and not a web.",
+    "narration": "Idea two: the path, «der Pfad». It describes the way from the root to a file, folder by folder, separated by slashes: Mia, «Fotos», «Urlaub», strand dot j p g, a photo of the beach. «Fotos» is photos, «Urlaub» is holiday. On Windows the backslash appears instead; the meaning is the same. What matters is uniqueness: two files may share a name if they sit in different folders, because their paths differ. This is why the school model is a tree and not a web: every file has exactly one parent folder, so exactly one way leads from the root to it.",
     "onScreenTitle": "Idea 2: the path gives directions",
     "question": null,
     "think": null,
@@ -484,7 +484,7 @@
     "stockQuery": null
    },
    {
-    "narration": "Idea three: the classes. Bavarian school informatics describes the world in an object-oriented way from the very start. The class «ORDNER» has the attribute «name». The class «DATEI» has «name» and «größe», size. The relationship «enthält», contains, is drawn as an arrow. Every actual folder and file is an object of its class. The arrow from folder to file means contains. The arrow from folder back to folder is the recursive link, «rekursiv»: a folder contains folders. That one word explains why a tree can grow as deep as you like.",
+    "narration": "Idea three: the classes. Bavarian school informatics describes the world in an object-oriented way from the very start. The class «ORDNER» has the attribute «name». The class «DATEI» has «name» and «größe», size. The relationship «enthält», contains, is drawn as an arrow. Every actual folder and file is an object of its class, written in lower case: the object «aufsatz» of class «DATEI» has the name Aufsatz dot t x t, in dot notation «aufsatz Punkt name». The arrow from folder to file means contains; «enthält» is a relationship drawn as an arrow, not an attribute. The arrow from folder back to folder is the recursive link, «rekursiv»: a folder contains folders. That one word explains why a tree can grow as deep as you like.",
     "onScreenTitle": "Idea 3: two classes, one recursive link",
     "question": null,
     "think": null,
@@ -520,7 +520,7 @@
     "stockQuery": null
    },
    {
-    "narration": "Idea four: a little statistics. In this model only files have a size; a folder's size is the sum of all files inside it, down to the leaves. «Schule», school, ten megabytes; photos seventeen; music fifteen. As a bar chart, «Säulendiagramm», the comparison is visible at a glance, and this links the topic to the first informatics topic: the same information shown as a list, as a tree or as a chart. And the calculation itself is recursive again: a folder's size needs the sizes of its subfolders.",
+    "narration": "Idea four: a little statistics. In this model only files have a size; a folder's size is the sum of all files inside it, down to the leaves. «Schule», school, ten megabytes; «Fotos», photos, seventeen, the biggest bar and therefore highlighted; «Musik», music, fifteen. As a bar chart, «Säulendiagramm», the comparison is visible at a glance, and this links the topic to the first informatics topic: the same information shown as a list, as a tree or as a chart. And the calculation itself is recursive again: a folder's size needs the sizes of its subfolders.",
     "onScreenTitle": "Idea 4: folder sizes as a chart",
     "question": null,
     "think": null,
@@ -592,7 +592,7 @@
     "stockQuery": null
    },
    {
-    "narration": "A file is «die Datei», a folder «der Ordner», and the whole arrangement «das Dateisystem». The tree is «der Baum», its root «die Wurzel», a node «der Knoten», plural «die Knoten». An edge is «die Kante», a leaf «das Blatt», plural «die Blätter». The path is «der Pfad». The file extension, the part after the dot, is «die Dateiendung». One trap: «Ordner» in everyday German also means a ring binder, the thing with paper in it, which is exactly the picture the word is meant to give.",
+    "narration": "A file is «die Datei», plural «die Dateien»; a folder is «der Ordner», unchanged in the plural; the whole arrangement is «das Dateisystem». The tree is «der Baum», its root «die Wurzel», a node «der Knoten», plural «die Knoten». An edge is «die Kante», a leaf «das Blatt», plural «die Blätter». The path is «der Pfad». The file extension, the part after the dot, is «die Dateiendung». One trap: «Ordner» in everyday German also means a ring binder, the thing with paper in it, much like the English word folder, which also comes from paper filing.",
     "onScreenTitle": "Tree words",
     "question": null,
     "think": null,
@@ -627,7 +627,7 @@
     "stockQuery": null
    },
    {
-    "narration": "The class is «die Klasse», written in capitals in Bavarian schoolbooks: «ORDNER», «DATEI». An object is «das Objekt», one concrete folder or file, written in lower case. An attribute is «das Attribut»: «name», or «größe», which means size. Dot notation is «die Punktnotation»: object dot attribute, as in «aufsatz Punkt name». The link between classes is «die Beziehung», relationship, and when it points back to the same class it is «rekursiv». These words will follow your child through every informatics lesson until the Abitur.",
+    "narration": "The class is «die Klasse», written in capitals in Bavarian schoolbooks: «ORDNER», «DATEI». An object is «das Objekt», one concrete folder or file, written in lower case. An attribute is «das Attribut»: «name», or «größe», which means size. Dot notation is «die Punktnotation»: object dot attribute, as in «aufsatz Punkt name». The link between classes is «die Beziehung», relationship, and when it points back to the same class it is «rekursiv». These words come back in later informatics lessons, though how far depends on the school and the course your child chooses.",
     "onScreenTitle": "Class and object words",
     "question": null,
     "think": null,
@@ -662,7 +662,7 @@
     "stockQuery": null
    },
    {
-    "narration": "A quick check for you. Your child points at the picture and says: «Der Ordner Urlaub ist kein Blatt». The folder Urlaub is not a leaf. Is that right, and why? Take a moment. Remember the definition: a leaf is a node without children. What hangs below the holiday folder?",
+    "narration": "A quick check for you. Your child points at the picture and says: «Der Ordner Urlaub ist kein Blatt». The folder «Urlaub», holiday, is not a leaf. Is that right, and why? Take a moment. Remember the definition: a leaf is a node without children. What hangs below the holiday folder?",
     "onScreenTitle": "The words your child brings home",
     "question": "Your child says: \"Der Ordner Urlaub ist kein Blatt.\" Is that right, and why?",
     "think": 6,
@@ -832,7 +832,7 @@
     "stockQuery": null
    },
    {
-    "narration": "Exercise three: show the sizes of the top folders, on a computer via properties or get info, and sketch a bar chart together. Ask: why is this folder so big, which files inside make it so? That is the recursive idea in practice. Then tidy up: create sensible folders, give files meaningful names, delete duplicates. A child who organises their own tree has understood the topic, and finds their homework again as a bonus.",
+    "narration": "Exercise three: show the sizes of the top folders, on a computer via properties or get info, and sketch a bar chart together. Ask: why is this folder so big, which files inside make it so? That is the recursive idea in practice. Then tidy up: create sensible folders, give files meaningful names, delete duplicates. A child who organises their own tree is well on the way to understanding the topic, and finds their homework again as a bonus.",
     "onScreenTitle": "Exercise 3: compare sizes and tidy up",
     "question": null,
     "think": null,
@@ -903,7 +903,7 @@
     "stockQuery": null
    },
    {
-    "narration": "Four misconceptions from many classes. One: a folder stores content itself. No, it only contains; only files carry information and size. Two: the tree grows upwards like a real one. In informatics the root is at the top. Three: leaf is just another word for file. Almost, but the definition is a node without children, and an empty folder counts. Four, the most stubborn: with a search box nobody needs structure. Phones hide the tree, but it is there, and a child who understands paths finds files even when search fails.",
+    "narration": "Four misconceptions from many classes. One: a folder stores content itself. No, it only contains; in the school model only files carry information and size, and the computer shows a folder's size as the sum of its files. Two: the tree grows upwards like a real one. In informatics the root is at the top. Three: leaf is just another word for file. Almost, but the definition is a node without children, and an empty folder counts. Four, the most stubborn: with a search box nobody needs structure. Phones hide the tree, but it is there, and a child who understands paths finds files even when search fails.",
     "onScreenTitle": "Four common misconceptions",
     "question": null,
     "think": null,
@@ -938,7 +938,7 @@
     "stockQuery": null
    },
    {
-    "narration": "In Year six, «Natur und Technik» is usually one of the subjects without the big written tests called «Schulaufgaben». Grades come from smaller pieces: short unannounced tests, «Stegreifaufgaben», oral participation, practical work at the computer, and in the informatics part often the presentation project from the second topic. Typical tasks on the file system: label a tree with the four terms, give the path of a file or find a file from its path, read a class diagram, assign objects to their class. How exactly your child's school handles this is the teacher's decision.",
+    "narration": "In Year six, «Natur und Technik» is usually one of the subjects without the big written tests called «Schulaufgaben». Grades usually come from smaller pieces: short unannounced tests, «Stegreifaufgaben», oral participation, practical work at the computer, and in the informatics part often the presentation project from the second topic. Possible tasks on the file system include: label a tree with the four terms, give the path of a file or find a file from its path, read a class diagram, assign objects to their class. How exactly your child's school handles this is the teacher's decision.",
     "onScreenTitle": "How this subject is usually assessed",
     "question": null,
     "think": null,
@@ -973,7 +973,7 @@
     "stockQuery": null
    },
    {
-    "narration": "How does it continue? In Year seven, informatics stays inside «Natur und Technik» and turns to algorithms and first programs. In later years informatics becomes a subject of its own. The way of thinking from Year six stays throughout: objects, classes, attributes and relationships are the foundation for everything that follows. And the tree keeps coming back, in document outlines, menus, databases and the structure of web pages. What your child learns now at the file system is a basic pattern of the whole discipline, not a side topic.",
+    "narration": "How does it continue? In the following years informatics usually continues, first inside «Natur und Technik» and later in lessons of its own; the exact timetable depends on the school and the branch of the Gymnasium, so check the school's own information. The way of thinking from Year six carries on: objects, classes, attributes and relationships are the foundation for everything that follows. And the tree keeps coming back, in document outlines, menus, databases and the structure of web pages. What your child learns now at the file system is a basic pattern of the whole discipline, not a side topic.",
     "onScreenTitle": "What comes next: informatics stays",
     "question": null,
     "think": null,
@@ -987,10 +987,10 @@
     "segment": null,
     "formula": null,
     "bullets": [
-     "Year 7: algorithms and first programs, still inside NT",
-     "Later years: informatics as a subject of its own",
+     "Later years: informatics continues; details vary by school",
      "The way of thinking stays: object, class, attribute",
-     "The tree returns: outlines, menus, data, web pages"
+     "The tree returns: outlines, menus, data, web pages",
+     "Check the school's own information for the timetable"
     ],
     "nodes": null,
     "leftTitle": null,
@@ -1044,14 +1044,14 @@
    {
     "beatId": 1,
     "chapterId": 1,
-    "narration": "Many parents are surprised that their eleven-year-old already has informatics. At a Bavarian Gymnasium it sits inside the science subject «Natur und Technik», and it does not start with coding. It starts with order: how do you describe the things inside a computer, and how are they arranged? This video is for parents who do not speak German. In about twelve minutes you learn what the curriculum expects, which pictures carry the ideas, the German words your child will use, and how to practise at the computer at home without reading a single worksheet.",
+    "narration": "Many parents are surprised that their eleven-year-old already has informatics. At a Bavarian Gymnasium it sits inside the science subject «Natur und Technik», and it does not start with coding. It starts with order: how do you describe the things inside a computer, and how are they arranged? This video is for parents who do not speak German. You learn what the curriculum expects, which pictures carry the ideas, the German words your child will use, and how to practise at the computer at home without needing any German.",
     "onScreenTitle": "Informatics: the file system as a tree",
     "emphasisWords": []
    },
    {
     "beatId": 2,
     "chapterId": 1,
-    "narration": "In the Bavarian curriculum, the «LehrplanPLUS», the subject «Natur und Technik» in Year six has a biology part and an informatics part. The informatics part has three topics. The first is about representing information in graphics, text and multimedia documents, and introduces objects, attributes, methods and classes. The second is a project, a multimedia presentation. The third, the subject of this video, is called «Hierarchische Informationsstrukturen», hierarchical information structures, with the file system as the example. It is short, about five lessons, but it introduces the tree, one of the most important structures in informatics.",
+    "narration": "In the Bavarian curriculum, the «LehrplanPLUS», the subject «Natur und Technik» in Year six has an informatics part alongside the science part. The informatics part has three topics. The first, by far the biggest with about eighteen lessons, is about representing information as text, images, diagrams and sound, and introduces objects, attributes, methods and classes. The second is a project, a multimedia presentation. The third, the subject of this video, is called «Hierarchische Informationsstrukturen», hierarchical information structures, with the file system as the example. It is short, about five lessons, but it introduces the tree, one of the most important structures in informatics.",
     "onScreenTitle": "Informatics inside Natur und Technik",
     "emphasisWords": []
    },
@@ -1079,21 +1079,21 @@
    {
     "beatId": 6,
     "chapterId": 2,
-    "narration": "Idea two: the path, «der Pfad». It describes the way from the root to a file, folder by folder, separated by slashes: Mia, Fotos, Urlaub, strand dot j p g. «Fotos» is photos, «Urlaub» is holiday. On Windows the backslash appears instead; the meaning is the same. What matters is uniqueness: two files may share a name if they sit in different folders, because their paths differ. Every computer relies on this, and it is the reason the file system must be a tree and not a web.",
+    "narration": "Idea two: the path, «der Pfad». It describes the way from the root to a file, folder by folder, separated by slashes: Mia, «Fotos», «Urlaub», strand dot j p g, a photo of the beach. «Fotos» is photos, «Urlaub» is holiday. On Windows the backslash appears instead; the meaning is the same. What matters is uniqueness: two files may share a name if they sit in different folders, because their paths differ. This is why the school model is a tree and not a web: every file has exactly one parent folder, so exactly one way leads from the root to it.",
     "onScreenTitle": "Idea 2: the path gives directions",
     "emphasisWords": []
    },
    {
     "beatId": 7,
     "chapterId": 2,
-    "narration": "Idea three: the classes. Bavarian school informatics describes the world in an object-oriented way from the very start. The class «ORDNER» has the attribute «name». The class «DATEI» has «name» and «größe», size. The relationship «enthält», contains, is drawn as an arrow. Every actual folder and file is an object of its class. The arrow from folder to file means contains. The arrow from folder back to folder is the recursive link, «rekursiv»: a folder contains folders. That one word explains why a tree can grow as deep as you like.",
+    "narration": "Idea three: the classes. Bavarian school informatics describes the world in an object-oriented way from the very start. The class «ORDNER» has the attribute «name». The class «DATEI» has «name» and «größe», size. The relationship «enthält», contains, is drawn as an arrow. Every actual folder and file is an object of its class, written in lower case: the object «aufsatz» of class «DATEI» has the name Aufsatz dot t x t, in dot notation «aufsatz Punkt name». The arrow from folder to file means contains; «enthält» is a relationship drawn as an arrow, not an attribute. The arrow from folder back to folder is the recursive link, «rekursiv»: a folder contains folders. That one word explains why a tree can grow as deep as you like.",
     "onScreenTitle": "Idea 3: two classes, one recursive link",
     "emphasisWords": []
    },
    {
     "beatId": 8,
     "chapterId": 2,
-    "narration": "Idea four: a little statistics. In this model only files have a size; a folder's size is the sum of all files inside it, down to the leaves. «Schule», school, ten megabytes; photos seventeen; music fifteen. As a bar chart, «Säulendiagramm», the comparison is visible at a glance, and this links the topic to the first informatics topic: the same information shown as a list, as a tree or as a chart. And the calculation itself is recursive again: a folder's size needs the sizes of its subfolders.",
+    "narration": "Idea four: a little statistics. In this model only files have a size; a folder's size is the sum of all files inside it, down to the leaves. «Schule», school, ten megabytes; «Fotos», photos, seventeen, the biggest bar and therefore highlighted; «Musik», music, fifteen. As a bar chart, «Säulendiagramm», the comparison is visible at a glance, and this links the topic to the first informatics topic: the same information shown as a list, as a tree or as a chart. And the calculation itself is recursive again: a folder's size needs the sizes of its subfolders.",
     "onScreenTitle": "Idea 4: folder sizes as a chart",
     "emphasisWords": []
    },
@@ -1107,21 +1107,21 @@
    {
     "beatId": 10,
     "chapterId": 3,
-    "narration": "A file is «die Datei», a folder «der Ordner», and the whole arrangement «das Dateisystem». The tree is «der Baum», its root «die Wurzel», a node «der Knoten», plural «die Knoten». An edge is «die Kante», a leaf «das Blatt», plural «die Blätter». The path is «der Pfad». The file extension, the part after the dot, is «die Dateiendung». One trap: «Ordner» in everyday German also means a ring binder, the thing with paper in it, which is exactly the picture the word is meant to give.",
+    "narration": "A file is «die Datei», plural «die Dateien»; a folder is «der Ordner», unchanged in the plural; the whole arrangement is «das Dateisystem». The tree is «der Baum», its root «die Wurzel», a node «der Knoten», plural «die Knoten». An edge is «die Kante», a leaf «das Blatt», plural «die Blätter». The path is «der Pfad». The file extension, the part after the dot, is «die Dateiendung». One trap: «Ordner» in everyday German also means a ring binder, the thing with paper in it, much like the English word folder, which also comes from paper filing.",
     "onScreenTitle": "Tree words",
     "emphasisWords": []
    },
    {
     "beatId": 11,
     "chapterId": 3,
-    "narration": "The class is «die Klasse», written in capitals in Bavarian schoolbooks: «ORDNER», «DATEI». An object is «das Objekt», one concrete folder or file, written in lower case. An attribute is «das Attribut»: «name», or «größe», which means size. Dot notation is «die Punktnotation»: object dot attribute, as in «aufsatz Punkt name». The link between classes is «die Beziehung», relationship, and when it points back to the same class it is «rekursiv». These words will follow your child through every informatics lesson until the Abitur.",
+    "narration": "The class is «die Klasse», written in capitals in Bavarian schoolbooks: «ORDNER», «DATEI». An object is «das Objekt», one concrete folder or file, written in lower case. An attribute is «das Attribut»: «name», or «größe», which means size. Dot notation is «die Punktnotation»: object dot attribute, as in «aufsatz Punkt name». The link between classes is «die Beziehung», relationship, and when it points back to the same class it is «rekursiv». These words come back in later informatics lessons, though how far depends on the school and the course your child chooses.",
     "onScreenTitle": "Class and object words",
     "emphasisWords": []
    },
    {
     "beatId": 12,
     "chapterId": 3,
-    "narration": "A quick check for you. Your child points at the picture and says: «Der Ordner Urlaub ist kein Blatt». The folder Urlaub is not a leaf. Is that right, and why? Take a moment. Remember the definition: a leaf is a node without children. What hangs below the holiday folder?",
+    "narration": "A quick check for you. Your child points at the picture and says: «Der Ordner Urlaub ist kein Blatt». The folder «Urlaub», holiday, is not a leaf. Is that right, and why? Take a moment. Remember the definition: a leaf is a node without children. What hangs below the holiday folder?",
     "onScreenTitle": "The words your child brings home",
     "emphasisWords": []
    },
@@ -1156,7 +1156,7 @@
    {
     "beatId": 17,
     "chapterId": 4,
-    "narration": "Exercise three: show the sizes of the top folders, on a computer via properties or get info, and sketch a bar chart together. Ask: why is this folder so big, which files inside make it so? That is the recursive idea in practice. Then tidy up: create sensible folders, give files meaningful names, delete duplicates. A child who organises their own tree has understood the topic, and finds their homework again as a bonus.",
+    "narration": "Exercise three: show the sizes of the top folders, on a computer via properties or get info, and sketch a bar chart together. Ask: why is this folder so big, which files inside make it so? That is the recursive idea in practice. Then tidy up: create sensible folders, give files meaningful names, delete duplicates. A child who organises their own tree is well on the way to understanding the topic, and finds their homework again as a bonus.",
     "onScreenTitle": "Exercise 3: compare sizes and tidy up",
     "emphasisWords": []
    },
@@ -1170,21 +1170,21 @@
    {
     "beatId": 19,
     "chapterId": 5,
-    "narration": "Four misconceptions from many classes. One: a folder stores content itself. No, it only contains; only files carry information and size. Two: the tree grows upwards like a real one. In informatics the root is at the top. Three: leaf is just another word for file. Almost, but the definition is a node without children, and an empty folder counts. Four, the most stubborn: with a search box nobody needs structure. Phones hide the tree, but it is there, and a child who understands paths finds files even when search fails.",
+    "narration": "Four misconceptions from many classes. One: a folder stores content itself. No, it only contains; in the school model only files carry information and size, and the computer shows a folder's size as the sum of its files. Two: the tree grows upwards like a real one. In informatics the root is at the top. Three: leaf is just another word for file. Almost, but the definition is a node without children, and an empty folder counts. Four, the most stubborn: with a search box nobody needs structure. Phones hide the tree, but it is there, and a child who understands paths finds files even when search fails.",
     "onScreenTitle": "Four common misconceptions",
     "emphasisWords": []
    },
    {
     "beatId": 20,
     "chapterId": 5,
-    "narration": "In Year six, «Natur und Technik» is usually one of the subjects without the big written tests called «Schulaufgaben». Grades come from smaller pieces: short unannounced tests, «Stegreifaufgaben», oral participation, practical work at the computer, and in the informatics part often the presentation project from the second topic. Typical tasks on the file system: label a tree with the four terms, give the path of a file or find a file from its path, read a class diagram, assign objects to their class. How exactly your child's school handles this is the teacher's decision.",
+    "narration": "In Year six, «Natur und Technik» is usually one of the subjects without the big written tests called «Schulaufgaben». Grades usually come from smaller pieces: short unannounced tests, «Stegreifaufgaben», oral participation, practical work at the computer, and in the informatics part often the presentation project from the second topic. Possible tasks on the file system include: label a tree with the four terms, give the path of a file or find a file from its path, read a class diagram, assign objects to their class. How exactly your child's school handles this is the teacher's decision.",
     "onScreenTitle": "How this subject is usually assessed",
     "emphasisWords": []
    },
    {
     "beatId": 21,
     "chapterId": 5,
-    "narration": "How does it continue? In Year seven, informatics stays inside «Natur und Technik» and turns to algorithms and first programs. In later years informatics becomes a subject of its own. The way of thinking from Year six stays throughout: objects, classes, attributes and relationships are the foundation for everything that follows. And the tree keeps coming back, in document outlines, menus, databases and the structure of web pages. What your child learns now at the file system is a basic pattern of the whole discipline, not a side topic.",
+    "narration": "How does it continue? In the following years informatics usually continues, first inside «Natur und Technik» and later in lessons of its own; the exact timetable depends on the school and the branch of the Gymnasium, so check the school's own information. The way of thinking from Year six carries on: objects, classes, attributes and relationships are the foundation for everything that follows. And the tree keeps coming back, in document outlines, menus, databases and the structure of web pages. What your child learns now at the file system is a basic pattern of the whole discipline, not a side topic.",
     "onScreenTitle": "What comes next: informatics stays",
     "emphasisWords": []
    },
@@ -1196,14 +1196,15 @@
     "emphasisWords": []
    }
   ],
-  "totalWords": 1809
+  "totalWords": 1923
  },
  "review": {
   "approved": true,
   "issues": [],
   "claimsToVerify": [],
   "revisedNarration": {},
-  "mustFix": []
+  "mustFix": [],
+  "reviewer": "Claude Sonnet (Claude Code subagent), independent of the writer (Claude in Claude Code)"
  },
  "storyboard": {
   "scenes": [
@@ -2024,10 +2025,10 @@
     "title": "What comes next: informatics stays",
     "subtitle": null,
     "bullets": [
-     "Year 7: algorithms and first programs, still inside NT",
-     "Later years: informatics as a subject of its own",
+     "Later years: informatics continues; details vary by school",
      "The way of thinking stays: object, class, attribute",
-     "The tree returns: outlines, menus, data, web pages"
+     "The tree returns: outlines, menus, data, web pages",
+     "Check the school's own information for the timetable"
     ],
     "nodes": null,
     "leftTitle": null,

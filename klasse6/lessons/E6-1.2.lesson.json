@@ -287,17 +287,6 @@
         },
         {
           "kind": "bullets",
-          "onScreenTitle": "Übersetze nicht Wort für Wort",
-          "bullets": [
-            "Frag nicht: Wie heißt es auf Deutsch?",
-            "Frag: Ist die Zeit vorbei?",
-            "Frag: Zählt das Ergebnis jetzt?",
-            "Dann wähle die Zeitform"
-          ],
-          "narration": "Der Trick ist: Übersetze nicht Wort für Wort aus dem Deutschen. Stell dem Satz stattdessen zwei Fragen. Erstens: Ist die Zeit vorbei, steht ein Zeitpunkt dabei? Dann simple past. Zweitens: Geht es um das Ergebnis jetzt oder um Erfahrungen bis jetzt? Dann present perfect. Ich habe mein Zimmer aufgeräumt, es ist jetzt ordentlich: I have cleaned my room. Ich habe gestern aufgeräumt: I cleaned my room yesterday."
-        },
-        {
-          "kind": "bullets",
           "onScreenTitle": "Fragen und Verneinungen",
           "bullets": [
             "Simple past: Did you see it? I didn't.",
