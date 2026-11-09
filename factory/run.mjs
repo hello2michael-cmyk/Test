@@ -25,8 +25,12 @@
 //                     for children from the verified Bavarian syllabus (style course, 3D maths scenes, German voice)
 //   MINUTES           lesson length in minutes (default: the topic's videoMinutes)
 //   VARIANT           kinder (default) | eltern: the parents-and-teachers version of the topic (normal pace, Sie-form)
-//   TTS               piper:<voice>  e.g. piper:de_DE-thorsten-high (default for lessons): the voice is synthesised here
-//                     with Piper and handed to the page; the voice files are fetched into .piper/ on first use
+//   TTS               google:<voice>  e.g. google:de-DE-Chirp3-HD-Kore (default for lessons when GOOGLE_TTS_KEY is set):
+//                     Google Cloud Text-to-Speech, a studio-grade German voice; synthesised here and handed to the page
+//                     piper:<voice>   e.g. piper:de_DE-thorsten-high (default for lessons without a Google key): the voice
+//                     is synthesised here with Piper; the voice files are fetched into .piper/ on first use
+//                     When the Google voice fails, Piper takes over for that scene (so a render never stalls on a voice).
+//   GOOGLE_TTS_KEY    Google Cloud API key restricted to the Text-to-Speech API (repository secret in CI)
 //   REVIEWER          hf-text:<model id> for a second, different reviewer model (lessons default to Llama 3.3 70B)
 //   TIMEOUT_MIN, PATIENCE_MIN, PROFILE_DIR
 //   CRASH_TEST=<s>    test hook: crash the page once after <s> seconds (exercises the relaunch path)
@@ -35,6 +39,7 @@ import { chromium } from 'playwright';
 import fs from 'node:fs';
 import path from 'node:path';
 import { execSync, execFileSync } from 'node:child_process';
+import crypto from 'node:crypto';
 
 const env = (k, d) => (process.env[k] && process.env[k].trim()) || d;
 let phase = env('PHASE', 'all');
@@ -180,7 +185,13 @@ async function launch() {
       };
     });
   }
-  if (piper) await context.exposeFunction('__factoryTTS', (text, voice, speed) => { try { return synthPiper(text, speed); } catch (e) { return { error: e.message }; } });
+  if (google || piper) await context.exposeFunction('__factoryTTS', async (text, voice, speed) => {
+    if (google) {
+      try { return await synthGoogle(text, speed); }
+      catch (e) { console.log(`[factory] Google voice failed (${e.message})${piper ? '; Piper speaks this scene' : ''}`); if (!piper) return { error: e.message }; }
+    }
+    try { return synthPiper(text, speed); } catch (e) { return { error: e.message }; }
+  });
   page = context.pages()[0] || await context.newPage();
   page.on('pageerror', e => console.log('[page error]', e.message));
   page.on('crash', () => { crashed = true; console.log('[factory] the page crashed'); });
@@ -234,11 +245,28 @@ async function cacheHubFile(localUrl) {
   }
   await hubDownloads.get(rel);
 }
-// ---- External voice (Piper): German and other languages the in-browser Kokoro voice lacks ----
-const ttsSpec = env('TTS', lessonId ? 'piper:de_DE-thorsten-high' : '');
-let piper = null;
-if (ttsSpec.startsWith('piper:') && phase !== 'plan') {
-  const voice = ttsSpec.slice(6);
+// ---- External voices: German and other languages the in-browser Kokoro voice lacks ----
+// Google Cloud Text-to-Speech (studio-grade, needs GOOGLE_TTS_KEY) with Piper (free, local) as the fallback.
+const googleKey = env('GOOGLE_TTS_KEY', '');
+const ttsSpec = env('TTS', lessonId ? (googleKey ? 'google:de-DE-Chirp3-HD-Kore' : 'piper:de_DE-thorsten-high') : '');
+let google = null, piper = null;
+if (ttsSpec.startsWith('google:') && phase !== 'plan') {
+  const voice = ttsSpec.slice(7);
+  if (!googleKey) console.log(`[factory] WARNING: TTS=${ttsSpec} but no GOOGLE_TTS_KEY; using Piper instead`);
+  else {
+    const m = voice.match(/^([a-z]{2,3}-[A-Z]{2})-/);
+    google = { voice, languageCode: m ? m[1] : 'de-DE', sampleRate: 24000, cacheDir: path.join(outDir, '.tts-cache') };
+    fs.mkdirSync(google.cacheDir, { recursive: true });
+    try {
+      const probe = await synthGoogle('Hallo, das ist ein Test.', 1);
+      console.log(`[factory] voice: Google Cloud Text-to-Speech ${voice} (${probe.sampleRate} Hz)`);
+    } catch (e) { console.log(`[factory] WARNING: Google voice ${voice} unavailable (${e.message}); using Piper instead`); google = null; }
+  }
+}
+// Piper is set up whenever it may be needed: as the voice itself, or as the fallback behind Google.
+const piperVoice = ttsSpec.startsWith('piper:') ? ttsSpec.slice(6) : (ttsSpec.startsWith('google:') && lessonId ? 'de_DE-thorsten-high' : '');
+if (piperVoice && phase !== 'plan') {
+  const voice = piperVoice;
   const dir = path.resolve(env('PIPER_DIR', '.piper'));
   const model = path.join(dir, `${voice}.onnx`), config = model + '.json';
   try {
@@ -258,7 +286,47 @@ if (ttsSpec.startsWith('piper:') && phase !== 'plan') {
     const sampleRate = JSON.parse(fs.readFileSync(config, 'utf8')).audio?.sample_rate || 22050;
     piper = { model, sampleRate, voice };
     console.log(`[factory] voice: Piper ${voice} (${sampleRate} Hz)`);
-  } catch (e) { console.log(`[factory] WARNING: Piper voice unavailable (${e.message}); falling back to the in-browser Kokoro voice (English only). Install with: pip install piper-tts`); }
+  } catch (e) { console.log(`[factory] WARNING: Piper voice unavailable (${e.message}); ${google ? 'no fallback behind the Google voice' : 'falling back to the in-browser Kokoro voice (English only)'}. Install with: pip install piper-tts`); }
+}
+/** Google Cloud Text-to-Speech → 16-bit PCM (base64) + sample rate. Cached by text, so a relaunch after a crash is not billed twice. */
+async function synthGoogle(text, speed) {
+  const t = String(text || '').replace(/\s+/g, ' ').trim();
+  if (!t) return { b64: '', sampleRate: google.sampleRate };
+  const rate = Math.max(0.5, Math.min(2, speed || 1));
+  const key = crypto.createHash('sha1').update(`${google.voice}|${rate}|${t}`).digest('hex');
+  const cached = path.join(google.cacheDir, key + '.pcm');
+  if (fs.existsSync(cached)) return { b64: fs.readFileSync(cached).toString('base64'), sampleRate: google.sampleRate };
+  const body = JSON.stringify({
+    input: { text: t },
+    voice: { languageCode: google.languageCode, name: google.voice },
+    audioConfig: { audioEncoding: 'LINEAR16', sampleRateHertz: google.sampleRate, speakingRate: rate },
+  });
+  const url = `https://texttospeech.googleapis.com/v1/text:synthesize?key=${encodeURIComponent(googleKey)}`;
+  let json;
+  try {
+    const r = await fetch(url, { method: 'POST', headers: { 'content-type': 'application/json' }, body });
+    const txt = await r.text();
+    if (!r.ok) throw new Error(`HTTP ${r.status}: ${txt.slice(0, 300).replace(/\s+/g, ' ')}`);
+    json = JSON.parse(txt);
+  } catch (e) {
+    if (!/fetch failed/i.test(e.message)) throw e;
+    // Node's fetch ignores HTTPS_PROXY; curl honours it.
+    const out = execFileSync('curl', ['-sS', '--fail-with-body', '-X', 'POST', '-H', 'content-type: application/json', '--data-binary', '@-', url], { input: body, maxBuffer: 64 * 1024 * 1024 });
+    json = JSON.parse(out.toString('utf8'));
+  }
+  if (!json.audioContent) throw new Error('no audioContent in the response');
+  const wav = Buffer.from(json.audioContent, 'base64');
+  // LINEAR16 comes as a WAV file: skip the RIFF header and take the data chunk.
+  let pcm = wav, off = 12;
+  if (wav.length > 44 && wav.toString('ascii', 0, 4) === 'RIFF') {
+    while (off + 8 <= wav.length) {
+      const id = wav.toString('ascii', off, off + 4), size = wav.readUInt32LE(off + 4);
+      if (id === 'data') { pcm = wav.subarray(off + 8, Math.min(wav.length, off + 8 + size)); break; }
+      off += 8 + size + (size % 2);
+    }
+  }
+  fs.writeFileSync(cached, pcm);
+  return { b64: pcm.toString('base64'), sampleRate: google.sampleRate };
 }
 function synthPiper(text, speed) {
   const t = String(text || '').replace(/\s+/g, ' ').trim();

@@ -31,7 +31,7 @@ in Claude Code on your Claude subscription.
 3. `node klasse6/tools/make-plan.mjs klasse6/lessons/M6-1.2.lesson.json` turns it into `klasse6/lessons/M6-1.2/plan.json` (the format the
    factory renders) and a readable `plan.md`; Claude commits both.
 4. You open an issue titled `Lektion: M6-1.2` (from the GitHub app on a phone). The factory finds the committed plan and renders it with
-   the 3D scenes, a **German voice** (Piper, Thorsten), burned-in captions, chapters and the YouTube text, and posts the release links.
+   the 3D scenes, a **German voice** (Google Cloud Text-to-Speech, Chirp 3 HD, when the repository secret `GOOGLE_TTS_KEY` holds a Text-to-Speech API key; Piper/Thorsten otherwise and as fallback), burned-in captions, chapters and the YouTube text, and posts the release links. A line `stimme: de-DE-Chirp3-HD-Charon` in the issue picks another Google voice.
 
 **Two videos per topic.** `Lektion: <id>` is the children's lesson (slow, du-form, think-pauses; mark it "made for kids" on
 YouTube). `Eltern: <id>` is the parents-and-teachers version of the same topic, 8 to 10 minutes in Sie-form: what the Lehrplan

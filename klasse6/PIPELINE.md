@@ -21,7 +21,7 @@ Kinder dem Bild folgen können.
 
 ## Ablauf
 
-1. **Auftrag**: Issue-Titel `Lektion: M6-2.2` (oder Actions-Formular). Optional im Text: `minuten: 7`, `stimme: de`, `szenenminimum: 10`.
+1. **Auftrag**: Issue-Titel `Lektion: M6-2.2` (oder Actions-Formular). Optional im Text: `minuten: 7`, `stimme: de-DE-Chirp3-HD-Charon`.
 2. **Plan** (3–6 Min.): Planer schreibt den Plan, Plan-Prüfer kommentiert, Planer bessert nach (max. 2 Runden). Der Plan wird als Kommentar auf dem Issue gepostet, Szene für Szene, mit der gewählten 3D-Szene und ihren Parametern.
 3. **Freigabe**: Mensch antwortet `approve` oder mit Änderungswünschen (wie heute im Factory-Workflow).
 4. **Produktion** (20–40 Min.): Designer-Skript → Render → Gegen-Prüfer mit Standbildern → Korrekturschleife → finaler Render.
@@ -73,7 +73,11 @@ Die erste Fassung war zu schnell. Seitdem gilt für Lektionen:
 - **Eingang** `Lektion: <Thema-ID>` als Issue-Titel oder Feld im Actions-Formular; Themen-IDs in `klasse6/LEKTIONEN.md`.
 - **Eingecheckte Pläne** werden direkt gerendert (Workflow erkennt `klasse6/lessons/<ID>/plan.json`).
 - **Szenenart `math3d`** mit Parametern und `segment`; aufeinanderfolgende Szenen ohne `segment` spielen eine durchgehende Animation.
-- **Deutsche Stimme**: Piper (Thorsten, 22 kHz) im Fabrik-Prozess, Audiodaten per `__factoryTTS` in die Seite.
+- **Deutsche Stimme**: Google Cloud Text-to-Speech (Chirp 3 HD, 24 kHz; Standard `de-DE-Chirp3-HD-Kore`) im Fabrik-Prozess, sobald das
+  Repository-Secret `GOOGLE_TTS_KEY` gesetzt ist; sonst und als Rückfall Piper (Thorsten, 22 kHz). Audiodaten per `__factoryTTS` in die Seite.
+  Andere Stimme pro Video: Issue-Zeile `stimme: de-DE-Chirp3-HD-Charon` (oder `stimme: piper:de_DE-thorsten-high`). Synthese wird je Text
+  zwischengespeichert, ein Neustart nach Absturz kostet nichts doppelt. Kosten: etwa 30 US-Dollar je Million Zeichen, eine Lektion hat rund
+  6.000–10.000 Zeichen.
 - **Mindestdauer** 10 s je Szene; Lektionen ohne Stock-Clips.
 - Modellgestützter Weg (Fallback): Lehrplan-Brief aus dem Syllabus, Kinderregeln für alle Agenten, zweites Prüf-Modell mit Korrekturschleife.
 
