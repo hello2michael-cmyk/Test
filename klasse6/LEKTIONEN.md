@@ -20,7 +20,7 @@ Fertige Videos (GitHub-Releases, 90 Tage abrufbar; alle ohne Hintergrundmusik):
 | Kinder-Lektion M6-1.1 Brüche | Leda | ca. 13:30 | https://github.com/hello2michael-cmyk/Test/releases/tag/video-25 |
 | Kinder-Lektion D6-4.2 Satzglieder | Leda | ca. 13:00 | https://github.com/hello2michael-cmyk/Test/releases/tag/video-26 |
 | Eltern-Lektion M6-1.1 Brüche | Charon | ca. 10:00 | https://github.com/hello2michael-cmyk/Test/releases/tag/video-27 |
-| English-Lektion M6-1.1 Fractions | Charon (en-US + de-DE) | ca. 12:00 | https://github.com/hello2michael-cmyk/Test/releases/tag/video-28 |
+| English-Lektion M6-1.1 Fractions | Charon (en-US + de-DE) | ca. 12:00 | https://github.com/hello2michael-cmyk/Test/releases/tag/video-29 |
 | Stimmvergleich Eltern M6-1.1 | Kore / Charon / Leda | ca. 10:00 | video-20 / video-21 / video-22 |
 
 Reihenfolge: zuerst Mathematik (fertige 3D-Szenen), dann Deutsch (Satzglieder-Szene vorhanden), Natur und Technik, Geschichte, Fremdsprachen, dann der Rest.
