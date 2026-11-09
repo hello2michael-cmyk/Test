@@ -1,0 +1,5 @@
+{
+  "note": "Published YouTube links per video (filled in as videos go live); used by tools/youtube-texts.mjs for the cross-links in descriptions.",
+  "playlists": { "kinder": "", "eltern": "", "international": "" },
+  "videos": { "M6-1.1/kinder": "https://youtu.be/OreoWV9jtjo" }
+}
