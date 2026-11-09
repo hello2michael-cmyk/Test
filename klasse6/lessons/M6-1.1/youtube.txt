@@ -2,7 +2,7 @@ TITLE
 Brüche verstehen: Bruchteile und Bruchzahlen | Mathe Klasse 6 Gymnasium Bayern
 
 DESCRIPTION
-Was ist ein Bruch? In dieser Lektion lernst du mit einer 3D-Pizza, was Zähler und Nenner bedeuten, wie du Bruchteile und das Ganze berechnest, warum Erweitern und Kürzen den Wert nicht ändern, wie du Brüche mit dem Hauptnenner vergleichst und warum 25 % dasselbe ist wie ein Viertel. Zum Schluss siehst du, dass Brüche Zahlen auf der Zahlengeraden sind, auch negative.
+Was ist ein Bruch? In dieser Lektion lernst du mit 3D-Pizzen, einem Streifen, einem Hunderterfeld und der Zahlengeraden, was Zähler und Nenner bedeuten, wie du Bruchteile und das Ganze berechnest, warum Erweitern und Kürzen den Wert nicht ändern, wie du Brüche mit dem Hauptnenner vergleichst und warum 25 % dasselbe ist wie ein Viertel. In jedem Kapitel gibt es eine Frage an dich mit Zeit zum Nachdenken.
 
 Passt zum LehrplanPLUS Gymnasium Bayern, Mathematik Jahrgangsstufe 6, Lernbereich M6 1.1 Bruchteile und Bruchzahlen.
 
@@ -10,10 +10,10 @@ Du lernst: Zähler und Nenner · Bruchteil und Ganzes berechnen · Erweitern und
 
 Chapters
 0:00 Ein Stück vom Ganzen
-1:04 Zähler und Nenner
-2:14 Erweitern und Kürzen
-3:49 Brüche vergleichen
-5:02 Brüche sind Zahlen
+2:23 Zähler und Nenner
+5:03 Erweitern und Kürzen
+7:39 Brüche vergleichen
+10:30 Brüche sind Zahlen
 
 TAGS (paste as comma-separated)
 brüche, bruchrechnung, mathe klasse 6, gymnasium bayern, lehrplanplus, zähler nenner, erweitern kürzen, hauptnenner, brüche vergleichen, prozent, zahlengerade, mathe lernen, 6. klasse mathe, bruchteile
@@ -22,7 +22,7 @@ THUMBNAIL TEXT
 BRÜCHE VERSTEHEN
 
 PINNED COMMENT
-Welche Aufgabe fandest du am schwersten? Schreib sie in die Kommentare, dann erkläre ich sie in einem kurzen Video.
+Welche Frage im Video fandest du am schwersten? Schreib sie in die Kommentare.
 
 CAPTIONS
 Upload captions.srt in YouTube Studio → Subtitles (or rely on the burned-in captions).
@@ -31,10 +31,9 @@ BEFORE YOU PUBLISH — verify these claims (the reviewer flagged them)
 (none)
 
 REVIEWER NOTES
-• Hauptnenner über Primfaktorzerlegung wird nicht behandelt (Ausblick für eine eigene kurze Lektion)
-• Kürzen von 4/12 wird nur gesprochen und im Titel gezeigt, nicht in der Animation
+• Nicht behandelt (eigene Lektionen): Hauptnenner über Primfaktorzerlegung, Brüche größer als 1 (gemischte Zahlen), Kürzen von 4/12 wird im Bild nicht gruppiert gezeigt
 
 FOOTAGE CREDITS (free licences; attribution appreciated, not required)
 (none)
 
-Produced in the browser, on this device: 1280×720, 30 fps, 380.8 s.
+Produced in the browser, on this device: 1280×720, 30 fps, 809.5 s.
