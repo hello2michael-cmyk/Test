@@ -1,9 +1,9 @@
 {
  "id": "current",
- "prompt": "Eltern-Lektion E6-1.2 „Verfügen über sprachliche Mittel“ (Englisch (1. Fremdsprache), Klasse 6 Gymnasium Bayern), aus klasse6/lessons/E6-1.2.eltern.lesson.json. 12 Minuten, auf Deutsch, für Eltern und Lehrkräfte.",
+ "prompt": "Eltern-Lektion E6-1.2 „Verfügen über sprachliche Mittel“ (Englisch (1. Fremdsprache), Klasse 6 Gymnasium Bayern), aus klasse6/lessons/E6-1.2.eltern.lesson.json. 11 Minuten, auf Deutsch, für Eltern und Lehrkräfte.",
  "attempts": 0,
- "createdAt": 1794219110181,
- "updatedAt": 1794219110181,
+ "createdAt": 1794219167806,
+ "updatedAt": 1794219167806,
  "stage": "plan",
  "mode": "course",
  "durationApplied": true,
@@ -28,8 +28,8 @@
   "footageProvider": "none",
   "aiClipBudget": 0,
   "minSceneSeconds": 10,
-  "maxDuration": 818,
-  "targetDuration": 711,
+  "maxDuration": 767,
+  "targetDuration": 667,
   "lesson": {
    "id": "E6-1.2",
    "title": "Verfügen über sprachliche Mittel",
@@ -118,56 +118,56 @@
     "id": 1,
     "chapterId": 1,
     "purpose": "hook",
-    "keyPoint": "Englisch ist am bayerischen Gymnasium in der sechsten Klasse mit vier Wochenstunden eines der Kernfächer. Dieses Video richtet sich an Eltern und Lehrkräfte und behandelt den Lernbereich Verfügen über sprachliche Mittel, also Wortschatz, Grammatik und Aussprache. Im Mittelpunkt steht das Grammatikthema, das in der sechsten Klasse neu dazukommt und deutschen Lernenden erfahrungsgemäß am meisten Mühe macht: das present perfect und seine Abgrenzung vom simple past. Sie erfahren, was der Lehrplan verlangt, wo die typischen Fehler liegen und wie Sie zu Hause helfen können, ohne selbst Englisch zu unterrichten.",
+    "keyPoint": "Englisch ist am bayerischen Gymnasium in der sechsten Klasse mit vier Wochenstunden eines der Kernfächer. Dieses Video richtet sich an Eltern und Lehrkräfte und behandelt den Lernbereich Verfügen über sprachliche Mittel, also Wortschatz, Grammatik und Aussprache. Im Mittelpunkt steht das Grammatikthema, das in der sechsten Klasse neu dazukommt und deutschen Lernenden erfahrungsgemäß am meisten Mühe macht: das present perfect und seine Abgrenzung vom simple past. Sie erfahren, was der Lehrplan verlangt, wo typische Fehler liegen und wie Sie zu Hause helfen können.",
     "suggestedVisual": "title"
    },
    {
     "id": 2,
     "chapterId": 1,
     "purpose": "explain",
-    "keyPoint": "Der Lernbereich 1.2 heißt im LehrplanPLUS Verfügen über sprachliche Mittel und hat drei Teile. Erstens Wortschatz: Die Kinder beherrschen einen begrenzten Wortschatz zu Themen wie Freizeitgestaltung, Sport, Musik, Reisen, Wetter, Wegbeschreibung und Gesundheit und sollen typische false friends vermeiden. Zweitens Grammatik, dazu gleich mehr. Drittens Aussprache und Intonation, besonders bei Fragen, sowie der Umgang mit der Lautschrift. Wichtig ist ein Satz aus dem Grammatikteil: Alle genannten Phänomene müssen, soweit nicht anders vermerkt, im schriftlichen und mündlichen Bereich rezeptiv und produktiv beherrscht werden. Verstehen allein reicht also nicht.",
+    "keyPoint": "Der Lernbereich 1.2 heißt im LehrplanPLUS Verfügen über sprachliche Mittel und hat drei Teile. Erstens Wortschatz: Die Kinder beherrschen einen begrenzten Wortschatz zu Themen wie Freizeitgestaltung, Sport, Musik, Reisen, Wetter, Wegbeschreibung und Gesundheit und sollen typische false friends vermeiden. Zweitens Grammatik, dazu gleich mehr. Drittens Aussprache und Intonation, besonders bei Fragen, sowie die Lautschrift. Wichtig ist ein Satz aus dem Grammatikteil: Alle genannten Phänomene müssen, soweit nicht anders vermerkt, im schriftlichen und mündlichen Bereich rezeptiv und produktiv beherrscht werden. Verstehen allein reicht nicht.",
     "suggestedVisual": "bullets"
    },
    {
     "id": 3,
     "chapterId": 1,
     "purpose": "explain",
-    "keyPoint": "Die Grammatikliste ist lang. Unter der Kompetenzerwartung, die Kinder sprechen über Zukünftiges und Vergangenes und stellen zeitliche Bezüge her, nennt der Lehrplan: present perfect simple, resultativer Gebrauch; past tense progressive; Futur mit going-to-future, will-future und timetable-future; die Modalverben could, may, might, should mit Ersatzformen; und den Konditionalsatz Typ eins. Dazu kommen Steigerung und Vergleich der Adjektive, Relativsätze, Nebensätze mit although, so that und while, question tags und Fragen mit Präpositionen. Jedes Phänomen steht laut Lehrplan nur in der Jahrgangsstufe, in der es erstmals vorkommt; das simple past gehört also zur fünften Klasse und wird hier wiederholt.",
+    "keyPoint": "Die Grammatikliste ist lang. Unter der Kompetenzerwartung, die Kinder sprechen über Zukünftiges und Vergangenes und stellen zeitliche Bezüge her, nennt der Lehrplan: present perfect simple, resultativer Gebrauch; past tense progressive; going-to-future, will-future und timetable-future; die Modalverben could, may, might, should mit Ersatzformen; und den Konditionalsatz Typ eins. Dazu kommen Steigerung und Vergleich der Adjektive, Relativsätze, Nebensätze mit although, so that und while, question tags und Fragen mit Präpositionen. Jedes Phänomen steht laut Lehrplan nur in der Jahrgangsstufe, in der es erstmals vorkommt; das simple past gehört also zur fünften Klasse.",
     "suggestedVisual": "bullets"
    },
    {
     "id": 4,
     "chapterId": 2,
     "purpose": "chapter",
-    "keyPoint": "Die Kernidee lässt sich in einem einzigen Bild fassen: einem Zeitstrahl mit dem Punkt Jetzt in der Mitte. Das simple past setzt ein Ereignis an einen Punkt links davon, der abgeschlossen ist. Das present perfect verbindet ein vergangenes Ereignis mit dem Jetzt, weil sein Ergebnis gegenwärtig ist. Genau das meint der Lehrplan mit resultativem Gebrauch. Vier Beispielsätze zeigen den Unterschied; dieselben Sätze sieht Ihr Kind in der Kinderlektion auf diesem Kanal.",
+    "keyPoint": "Die Kernidee lässt sich in einem einzigen Bild fassen: einem Zeitstrahl mit dem Punkt Jetzt in der Mitte. Das simple past setzt ein Ereignis an einen Punkt links davon, der abgeschlossen ist. Das present perfect verbindet ein vergangenes Ereignis mit dem Jetzt, weil sein Ergebnis gegenwärtig ist. Genau das meint der Lehrplan mit resultativem Gebrauch. Vier Beispielsätze zeigen den Unterschied; dieselben Sätze sieht Ihr Kind in der Kinderlektion.",
     "suggestedVisual": "chapter"
    },
    {
     "id": 5,
     "chapterId": 2,
     "purpose": "explain",
-    "keyPoint": "Auf dem Zeitstrahl liegt links die Vergangenheit, in der Mitte der Punkt NOW, rechts die Zukunft. Diese Darstellung ist in Englischlehrwerken üblich, und es lohnt sich, sie zu kennen, weil Ihr Kind sie aus dem Unterricht wahrscheinlich wiedererkennt. Beide Zeitformen, um die es geht, blicken nach links. Die Frage ist nur, ob der Sprecher ein Ereignis als abgeschlossen erzählt oder ob er von dessen Folgen im Jetzt spricht. Der Unterschied liegt also weniger in der Zeit als in der Perspektive.",
+    "keyPoint": "Auf dem Zeitstrahl liegt links die Vergangenheit, in der Mitte der Punkt NOW, rechts die Zukunft. Diese Darstellung ist in Englischlehrwerken üblich, und Ihr Kind erkennt sie aus dem Unterricht wahrscheinlich wieder. Beide Zeitformen, um die es geht, blicken nach links. Die Frage ist nur, ob der Sprecher ein Ereignis als abgeschlossen erzählt oder von dessen Folgen im Jetzt spricht. Der Unterschied liegt also weniger in der Zeit als in der Perspektive.",
     "suggestedVisual": "math3d"
    },
    {
     "id": 6,
     "chapterId": 2,
     "purpose": "explain",
-    "keyPoint": "Der erste Satz: I lost my key yesterday. Das Wort yesterday nennt einen Zeitpunkt, der vorbei ist. Dann steht im Englischen zwingend das simple past, hier lost. Der Satz berichtet, was gestern geschah, und sagt nichts darüber, ob der Schlüssel heute wieder da ist. Für deutsche Lernende ist das die entscheidende Stelle, denn im Deutschen sagen wir in derselben Situation meist: Ich habe gestern meinen Schlüssel verloren, also Perfekt. Das Englische lässt diese Kombination aus Zeitangabe und Perfekt nicht zu.",
+    "keyPoint": "Der erste Satz: I lost my key yesterday. Das Wort yesterday nennt einen Zeitpunkt, der vorbei ist. Dann steht im Englischen zwingend das simple past, hier lost. Der Satz berichtet, was gestern geschah, und sagt nichts darüber, ob der Schlüssel heute wieder da ist. Für deutsche Lernende ist das die entscheidende Stelle, denn im Deutschen sagen wir hier meist: Ich habe gestern meinen Schlüssel verloren, also Perfekt. Das Englische lässt Zeitangabe und Perfekt nicht zusammen zu.",
     "suggestedVisual": "math3d"
    },
    {
     "id": 7,
     "chapterId": 2,
     "purpose": "explain",
-    "keyPoint": "Der zweite Satz: I have lost my key. Keine Zeitangabe, dafür ein Balken, der das Ereignis mit NOW verbindet. Gemeint ist: Der Schlüssel ist jetzt weg, ich komme nicht in die Wohnung. Das ist der resultative Gebrauch, den der Lehrplan für die sechste Klasse nennt: Ein vergangenes Ereignis wird wegen seines gegenwärtigen Ergebnisses genannt. Gebildet wird die Form aus have oder has und dem past participle, der dritten Verbform. Bei regelmäßigen Verben endet sie auf ed, bei unregelmäßigen muss sie gelernt werden: lost, gone, seen, written.",
+    "keyPoint": "Der zweite Satz: I have lost my key. Keine Zeitangabe, dafür ein Balken, der das Ereignis mit NOW verbindet. Gemeint ist: Der Schlüssel ist jetzt weg, ich komme nicht in die Wohnung. Das ist der resultative Gebrauch, den der Lehrplan nennt: Ein vergangenes Ereignis wird wegen seines gegenwärtigen Ergebnisses genannt. Gebildet wird die Form aus have oder has und dem past participle, der dritten Verbform. Regelmäßig endet sie auf ed, unregelmäßig muss sie gelernt werden: lost, gone, seen, written.",
     "suggestedVisual": "math3d"
    },
    {
     "id": 8,
     "chapterId": 2,
     "purpose": "explain",
-    "keyPoint": "Die beiden London-Sätze zeigen dasselbe Muster. We visited London last year: abgeschlossener Zeitraum, simple past. We have visited London twice: eine Erfahrung bis heute, ohne Zeitpunkt, present perfect. Dieser Erfahrungsgebrauch mit twice, ever und never steht in gängigen Lehrwerken meist direkt neben dem resultativen Gebrauch, auch wenn der Lehrplan für die sechste Klasse ausdrücklich nur den resultativen nennt. Die Regel auf der Kopfzeile fasst zusammen: Zeit vorbei, simple past; Bezug zum Jetzt, present perfect. Dieser eine Satz ist das, was hängen bleiben soll.",
+    "keyPoint": "Die beiden London-Sätze zeigen dasselbe Muster. We visited London last year: abgeschlossener Zeitraum, simple past. We have visited London twice: eine Erfahrung bis heute, ohne Zeitpunkt, present perfect. Dieser Erfahrungsgebrauch mit twice, ever und never steht in gängigen Lehrwerken meist direkt neben dem resultativen Gebrauch, auch wenn der Lehrplan für die sechste Klasse ausdrücklich nur den resultativen nennt. Die Regel auf der Kopfzeile: Zeit vorbei, simple past; Bezug zum Jetzt, present perfect. Dieser Satz soll hängen bleiben.",
     "suggestedVisual": "math3d"
    },
    {
@@ -181,77 +181,77 @@
     "id": 10,
     "chapterId": 3,
     "purpose": "explain",
-    "keyPoint": "Im gesprochenen Deutsch ist das Perfekt die normale Erzählzeit: Ich habe gestern Fußball gespielt, wir sind letzte Woche nach München gefahren. Kinder übersetzen das wörtlich: I have played football yesterday. Im Englischen ist das falsch, weil yesterday einen abgeschlossenen Zeitpunkt nennt; richtig ist I played football yesterday. Die Faustregel, die Sie Ihrem Kind mitgeben können: Das deutsche Perfekt entspricht im Englischen meistens dem simple past. Das present perfect ist für die Fälle reserviert, in denen das Ergebnis im Jetzt zählt, und dann steht in der Regel keine Zeitangabe dabei.",
+    "keyPoint": "Im gesprochenen Deutsch ist das Perfekt die normale Erzählzeit: Ich habe gestern Fußball gespielt, wir sind letzte Woche nach München gefahren. Kinder übersetzen das wörtlich: I have played football yesterday. Im Englischen ist das falsch, weil yesterday einen abgeschlossenen Zeitpunkt nennt; richtig ist I played football yesterday. Die Faustregel für Ihr Kind: Das deutsche Perfekt entspricht im Englischen meistens dem simple past. Das present perfect ist für die Fälle reserviert, in denen das Ergebnis im Jetzt zählt, und dann steht meist keine Zeitangabe dabei.",
     "suggestedVisual": "bullets"
    },
    {
     "id": 11,
     "chapterId": 3,
     "purpose": "explain",
-    "keyPoint": "Zweiter Fehler: Signalwörter werden überlesen oder gemischt. Yesterday, last week, ago und Jahreszahlen verlangen das simple past; just, already, yet, ever, never und so far gehen mit dem present perfect zusammen. Ein typischer Mischfehler lautet: I have seen him yesterday. Die Signalwörter sind eine gute Stütze, und die meisten Lehrwerke arbeiten damit. Sie sind aber keine Garantie: Viele Sätze haben gar kein Signalwort, und dann entscheidet der Zusammenhang. Fragen Sie Ihr Kind in solchen Fällen: Ist die Zeit vorbei, oder geht es um das Ergebnis jetzt?",
+    "keyPoint": "Zweiter Fehler: Signalwörter werden überlesen oder gemischt. Yesterday, last week, ago und Jahreszahlen verlangen das simple past; just, already, yet, ever, never und so far gehen mit dem present perfect zusammen. Ein typischer Mischfehler lautet: I have seen him yesterday. Die Signalwörter sind eine gute Stütze, aber keine Garantie: Viele Sätze haben gar kein Signalwort, und dann entscheidet der Zusammenhang. Fragen Sie Ihr Kind in solchen Fällen: Ist die Zeit vorbei, oder geht es um das Ergebnis jetzt?",
     "suggestedVisual": "bullets"
    },
    {
     "id": 12,
     "chapterId": 3,
     "purpose": "explain",
-    "keyPoint": "Dritter Fehler: die unregelmäßigen Verben. Für das present perfect braucht man die dritte Form, das past participle, und die wird oft mit der zweiten verwechselt: I have went, I have saw. Hilfreich ist, die Verben konsequent als Dreierreihe zu lernen: go, went, gone; see, saw, seen; write, wrote, written. Eine Besonderheit: Have you ever been to London fragt, ob jemand dort war; she has gone to London heißt, sie ist hingefahren und noch dort. Und die Kurzform mit Apostroph s kann is oder has bedeuten: She's gone steht für She has gone.",
+    "keyPoint": "Dritter Fehler: die unregelmäßigen Verben. Für das present perfect braucht man die dritte Form, das past participle, und die wird oft mit der zweiten verwechselt: I have went, I have saw. Hilfreich ist, die Verben als Dreierreihe zu lernen: go, went, gone; see, saw, seen; write, wrote, written. Eine Besonderheit: Have you ever been to London fragt, ob jemand dort war; she has gone to London heißt, sie ist noch dort. Und die Kurzform mit Apostroph s kann is oder has bedeuten: She's gone steht für She has gone.",
     "suggestedVisual": "bullets"
    },
    {
     "id": 13,
     "chapterId": 4,
     "purpose": "chapter",
-    "keyPoint": "Sie müssen kein Englisch unterrichten, um zu helfen. Was in der sechsten Klasse zählt, ist regelmäßiger Kontakt mit der Sprache in kleinen Portionen: ein paar Sätze am Tag, ein wenig Lesen oder Hören, und die unregelmäßigen Verben als Spiel statt als Strafarbeit. Drei Dinge lassen sich ohne Vorbereitung in den Alltag einbauen, und keines davon dauert länger als fünf Minuten. Ihr eigenes Englisch muss dafür nicht perfekt sein.",
+    "keyPoint": "Sie müssen kein Englisch unterrichten, um zu helfen. Was in der sechsten Klasse zählt, ist regelmäßiger Kontakt mit der Sprache in kleinen Portionen: ein paar Sätze am Tag, ein wenig Lesen oder Hören, und die unregelmäßigen Verben als Spiel statt als Strafarbeit. Drei Dinge lassen sich ohne Vorbereitung in den Alltag einbauen, keines dauert länger als fünf Minuten. Ihr eigenes Englisch muss dafür nicht perfekt sein.",
     "suggestedVisual": "chapter"
    },
    {
     "id": 14,
     "chapterId": 4,
     "purpose": "explain",
-    "keyPoint": "Die wirksamste Übung ist ein kurzes Gespräch, zwei oder drei Sätze am Abend. Die Frage What did you do today lenkt automatisch ins simple past, weil der Tag erzählt wird: I played football, we wrote a test. Die Frage Have you finished your homework übt das present perfect, weil es um das Ergebnis jetzt geht. Korrigieren Sie nicht jeden Fehler; wiederholen Sie den Satz lieber beiläufig richtig, so wie man es bei kleinen Kindern in der Muttersprache macht. Ziel ist, dass das Kind spricht, nicht, dass jeder Satz stimmt.",
+    "keyPoint": "Die wirksamste Übung ist ein kurzes Gespräch, zwei oder drei Sätze am Abend. Die Frage What did you do today lenkt automatisch ins simple past, weil der Tag erzählt wird: I played football, we wrote a test. Die Frage Have you finished your homework übt das present perfect, weil es um das Ergebnis jetzt geht. Korrigieren Sie nicht jeden Fehler; wiederholen Sie den Satz lieber beiläufig richtig. Ziel ist, dass das Kind spricht, nicht, dass jeder Satz stimmt.",
     "suggestedVisual": "bullets"
    },
    {
     "id": 15,
     "chapterId": 4,
     "purpose": "explain",
-    "keyPoint": "Zeitformen lernt man am nachhaltigsten, indem man sie oft hört und liest. Der Lehrplan nennt für diese Stufe unter anderem Lektüren, Lieder, Trickfilme und Kinderserien. Zu Hause heißt das: eine einfache englische Lektüre aus der Schulbibliothek, eine bekannte Serie mit englischer Tonspur und Untertiteln, ein Lied mit mitgelesenem Text. Lassen Sie Ihr Kind auch Lehrbuchtexte laut vorlesen; das übt zugleich die Aussprache, die der Lehrplan ebenfalls verlangt. Ein paar Minuten täglich wirken mehr als eine lange Sitzung am Wochenende.",
+    "keyPoint": "Zeitformen lernt man am nachhaltigsten, indem man sie oft hört und liest. Der Lehrplan nennt für diese Stufe unter anderem Lektüren, Lieder, Trickfilme und Kinderserien. Zu Hause heißt das: eine einfache englische Lektüre aus der Schulbibliothek, eine bekannte Serie mit englischer Tonspur und Untertiteln, ein Lied mit mitgelesenem Text. Lassen Sie Ihr Kind auch Lehrbuchtexte laut vorlesen; das übt zugleich die Aussprache. Ein paar Minuten täglich wirken mehr als eine lange Sitzung am Wochenende.",
     "suggestedVisual": "bullets"
    },
    {
     "id": 16,
     "chapterId": 4,
     "purpose": "explain",
-    "keyPoint": "Die unregelmäßigen Verben sind reine Übungssache. Drei Vorschläge: Dreierreihen laut und rhythmisch sprechen, go, went, gone, fast wie einen Reim. Kärtchen mit der Grundform vorn und den beiden anderen Formen hinten, fünf neue pro Tag, und die alten immer wieder dazu. Und drehen Sie die Rollen um: Lassen Sie sich von Ihrem Kind erklären, wann man welche Form braucht. Wer etwas erklären muss, versteht es selbst besser. Die Liste der unregelmäßigen Verben steht in jedem Lehrwerk im Anhang.",
+    "keyPoint": "Die unregelmäßigen Verben sind reine Übungssache. Drei Vorschläge: Dreierreihen laut und rhythmisch sprechen, go, went, gone, fast wie einen Reim. Kärtchen mit der Grundform vorn und den beiden anderen Formen hinten, fünf neue pro Tag, die alten immer wieder dazu. Und drehen Sie die Rollen um: Lassen Sie sich von Ihrem Kind erklären, wann man welche Form braucht. Wer erklären muss, versteht es selbst besser. Die Liste steht in jedem Lehrwerk im Anhang.",
     "suggestedVisual": "bullets"
    },
    {
     "id": 17,
     "chapterId": 5,
     "purpose": "chapter",
-    "keyPoint": "Zum Schluss drei Fragen, die Eltern häufig stellen: Wie wird Englisch in der sechsten Klasse geprüft, welche Aufgaben kommen typischerweise vor, und welche Grammatik wartet in diesem Lernbereich noch? Vorweg eine Einschränkung: Die konkreten Regelungen zu Schulaufgaben legen Schulordnung, Schule und Fachschaft fest, und sie können sich ändern. Was Sie hier hören, ist eine Orientierung, kein Ersatz für die Informationen der Lehrkraft Ihres Kindes.",
+    "keyPoint": "Zum Schluss drei Fragen, die Eltern häufig stellen: Wie wird Englisch in der sechsten Klasse geprüft, welche Aufgaben kommen typischerweise vor, und welche Grammatik wartet in diesem Lernbereich noch? Vorweg eine Einschränkung: Die konkreten Regelungen zu Schulaufgaben legen Schulordnung, Schule und Fachschaft fest, und sie können sich ändern. Was Sie hier hören, ist eine Orientierung, kein Ersatz für die Auskunft der Lehrkraft.",
     "suggestedVisual": "chapter"
    },
    {
     "id": 18,
     "chapterId": 5,
     "purpose": "explain",
-    "keyPoint": "Englisch ist am Gymnasium ein Kernfach, in dem auch in der sechsten Klasse Schulaufgaben geschrieben werden. Wie viele es im Schuljahr sind und was genau darin vorkommt, ergibt sich aus der Schulordnung und den Festlegungen der Schule und der Lehrkraft; fragen Sie am Elternabend nach. Üblich sind Aufgaben zu Grammatik, Wortschatz, Hör- und Leseverstehen und ein kurzer eigener Text. Dazu kommen kleine Leistungsnachweise wie Stegreifaufgaben, Vokabeltests und mündliche Mitarbeit; auch mündliche Prüfungsteile sind möglich. Die Gewichtung kennt die Lehrkraft.",
+    "keyPoint": "Englisch ist am Gymnasium ein Kernfach, in dem auch in der sechsten Klasse Schulaufgaben geschrieben werden. Wie viele es im Schuljahr sind und was genau darin vorkommt, ergibt sich aus der Schulordnung und den Festlegungen von Schule und Lehrkraft; fragen Sie am Elternabend nach. Üblich sind Aufgaben zu Grammatik, Wortschatz, Hör- und Leseverstehen und ein kurzer eigener Text. Dazu kommen kleine Leistungsnachweise wie Stegreifaufgaben, Vokabeltests und mündliche Mitarbeit; auch mündliche Prüfungsteile sind möglich.",
     "suggestedVisual": "bullets"
    },
    {
     "id": 19,
     "chapterId": 5,
     "purpose": "explain",
-    "keyPoint": "Zu den Zeitformen begegnen Ihrem Kind erfahrungsgemäß vier Aufgabentypen. Der Lückentext: Das Verb steht in Klammern, die passende Form muss eingesetzt werden, oft mit Signalwort. Die Zuordnung: Welcher Satz passt zu welcher Zeitform, und warum. Der freie Text: eine E-Mail darüber, was am Wochenende passiert ist, also simple past, oder was man schon erledigt hat, also present perfect. Und die Fehlerkorrektur: I have seen him yesterday verbessern und begründen. Beim Üben zu Hause lohnt sich besonders die Begründung, denn wer begründen kann, rät nicht.",
+    "keyPoint": "Zu den Zeitformen begegnen Ihrem Kind erfahrungsgemäß vier Aufgabentypen. Der Lückentext: Das Verb steht in Klammern, die passende Form muss eingesetzt werden, oft mit Signalwort. Die Zuordnung: Welcher Satz passt zu welcher Zeitform, und warum. Der freie Text: eine E-Mail darüber, was am Wochenende passiert ist, also simple past, oder was man schon erledigt hat, also present perfect. Und die Fehlerkorrektur: I have seen him yesterday verbessern und begründen. Wer begründen kann, rät nicht.",
     "suggestedVisual": "bullets"
    },
    {
     "id": 20,
     "chapterId": 5,
     "purpose": "explain",
-    "keyPoint": "Das present perfect ist nur ein Punkt der Grammatikliste. Dazu kommen in der sechsten Klasse das past progressive, also I was reading when the phone rang; drei Zukunftsformen, going-to-future, will-future und timetable-future; die Steigerung der Adjektive; Relativsätze mit und ohne Relativpronomen; die Modalverben could, may, might und should mit ihren Ersatzformen; der Konditionalsatz Typ eins; sowie question tags und Fragen mit Präpositionen. In welcher Reihenfolge das Lehrwerk sie einführt, zeigt das Inhaltsverzeichnis des Buches. Zu einigen dieser Themen folgen weitere Videos.",
+    "keyPoint": "Das present perfect ist nur ein Punkt der Grammatikliste. Dazu kommen in der sechsten Klasse das past progressive, also I was reading when the phone rang; drei Zukunftsformen, going-to-future, will-future und timetable-future; die Steigerung der Adjektive; Relativsätze mit und ohne Relativpronomen; die Modalverben could, may, might und should mit Ersatzformen; der Konditionalsatz Typ eins; sowie question tags und Fragen mit Präpositionen. Die Reihenfolge zeigt das Inhaltsverzeichnis des Lehrwerks. Zu einigen Themen folgen weitere Videos.",
     "suggestedVisual": "bullets"
    },
    {
@@ -266,7 +266,7 @@
  "chapterBeats": {
   "1": [
    {
-    "narration": "Englisch ist am bayerischen Gymnasium in der sechsten Klasse mit vier Wochenstunden eines der Kernfächer. Dieses Video richtet sich an Eltern und Lehrkräfte und behandelt den Lernbereich Verfügen über sprachliche Mittel, also Wortschatz, Grammatik und Aussprache. Im Mittelpunkt steht das Grammatikthema, das in der sechsten Klasse neu dazukommt und deutschen Lernenden erfahrungsgemäß am meisten Mühe macht: das present perfect und seine Abgrenzung vom simple past. Sie erfahren, was der Lehrplan verlangt, wo die typischen Fehler liegen und wie Sie zu Hause helfen können, ohne selbst Englisch zu unterrichten.",
+    "narration": "Englisch ist am bayerischen Gymnasium in der sechsten Klasse mit vier Wochenstunden eines der Kernfächer. Dieses Video richtet sich an Eltern und Lehrkräfte und behandelt den Lernbereich Verfügen über sprachliche Mittel, also Wortschatz, Grammatik und Aussprache. Im Mittelpunkt steht das Grammatikthema, das in der sechsten Klasse neu dazukommt und deutschen Lernenden erfahrungsgemäß am meisten Mühe macht: das present perfect und seine Abgrenzung vom simple past. Sie erfahren, was der Lehrplan verlangt, wo typische Fehler liegen und wie Sie zu Hause helfen können.",
     "onScreenTitle": "Present perfect: Worauf es ankommt",
     "question": null,
     "think": null,
@@ -296,7 +296,7 @@
     "stockQuery": null
    },
    {
-    "narration": "Der Lernbereich 1.2 heißt im LehrplanPLUS Verfügen über sprachliche Mittel und hat drei Teile. Erstens Wortschatz: Die Kinder beherrschen einen begrenzten Wortschatz zu Themen wie Freizeitgestaltung, Sport, Musik, Reisen, Wetter, Wegbeschreibung und Gesundheit und sollen typische false friends vermeiden. Zweitens Grammatik, dazu gleich mehr. Drittens Aussprache und Intonation, besonders bei Fragen, sowie der Umgang mit der Lautschrift. Wichtig ist ein Satz aus dem Grammatikteil: Alle genannten Phänomene müssen, soweit nicht anders vermerkt, im schriftlichen und mündlichen Bereich rezeptiv und produktiv beherrscht werden. Verstehen allein reicht also nicht.",
+    "narration": "Der Lernbereich 1.2 heißt im LehrplanPLUS Verfügen über sprachliche Mittel und hat drei Teile. Erstens Wortschatz: Die Kinder beherrschen einen begrenzten Wortschatz zu Themen wie Freizeitgestaltung, Sport, Musik, Reisen, Wetter, Wegbeschreibung und Gesundheit und sollen typische false friends vermeiden. Zweitens Grammatik, dazu gleich mehr. Drittens Aussprache und Intonation, besonders bei Fragen, sowie die Lautschrift. Wichtig ist ein Satz aus dem Grammatikteil: Alle genannten Phänomene müssen, soweit nicht anders vermerkt, im schriftlichen und mündlichen Bereich rezeptiv und produktiv beherrscht werden. Verstehen allein reicht nicht.",
     "onScreenTitle": "Der Lernbereich E6 1.2",
     "question": null,
     "think": null,
@@ -331,7 +331,7 @@
     "stockQuery": null
    },
    {
-    "narration": "Die Grammatikliste ist lang. Unter der Kompetenzerwartung, die Kinder sprechen über Zukünftiges und Vergangenes und stellen zeitliche Bezüge her, nennt der Lehrplan: present perfect simple, resultativer Gebrauch; past tense progressive; Futur mit going-to-future, will-future und timetable-future; die Modalverben could, may, might, should mit Ersatzformen; und den Konditionalsatz Typ eins. Dazu kommen Steigerung und Vergleich der Adjektive, Relativsätze, Nebensätze mit although, so that und while, question tags und Fragen mit Präpositionen. Jedes Phänomen steht laut Lehrplan nur in der Jahrgangsstufe, in der es erstmals vorkommt; das simple past gehört also zur fünften Klasse und wird hier wiederholt.",
+    "narration": "Die Grammatikliste ist lang. Unter der Kompetenzerwartung, die Kinder sprechen über Zukünftiges und Vergangenes und stellen zeitliche Bezüge her, nennt der Lehrplan: present perfect simple, resultativer Gebrauch; past tense progressive; going-to-future, will-future und timetable-future; die Modalverben could, may, might, should mit Ersatzformen; und den Konditionalsatz Typ eins. Dazu kommen Steigerung und Vergleich der Adjektive, Relativsätze, Nebensätze mit although, so that und while, question tags und Fragen mit Präpositionen. Jedes Phänomen steht laut Lehrplan nur in der Jahrgangsstufe, in der es erstmals vorkommt; das simple past gehört also zur fünften Klasse.",
     "onScreenTitle": "Die Grammatikliste der 6. Klasse",
     "question": null,
     "think": null,
@@ -368,7 +368,7 @@
   ],
   "2": [
    {
-    "narration": "Die Kernidee lässt sich in einem einzigen Bild fassen: einem Zeitstrahl mit dem Punkt Jetzt in der Mitte. Das simple past setzt ein Ereignis an einen Punkt links davon, der abgeschlossen ist. Das present perfect verbindet ein vergangenes Ereignis mit dem Jetzt, weil sein Ergebnis gegenwärtig ist. Genau das meint der Lehrplan mit resultativem Gebrauch. Vier Beispielsätze zeigen den Unterschied; dieselben Sätze sieht Ihr Kind in der Kinderlektion auf diesem Kanal.",
+    "narration": "Die Kernidee lässt sich in einem einzigen Bild fassen: einem Zeitstrahl mit dem Punkt Jetzt in der Mitte. Das simple past setzt ein Ereignis an einen Punkt links davon, der abgeschlossen ist. Das present perfect verbindet ein vergangenes Ereignis mit dem Jetzt, weil sein Ergebnis gegenwärtig ist. Genau das meint der Lehrplan mit resultativem Gebrauch. Vier Beispielsätze zeigen den Unterschied; dieselben Sätze sieht Ihr Kind in der Kinderlektion.",
     "onScreenTitle": "Die Kernidee in Bildern",
     "question": null,
     "think": null,
@@ -402,7 +402,7 @@
     "stockQuery": null
    },
    {
-    "narration": "Auf dem Zeitstrahl liegt links die Vergangenheit, in der Mitte der Punkt NOW, rechts die Zukunft. Diese Darstellung ist in Englischlehrwerken üblich, und es lohnt sich, sie zu kennen, weil Ihr Kind sie aus dem Unterricht wahrscheinlich wiedererkennt. Beide Zeitformen, um die es geht, blicken nach links. Die Frage ist nur, ob der Sprecher ein Ereignis als abgeschlossen erzählt oder ob er von dessen Folgen im Jetzt spricht. Der Unterschied liegt also weniger in der Zeit als in der Perspektive.",
+    "narration": "Auf dem Zeitstrahl liegt links die Vergangenheit, in der Mitte der Punkt NOW, rechts die Zukunft. Diese Darstellung ist in Englischlehrwerken üblich, und Ihr Kind erkennt sie aus dem Unterricht wahrscheinlich wieder. Beide Zeitformen, um die es geht, blicken nach links. Die Frage ist nur, ob der Sprecher ein Ereignis als abgeschlossen erzählt oder von dessen Folgen im Jetzt spricht. Der Unterschied liegt also weniger in der Zeit als in der Perspektive.",
     "onScreenTitle": "Der Zeitstrahl: past, NOW, future",
     "question": null,
     "think": null,
@@ -438,7 +438,7 @@
     "stockQuery": null
    },
    {
-    "narration": "Der erste Satz: I lost my key yesterday. Das Wort yesterday nennt einen Zeitpunkt, der vorbei ist. Dann steht im Englischen zwingend das simple past, hier lost. Der Satz berichtet, was gestern geschah, und sagt nichts darüber, ob der Schlüssel heute wieder da ist. Für deutsche Lernende ist das die entscheidende Stelle, denn im Deutschen sagen wir in derselben Situation meist: Ich habe gestern meinen Schlüssel verloren, also Perfekt. Das Englische lässt diese Kombination aus Zeitangabe und Perfekt nicht zu.",
+    "narration": "Der erste Satz: I lost my key yesterday. Das Wort yesterday nennt einen Zeitpunkt, der vorbei ist. Dann steht im Englischen zwingend das simple past, hier lost. Der Satz berichtet, was gestern geschah, und sagt nichts darüber, ob der Schlüssel heute wieder da ist. Für deutsche Lernende ist das die entscheidende Stelle, denn im Deutschen sagen wir hier meist: Ich habe gestern meinen Schlüssel verloren, also Perfekt. Das Englische lässt Zeitangabe und Perfekt nicht zusammen zu.",
     "onScreenTitle": "Simple past: I lost my key yesterday.",
     "question": null,
     "think": null,
@@ -474,7 +474,7 @@
     "stockQuery": null
    },
    {
-    "narration": "Der zweite Satz: I have lost my key. Keine Zeitangabe, dafür ein Balken, der das Ereignis mit NOW verbindet. Gemeint ist: Der Schlüssel ist jetzt weg, ich komme nicht in die Wohnung. Das ist der resultative Gebrauch, den der Lehrplan für die sechste Klasse nennt: Ein vergangenes Ereignis wird wegen seines gegenwärtigen Ergebnisses genannt. Gebildet wird die Form aus have oder has und dem past participle, der dritten Verbform. Bei regelmäßigen Verben endet sie auf ed, bei unregelmäßigen muss sie gelernt werden: lost, gone, seen, written.",
+    "narration": "Der zweite Satz: I have lost my key. Keine Zeitangabe, dafür ein Balken, der das Ereignis mit NOW verbindet. Gemeint ist: Der Schlüssel ist jetzt weg, ich komme nicht in die Wohnung. Das ist der resultative Gebrauch, den der Lehrplan nennt: Ein vergangenes Ereignis wird wegen seines gegenwärtigen Ergebnisses genannt. Gebildet wird die Form aus have oder has und dem past participle, der dritten Verbform. Regelmäßig endet sie auf ed, unregelmäßig muss sie gelernt werden: lost, gone, seen, written.",
     "onScreenTitle": "Present perfect: I have lost my key.",
     "question": null,
     "think": null,
@@ -510,7 +510,7 @@
     "stockQuery": null
    },
    {
-    "narration": "Die beiden London-Sätze zeigen dasselbe Muster. We visited London last year: abgeschlossener Zeitraum, simple past. We have visited London twice: eine Erfahrung bis heute, ohne Zeitpunkt, present perfect. Dieser Erfahrungsgebrauch mit twice, ever und never steht in gängigen Lehrwerken meist direkt neben dem resultativen Gebrauch, auch wenn der Lehrplan für die sechste Klasse ausdrücklich nur den resultativen nennt. Die Regel auf der Kopfzeile fasst zusammen: Zeit vorbei, simple past; Bezug zum Jetzt, present perfect. Dieser eine Satz ist das, was hängen bleiben soll.",
+    "narration": "Die beiden London-Sätze zeigen dasselbe Muster. We visited London last year: abgeschlossener Zeitraum, simple past. We have visited London twice: eine Erfahrung bis heute, ohne Zeitpunkt, present perfect. Dieser Erfahrungsgebrauch mit twice, ever und never steht in gängigen Lehrwerken meist direkt neben dem resultativen Gebrauch, auch wenn der Lehrplan für die sechste Klasse ausdrücklich nur den resultativen nennt. Die Regel auf der Kopfzeile: Zeit vorbei, simple past; Bezug zum Jetzt, present perfect. Dieser Satz soll hängen bleiben.",
     "onScreenTitle": "Vier Sätze und die Regel",
     "question": null,
     "think": null,
@@ -582,7 +582,7 @@
     "stockQuery": null
    },
    {
-    "narration": "Im gesprochenen Deutsch ist das Perfekt die normale Erzählzeit: Ich habe gestern Fußball gespielt, wir sind letzte Woche nach München gefahren. Kinder übersetzen das wörtlich: I have played football yesterday. Im Englischen ist das falsch, weil yesterday einen abgeschlossenen Zeitpunkt nennt; richtig ist I played football yesterday. Die Faustregel, die Sie Ihrem Kind mitgeben können: Das deutsche Perfekt entspricht im Englischen meistens dem simple past. Das present perfect ist für die Fälle reserviert, in denen das Ergebnis im Jetzt zählt, und dann steht in der Regel keine Zeitangabe dabei.",
+    "narration": "Im gesprochenen Deutsch ist das Perfekt die normale Erzählzeit: Ich habe gestern Fußball gespielt, wir sind letzte Woche nach München gefahren. Kinder übersetzen das wörtlich: I have played football yesterday. Im Englischen ist das falsch, weil yesterday einen abgeschlossenen Zeitpunkt nennt; richtig ist I played football yesterday. Die Faustregel für Ihr Kind: Das deutsche Perfekt entspricht im Englischen meistens dem simple past. Das present perfect ist für die Fälle reserviert, in denen das Ergebnis im Jetzt zählt, und dann steht meist keine Zeitangabe dabei.",
     "onScreenTitle": "Fehler 1: Das deutsche Perfekt übertragen",
     "question": null,
     "think": null,
@@ -617,7 +617,7 @@
     "stockQuery": null
    },
    {
-    "narration": "Zweiter Fehler: Signalwörter werden überlesen oder gemischt. Yesterday, last week, ago und Jahreszahlen verlangen das simple past; just, already, yet, ever, never und so far gehen mit dem present perfect zusammen. Ein typischer Mischfehler lautet: I have seen him yesterday. Die Signalwörter sind eine gute Stütze, und die meisten Lehrwerke arbeiten damit. Sie sind aber keine Garantie: Viele Sätze haben gar kein Signalwort, und dann entscheidet der Zusammenhang. Fragen Sie Ihr Kind in solchen Fällen: Ist die Zeit vorbei, oder geht es um das Ergebnis jetzt?",
+    "narration": "Zweiter Fehler: Signalwörter werden überlesen oder gemischt. Yesterday, last week, ago und Jahreszahlen verlangen das simple past; just, already, yet, ever, never und so far gehen mit dem present perfect zusammen. Ein typischer Mischfehler lautet: I have seen him yesterday. Die Signalwörter sind eine gute Stütze, aber keine Garantie: Viele Sätze haben gar kein Signalwort, und dann entscheidet der Zusammenhang. Fragen Sie Ihr Kind in solchen Fällen: Ist die Zeit vorbei, oder geht es um das Ergebnis jetzt?",
     "onScreenTitle": "Fehler 2: Signalwörter überlesen oder mischen",
     "question": null,
     "think": null,
@@ -652,7 +652,7 @@
     "stockQuery": null
    },
    {
-    "narration": "Dritter Fehler: die unregelmäßigen Verben. Für das present perfect braucht man die dritte Form, das past participle, und die wird oft mit der zweiten verwechselt: I have went, I have saw. Hilfreich ist, die Verben konsequent als Dreierreihe zu lernen: go, went, gone; see, saw, seen; write, wrote, written. Eine Besonderheit: Have you ever been to London fragt, ob jemand dort war; she has gone to London heißt, sie ist hingefahren und noch dort. Und die Kurzform mit Apostroph s kann is oder has bedeuten: She's gone steht für She has gone.",
+    "narration": "Dritter Fehler: die unregelmäßigen Verben. Für das present perfect braucht man die dritte Form, das past participle, und die wird oft mit der zweiten verwechselt: I have went, I have saw. Hilfreich ist, die Verben als Dreierreihe zu lernen: go, went, gone; see, saw, seen; write, wrote, written. Eine Besonderheit: Have you ever been to London fragt, ob jemand dort war; she has gone to London heißt, sie ist noch dort. Und die Kurzform mit Apostroph s kann is oder has bedeuten: She's gone steht für She has gone.",
     "onScreenTitle": "Fehler 3: Die dritte Verbform fehlt",
     "question": null,
     "think": null,
@@ -689,7 +689,7 @@
   ],
   "4": [
    {
-    "narration": "Sie müssen kein Englisch unterrichten, um zu helfen. Was in der sechsten Klasse zählt, ist regelmäßiger Kontakt mit der Sprache in kleinen Portionen: ein paar Sätze am Tag, ein wenig Lesen oder Hören, und die unregelmäßigen Verben als Spiel statt als Strafarbeit. Drei Dinge lassen sich ohne Vorbereitung in den Alltag einbauen, und keines davon dauert länger als fünf Minuten. Ihr eigenes Englisch muss dafür nicht perfekt sein.",
+    "narration": "Sie müssen kein Englisch unterrichten, um zu helfen. Was in der sechsten Klasse zählt, ist regelmäßiger Kontakt mit der Sprache in kleinen Portionen: ein paar Sätze am Tag, ein wenig Lesen oder Hören, und die unregelmäßigen Verben als Spiel statt als Strafarbeit. Drei Dinge lassen sich ohne Vorbereitung in den Alltag einbauen, keines dauert länger als fünf Minuten. Ihr eigenes Englisch muss dafür nicht perfekt sein.",
     "onScreenTitle": "Üben zu Hause ohne Englischlehrkraft",
     "question": null,
     "think": null,
@@ -723,7 +723,7 @@
     "stockQuery": null
    },
    {
-    "narration": "Die wirksamste Übung ist ein kurzes Gespräch, zwei oder drei Sätze am Abend. Die Frage What did you do today lenkt automatisch ins simple past, weil der Tag erzählt wird: I played football, we wrote a test. Die Frage Have you finished your homework übt das present perfect, weil es um das Ergebnis jetzt geht. Korrigieren Sie nicht jeden Fehler; wiederholen Sie den Satz lieber beiläufig richtig, so wie man es bei kleinen Kindern in der Muttersprache macht. Ziel ist, dass das Kind spricht, nicht, dass jeder Satz stimmt.",
+    "narration": "Die wirksamste Übung ist ein kurzes Gespräch, zwei oder drei Sätze am Abend. Die Frage What did you do today lenkt automatisch ins simple past, weil der Tag erzählt wird: I played football, we wrote a test. Die Frage Have you finished your homework übt das present perfect, weil es um das Ergebnis jetzt geht. Korrigieren Sie nicht jeden Fehler; wiederholen Sie den Satz lieber beiläufig richtig. Ziel ist, dass das Kind spricht, nicht, dass jeder Satz stimmt.",
     "onScreenTitle": "Das kurze Gespräch am Abend",
     "question": null,
     "think": null,
@@ -758,7 +758,7 @@
     "stockQuery": null
    },
    {
-    "narration": "Zeitformen lernt man am nachhaltigsten, indem man sie oft hört und liest. Der Lehrplan nennt für diese Stufe unter anderem Lektüren, Lieder, Trickfilme und Kinderserien. Zu Hause heißt das: eine einfache englische Lektüre aus der Schulbibliothek, eine bekannte Serie mit englischer Tonspur und Untertiteln, ein Lied mit mitgelesenem Text. Lassen Sie Ihr Kind auch Lehrbuchtexte laut vorlesen; das übt zugleich die Aussprache, die der Lehrplan ebenfalls verlangt. Ein paar Minuten täglich wirken mehr als eine lange Sitzung am Wochenende.",
+    "narration": "Zeitformen lernt man am nachhaltigsten, indem man sie oft hört und liest. Der Lehrplan nennt für diese Stufe unter anderem Lektüren, Lieder, Trickfilme und Kinderserien. Zu Hause heißt das: eine einfache englische Lektüre aus der Schulbibliothek, eine bekannte Serie mit englischer Tonspur und Untertiteln, ein Lied mit mitgelesenem Text. Lassen Sie Ihr Kind auch Lehrbuchtexte laut vorlesen; das übt zugleich die Aussprache. Ein paar Minuten täglich wirken mehr als eine lange Sitzung am Wochenende.",
     "onScreenTitle": "Lesen und Hören in kleinen Dosen",
     "question": null,
     "think": null,
@@ -793,7 +793,7 @@
     "stockQuery": null
    },
    {
-    "narration": "Die unregelmäßigen Verben sind reine Übungssache. Drei Vorschläge: Dreierreihen laut und rhythmisch sprechen, go, went, gone, fast wie einen Reim. Kärtchen mit der Grundform vorn und den beiden anderen Formen hinten, fünf neue pro Tag, und die alten immer wieder dazu. Und drehen Sie die Rollen um: Lassen Sie sich von Ihrem Kind erklären, wann man welche Form braucht. Wer etwas erklären muss, versteht es selbst besser. Die Liste der unregelmäßigen Verben steht in jedem Lehrwerk im Anhang.",
+    "narration": "Die unregelmäßigen Verben sind reine Übungssache. Drei Vorschläge: Dreierreihen laut und rhythmisch sprechen, go, went, gone, fast wie einen Reim. Kärtchen mit der Grundform vorn und den beiden anderen Formen hinten, fünf neue pro Tag, die alten immer wieder dazu. Und drehen Sie die Rollen um: Lassen Sie sich von Ihrem Kind erklären, wann man welche Form braucht. Wer erklären muss, versteht es selbst besser. Die Liste steht in jedem Lehrwerk im Anhang.",
     "onScreenTitle": "Unregelmäßige Verben als Spiel",
     "question": null,
     "think": null,
@@ -830,7 +830,7 @@
   ],
   "5": [
    {
-    "narration": "Zum Schluss drei Fragen, die Eltern häufig stellen: Wie wird Englisch in der sechsten Klasse geprüft, welche Aufgaben kommen typischerweise vor, und welche Grammatik wartet in diesem Lernbereich noch? Vorweg eine Einschränkung: Die konkreten Regelungen zu Schulaufgaben legen Schulordnung, Schule und Fachschaft fest, und sie können sich ändern. Was Sie hier hören, ist eine Orientierung, kein Ersatz für die Informationen der Lehrkraft Ihres Kindes.",
+    "narration": "Zum Schluss drei Fragen, die Eltern häufig stellen: Wie wird Englisch in der sechsten Klasse geprüft, welche Aufgaben kommen typischerweise vor, und welche Grammatik wartet in diesem Lernbereich noch? Vorweg eine Einschränkung: Die konkreten Regelungen zu Schulaufgaben legen Schulordnung, Schule und Fachschaft fest, und sie können sich ändern. Was Sie hier hören, ist eine Orientierung, kein Ersatz für die Auskunft der Lehrkraft.",
     "onScreenTitle": "Leistungsnachweise und Ausblick",
     "question": null,
     "think": null,
@@ -864,7 +864,7 @@
     "stockQuery": null
    },
    {
-    "narration": "Englisch ist am Gymnasium ein Kernfach, in dem auch in der sechsten Klasse Schulaufgaben geschrieben werden. Wie viele es im Schuljahr sind und was genau darin vorkommt, ergibt sich aus der Schulordnung und den Festlegungen der Schule und der Lehrkraft; fragen Sie am Elternabend nach. Üblich sind Aufgaben zu Grammatik, Wortschatz, Hör- und Leseverstehen und ein kurzer eigener Text. Dazu kommen kleine Leistungsnachweise wie Stegreifaufgaben, Vokabeltests und mündliche Mitarbeit; auch mündliche Prüfungsteile sind möglich. Die Gewichtung kennt die Lehrkraft.",
+    "narration": "Englisch ist am Gymnasium ein Kernfach, in dem auch in der sechsten Klasse Schulaufgaben geschrieben werden. Wie viele es im Schuljahr sind und was genau darin vorkommt, ergibt sich aus der Schulordnung und den Festlegungen von Schule und Lehrkraft; fragen Sie am Elternabend nach. Üblich sind Aufgaben zu Grammatik, Wortschatz, Hör- und Leseverstehen und ein kurzer eigener Text. Dazu kommen kleine Leistungsnachweise wie Stegreifaufgaben, Vokabeltests und mündliche Mitarbeit; auch mündliche Prüfungsteile sind möglich.",
     "onScreenTitle": "So wird Englisch meist geprüft",
     "question": null,
     "think": null,
@@ -899,7 +899,7 @@
     "stockQuery": null
    },
    {
-    "narration": "Zu den Zeitformen begegnen Ihrem Kind erfahrungsgemäß vier Aufgabentypen. Der Lückentext: Das Verb steht in Klammern, die passende Form muss eingesetzt werden, oft mit Signalwort. Die Zuordnung: Welcher Satz passt zu welcher Zeitform, und warum. Der freie Text: eine E-Mail darüber, was am Wochenende passiert ist, also simple past, oder was man schon erledigt hat, also present perfect. Und die Fehlerkorrektur: I have seen him yesterday verbessern und begründen. Beim Üben zu Hause lohnt sich besonders die Begründung, denn wer begründen kann, rät nicht.",
+    "narration": "Zu den Zeitformen begegnen Ihrem Kind erfahrungsgemäß vier Aufgabentypen. Der Lückentext: Das Verb steht in Klammern, die passende Form muss eingesetzt werden, oft mit Signalwort. Die Zuordnung: Welcher Satz passt zu welcher Zeitform, und warum. Der freie Text: eine E-Mail darüber, was am Wochenende passiert ist, also simple past, oder was man schon erledigt hat, also present perfect. Und die Fehlerkorrektur: I have seen him yesterday verbessern und begründen. Wer begründen kann, rät nicht.",
     "onScreenTitle": "Typische Aufgaben zu den Zeitformen",
     "question": null,
     "think": null,
@@ -934,7 +934,7 @@
     "stockQuery": null
    },
    {
-    "narration": "Das present perfect ist nur ein Punkt der Grammatikliste. Dazu kommen in der sechsten Klasse das past progressive, also I was reading when the phone rang; drei Zukunftsformen, going-to-future, will-future und timetable-future; die Steigerung der Adjektive; Relativsätze mit und ohne Relativpronomen; die Modalverben could, may, might und should mit ihren Ersatzformen; der Konditionalsatz Typ eins; sowie question tags und Fragen mit Präpositionen. In welcher Reihenfolge das Lehrwerk sie einführt, zeigt das Inhaltsverzeichnis des Buches. Zu einigen dieser Themen folgen weitere Videos.",
+    "narration": "Das present perfect ist nur ein Punkt der Grammatikliste. Dazu kommen in der sechsten Klasse das past progressive, also I was reading when the phone rang; drei Zukunftsformen, going-to-future, will-future und timetable-future; die Steigerung der Adjektive; Relativsätze mit und ohne Relativpronomen; die Modalverben could, may, might und should mit Ersatzformen; der Konditionalsatz Typ eins; sowie question tags und Fragen mit Präpositionen. Die Reihenfolge zeigt das Inhaltsverzeichnis des Lehrwerks. Zu einigen Themen folgen weitere Videos.",
     "onScreenTitle": "Ausblick: Was in E6 1.2 noch kommt",
     "question": null,
     "think": null,
@@ -1005,56 +1005,56 @@
    {
     "beatId": 1,
     "chapterId": 1,
-    "narration": "Englisch ist am bayerischen Gymnasium in der sechsten Klasse mit vier Wochenstunden eines der Kernfächer. Dieses Video richtet sich an Eltern und Lehrkräfte und behandelt den Lernbereich Verfügen über sprachliche Mittel, also Wortschatz, Grammatik und Aussprache. Im Mittelpunkt steht das Grammatikthema, das in der sechsten Klasse neu dazukommt und deutschen Lernenden erfahrungsgemäß am meisten Mühe macht: das present perfect und seine Abgrenzung vom simple past. Sie erfahren, was der Lehrplan verlangt, wo die typischen Fehler liegen und wie Sie zu Hause helfen können, ohne selbst Englisch zu unterrichten.",
+    "narration": "Englisch ist am bayerischen Gymnasium in der sechsten Klasse mit vier Wochenstunden eines der Kernfächer. Dieses Video richtet sich an Eltern und Lehrkräfte und behandelt den Lernbereich Verfügen über sprachliche Mittel, also Wortschatz, Grammatik und Aussprache. Im Mittelpunkt steht das Grammatikthema, das in der sechsten Klasse neu dazukommt und deutschen Lernenden erfahrungsgemäß am meisten Mühe macht: das present perfect und seine Abgrenzung vom simple past. Sie erfahren, was der Lehrplan verlangt, wo typische Fehler liegen und wie Sie zu Hause helfen können.",
     "onScreenTitle": "Present perfect: Worauf es ankommt",
     "emphasisWords": []
    },
    {
     "beatId": 2,
     "chapterId": 1,
-    "narration": "Der Lernbereich 1.2 heißt im LehrplanPLUS Verfügen über sprachliche Mittel und hat drei Teile. Erstens Wortschatz: Die Kinder beherrschen einen begrenzten Wortschatz zu Themen wie Freizeitgestaltung, Sport, Musik, Reisen, Wetter, Wegbeschreibung und Gesundheit und sollen typische false friends vermeiden. Zweitens Grammatik, dazu gleich mehr. Drittens Aussprache und Intonation, besonders bei Fragen, sowie der Umgang mit der Lautschrift. Wichtig ist ein Satz aus dem Grammatikteil: Alle genannten Phänomene müssen, soweit nicht anders vermerkt, im schriftlichen und mündlichen Bereich rezeptiv und produktiv beherrscht werden. Verstehen allein reicht also nicht.",
+    "narration": "Der Lernbereich 1.2 heißt im LehrplanPLUS Verfügen über sprachliche Mittel und hat drei Teile. Erstens Wortschatz: Die Kinder beherrschen einen begrenzten Wortschatz zu Themen wie Freizeitgestaltung, Sport, Musik, Reisen, Wetter, Wegbeschreibung und Gesundheit und sollen typische false friends vermeiden. Zweitens Grammatik, dazu gleich mehr. Drittens Aussprache und Intonation, besonders bei Fragen, sowie die Lautschrift. Wichtig ist ein Satz aus dem Grammatikteil: Alle genannten Phänomene müssen, soweit nicht anders vermerkt, im schriftlichen und mündlichen Bereich rezeptiv und produktiv beherrscht werden. Verstehen allein reicht nicht.",
     "onScreenTitle": "Der Lernbereich E6 1.2",
     "emphasisWords": []
    },
    {
     "beatId": 3,
     "chapterId": 1,
-    "narration": "Die Grammatikliste ist lang. Unter der Kompetenzerwartung, die Kinder sprechen über Zukünftiges und Vergangenes und stellen zeitliche Bezüge her, nennt der Lehrplan: present perfect simple, resultativer Gebrauch; past tense progressive; Futur mit going-to-future, will-future und timetable-future; die Modalverben could, may, might, should mit Ersatzformen; und den Konditionalsatz Typ eins. Dazu kommen Steigerung und Vergleich der Adjektive, Relativsätze, Nebensätze mit although, so that und while, question tags und Fragen mit Präpositionen. Jedes Phänomen steht laut Lehrplan nur in der Jahrgangsstufe, in der es erstmals vorkommt; das simple past gehört also zur fünften Klasse und wird hier wiederholt.",
+    "narration": "Die Grammatikliste ist lang. Unter der Kompetenzerwartung, die Kinder sprechen über Zukünftiges und Vergangenes und stellen zeitliche Bezüge her, nennt der Lehrplan: present perfect simple, resultativer Gebrauch; past tense progressive; going-to-future, will-future und timetable-future; die Modalverben could, may, might, should mit Ersatzformen; und den Konditionalsatz Typ eins. Dazu kommen Steigerung und Vergleich der Adjektive, Relativsätze, Nebensätze mit although, so that und while, question tags und Fragen mit Präpositionen. Jedes Phänomen steht laut Lehrplan nur in der Jahrgangsstufe, in der es erstmals vorkommt; das simple past gehört also zur fünften Klasse.",
     "onScreenTitle": "Die Grammatikliste der 6. Klasse",
     "emphasisWords": []
    },
    {
     "beatId": 4,
     "chapterId": 2,
-    "narration": "Die Kernidee lässt sich in einem einzigen Bild fassen: einem Zeitstrahl mit dem Punkt Jetzt in der Mitte. Das simple past setzt ein Ereignis an einen Punkt links davon, der abgeschlossen ist. Das present perfect verbindet ein vergangenes Ereignis mit dem Jetzt, weil sein Ergebnis gegenwärtig ist. Genau das meint der Lehrplan mit resultativem Gebrauch. Vier Beispielsätze zeigen den Unterschied; dieselben Sätze sieht Ihr Kind in der Kinderlektion auf diesem Kanal.",
+    "narration": "Die Kernidee lässt sich in einem einzigen Bild fassen: einem Zeitstrahl mit dem Punkt Jetzt in der Mitte. Das simple past setzt ein Ereignis an einen Punkt links davon, der abgeschlossen ist. Das present perfect verbindet ein vergangenes Ereignis mit dem Jetzt, weil sein Ergebnis gegenwärtig ist. Genau das meint der Lehrplan mit resultativem Gebrauch. Vier Beispielsätze zeigen den Unterschied; dieselben Sätze sieht Ihr Kind in der Kinderlektion.",
     "onScreenTitle": "Die Kernidee in Bildern",
     "emphasisWords": []
    },
    {
     "beatId": 5,
     "chapterId": 2,
-    "narration": "Auf dem Zeitstrahl liegt links die Vergangenheit, in der Mitte der Punkt NOW, rechts die Zukunft. Diese Darstellung ist in Englischlehrwerken üblich, und es lohnt sich, sie zu kennen, weil Ihr Kind sie aus dem Unterricht wahrscheinlich wiedererkennt. Beide Zeitformen, um die es geht, blicken nach links. Die Frage ist nur, ob der Sprecher ein Ereignis als abgeschlossen erzählt oder ob er von dessen Folgen im Jetzt spricht. Der Unterschied liegt also weniger in der Zeit als in der Perspektive.",
+    "narration": "Auf dem Zeitstrahl liegt links die Vergangenheit, in der Mitte der Punkt NOW, rechts die Zukunft. Diese Darstellung ist in Englischlehrwerken üblich, und Ihr Kind erkennt sie aus dem Unterricht wahrscheinlich wieder. Beide Zeitformen, um die es geht, blicken nach links. Die Frage ist nur, ob der Sprecher ein Ereignis als abgeschlossen erzählt oder von dessen Folgen im Jetzt spricht. Der Unterschied liegt also weniger in der Zeit als in der Perspektive.",
     "onScreenTitle": "Der Zeitstrahl: past, NOW, future",
     "emphasisWords": []
    },
    {
     "beatId": 6,
     "chapterId": 2,
-    "narration": "Der erste Satz: I lost my key yesterday. Das Wort yesterday nennt einen Zeitpunkt, der vorbei ist. Dann steht im Englischen zwingend das simple past, hier lost. Der Satz berichtet, was gestern geschah, und sagt nichts darüber, ob der Schlüssel heute wieder da ist. Für deutsche Lernende ist das die entscheidende Stelle, denn im Deutschen sagen wir in derselben Situation meist: Ich habe gestern meinen Schlüssel verloren, also Perfekt. Das Englische lässt diese Kombination aus Zeitangabe und Perfekt nicht zu.",
+    "narration": "Der erste Satz: I lost my key yesterday. Das Wort yesterday nennt einen Zeitpunkt, der vorbei ist. Dann steht im Englischen zwingend das simple past, hier lost. Der Satz berichtet, was gestern geschah, und sagt nichts darüber, ob der Schlüssel heute wieder da ist. Für deutsche Lernende ist das die entscheidende Stelle, denn im Deutschen sagen wir hier meist: Ich habe gestern meinen Schlüssel verloren, also Perfekt. Das Englische lässt Zeitangabe und Perfekt nicht zusammen zu.",
     "onScreenTitle": "Simple past: I lost my key yesterday.",
     "emphasisWords": []
    },
    {
     "beatId": 7,
     "chapterId": 2,
-    "narration": "Der zweite Satz: I have lost my key. Keine Zeitangabe, dafür ein Balken, der das Ereignis mit NOW verbindet. Gemeint ist: Der Schlüssel ist jetzt weg, ich komme nicht in die Wohnung. Das ist der resultative Gebrauch, den der Lehrplan für die sechste Klasse nennt: Ein vergangenes Ereignis wird wegen seines gegenwärtigen Ergebnisses genannt. Gebildet wird die Form aus have oder has und dem past participle, der dritten Verbform. Bei regelmäßigen Verben endet sie auf ed, bei unregelmäßigen muss sie gelernt werden: lost, gone, seen, written.",
+    "narration": "Der zweite Satz: I have lost my key. Keine Zeitangabe, dafür ein Balken, der das Ereignis mit NOW verbindet. Gemeint ist: Der Schlüssel ist jetzt weg, ich komme nicht in die Wohnung. Das ist der resultative Gebrauch, den der Lehrplan nennt: Ein vergangenes Ereignis wird wegen seines gegenwärtigen Ergebnisses genannt. Gebildet wird die Form aus have oder has und dem past participle, der dritten Verbform. Regelmäßig endet sie auf ed, unregelmäßig muss sie gelernt werden: lost, gone, seen, written.",
     "onScreenTitle": "Present perfect: I have lost my key.",
     "emphasisWords": []
    },
    {
     "beatId": 8,
     "chapterId": 2,
-    "narration": "Die beiden London-Sätze zeigen dasselbe Muster. We visited London last year: abgeschlossener Zeitraum, simple past. We have visited London twice: eine Erfahrung bis heute, ohne Zeitpunkt, present perfect. Dieser Erfahrungsgebrauch mit twice, ever und never steht in gängigen Lehrwerken meist direkt neben dem resultativen Gebrauch, auch wenn der Lehrplan für die sechste Klasse ausdrücklich nur den resultativen nennt. Die Regel auf der Kopfzeile fasst zusammen: Zeit vorbei, simple past; Bezug zum Jetzt, present perfect. Dieser eine Satz ist das, was hängen bleiben soll.",
+    "narration": "Die beiden London-Sätze zeigen dasselbe Muster. We visited London last year: abgeschlossener Zeitraum, simple past. We have visited London twice: eine Erfahrung bis heute, ohne Zeitpunkt, present perfect. Dieser Erfahrungsgebrauch mit twice, ever und never steht in gängigen Lehrwerken meist direkt neben dem resultativen Gebrauch, auch wenn der Lehrplan für die sechste Klasse ausdrücklich nur den resultativen nennt. Die Regel auf der Kopfzeile: Zeit vorbei, simple past; Bezug zum Jetzt, present perfect. Dieser Satz soll hängen bleiben.",
     "onScreenTitle": "Vier Sätze und die Regel",
     "emphasisWords": []
    },
@@ -1068,77 +1068,77 @@
    {
     "beatId": 10,
     "chapterId": 3,
-    "narration": "Im gesprochenen Deutsch ist das Perfekt die normale Erzählzeit: Ich habe gestern Fußball gespielt, wir sind letzte Woche nach München gefahren. Kinder übersetzen das wörtlich: I have played football yesterday. Im Englischen ist das falsch, weil yesterday einen abgeschlossenen Zeitpunkt nennt; richtig ist I played football yesterday. Die Faustregel, die Sie Ihrem Kind mitgeben können: Das deutsche Perfekt entspricht im Englischen meistens dem simple past. Das present perfect ist für die Fälle reserviert, in denen das Ergebnis im Jetzt zählt, und dann steht in der Regel keine Zeitangabe dabei.",
+    "narration": "Im gesprochenen Deutsch ist das Perfekt die normale Erzählzeit: Ich habe gestern Fußball gespielt, wir sind letzte Woche nach München gefahren. Kinder übersetzen das wörtlich: I have played football yesterday. Im Englischen ist das falsch, weil yesterday einen abgeschlossenen Zeitpunkt nennt; richtig ist I played football yesterday. Die Faustregel für Ihr Kind: Das deutsche Perfekt entspricht im Englischen meistens dem simple past. Das present perfect ist für die Fälle reserviert, in denen das Ergebnis im Jetzt zählt, und dann steht meist keine Zeitangabe dabei.",
     "onScreenTitle": "Fehler 1: Das deutsche Perfekt übertragen",
     "emphasisWords": []
    },
    {
     "beatId": 11,
     "chapterId": 3,
-    "narration": "Zweiter Fehler: Signalwörter werden überlesen oder gemischt. Yesterday, last week, ago und Jahreszahlen verlangen das simple past; just, already, yet, ever, never und so far gehen mit dem present perfect zusammen. Ein typischer Mischfehler lautet: I have seen him yesterday. Die Signalwörter sind eine gute Stütze, und die meisten Lehrwerke arbeiten damit. Sie sind aber keine Garantie: Viele Sätze haben gar kein Signalwort, und dann entscheidet der Zusammenhang. Fragen Sie Ihr Kind in solchen Fällen: Ist die Zeit vorbei, oder geht es um das Ergebnis jetzt?",
+    "narration": "Zweiter Fehler: Signalwörter werden überlesen oder gemischt. Yesterday, last week, ago und Jahreszahlen verlangen das simple past; just, already, yet, ever, never und so far gehen mit dem present perfect zusammen. Ein typischer Mischfehler lautet: I have seen him yesterday. Die Signalwörter sind eine gute Stütze, aber keine Garantie: Viele Sätze haben gar kein Signalwort, und dann entscheidet der Zusammenhang. Fragen Sie Ihr Kind in solchen Fällen: Ist die Zeit vorbei, oder geht es um das Ergebnis jetzt?",
     "onScreenTitle": "Fehler 2: Signalwörter überlesen oder mischen",
     "emphasisWords": []
    },
    {
     "beatId": 12,
     "chapterId": 3,
-    "narration": "Dritter Fehler: die unregelmäßigen Verben. Für das present perfect braucht man die dritte Form, das past participle, und die wird oft mit der zweiten verwechselt: I have went, I have saw. Hilfreich ist, die Verben konsequent als Dreierreihe zu lernen: go, went, gone; see, saw, seen; write, wrote, written. Eine Besonderheit: Have you ever been to London fragt, ob jemand dort war; she has gone to London heißt, sie ist hingefahren und noch dort. Und die Kurzform mit Apostroph s kann is oder has bedeuten: She's gone steht für She has gone.",
+    "narration": "Dritter Fehler: die unregelmäßigen Verben. Für das present perfect braucht man die dritte Form, das past participle, und die wird oft mit der zweiten verwechselt: I have went, I have saw. Hilfreich ist, die Verben als Dreierreihe zu lernen: go, went, gone; see, saw, seen; write, wrote, written. Eine Besonderheit: Have you ever been to London fragt, ob jemand dort war; she has gone to London heißt, sie ist noch dort. Und die Kurzform mit Apostroph s kann is oder has bedeuten: She's gone steht für She has gone.",
     "onScreenTitle": "Fehler 3: Die dritte Verbform fehlt",
     "emphasisWords": []
    },
    {
     "beatId": 13,
     "chapterId": 4,
-    "narration": "Sie müssen kein Englisch unterrichten, um zu helfen. Was in der sechsten Klasse zählt, ist regelmäßiger Kontakt mit der Sprache in kleinen Portionen: ein paar Sätze am Tag, ein wenig Lesen oder Hören, und die unregelmäßigen Verben als Spiel statt als Strafarbeit. Drei Dinge lassen sich ohne Vorbereitung in den Alltag einbauen, und keines davon dauert länger als fünf Minuten. Ihr eigenes Englisch muss dafür nicht perfekt sein.",
+    "narration": "Sie müssen kein Englisch unterrichten, um zu helfen. Was in der sechsten Klasse zählt, ist regelmäßiger Kontakt mit der Sprache in kleinen Portionen: ein paar Sätze am Tag, ein wenig Lesen oder Hören, und die unregelmäßigen Verben als Spiel statt als Strafarbeit. Drei Dinge lassen sich ohne Vorbereitung in den Alltag einbauen, keines dauert länger als fünf Minuten. Ihr eigenes Englisch muss dafür nicht perfekt sein.",
     "onScreenTitle": "Üben zu Hause ohne Englischlehrkraft",
     "emphasisWords": []
    },
    {
     "beatId": 14,
     "chapterId": 4,
-    "narration": "Die wirksamste Übung ist ein kurzes Gespräch, zwei oder drei Sätze am Abend. Die Frage What did you do today lenkt automatisch ins simple past, weil der Tag erzählt wird: I played football, we wrote a test. Die Frage Have you finished your homework übt das present perfect, weil es um das Ergebnis jetzt geht. Korrigieren Sie nicht jeden Fehler; wiederholen Sie den Satz lieber beiläufig richtig, so wie man es bei kleinen Kindern in der Muttersprache macht. Ziel ist, dass das Kind spricht, nicht, dass jeder Satz stimmt.",
+    "narration": "Die wirksamste Übung ist ein kurzes Gespräch, zwei oder drei Sätze am Abend. Die Frage What did you do today lenkt automatisch ins simple past, weil der Tag erzählt wird: I played football, we wrote a test. Die Frage Have you finished your homework übt das present perfect, weil es um das Ergebnis jetzt geht. Korrigieren Sie nicht jeden Fehler; wiederholen Sie den Satz lieber beiläufig richtig. Ziel ist, dass das Kind spricht, nicht, dass jeder Satz stimmt.",
     "onScreenTitle": "Das kurze Gespräch am Abend",
     "emphasisWords": []
    },
    {
     "beatId": 15,
     "chapterId": 4,
-    "narration": "Zeitformen lernt man am nachhaltigsten, indem man sie oft hört und liest. Der Lehrplan nennt für diese Stufe unter anderem Lektüren, Lieder, Trickfilme und Kinderserien. Zu Hause heißt das: eine einfache englische Lektüre aus der Schulbibliothek, eine bekannte Serie mit englischer Tonspur und Untertiteln, ein Lied mit mitgelesenem Text. Lassen Sie Ihr Kind auch Lehrbuchtexte laut vorlesen; das übt zugleich die Aussprache, die der Lehrplan ebenfalls verlangt. Ein paar Minuten täglich wirken mehr als eine lange Sitzung am Wochenende.",
+    "narration": "Zeitformen lernt man am nachhaltigsten, indem man sie oft hört und liest. Der Lehrplan nennt für diese Stufe unter anderem Lektüren, Lieder, Trickfilme und Kinderserien. Zu Hause heißt das: eine einfache englische Lektüre aus der Schulbibliothek, eine bekannte Serie mit englischer Tonspur und Untertiteln, ein Lied mit mitgelesenem Text. Lassen Sie Ihr Kind auch Lehrbuchtexte laut vorlesen; das übt zugleich die Aussprache. Ein paar Minuten täglich wirken mehr als eine lange Sitzung am Wochenende.",
     "onScreenTitle": "Lesen und Hören in kleinen Dosen",
     "emphasisWords": []
    },
    {
     "beatId": 16,
     "chapterId": 4,
-    "narration": "Die unregelmäßigen Verben sind reine Übungssache. Drei Vorschläge: Dreierreihen laut und rhythmisch sprechen, go, went, gone, fast wie einen Reim. Kärtchen mit der Grundform vorn und den beiden anderen Formen hinten, fünf neue pro Tag, und die alten immer wieder dazu. Und drehen Sie die Rollen um: Lassen Sie sich von Ihrem Kind erklären, wann man welche Form braucht. Wer etwas erklären muss, versteht es selbst besser. Die Liste der unregelmäßigen Verben steht in jedem Lehrwerk im Anhang.",
+    "narration": "Die unregelmäßigen Verben sind reine Übungssache. Drei Vorschläge: Dreierreihen laut und rhythmisch sprechen, go, went, gone, fast wie einen Reim. Kärtchen mit der Grundform vorn und den beiden anderen Formen hinten, fünf neue pro Tag, die alten immer wieder dazu. Und drehen Sie die Rollen um: Lassen Sie sich von Ihrem Kind erklären, wann man welche Form braucht. Wer erklären muss, versteht es selbst besser. Die Liste steht in jedem Lehrwerk im Anhang.",
     "onScreenTitle": "Unregelmäßige Verben als Spiel",
     "emphasisWords": []
    },
    {
     "beatId": 17,
     "chapterId": 5,
-    "narration": "Zum Schluss drei Fragen, die Eltern häufig stellen: Wie wird Englisch in der sechsten Klasse geprüft, welche Aufgaben kommen typischerweise vor, und welche Grammatik wartet in diesem Lernbereich noch? Vorweg eine Einschränkung: Die konkreten Regelungen zu Schulaufgaben legen Schulordnung, Schule und Fachschaft fest, und sie können sich ändern. Was Sie hier hören, ist eine Orientierung, kein Ersatz für die Informationen der Lehrkraft Ihres Kindes.",
+    "narration": "Zum Schluss drei Fragen, die Eltern häufig stellen: Wie wird Englisch in der sechsten Klasse geprüft, welche Aufgaben kommen typischerweise vor, und welche Grammatik wartet in diesem Lernbereich noch? Vorweg eine Einschränkung: Die konkreten Regelungen zu Schulaufgaben legen Schulordnung, Schule und Fachschaft fest, und sie können sich ändern. Was Sie hier hören, ist eine Orientierung, kein Ersatz für die Auskunft der Lehrkraft.",
     "onScreenTitle": "Leistungsnachweise und Ausblick",
     "emphasisWords": []
    },
    {
     "beatId": 18,
     "chapterId": 5,
-    "narration": "Englisch ist am Gymnasium ein Kernfach, in dem auch in der sechsten Klasse Schulaufgaben geschrieben werden. Wie viele es im Schuljahr sind und was genau darin vorkommt, ergibt sich aus der Schulordnung und den Festlegungen der Schule und der Lehrkraft; fragen Sie am Elternabend nach. Üblich sind Aufgaben zu Grammatik, Wortschatz, Hör- und Leseverstehen und ein kurzer eigener Text. Dazu kommen kleine Leistungsnachweise wie Stegreifaufgaben, Vokabeltests und mündliche Mitarbeit; auch mündliche Prüfungsteile sind möglich. Die Gewichtung kennt die Lehrkraft.",
+    "narration": "Englisch ist am Gymnasium ein Kernfach, in dem auch in der sechsten Klasse Schulaufgaben geschrieben werden. Wie viele es im Schuljahr sind und was genau darin vorkommt, ergibt sich aus der Schulordnung und den Festlegungen von Schule und Lehrkraft; fragen Sie am Elternabend nach. Üblich sind Aufgaben zu Grammatik, Wortschatz, Hör- und Leseverstehen und ein kurzer eigener Text. Dazu kommen kleine Leistungsnachweise wie Stegreifaufgaben, Vokabeltests und mündliche Mitarbeit; auch mündliche Prüfungsteile sind möglich.",
     "onScreenTitle": "So wird Englisch meist geprüft",
     "emphasisWords": []
    },
    {
     "beatId": 19,
     "chapterId": 5,
-    "narration": "Zu den Zeitformen begegnen Ihrem Kind erfahrungsgemäß vier Aufgabentypen. Der Lückentext: Das Verb steht in Klammern, die passende Form muss eingesetzt werden, oft mit Signalwort. Die Zuordnung: Welcher Satz passt zu welcher Zeitform, und warum. Der freie Text: eine E-Mail darüber, was am Wochenende passiert ist, also simple past, oder was man schon erledigt hat, also present perfect. Und die Fehlerkorrektur: I have seen him yesterday verbessern und begründen. Beim Üben zu Hause lohnt sich besonders die Begründung, denn wer begründen kann, rät nicht.",
+    "narration": "Zu den Zeitformen begegnen Ihrem Kind erfahrungsgemäß vier Aufgabentypen. Der Lückentext: Das Verb steht in Klammern, die passende Form muss eingesetzt werden, oft mit Signalwort. Die Zuordnung: Welcher Satz passt zu welcher Zeitform, und warum. Der freie Text: eine E-Mail darüber, was am Wochenende passiert ist, also simple past, oder was man schon erledigt hat, also present perfect. Und die Fehlerkorrektur: I have seen him yesterday verbessern und begründen. Wer begründen kann, rät nicht.",
     "onScreenTitle": "Typische Aufgaben zu den Zeitformen",
     "emphasisWords": []
    },
    {
     "beatId": 20,
     "chapterId": 5,
-    "narration": "Das present perfect ist nur ein Punkt der Grammatikliste. Dazu kommen in der sechsten Klasse das past progressive, also I was reading when the phone rang; drei Zukunftsformen, going-to-future, will-future und timetable-future; die Steigerung der Adjektive; Relativsätze mit und ohne Relativpronomen; die Modalverben could, may, might und should mit ihren Ersatzformen; der Konditionalsatz Typ eins; sowie question tags und Fragen mit Präpositionen. In welcher Reihenfolge das Lehrwerk sie einführt, zeigt das Inhaltsverzeichnis des Buches. Zu einigen dieser Themen folgen weitere Videos.",
+    "narration": "Das present perfect ist nur ein Punkt der Grammatikliste. Dazu kommen in der sechsten Klasse das past progressive, also I was reading when the phone rang; drei Zukunftsformen, going-to-future, will-future und timetable-future; die Steigerung der Adjektive; Relativsätze mit und ohne Relativpronomen; die Modalverben could, may, might und should mit Ersatzformen; der Konditionalsatz Typ eins; sowie question tags und Fragen mit Präpositionen. Die Reihenfolge zeigt das Inhaltsverzeichnis des Lehrwerks. Zu einigen Themen folgen weitere Videos.",
     "onScreenTitle": "Ausblick: Was in E6 1.2 noch kommt",
     "emphasisWords": []
    },
@@ -1150,7 +1150,7 @@
     "emphasisWords": []
    }
   ],
-  "totalWords": 1703
+  "totalWords": 1595
  },
  "review": {
   "approved": true,

@@ -61,7 +61,7 @@
             "2.2 Projekt Multimediapräsentation",
             "2.3 Dateisystem als Baum, etwa 5 Stunden"
           ],
-          "narration": "Im LehrplanPLUS hat Natur und Technik in der sechsten Klasse neben dem Schwerpunkt Biologie einen Schwerpunkt Informatik mit drei Lernbereichen. Der erste behandelt die Darstellung von Information in Grafik-, Text- und Multimediadokumenten, dort werden Objekte, Attribute, Methoden und Klassen eingeführt. Der zweite ist ein Projekt, eine Multimediapräsentation. Der dritte, um den es hier geht, heißt Hierarchische Informationsstrukturen, Dateisystem, und ist mit etwa fünf Stunden kurz, aber grundlegend: Hier lernen Kinder den Baum, eine der wichtigsten Strukturen der Informatik."
+          "narration": "Im LehrplanPLUS hat Natur und Technik in der sechsten Klasse neben der Biologie einen Schwerpunkt Informatik mit drei Lernbereichen. Der erste behandelt die Darstellung von Information in Grafik-, Text- und Multimediadokumenten, dort werden Objekte, Attribute, Methoden und Klassen eingeführt. Der zweite ist ein Projekt, eine Multimediapräsentation. Der dritte, um den es hier geht, heißt Hierarchische Informationsstrukturen, Dateisystem, und ist mit etwa fünf Stunden kurz, aber grundlegend: Hier lernen Kinder den Baum, eine der wichtigsten Strukturen der Informatik."
         },
         {
           "kind": "bullets",
@@ -108,7 +108,7 @@
             10
           ],
           "onScreenTitle": "Idee 1: Der Baum steht auf dem Kopf",
-          "narration": "Idee eins: der Baum. Der oberste Ordner ist die Wurzel. Jeder Ordner und jede Datei ist ein Knoten. Die Linien sind Kanten und bedeuten enthält. Knoten ohne Kinder, also die Dateien, sind Blätter. Die Fachwörter stammen von echten Bäumen, nur wächst dieser von oben nach unten, was Kinder anfangs irritiert. Eine Datei kann nichts enthalten, deshalb sind Dateien immer Blätter; ein leerer Ordner ist übrigens auch eines. Diese vier Wörter sollte Ihr Kind sicher zuordnen können."
+          "narration": "Idee eins: der Baum. Der oberste Ordner ist die Wurzel. Jeder Ordner und jede Datei ist ein Knoten. Die Linien sind Kanten und bedeuten enthält. Knoten ohne Kinder, also die Dateien, sind Blätter. Die Fachwörter stammen von echten Bäumen, nur wächst dieser von oben nach unten, was Kinder anfangs irritiert. Eine Datei kann nichts enthalten, deshalb sind Dateien immer Blätter. In unserem Beispiel sind alle Blätter Dateien; ein leerer Ordner wäre ebenfalls eines. Diese vier Wörter sollte Ihr Kind sicher zuordnen können."
         },
         {
           "kind": "math3d",
@@ -122,7 +122,7 @@
             17
           ],
           "onScreenTitle": "Idee 2: Der Pfad ist eine Wegbeschreibung",
-          "narration": "Idee zwei: der Pfad. Er beschreibt den Weg von der Wurzel bis zur Datei, Ordner für Ordner, mit Schrägstrichen getrennt: Mia, Fotos, Urlaub, strand Punkt j p g. Unter Windows erscheint oft der umgekehrte Schrägstrich, die Bedeutung ist dieselbe. Entscheidend ist die Eindeutigkeit: Zwei Dateien dürfen gleich heißen, wenn sie in verschiedenen Ordnern liegen, denn ihre Pfade unterscheiden sich. Genau diese Eigenschaft nutzt jeder Computer, und sie ist der Grund, warum das Dateisystem ein Baum sein muss und kein Netz."
+          "narration": "Idee zwei: der Pfad. Er beschreibt den Weg von der Wurzel bis zur Datei, Ordner für Ordner, mit Schrägstrichen getrennt: Mia, Fotos, Urlaub, strand Punkt j p g. Unter Windows erscheint oft der umgekehrte Schrägstrich, die Bedeutung ist dieselbe. Entscheidend ist die Eindeutigkeit: Im selben Ordner darf ein Name nur einmal vorkommen, in verschiedenen Ordnern dürfen zwei Dateien gleich heißen, denn ihre Pfade unterscheiden sich. Weil der Dateibaum so aufgebaut ist, führt genau ein Weg von der Wurzel zu jeder Datei."
         },
         {
           "kind": "math3d",
@@ -136,7 +136,7 @@
             23
           ],
           "onScreenTitle": "Idee 3: Zwei Klassen, eine rekursive Beziehung",
-          "narration": "Idee drei: die Klassen. Die bayerische Schulinformatik beschreibt die Welt von Anfang an objektorientiert. Die Klasse ORDNER hat das Attribut name, die Klasse DATEI die Attribute name und größe; die Beziehung enthält ist als Pfeil gezeichnet. Jeder konkrete Ordner und jede Datei ist ein Objekt seiner Klasse. Der Pfeil von ORDNER zu DATEI heißt enthält. Der Pfeil von ORDNER zurück auf ORDNER ist die rekursive Beziehung: Ein Ordner enthält Ordner. Dieses eine Wort, rekursiv, erklärt, warum ein Baum beliebig tief werden kann."
+          "narration": "Idee drei: die Klassen. Die bayerische Schulinformatik beschreibt die Welt von Anfang an objektorientiert. Die Klasse ORDNER hat das Attribut name, die Klasse DATEI die Attribute name und größe; die Beziehung enthält ist als Pfeil gezeichnet. Jeder konkrete Ordner und jede Datei ist ein Objekt seiner Klasse. Unten steht ein Beispiel in Punktnotation: aufsatz Punkt name ergibt Aufsatz Punkt t x t. Der Pfeil von ORDNER zu DATEI heißt enthält. Der Pfeil von ORDNER zurück auf ORDNER ist die rekursive Beziehung: Ein Ordner enthält Ordner. Dieses eine Wort, rekursiv, erklärt, warum ein Baum beliebig tief werden kann."
         },
         {
           "kind": "math3d",
@@ -150,13 +150,13 @@
             30
           ],
           "onScreenTitle": "Idee 4: Ordnergrößen als Diagramm",
-          "narration": "Idee vier: die Statistik. Nur Dateien haben im Modell eine Größe; die Größe eines Ordners ergibt sich als Summe aller Dateien darin, bis hinunter zu den Blättern. Schule zehn Megabyte, Fotos siebzehn, Musik fünfzehn. Als Säulendiagramm ist der Vergleich auf einen Blick möglich, und das verbindet den Lernbereich mit der Informationsdarstellung aus 2.1: Dieselbe Information als Liste, als Baum oder als Diagramm. Und die Berechnung selbst ist wieder rekursiv: Die Größe eines Ordners braucht die Größen seiner Unterordner."
+          "narration": "Idee vier: die Statistik. Nur Dateien haben im Modell eine Größe; die Größe eines Ordners ergibt sich als Summe aller Dateien darin, bis hinunter zu den Blättern. Schule zehn Megabyte, Fotos siebzehn, Musik fünfzehn; Fotos ist am größten und darum hervorgehoben. Als Säulendiagramm ist der Vergleich auf einen Blick möglich, und das verbindet den Lernbereich mit der Informationsdarstellung aus 2.1: Dieselbe Information als Liste, als Baum oder als Diagramm. Und die Berechnung selbst ist wieder rekursiv: Die Größe eines Ordners braucht die Größen seiner Unterordner."
         }
       ]
     },
     {
       "title": "Die Denkweise: Objekte, Klassen, Strukturen",
-      "goal": "Sie verstehen die objektorientierte Denkweise, die den gesamten bayerischen Informatikunterricht prägt.",
+      "goal": "Sie verstehen die objektorientierte Denkweise, die den Informatikunterricht in Natur und Technik prägt.",
       "keyPoints": [
         "Objekt und Klasse",
         "Attribut und Punktnotation",
@@ -171,7 +171,7 @@
             "Attribut",
             "Struktur"
           ],
-          "narration": "Was Eltern oft überrascht: Der Informatikunterricht in der sechsten Klasse ist kein Computerkurs. Es geht nicht darum, ein bestimmtes Programm bedienen zu können. Es geht um eine Denkweise, die in Bayern von der sechsten Klasse bis zum Abitur durchgehalten wird: Dinge als Objekte beschreiben, die zu Klassen gehören und Attribute haben. Das Dateisystem ist dafür das ideale Übungsfeld, weil jedes Kind es schon kennt."
+          "narration": "Was Eltern oft überrascht: Der Informatikunterricht in der sechsten Klasse ist kein Computerkurs. Es geht nicht darum, ein bestimmtes Programm bedienen zu können. Es geht um eine Denkweise, die im Informatikunterricht immer wieder aufgegriffen wird: Dinge als Objekte beschreiben, die zu Klassen gehören und Attribute haben. Das Dateisystem ist dafür das ideale Übungsfeld, weil jedes Kind es schon kennt."
         },
         {
           "kind": "bullets",
@@ -204,7 +204,7 @@
             "Bild: Schachteln in Schachteln",
             "Folge: Der Baum kann beliebig tief werden"
           ],
-          "narration": "Das schwierigste Wort des Lernbereichs ist rekursiv. Gemeint ist eine Beziehung, die auf dieselbe Klasse zurückzeigt: ORDNER enthält ORDNER. Für Kinder hilft das Bild der Schachteln in Schachteln oder der russischen Puppen. Die Folge ist, dass ein Baum beliebig tief werden kann und dass man viele Fragen an einen Ordner beantwortet, indem man dieselbe Frage an seine Unterordner stellt, etwa die nach der Größe. Mehr als dieses Verständnis wird in der sechsten Klasse nicht erwartet; die formale Rekursion kommt Jahre später."
+          "narration": "Das schwierigste Wort des Lernbereichs ist rekursiv. Gemeint ist eine Beziehung, die auf dieselbe Klasse zurückzeigt: ORDNER enthält ORDNER. Für Kinder hilft das Bild der Schachteln in Schachteln oder der russischen Puppen. Die Folge ist, dass ein Baum beliebig tief werden kann und dass man viele Fragen an einen Ordner beantwortet, indem man dieselbe Frage an seine Unterordner stellt, etwa die nach der Größe. Mehr als dieses Verständnis steht im Lernbereich nicht im Mittelpunkt; formale Rekursion ist, wenn überhaupt, Thema späterer Jahrgangsstufen."
         }
       ]
     },
@@ -224,7 +224,7 @@
             "Pfade",
             "Aufräumen"
           ],
-          "narration": "Dieser Lernbereich lässt sich zu Hause besser üben als fast jeder andere, denn das Übungsmaterial steht auf dem Schreibtisch: der Computer, das Tablet oder das Handy Ihres Kindes. Drei Übungen, je zehn Minuten, die genau das trainieren, was der Lehrplan verlangt, und nebenbei für Ordnung auf dem Gerät sorgen. Sie brauchen dafür keine Informatikkenntnisse, nur die Bereitschaft, sich den Baum erklären zu lassen."
+          "narration": "Dieser Lernbereich lässt sich zu Hause besser üben als fast jeder andere, denn das Übungsmaterial steht auf dem Schreibtisch: der Computer oder Laptop Ihres Kindes; am Tablet findet sich der Baum meist in einer App namens Dateien. Drei Übungen, je zehn Minuten, die genau das trainieren, was der Lehrplan verlangt, und nebenbei für Ordnung auf dem Gerät sorgen. Sie brauchen dafür keine Informatikkenntnisse, nur Neugier."
         },
         {
           "kind": "bullets",
@@ -235,7 +235,7 @@
             "Fachwörter dranschreiben: Wurzel, Knoten, Kante, Blatt",
             "Fragen: Welche Knoten sind Blätter? Warum?"
           ],
-          "narration": "Übung eins: Lassen Sie Ihr Kind seinen eigenen Schulordner als Baum auf Papier zeichnen, mit der Wurzel oben und den Dateien als Blättern unten. Dann werden die Fachwörter dazugeschrieben: Wurzel, Knoten, Kante, Blatt. Fragen Sie: Welche Knoten sind Blätter, und woran erkennst du das? Gibt es einen leeren Ordner, und ist der ein Blatt? Dabei zeigt sich meist, dass der echte Ordner unordentlich ist, und das führt direkt zu Übung drei."
+          "narration": "Übung eins: Lassen Sie Ihr Kind seinen eigenen Schulordner als Baum auf Papier zeichnen, mit der Wurzel oben und den Dateien als Blättern unten. Dann werden die Fachwörter dazugeschrieben: Wurzel, Knoten, Kante, Blatt. Fragen Sie Ihr Kind: Welche Knoten sind Blätter, und woran erkennst du das? Gibt es einen leeren Ordner, und ist der ein Blatt? Dabei zeigt sich meist, dass der echte Ordner unordentlich ist, und das führt direkt zu Übung drei."
         },
         {
           "kind": "bullets",
@@ -257,7 +257,7 @@
             "Fragen: Warum ist dieser Ordner so groß?",
             "Aufräumen: sinnvolle Ordner, sprechende Namen"
           ],
-          "narration": "Übung drei: Lassen Sie sich die Größen der obersten Ordner anzeigen, am Computer über Eigenschaften oder Informationen, und skizzieren Sie gemeinsam ein Säulendiagramm. Fragen Sie: Warum ist dieser Ordner so groß, welche Dateien darin sind es? Das ist die rekursive Idee in der Praxis. Zum Schluss aufräumen: sinnvolle Ordner anlegen, Dateien mit sprechenden Namen versehen, Doppeltes löschen. Ein Kind, das seinen eigenen Baum ordnet, hat den Lernbereich verstanden und findet nebenbei seine Hausaufgaben wieder."
+          "narration": "Übung drei: Lassen Sie sich die Größen der obersten Ordner anzeigen, am Computer über Eigenschaften oder Informationen, und skizzieren Sie gemeinsam ein Säulendiagramm. Fragen Sie: Warum ist dieser Ordner so groß, welche Dateien darin sind es? Das ist die rekursive Idee in der Praxis. Zum Schluss aufräumen: sinnvolle Ordner anlegen, Dateien mit sprechenden Namen versehen, Doppeltes löschen. Ein Kind, das seinen eigenen Baum ordnet, hat einen wichtigen Teil des Lernbereichs praktisch erfahren und findet nebenbei seine Hausaufgaben wieder."
         }
       ]
     },
@@ -268,7 +268,7 @@
         "Ordner als Datei",
         "Baum wächst nach oben",
         "Kleine Leistungsnachweise",
-        "Informatik ab Klasse 7"
+        "Informatik geht weiter"
       ],
       "scenes": [
         {
@@ -278,7 +278,7 @@
             "Bewertung",
             "Ausblick"
           ],
-          "narration": "Zum Schluss drei Dinge, die Eltern häufig fragen: Welche Fehlvorstellungen sind typisch, wie wird der Informatikteil von Natur und Technik bewertet, und wie geht es mit Informatik am Gymnasium weiter? Die Fehlvorstellungen kommen meist aus der Alltagssprache und von Geräten, die den Baum verstecken. Die Bewertung ist leichter als in den Hauptfächern. Und Informatik bleibt dem Kind erhalten."
+          "narration": "Zum Schluss drei Dinge, die Eltern häufig fragen: Welche Fehlvorstellungen sind typisch, wie wird der Informatikteil von Natur und Technik bewertet, und wie geht es mit Informatik am Gymnasium weiter? Die Fehlvorstellungen kommen meist aus der Alltagssprache und von Geräten, die den Baum verstecken. Die Bewertung läuft meist anders als in den Hauptfächern, nämlich über kleine Leistungsnachweise. Und Informatik bleibt dem Kind erhalten."
         },
         {
           "kind": "bullets",
@@ -289,7 +289,7 @@
             "Blatt heißt Datei? Fast: Knoten ohne Kinder",
             "Suchfeld ersetzt Struktur? Pfade bleiben eindeutig"
           ],
-          "narration": "Vier Fehlvorstellungen aus vielen Klassen. Erstens: Ein Ordner speichere selbst Inhalt. Nein, er enthält nur; nur Dateien tragen Information und Größe. Zweitens: Der Baum wachse wie ein echter Baum nach oben. In der Informatik ist die Wurzel oben. Drittens: Blatt sei nur ein anderes Wort für Datei. Fast richtig, aber die Definition lautet Knoten ohne Kinder, und ein leerer Ordner zählt dazu. Viertens, die hartnäckigste: Mit dem Suchfeld brauche man keine Struktur. Handys verstecken den Baum, aber er ist da, und wer Pfade versteht, findet Dateien auch dann, wenn die Suche versagt."
+          "narration": "Vier Fehlvorstellungen, die in der Praxis häufig vorkommen. Erstens: Ein Ordner speichere selbst Inhalt. Nein, er enthält nur; im Modell tragen nur Dateien Information und eine eigene Größe. Zweitens: Der Baum wachse wie ein echter Baum nach oben. In der Informatik ist die Wurzel oben. Drittens: Blatt sei nur ein anderes Wort für Datei. Fast richtig, aber die Definition lautet Knoten ohne Kinder, und ein leerer Ordner zählt dazu. Viertens, die hartnäckigste: Mit dem Suchfeld brauche man keine Struktur. Handys verstecken den Baum, aber er ist da, und wer Pfade versteht, findet Dateien auch dann, wenn die Suche versagt."
         },
         {
           "kind": "bullets",
@@ -306,12 +306,12 @@
           "kind": "bullets",
           "onScreenTitle": "Ausblick: Informatik bleibt",
           "bullets": [
-            "NT 7: Informatik mit Algorithmen und Programmieren",
-            "Ab Klasse 9: eigenes Fach Informatik",
+            "Informatik setzt sich in höheren Jahrgangsstufen fort",
+            "Details laut LehrplanPLUS der jeweiligen Jahrgangsstufe",
             "Die Denkweise bleibt: Objekt, Klasse, Attribut, Beziehung",
             "Der Baum kehrt wieder: Gliederungen, Menüs, Daten"
           ],
-          "narration": "Wie geht es weiter? In der siebten Klasse bleibt Informatik Teil von Natur und Technik und wendet sich Algorithmen und ersten Programmen zu. Später wird Informatik ein eigenes Fach. Die Denkweise aus der sechsten Klasse bleibt dabei erhalten: Objekte, Klassen, Attribute und Beziehungen bilden das Fundament für alles, was folgt. Und der Baum kehrt immer wieder zurück, in Gliederungen, Menüs, Datenbanken und in der Struktur von Webseiten. Was Ihr Kind jetzt am Dateisystem lernt, ist also kein Randthema, sondern ein Grundmuster der Informatik."
+          "narration": "Wie geht es weiter? Informatik wird in den folgenden Jahrgangsstufen nach Lehrplan fortgeführt und vertieft; welche Inhalte genau folgen, entnehmen Sie dem LehrplanPLUS der jeweiligen Jahrgangsstufe. Die Denkweise aus der sechsten Klasse bildet dabei ein Fundament, auf dem spätere Themen aufbauen können: Objekte, Klassen, Attribute und Beziehungen. Und der Baum kehrt immer wieder zurück, in Gliederungen, Menüs, Datenbanken und in der Struktur von Webseiten. Was Ihr Kind jetzt am Dateisystem lernt, ist also kein Randthema, sondern ein Grundmuster der Informatik."
         },
         {
           "kind": "outro",
@@ -319,5 +319,30 @@
         }
       ]
     }
-  ]
+  ],
+  "review": {
+    "reviewer": "Claude Sonnet (Claude Code subagent), independent of the writer (Claude in Claude Code)",
+    "date": "2026-11-09",
+    "mustFixApplied": [
+      "Aussagen über spätere Jahrgangsstufen generisch und gehedgt (kein „NT 7“, kein „ab Klasse 9“)",
+      "„bis zum Abitur durchgehalten“ abgeschwächt",
+      "Eindeutigkeit der Pfade korrekt begründet (gleicher Name nur in verschiedenen Ordnern; ein Weg von der Wurzel), kein „muss ein Baum sein“",
+      "„Bewertung leichter“ ersetzt durch „anders, über kleine Leistungsnachweise“"
+    ],
+    "suggestionsApplied": [
+      "Punktnotation in Idee 3 erwähnt",
+      "Fotos als hervorgehobene Säule erklärt",
+      "Leerer Ordner als Blatt relativ zum Beispiel",
+      "Rekursion-Erwartung gehedgt",
+      "Tablet-Hinweis; Fragen ans Kind gekennzeichnet; „Neugier“",
+      "Fehlvorstellungen: „in der Praxis häufig“, „im Modell“"
+    ],
+    "verified": [
+      "Größen 10/17/15 MB",
+      "Segmente und Narration",
+      "Konventionen (Klassen groß, Objekte klein, enthält als Beziehung)",
+      "Lehrplanfakten 2.1 bis 2.3",
+      "Sie-Form, Wortzahlen"
+    ]
+  }
 }

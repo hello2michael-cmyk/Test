@@ -2,8 +2,8 @@
  "id": "current",
  "prompt": "Lektion E6-1.2 „Verfügen über sprachliche Mittel“ (Englisch (1. Fremdsprache), Klasse 6 Gymnasium Bayern), aus klasse6/lessons/E6-1.2.lesson.json. 16 Minuten, auf Deutsch, für Kinder von etwa 11 Jahren.",
  "attempts": 0,
- "createdAt": 1794219102862,
- "updatedAt": 1794219102862,
+ "createdAt": 1794219167714,
+ "updatedAt": 1794219167714,
  "stage": "plan",
  "mode": "course",
  "durationApplied": true,
@@ -28,8 +28,8 @@
   "footageProvider": "none",
   "aiClipBudget": 0,
   "minSceneSeconds": 10,
-  "maxDuration": 1112,
-  "targetDuration": 967,
+  "maxDuration": 1111,
+  "targetDuration": 966,
   "lesson": {
    "id": "E6-1.2",
    "title": "Verfügen über sprachliche Mittel",
@@ -329,7 +329,7 @@
     "id": 31,
     "chapterId": 5,
     "purpose": "takeaway",
-    "keyPoint": "Merk dir das: Das simple past erzählt, was zu einem Zeitpunkt passiert ist, der vorbei ist: I lost my key yesterday. Das present perfect verbindet die Vergangenheit mit dem Jetzt: I have lost my key, der Schlüssel ist jetzt weg. Yesterday und ago rufen nach dem simple past, just, already, ever und never nach dem present perfect. Und das deutsche Perfekt ist kein present perfect: Ich habe gestern gespielt heißt I played yesterday. Schreib einen Satz im present perfect in die Kommentare. Abonniere für die nächste Lektion.",
+    "keyPoint": "Merk dir das: Das simple past erzählt, was zu einem Zeitpunkt passiert ist, der vorbei ist: I lost my key yesterday. Das present perfect verbindet die Vergangenheit mit dem Jetzt: I have lost my key, der Schlüssel ist jetzt weg. Yesterday und ago rufen nach dem simple past, ever und never nach dem present perfect. Und das deutsche Perfekt ist kein present perfect: Ich habe gestern gespielt heißt I played yesterday. Schreib einen Satz im present perfect in die Kommentare. Abonniere für die nächste Lektion.",
     "suggestedVisual": "outro"
    }
   ]
@@ -1362,7 +1362,7 @@
     "stockQuery": null
    },
    {
-    "narration": "Merk dir das: Das simple past erzählt, was zu einem Zeitpunkt passiert ist, der vorbei ist: I lost my key yesterday. Das present perfect verbindet die Vergangenheit mit dem Jetzt: I have lost my key, der Schlüssel ist jetzt weg. Yesterday und ago rufen nach dem simple past, just, already, ever und never nach dem present perfect. Und das deutsche Perfekt ist kein present perfect: Ich habe gestern gespielt heißt I played yesterday. Schreib einen Satz im present perfect in die Kommentare. Abonniere für die nächste Lektion.",
+    "narration": "Merk dir das: Das simple past erzählt, was zu einem Zeitpunkt passiert ist, der vorbei ist: I lost my key yesterday. Das present perfect verbindet die Vergangenheit mit dem Jetzt: I have lost my key, der Schlüssel ist jetzt weg. Yesterday und ago rufen nach dem simple past, ever und never nach dem present perfect. Und das deutsche Perfekt ist kein present perfect: Ich habe gestern gespielt heißt I played yesterday. Schreib einen Satz im present perfect in die Kommentare. Abonniere für die nächste Lektion.",
     "onScreenTitle": "Üben und merken",
     "question": null,
     "think": null,
@@ -1608,12 +1608,12 @@
    {
     "beatId": 31,
     "chapterId": 5,
-    "narration": "Merk dir das: Das simple past erzählt, was zu einem Zeitpunkt passiert ist, der vorbei ist: I lost my key yesterday. Das present perfect verbindet die Vergangenheit mit dem Jetzt: I have lost my key, der Schlüssel ist jetzt weg. Yesterday und ago rufen nach dem simple past, just, already, ever und never nach dem present perfect. Und das deutsche Perfekt ist kein present perfect: Ich habe gestern gespielt heißt I played yesterday. Schreib einen Satz im present perfect in die Kommentare. Abonniere für die nächste Lektion.",
+    "narration": "Merk dir das: Das simple past erzählt, was zu einem Zeitpunkt passiert ist, der vorbei ist: I lost my key yesterday. Das present perfect verbindet die Vergangenheit mit dem Jetzt: I have lost my key, der Schlüssel ist jetzt weg. Yesterday und ago rufen nach dem simple past, ever und never nach dem present perfect. Und das deutsche Perfekt ist kein present perfect: Ich habe gestern gespielt heißt I played yesterday. Schreib einen Satz im present perfect in die Kommentare. Abonniere für die nächste Lektion.",
     "onScreenTitle": "Üben und merken",
     "emphasisWords": []
    }
   ],
-  "totalWords": 1978
+  "totalWords": 1976
  },
  "review": {
   "approved": true,

@@ -92,6 +92,7 @@ const filetree = {
       S.label([bx, by - 1.35, 0], 'DATEI', { above: 0, strong: true, color: '#fff', size: S.u(24) });
       S.label([bx, by - 1.72, 0], 'name · größe', { above: 0, color: '#fff', size: S.u(18) });
       S.arrow([bx, by - 0.45, 0], [bx, by - 1.05, 0], rgba(th.text, 0.8), 0.03);
+      S.label([bx + 0.1, by - 0.75, 0], 'enthält', { above: 0, color: dim, size: S.u(18) });
       // the recursive arrow: ORDNER enthält ORDNER
       S.line([bx + 0.95, by + 0.1, 0], [bx + 1.5, by + 0.1, 0], rgba(th.text, 0.8), 0.03); S.line([bx + 1.5, by + 0.1, 0], [bx + 1.5, by - 0.3, 0], rgba(th.text, 0.8), 0.03); S.arrow([bx + 1.5, by - 0.3, 0], [bx + 0.95, by - 0.3, 0], rgba(th.text, 0.8), 0.03);
       S.label([bx + 1.55, by - 0.1, 0], 'enthält (rekursiv)', { above: 0, color: dim, size: S.u(18) });

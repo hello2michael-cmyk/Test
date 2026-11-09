@@ -50,7 +50,7 @@
         {
           "kind": "title",
           "onScreenTitle": "Die Fälle: Warum Latein Endungen braucht",
-          "narration": "Stell dir vor, du liest einen lateinischen Satz: Puella servum vocat. Und dann noch einen: Servum puella vocat. Dieselben drei Wörter, nur anders angeordnet. Im Deutschen würde das den Sinn ändern. In Latein nicht: Beide Male ruft das Mädchen den Sklaven. Wie kann das sein? Das Geheimnis steckt am Ende jedes Wortes, in der Endung. In dieser Lektion lernst du die fünf Fälle kennen, ihre Endungen und was sie im Satz verraten."
+          "narration": "Stell dir vor, du liest einen lateinischen Satz: Puella servum vocat. Und dann noch einen: Servum puella vocat. Dieselben drei Wörter, nur anders angeordnet. Im Deutschen würde das den Sinn ändern. In Latein nicht: Beide Male ruft das Mädchen den Sklaven. Wie kann das sein? Das Geheimnis steckt in der Endung. In dieser Lektion lernst du die fünf Fälle kennen, ihre Endungen und was sie im Satz verraten."
         },
         {
           "kind": "bullets",
@@ -61,7 +61,7 @@
             "Latein zeigt den Fall an der Endung",
             "Deshalb ist die Wortstellung freier"
           ],
-          "narration": "Zuerst eine Überraschung: Latein hat keine Artikel, kein der, die, das. Im Deutschen zeigt oft der Artikel, welche Rolle ein Wort spielt: Der Sklave ruft, aber ich rufe den Sklaven. Der oder den, das macht den Unterschied. Latein hat diese kleinen Helfer nicht. Also muss das Wort selbst seine Rolle anzeigen, und das tut es mit der Endung. Darum darf ein lateinischer Satz seine Wörter freier anordnen als ein deutscher."
+          "narration": "Zuerst eine Überraschung: Latein hat keine Artikel, kein der, die, das. Im Deutschen zeigt oft der Artikel, welche Rolle ein Wort spielt: Der Sklave ruft, aber ich rufe den Sklaven. Latein hat diese kleinen Helfer nicht. Also muss das Wort selbst seine Rolle anzeigen, und das tut es mit der Endung. Darum darf ein lateinischer Satz seine Wörter freier anordnen als ein deutscher."
         },
         {
           "kind": "math3d",
@@ -93,7 +93,7 @@
             "Deutsch ändert Artikel und manchmal die Endung",
             "Latein ändert nur die Endung: servus, servum"
           ],
-          "narration": "Im Deutschen ändert sich zweierlei: Der Artikel der wird zu den, und sogar die Endung, Sklave wird zu Sklaven. Das kennst du von der Frageprobe im Deutschunterricht: Wer oder was ruft? Der Sklave. Wen oder was rufe ich? Den Sklaven. Latein macht nur das Zweite, dafür immer: servus ruft, servum wird gerufen. Die Endung übernimmt die Arbeit, die im Deutschen der Artikel macht. Jetzt schauen wir uns alle fünf Endungen an."
+          "narration": "Im Deutschen ändert sich zweierlei: Der Artikel der wird zu den, und sogar die Endung, Sklave wird zu Sklaven. Wie bei der Frageprobe im Deutschen: Wer ruft? Der Sklave. Wen rufe ich? Den Sklaven. Latein macht nur das Zweite, dafür immer: servus ruft, servum wird gerufen. Die Endung übernimmt die Arbeit, die im Deutschen der Artikel macht. Jetzt schauen wir uns alle fünf Endungen an."
         }
       ]
     },
@@ -138,7 +138,7 @@
             "Dativ: Wem?",
             "Akkusativ: Wen oder was?"
           ],
-          "narration": "Die Fragen zu den Fällen kennst du schon, wie bei der Frageprobe im Deutschen. Wer oder was? Nominativ. Wessen? Genitiv. Wem? Dativ. Wen oder was? Akkusativ. Neu ist nur der Ablativ, und der antwortet auf mehrere Fragen: Womit? Wodurch? Wo? Zum Beispiel: Womit kämpft der Sklave? Mit dem Schwert, gladio. Wo ist das Mädchen? Im Tempel, in templo. Der Ablativ ist der Fall für die Umstände: wie, womit und wo etwas geschieht."
+          "narration": "Die Fragen zu den Fällen kennst du schon, wie bei der Frageprobe im Deutschen. Wer oder was? Nominativ. Wessen? Genitiv. Wem? Dativ. Wen oder was? Akkusativ. Neu ist nur der Ablativ, und der antwortet auf mehrere Fragen: Womit? Wodurch? Wo? Womit kämpft der Sklave? Mit dem Schwert, gladio. Wo ist das Mädchen? Im Tempel, in templo. Der Ablativ ist der Fall für die Umstände: wie, womit und wo etwas geschieht."
         },
         {
           "kind": "math3d",
@@ -152,7 +152,7 @@
             22
           ],
           "onScreenTitle": "puella im Plural",
-          "narration": "Jetzt kommt rechts die Spalte für den Plural dazu, für mehrere Mädchen. Nominativ puellae, Genitiv puellarum, Dativ puellis, Akkusativ puellas, Ablativ puellis. Die Endungen lauten ae, arum, is, as, is. Dativ und Ablativ Plural sind gleich. Und schau: puellae gibt es jetzt dreimal, als Genitiv Singular, Dativ Singular und Nominativ Plural. Das ist kein Fehler, das ist Latein. Welche Form gemeint ist, verrät der Rest des Satzes, vor allem das Verb."
+          "narration": "Jetzt kommt rechts die Spalte für den Plural dazu, für mehrere Mädchen. Nominativ puellae, Genitiv puellarum, Dativ puellis, Akkusativ puellas, Ablativ puellis. Die Endungen lauten ae, arum, is, as, is. Dativ und Ablativ Plural sind gleich. Und schau: puellae gibt es jetzt dreimal, als Genitiv Singular, Dativ Singular und Nominativ Plural. Das ist Latein. Welche Form gemeint ist, verrät der Rest des Satzes, vor allem das Verb."
         },
         {
           "kind": "question",
@@ -170,7 +170,7 @@
             "puellae = Nominativ Plural = Subjekt",
             "Das Verb hilft, gleiche Endungen zu unterscheiden"
           ],
-          "narration": "Puellae ist hier Nominativ Plural, die Mädchen. Denn sunt heißt sie sind, das Verb steht im Plural, also braucht der Satz ein Subjekt im Plural. Wer oder was ist in der Villa? Die Mädchen sind in der Villa. So löst du gleiche Endungen auf: Du schaust auf das Verb und fragst nach dem Subjekt. Diesen Trick brauchst du in Latein ständig. Jetzt kommt die zweite große Wortgruppe, die o-Deklination."
+          "narration": "Puellae ist hier Nominativ Plural, die Mädchen. Denn sunt heißt sie sind, das Verb steht im Plural, also braucht der Satz ein Subjekt im Plural. Wer oder was ist in der Villa? Die Mädchen sind in der Villa. So löst du gleiche Endungen auf: Du schaust auf das Verb und fragst nach dem Subjekt. Jetzt kommt die zweite große Wortgruppe, die o-Deklination."
         }
       ]
     },
@@ -204,7 +204,7 @@
             22
           ],
           "onScreenTitle": "servus: Singular und Plural",
-          "narration": "Servus, der Sklave. Der Stamm ist serv, die Endungen im Singular lauten us, i, o, um, o: servus, servi, servo, servum, servo. Dann der Plural: servi, servorum, servis, servos, servis. Vergleich das mit puella: Der Genitiv Plural endet dort auf arum, hier auf orum. Dativ und Ablativ Plural enden beide Male auf is. Und wieder gibt es Doppelgänger: servi ist Genitiv Singular und Nominativ Plural, servo ist Dativ und Ablativ Singular."
+          "narration": "Servus, der Sklave. Der Stamm ist serv, die Endungen im Singular lauten us, i, o, um, o: servus, servi, servo, servum, servo. Dann der Plural: servi, servorum, servis, servos, servis. Vergleich mit puella: Genitiv Plural dort arum, hier orum; Dativ und Ablativ Plural beide Male is. Und wieder gibt es Doppelgänger: servi ist Genitiv Singular und Nominativ Plural, servo ist Dativ und Ablativ Singular."
         },
         {
           "kind": "math3d",
@@ -218,7 +218,7 @@
             22
           ],
           "onScreenTitle": "templum: ein Neutrum",
-          "narration": "Templum, der Tempel, ist ein Neutrum. Die Endungen: um, i, o, um, o im Singular, also templum, templi, templo, templum, templo. Im Plural a, orum, is, a, is: templa, templorum, templis, templa, templis. Siehst du die Besonderheit? Nominativ und Akkusativ sind gleich, im Singular beide templum, im Plural beide templa. Das gilt für alle Neutra in Latein. Alles andere ist wie bei servus. Du lernst also eigentlich nur zwei neue Formen: templum und templa."
+          "narration": "Templum, der Tempel, ist ein Neutrum. Die Endungen: um, i, o, um, o im Singular, also templum, templi, templo, templum, templo. Im Plural a, orum, is, a, is: templa, templorum, templis, templa, templis. Siehst du die Besonderheit? Nominativ und Akkusativ sind gleich, im Singular beide templum, im Plural beide templa. Das gilt für alle Neutra in Latein. Alles andere ist wie bei servus, du lernst nur templum und templa neu."
         },
         {
           "kind": "bullets",
@@ -229,14 +229,14 @@
             "templum: um, i, o, um, o",
             "Akkusativ Singular endet fast immer auf m"
           ],
-          "narration": "Legen wir die drei Tabellen nebeneinander. Puella: a, ae, ae, am, a. Servus: us, i, o, um, o. Templum: um, i, o, um, o. Gemeinsamkeiten? Der Akkusativ Singular endet bei allen auf m: puellam, servum, templum. Der Akkusativ Plural endet auf s, puellas, servos, außer beim Neutrum, da heißt er templa. Dativ und Ablativ Plural enden immer auf is. Solche Muster helfen dir bei unbekannten Formen: Ein m am Ende ruft fast immer Wen oder was?"
+          "narration": "Legen wir die drei Tabellen nebeneinander. Puella: a, ae, ae, am, a. Servus: us, i, o, um, o. Templum: um, i, o, um, o. Gemeinsamkeiten? Der Akkusativ Singular endet bei allen auf m: puellam, servum, templum. Der Akkusativ Plural endet auf s, puellas, servos, außer beim Neutrum, da heißt er templa. Dativ und Ablativ Plural enden immer auf is. Ein m am Ende ruft also fast immer Wen oder was?"
         },
         {
           "kind": "question",
           "question": "Du liest die Form templa. Welche zwei Fälle können das sein, und woran siehst du, dass es Plural ist?",
           "think": 9,
           "hint": "Beim Neutrum sind zwei Fälle immer gleich. Die Endung a im Plural gehört zum Neutrum.",
-          "narration": "Jetzt du. Du liest in einem Satz die Form templa. Welche zwei Fälle können das sein? Und woran erkennst du, dass es Plural ist und nicht etwa ein Singular wie puella? Tipp: Beim Neutrum sind zwei Fälle immer gleich, und das Wort templum gehört zur o-Deklination, nicht zur a-Deklination. Denk ein paar Sekunden nach, dann vergleichen wir."
+          "narration": "Jetzt du. Du liest in einem Satz die Form templa. Welche zwei Fälle können das sein? Und woran erkennst du, dass es Plural ist und nicht etwa ein Singular wie puella? Tipp: Beim Neutrum sind zwei Fälle immer gleich, und das Wort templum gehört zur o-Deklination, nicht zur a-Deklination. Denk ein paar Sekunden nach, bevor du weiterschaust."
         },
         {
           "kind": "bullets",
@@ -247,7 +247,7 @@
             "templum gehört zur o-Deklination, templa ist Plural",
             "Verb und Zusammenhang entscheiden"
           ],
-          "narration": "Templa kann Nominativ Plural oder Akkusativ Plural sein, die Tempel. Beim Neutrum sind diese beiden Fälle immer gleich. Dass es Plural ist, weißt du, weil templum zur o-Deklination gehört: Da gibt es im Singular kein a, der Singular heißt templum. Die Endung a im Plural ist das Kennzeichen aller Neutra. Ob templa dann Subjekt oder Objekt ist, zeigt der Rest des Satzes. Wie du das herausfindest, ist das Thema des nächsten Kapitels."
+          "narration": "Templa kann Nominativ Plural oder Akkusativ Plural sein, die Tempel. Beim Neutrum sind diese beiden Fälle immer gleich. Dass es Plural ist, weißt du, weil templum zur o-Deklination gehört: Da gibt es im Singular kein a, der Singular heißt templum. Die Endung a im Plural ist das Kennzeichen aller Neutra. Ob templa Subjekt oder Objekt ist, zeigt der Satz. Wie, das kommt im nächsten Kapitel."
         }
       ]
     },
@@ -294,7 +294,7 @@
             "vocat: das Prädikat, ruft",
             "Das Mädchen ruft den Sklaven"
           ],
-          "narration": "Puella servum vocat. Nimm die Endungen: puella endet auf a, Nominativ, Wer oder was ruft? Das Mädchen. Servum endet auf um, Akkusativ, Wen oder was ruft sie? Den Sklaven. Vocat ist das Prädikat, ruft. Also: Das Mädchen ruft den Sklaven. Übrigens steht das Prädikat in lateinischen Lehrbuchsätzen meist am Ende, das hilft dir beim Suchen. Jetzt vertauschen wir die Endungen und schauen, was passiert."
+          "narration": "Puella servum vocat. Nimm die Endungen: puella endet auf a, Nominativ, Wer oder was ruft? Das Mädchen. Servum endet auf um, Akkusativ, Wen oder was ruft sie? Den Sklaven. Vocat ist das Prädikat, ruft. Also: Das Mädchen ruft den Sklaven. Das Prädikat steht in Lehrbuchsätzen meist am Ende, das hilft beim Suchen. Jetzt vertauschen wir die Endungen und schauen, was passiert."
         },
         {
           "kind": "bullets",
@@ -305,7 +305,7 @@
             "Der Sklave ruft das Mädchen",
             "Servum puella vocat: wieder ruft das Mädchen"
           ],
-          "narration": "Servus puellam vocat. Jetzt endet servus auf us, Nominativ: Der Sklave ruft. Puellam endet auf am, Akkusativ: Er ruft das Mädchen. Und nun der Beweis, dass der Platz egal ist: Servum puella vocat. Servum hat die Endung um, also Akkusativ, puella die Endung a, also Nominativ. Obwohl der Sklave vorn steht, ruft das Mädchen ihn. Nicht der Platz entscheidet, sondern die Endung. Deshalb schaust du in Latein immer zuerst auf die Endungen."
+          "narration": "Servus puellam vocat. Jetzt endet servus auf us, Nominativ: Der Sklave ruft. Puellam endet auf am, Akkusativ: Er ruft das Mädchen. Und nun der Beweis, dass der Platz egal ist: Servum puella vocat. Servum hat die Endung um, also Akkusativ, puella die Endung a, also Nominativ. Obwohl der Sklave vorn steht, ruft das Mädchen ihn. Nicht der Platz entscheidet, sondern die Endung. "
         },
         {
           "kind": "bullets",
@@ -316,14 +316,14 @@
             "Servus gladio pugnat: mit dem Schwert, Adverbiale",
             "In templo: im Tempel, Adverbiale"
           ],
-          "narration": "Auch die anderen Fälle haben ihre Rolle. Villa puellae, das Landhaus des Mädchens: Wessen Landhaus? Der Genitiv hängt als Attribut an villa. Servus puellae rosam dat, der Sklave gibt dem Mädchen eine Rose: Wem? Hier ist puellae Dativ, ein Objekt, und rosam ist das Akkusativobjekt. Servus gladio pugnat, der Sklave kämpft mit dem Schwert: Womit? Ablativ, Adverbiale. In templo, im Tempel: Wo? Auch Ablativ. Zu jeder Frage ein Fall, zu jedem Fall ein Satzglied."
+          "narration": "Auch die anderen Fälle haben ihre Rolle. Villa puellae, das Landhaus des Mädchens: Wessen Landhaus? Der Genitiv hängt als Attribut an villa. Servus puellae rosam dat, der Sklave gibt dem Mädchen eine Rose: Wem? Hier ist puellae Dativ, ein Objekt, und rosam ist das Akkusativobjekt. Servus gladio pugnat, der Sklave kämpft mit dem Schwert: Womit? Ablativ, Adverbiale. In templo, im Tempel: Wo? Auch Ablativ. "
         },
         {
           "kind": "question",
           "question": "Servum puellae vocant. Vocant heißt: sie rufen. Wer ruft hier wen? Achte auf jede Endung und auf das Verb.",
           "think": 10,
           "hint": "Servum endet auf um. Puellae ist dreideutig: Das Verb im Plural hilft dir.",
-          "narration": "Die Frage zum Mitdenken. Servum puellae vocant. Vocant heißt: sie rufen. Wer ruft hier wen? Geh Wort für Wort vor: Welche Endung hat servum, und welcher Fall ist das? Puellae kann dreierlei sein, aber das Verb steht im Plural. Wer oder was ruft also? Und wen oder was? Nimm dir ein paar Sekunden Zeit, das ist die wichtigste Frage der Lektion."
+          "narration": "Die Frage zum Mitdenken. Servum puellae vocant. Vocant heißt: sie rufen. Wer ruft hier wen? Geh Wort für Wort vor: Welche Endung hat servum, und welcher Fall ist das? Puellae kann dreierlei sein, aber das Verb steht im Plural. Wer oder was ruft also? Und wen oder was? Nimm dir Zeit, das ist die wichtigste Frage der Lektion."
         },
         {
           "kind": "bullets",
@@ -334,7 +334,7 @@
             "Die Mädchen rufen den Sklaven",
             "Der Sklave steht vorn, ruft aber nicht"
           ],
-          "narration": "Servum endet auf um, das ist Akkusativ: Wen oder was rufen sie? Den Sklaven. Puellae könnte Genitiv oder Dativ Singular sein, aber vocant steht im Plural und braucht ein Subjekt im Plural. Also ist puellae Nominativ Plural: Wer ruft? Die Mädchen. Die Mädchen rufen den Sklaven. Der Sklave steht am Satzanfang und ruft trotzdem nicht. Wenn du das verstanden hast, hast du das Wichtigste über die Fälle begriffen."
+          "narration": "Servum endet auf um, das ist Akkusativ: Wen oder was rufen sie? Den Sklaven. Puellae könnte Genitiv oder Dativ Singular sein, aber vocant steht im Plural und braucht ein Subjekt im Plural. Also ist puellae Nominativ Plural: Wer ruft? Die Mädchen. Die Mädchen rufen den Sklaven. Der Sklave steht am Satzanfang und ruft trotzdem nicht. Hast du das verstanden, hast du das Wichtigste begriffen."
         }
       ]
     },
@@ -354,7 +354,7 @@
             "KNG",
             "Üben"
           ],
-          "narration": "Im Lateinunterricht wirst du oft hören: Bestimme die Form. Das heißt, du nennst drei Dinge: den Kasus, also den Fall, den Numerus, also Singular oder Plural, und das Genus, also Maskulinum, Femininum oder Neutrum. Puellam ist Akkusativ Singular Femininum. Servi ist Genitiv Singular oder Nominativ Plural Maskulinum. Das klingt nach viel, aber mit den Tabellen aus dieser Lektion schaffst du das. Und Adjektive helfen dir dabei."
+          "narration": "Im Lateinunterricht wirst du oft hören: Bestimme die Form. Das heißt, du nennst drei Dinge: den Kasus, also den Fall, den Numerus, also Singular oder Plural, und das Genus, also Maskulinum, Femininum oder Neutrum. Puellam ist Akkusativ Singular Femininum. Servi ist Genitiv Singular oder Nominativ Plural Maskulinum. Mit den Tabellen schaffst du das, und Adjektive helfen dir dabei."
         },
         {
           "kind": "bullets",
@@ -376,14 +376,14 @@
             "Fragen dazu sagen: Wer? Wessen? Wem? Wen? Womit?",
             "Rückwärts abfragen: Welche Form ist servis?"
           ],
-          "narration": "Tabellen lernt man am besten laut und mit Rhythmus: puella, puellae, puellae, puellam, puella. Sag den Merksatz dazu: Stamm bleibt, Endung wechselt. Dann sag zu jeder Form die Frage: Wer? Wessen? Wem? Wen? Womit? Übe auch rückwärts: Jemand nennt dir servis, du sagst Dativ oder Ablativ Plural. Zehn Minuten am Tag reichen, wenn du es jeden Tag machst. Und falls du auf den Vokativ stößt, den Anredefall wie in Serve!, Sklave!: Den gibt es, er ist selten und sieht fast immer aus wie der Nominativ."
+          "narration": "Tabellen lernt man am besten laut und mit Rhythmus: puella, puellae, puellae, puellam, puella. Sag den Merksatz dazu: Stamm bleibt, Endung wechselt. Dann sag zu jeder Form die Frage: Wer? Wessen? Wem? Wen? Womit? Übe auch rückwärts: Jemand nennt dir servis, du sagst Dativ oder Ablativ Plural. Zehn Minuten täglich reichen. Und falls du auf den Vokativ stößt, den Anredefall wie in Serve!, Sklave!: Den gibt es, er ist selten und sieht fast immer aus wie der Nominativ."
         },
         {
           "kind": "question",
           "question": "Bestimme die Form servo: Welcher Kasus, welcher Numerus, welches Genus? Es gibt zwei richtige Antworten.",
           "think": 9,
           "hint": "Schau in die Tabelle von servus: Wo steht die Endung o?",
-          "narration": "Letzte Frage. Bestimme die Form servo. Nenne Kasus, Numerus und Genus. Achtung, es gibt zwei richtige Antworten, weil die Endung o in der Tabelle von servus zweimal vorkommt. Geh die Tabelle im Kopf durch, Zeile für Zeile: servus, servi, servo, servum, servo. An welchen Stellen steht das o, und wie heißen diese Fälle? Du hast ein paar Sekunden."
+          "narration": "Letzte Frage. Bestimme die Form servo. Nenne Kasus, Numerus und Genus. Achtung, es gibt zwei richtige Antworten, weil die Endung o in der Tabelle von servus zweimal vorkommt. Geh die Tabelle im Kopf durch: servus, servi, servo, servum, servo. Wo steht das o, und wie heißen diese beiden Fälle? Du hast ein paar Sekunden Zeit."
         },
         {
           "kind": "bullets",
@@ -398,7 +398,7 @@
         },
         {
           "kind": "outro",
-          "narration": "Merk dir das: Latein hat keine Artikel, deshalb zeigt die Endung den Fall. Stamm bleibt, Endung wechselt. Fünf Fälle, fünf Fragen wie bei der Frageprobe im Deutschen: Nominativ Wer oder was?, Genitiv Wessen?, Dativ Wem?, Akkusativ Wen oder was?, Ablativ Womit? Wo? Der Fall sagt dir das Satzglied: Subjekt, Objekt, Attribut oder Adverbiale. Puella servum vocat oder Servum puella vocat: Immer ruft das Mädchen, denn die Endung entscheidet, nicht der Platz. Übe die Tabellen laut, zehn Minuten am Tag. Abonniere für die nächste Lektion."
+          "narration": "Merk dir das: Latein hat keine Artikel, deshalb zeigt die Endung den Fall. Stamm bleibt, Endung wechselt. Fünf Fälle, fünf Fragen wie bei der Frageprobe im Deutschen: Nominativ Wer oder was?, Genitiv Wessen?, Dativ Wem?, Akkusativ Wen oder was?, Ablativ Womit? Wo? Der Fall sagt dir das Satzglied: Subjekt, Objekt, Attribut oder Adverbiale. Puella servum vocat oder Servum puella vocat: Immer ruft das Mädchen, denn die Endung entscheidet, nicht der Platz. Übe die Tabellen laut. Abonniere für die nächste Lektion."
         }
       ]
     }
