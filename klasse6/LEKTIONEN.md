@@ -92,7 +92,7 @@ Reihenfolge: zuerst Mathematik (fertige 3D-Szenen), dann Deutsch (Satzglieder-Sz
 | Issue-Titel | Thema | Lehrplan-Std. | Video (min) | 3D-Szene | Plan | Eltern |
 |---|---|---|---|---|---|---|
 | `Lektion: E6-1.1` | Kommunikative Fertigkeiten | – | 5 | – | – | – |
-| `Lektion: E6-1.2` | Verfügen über sprachliche Mittel | – | 5 | geplant: tenses | – | – |
+| `Lektion: E6-1.2` | Verfügen über sprachliche Mittel | – | 5 | ✅ tense | ✅ | ✅ |
 | `Lektion: E6-2` | UK und USA | – | 5 | – | – | – |
 | `Lektion: E6-3` | Texte und Medien | – | 5 | – | – | – |
 | `Lektion: E6-4` | Lernstrategien | – | 5 | – | – | – |

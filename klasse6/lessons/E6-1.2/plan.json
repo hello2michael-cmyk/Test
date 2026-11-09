@@ -2,8 +2,8 @@
  "id": "current",
  "prompt": "Lektion E6-1.2 „Verfügen über sprachliche Mittel“ (Englisch (1. Fremdsprache), Klasse 6 Gymnasium Bayern), aus klasse6/lessons/E6-1.2.lesson.json. 16 Minuten, auf Deutsch, für Kinder von etwa 11 Jahren.",
  "attempts": 0,
- "createdAt": 1794219210459,
- "updatedAt": 1794219210459,
+ "createdAt": 1794219565495,
+ "updatedAt": 1794219565495,
  "stage": "plan",
  "mode": "course",
  "durationApplied": true,
@@ -28,13 +28,13 @@
   "footageProvider": "none",
   "aiClipBudget": 0,
   "minSceneSeconds": 10,
-  "maxDuration": 1075,
-  "targetDuration": 935,
+  "maxDuration": 1110,
+  "targetDuration": 965,
   "lesson": {
    "id": "E6-1.2",
    "title": "Verfügen über sprachliche Mittel",
    "subject": "Englisch (1. Fremdsprache)",
-   "scene": "tenses",
+   "scene": "tense",
    "minWords": 32,
    "authored": "E6-1.2.lesson.json",
    "variant": "kinder"
@@ -55,7 +55,7 @@
   "keyTakeaway": "Das simple past erzählt, was zu einem Zeitpunkt passiert ist, der vorbei ist. Das present perfect verbindet die Vergangenheit mit dem Jetzt: Das Ergebnis zählt. Das deutsche Perfekt ist kein present perfect: Ich habe gestern gespielt heißt I played yesterday.",
   "tone": "warm, neugierig und genau",
   "mode": "course",
-  "lessonScene": "tenses",
+  "lessonScene": "tense",
   "bibleLine": "",
   "chapters": [
    {
@@ -119,7 +119,7 @@
     "id": 1,
     "chapterId": 1,
     "purpose": "hook",
-    "keyPoint": "Stell dir vor, du suchst deinen Schlüssel. Auf Englisch kannst du dazu zwei Sätze sagen: I lost my key yesterday. Oder: I have lost my key. Beide handeln von der Vergangenheit, aber sie bedeuten nicht dasselbe. Der eine erzählt, was gestern passiert ist. Der andere sagt: Der Schlüssel ist jetzt weg. In dieser Lektion lernst du, wann das simple past passt und wann das present perfect. Und du lernst die Falle kennen, in die fast alle deutschen Kinder einmal tappen.",
+    "keyPoint": "Stell dir vor, du suchst deinen Schlüssel. Auf Englisch kannst du dazu zwei Sätze sagen: I lost my key yesterday. Oder: I have lost my key. Beide handeln von der Vergangenheit, aber sie bedeuten nicht dasselbe. Der eine erzählt, was gestern passiert ist. Der andere sagt: Der Schlüssel ist jetzt weg. In dieser Lektion lernst du, wann das simple past passt und wann das present perfect. Und du lernst die Falle kennen, in die viele deutsche Kinder einmal tappen.",
     "suggestedVisual": "title"
    },
    {
@@ -175,7 +175,7 @@
     "id": 9,
     "chapterId": 2,
     "purpose": "explain",
-    "keyPoint": "Hier kommt der zweite Satz: I have lost my key. Er steht ohne Zeitangabe da, kein yesterday, kein last week. Schau auf den Balken: Er verbindet das Ereignis mit NOW. Das heißt: Ich habe den Schlüssel verloren, und er ist jetzt weg. Ich stehe vor der Tür und komme nicht hinein. Das Ergebnis zählt, nicht der Zeitpunkt. Merke dir: Ergebnis jetzt, present perfect.",
+    "keyPoint": "Hier kommt der zweite Satz: I have lost my key. Er steht ohne Zeitangabe da, kein yesterday, kein last week. Das heißt: Ich habe den Schlüssel verloren, und er ist jetzt weg. Ich stehe vor der Tür und komme nicht hinein. Das Ergebnis zählt, nicht der Zeitpunkt. Und jetzt schau auf den Balken, der unter dem Satz erscheint: Er verbindet das Ereignis mit NOW. Merke dir: Ergebnis jetzt, present perfect.",
     "suggestedVisual": "math3d"
    },
    {
@@ -217,21 +217,21 @@
     "id": 15,
     "chapterId": 3,
     "purpose": "explain",
-    "keyPoint": "Diese Signalwörter zeigen auf das present perfect. Just, also gerade eben: I have just finished. Already, schon: She has already left. Yet, in Fragen und Verneinungen: Have you finished yet? Ever und never fragen nach dem ganzen Leben bis jetzt: Have you ever seen a whale? I have never been to Spain. Keines dieser Wörter nennt einen festen Zeitpunkt. Sie reichen von früher bis zum Jetzt.",
+    "keyPoint": "Diese Signalwörter zeigen auf das present perfect. Just, also gerade eben: I have just finished. Already, schon: She has already left. Yet, in Fragen und Verneinungen: Have you finished yet? Ever und never fragen nach dem ganzen Leben bis jetzt: Have you ever seen a whale? I have never been to Spain. Keines dieser Wörter nennt einen festen Zeitpunkt. Sie reichen von früher bis zum Jetzt. Diese Erfahrungen bis jetzt lernst du darüber hinaus; der Lehrplan der sechsten Klasse nennt vor allem das Ergebnis jetzt.",
     "suggestedVisual": "bullets"
    },
    {
     "id": 16,
     "chapterId": 3,
     "purpose": "explain",
-    "keyPoint": "Jetzt siehst du alle vier Sätze mit ihren Notizen. I lost my key yesterday: finished time, die Zeit ist vorbei. I have lost my key: result now, das Ergebnis zählt jetzt. We visited London last year: wieder ein abgeschlossener Zeitpunkt. We have visited London twice: Erfahrung bis jetzt, zweimal in unserem Leben bis heute. Oben steht die Regel: Zeit vorbei, simple past. Bezug zum Jetzt, present perfect.",
+    "keyPoint": "Jetzt siehst du alle vier Sätze mit ihren Notizen. I lost my key yesterday: finished time, die Zeit ist vorbei. I have lost my key: result now, das Ergebnis zählt jetzt. We visited London last year: wieder ein abgeschlossener Zeitpunkt. We have visited London twice: Erfahrung bis jetzt, wir waren bis heute zweimal dort, der Zeitpunkt wird nicht genannt. Oben steht die Regel: Zeit vorbei, simple past. Bezug zum Jetzt, present perfect.",
     "suggestedVisual": "math3d"
    },
    {
     "id": 17,
     "chapterId": 3,
     "purpose": "explain",
-    "keyPoint": "Frage an dich. Der Satz lautet: Last summer we ... in the sea. Du sollst das Verb swim einsetzen. Welche Zeitform nimmst du, und warum? Tipp: Schau auf das Signalwort ganz am Anfang des Satzes. Ist dieser Sommer vorbei oder nicht? Und denk daran, dass swim ein unregelmäßiges Verb ist. Nimm dir ein paar Sekunden Zeit.",
+    "keyPoint": "Frage an dich. Der Satz lautet: Last summer we, Lücke, in the sea. Du sollst das Verb swim einsetzen. Welche Zeitform nimmst du, und warum? Tipp: Schau auf das Signalwort ganz am Anfang des Satzes. Ist dieser Sommer vorbei oder nicht? Und denk daran, dass swim ein unregelmäßiges Verb ist. Nimm dir ein paar Sekunden Zeit.",
     "suggestedVisual": "question"
    },
    {
@@ -259,7 +259,7 @@
     "id": 21,
     "chapterId": 4,
     "purpose": "explain",
-    "keyPoint": "Auch bei Fragen und Verneinungen musst du die Zeitform durchhalten. Im simple past hilft did: Did you see the film yesterday? No, I didn't see it. Nach did steht immer die Grundform see. Im present perfect stellst du have oder has nach vorn: Have you seen the film? No, I haven't seen it. Nach have steht die dritte Form seen. Zwei Muster, die du dir einprägen solltest.",
+    "keyPoint": "Auch bei Fragen und Verneinungen musst du die Zeitform durchhalten. Im simple past hilft did: Did you see the film yesterday? No, I didn't see it. Nach did steht immer die Grundform see. Im present perfect stellst du have oder has nach vorn: Have you seen the film? No, I haven't seen it. Nach have steht die dritte Form seen. Mit she: Has she seen it? No, she hasn't. Zwei Muster, die du dir einprägen solltest.",
     "suggestedVisual": "bullets"
    },
    {
@@ -273,7 +273,7 @@
     "id": 23,
     "chapterId": 4,
     "purpose": "explain",
-    "keyPoint": "Die Lösung: I have forgotten my exercise book. Du nennst keinen Zeitpunkt, aber das Ergebnis ist jetzt wichtig: Das Heft fehlt, du kannst nicht hineinschreiben. Also present perfect. Forget ist unregelmäßig: forget, forgot, forgotten. Die dritte Form heißt forgotten. Würdest du erzählen, was gestern passiert ist, hieße es: I forgot my exercise book yesterday. Siehst du den Unterschied? Gleiche Geschichte, anderer Blick.",
+    "keyPoint": "Die Lösung: I have forgotten my exercise book. Du nennst keinen Zeitpunkt, aber das Ergebnis ist jetzt wichtig: Das Heft fehlt, du kannst nicht hineinschreiben. Hier gibt es keine Zeitangabe, deshalb passt das present perfect. Forget ist unregelmäßig: forget, forgot, forgotten. Die dritte Form heißt forgotten. Würdest du erzählen, was gestern passiert ist, hieße es: I forgot my exercise book yesterday. Siehst du den Unterschied? Gleiche Geschichte, anderer Blick.",
     "suggestedVisual": "bullets"
    },
    {
@@ -287,28 +287,28 @@
     "id": 25,
     "chapterId": 5,
     "purpose": "explain",
-    "keyPoint": "So entscheidest du. Frage eins: Steht ein Zeitpunkt im Satz oder ist er aus der Situation klar, yesterday, last week, in 2020? Dann simple past. Frage zwei: Zählt das Ergebnis jetzt, oder geht es um eine Erfahrung bis jetzt, mit ever, never, twice? Dann present perfect. Wenn du unsicher bist, such nach Signalwörtern. Und wenn du eine Geschichte erzählst, bleibst du im simple past.",
+    "keyPoint": "So entscheidest du. Frage eins: Steht ein Zeitpunkt im Satz oder ist er aus der Situation klar, yesterday, last week, in 2020? Dann simple past. Frage zwei: Zählt das Ergebnis jetzt, oder geht es um eine Erfahrung bis jetzt, mit ever, never, twice? Dann auch present perfect; das geht über den Lehrplan hinaus. Wenn du unsicher bist, such nach Signalwörtern. Und wenn du eine Geschichte erzählst, bleibst du im simple past.",
     "suggestedVisual": "bullets"
    },
    {
     "id": 26,
     "chapterId": 5,
     "purpose": "explain",
-    "keyPoint": "Für beide Zeitformen brauchst du die unregelmäßigen Verben, und zwar alle drei Formen. Die zweite Form für das simple past, die dritte für das present perfect. Lern sie immer als Dreierpack: go, went, gone. See, saw, seen. Eat, ate, eaten. Write, wrote, written. Sprich sie laut, wie einen Rhythmus. Bei manchen sind zweite und dritte Form gleich: lose, lost, lost. Die Liste in deinem Buch hilft dir.",
+    "keyPoint": "Für beide Zeitformen brauchst du die unregelmäßigen Verben, und zwar alle drei Formen. Die zweite Form für das simple past, die dritte für das present perfect. Lern sie immer als Dreierpack: go, went, gone. See, saw, seen. Write, wrote, written. Und ganz wichtig: been ist die dritte Form von be: be, was oder were, been. Sprich sie laut, wie einen Rhythmus. Bei manchen sind zweite und dritte Form gleich: lose, lost, lost. Die Liste in deinem Buch hilft dir.",
     "suggestedVisual": "bullets"
    },
    {
     "id": 27,
     "chapterId": 5,
     "purpose": "explain",
-    "keyPoint": "Schau ein letztes Mal auf den ganzen Zeitstrahl. Links die Vergangenheit, in der Mitte NOW. Die beiden Sätze im simple past sitzen fest an ihrem Zeitpunkt: yesterday, last year. Die beiden Sätze im present perfect haben einen Balken bis zu NOW: Der Schlüssel ist jetzt weg, London kennen wir bis heute zweimal. Oben die Regel: Zeit vorbei, simple past. Bezug zum Jetzt, present perfect.",
+    "keyPoint": "Schau ein letztes Mal auf den Zeitstrahl, jetzt noch einmal alles zusammen. Links die Vergangenheit, in der Mitte NOW. Die beiden Sätze im simple past sitzen fest an ihrem Zeitpunkt: yesterday, last year. Die beiden Sätze im present perfect haben einen Balken bis zu NOW: Der Schlüssel ist jetzt weg, London haben wir bis heute zweimal besucht. Oben die Regel: Zeit vorbei, simple past. Bezug zum Jetzt, present perfect.",
     "suggestedVisual": "math3d"
    },
    {
     "id": 28,
     "chapterId": 5,
     "purpose": "explain",
-    "keyPoint": "Die letzte Frage. Ein kleines Gespräch: Have you ever been to London? Yes, I ... there two years ago. Du sollst das Verb go einsetzen. Achtung: Die Frage steht im present perfect, mit ever. Aber die Antwort nennt einen genauen Zeitpunkt. Welche Zeitform brauchst du also in der Antwort? Nimm dir ein paar Sekunden Zeit.",
+    "keyPoint": "Die letzte Frage. Ein kleines Gespräch: Have you ever been to London? Yes, I, Lücke, there two years ago. Du sollst das Verb go einsetzen. Achtung: Die Frage steht im present perfect, mit ever. Aber die Antwort nennt einen genauen Zeitpunkt. Welche Zeitform brauchst du also in der Antwort? Nimm dir ein paar Sekunden Zeit.",
     "suggestedVisual": "question"
    },
    {
@@ -330,7 +330,7 @@
  "chapterBeats": {
   "1": [
    {
-    "narration": "Stell dir vor, du suchst deinen Schlüssel. Auf Englisch kannst du dazu zwei Sätze sagen: I lost my key yesterday. Oder: I have lost my key. Beide handeln von der Vergangenheit, aber sie bedeuten nicht dasselbe. Der eine erzählt, was gestern passiert ist. Der andere sagt: Der Schlüssel ist jetzt weg. In dieser Lektion lernst du, wann das simple past passt und wann das present perfect. Und du lernst die Falle kennen, in die fast alle deutschen Kinder einmal tappen.",
+    "narration": "Stell dir vor, du suchst deinen Schlüssel. Auf Englisch kannst du dazu zwei Sätze sagen: I lost my key yesterday. Oder: I have lost my key. Beide handeln von der Vergangenheit, aber sie bedeuten nicht dasselbe. Der eine erzählt, was gestern passiert ist. Der andere sagt: Der Schlüssel ist jetzt weg. In dieser Lektion lernst du, wann das simple past passt und wann das present perfect. Und du lernst die Falle kennen, in die viele deutsche Kinder einmal tappen.",
     "onScreenTitle": "Simple past oder present perfect?",
     "question": null,
     "think": null,
@@ -602,7 +602,7 @@
     "stockQuery": null
    },
    {
-    "narration": "Hier kommt der zweite Satz: I have lost my key. Er steht ohne Zeitangabe da, kein yesterday, kein last week. Schau auf den Balken: Er verbindet das Ereignis mit NOW. Das heißt: Ich habe den Schlüssel verloren, und er ist jetzt weg. Ich stehe vor der Tür und komme nicht hinein. Das Ergebnis zählt, nicht der Zeitpunkt. Merke dir: Ergebnis jetzt, present perfect.",
+    "narration": "Hier kommt der zweite Satz: I have lost my key. Er steht ohne Zeitangabe da, kein yesterday, kein last week. Das heißt: Ich habe den Schlüssel verloren, und er ist jetzt weg. Ich stehe vor der Tür und komme nicht hinein. Das Ergebnis zählt, nicht der Zeitpunkt. Und jetzt schau auf den Balken, der unter dem Satz erscheint: Er verbindet das Ereignis mit NOW. Merke dir: Ergebnis jetzt, present perfect.",
     "onScreenTitle": "I have lost my key.",
     "question": null,
     "think": null,
@@ -808,7 +808,7 @@
     "stockQuery": null
    },
    {
-    "narration": "Diese Signalwörter zeigen auf das present perfect. Just, also gerade eben: I have just finished. Already, schon: She has already left. Yet, in Fragen und Verneinungen: Have you finished yet? Ever und never fragen nach dem ganzen Leben bis jetzt: Have you ever seen a whale? I have never been to Spain. Keines dieser Wörter nennt einen festen Zeitpunkt. Sie reichen von früher bis zum Jetzt.",
+    "narration": "Diese Signalwörter zeigen auf das present perfect. Just, also gerade eben: I have just finished. Already, schon: She has already left. Yet, in Fragen und Verneinungen: Have you finished yet? Ever und never fragen nach dem ganzen Leben bis jetzt: Have you ever seen a whale? I have never been to Spain. Keines dieser Wörter nennt einen festen Zeitpunkt. Sie reichen von früher bis zum Jetzt. Diese Erfahrungen bis jetzt lernst du darüber hinaus; der Lehrplan der sechsten Klasse nennt vor allem das Ergebnis jetzt.",
     "onScreenTitle": "Signalwörter für das present perfect",
     "question": null,
     "think": null,
@@ -843,7 +843,7 @@
     "stockQuery": null
    },
    {
-    "narration": "Jetzt siehst du alle vier Sätze mit ihren Notizen. I lost my key yesterday: finished time, die Zeit ist vorbei. I have lost my key: result now, das Ergebnis zählt jetzt. We visited London last year: wieder ein abgeschlossener Zeitpunkt. We have visited London twice: Erfahrung bis jetzt, zweimal in unserem Leben bis heute. Oben steht die Regel: Zeit vorbei, simple past. Bezug zum Jetzt, present perfect.",
+    "narration": "Jetzt siehst du alle vier Sätze mit ihren Notizen. I lost my key yesterday: finished time, die Zeit ist vorbei. I have lost my key: result now, das Ergebnis zählt jetzt. We visited London last year: wieder ein abgeschlossener Zeitpunkt. We have visited London twice: Erfahrung bis jetzt, wir waren bis heute zweimal dort, der Zeitpunkt wird nicht genannt. Oben steht die Regel: Zeit vorbei, simple past. Bezug zum Jetzt, present perfect.",
     "onScreenTitle": "Vier Sätze, vier Notizen, eine Regel",
     "question": null,
     "think": null,
@@ -879,7 +879,7 @@
     "stockQuery": null
    },
    {
-    "narration": "Frage an dich. Der Satz lautet: Last summer we ... in the sea. Du sollst das Verb swim einsetzen. Welche Zeitform nimmst du, und warum? Tipp: Schau auf das Signalwort ganz am Anfang des Satzes. Ist dieser Sommer vorbei oder nicht? Und denk daran, dass swim ein unregelmäßiges Verb ist. Nimm dir ein paar Sekunden Zeit.",
+    "narration": "Frage an dich. Der Satz lautet: Last summer we, Lücke, in the sea. Du sollst das Verb swim einsetzen. Welche Zeitform nimmst du, und warum? Tipp: Schau auf das Signalwort ganz am Anfang des Satzes. Ist dieser Sommer vorbei oder nicht? Und denk daran, dass swim ein unregelmäßiges Verb ist. Nimm dir ein paar Sekunden Zeit.",
     "onScreenTitle": "Signalwörter: Ist die Zeit vorbei?",
     "question": "Last summer we ... in the sea. Setze swim ein. Welche Zeitform nimmst du, und warum?",
     "think": 9,
@@ -1014,7 +1014,7 @@
     "stockQuery": null
    },
    {
-    "narration": "Auch bei Fragen und Verneinungen musst du die Zeitform durchhalten. Im simple past hilft did: Did you see the film yesterday? No, I didn't see it. Nach did steht immer die Grundform see. Im present perfect stellst du have oder has nach vorn: Have you seen the film? No, I haven't seen it. Nach have steht die dritte Form seen. Zwei Muster, die du dir einprägen solltest.",
+    "narration": "Auch bei Fragen und Verneinungen musst du die Zeitform durchhalten. Im simple past hilft did: Did you see the film yesterday? No, I didn't see it. Nach did steht immer die Grundform see. Im present perfect stellst du have oder has nach vorn: Have you seen the film? No, I haven't seen it. Nach have steht die dritte Form seen. Mit she: Has she seen it? No, she hasn't. Zwei Muster, die du dir einprägen solltest.",
     "onScreenTitle": "Fragen und Verneinungen",
     "question": null,
     "think": null,
@@ -1079,7 +1079,7 @@
     "stockQuery": null
    },
    {
-    "narration": "Die Lösung: I have forgotten my exercise book. Du nennst keinen Zeitpunkt, aber das Ergebnis ist jetzt wichtig: Das Heft fehlt, du kannst nicht hineinschreiben. Also present perfect. Forget ist unregelmäßig: forget, forgot, forgotten. Die dritte Form heißt forgotten. Würdest du erzählen, was gestern passiert ist, hieße es: I forgot my exercise book yesterday. Siehst du den Unterschied? Gleiche Geschichte, anderer Blick.",
+    "narration": "Die Lösung: I have forgotten my exercise book. Du nennst keinen Zeitpunkt, aber das Ergebnis ist jetzt wichtig: Das Heft fehlt, du kannst nicht hineinschreiben. Hier gibt es keine Zeitangabe, deshalb passt das present perfect. Forget ist unregelmäßig: forget, forgot, forgotten. Die dritte Form heißt forgotten. Würdest du erzählen, was gestern passiert ist, hieße es: I forgot my exercise book yesterday. Siehst du den Unterschied? Gleiche Geschichte, anderer Blick.",
     "onScreenTitle": "Antwort: I have forgotten my exercise book.",
     "question": null,
     "think": null,
@@ -1150,8 +1150,8 @@
     "stockQuery": null
    },
    {
-    "narration": "So entscheidest du. Frage eins: Steht ein Zeitpunkt im Satz oder ist er aus der Situation klar, yesterday, last week, in 2020? Dann simple past. Frage zwei: Zählt das Ergebnis jetzt, oder geht es um eine Erfahrung bis jetzt, mit ever, never, twice? Dann present perfect. Wenn du unsicher bist, such nach Signalwörtern. Und wenn du eine Geschichte erzählst, bleibst du im simple past.",
-    "onScreenTitle": "Zwei Fragen zum Entscheiden",
+    "narration": "So entscheidest du. Frage eins: Steht ein Zeitpunkt im Satz oder ist er aus der Situation klar, yesterday, last week, in 2020? Dann simple past. Frage zwei: Zählt das Ergebnis jetzt, oder geht es um eine Erfahrung bis jetzt, mit ever, never, twice? Dann auch present perfect; das geht über den Lehrplan hinaus. Wenn du unsicher bist, such nach Signalwörtern. Und wenn du eine Geschichte erzählst, bleibst du im simple past.",
+    "onScreenTitle": "Zwei Fragen und ein Tipp",
     "question": null,
     "think": null,
     "hint": null,
@@ -1166,7 +1166,7 @@
     "bullets": [
      "Steht ein Zeitpunkt dabei? Simple past.",
      "Zählt das Ergebnis jetzt? Present perfect.",
-     "Erfahrung bis jetzt? Present perfect.",
+     "Erfahrung bis jetzt? Auch present perfect (darüber hinaus)",
      "Im Zweifel: Signalwörter suchen"
     ],
     "nodes": null,
@@ -1185,7 +1185,7 @@
     "stockQuery": null
    },
    {
-    "narration": "Für beide Zeitformen brauchst du die unregelmäßigen Verben, und zwar alle drei Formen. Die zweite Form für das simple past, die dritte für das present perfect. Lern sie immer als Dreierpack: go, went, gone. See, saw, seen. Eat, ate, eaten. Write, wrote, written. Sprich sie laut, wie einen Rhythmus. Bei manchen sind zweite und dritte Form gleich: lose, lost, lost. Die Liste in deinem Buch hilft dir.",
+    "narration": "Für beide Zeitformen brauchst du die unregelmäßigen Verben, und zwar alle drei Formen. Die zweite Form für das simple past, die dritte für das present perfect. Lern sie immer als Dreierpack: go, went, gone. See, saw, seen. Write, wrote, written. Und ganz wichtig: been ist die dritte Form von be: be, was oder were, been. Sprich sie laut, wie einen Rhythmus. Bei manchen sind zweite und dritte Form gleich: lose, lost, lost. Die Liste in deinem Buch hilft dir.",
     "onScreenTitle": "Unregelmäßige Verben: immer drei Formen",
     "question": null,
     "think": null,
@@ -1201,7 +1201,7 @@
     "bullets": [
      "go, went, gone",
      "see, saw, seen",
-     "eat, ate, eaten",
+     "be, was oder were, been",
      "write, wrote, written"
     ],
     "nodes": null,
@@ -1220,7 +1220,7 @@
     "stockQuery": null
    },
    {
-    "narration": "Schau ein letztes Mal auf den ganzen Zeitstrahl. Links die Vergangenheit, in der Mitte NOW. Die beiden Sätze im simple past sitzen fest an ihrem Zeitpunkt: yesterday, last year. Die beiden Sätze im present perfect haben einen Balken bis zu NOW: Der Schlüssel ist jetzt weg, London kennen wir bis heute zweimal. Oben die Regel: Zeit vorbei, simple past. Bezug zum Jetzt, present perfect.",
+    "narration": "Schau ein letztes Mal auf den Zeitstrahl, jetzt noch einmal alles zusammen. Links die Vergangenheit, in der Mitte NOW. Die beiden Sätze im simple past sitzen fest an ihrem Zeitpunkt: yesterday, last year. Die beiden Sätze im present perfect haben einen Balken bis zu NOW: Der Schlüssel ist jetzt weg, London haben wir bis heute zweimal besucht. Oben die Regel: Zeit vorbei, simple past. Bezug zum Jetzt, present perfect.",
     "onScreenTitle": "Die Regel auf einen Blick",
     "question": null,
     "think": null,
@@ -1256,7 +1256,7 @@
     "stockQuery": null
    },
    {
-    "narration": "Die letzte Frage. Ein kleines Gespräch: Have you ever been to London? Yes, I ... there two years ago. Du sollst das Verb go einsetzen. Achtung: Die Frage steht im present perfect, mit ever. Aber die Antwort nennt einen genauen Zeitpunkt. Welche Zeitform brauchst du also in der Antwort? Nimm dir ein paar Sekunden Zeit.",
+    "narration": "Die letzte Frage. Ein kleines Gespräch: Have you ever been to London? Yes, I, Lücke, there two years ago. Du sollst das Verb go einsetzen. Achtung: Die Frage steht im present perfect, mit ever. Aber die Antwort nennt einen genauen Zeitpunkt. Welche Zeitform brauchst du also in der Antwort? Nimm dir ein paar Sekunden Zeit.",
     "onScreenTitle": "Üben und merken",
     "question": "Have you ever been to London? Yes, I ... there two years ago. Setze go ein.",
     "think": 9,
@@ -1356,7 +1356,7 @@
    {
     "beatId": 1,
     "chapterId": 1,
-    "narration": "Stell dir vor, du suchst deinen Schlüssel. Auf Englisch kannst du dazu zwei Sätze sagen: I lost my key yesterday. Oder: I have lost my key. Beide handeln von der Vergangenheit, aber sie bedeuten nicht dasselbe. Der eine erzählt, was gestern passiert ist. Der andere sagt: Der Schlüssel ist jetzt weg. In dieser Lektion lernst du, wann das simple past passt und wann das present perfect. Und du lernst die Falle kennen, in die fast alle deutschen Kinder einmal tappen.",
+    "narration": "Stell dir vor, du suchst deinen Schlüssel. Auf Englisch kannst du dazu zwei Sätze sagen: I lost my key yesterday. Oder: I have lost my key. Beide handeln von der Vergangenheit, aber sie bedeuten nicht dasselbe. Der eine erzählt, was gestern passiert ist. Der andere sagt: Der Schlüssel ist jetzt weg. In dieser Lektion lernst du, wann das simple past passt und wann das present perfect. Und du lernst die Falle kennen, in die viele deutsche Kinder einmal tappen.",
     "onScreenTitle": "Simple past oder present perfect?",
     "emphasisWords": []
    },
@@ -1412,7 +1412,7 @@
    {
     "beatId": 9,
     "chapterId": 2,
-    "narration": "Hier kommt der zweite Satz: I have lost my key. Er steht ohne Zeitangabe da, kein yesterday, kein last week. Schau auf den Balken: Er verbindet das Ereignis mit NOW. Das heißt: Ich habe den Schlüssel verloren, und er ist jetzt weg. Ich stehe vor der Tür und komme nicht hinein. Das Ergebnis zählt, nicht der Zeitpunkt. Merke dir: Ergebnis jetzt, present perfect.",
+    "narration": "Hier kommt der zweite Satz: I have lost my key. Er steht ohne Zeitangabe da, kein yesterday, kein last week. Das heißt: Ich habe den Schlüssel verloren, und er ist jetzt weg. Ich stehe vor der Tür und komme nicht hinein. Das Ergebnis zählt, nicht der Zeitpunkt. Und jetzt schau auf den Balken, der unter dem Satz erscheint: Er verbindet das Ereignis mit NOW. Merke dir: Ergebnis jetzt, present perfect.",
     "onScreenTitle": "I have lost my key.",
     "emphasisWords": []
    },
@@ -1454,21 +1454,21 @@
    {
     "beatId": 15,
     "chapterId": 3,
-    "narration": "Diese Signalwörter zeigen auf das present perfect. Just, also gerade eben: I have just finished. Already, schon: She has already left. Yet, in Fragen und Verneinungen: Have you finished yet? Ever und never fragen nach dem ganzen Leben bis jetzt: Have you ever seen a whale? I have never been to Spain. Keines dieser Wörter nennt einen festen Zeitpunkt. Sie reichen von früher bis zum Jetzt.",
+    "narration": "Diese Signalwörter zeigen auf das present perfect. Just, also gerade eben: I have just finished. Already, schon: She has already left. Yet, in Fragen und Verneinungen: Have you finished yet? Ever und never fragen nach dem ganzen Leben bis jetzt: Have you ever seen a whale? I have never been to Spain. Keines dieser Wörter nennt einen festen Zeitpunkt. Sie reichen von früher bis zum Jetzt. Diese Erfahrungen bis jetzt lernst du darüber hinaus; der Lehrplan der sechsten Klasse nennt vor allem das Ergebnis jetzt.",
     "onScreenTitle": "Signalwörter für das present perfect",
     "emphasisWords": []
    },
    {
     "beatId": 16,
     "chapterId": 3,
-    "narration": "Jetzt siehst du alle vier Sätze mit ihren Notizen. I lost my key yesterday: finished time, die Zeit ist vorbei. I have lost my key: result now, das Ergebnis zählt jetzt. We visited London last year: wieder ein abgeschlossener Zeitpunkt. We have visited London twice: Erfahrung bis jetzt, zweimal in unserem Leben bis heute. Oben steht die Regel: Zeit vorbei, simple past. Bezug zum Jetzt, present perfect.",
+    "narration": "Jetzt siehst du alle vier Sätze mit ihren Notizen. I lost my key yesterday: finished time, die Zeit ist vorbei. I have lost my key: result now, das Ergebnis zählt jetzt. We visited London last year: wieder ein abgeschlossener Zeitpunkt. We have visited London twice: Erfahrung bis jetzt, wir waren bis heute zweimal dort, der Zeitpunkt wird nicht genannt. Oben steht die Regel: Zeit vorbei, simple past. Bezug zum Jetzt, present perfect.",
     "onScreenTitle": "Vier Sätze, vier Notizen, eine Regel",
     "emphasisWords": []
    },
    {
     "beatId": 17,
     "chapterId": 3,
-    "narration": "Frage an dich. Der Satz lautet: Last summer we ... in the sea. Du sollst das Verb swim einsetzen. Welche Zeitform nimmst du, und warum? Tipp: Schau auf das Signalwort ganz am Anfang des Satzes. Ist dieser Sommer vorbei oder nicht? Und denk daran, dass swim ein unregelmäßiges Verb ist. Nimm dir ein paar Sekunden Zeit.",
+    "narration": "Frage an dich. Der Satz lautet: Last summer we, Lücke, in the sea. Du sollst das Verb swim einsetzen. Welche Zeitform nimmst du, und warum? Tipp: Schau auf das Signalwort ganz am Anfang des Satzes. Ist dieser Sommer vorbei oder nicht? Und denk daran, dass swim ein unregelmäßiges Verb ist. Nimm dir ein paar Sekunden Zeit.",
     "onScreenTitle": "Signalwörter: Ist die Zeit vorbei?",
     "emphasisWords": []
    },
@@ -1496,7 +1496,7 @@
    {
     "beatId": 21,
     "chapterId": 4,
-    "narration": "Auch bei Fragen und Verneinungen musst du die Zeitform durchhalten. Im simple past hilft did: Did you see the film yesterday? No, I didn't see it. Nach did steht immer die Grundform see. Im present perfect stellst du have oder has nach vorn: Have you seen the film? No, I haven't seen it. Nach have steht die dritte Form seen. Zwei Muster, die du dir einprägen solltest.",
+    "narration": "Auch bei Fragen und Verneinungen musst du die Zeitform durchhalten. Im simple past hilft did: Did you see the film yesterday? No, I didn't see it. Nach did steht immer die Grundform see. Im present perfect stellst du have oder has nach vorn: Have you seen the film? No, I haven't seen it. Nach have steht die dritte Form seen. Mit she: Has she seen it? No, she hasn't. Zwei Muster, die du dir einprägen solltest.",
     "onScreenTitle": "Fragen und Verneinungen",
     "emphasisWords": []
    },
@@ -1510,7 +1510,7 @@
    {
     "beatId": 23,
     "chapterId": 4,
-    "narration": "Die Lösung: I have forgotten my exercise book. Du nennst keinen Zeitpunkt, aber das Ergebnis ist jetzt wichtig: Das Heft fehlt, du kannst nicht hineinschreiben. Also present perfect. Forget ist unregelmäßig: forget, forgot, forgotten. Die dritte Form heißt forgotten. Würdest du erzählen, was gestern passiert ist, hieße es: I forgot my exercise book yesterday. Siehst du den Unterschied? Gleiche Geschichte, anderer Blick.",
+    "narration": "Die Lösung: I have forgotten my exercise book. Du nennst keinen Zeitpunkt, aber das Ergebnis ist jetzt wichtig: Das Heft fehlt, du kannst nicht hineinschreiben. Hier gibt es keine Zeitangabe, deshalb passt das present perfect. Forget ist unregelmäßig: forget, forgot, forgotten. Die dritte Form heißt forgotten. Würdest du erzählen, was gestern passiert ist, hieße es: I forgot my exercise book yesterday. Siehst du den Unterschied? Gleiche Geschichte, anderer Blick.",
     "onScreenTitle": "Antwort: I have forgotten my exercise book.",
     "emphasisWords": []
    },
@@ -1524,28 +1524,28 @@
    {
     "beatId": 25,
     "chapterId": 5,
-    "narration": "So entscheidest du. Frage eins: Steht ein Zeitpunkt im Satz oder ist er aus der Situation klar, yesterday, last week, in 2020? Dann simple past. Frage zwei: Zählt das Ergebnis jetzt, oder geht es um eine Erfahrung bis jetzt, mit ever, never, twice? Dann present perfect. Wenn du unsicher bist, such nach Signalwörtern. Und wenn du eine Geschichte erzählst, bleibst du im simple past.",
-    "onScreenTitle": "Zwei Fragen zum Entscheiden",
+    "narration": "So entscheidest du. Frage eins: Steht ein Zeitpunkt im Satz oder ist er aus der Situation klar, yesterday, last week, in 2020? Dann simple past. Frage zwei: Zählt das Ergebnis jetzt, oder geht es um eine Erfahrung bis jetzt, mit ever, never, twice? Dann auch present perfect; das geht über den Lehrplan hinaus. Wenn du unsicher bist, such nach Signalwörtern. Und wenn du eine Geschichte erzählst, bleibst du im simple past.",
+    "onScreenTitle": "Zwei Fragen und ein Tipp",
     "emphasisWords": []
    },
    {
     "beatId": 26,
     "chapterId": 5,
-    "narration": "Für beide Zeitformen brauchst du die unregelmäßigen Verben, und zwar alle drei Formen. Die zweite Form für das simple past, die dritte für das present perfect. Lern sie immer als Dreierpack: go, went, gone. See, saw, seen. Eat, ate, eaten. Write, wrote, written. Sprich sie laut, wie einen Rhythmus. Bei manchen sind zweite und dritte Form gleich: lose, lost, lost. Die Liste in deinem Buch hilft dir.",
+    "narration": "Für beide Zeitformen brauchst du die unregelmäßigen Verben, und zwar alle drei Formen. Die zweite Form für das simple past, die dritte für das present perfect. Lern sie immer als Dreierpack: go, went, gone. See, saw, seen. Write, wrote, written. Und ganz wichtig: been ist die dritte Form von be: be, was oder were, been. Sprich sie laut, wie einen Rhythmus. Bei manchen sind zweite und dritte Form gleich: lose, lost, lost. Die Liste in deinem Buch hilft dir.",
     "onScreenTitle": "Unregelmäßige Verben: immer drei Formen",
     "emphasisWords": []
    },
    {
     "beatId": 27,
     "chapterId": 5,
-    "narration": "Schau ein letztes Mal auf den ganzen Zeitstrahl. Links die Vergangenheit, in der Mitte NOW. Die beiden Sätze im simple past sitzen fest an ihrem Zeitpunkt: yesterday, last year. Die beiden Sätze im present perfect haben einen Balken bis zu NOW: Der Schlüssel ist jetzt weg, London kennen wir bis heute zweimal. Oben die Regel: Zeit vorbei, simple past. Bezug zum Jetzt, present perfect.",
+    "narration": "Schau ein letztes Mal auf den Zeitstrahl, jetzt noch einmal alles zusammen. Links die Vergangenheit, in der Mitte NOW. Die beiden Sätze im simple past sitzen fest an ihrem Zeitpunkt: yesterday, last year. Die beiden Sätze im present perfect haben einen Balken bis zu NOW: Der Schlüssel ist jetzt weg, London haben wir bis heute zweimal besucht. Oben die Regel: Zeit vorbei, simple past. Bezug zum Jetzt, present perfect.",
     "onScreenTitle": "Die Regel auf einen Blick",
     "emphasisWords": []
    },
    {
     "beatId": 28,
     "chapterId": 5,
-    "narration": "Die letzte Frage. Ein kleines Gespräch: Have you ever been to London? Yes, I ... there two years ago. Du sollst das Verb go einsetzen. Achtung: Die Frage steht im present perfect, mit ever. Aber die Antwort nennt einen genauen Zeitpunkt. Welche Zeitform brauchst du also in der Antwort? Nimm dir ein paar Sekunden Zeit.",
+    "narration": "Die letzte Frage. Ein kleines Gespräch: Have you ever been to London? Yes, I, Lücke, there two years ago. Du sollst das Verb go einsetzen. Achtung: Die Frage steht im present perfect, mit ever. Aber die Antwort nennt einen genauen Zeitpunkt. Welche Zeitform brauchst du also in der Antwort? Nimm dir ein paar Sekunden Zeit.",
     "onScreenTitle": "Üben und merken",
     "emphasisWords": []
    },
@@ -1564,14 +1564,15 @@
     "emphasisWords": []
    }
   ],
-  "totalWords": 1909
+  "totalWords": 1979
  },
  "review": {
   "approved": true,
   "issues": [],
   "claimsToVerify": [],
   "revisedNarration": {},
-  "mustFix": []
+  "mustFix": [],
+  "reviewer": "Claude Sonnet (Claude Code subagent), independent of the writer (Claude in Claude Code)"
  },
  "storyboard": {
   "scenes": [
@@ -2535,12 +2536,12 @@
     "beatId": 25,
     "kind": "bullets",
     "kicker": "Üben und merken",
-    "title": "Zwei Fragen zum Entscheiden",
+    "title": "Zwei Fragen und ein Tipp",
     "subtitle": null,
     "bullets": [
      "Steht ein Zeitpunkt dabei? Simple past.",
      "Zählt das Ergebnis jetzt? Present perfect.",
-     "Erfahrung bis jetzt? Present perfect.",
+     "Erfahrung bis jetzt? Auch present perfect (darüber hinaus)",
      "Im Zweifel: Signalwörter suchen"
     ],
     "nodes": null,
@@ -2581,7 +2582,7 @@
     "bullets": [
      "go, went, gone",
      "see, saw, seen",
-     "eat, ate, eaten",
+     "be, was oder were, been",
      "write, wrote, written"
     ],
     "nodes": null,
