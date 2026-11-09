@@ -333,6 +333,7 @@ jobs:
           name: ${{ env.TITLE }}
           body: |
             Prompt: ${{ github.event.inputs.prompt || github.event.issue.title }}
+            ${{ steps.req.outputs.lesson != '' && format('Lesson: {0} ({1}). Voice: {2}.', steps.req.outputs.lesson, steps.req.outputs.variant, steps.req.outputs.tts || vars.LESSON_TTS || 'default') || '' }}
 
             Files: the MP4 (H.264, YouTube-ready), captions (.srt), the YouTube title/description/tags/chapters (-youtube.txt) and a thumbnail.
             Footage: see youtube.txt for credits. Made by the AI Video Studio factory, run ${{ github.run_number }}.
