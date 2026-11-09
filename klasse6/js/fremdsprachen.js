@@ -141,7 +141,7 @@ const conjugaison = {
       { t: 0, text: `${p.verbe}, ${v.de}. Links die Personen, rechts die Verbformen.` },
       { t: 4, text: v.stem ? `Der Stamm ${v.stem}- bleibt, die Endung wechselt: -e, -es, -e, -ons, -ez, -ent.` : 'Ein unregelmäßiges Verb: Jede Form wird einzeln gelernt.' },
       { t: 16, text: v.stem ? 'Grau: Endungen, die man nicht hört. Je parle, tu parles, il parle und ils parlent klingen gleich.' : 'Hören und Schreiben: Die Formen klingen oft anders, als sie geschrieben werden.' },
-      { t: 23, text: 'Mit ne … pas wird die Form verneint: Je ne parle pas.' },
+      { t: 23, text: 'Mit ne … pas wird die Form verneint: Je ne parle pas. Vor Vokal wird ne zu n’: Je n’ai pas.' },
     ];
   },
   draw(S, t, p) {
@@ -164,7 +164,8 @@ const conjugaison = {
     });
     if (t >= 23) {
       const z = rowZ(0), neg = ease(t, 23, 1);
-      S.label([xP, y0 + 0.9, z - 0.9], `${v.pron[0].endsWith("'") ? v.pron[0] : v.pron[0] + ' '}ne ${v.stem}${v.end[0]} pas`, { above: 0.4 * neg, strong: true, color: th.accent2, size: S.u(26) });
+      const form = v.stem + v.end[0], vowel = /^[aeiouéè]/.test(form);
+      S.label([xP, y0 + 0.9, z - 0.9], vowel ? `je n'${form} pas` : `je ne ${form} pas`, { above: 0.4 * neg, strong: true, color: th.accent2, size: S.u(26) });
       S.label([xP, y0 + 0.9, z - 0.9], 'ne … pas umschließt das Verb', { above: 0.05, color: rgba(th.text, 0.7), size: S.u(20) });
     }
   },
