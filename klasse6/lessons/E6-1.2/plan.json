@@ -2,8 +2,8 @@
  "id": "current",
  "prompt": "Lektion E6-1.2 „Verfügen über sprachliche Mittel“ (Englisch (1. Fremdsprache), Klasse 6 Gymnasium Bayern), aus klasse6/lessons/E6-1.2.lesson.json. 16 Minuten, auf Deutsch, für Kinder von etwa 11 Jahren.",
  "attempts": 0,
- "createdAt": 1794219167714,
- "updatedAt": 1794219167714,
+ "createdAt": 1794219210459,
+ "updatedAt": 1794219210459,
  "stage": "plan",
  "mode": "course",
  "durationApplied": true,
@@ -28,8 +28,8 @@
   "footageProvider": "none",
   "aiClipBudget": 0,
   "minSceneSeconds": 10,
-  "maxDuration": 1111,
-  "targetDuration": 966,
+  "maxDuration": 1075,
+  "targetDuration": 935,
   "lesson": {
    "id": "E6-1.2",
    "title": "Verfügen über sprachliche Mittel",
@@ -259,74 +259,67 @@
     "id": 21,
     "chapterId": 4,
     "purpose": "explain",
-    "keyPoint": "Der Trick ist: Übersetze nicht Wort für Wort aus dem Deutschen. Stell dem Satz stattdessen zwei Fragen. Erstens: Ist die Zeit vorbei, steht ein Zeitpunkt dabei? Dann simple past. Zweitens: Geht es um das Ergebnis jetzt oder um Erfahrungen bis jetzt? Dann present perfect. Ich habe mein Zimmer aufgeräumt, es ist jetzt ordentlich: I have cleaned my room. Ich habe gestern aufgeräumt: I cleaned my room yesterday.",
+    "keyPoint": "Auch bei Fragen und Verneinungen musst du die Zeitform durchhalten. Im simple past hilft did: Did you see the film yesterday? No, I didn't see it. Nach did steht immer die Grundform see. Im present perfect stellst du have oder has nach vorn: Have you seen the film? No, I haven't seen it. Nach have steht die dritte Form seen. Zwei Muster, die du dir einprägen solltest.",
     "suggestedVisual": "bullets"
    },
    {
     "id": 22,
     "chapterId": 4,
     "purpose": "explain",
-    "keyPoint": "Auch bei Fragen und Verneinungen musst du die Zeitform durchhalten. Im simple past hilft did: Did you see the film yesterday? No, I didn't see it. Nach did steht immer die Grundform see. Im present perfect stellst du have oder has nach vorn: Have you seen the film? No, I haven't seen it. Nach have steht die dritte Form seen. Zwei Muster, die du dir einprägen solltest.",
-    "suggestedVisual": "bullets"
-   },
-   {
-    "id": 23,
-    "chapterId": 4,
-    "purpose": "explain",
     "keyPoint": "Frage an dich. Du kommst in die Schule und merkst: Ich habe mein Heft vergessen, es liegt zu Hause. Wie sagst du das auf Englisch? Überlege: Nennst du einen Zeitpunkt, oder geht es darum, dass das Heft jetzt fehlt? Das Verb heißt forget, und es ist unregelmäßig. Nimm dir ein paar Sekunden Zeit zum Nachdenken.",
     "suggestedVisual": "question"
    },
    {
-    "id": 24,
+    "id": 23,
     "chapterId": 4,
     "purpose": "explain",
     "keyPoint": "Die Lösung: I have forgotten my exercise book. Du nennst keinen Zeitpunkt, aber das Ergebnis ist jetzt wichtig: Das Heft fehlt, du kannst nicht hineinschreiben. Also present perfect. Forget ist unregelmäßig: forget, forgot, forgotten. Die dritte Form heißt forgotten. Würdest du erzählen, was gestern passiert ist, hieße es: I forgot my exercise book yesterday. Siehst du den Unterschied? Gleiche Geschichte, anderer Blick.",
     "suggestedVisual": "bullets"
    },
    {
-    "id": 25,
+    "id": 24,
     "chapterId": 5,
     "purpose": "chapter",
     "keyPoint": "Im letzten Kapitel packen wir alles zusammen, damit du es dir merken kannst. Du bekommst zwei Entscheidungsfragen, die fast immer funktionieren. Du siehst, warum die unregelmäßigen Verben so wichtig sind. Und du schaust noch einmal auf den ganzen Zeitstrahl mit der Regel. Zum Schluss gibt es eine letzte Frage, bei der beide Zeitformen in einem Gespräch vorkommen.",
     "suggestedVisual": "chapter"
    },
    {
-    "id": 26,
+    "id": 25,
     "chapterId": 5,
     "purpose": "explain",
     "keyPoint": "So entscheidest du. Frage eins: Steht ein Zeitpunkt im Satz oder ist er aus der Situation klar, yesterday, last week, in 2020? Dann simple past. Frage zwei: Zählt das Ergebnis jetzt, oder geht es um eine Erfahrung bis jetzt, mit ever, never, twice? Dann present perfect. Wenn du unsicher bist, such nach Signalwörtern. Und wenn du eine Geschichte erzählst, bleibst du im simple past.",
     "suggestedVisual": "bullets"
    },
    {
-    "id": 27,
+    "id": 26,
     "chapterId": 5,
     "purpose": "explain",
     "keyPoint": "Für beide Zeitformen brauchst du die unregelmäßigen Verben, und zwar alle drei Formen. Die zweite Form für das simple past, die dritte für das present perfect. Lern sie immer als Dreierpack: go, went, gone. See, saw, seen. Eat, ate, eaten. Write, wrote, written. Sprich sie laut, wie einen Rhythmus. Bei manchen sind zweite und dritte Form gleich: lose, lost, lost. Die Liste in deinem Buch hilft dir.",
     "suggestedVisual": "bullets"
    },
    {
-    "id": 28,
+    "id": 27,
     "chapterId": 5,
     "purpose": "explain",
     "keyPoint": "Schau ein letztes Mal auf den ganzen Zeitstrahl. Links die Vergangenheit, in der Mitte NOW. Die beiden Sätze im simple past sitzen fest an ihrem Zeitpunkt: yesterday, last year. Die beiden Sätze im present perfect haben einen Balken bis zu NOW: Der Schlüssel ist jetzt weg, London kennen wir bis heute zweimal. Oben die Regel: Zeit vorbei, simple past. Bezug zum Jetzt, present perfect.",
     "suggestedVisual": "math3d"
    },
    {
-    "id": 29,
+    "id": 28,
     "chapterId": 5,
     "purpose": "explain",
     "keyPoint": "Die letzte Frage. Ein kleines Gespräch: Have you ever been to London? Yes, I ... there two years ago. Du sollst das Verb go einsetzen. Achtung: Die Frage steht im present perfect, mit ever. Aber die Antwort nennt einen genauen Zeitpunkt. Welche Zeitform brauchst du also in der Antwort? Nimm dir ein paar Sekunden Zeit.",
     "suggestedVisual": "question"
    },
    {
-    "id": 30,
+    "id": 29,
     "chapterId": 5,
     "purpose": "explain",
     "keyPoint": "Die Lösung: Yes, I went there two years ago. Die Frage mit ever fragt allgemein nach deinem Leben bis jetzt, deshalb present perfect: Have you ever been. Die Antwort nennt einen Zeitpunkt, two years ago, deshalb simple past: went. So läuft es oft in echten Gesprächen: erst die allgemeine Frage im present perfect, dann die Einzelheiten im simple past.",
     "suggestedVisual": "bullets"
    },
    {
-    "id": 31,
+    "id": 30,
     "chapterId": 5,
     "purpose": "takeaway",
     "keyPoint": "Merk dir das: Das simple past erzählt, was zu einem Zeitpunkt passiert ist, der vorbei ist: I lost my key yesterday. Das present perfect verbindet die Vergangenheit mit dem Jetzt: I have lost my key, der Schlüssel ist jetzt weg. Yesterday und ago rufen nach dem simple past, ever und never nach dem present perfect. Und das deutsche Perfekt ist kein present perfect: Ich habe gestern gespielt heißt I played yesterday. Schreib einen Satz im present perfect in die Kommentare. Abonniere für die nächste Lektion.",
@@ -1021,41 +1014,6 @@
     "stockQuery": null
    },
    {
-    "narration": "Der Trick ist: Übersetze nicht Wort für Wort aus dem Deutschen. Stell dem Satz stattdessen zwei Fragen. Erstens: Ist die Zeit vorbei, steht ein Zeitpunkt dabei? Dann simple past. Zweitens: Geht es um das Ergebnis jetzt oder um Erfahrungen bis jetzt? Dann present perfect. Ich habe mein Zimmer aufgeräumt, es ist jetzt ordentlich: I have cleaned my room. Ich habe gestern aufgeräumt: I cleaned my room yesterday.",
-    "onScreenTitle": "Übersetze nicht Wort für Wort",
-    "question": null,
-    "think": null,
-    "hint": null,
-    "emphasisWords": [],
-    "kind": "bullets",
-    "model": null,
-    "labels": null,
-    "scene": null,
-    "params": null,
-    "segment": null,
-    "formula": null,
-    "bullets": [
-     "Frag nicht: Wie heißt es auf Deutsch?",
-     "Frag: Ist die Zeit vorbei?",
-     "Frag: Zählt das Ergebnis jetzt?",
-     "Dann wähle die Zeitform"
-    ],
-    "nodes": null,
-    "leftTitle": null,
-    "leftItems": null,
-    "rightTitle": null,
-    "rightItems": null,
-    "statValue": null,
-    "statLabel": null,
-    "code": null,
-    "codeLanguage": null,
-    "quote": null,
-    "attribution": null,
-    "hero": false,
-    "shot": null,
-    "stockQuery": null
-   },
-   {
     "narration": "Auch bei Fragen und Verneinungen musst du die Zeitform durchhalten. Im simple past hilft did: Did you see the film yesterday? No, I didn't see it. Nach did steht immer die Grundform see. Im present perfect stellst du have oder has nach vorn: Have you seen the film? No, I haven't seen it. Nach have steht die dritte Form seen. Zwei Muster, die du dir einprägen solltest.",
     "onScreenTitle": "Fragen und Verneinungen",
     "question": null,
@@ -1538,82 +1496,75 @@
    {
     "beatId": 21,
     "chapterId": 4,
-    "narration": "Der Trick ist: Übersetze nicht Wort für Wort aus dem Deutschen. Stell dem Satz stattdessen zwei Fragen. Erstens: Ist die Zeit vorbei, steht ein Zeitpunkt dabei? Dann simple past. Zweitens: Geht es um das Ergebnis jetzt oder um Erfahrungen bis jetzt? Dann present perfect. Ich habe mein Zimmer aufgeräumt, es ist jetzt ordentlich: I have cleaned my room. Ich habe gestern aufgeräumt: I cleaned my room yesterday.",
-    "onScreenTitle": "Übersetze nicht Wort für Wort",
-    "emphasisWords": []
-   },
-   {
-    "beatId": 22,
-    "chapterId": 4,
     "narration": "Auch bei Fragen und Verneinungen musst du die Zeitform durchhalten. Im simple past hilft did: Did you see the film yesterday? No, I didn't see it. Nach did steht immer die Grundform see. Im present perfect stellst du have oder has nach vorn: Have you seen the film? No, I haven't seen it. Nach have steht die dritte Form seen. Zwei Muster, die du dir einprägen solltest.",
     "onScreenTitle": "Fragen und Verneinungen",
     "emphasisWords": []
    },
    {
-    "beatId": 23,
+    "beatId": 22,
     "chapterId": 4,
     "narration": "Frage an dich. Du kommst in die Schule und merkst: Ich habe mein Heft vergessen, es liegt zu Hause. Wie sagst du das auf Englisch? Überlege: Nennst du einen Zeitpunkt, oder geht es darum, dass das Heft jetzt fehlt? Das Verb heißt forget, und es ist unregelmäßig. Nimm dir ein paar Sekunden Zeit zum Nachdenken.",
     "onScreenTitle": "Die Falle für deutsche Köpfe",
     "emphasisWords": []
    },
    {
-    "beatId": 24,
+    "beatId": 23,
     "chapterId": 4,
     "narration": "Die Lösung: I have forgotten my exercise book. Du nennst keinen Zeitpunkt, aber das Ergebnis ist jetzt wichtig: Das Heft fehlt, du kannst nicht hineinschreiben. Also present perfect. Forget ist unregelmäßig: forget, forgot, forgotten. Die dritte Form heißt forgotten. Würdest du erzählen, was gestern passiert ist, hieße es: I forgot my exercise book yesterday. Siehst du den Unterschied? Gleiche Geschichte, anderer Blick.",
     "onScreenTitle": "Antwort: I have forgotten my exercise book.",
     "emphasisWords": []
    },
    {
-    "beatId": 25,
+    "beatId": 24,
     "chapterId": 5,
     "narration": "Im letzten Kapitel packen wir alles zusammen, damit du es dir merken kannst. Du bekommst zwei Entscheidungsfragen, die fast immer funktionieren. Du siehst, warum die unregelmäßigen Verben so wichtig sind. Und du schaust noch einmal auf den ganzen Zeitstrahl mit der Regel. Zum Schluss gibt es eine letzte Frage, bei der beide Zeitformen in einem Gespräch vorkommen.",
     "onScreenTitle": "Üben und merken",
     "emphasisWords": []
    },
    {
-    "beatId": 26,
+    "beatId": 25,
     "chapterId": 5,
     "narration": "So entscheidest du. Frage eins: Steht ein Zeitpunkt im Satz oder ist er aus der Situation klar, yesterday, last week, in 2020? Dann simple past. Frage zwei: Zählt das Ergebnis jetzt, oder geht es um eine Erfahrung bis jetzt, mit ever, never, twice? Dann present perfect. Wenn du unsicher bist, such nach Signalwörtern. Und wenn du eine Geschichte erzählst, bleibst du im simple past.",
     "onScreenTitle": "Zwei Fragen zum Entscheiden",
     "emphasisWords": []
    },
    {
-    "beatId": 27,
+    "beatId": 26,
     "chapterId": 5,
     "narration": "Für beide Zeitformen brauchst du die unregelmäßigen Verben, und zwar alle drei Formen. Die zweite Form für das simple past, die dritte für das present perfect. Lern sie immer als Dreierpack: go, went, gone. See, saw, seen. Eat, ate, eaten. Write, wrote, written. Sprich sie laut, wie einen Rhythmus. Bei manchen sind zweite und dritte Form gleich: lose, lost, lost. Die Liste in deinem Buch hilft dir.",
     "onScreenTitle": "Unregelmäßige Verben: immer drei Formen",
     "emphasisWords": []
    },
    {
-    "beatId": 28,
+    "beatId": 27,
     "chapterId": 5,
     "narration": "Schau ein letztes Mal auf den ganzen Zeitstrahl. Links die Vergangenheit, in der Mitte NOW. Die beiden Sätze im simple past sitzen fest an ihrem Zeitpunkt: yesterday, last year. Die beiden Sätze im present perfect haben einen Balken bis zu NOW: Der Schlüssel ist jetzt weg, London kennen wir bis heute zweimal. Oben die Regel: Zeit vorbei, simple past. Bezug zum Jetzt, present perfect.",
     "onScreenTitle": "Die Regel auf einen Blick",
     "emphasisWords": []
    },
    {
-    "beatId": 29,
+    "beatId": 28,
     "chapterId": 5,
     "narration": "Die letzte Frage. Ein kleines Gespräch: Have you ever been to London? Yes, I ... there two years ago. Du sollst das Verb go einsetzen. Achtung: Die Frage steht im present perfect, mit ever. Aber die Antwort nennt einen genauen Zeitpunkt. Welche Zeitform brauchst du also in der Antwort? Nimm dir ein paar Sekunden Zeit.",
     "onScreenTitle": "Üben und merken",
     "emphasisWords": []
    },
    {
-    "beatId": 30,
+    "beatId": 29,
     "chapterId": 5,
     "narration": "Die Lösung: Yes, I went there two years ago. Die Frage mit ever fragt allgemein nach deinem Leben bis jetzt, deshalb present perfect: Have you ever been. Die Antwort nennt einen Zeitpunkt, two years ago, deshalb simple past: went. So läuft es oft in echten Gesprächen: erst die allgemeine Frage im present perfect, dann die Einzelheiten im simple past.",
     "onScreenTitle": "Antwort: Yes, I went there two years ago.",
     "emphasisWords": []
    },
    {
-    "beatId": 31,
+    "beatId": 30,
     "chapterId": 5,
     "narration": "Merk dir das: Das simple past erzählt, was zu einem Zeitpunkt passiert ist, der vorbei ist: I lost my key yesterday. Das present perfect verbindet die Vergangenheit mit dem Jetzt: I have lost my key, der Schlüssel ist jetzt weg. Yesterday und ago rufen nach dem simple past, ever und never nach dem present perfect. Und das deutsche Perfekt ist kein present perfect: Ich habe gestern gespielt heißt I played yesterday. Schreib einen Satz im present perfect in die Kommentare. Abonniere für die nächste Lektion.",
     "onScreenTitle": "Üben und merken",
     "emphasisWords": []
    }
   ],
-  "totalWords": 1976
+  "totalWords": 1909
  },
  "review": {
   "approved": true,
@@ -2426,47 +2377,6 @@
     "beatId": 21,
     "kind": "bullets",
     "kicker": "Die Falle für deutsche",
-    "title": "Übersetze nicht Wort für Wort",
-    "subtitle": null,
-    "bullets": [
-     "Frag nicht: Wie heißt es auf Deutsch?",
-     "Frag: Ist die Zeit vorbei?",
-     "Frag: Zählt das Ergebnis jetzt?",
-     "Dann wähle die Zeitform"
-    ],
-    "nodes": null,
-    "leftTitle": null,
-    "leftItems": null,
-    "rightTitle": null,
-    "rightItems": null,
-    "statValue": null,
-    "statLabel": null,
-    "code": null,
-    "codeLanguage": null,
-    "quote": null,
-    "attribution": null,
-    "shot": null,
-    "stockQuery": null,
-    "model": null,
-    "labels": null,
-    "scene": null,
-    "params": null,
-    "formula": null,
-    "question": null,
-    "think": 0,
-    "hint": null,
-    "thinkText": null,
-    "eyebrow": null,
-    "footnote": null,
-    "answerText": null,
-    "segment": null,
-    "hero": false,
-    "chapterId": 4
-   },
-   {
-    "beatId": 22,
-    "kind": "bullets",
-    "kicker": "Die Falle für deutsche",
     "title": "Fragen und Verneinungen",
     "subtitle": null,
     "bullets": [
@@ -2505,7 +2415,7 @@
     "chapterId": 4
    },
    {
-    "beatId": 23,
+    "beatId": 22,
     "kind": "question",
     "kicker": "Die Falle für deutsche",
     "title": "Die Falle für deutsche Köpfe",
@@ -2541,7 +2451,7 @@
     "chapterId": 4
    },
    {
-    "beatId": 24,
+    "beatId": 23,
     "kind": "bullets",
     "kicker": "Die Falle für deutsche",
     "title": "Antwort: I have forgotten my exercise book.",
@@ -2582,7 +2492,7 @@
     "chapterId": 4
    },
    {
-    "beatId": 25,
+    "beatId": 24,
     "kind": "chapter",
     "kicker": "Kapitel 5 von 5",
     "title": "Üben und merken",
@@ -2622,7 +2532,7 @@
     "chapterId": 5
    },
    {
-    "beatId": 26,
+    "beatId": 25,
     "kind": "bullets",
     "kicker": "Üben und merken",
     "title": "Zwei Fragen zum Entscheiden",
@@ -2663,7 +2573,7 @@
     "chapterId": 5
    },
    {
-    "beatId": 27,
+    "beatId": 26,
     "kind": "bullets",
     "kicker": "Üben und merken",
     "title": "Unregelmäßige Verben: immer drei Formen",
@@ -2704,7 +2614,7 @@
     "chapterId": 5
    },
    {
-    "beatId": 28,
+    "beatId": 27,
     "kind": "math3d",
     "kicker": "Üben und merken",
     "title": "Die Regel auf einen Blick",
@@ -2746,7 +2656,7 @@
     "chapterId": 5
    },
    {
-    "beatId": 29,
+    "beatId": 28,
     "kind": "question",
     "kicker": "Üben und merken",
     "title": "Üben und merken",
@@ -2782,7 +2692,7 @@
     "chapterId": 5
    },
    {
-    "beatId": 30,
+    "beatId": 29,
     "kind": "bullets",
     "kicker": "Üben und merken",
     "title": "Antwort: Yes, I went there two years ago.",
@@ -2822,7 +2732,7 @@
     "chapterId": 5
    },
    {
-    "beatId": 31,
+    "beatId": 30,
     "kind": "outro",
     "kicker": null,
     "title": "Das simple past erzählt, was zu einem Zeitpunkt",
@@ -2897,7 +2807,7 @@
     "label": "Die Falle für deutsche Köpfe"
    },
    {
-    "beatId": 25,
+    "beatId": 24,
     "label": "Üben und merken"
    }
   ],

@@ -2,8 +2,8 @@
  "id": "current",
  "prompt": "Eltern-Lektion E6-1.2 „Verfügen über sprachliche Mittel“ (Englisch (1. Fremdsprache), Klasse 6 Gymnasium Bayern), aus klasse6/lessons/E6-1.2.eltern.lesson.json. 11 Minuten, auf Deutsch, für Eltern und Lehrkräfte.",
  "attempts": 0,
- "createdAt": 1794219167806,
- "updatedAt": 1794219167806,
+ "createdAt": 1794219210535,
+ "updatedAt": 1794219210535,
  "stage": "plan",
  "mode": "course",
  "durationApplied": true,
@@ -28,8 +28,8 @@
   "footageProvider": "none",
   "aiClipBudget": 0,
   "minSceneSeconds": 10,
-  "maxDuration": 767,
-  "targetDuration": 667,
+  "maxDuration": 758,
+  "targetDuration": 659,
   "lesson": {
    "id": "E6-1.2",
    "title": "Verfügen über sprachliche Mittel",
@@ -118,21 +118,21 @@
     "id": 1,
     "chapterId": 1,
     "purpose": "hook",
-    "keyPoint": "Englisch ist am bayerischen Gymnasium in der sechsten Klasse mit vier Wochenstunden eines der Kernfächer. Dieses Video richtet sich an Eltern und Lehrkräfte und behandelt den Lernbereich Verfügen über sprachliche Mittel, also Wortschatz, Grammatik und Aussprache. Im Mittelpunkt steht das Grammatikthema, das in der sechsten Klasse neu dazukommt und deutschen Lernenden erfahrungsgemäß am meisten Mühe macht: das present perfect und seine Abgrenzung vom simple past. Sie erfahren, was der Lehrplan verlangt, wo typische Fehler liegen und wie Sie zu Hause helfen können.",
+    "keyPoint": "Englisch ist am bayerischen Gymnasium in der sechsten Klasse mit vier Wochenstunden eines der Kernfächer. Dieses Video richtet sich an Eltern und Lehrkräfte und behandelt den Lernbereich Verfügen über sprachliche Mittel, also Wortschatz, Grammatik und Aussprache. Im Mittelpunkt steht das Grammatikthema, das in der sechsten Klasse neu dazukommt und deutschen Lernenden erfahrungsgemäß am meisten Mühe macht: das present perfect und seine Abgrenzung vom simple past. Sie erfahren, was der Lehrplan verlangt und wie Sie zu Hause helfen können.",
     "suggestedVisual": "title"
    },
    {
     "id": 2,
     "chapterId": 1,
     "purpose": "explain",
-    "keyPoint": "Der Lernbereich 1.2 heißt im LehrplanPLUS Verfügen über sprachliche Mittel und hat drei Teile. Erstens Wortschatz: Die Kinder beherrschen einen begrenzten Wortschatz zu Themen wie Freizeitgestaltung, Sport, Musik, Reisen, Wetter, Wegbeschreibung und Gesundheit und sollen typische false friends vermeiden. Zweitens Grammatik, dazu gleich mehr. Drittens Aussprache und Intonation, besonders bei Fragen, sowie die Lautschrift. Wichtig ist ein Satz aus dem Grammatikteil: Alle genannten Phänomene müssen, soweit nicht anders vermerkt, im schriftlichen und mündlichen Bereich rezeptiv und produktiv beherrscht werden. Verstehen allein reicht nicht.",
+    "keyPoint": "Der Lernbereich 1.2 heißt im LehrplanPLUS Verfügen über sprachliche Mittel und hat drei Teile. Erstens Wortschatz: ein begrenzter Wortschatz zu Themen wie Freizeitgestaltung, Sport, Musik, Reisen, Wetter, Wegbeschreibung und Gesundheit; typische false friends sollen vermieden werden. Zweitens Grammatik, dazu gleich mehr. Drittens Aussprache und Intonation, besonders bei Fragen, sowie die Lautschrift. Wichtig ist ein Satz aus dem Grammatikteil: Alle genannten Phänomene müssen, soweit nicht anders vermerkt, im schriftlichen und mündlichen Bereich rezeptiv und produktiv beherrscht werden. Verstehen allein reicht nicht.",
     "suggestedVisual": "bullets"
    },
    {
     "id": 3,
     "chapterId": 1,
     "purpose": "explain",
-    "keyPoint": "Die Grammatikliste ist lang. Unter der Kompetenzerwartung, die Kinder sprechen über Zukünftiges und Vergangenes und stellen zeitliche Bezüge her, nennt der Lehrplan: present perfect simple, resultativer Gebrauch; past tense progressive; going-to-future, will-future und timetable-future; die Modalverben could, may, might, should mit Ersatzformen; und den Konditionalsatz Typ eins. Dazu kommen Steigerung und Vergleich der Adjektive, Relativsätze, Nebensätze mit although, so that und while, question tags und Fragen mit Präpositionen. Jedes Phänomen steht laut Lehrplan nur in der Jahrgangsstufe, in der es erstmals vorkommt; das simple past gehört also zur fünften Klasse.",
+    "keyPoint": "Die Grammatikliste ist lang. Unter der Kompetenzerwartung, die Kinder sprechen über Zukünftiges und Vergangenes und stellen zeitliche Bezüge her, nennt der Lehrplan: present perfect simple, resultativer Gebrauch; past tense progressive; going-to-future, will-future und timetable-future; die Modalverben could, may, might, should mit Ersatzformen; den Konditionalsatz Typ eins. Dazu kommen Steigerung und Vergleich der Adjektive, Relativsätze, Nebensätze mit although, so that und while, question tags und Fragen mit Präpositionen. Jedes Phänomen steht nur in der Jahrgangsstufe, in der es erstmals vorkommt; das simple past gehört also zur fünften Klasse.",
     "suggestedVisual": "bullets"
    },
    {
@@ -181,7 +181,7 @@
     "id": 10,
     "chapterId": 3,
     "purpose": "explain",
-    "keyPoint": "Im gesprochenen Deutsch ist das Perfekt die normale Erzählzeit: Ich habe gestern Fußball gespielt, wir sind letzte Woche nach München gefahren. Kinder übersetzen das wörtlich: I have played football yesterday. Im Englischen ist das falsch, weil yesterday einen abgeschlossenen Zeitpunkt nennt; richtig ist I played football yesterday. Die Faustregel für Ihr Kind: Das deutsche Perfekt entspricht im Englischen meistens dem simple past. Das present perfect ist für die Fälle reserviert, in denen das Ergebnis im Jetzt zählt, und dann steht meist keine Zeitangabe dabei.",
+    "keyPoint": "Im gesprochenen Deutsch ist das Perfekt die normale Erzählzeit: Ich habe gestern Fußball gespielt, wir sind letzte Woche nach München gefahren. Kinder übersetzen das wörtlich: I have played football yesterday. Im Englischen ist das falsch, weil yesterday einen abgeschlossenen Zeitpunkt nennt; richtig ist I played football yesterday. Die Faustregel für Ihr Kind: Das deutsche Perfekt entspricht im Englischen meistens dem simple past. Das present perfect bleibt den Fällen vorbehalten, in denen das Ergebnis im Jetzt zählt, meist ohne Zeitangabe.",
     "suggestedVisual": "bullets"
    },
    {
@@ -195,7 +195,7 @@
     "id": 12,
     "chapterId": 3,
     "purpose": "explain",
-    "keyPoint": "Dritter Fehler: die unregelmäßigen Verben. Für das present perfect braucht man die dritte Form, das past participle, und die wird oft mit der zweiten verwechselt: I have went, I have saw. Hilfreich ist, die Verben als Dreierreihe zu lernen: go, went, gone; see, saw, seen; write, wrote, written. Eine Besonderheit: Have you ever been to London fragt, ob jemand dort war; she has gone to London heißt, sie ist noch dort. Und die Kurzform mit Apostroph s kann is oder has bedeuten: She's gone steht für She has gone.",
+    "keyPoint": "Dritter Fehler: die unregelmäßigen Verben. Für das present perfect braucht man die dritte Form, das past participle, und die wird oft mit der zweiten verwechselt: I have went, I have saw. Hilfreich ist, die Verben als Dreierreihe zu lernen: go, went, gone; see, saw, seen; write, wrote, written. Eine Besonderheit: Have you ever been to London fragt, ob jemand dort war; she has gone to London heißt, sie ist noch dort. Und die Kurzform mit Apostroph s kann is oder has bedeuten.",
     "suggestedVisual": "bullets"
    },
    {
@@ -266,7 +266,7 @@
  "chapterBeats": {
   "1": [
    {
-    "narration": "Englisch ist am bayerischen Gymnasium in der sechsten Klasse mit vier Wochenstunden eines der Kernfächer. Dieses Video richtet sich an Eltern und Lehrkräfte und behandelt den Lernbereich Verfügen über sprachliche Mittel, also Wortschatz, Grammatik und Aussprache. Im Mittelpunkt steht das Grammatikthema, das in der sechsten Klasse neu dazukommt und deutschen Lernenden erfahrungsgemäß am meisten Mühe macht: das present perfect und seine Abgrenzung vom simple past. Sie erfahren, was der Lehrplan verlangt, wo typische Fehler liegen und wie Sie zu Hause helfen können.",
+    "narration": "Englisch ist am bayerischen Gymnasium in der sechsten Klasse mit vier Wochenstunden eines der Kernfächer. Dieses Video richtet sich an Eltern und Lehrkräfte und behandelt den Lernbereich Verfügen über sprachliche Mittel, also Wortschatz, Grammatik und Aussprache. Im Mittelpunkt steht das Grammatikthema, das in der sechsten Klasse neu dazukommt und deutschen Lernenden erfahrungsgemäß am meisten Mühe macht: das present perfect und seine Abgrenzung vom simple past. Sie erfahren, was der Lehrplan verlangt und wie Sie zu Hause helfen können.",
     "onScreenTitle": "Present perfect: Worauf es ankommt",
     "question": null,
     "think": null,
@@ -296,7 +296,7 @@
     "stockQuery": null
    },
    {
-    "narration": "Der Lernbereich 1.2 heißt im LehrplanPLUS Verfügen über sprachliche Mittel und hat drei Teile. Erstens Wortschatz: Die Kinder beherrschen einen begrenzten Wortschatz zu Themen wie Freizeitgestaltung, Sport, Musik, Reisen, Wetter, Wegbeschreibung und Gesundheit und sollen typische false friends vermeiden. Zweitens Grammatik, dazu gleich mehr. Drittens Aussprache und Intonation, besonders bei Fragen, sowie die Lautschrift. Wichtig ist ein Satz aus dem Grammatikteil: Alle genannten Phänomene müssen, soweit nicht anders vermerkt, im schriftlichen und mündlichen Bereich rezeptiv und produktiv beherrscht werden. Verstehen allein reicht nicht.",
+    "narration": "Der Lernbereich 1.2 heißt im LehrplanPLUS Verfügen über sprachliche Mittel und hat drei Teile. Erstens Wortschatz: ein begrenzter Wortschatz zu Themen wie Freizeitgestaltung, Sport, Musik, Reisen, Wetter, Wegbeschreibung und Gesundheit; typische false friends sollen vermieden werden. Zweitens Grammatik, dazu gleich mehr. Drittens Aussprache und Intonation, besonders bei Fragen, sowie die Lautschrift. Wichtig ist ein Satz aus dem Grammatikteil: Alle genannten Phänomene müssen, soweit nicht anders vermerkt, im schriftlichen und mündlichen Bereich rezeptiv und produktiv beherrscht werden. Verstehen allein reicht nicht.",
     "onScreenTitle": "Der Lernbereich E6 1.2",
     "question": null,
     "think": null,
@@ -331,7 +331,7 @@
     "stockQuery": null
    },
    {
-    "narration": "Die Grammatikliste ist lang. Unter der Kompetenzerwartung, die Kinder sprechen über Zukünftiges und Vergangenes und stellen zeitliche Bezüge her, nennt der Lehrplan: present perfect simple, resultativer Gebrauch; past tense progressive; going-to-future, will-future und timetable-future; die Modalverben could, may, might, should mit Ersatzformen; und den Konditionalsatz Typ eins. Dazu kommen Steigerung und Vergleich der Adjektive, Relativsätze, Nebensätze mit although, so that und while, question tags und Fragen mit Präpositionen. Jedes Phänomen steht laut Lehrplan nur in der Jahrgangsstufe, in der es erstmals vorkommt; das simple past gehört also zur fünften Klasse.",
+    "narration": "Die Grammatikliste ist lang. Unter der Kompetenzerwartung, die Kinder sprechen über Zukünftiges und Vergangenes und stellen zeitliche Bezüge her, nennt der Lehrplan: present perfect simple, resultativer Gebrauch; past tense progressive; going-to-future, will-future und timetable-future; die Modalverben could, may, might, should mit Ersatzformen; den Konditionalsatz Typ eins. Dazu kommen Steigerung und Vergleich der Adjektive, Relativsätze, Nebensätze mit although, so that und while, question tags und Fragen mit Präpositionen. Jedes Phänomen steht nur in der Jahrgangsstufe, in der es erstmals vorkommt; das simple past gehört also zur fünften Klasse.",
     "onScreenTitle": "Die Grammatikliste der 6. Klasse",
     "question": null,
     "think": null,
@@ -582,7 +582,7 @@
     "stockQuery": null
    },
    {
-    "narration": "Im gesprochenen Deutsch ist das Perfekt die normale Erzählzeit: Ich habe gestern Fußball gespielt, wir sind letzte Woche nach München gefahren. Kinder übersetzen das wörtlich: I have played football yesterday. Im Englischen ist das falsch, weil yesterday einen abgeschlossenen Zeitpunkt nennt; richtig ist I played football yesterday. Die Faustregel für Ihr Kind: Das deutsche Perfekt entspricht im Englischen meistens dem simple past. Das present perfect ist für die Fälle reserviert, in denen das Ergebnis im Jetzt zählt, und dann steht meist keine Zeitangabe dabei.",
+    "narration": "Im gesprochenen Deutsch ist das Perfekt die normale Erzählzeit: Ich habe gestern Fußball gespielt, wir sind letzte Woche nach München gefahren. Kinder übersetzen das wörtlich: I have played football yesterday. Im Englischen ist das falsch, weil yesterday einen abgeschlossenen Zeitpunkt nennt; richtig ist I played football yesterday. Die Faustregel für Ihr Kind: Das deutsche Perfekt entspricht im Englischen meistens dem simple past. Das present perfect bleibt den Fällen vorbehalten, in denen das Ergebnis im Jetzt zählt, meist ohne Zeitangabe.",
     "onScreenTitle": "Fehler 1: Das deutsche Perfekt übertragen",
     "question": null,
     "think": null,
@@ -652,7 +652,7 @@
     "stockQuery": null
    },
    {
-    "narration": "Dritter Fehler: die unregelmäßigen Verben. Für das present perfect braucht man die dritte Form, das past participle, und die wird oft mit der zweiten verwechselt: I have went, I have saw. Hilfreich ist, die Verben als Dreierreihe zu lernen: go, went, gone; see, saw, seen; write, wrote, written. Eine Besonderheit: Have you ever been to London fragt, ob jemand dort war; she has gone to London heißt, sie ist noch dort. Und die Kurzform mit Apostroph s kann is oder has bedeuten: She's gone steht für She has gone.",
+    "narration": "Dritter Fehler: die unregelmäßigen Verben. Für das present perfect braucht man die dritte Form, das past participle, und die wird oft mit der zweiten verwechselt: I have went, I have saw. Hilfreich ist, die Verben als Dreierreihe zu lernen: go, went, gone; see, saw, seen; write, wrote, written. Eine Besonderheit: Have you ever been to London fragt, ob jemand dort war; she has gone to London heißt, sie ist noch dort. Und die Kurzform mit Apostroph s kann is oder has bedeuten.",
     "onScreenTitle": "Fehler 3: Die dritte Verbform fehlt",
     "question": null,
     "think": null,
@@ -1005,21 +1005,21 @@
    {
     "beatId": 1,
     "chapterId": 1,
-    "narration": "Englisch ist am bayerischen Gymnasium in der sechsten Klasse mit vier Wochenstunden eines der Kernfächer. Dieses Video richtet sich an Eltern und Lehrkräfte und behandelt den Lernbereich Verfügen über sprachliche Mittel, also Wortschatz, Grammatik und Aussprache. Im Mittelpunkt steht das Grammatikthema, das in der sechsten Klasse neu dazukommt und deutschen Lernenden erfahrungsgemäß am meisten Mühe macht: das present perfect und seine Abgrenzung vom simple past. Sie erfahren, was der Lehrplan verlangt, wo typische Fehler liegen und wie Sie zu Hause helfen können.",
+    "narration": "Englisch ist am bayerischen Gymnasium in der sechsten Klasse mit vier Wochenstunden eines der Kernfächer. Dieses Video richtet sich an Eltern und Lehrkräfte und behandelt den Lernbereich Verfügen über sprachliche Mittel, also Wortschatz, Grammatik und Aussprache. Im Mittelpunkt steht das Grammatikthema, das in der sechsten Klasse neu dazukommt und deutschen Lernenden erfahrungsgemäß am meisten Mühe macht: das present perfect und seine Abgrenzung vom simple past. Sie erfahren, was der Lehrplan verlangt und wie Sie zu Hause helfen können.",
     "onScreenTitle": "Present perfect: Worauf es ankommt",
     "emphasisWords": []
    },
    {
     "beatId": 2,
     "chapterId": 1,
-    "narration": "Der Lernbereich 1.2 heißt im LehrplanPLUS Verfügen über sprachliche Mittel und hat drei Teile. Erstens Wortschatz: Die Kinder beherrschen einen begrenzten Wortschatz zu Themen wie Freizeitgestaltung, Sport, Musik, Reisen, Wetter, Wegbeschreibung und Gesundheit und sollen typische false friends vermeiden. Zweitens Grammatik, dazu gleich mehr. Drittens Aussprache und Intonation, besonders bei Fragen, sowie die Lautschrift. Wichtig ist ein Satz aus dem Grammatikteil: Alle genannten Phänomene müssen, soweit nicht anders vermerkt, im schriftlichen und mündlichen Bereich rezeptiv und produktiv beherrscht werden. Verstehen allein reicht nicht.",
+    "narration": "Der Lernbereich 1.2 heißt im LehrplanPLUS Verfügen über sprachliche Mittel und hat drei Teile. Erstens Wortschatz: ein begrenzter Wortschatz zu Themen wie Freizeitgestaltung, Sport, Musik, Reisen, Wetter, Wegbeschreibung und Gesundheit; typische false friends sollen vermieden werden. Zweitens Grammatik, dazu gleich mehr. Drittens Aussprache und Intonation, besonders bei Fragen, sowie die Lautschrift. Wichtig ist ein Satz aus dem Grammatikteil: Alle genannten Phänomene müssen, soweit nicht anders vermerkt, im schriftlichen und mündlichen Bereich rezeptiv und produktiv beherrscht werden. Verstehen allein reicht nicht.",
     "onScreenTitle": "Der Lernbereich E6 1.2",
     "emphasisWords": []
    },
    {
     "beatId": 3,
     "chapterId": 1,
-    "narration": "Die Grammatikliste ist lang. Unter der Kompetenzerwartung, die Kinder sprechen über Zukünftiges und Vergangenes und stellen zeitliche Bezüge her, nennt der Lehrplan: present perfect simple, resultativer Gebrauch; past tense progressive; going-to-future, will-future und timetable-future; die Modalverben could, may, might, should mit Ersatzformen; und den Konditionalsatz Typ eins. Dazu kommen Steigerung und Vergleich der Adjektive, Relativsätze, Nebensätze mit although, so that und while, question tags und Fragen mit Präpositionen. Jedes Phänomen steht laut Lehrplan nur in der Jahrgangsstufe, in der es erstmals vorkommt; das simple past gehört also zur fünften Klasse.",
+    "narration": "Die Grammatikliste ist lang. Unter der Kompetenzerwartung, die Kinder sprechen über Zukünftiges und Vergangenes und stellen zeitliche Bezüge her, nennt der Lehrplan: present perfect simple, resultativer Gebrauch; past tense progressive; going-to-future, will-future und timetable-future; die Modalverben could, may, might, should mit Ersatzformen; den Konditionalsatz Typ eins. Dazu kommen Steigerung und Vergleich der Adjektive, Relativsätze, Nebensätze mit although, so that und while, question tags und Fragen mit Präpositionen. Jedes Phänomen steht nur in der Jahrgangsstufe, in der es erstmals vorkommt; das simple past gehört also zur fünften Klasse.",
     "onScreenTitle": "Die Grammatikliste der 6. Klasse",
     "emphasisWords": []
    },
@@ -1068,7 +1068,7 @@
    {
     "beatId": 10,
     "chapterId": 3,
-    "narration": "Im gesprochenen Deutsch ist das Perfekt die normale Erzählzeit: Ich habe gestern Fußball gespielt, wir sind letzte Woche nach München gefahren. Kinder übersetzen das wörtlich: I have played football yesterday. Im Englischen ist das falsch, weil yesterday einen abgeschlossenen Zeitpunkt nennt; richtig ist I played football yesterday. Die Faustregel für Ihr Kind: Das deutsche Perfekt entspricht im Englischen meistens dem simple past. Das present perfect ist für die Fälle reserviert, in denen das Ergebnis im Jetzt zählt, und dann steht meist keine Zeitangabe dabei.",
+    "narration": "Im gesprochenen Deutsch ist das Perfekt die normale Erzählzeit: Ich habe gestern Fußball gespielt, wir sind letzte Woche nach München gefahren. Kinder übersetzen das wörtlich: I have played football yesterday. Im Englischen ist das falsch, weil yesterday einen abgeschlossenen Zeitpunkt nennt; richtig ist I played football yesterday. Die Faustregel für Ihr Kind: Das deutsche Perfekt entspricht im Englischen meistens dem simple past. Das present perfect bleibt den Fällen vorbehalten, in denen das Ergebnis im Jetzt zählt, meist ohne Zeitangabe.",
     "onScreenTitle": "Fehler 1: Das deutsche Perfekt übertragen",
     "emphasisWords": []
    },
@@ -1082,7 +1082,7 @@
    {
     "beatId": 12,
     "chapterId": 3,
-    "narration": "Dritter Fehler: die unregelmäßigen Verben. Für das present perfect braucht man die dritte Form, das past participle, und die wird oft mit der zweiten verwechselt: I have went, I have saw. Hilfreich ist, die Verben als Dreierreihe zu lernen: go, went, gone; see, saw, seen; write, wrote, written. Eine Besonderheit: Have you ever been to London fragt, ob jemand dort war; she has gone to London heißt, sie ist noch dort. Und die Kurzform mit Apostroph s kann is oder has bedeuten: She's gone steht für She has gone.",
+    "narration": "Dritter Fehler: die unregelmäßigen Verben. Für das present perfect braucht man die dritte Form, das past participle, und die wird oft mit der zweiten verwechselt: I have went, I have saw. Hilfreich ist, die Verben als Dreierreihe zu lernen: go, went, gone; see, saw, seen; write, wrote, written. Eine Besonderheit: Have you ever been to London fragt, ob jemand dort war; she has gone to London heißt, sie ist noch dort. Und die Kurzform mit Apostroph s kann is oder has bedeuten.",
     "onScreenTitle": "Fehler 3: Die dritte Verbform fehlt",
     "emphasisWords": []
    },
@@ -1150,7 +1150,7 @@
     "emphasisWords": []
    }
   ],
-  "totalWords": 1595
+  "totalWords": 1573
  },
  "review": {
   "approved": true,
