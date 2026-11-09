@@ -62,7 +62,7 @@
             "Zukunft: alles, was noch kommt",
             "Geschichte fragt: Wie war es früher, und warum?"
           ],
-          "narration": "Zeit hat drei Richtungen. Die Vergangenheit ist alles, was schon geschehen ist: dein erster Schultag, aber auch das Leben deiner Urgroßeltern und der Bau der Pyramiden. Die Gegenwart ist der Augenblick, in dem du gerade zuhörst. Die Zukunft ist alles, was noch kommt. Geschichte beschäftigt sich mit der Vergangenheit der Menschen. Sie fragt: Wie haben Menschen früher gelebt, was hat sich verändert, und warum? So hilft sie uns, die Gegenwart besser zu verstehen."
+          "narration": "Zeit hat drei Richtungen. Die Vergangenheit ist alles, was schon geschehen ist: dein erster Schultag, aber auch das Leben deiner Urgroßeltern und der Bau der Pyramiden. Die Gegenwart ist der Augenblick, in dem du gerade zuhörst. Die Zukunft ist alles, was noch kommt. Geschichte beschäftigt sich mit der Vergangenheit der Menschen und fragt: Wie haben sie früher gelebt, was hat sich verändert, und warum? So verstehen wir auch die Gegenwart besser."
         },
         {
           "kind": "math3d",
@@ -206,7 +206,7 @@
             "Dokumentieren: messen, zeichnen, fotografieren",
             "Deuten: Was verrät der Fund über das Leben?"
           ],
-          "narration": "Eine Ausgrabung beginnt oft mit einem Zufall: Bei einer Baustelle kommen Scherben zum Vorschein, oder ein Luftbild zeigt verdächtige Linien im Feld. Dann wird vorsichtig gegraben, Schicht für Schicht. Dabei gilt meistens: Was tiefer liegt, ist älter, weil sich die Schichten nacheinander abgelagert haben. Jeder Fund wird gemessen, gezeichnet und fotografiert, bevor man ihn herausnimmt. Zum Schluss kommt das Deuten: Was verrät ein verkohltes Getreidekorn, ein Knochen mit Schnittspuren oder eine Pfeilspitze über das Leben der Menschen?"
+          "narration": "Eine Ausgrabung beginnt oft mit einem Zufall: Auf einer Baustelle kommen Scherben zum Vorschein, oder ein Luftbild zeigt verdächtige Linien im Feld. Dann wird vorsichtig gegraben, Schicht für Schicht. Dabei gilt meistens: Was tiefer liegt, ist älter, weil sich die Schichten nacheinander abgelagert haben. Jeder Fund wird gemessen, gezeichnet und fotografiert, bevor man ihn herausnimmt. Zum Schluss kommt das Deuten: Was verrät ein verkohltes Getreidekorn, ein Knochen mit Schnittspuren oder eine Pfeilspitze über das Leben der Menschen?"
         },
         {
           "kind": "bullets",
@@ -217,7 +217,7 @@
             "Dabei: Kupferbeil, Bogen, Pfeile, Kleidung aus Leder",
             "Ein Überrest, der ohne Schrift viel erzählt"
           ],
-          "narration": "Ein berühmtes Beispiel ist der Mann aus dem Eis, oft Ötzi genannt. Wanderer fanden ihn 1991 hoch oben in den Alpen, als der Gletscher ihn freigab. Er lebte vor etwa 5300 Jahren, also in der Jungsteinzeit. Weil das Eis ihn konserviert hat, blieb sehr viel erhalten: seine Kleidung aus Leder und Gras, ein Beil mit Kupferklinge, Bogen und Pfeile, sogar Reste seiner letzten Mahlzeit. Niemand hat das für uns aufgeschrieben. Trotzdem wissen wir durch diesen einen Überrest eine Menge über das Leben damals."
+          "narration": "Ein berühmtes Beispiel ist der Mann aus dem Eis, oft Ötzi genannt. Wanderer fanden ihn 1991 hoch oben in den Alpen, als der Gletscher ihn freigab. Er lebte vor etwa 5300 Jahren, also in der Jungsteinzeit. Das Eis hat ihn konserviert, deshalb blieb viel erhalten: Kleidung aus Leder und Gras, ein Beil mit Kupferklinge, Bogen und Pfeile, sogar Reste seiner letzten Mahlzeit. Niemand hat das für uns aufgeschrieben. Trotzdem erzählt dieser eine Überrest eine Menge über das Leben damals."
         },
         {
           "kind": "question",
@@ -281,7 +281,7 @@
             "Sammeln von Beeren, Nüssen, Wurzeln, Eiern",
             "Unterwegs: Zelte aus Fellen, Höhlen als Schutz"
           ],
-          "narration": "Die Menschen der Altsteinzeit lebten in kleinen Gruppen, vielleicht zwanzig oder dreißig Personen. Sie jagten Rentiere, Wildpferde und in der Eiszeit sogar Mammuts, sie fischten, und sie sammelten Beeren, Nüsse, Wurzeln und Vogeleier. Ein großer Teil der Nahrung kam vom Sammeln. Weil die Tierherden wanderten, wanderten die Menschen mit. Sie wohnten in Zelten aus Fellen und Stangen, in Hütten oder am Eingang von Höhlen. Vorräte für lange Zeit gab es kaum. Man nahm, was die Natur gerade bot, und teilte es in der Gruppe."
+          "narration": "Die Menschen der Altsteinzeit lebten in kleinen Gruppen, vielleicht zwanzig oder dreißig Personen. Sie jagten Rentiere, Wildpferde und in der Eiszeit sogar Mammuts, sie fischten, und sie sammelten Beeren, Nüsse, Wurzeln und Vogeleier. Ein großer Teil der Nahrung kam vom Sammeln. Weil die Tierherden wanderten, zogen die Menschen mit. Sie wohnten in Zelten aus Fellen, in Hütten oder am Eingang von Höhlen. Vorräte gab es kaum: Man nahm, was die Natur gerade bot, und teilte es in der Gruppe."
         },
         {
           "kind": "bullets",
@@ -292,7 +292,7 @@
             "Speer, Speerschleuder, Pfeil und Bogen für die Jagd",
             "Nadeln aus Knochen für warme Kleidung"
           ],
-          "narration": "Zwei Dinge machten die Menschen der Altsteinzeit stark. Erstens das Feuer. Sie lernten, es zu hüten und schließlich selbst zu entfachen. Zweitens die Werkzeuge. Der Faustkeil ist ein Stein, den man so behauen hat, dass er scharfe Kanten bekommt: Mit ihm konnte man schneiden, schaben und hacken. Später kamen Speere, die Speerschleuder und gegen Ende der Altsteinzeit Pfeil und Bogen dazu. Mit Nadeln aus Knochen nähten die Menschen Felle zu warmer Kleidung. Und an Höhlenwänden malten sie Tiere, die wir heute noch bestaunen können."
+          "narration": "Zwei Dinge machten die Menschen der Altsteinzeit stark. Erstens das Feuer: Sie lernten, es zu hüten und schließlich selbst zu entfachen. Zweitens die Werkzeuge. Der Faustkeil ist ein behauener Stein mit scharfen Kanten, zum Schneiden, Schaben und Hacken. Später kamen Speere, die Speerschleuder und gegen Ende der Altsteinzeit Pfeil und Bogen dazu. Mit Nadeln aus Knochen nähten die Menschen Felle zu warmer Kleidung. Und an Höhlenwänden malten sie Tiere, die wir heute noch bestaunen können."
         },
         {
           "kind": "question",
@@ -346,7 +346,7 @@
             24
           ],
           "onScreenTitle": "Erste Bauern in Mitteleuropa um 5500 v. Chr.",
-          "narration": "Auf dem Zeitstrahl leuchtet jetzt das zweite Ereignis: die ersten Bauern in Mitteleuropa, also auch bei uns in Bayern, um fünftausendfünfhundert vor Christus. Im Vorderen Orient, in der Gegend des heutigen Irak, Syrien und der Türkei, hatten Menschen schon einige tausend Jahre früher mit Ackerbau begonnen. Von dort breitete sich die neue Lebensweise langsam aus. Du siehst: Zwischen dem Ende der Altsteinzeit und den ersten Bauern bei uns liegen noch einmal mehrere tausend Jahre. Geschichte hat damals sehr viel Zeit gebraucht."
+          "narration": "Auf dem Zeitstrahl leuchtet jetzt das zweite Ereignis: die ersten Bauern in Mitteleuropa, also auch bei uns in Bayern, um fünftausendfünfhundert vor Christus. Im Vorderen Orient, in der Gegend des heutigen Irak, Syrien und der Türkei, hatten Menschen schon einige tausend Jahre früher mit Ackerbau begonnen. Von dort breitete sich die neue Lebensweise langsam aus. Du siehst: Zwischen dem Ende der Altsteinzeit und den ersten Bauern bei uns liegen noch einmal mehrere tausend Jahre."
         },
         {
           "kind": "bullets",
@@ -368,7 +368,7 @@
             "Mehr Menschen, aber auch mehr und härtere Arbeit",
             "Besitz: Felder, Vieh, Haus"
           ],
-          "narration": "Mit den Bauern kam vieles Neue. Getreide muss man lagern, also formten die Menschen Gefäße aus Ton: Die Töpferei begann. Sie schliffen ihre Steinbeile glatt und scharf, um Wald zu roden. Sie webten Stoffe aus Wolle und Flachs. Weil Vorräte da waren, konnten mehr Menschen auf engem Raum leben. Aber das Leben wurde nicht einfach leichter: Feldarbeit ist hart, und wenn die Ernte ausfiel, drohte Hunger. Außerdem gab es nun Besitz, Felder und Vieh, und damit vielleicht auch Streit darum. Forscherinnen und Forscher nennen diesen großen Umbruch die neolithische Revolution."
+          "narration": "Mit den Bauern kam vieles Neue. Getreide muss man lagern, also formten die Menschen Gefäße aus Ton: Die Töpferei begann. Sie schliffen Steinbeile scharf, um Wald zu roden, und webten Stoffe aus Wolle und Flachs. Weil Vorräte da waren, konnten mehr Menschen zusammenleben. Aber leichter wurde das Leben nicht einfach: Feldarbeit ist hart, und fiel die Ernte aus, drohte Hunger. Außerdem gab es nun Besitz, Felder und Vieh, und vielleicht auch Streit darum. Forscherinnen und Forscher nennen diesen großen Umbruch die neolithische Revolution."
         },
         {
           "kind": "question",
@@ -386,7 +386,7 @@
             "Jäger: frei, beweglich, abwechslungsreiches Essen",
             "Dafür: kaum Vorräte, kleine Gruppen"
           ],
-          "narration": "Die Bauern konnten Vorräte anlegen, feste Häuser bauen und mit mehr Menschen zusammenleben; sie entwickelten Töpferei, Weberei und neue Werkzeuge. Dafür arbeiteten sie hart und hingen vom Wetter und von der Ernte ab. Die Jäger und Sammler waren beweglich und frei, ihr Essen war abwechslungsreich, aber sie hatten kaum Vorräte und blieben in kleinen Gruppen. Keine Lebensweise war einfach besser. Jede hatte ihren Preis. Wenn du so vergleichst, Vorteile und Nachteile auf beiden Seiten, denkst du wie eine Historikerin oder ein Historiker."
+          "narration": "Die Bauern konnten Vorräte anlegen, feste Häuser bauen und mit mehr Menschen zusammenleben; sie entwickelten Töpferei, Weberei und neue Werkzeuge. Dafür arbeiteten sie hart und hingen von der Ernte ab. Die Jäger und Sammler waren beweglich und frei und aßen abwechslungsreich, hatten aber kaum Vorräte und blieben in kleinen Gruppen. Keine Lebensweise war einfach besser, jede hatte ihren Preis. Wenn du so vergleichst, Vorteile und Nachteile auf beiden Seiten, denkst du wie eine Historikerin oder ein Historiker."
         },
         {
           "kind": "math3d",
@@ -404,7 +404,7 @@
         },
         {
           "kind": "outro",
-          "narration": "Merk dir das: Geschichte ordnet die Vergangenheit auf dem Zeitstrahl. Vor Christus zählt man rückwärts, nach Christus vorwärts, und hundert Jahre sind ein Jahrhundert. Alles, was uns aus der Vergangenheit etwas verrät, ist eine Quelle: schriftlich, mündlich, bildlich oder gegenständlich, als Überrest oder als Überlieferung. Für die Steinzeit brauchen wir die Archäologie. In der Altsteinzeit lebten die Menschen als Jäger und Sammler mit Feuer und Faustkeil, in der Jungsteinzeit wurden sie Bauern mit Äckern, Vieh und festen Häusern. Frag zu Hause nach einer alten Sache und überlege, welche Art Quelle sie ist. Abonniere für die nächste Lektion: Ägypten."
+          "narration": "Merk dir das: Geschichte ordnet die Vergangenheit auf dem Zeitstrahl, vor Christus rückwärts, nach Christus vorwärts, hundert Jahre sind ein Jahrhundert. Alles, was uns etwas über früher verrät, ist eine Quelle: schriftlich, mündlich, bildlich oder gegenständlich, Überrest oder Überlieferung. Für die Steinzeit brauchen wir die Archäologie. In der Altsteinzeit lebten die Menschen als Jäger und Sammler mit Feuer und Faustkeil, in der Jungsteinzeit wurden sie Bauern mit Äckern, Vieh und festen Häusern. Frag zu Hause nach einer alten Sache: Welche Art Quelle ist sie? Abonniere für die nächste Lektion: Ägypten."
         }
       ]
     }

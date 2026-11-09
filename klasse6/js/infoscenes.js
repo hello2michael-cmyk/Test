@@ -87,7 +87,7 @@ const filetree = {
       const bx = 4.6, by = yTop - 0.1, a = outBack(classOn);
       S.box([bx, by, 0], [0.9 * a, 0.42 * a, 0.1], folder, { alpha: 0.95 });
       S.label([bx, by + 0.15, 0], 'ORDNER', { above: 0, strong: true, color: '#1a1200', size: S.u(24) });
-      S.label([bx, by - 0.22, 0], 'name · enthält', { above: 0, color: '#1a1200', size: S.u(18) });
+      S.label([bx, by - 0.22, 0], 'name', { above: 0, color: '#1a1200', size: S.u(18) });
       S.box([bx, by - 1.5, 0], [0.9 * a, 0.42 * a, 0.1], file, { alpha: 0.95 });
       S.label([bx, by - 1.35, 0], 'DATEI', { above: 0, strong: true, color: '#fff', size: S.u(24) });
       S.label([bx, by - 1.72, 0], 'name · größe', { above: 0, color: '#fff', size: S.u(18) });

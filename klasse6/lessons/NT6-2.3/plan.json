@@ -2,8 +2,8 @@
  "id": "current",
  "prompt": "Lektion NT6-2.3 „Hierarchische Informationsstrukturen – Dateisystem“ (Natur und Technik, Klasse 6 Gymnasium Bayern), aus klasse6/lessons/NT6-2.3.lesson.json. 16 Minuten, auf Deutsch, für Kinder von etwa 11 Jahren.",
  "attempts": 0,
- "createdAt": 1794218797087,
- "updatedAt": 1794218797087,
+ "createdAt": 1794219048594,
+ "updatedAt": 1794219048594,
  "stage": "plan",
  "mode": "course",
  "durationApplied": true,
@@ -24,12 +24,12 @@
   "musicVolume": 0,
   "ambientBed": false,
   "channelName": "",
-  "cta": "Abonniere für die nächste Lektion: Grafikdokumente",
+  "cta": "Abonniere für die nächste Lektion",
   "footageProvider": "none",
   "aiClipBudget": 0,
   "minSceneSeconds": 10,
-  "maxDuration": 1074,
-  "targetDuration": 934,
+  "maxDuration": 1125,
+  "targetDuration": 978,
   "lesson": {
    "id": "NT6-2.3",
    "title": "Hierarchische Informationsstrukturen – Dateisystem",
@@ -43,7 +43,7 @@
  "brief": {
   "title": "Dateien und Ordner: Das Dateisystem ist ein Baum",
   "audience": "Kinder der 6. Klasse (etwa 11 Jahre)",
-  "hook": "Wo ist mein Aufsatz? Auf jedem Computer steckt ein Baum, der auf dem Kopf steht. Wer ihn kennt, findet jede Datei in Sekunden.",
+  "hook": "Wo ist mein Aufsatz? Auf jedem Computer steckt ein Baum, der auf dem Kopf steht. Wer ihn kennt, findet seine Dateien viel schneller.",
   "learningObjectives": [
    "Datei und Ordner unterscheiden und die Klassen DATEI und ORDNER mit ihren Attributen nennen",
    "Das Dateisystem als Baum beschreiben: Wurzel, Knoten, Kante, Blatt",
@@ -118,14 +118,14 @@
     "id": 1,
     "chapterId": 1,
     "purpose": "hook",
-    "keyPoint": "Kennst du das? Du hast gestern einen Aufsatz getippt und gespeichert, und heute findest du ihn nicht mehr. Irgendwo auf dem Computer muss er sein. Die gute Nachricht: Jeder Computer ordnet seine Dateien nach einem einzigen, einfachen Muster, einem Baum, der auf dem Kopf steht. Wenn du dieses Muster kennst, findest du jede Datei in Sekunden. In dieser Lektion bauen wir den Baum auf, lernen seine Fachwörter und am Ende rechnen wir sogar aus, welcher Ordner am meisten Platz braucht.",
+    "keyPoint": "Kennst du das? Du hast gestern einen Aufsatz getippt und gespeichert, und heute findest du ihn nicht mehr. Irgendwo auf dem Computer muss er sein. Die gute Nachricht: Jeder Computer ordnet seine Dateien nach demselben Muster, einem Baum, der auf dem Kopf steht. Wenn du dieses Muster kennst, findest du deine Dateien viel schneller. In dieser Lektion bauen wir den Baum auf, lernen seine Fachwörter und am Ende rechnen wir sogar aus, welcher Ordner am meisten Platz braucht.",
     "suggestedVisual": "title"
    },
    {
     "id": 2,
     "chapterId": 1,
     "purpose": "explain",
-    "keyPoint": "Eine Datei ist ein Stück gespeicherte Information mit einem Namen. Ein Text, ein Foto, ein Lied. Die Endung hinter dem Punkt verrät die Art: Punkt t x t ist Text, Punkt j p g ist ein Bild, Punkt m p 3 ist Musik. Ein Ordner ist etwas anderes: Er speichert selbst keine Information, er enthält Dinge, nämlich Dateien und weitere Ordner. Stell dir eine Schachtel vor, in der Blätter und kleinere Schachteln liegen. Die Blätter sind die Dateien, die Schachteln die Ordner.",
+    "keyPoint": "Eine Datei ist ein Stück gespeicherte Information mit einem Namen. Ein Text, ein Foto, ein Lied. Die Endung hinter dem Punkt verrät die Art: Punkt t x t ist Text, Punkt j p g ist ein Bild, Punkt m p 3 ist Musik. Ein Ordner ist etwas anderes: Er speichert selbst keine Information, er enthält Dinge, nämlich Dateien und weitere Ordner. Stell dir eine Schachtel vor, in der Zettel und kleinere Schachteln liegen. Die Zettel sind die Dateien, die Schachteln die Ordner.",
     "suggestedVisual": "bullets"
    },
    {
@@ -146,7 +146,7 @@
     "id": 5,
     "chapterId": 1,
     "purpose": "explain",
-    "keyPoint": "Hund Punkt j p g ist eine Datei. Sie speichert eine Information, nämlich das Bild. Die Endung Punkt j p g zeigt dir, dass es ein Bild ist. Ein Ordner hat meistens keine Endung und speichert selbst nichts, er enthält nur andere Dinge. Merke: Datei gleich Information mit Namen, Ordner gleich Behälter. Jetzt bauen wir aus Dateien und Ordnern den Baum und lernen seine Fachwörter.",
+    "keyPoint": "Hund Punkt j p g ist eine Datei, denn sie speichert eine Information, nämlich das Bild. Das ist das wichtigste Merkmal. Die Endung Punkt j p g verrät dir zusätzlich, dass es ein Bild ist. Ein Ordner hat meistens keine Endung und speichert selbst nichts, er enthält nur andere Dinge. Merke: Datei gleich Information mit Namen, Ordner gleich Behälter. Jetzt bauen wir aus Dateien und Ordnern den Baum und lernen seine Fachwörter.",
     "suggestedVisual": "bullets"
    },
    {
@@ -160,21 +160,21 @@
     "id": 7,
     "chapterId": 2,
     "purpose": "explain",
-    "keyPoint": "Die Wurzel ist der oberste Ordner, hier Mia. Von ihr geht alles aus. Jeder Ordner und jede Datei im Baum ist ein Knoten, so wie Schule oder Urlaub. Die Linien zwischen ihnen sind die Kanten: Eine Kante bedeutet, der obere Ordner enthält den unteren Knoten. Und die Blätter sind die Knoten ganz unten, an denen nichts mehr hängt: die Dateien. Ein Blatt enthält nichts mehr, es ist das Ende eines Astes.",
+    "keyPoint": "Die Wurzel ist der oberste Ordner, hier Mia. Von ihr geht alles aus. Jeder Ordner und jede Datei im Baum ist ein Knoten, so wie Schule oder Urlaub. Die Linien zwischen ihnen sind die Kanten: Eine Kante bedeutet, der obere Ordner enthält den unteren Knoten. Die Knoten direkt unter einem Knoten heißen seine Kinder. Und die Blätter sind die Knoten ganz unten, die keine Kinder haben: die Dateien. Ein Blatt enthält nichts mehr, es ist das Ende eines Astes.",
     "suggestedVisual": "math3d"
    },
    {
     "id": 8,
     "chapterId": 2,
     "purpose": "explain",
-    "keyPoint": "Noch einmal zum Merken. Die Wurzel gibt es nur einmal, sie ist der oberste Ordner. Jeder Ordner und jede Datei ist ein Knoten. Eine Kante verbindet zwei Knoten und bedeutet: Der obere enthält den unteren. Knoten, an denen Kanten nach unten hängen, nennt man auch Eltern, und die Knoten darunter Kinder. Ein Blatt ist ein Knoten ohne Kinder. Dateien sind immer Blätter, denn eine Datei kann nichts enthalten. Ein leerer Ordner wäre übrigens auch ein Blatt.",
+    "keyPoint": "Noch einmal zum Merken. Die Wurzel gibt es nur einmal, sie ist der oberste Ordner. Jeder Ordner und jede Datei ist ein Knoten. Eine Kante verbindet zwei Knoten und bedeutet: Der obere enthält den unteren. Knoten, an denen Kanten nach unten hängen, nennt man auch Eltern, und die Knoten darunter Kinder. Ein Blatt ist ein Knoten ohne Kinder. Jede Datei ist ein Blatt, denn eine Datei kann nichts enthalten. Ein leerer Ordner ist auch eines.",
     "suggestedVisual": "bullets"
    },
    {
     "id": 9,
     "chapterId": 2,
     "purpose": "explain",
-    "keyPoint": "Frage an dich. Schau noch einmal auf Mias Baum. Ist der Ordner Urlaub ein Blatt? Begründe deine Antwort mit dem passenden Fachwort. Überlege: Ein Blatt hat keine Kinder. Hängt unter dem Ordner Urlaub noch etwas? Du hast ein paar Sekunden Zeit.",
+    "keyPoint": "Frage an dich. Im Ordner Urlaub liegen drei Fotos. Ist der Ordner Urlaub ein Blatt? Begründe deine Antwort mit dem passenden Fachwort. Überlege: Ein Blatt hat keine Kinder. Hängt unter dem Ordner Urlaub noch etwas? Du hast ein paar Sekunden Zeit.",
     "suggestedVisual": "question"
    },
    {
@@ -188,7 +188,7 @@
     "id": 11,
     "chapterId": 3,
     "purpose": "chapter",
-    "keyPoint": "Jetzt zurück zur Frage vom Anfang: Wo ist mein Aufsatz? Die Antwort ist ein Pfad. Ein Pfad beschreibt den Weg von der Wurzel bis zur Datei, Ordner für Ordner. Wie eine Wegbeschreibung: erst in dieses Haus, dann in dieses Stockwerk, dann in dieses Zimmer. Wer den Pfad kennt, findet die Datei immer, auf jedem Computer der Welt.",
+    "keyPoint": "Jetzt zurück zur Frage vom Anfang: Wo ist mein Aufsatz? Die Antwort ist ein Pfad. Ein Pfad beschreibt den Weg von der Wurzel bis zur Datei, Ordner für Ordner. Wie eine Wegbeschreibung: erst in dieses Haus, dann in dieses Stockwerk, dann in dieses Zimmer. Wer den Pfad kennt, findet die Datei auf diesem Computer immer, ohne lange zu suchen.",
     "suggestedVisual": "chapter"
    },
    {
@@ -202,7 +202,7 @@
     "id": 13,
     "chapterId": 3,
     "purpose": "explain",
-    "keyPoint": "So schreibst du einen Pfad: Du beginnst mit der Wurzel. Dann nennst du jeden Ordner auf dem Weg, in der richtigen Reihenfolge, von oben nach unten. Zwischen die Namen kommt ein Schrägstrich. Bei Windows siehst du oft den Schrägstrich nach links, den Backslash, das bedeutet dasselbe. Ganz am Ende steht der Dateiname mit Endung. Ein Pfad ist eindeutig: Es gibt im ganzen Baum genau eine Datei mit diesem Pfad, auch wenn zwei Dateien denselben Namen haben.",
+    "keyPoint": "So schreibst du einen Pfad: Du beginnst mit der Wurzel. Dann nennst du jeden Ordner auf dem Weg, in der richtigen Reihenfolge, von oben nach unten. Zwischen die Namen kommt ein Schrägstrich. Bei Windows siehst du oft den umgekehrten Schrägstrich, den Backslash, das bedeutet dasselbe. Ganz am Ende steht der Dateiname mit Endung. In unserem Beispiel ist Mia die Wurzel; auf echten Computern beginnt der Pfad etwas anders. Ein Pfad ist eindeutig: Es gibt genau eine Datei mit diesem Pfad. Zwei Dateien dürfen gleich heißen, wenn sie in verschiedenen Ordnern liegen, aber ihre Pfade sind verschieden.",
     "suggestedVisual": "bullets"
    },
    {
@@ -216,7 +216,7 @@
     "id": 15,
     "chapterId": 3,
     "purpose": "explain",
-    "keyPoint": "Jetzt du. Wie lautet der Pfad zu Mias Datei katze Punkt j p g? Schau dir den Baum genau an und finde den Ordner, in dem die Katze direkt liegt. Dann schreibe den Weg von der Wurzel auf. Du hast zehn Sekunden.",
+    "keyPoint": "Jetzt du. Die Datei katze Punkt j p g liegt direkt im Ordner Fotos, nicht im Unterordner Urlaub. Wie lautet ihr Pfad? Schreibe den Weg von der Wurzel auf, Schritt für Schritt. Du hast zehn Sekunden.",
     "suggestedVisual": "question"
    },
    {
@@ -230,28 +230,28 @@
     "id": 17,
     "chapterId": 4,
     "purpose": "chapter",
-    "keyPoint": "In der Informatik beschreibt man die Dinge im Computer mit Klassen und Objekten. Das hast du vielleicht schon bei Grafikdokumenten gesehen: Die Klasse RECHTECK, und jedes gezeichnete Rechteck ist ein Objekt davon. Beim Dateisystem gibt es nur zwei Klassen: DATEI und ORDNER. Mit ihnen lässt sich jeder noch so große Baum beschreiben. Und eine der beiden Klassen hat eine besondere Eigenschaft, für die es ein eigenes Wort gibt: rekursiv.",
+    "keyPoint": "In der Informatik beschreibt man die Dinge im Computer mit Klassen und Objekten. Im Lernbereich Information darstellen begegnen dir Klassen wie RECHTECK, und jedes gezeichnete Rechteck ist ein Objekt davon. Beim Dateisystem gibt es nur zwei Klassen: DATEI und ORDNER. Mit ihnen lässt sich jeder noch so große Baum beschreiben. Und eine der beiden Klassen hat eine besondere Eigenschaft, für die es ein eigenes Wort gibt: rekursiv.",
     "suggestedVisual": "chapter"
    },
    {
     "id": 18,
     "chapterId": 4,
     "purpose": "explain",
-    "keyPoint": "Rechts im Bild siehst du die beiden Klassen. Die Klasse ORDNER hat die Attribute name und enthält. Die Klasse DATEI hat die Attribute name und größe. Jeder Ordner in Mias Baum, Schule, Fotos, Urlaub, ist ein Objekt der Klasse ORDNER. Jede Datei ist ein Objekt der Klasse DATEI. Ein Attribut liest man mit der Punktnotation: aufsatz Punkt name ergibt Aufsatz Punkt t x t. Der Pfeil von ORDNER zu DATEI bedeutet: Ein Ordner enthält Dateien.",
+    "keyPoint": "Rechts im Bild siehst du die beiden Klassen. Die Klasse ORDNER hat das Attribut name. Die Klasse DATEI hat die Attribute name und größe. Dazu kommt die Beziehung enthält, die als Pfeil gezeichnet ist. Jeder Ordner in Mias Baum, Schule, Fotos, Urlaub, ist ein Objekt der Klasse ORDNER. Jede Datei ist ein Objekt der Klasse DATEI. Ein Attribut liest man mit der Punktnotation: aufsatz Punkt name ergibt Aufsatz Punkt t x t. Der Pfeil von ORDNER zu DATEI bedeutet: Ein Ordner enthält Dateien. Der Name im Baum, etwa Schule oder Aufsatz Punkt t x t, ist der Wert des Attributs name; das Objekt selbst nennen wir klein: schule, aufsatz.",
     "suggestedVisual": "math3d"
    },
    {
     "id": 19,
     "chapterId": 4,
     "purpose": "explain",
-    "keyPoint": "Die drei Wörter kurz erklärt. Eine Klasse ist der Bauplan: Sie sagt, welche Eigenschaften alle Dinge dieser Art haben. Man schreibt sie groß: ORDNER, DATEI. Ein Objekt ist ein konkretes Ding nach diesem Bauplan, etwa die Datei aufsatz oder der Ordner schule. Ein Attribut ist eine Eigenschaft: name, größe, enthält. Mit der Punktnotation greifst du auf ein Attribut zu: Objektname, Punkt, Attribut. Aufsatz Punkt größe ist ein Megabyte. Diese Schreibweise brauchst du im ganzen Informatikunterricht.",
+    "keyPoint": "Die drei Wörter kurz erklärt. Eine Klasse ist der Bauplan: Sie sagt, welche Eigenschaften alle Dinge dieser Art haben. Man schreibt sie groß: ORDNER, DATEI. Ein Objekt ist ein konkretes Ding nach diesem Bauplan, etwa die Datei aufsatz oder der Ordner schule. Ein Attribut ist eine Eigenschaft: name, größe. Enthält ist dagegen eine Beziehung zwischen Klassen, der Pfeil im Diagramm. Mit der Punktnotation greifst du auf ein Attribut zu: Objektname, Punkt, Attribut. Aufsatz Punkt größe ist ein Megabyte. Diese Schreibweise brauchst du im ganzen Informatikunterricht.",
     "suggestedVisual": "bullets"
    },
    {
     "id": 20,
     "chapterId": 4,
     "purpose": "explain",
-    "keyPoint": "Jetzt das besondere Wort. Die Klasse ORDNER enthält Dateien, das ist der eine Pfeil. Aber ein Ordner enthält auch wieder Ordner, und die enthalten wieder Ordner. Im Bild zeigt das der Pfeil, der von ORDNER zu ORDNER zurückführt, zu sich selbst. Eine Beziehung, die auf dieselbe Klasse zeigt, heißt rekursiv. Stell dir Schachteln vor, in denen Schachteln liegen, in denen wieder Schachteln liegen. Deshalb kann ein Dateibaum so tief werden, wie du willst: Mia, Schule, Deutsch, Aufsätze, Klasse sechs, und so weiter.",
+    "keyPoint": "Jetzt das besondere Wort. Die Klasse ORDNER enthält Dateien, das ist der eine Pfeil. Aber ein Ordner enthält auch wieder Ordner, und die enthalten wieder Ordner. Im Bild zeigt das der Pfeil, der von ORDNER zu ORDNER zurückführt, zu sich selbst. Eine Beziehung, die auf dieselbe Klasse zeigt, heißt rekursiv. Stell dir Schachteln vor, in denen Schachteln liegen, in denen wieder Schachteln liegen. Deshalb kann ein Dateibaum so tief werden, wie du willst. In Mias Baum ist die Kette Mia, Schule, Deutsch drei Ordner tief. Könnte in Deutsch noch ein Ordner Klasse sechs liegen? Ja, ohne Grenze.",
     "suggestedVisual": "bullets"
    },
    {
@@ -272,14 +272,14 @@
     "id": 23,
     "chapterId": 5,
     "purpose": "chapter",
-    "keyPoint": "Der Speicher ist voll, sagt der Computer. Aber welcher Ordner frisst den Platz? Um das herauszufinden, brauchst du den Baum und ein bisschen Rechnen. Die Größe eines Ordners ist die Summe der Größen aller Dateien, die irgendwo darin liegen, auch in den Unterordnern. Und damit du die Ordner vergleichen kannst, zeichnet man das als Diagramm. Das ist Informatik und Statistik zugleich.",
+    "keyPoint": "Der Speicher ist voll, sagt der Computer. Aber welcher Ordner frisst den Platz? Um das herauszufinden, brauchst du den Baum und ein bisschen Rechnen. Die Größe eines Ordners ist die Summe der Größen aller Dateien, die irgendwo darin liegen, auch in den Unterordnern. Und damit du die Ordner vergleichen kannst, zeichnet man die Größen als Diagramm.",
     "suggestedVisual": "chapter"
    },
    {
     "id": 24,
     "chapterId": 5,
     "purpose": "explain",
-    "keyPoint": "Jede Datei hat eine Größe in Megabyte. Für den Ordner Schule zählen wir alle Blätter darunter zusammen: Aufsatz ein Megabyte, Gedicht eins, Brüche drei, Kresse vier, Protokoll eins. Das macht zehn Megabyte. Fotos: strand fünf, berge fünf, see vier und katze drei, zusammen siebzehn. Musik: lied acht und hit sieben, zusammen fünfzehn. Als Säulen nebeneinander sieht man es sofort: Fotos ist der größte Ordner, obwohl Musik die größten einzelnen Dateien hat.",
+    "keyPoint": "Jede Datei hat eine Größe in Megabyte. Für den Ordner Schule zählen wir alle Blätter darunter zusammen: Aufsatz ein Megabyte, Gedicht eins, Brüche drei, Kresse vier, Protokoll eins. Das macht zehn Megabyte. Fotos: strand fünf, berge fünf, see vier und katze drei, zusammen siebzehn. Musik: lied acht und hit sieben, zusammen fünfzehn. Die Größen sind in unserem Beispiel gerundet und vereinfacht. Als Säulen nebeneinander sieht man es sofort: Fotos ist der größte Ordner, obwohl Musik die größten einzelnen Dateien hat. Fotos hat eben mehr Dateien, deshalb ist die Summe größer.",
     "suggestedVisual": "math3d"
    },
    {
@@ -293,7 +293,7 @@
     "id": 26,
     "chapterId": 5,
     "purpose": "explain",
-    "keyPoint": "Warum ein Diagramm? Eine Liste mit Zahlen muss man lesen und vergleichen. Ein Säulendiagramm zeigt die Größe als Höhe, und du siehst auf einen Blick, welcher Ordner der größte ist. Information lässt sich eben verschieden darstellen: als Text, als Bild, als Diagramm oder als Ton, und je nach Frage passt eine Darstellung besser. Wenn der Speicher voll ist, weißt du jetzt, wo du zuerst aufräumst: beim höchsten Balken, also bei den Fotos.",
+    "keyPoint": "Warum ein Diagramm? Eine Liste mit Zahlen muss man lesen und vergleichen. Ein Säulendiagramm zeigt die Größe als Höhe, und du siehst auf einen Blick, welcher Ordner der größte ist. Information lässt sich eben verschieden darstellen: als Text, als Bild, als Diagramm oder als Ton, und je nach Frage passt eine Darstellung besser. Wenn der Speicher voll ist, weißt du jetzt, wo du zuerst aufräumst: bei der höchsten Säule, also bei den Fotos.",
     "suggestedVisual": "bullets"
    },
    {
@@ -322,7 +322,7 @@
  "chapterBeats": {
   "1": [
    {
-    "narration": "Kennst du das? Du hast gestern einen Aufsatz getippt und gespeichert, und heute findest du ihn nicht mehr. Irgendwo auf dem Computer muss er sein. Die gute Nachricht: Jeder Computer ordnet seine Dateien nach einem einzigen, einfachen Muster, einem Baum, der auf dem Kopf steht. Wenn du dieses Muster kennst, findest du jede Datei in Sekunden. In dieser Lektion bauen wir den Baum auf, lernen seine Fachwörter und am Ende rechnen wir sogar aus, welcher Ordner am meisten Platz braucht.",
+    "narration": "Kennst du das? Du hast gestern einen Aufsatz getippt und gespeichert, und heute findest du ihn nicht mehr. Irgendwo auf dem Computer muss er sein. Die gute Nachricht: Jeder Computer ordnet seine Dateien nach demselben Muster, einem Baum, der auf dem Kopf steht. Wenn du dieses Muster kennst, findest du deine Dateien viel schneller. In dieser Lektion bauen wir den Baum auf, lernen seine Fachwörter und am Ende rechnen wir sogar aus, welcher Ordner am meisten Platz braucht.",
     "onScreenTitle": "Dateien und Ordner: der Baum im Computer",
     "question": null,
     "think": null,
@@ -352,7 +352,7 @@
     "stockQuery": null
    },
    {
-    "narration": "Eine Datei ist ein Stück gespeicherte Information mit einem Namen. Ein Text, ein Foto, ein Lied. Die Endung hinter dem Punkt verrät die Art: Punkt t x t ist Text, Punkt j p g ist ein Bild, Punkt m p 3 ist Musik. Ein Ordner ist etwas anderes: Er speichert selbst keine Information, er enthält Dinge, nämlich Dateien und weitere Ordner. Stell dir eine Schachtel vor, in der Blätter und kleinere Schachteln liegen. Die Blätter sind die Dateien, die Schachteln die Ordner.",
+    "narration": "Eine Datei ist ein Stück gespeicherte Information mit einem Namen. Ein Text, ein Foto, ein Lied. Die Endung hinter dem Punkt verrät die Art: Punkt t x t ist Text, Punkt j p g ist ein Bild, Punkt m p 3 ist Musik. Ein Ordner ist etwas anderes: Er speichert selbst keine Information, er enthält Dinge, nämlich Dateien und weitere Ordner. Stell dir eine Schachtel vor, in der Zettel und kleinere Schachteln liegen. Die Zettel sind die Dateien, die Schachteln die Ordner.",
     "onScreenTitle": "Datei und Ordner",
     "question": null,
     "think": null,
@@ -453,7 +453,7 @@
     "stockQuery": null
    },
    {
-    "narration": "Hund Punkt j p g ist eine Datei. Sie speichert eine Information, nämlich das Bild. Die Endung Punkt j p g zeigt dir, dass es ein Bild ist. Ein Ordner hat meistens keine Endung und speichert selbst nichts, er enthält nur andere Dinge. Merke: Datei gleich Information mit Namen, Ordner gleich Behälter. Jetzt bauen wir aus Dateien und Ordnern den Baum und lernen seine Fachwörter.",
+    "narration": "Hund Punkt j p g ist eine Datei, denn sie speichert eine Information, nämlich das Bild. Das ist das wichtigste Merkmal. Die Endung Punkt j p g verrät dir zusätzlich, dass es ein Bild ist. Ein Ordner hat meistens keine Endung und speichert selbst nichts, er enthält nur andere Dinge. Merke: Datei gleich Information mit Namen, Ordner gleich Behälter. Jetzt bauen wir aus Dateien und Ordnern den Baum und lernen seine Fachwörter.",
     "onScreenTitle": "Antwort: eine Datei",
     "question": null,
     "think": null,
@@ -469,7 +469,7 @@
     "bullets": [
      "hund.jpg speichert ein Bild: Information",
      "Die Endung .jpg zeigt ein Bild an",
-     "Ein Ordner hätte keine Endung und enthielte Dinge"
+     "Ein Ordner hat meist keine Endung und enthält Dinge"
     ],
     "nodes": null,
     "leftTitle": null,
@@ -524,7 +524,7 @@
     "stockQuery": null
    },
    {
-    "narration": "Die Wurzel ist der oberste Ordner, hier Mia. Von ihr geht alles aus. Jeder Ordner und jede Datei im Baum ist ein Knoten, so wie Schule oder Urlaub. Die Linien zwischen ihnen sind die Kanten: Eine Kante bedeutet, der obere Ordner enthält den unteren Knoten. Und die Blätter sind die Knoten ganz unten, an denen nichts mehr hängt: die Dateien. Ein Blatt enthält nichts mehr, es ist das Ende eines Astes.",
+    "narration": "Die Wurzel ist der oberste Ordner, hier Mia. Von ihr geht alles aus. Jeder Ordner und jede Datei im Baum ist ein Knoten, so wie Schule oder Urlaub. Die Linien zwischen ihnen sind die Kanten: Eine Kante bedeutet, der obere Ordner enthält den unteren Knoten. Die Knoten direkt unter einem Knoten heißen seine Kinder. Und die Blätter sind die Knoten ganz unten, die keine Kinder haben: die Dateien. Ein Blatt enthält nichts mehr, es ist das Ende eines Astes.",
     "onScreenTitle": "Wurzel, Knoten, Kante, Blatt",
     "question": null,
     "think": null,
@@ -560,7 +560,7 @@
     "stockQuery": null
    },
    {
-    "narration": "Noch einmal zum Merken. Die Wurzel gibt es nur einmal, sie ist der oberste Ordner. Jeder Ordner und jede Datei ist ein Knoten. Eine Kante verbindet zwei Knoten und bedeutet: Der obere enthält den unteren. Knoten, an denen Kanten nach unten hängen, nennt man auch Eltern, und die Knoten darunter Kinder. Ein Blatt ist ein Knoten ohne Kinder. Dateien sind immer Blätter, denn eine Datei kann nichts enthalten. Ein leerer Ordner wäre übrigens auch ein Blatt.",
+    "narration": "Noch einmal zum Merken. Die Wurzel gibt es nur einmal, sie ist der oberste Ordner. Jeder Ordner und jede Datei ist ein Knoten. Eine Kante verbindet zwei Knoten und bedeutet: Der obere enthält den unteren. Knoten, an denen Kanten nach unten hängen, nennt man auch Eltern, und die Knoten darunter Kinder. Ein Blatt ist ein Knoten ohne Kinder. Jede Datei ist ein Blatt, denn eine Datei kann nichts enthalten. Ein leerer Ordner ist auch eines.",
     "onScreenTitle": "Die vier Wörter",
     "question": null,
     "think": null,
@@ -577,7 +577,7 @@
      "Wurzel: der oberste Ordner, nur einer",
      "Knoten: jeder Ordner und jede Datei",
      "Kante: Linie, bedeutet „enthält“",
-     "Blatt: Knoten ohne Kinder, meist eine Datei"
+     "Blatt: Knoten ohne Kinder, also nichts darunter"
     ],
     "nodes": null,
     "leftTitle": null,
@@ -595,9 +595,9 @@
     "stockQuery": null
    },
    {
-    "narration": "Frage an dich. Schau noch einmal auf Mias Baum. Ist der Ordner Urlaub ein Blatt? Begründe deine Antwort mit dem passenden Fachwort. Überlege: Ein Blatt hat keine Kinder. Hängt unter dem Ordner Urlaub noch etwas? Du hast ein paar Sekunden Zeit.",
+    "narration": "Frage an dich. Im Ordner Urlaub liegen drei Fotos. Ist der Ordner Urlaub ein Blatt? Begründe deine Antwort mit dem passenden Fachwort. Überlege: Ein Blatt hat keine Kinder. Hängt unter dem Ordner Urlaub noch etwas? Du hast ein paar Sekunden Zeit.",
     "onScreenTitle": "Der Baum steht auf dem Kopf",
-    "question": "Ist der Ordner Urlaub in Mias Baum ein Blatt? Begründe mit dem Fachwort.",
+    "question": "Im Ordner Urlaub liegen drei Fotos. Ist der Ordner Urlaub ein Blatt? Begründe mit dem Fachwort.",
     "think": 8,
     "hint": "Ein Blatt hat keine Kinder. Hängt etwas unter Urlaub?",
     "emphasisWords": [],
@@ -661,7 +661,7 @@
   ],
   "3": [
    {
-    "narration": "Jetzt zurück zur Frage vom Anfang: Wo ist mein Aufsatz? Die Antwort ist ein Pfad. Ein Pfad beschreibt den Weg von der Wurzel bis zur Datei, Ordner für Ordner. Wie eine Wegbeschreibung: erst in dieses Haus, dann in dieses Stockwerk, dann in dieses Zimmer. Wer den Pfad kennt, findet die Datei immer, auf jedem Computer der Welt.",
+    "narration": "Jetzt zurück zur Frage vom Anfang: Wo ist mein Aufsatz? Die Antwort ist ein Pfad. Ein Pfad beschreibt den Weg von der Wurzel bis zur Datei, Ordner für Ordner. Wie eine Wegbeschreibung: erst in dieses Haus, dann in dieses Stockwerk, dann in dieses Zimmer. Wer den Pfad kennt, findet die Datei auf diesem Computer immer, ohne lange zu suchen.",
     "onScreenTitle": "Der Pfad: der Weg zur Datei",
     "question": null,
     "think": null,
@@ -731,7 +731,7 @@
     "stockQuery": null
    },
    {
-    "narration": "So schreibst du einen Pfad: Du beginnst mit der Wurzel. Dann nennst du jeden Ordner auf dem Weg, in der richtigen Reihenfolge, von oben nach unten. Zwischen die Namen kommt ein Schrägstrich. Bei Windows siehst du oft den Schrägstrich nach links, den Backslash, das bedeutet dasselbe. Ganz am Ende steht der Dateiname mit Endung. Ein Pfad ist eindeutig: Es gibt im ganzen Baum genau eine Datei mit diesem Pfad, auch wenn zwei Dateien denselben Namen haben.",
+    "narration": "So schreibst du einen Pfad: Du beginnst mit der Wurzel. Dann nennst du jeden Ordner auf dem Weg, in der richtigen Reihenfolge, von oben nach unten. Zwischen die Namen kommt ein Schrägstrich. Bei Windows siehst du oft den umgekehrten Schrägstrich, den Backslash, das bedeutet dasselbe. Ganz am Ende steht der Dateiname mit Endung. In unserem Beispiel ist Mia die Wurzel; auf echten Computern beginnt der Pfad etwas anders. Ein Pfad ist eindeutig: Es gibt genau eine Datei mit diesem Pfad. Zwei Dateien dürfen gleich heißen, wenn sie in verschiedenen Ordnern liegen, aber ihre Pfade sind verschieden.",
     "onScreenTitle": "So schreibst du einen Pfad",
     "question": null,
     "think": null,
@@ -747,7 +747,7 @@
     "bullets": [
      "Mit der Wurzel beginnen",
      "Jeden Ordner auf dem Weg nennen, in Reihenfolge",
-     "Schrägstrich / trennt, bei Windows auch \\",
+     "Schrägstrich / trennt, bei Windows der umgekehrte \\",
      "Am Ende der Dateiname mit Endung"
     ],
     "nodes": null,
@@ -802,9 +802,9 @@
     "stockQuery": null
    },
    {
-    "narration": "Jetzt du. Wie lautet der Pfad zu Mias Datei katze Punkt j p g? Schau dir den Baum genau an und finde den Ordner, in dem die Katze direkt liegt. Dann schreibe den Weg von der Wurzel auf. Du hast zehn Sekunden.",
+    "narration": "Jetzt du. Die Datei katze Punkt j p g liegt direkt im Ordner Fotos, nicht im Unterordner Urlaub. Wie lautet ihr Pfad? Schreibe den Weg von der Wurzel auf, Schritt für Schritt. Du hast zehn Sekunden.",
     "onScreenTitle": "Der Pfad: der Weg zur Datei",
-    "question": "Wie lautet der Pfad zu Mias Datei katze.jpg? Schau in den Baum.",
+    "question": "Die Datei katze.jpg liegt direkt im Ordner Fotos, nicht in Urlaub. Wie lautet ihr Pfad?",
     "think": 10,
     "hint": "Wurzel, dann der Ordner, in dem katze.jpg direkt liegt.",
     "emphasisWords": [],
@@ -868,7 +868,7 @@
   ],
   "4": [
    {
-    "narration": "In der Informatik beschreibt man die Dinge im Computer mit Klassen und Objekten. Das hast du vielleicht schon bei Grafikdokumenten gesehen: Die Klasse RECHTECK, und jedes gezeichnete Rechteck ist ein Objekt davon. Beim Dateisystem gibt es nur zwei Klassen: DATEI und ORDNER. Mit ihnen lässt sich jeder noch so große Baum beschreiben. Und eine der beiden Klassen hat eine besondere Eigenschaft, für die es ein eigenes Wort gibt: rekursiv.",
+    "narration": "In der Informatik beschreibt man die Dinge im Computer mit Klassen und Objekten. Im Lernbereich Information darstellen begegnen dir Klassen wie RECHTECK, und jedes gezeichnete Rechteck ist ein Objekt davon. Beim Dateisystem gibt es nur zwei Klassen: DATEI und ORDNER. Mit ihnen lässt sich jeder noch so große Baum beschreiben. Und eine der beiden Klassen hat eine besondere Eigenschaft, für die es ein eigenes Wort gibt: rekursiv.",
     "onScreenTitle": "Klassen: ORDNER und DATEI",
     "question": null,
     "think": null,
@@ -903,7 +903,7 @@
     "stockQuery": null
    },
    {
-    "narration": "Rechts im Bild siehst du die beiden Klassen. Die Klasse ORDNER hat die Attribute name und enthält. Die Klasse DATEI hat die Attribute name und größe. Jeder Ordner in Mias Baum, Schule, Fotos, Urlaub, ist ein Objekt der Klasse ORDNER. Jede Datei ist ein Objekt der Klasse DATEI. Ein Attribut liest man mit der Punktnotation: aufsatz Punkt name ergibt Aufsatz Punkt t x t. Der Pfeil von ORDNER zu DATEI bedeutet: Ein Ordner enthält Dateien.",
+    "narration": "Rechts im Bild siehst du die beiden Klassen. Die Klasse ORDNER hat das Attribut name. Die Klasse DATEI hat die Attribute name und größe. Dazu kommt die Beziehung enthält, die als Pfeil gezeichnet ist. Jeder Ordner in Mias Baum, Schule, Fotos, Urlaub, ist ein Objekt der Klasse ORDNER. Jede Datei ist ein Objekt der Klasse DATEI. Ein Attribut liest man mit der Punktnotation: aufsatz Punkt name ergibt Aufsatz Punkt t x t. Der Pfeil von ORDNER zu DATEI bedeutet: Ein Ordner enthält Dateien. Der Name im Baum, etwa Schule oder Aufsatz Punkt t x t, ist der Wert des Attributs name; das Objekt selbst nennen wir klein: schule, aufsatz.",
     "onScreenTitle": "Zwei Klassen, viele Objekte",
     "question": null,
     "think": null,
@@ -939,7 +939,7 @@
     "stockQuery": null
    },
    {
-    "narration": "Die drei Wörter kurz erklärt. Eine Klasse ist der Bauplan: Sie sagt, welche Eigenschaften alle Dinge dieser Art haben. Man schreibt sie groß: ORDNER, DATEI. Ein Objekt ist ein konkretes Ding nach diesem Bauplan, etwa die Datei aufsatz oder der Ordner schule. Ein Attribut ist eine Eigenschaft: name, größe, enthält. Mit der Punktnotation greifst du auf ein Attribut zu: Objektname, Punkt, Attribut. Aufsatz Punkt größe ist ein Megabyte. Diese Schreibweise brauchst du im ganzen Informatikunterricht.",
+    "narration": "Die drei Wörter kurz erklärt. Eine Klasse ist der Bauplan: Sie sagt, welche Eigenschaften alle Dinge dieser Art haben. Man schreibt sie groß: ORDNER, DATEI. Ein Objekt ist ein konkretes Ding nach diesem Bauplan, etwa die Datei aufsatz oder der Ordner schule. Ein Attribut ist eine Eigenschaft: name, größe. Enthält ist dagegen eine Beziehung zwischen Klassen, der Pfeil im Diagramm. Mit der Punktnotation greifst du auf ein Attribut zu: Objektname, Punkt, Attribut. Aufsatz Punkt größe ist ein Megabyte. Diese Schreibweise brauchst du im ganzen Informatikunterricht.",
     "onScreenTitle": "Klasse, Objekt, Attribut",
     "question": null,
     "think": null,
@@ -974,7 +974,7 @@
     "stockQuery": null
    },
    {
-    "narration": "Jetzt das besondere Wort. Die Klasse ORDNER enthält Dateien, das ist der eine Pfeil. Aber ein Ordner enthält auch wieder Ordner, und die enthalten wieder Ordner. Im Bild zeigt das der Pfeil, der von ORDNER zu ORDNER zurückführt, zu sich selbst. Eine Beziehung, die auf dieselbe Klasse zeigt, heißt rekursiv. Stell dir Schachteln vor, in denen Schachteln liegen, in denen wieder Schachteln liegen. Deshalb kann ein Dateibaum so tief werden, wie du willst: Mia, Schule, Deutsch, Aufsätze, Klasse sechs, und so weiter.",
+    "narration": "Jetzt das besondere Wort. Die Klasse ORDNER enthält Dateien, das ist der eine Pfeil. Aber ein Ordner enthält auch wieder Ordner, und die enthalten wieder Ordner. Im Bild zeigt das der Pfeil, der von ORDNER zu ORDNER zurückführt, zu sich selbst. Eine Beziehung, die auf dieselbe Klasse zeigt, heißt rekursiv. Stell dir Schachteln vor, in denen Schachteln liegen, in denen wieder Schachteln liegen. Deshalb kann ein Dateibaum so tief werden, wie du willst. In Mias Baum ist die Kette Mia, Schule, Deutsch drei Ordner tief. Könnte in Deutsch noch ein Ordner Klasse sechs liegen? Ja, ohne Grenze.",
     "onScreenTitle": "Rekursiv: Ordner enthalten Ordner",
     "question": null,
     "think": null,
@@ -1011,7 +1011,7 @@
    {
     "narration": "Frage an dich. Zu welcher Klasse gehört das Objekt Urlaub, und zu welcher das Objekt strand Punkt j p g? Und welches Attribut hat nur die Datei, nicht der Ordner? Denk an die beiden Bauplan-Kästen im Bild: Was kann enthalten, und was hat eine Größe? Ein paar Sekunden für dich.",
     "onScreenTitle": "Klassen: ORDNER und DATEI",
-    "question": "Zu welcher Klasse gehört das Objekt Urlaub, zu welcher das Objekt strand.jpg? Und welches Attribut hat nur die Datei?",
+    "question": "Zu welcher Klasse gehört das Objekt urlaub (der Ordner Urlaub), zu welcher das Objekt strand (die Datei strand.jpg)? Welches Attribut hat nur die Datei?",
     "think": 9,
     "hint": "Was kann enthalten, was hat eine Größe?",
     "emphasisWords": [],
@@ -1076,7 +1076,7 @@
   ],
   "5": [
    {
-    "narration": "Der Speicher ist voll, sagt der Computer. Aber welcher Ordner frisst den Platz? Um das herauszufinden, brauchst du den Baum und ein bisschen Rechnen. Die Größe eines Ordners ist die Summe der Größen aller Dateien, die irgendwo darin liegen, auch in den Unterordnern. Und damit du die Ordner vergleichen kannst, zeichnet man das als Diagramm. Das ist Informatik und Statistik zugleich.",
+    "narration": "Der Speicher ist voll, sagt der Computer. Aber welcher Ordner frisst den Platz? Um das herauszufinden, brauchst du den Baum und ein bisschen Rechnen. Die Größe eines Ordners ist die Summe der Größen aller Dateien, die irgendwo darin liegen, auch in den Unterordnern. Und damit du die Ordner vergleichen kannst, zeichnet man die Größen als Diagramm.",
     "onScreenTitle": "Statistik: Welcher Ordner ist am größten?",
     "question": null,
     "think": null,
@@ -1110,7 +1110,7 @@
     "stockQuery": null
    },
    {
-    "narration": "Jede Datei hat eine Größe in Megabyte. Für den Ordner Schule zählen wir alle Blätter darunter zusammen: Aufsatz ein Megabyte, Gedicht eins, Brüche drei, Kresse vier, Protokoll eins. Das macht zehn Megabyte. Fotos: strand fünf, berge fünf, see vier und katze drei, zusammen siebzehn. Musik: lied acht und hit sieben, zusammen fünfzehn. Als Säulen nebeneinander sieht man es sofort: Fotos ist der größte Ordner, obwohl Musik die größten einzelnen Dateien hat.",
+    "narration": "Jede Datei hat eine Größe in Megabyte. Für den Ordner Schule zählen wir alle Blätter darunter zusammen: Aufsatz ein Megabyte, Gedicht eins, Brüche drei, Kresse vier, Protokoll eins. Das macht zehn Megabyte. Fotos: strand fünf, berge fünf, see vier und katze drei, zusammen siebzehn. Musik: lied acht und hit sieben, zusammen fünfzehn. Die Größen sind in unserem Beispiel gerundet und vereinfacht. Als Säulen nebeneinander sieht man es sofort: Fotos ist der größte Ordner, obwohl Musik die größten einzelnen Dateien hat. Fotos hat eben mehr Dateien, deshalb ist die Summe größer.",
     "onScreenTitle": "Ordnergrößen als Säulen",
     "question": null,
     "think": null,
@@ -1181,7 +1181,7 @@
     "stockQuery": null
    },
    {
-    "narration": "Warum ein Diagramm? Eine Liste mit Zahlen muss man lesen und vergleichen. Ein Säulendiagramm zeigt die Größe als Höhe, und du siehst auf einen Blick, welcher Ordner der größte ist. Information lässt sich eben verschieden darstellen: als Text, als Bild, als Diagramm oder als Ton, und je nach Frage passt eine Darstellung besser. Wenn der Speicher voll ist, weißt du jetzt, wo du zuerst aufräumst: beim höchsten Balken, also bei den Fotos.",
+    "narration": "Warum ein Diagramm? Eine Liste mit Zahlen muss man lesen und vergleichen. Ein Säulendiagramm zeigt die Größe als Höhe, und du siehst auf einen Blick, welcher Ordner der größte ist. Information lässt sich eben verschieden darstellen: als Text, als Bild, als Diagramm oder als Ton, und je nach Frage passt eine Darstellung besser. Wenn der Speicher voll ist, weißt du jetzt, wo du zuerst aufräumst: bei der höchsten Säule, also bei den Fotos.",
     "onScreenTitle": "Ein Diagramm sagt mehr als eine Liste",
     "question": null,
     "think": null,
@@ -1316,14 +1316,14 @@
    {
     "beatId": 1,
     "chapterId": 1,
-    "narration": "Kennst du das? Du hast gestern einen Aufsatz getippt und gespeichert, und heute findest du ihn nicht mehr. Irgendwo auf dem Computer muss er sein. Die gute Nachricht: Jeder Computer ordnet seine Dateien nach einem einzigen, einfachen Muster, einem Baum, der auf dem Kopf steht. Wenn du dieses Muster kennst, findest du jede Datei in Sekunden. In dieser Lektion bauen wir den Baum auf, lernen seine Fachwörter und am Ende rechnen wir sogar aus, welcher Ordner am meisten Platz braucht.",
+    "narration": "Kennst du das? Du hast gestern einen Aufsatz getippt und gespeichert, und heute findest du ihn nicht mehr. Irgendwo auf dem Computer muss er sein. Die gute Nachricht: Jeder Computer ordnet seine Dateien nach demselben Muster, einem Baum, der auf dem Kopf steht. Wenn du dieses Muster kennst, findest du deine Dateien viel schneller. In dieser Lektion bauen wir den Baum auf, lernen seine Fachwörter und am Ende rechnen wir sogar aus, welcher Ordner am meisten Platz braucht.",
     "onScreenTitle": "Dateien und Ordner: der Baum im Computer",
     "emphasisWords": []
    },
    {
     "beatId": 2,
     "chapterId": 1,
-    "narration": "Eine Datei ist ein Stück gespeicherte Information mit einem Namen. Ein Text, ein Foto, ein Lied. Die Endung hinter dem Punkt verrät die Art: Punkt t x t ist Text, Punkt j p g ist ein Bild, Punkt m p 3 ist Musik. Ein Ordner ist etwas anderes: Er speichert selbst keine Information, er enthält Dinge, nämlich Dateien und weitere Ordner. Stell dir eine Schachtel vor, in der Blätter und kleinere Schachteln liegen. Die Blätter sind die Dateien, die Schachteln die Ordner.",
+    "narration": "Eine Datei ist ein Stück gespeicherte Information mit einem Namen. Ein Text, ein Foto, ein Lied. Die Endung hinter dem Punkt verrät die Art: Punkt t x t ist Text, Punkt j p g ist ein Bild, Punkt m p 3 ist Musik. Ein Ordner ist etwas anderes: Er speichert selbst keine Information, er enthält Dinge, nämlich Dateien und weitere Ordner. Stell dir eine Schachtel vor, in der Zettel und kleinere Schachteln liegen. Die Zettel sind die Dateien, die Schachteln die Ordner.",
     "onScreenTitle": "Datei und Ordner",
     "emphasisWords": []
    },
@@ -1344,7 +1344,7 @@
    {
     "beatId": 5,
     "chapterId": 1,
-    "narration": "Hund Punkt j p g ist eine Datei. Sie speichert eine Information, nämlich das Bild. Die Endung Punkt j p g zeigt dir, dass es ein Bild ist. Ein Ordner hat meistens keine Endung und speichert selbst nichts, er enthält nur andere Dinge. Merke: Datei gleich Information mit Namen, Ordner gleich Behälter. Jetzt bauen wir aus Dateien und Ordnern den Baum und lernen seine Fachwörter.",
+    "narration": "Hund Punkt j p g ist eine Datei, denn sie speichert eine Information, nämlich das Bild. Das ist das wichtigste Merkmal. Die Endung Punkt j p g verrät dir zusätzlich, dass es ein Bild ist. Ein Ordner hat meistens keine Endung und speichert selbst nichts, er enthält nur andere Dinge. Merke: Datei gleich Information mit Namen, Ordner gleich Behälter. Jetzt bauen wir aus Dateien und Ordnern den Baum und lernen seine Fachwörter.",
     "onScreenTitle": "Antwort: eine Datei",
     "emphasisWords": []
    },
@@ -1358,21 +1358,21 @@
    {
     "beatId": 7,
     "chapterId": 2,
-    "narration": "Die Wurzel ist der oberste Ordner, hier Mia. Von ihr geht alles aus. Jeder Ordner und jede Datei im Baum ist ein Knoten, so wie Schule oder Urlaub. Die Linien zwischen ihnen sind die Kanten: Eine Kante bedeutet, der obere Ordner enthält den unteren Knoten. Und die Blätter sind die Knoten ganz unten, an denen nichts mehr hängt: die Dateien. Ein Blatt enthält nichts mehr, es ist das Ende eines Astes.",
+    "narration": "Die Wurzel ist der oberste Ordner, hier Mia. Von ihr geht alles aus. Jeder Ordner und jede Datei im Baum ist ein Knoten, so wie Schule oder Urlaub. Die Linien zwischen ihnen sind die Kanten: Eine Kante bedeutet, der obere Ordner enthält den unteren Knoten. Die Knoten direkt unter einem Knoten heißen seine Kinder. Und die Blätter sind die Knoten ganz unten, die keine Kinder haben: die Dateien. Ein Blatt enthält nichts mehr, es ist das Ende eines Astes.",
     "onScreenTitle": "Wurzel, Knoten, Kante, Blatt",
     "emphasisWords": []
    },
    {
     "beatId": 8,
     "chapterId": 2,
-    "narration": "Noch einmal zum Merken. Die Wurzel gibt es nur einmal, sie ist der oberste Ordner. Jeder Ordner und jede Datei ist ein Knoten. Eine Kante verbindet zwei Knoten und bedeutet: Der obere enthält den unteren. Knoten, an denen Kanten nach unten hängen, nennt man auch Eltern, und die Knoten darunter Kinder. Ein Blatt ist ein Knoten ohne Kinder. Dateien sind immer Blätter, denn eine Datei kann nichts enthalten. Ein leerer Ordner wäre übrigens auch ein Blatt.",
+    "narration": "Noch einmal zum Merken. Die Wurzel gibt es nur einmal, sie ist der oberste Ordner. Jeder Ordner und jede Datei ist ein Knoten. Eine Kante verbindet zwei Knoten und bedeutet: Der obere enthält den unteren. Knoten, an denen Kanten nach unten hängen, nennt man auch Eltern, und die Knoten darunter Kinder. Ein Blatt ist ein Knoten ohne Kinder. Jede Datei ist ein Blatt, denn eine Datei kann nichts enthalten. Ein leerer Ordner ist auch eines.",
     "onScreenTitle": "Die vier Wörter",
     "emphasisWords": []
    },
    {
     "beatId": 9,
     "chapterId": 2,
-    "narration": "Frage an dich. Schau noch einmal auf Mias Baum. Ist der Ordner Urlaub ein Blatt? Begründe deine Antwort mit dem passenden Fachwort. Überlege: Ein Blatt hat keine Kinder. Hängt unter dem Ordner Urlaub noch etwas? Du hast ein paar Sekunden Zeit.",
+    "narration": "Frage an dich. Im Ordner Urlaub liegen drei Fotos. Ist der Ordner Urlaub ein Blatt? Begründe deine Antwort mit dem passenden Fachwort. Überlege: Ein Blatt hat keine Kinder. Hängt unter dem Ordner Urlaub noch etwas? Du hast ein paar Sekunden Zeit.",
     "onScreenTitle": "Der Baum steht auf dem Kopf",
     "emphasisWords": []
    },
@@ -1386,7 +1386,7 @@
    {
     "beatId": 11,
     "chapterId": 3,
-    "narration": "Jetzt zurück zur Frage vom Anfang: Wo ist mein Aufsatz? Die Antwort ist ein Pfad. Ein Pfad beschreibt den Weg von der Wurzel bis zur Datei, Ordner für Ordner. Wie eine Wegbeschreibung: erst in dieses Haus, dann in dieses Stockwerk, dann in dieses Zimmer. Wer den Pfad kennt, findet die Datei immer, auf jedem Computer der Welt.",
+    "narration": "Jetzt zurück zur Frage vom Anfang: Wo ist mein Aufsatz? Die Antwort ist ein Pfad. Ein Pfad beschreibt den Weg von der Wurzel bis zur Datei, Ordner für Ordner. Wie eine Wegbeschreibung: erst in dieses Haus, dann in dieses Stockwerk, dann in dieses Zimmer. Wer den Pfad kennt, findet die Datei auf diesem Computer immer, ohne lange zu suchen.",
     "onScreenTitle": "Der Pfad: der Weg zur Datei",
     "emphasisWords": []
    },
@@ -1400,7 +1400,7 @@
    {
     "beatId": 13,
     "chapterId": 3,
-    "narration": "So schreibst du einen Pfad: Du beginnst mit der Wurzel. Dann nennst du jeden Ordner auf dem Weg, in der richtigen Reihenfolge, von oben nach unten. Zwischen die Namen kommt ein Schrägstrich. Bei Windows siehst du oft den Schrägstrich nach links, den Backslash, das bedeutet dasselbe. Ganz am Ende steht der Dateiname mit Endung. Ein Pfad ist eindeutig: Es gibt im ganzen Baum genau eine Datei mit diesem Pfad, auch wenn zwei Dateien denselben Namen haben.",
+    "narration": "So schreibst du einen Pfad: Du beginnst mit der Wurzel. Dann nennst du jeden Ordner auf dem Weg, in der richtigen Reihenfolge, von oben nach unten. Zwischen die Namen kommt ein Schrägstrich. Bei Windows siehst du oft den umgekehrten Schrägstrich, den Backslash, das bedeutet dasselbe. Ganz am Ende steht der Dateiname mit Endung. In unserem Beispiel ist Mia die Wurzel; auf echten Computern beginnt der Pfad etwas anders. Ein Pfad ist eindeutig: Es gibt genau eine Datei mit diesem Pfad. Zwei Dateien dürfen gleich heißen, wenn sie in verschiedenen Ordnern liegen, aber ihre Pfade sind verschieden.",
     "onScreenTitle": "So schreibst du einen Pfad",
     "emphasisWords": []
    },
@@ -1414,7 +1414,7 @@
    {
     "beatId": 15,
     "chapterId": 3,
-    "narration": "Jetzt du. Wie lautet der Pfad zu Mias Datei katze Punkt j p g? Schau dir den Baum genau an und finde den Ordner, in dem die Katze direkt liegt. Dann schreibe den Weg von der Wurzel auf. Du hast zehn Sekunden.",
+    "narration": "Jetzt du. Die Datei katze Punkt j p g liegt direkt im Ordner Fotos, nicht im Unterordner Urlaub. Wie lautet ihr Pfad? Schreibe den Weg von der Wurzel auf, Schritt für Schritt. Du hast zehn Sekunden.",
     "onScreenTitle": "Der Pfad: der Weg zur Datei",
     "emphasisWords": []
    },
@@ -1428,28 +1428,28 @@
    {
     "beatId": 17,
     "chapterId": 4,
-    "narration": "In der Informatik beschreibt man die Dinge im Computer mit Klassen und Objekten. Das hast du vielleicht schon bei Grafikdokumenten gesehen: Die Klasse RECHTECK, und jedes gezeichnete Rechteck ist ein Objekt davon. Beim Dateisystem gibt es nur zwei Klassen: DATEI und ORDNER. Mit ihnen lässt sich jeder noch so große Baum beschreiben. Und eine der beiden Klassen hat eine besondere Eigenschaft, für die es ein eigenes Wort gibt: rekursiv.",
+    "narration": "In der Informatik beschreibt man die Dinge im Computer mit Klassen und Objekten. Im Lernbereich Information darstellen begegnen dir Klassen wie RECHTECK, und jedes gezeichnete Rechteck ist ein Objekt davon. Beim Dateisystem gibt es nur zwei Klassen: DATEI und ORDNER. Mit ihnen lässt sich jeder noch so große Baum beschreiben. Und eine der beiden Klassen hat eine besondere Eigenschaft, für die es ein eigenes Wort gibt: rekursiv.",
     "onScreenTitle": "Klassen: ORDNER und DATEI",
     "emphasisWords": []
    },
    {
     "beatId": 18,
     "chapterId": 4,
-    "narration": "Rechts im Bild siehst du die beiden Klassen. Die Klasse ORDNER hat die Attribute name und enthält. Die Klasse DATEI hat die Attribute name und größe. Jeder Ordner in Mias Baum, Schule, Fotos, Urlaub, ist ein Objekt der Klasse ORDNER. Jede Datei ist ein Objekt der Klasse DATEI. Ein Attribut liest man mit der Punktnotation: aufsatz Punkt name ergibt Aufsatz Punkt t x t. Der Pfeil von ORDNER zu DATEI bedeutet: Ein Ordner enthält Dateien.",
+    "narration": "Rechts im Bild siehst du die beiden Klassen. Die Klasse ORDNER hat das Attribut name. Die Klasse DATEI hat die Attribute name und größe. Dazu kommt die Beziehung enthält, die als Pfeil gezeichnet ist. Jeder Ordner in Mias Baum, Schule, Fotos, Urlaub, ist ein Objekt der Klasse ORDNER. Jede Datei ist ein Objekt der Klasse DATEI. Ein Attribut liest man mit der Punktnotation: aufsatz Punkt name ergibt Aufsatz Punkt t x t. Der Pfeil von ORDNER zu DATEI bedeutet: Ein Ordner enthält Dateien. Der Name im Baum, etwa Schule oder Aufsatz Punkt t x t, ist der Wert des Attributs name; das Objekt selbst nennen wir klein: schule, aufsatz.",
     "onScreenTitle": "Zwei Klassen, viele Objekte",
     "emphasisWords": []
    },
    {
     "beatId": 19,
     "chapterId": 4,
-    "narration": "Die drei Wörter kurz erklärt. Eine Klasse ist der Bauplan: Sie sagt, welche Eigenschaften alle Dinge dieser Art haben. Man schreibt sie groß: ORDNER, DATEI. Ein Objekt ist ein konkretes Ding nach diesem Bauplan, etwa die Datei aufsatz oder der Ordner schule. Ein Attribut ist eine Eigenschaft: name, größe, enthält. Mit der Punktnotation greifst du auf ein Attribut zu: Objektname, Punkt, Attribut. Aufsatz Punkt größe ist ein Megabyte. Diese Schreibweise brauchst du im ganzen Informatikunterricht.",
+    "narration": "Die drei Wörter kurz erklärt. Eine Klasse ist der Bauplan: Sie sagt, welche Eigenschaften alle Dinge dieser Art haben. Man schreibt sie groß: ORDNER, DATEI. Ein Objekt ist ein konkretes Ding nach diesem Bauplan, etwa die Datei aufsatz oder der Ordner schule. Ein Attribut ist eine Eigenschaft: name, größe. Enthält ist dagegen eine Beziehung zwischen Klassen, der Pfeil im Diagramm. Mit der Punktnotation greifst du auf ein Attribut zu: Objektname, Punkt, Attribut. Aufsatz Punkt größe ist ein Megabyte. Diese Schreibweise brauchst du im ganzen Informatikunterricht.",
     "onScreenTitle": "Klasse, Objekt, Attribut",
     "emphasisWords": []
    },
    {
     "beatId": 20,
     "chapterId": 4,
-    "narration": "Jetzt das besondere Wort. Die Klasse ORDNER enthält Dateien, das ist der eine Pfeil. Aber ein Ordner enthält auch wieder Ordner, und die enthalten wieder Ordner. Im Bild zeigt das der Pfeil, der von ORDNER zu ORDNER zurückführt, zu sich selbst. Eine Beziehung, die auf dieselbe Klasse zeigt, heißt rekursiv. Stell dir Schachteln vor, in denen Schachteln liegen, in denen wieder Schachteln liegen. Deshalb kann ein Dateibaum so tief werden, wie du willst: Mia, Schule, Deutsch, Aufsätze, Klasse sechs, und so weiter.",
+    "narration": "Jetzt das besondere Wort. Die Klasse ORDNER enthält Dateien, das ist der eine Pfeil. Aber ein Ordner enthält auch wieder Ordner, und die enthalten wieder Ordner. Im Bild zeigt das der Pfeil, der von ORDNER zu ORDNER zurückführt, zu sich selbst. Eine Beziehung, die auf dieselbe Klasse zeigt, heißt rekursiv. Stell dir Schachteln vor, in denen Schachteln liegen, in denen wieder Schachteln liegen. Deshalb kann ein Dateibaum so tief werden, wie du willst. In Mias Baum ist die Kette Mia, Schule, Deutsch drei Ordner tief. Könnte in Deutsch noch ein Ordner Klasse sechs liegen? Ja, ohne Grenze.",
     "onScreenTitle": "Rekursiv: Ordner enthalten Ordner",
     "emphasisWords": []
    },
@@ -1470,14 +1470,14 @@
    {
     "beatId": 23,
     "chapterId": 5,
-    "narration": "Der Speicher ist voll, sagt der Computer. Aber welcher Ordner frisst den Platz? Um das herauszufinden, brauchst du den Baum und ein bisschen Rechnen. Die Größe eines Ordners ist die Summe der Größen aller Dateien, die irgendwo darin liegen, auch in den Unterordnern. Und damit du die Ordner vergleichen kannst, zeichnet man das als Diagramm. Das ist Informatik und Statistik zugleich.",
+    "narration": "Der Speicher ist voll, sagt der Computer. Aber welcher Ordner frisst den Platz? Um das herauszufinden, brauchst du den Baum und ein bisschen Rechnen. Die Größe eines Ordners ist die Summe der Größen aller Dateien, die irgendwo darin liegen, auch in den Unterordnern. Und damit du die Ordner vergleichen kannst, zeichnet man die Größen als Diagramm.",
     "onScreenTitle": "Statistik: Welcher Ordner ist am größten?",
     "emphasisWords": []
    },
    {
     "beatId": 24,
     "chapterId": 5,
-    "narration": "Jede Datei hat eine Größe in Megabyte. Für den Ordner Schule zählen wir alle Blätter darunter zusammen: Aufsatz ein Megabyte, Gedicht eins, Brüche drei, Kresse vier, Protokoll eins. Das macht zehn Megabyte. Fotos: strand fünf, berge fünf, see vier und katze drei, zusammen siebzehn. Musik: lied acht und hit sieben, zusammen fünfzehn. Als Säulen nebeneinander sieht man es sofort: Fotos ist der größte Ordner, obwohl Musik die größten einzelnen Dateien hat.",
+    "narration": "Jede Datei hat eine Größe in Megabyte. Für den Ordner Schule zählen wir alle Blätter darunter zusammen: Aufsatz ein Megabyte, Gedicht eins, Brüche drei, Kresse vier, Protokoll eins. Das macht zehn Megabyte. Fotos: strand fünf, berge fünf, see vier und katze drei, zusammen siebzehn. Musik: lied acht und hit sieben, zusammen fünfzehn. Die Größen sind in unserem Beispiel gerundet und vereinfacht. Als Säulen nebeneinander sieht man es sofort: Fotos ist der größte Ordner, obwohl Musik die größten einzelnen Dateien hat. Fotos hat eben mehr Dateien, deshalb ist die Summe größer.",
     "onScreenTitle": "Ordnergrößen als Säulen",
     "emphasisWords": []
    },
@@ -1491,7 +1491,7 @@
    {
     "beatId": 26,
     "chapterId": 5,
-    "narration": "Warum ein Diagramm? Eine Liste mit Zahlen muss man lesen und vergleichen. Ein Säulendiagramm zeigt die Größe als Höhe, und du siehst auf einen Blick, welcher Ordner der größte ist. Information lässt sich eben verschieden darstellen: als Text, als Bild, als Diagramm oder als Ton, und je nach Frage passt eine Darstellung besser. Wenn der Speicher voll ist, weißt du jetzt, wo du zuerst aufräumst: beim höchsten Balken, also bei den Fotos.",
+    "narration": "Warum ein Diagramm? Eine Liste mit Zahlen muss man lesen und vergleichen. Ein Säulendiagramm zeigt die Größe als Höhe, und du siehst auf einen Blick, welcher Ordner der größte ist. Information lässt sich eben verschieden darstellen: als Text, als Bild, als Diagramm oder als Ton, und je nach Frage passt eine Darstellung besser. Wenn der Speicher voll ist, weißt du jetzt, wo du zuerst aufräumst: bei der höchsten Säule, also bei den Fotos.",
     "onScreenTitle": "Ein Diagramm sagt mehr als eine Liste",
     "emphasisWords": []
    },
@@ -1517,14 +1517,15 @@
     "emphasisWords": []
    }
   ],
-  "totalWords": 1914
+  "totalWords": 2014
  },
  "review": {
   "approved": true,
   "issues": [],
   "claimsToVerify": [],
   "revisedNarration": {},
-  "mustFix": []
+  "mustFix": [],
+  "reviewer": "Claude Sonnet (Claude Code subagent), independent of the writer (Claude in Claude Code)"
  },
  "storyboard": {
   "scenes": [
@@ -1692,7 +1693,7 @@
     "bullets": [
      "hund.jpg speichert ein Bild: Information",
      "Die Endung .jpg zeigt ein Bild an",
-     "Ein Ordner hätte keine Endung und enthielte Dinge"
+     "Ein Ordner hat meist keine Endung und enthält Dinge"
     ],
     "nodes": null,
     "leftTitle": null,
@@ -1816,7 +1817,7 @@
      "Wurzel: der oberste Ordner, nur einer",
      "Knoten: jeder Ordner und jede Datei",
      "Kante: Linie, bedeutet „enthält“",
-     "Blatt: Knoten ohne Kinder, meist eine Datei"
+     "Blatt: Knoten ohne Kinder, also nichts darunter"
     ],
     "nodes": null,
     "leftTitle": null,
@@ -1872,7 +1873,7 @@
     "scene": null,
     "params": null,
     "formula": null,
-    "question": "Ist der Ordner Urlaub in Mias Baum ein Blatt? Begründe mit dem Fachwort.",
+    "question": "Im Ordner Urlaub liegen drei Fotos. Ist der Ordner Urlaub ein Blatt? Begründe mit dem Fachwort.",
     "think": 8,
     "hint": "Ein Blatt hat keine Kinder. Hängt etwas unter Urlaub?",
     "thinkText": null,
@@ -2014,7 +2015,7 @@
     "bullets": [
      "Mit der Wurzel beginnen",
      "Jeden Ordner auf dem Weg nennen, in Reihenfolge",
-     "Schrägstrich / trennt, bei Windows auch \\",
+     "Schrägstrich / trennt, bei Windows der umgekehrte \\",
      "Am Ende der Dateiname mit Endung"
     ],
     "nodes": null,
@@ -2113,7 +2114,7 @@
     "scene": null,
     "params": null,
     "formula": null,
-    "question": "Wie lautet der Pfad zu Mias Datei katze.jpg? Schau in den Baum.",
+    "question": "Die Datei katze.jpg liegt direkt im Ordner Fotos, nicht in Urlaub. Wie lautet ihr Pfad?",
     "think": 10,
     "hint": "Wurzel, dann der Ordner, in dem katze.jpg direkt liegt.",
     "thinkText": null,
@@ -2354,7 +2355,7 @@
     "scene": null,
     "params": null,
     "formula": null,
-    "question": "Zu welcher Klasse gehört das Objekt Urlaub, zu welcher das Objekt strand.jpg? Und welches Attribut hat nur die Datei?",
+    "question": "Zu welcher Klasse gehört das Objekt urlaub (der Ordner Urlaub), zu welcher das Objekt strand (die Datei strand.jpg)? Welches Attribut hat nur die Datei?",
     "think": 9,
     "hint": "Was kann enthalten, was hat eine Größe?",
     "thinkText": null,
@@ -2651,7 +2652,7 @@
     "kind": "outro",
     "kicker": null,
     "title": "Ordner enthalten Dateien und wieder Ordner: ein Baum",
-    "subtitle": "Abonniere für die nächste Lektion: Grafikdokumente",
+    "subtitle": "Abonniere für die nächste Lektion",
     "bullets": null,
     "nodes": null,
     "leftTitle": null,
