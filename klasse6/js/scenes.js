@@ -1,5 +1,8 @@
-// All ready-made 3D explanation scenes, by id. Maths scenes plus language and biology scenes.
+// All ready-made 3D explanation scenes, by id: maths, German, biology, informatics, history and foreign languages.
 import { SCENES as MATH } from './mathscenes.js';
 import { LANG_SCENES } from './langscenes.js';
 import { BIO_SCENES } from './bioscenes.js';
-export const SCENES = { ...MATH, ...LANG_SCENES, ...BIO_SCENES };
+import { INFO_SCENES } from './infoscenes.js';
+import { HIST_SCENES } from './histscenes.js';
+import { FOREIGN_SCENES } from './fremdsprachen.js';
+export const SCENES = { ...MATH, ...LANG_SCENES, ...BIO_SCENES, ...INFO_SCENES, ...HIST_SCENES, ...FOREIGN_SCENES };
