@@ -2,8 +2,8 @@
  "id": "current",
  "prompt": "Lektion F6-1.2 „Verfügen über sprachliche Mittel“ (Französisch (2. Fremdsprache), Klasse 6 Gymnasium Bayern), aus klasse6/lessons/F6-1.2.lesson.json. 16 Minuten, auf Deutsch, für Kinder von etwa 11 Jahren.",
  "attempts": 0,
- "createdAt": 1794219637821,
- "updatedAt": 1794219637821,
+ "createdAt": 1794241545186,
+ "updatedAt": 1794241545186,
  "stage": "plan",
  "mode": "course",
  "durationApplied": true,
@@ -2862,23 +2862,23 @@
  },
  "publish": {
   "title": "Französische Verben im Präsens: parler, être, avoir, aller und ne … pas | Französisch Klasse 6",
-  "description": "Französisch, 6. Klasse Gymnasium Bayern (2. Fremdsprache, erstes Lernjahr), Lernbereich F6 1.2 Verfügen über sprachliche Mittel: Warum französische Verben ihre Endung wechseln, das Muster der -er Verben (Stamm parl- plus e, es, e, ons, ez, ent), welche Endungen man schreibt, aber nicht hört, die beiden wichtigsten Verben être und avoir, das Verb aller und ça va, das Alter mit avoir (j'ai onze ans) und die Verneinung mit ne … pas als Klammer um das Verb. Mit 3D-Verbtabellen, einem Mini-Dialog, fünf Fragen zum Mitdenken und Tipps zum Üben (laut sprechen, Verbkartei).\n\nKapitel siehe unten. Lehrplan: LehrplanPLUS Gymnasium Bayern, Französisch 6 (2. Fremdsprache), Lernbereich 1.2 Verfügen über sprachliche Mittel.\n\nTransparenz: Die Sprecherstimme ist computergeneriert (Text-to-Speech). Das Skript folgt dem LehrplanPLUS Bayern und wurde von einem zweiten KI-Modell geprüft; vor der Veröffentlichung sieht ein Elternteil jedes Video durch.",
+  "description": "Französische Verben einfach erklärt: Warum je parle und tu parles gleich klingen, wie die -er Verben funktionieren, die wichtigsten Verben être, avoir und aller als 3D-Bausteine und die Verneinung mit ne … pas. Mit Mini-Dialog und fünf Fragen zum Mitdenken.\n\nIn diesem Video:\n• Stamm und Endung: das Muster der -er Verben\n• Die stummen Endungen: hören und schreiben\n• être und avoir, die zwei wichtigsten Verben, und das Alter mit avoir\n• aller und was man später damit sagen kann\n• ne … pas und n' vor Vokal\n• Lerntipps: laut sprechen, Verbkartei\n\nFür wen: Schülerinnen und Schüler der 6. Klasse am Gymnasium, Französisch als zweite Fremdsprache im ersten Lernjahr.\n\nLehrplan: LehrplanPLUS Gymnasium Bayern, Französisch Jahrgangsstufe 6, Lernbereich F6 1.2 Verfügen über sprachliche Mittel.\n\nMehr auf dem Kanal:\n▶ Eltern-Guide zu diesem Thema: [Link einfügen]\n▶ Playlist Französisch Klasse 6: [Link einfügen]\n\nTransparenz: Die Sprecherstimme ist computergeneriert (Text-to-Speech). Das Skript folgt dem LehrplanPLUS Bayern und wurde von einem zweiten KI-Modell geprüft; vor der Veröffentlichung sieht ein Elternteil jedes Video durch.\n\n#Französisch #FranzösischKlasse6 #Konjugation #GymnasiumBayern",
   "tags": [
-   "Französisch",
-   "Klasse 6",
-   "Gymnasium Bayern",
-   "Französisch lernen",
-   "Verben konjugieren",
-   "Präsens Französisch",
-   "être avoir aller",
-   "er-Verben",
-   "Verneinung ne pas",
-   "Französisch Anfänger",
-   "LehrplanPLUS",
-   "2. Fremdsprache",
+   "Französisch Verben",
    "Französisch Klasse 6",
-   "Verbkartei",
-   "F6"
+   "être avoir aller",
+   "er Verben Französisch",
+   "Französisch Präsens",
+   "Französisch lernen Anfänger",
+   "Gymnasium Bayern",
+   "ne pas Verneinung",
+   "Französisch Konjugation",
+   "Französisch einfach erklärt",
+   "LehrplanPLUS Französisch",
+   "Französisch Nachhilfe",
+   "Französisch 1. Lernjahr",
+   "Französisch Grammatik",
+   "je parle tu parles"
   ],
   "chapters": [
    {
@@ -2903,6 +2903,6 @@
    }
   ],
   "thumbnailText": "JE PARLE, TU PARLES",
-  "pinnedComment": "Welches französische Verb fällt dir am schwersten? Schreib es in die Kommentare, und sag uns, wie du Verben übst."
+  "pinnedComment": "Schreib je, tu oder nous mit einem -er Verb deiner Wahl in die Kommentare. Ich prüfe die Endung!"
  }
 }

@@ -77,12 +77,26 @@
 0 scene(s) get a generated AI video clip (chapter openers, the hook, the ending and the writer's picks); 3D scenes and graphics carry the rest.
 
 ### YouTube
-**Title:** Fractions in Year 6 at a German Gymnasium: Guide for Non-German-Speaking Parents (Bavaria)
+**Title:** Fractions in Year 6 at a German Gymnasium, explained for parents who don't speak German
 
-For parents who do not speak German and whose child attends Jahrgangsstufe 6 at a Gymnasium in Bavaria. What the LehrplanPLUS curriculum expects in topic M6 1.1 Bruchteile und Bruchzahlen, the four core ideas in pictures (share of a whole, erweitern and kürzen, Hauptnenner, Zahlengerade), the German school words your child brings home with their English meaning, five common mistakes, and how to practise at home in ten minutes without speaking German.
+Your child is learning fractions at a Bavarian Gymnasium and brings home words like Zähler, Nenner and kürzen. This guide gives you the maths and the German school vocabulary in about twelve minutes, so you can help with homework without speaking German.
 
-German terms in this video: Bruch, Zähler, Nenner, Bruchstrich, Anteil, das Ganze, erweitern, kürzen, vollständig gekürzt, gleichnamig, Hauptnenner, Zahlengerade, Prozent, natürliche Zahlen, rationale Zahlen, Schulaufgabe, Stegreifaufgabe, Grundwissen.
+In this video:
+• What the Bavarian curriculum (LehrplanPLUS) expects in topic M6 1.1
+• The four core ideas in 3D pictures: share of a whole, expanding and reducing, comparing, the number line
+• The German terms with their English meaning: Bruch, Zähler, Nenner, erweitern, kürzen, Hauptnenner, Schulaufgabe
+• Five typical mistakes and the one question that fixes each
+• A ten-minute routine at home in your own language
 
-The German version for parents (Eltern-Lektion) and the lesson for children (Lektion) are on this channel as well. Curriculum: LehrplanPLUS Gymnasium Bayern, Mathematik 6, Lernbereich 1.1.
+For whom: international parents of Year 6 pupils (Jahrgangsstufe 6, age 11 to 12) at a Gymnasium in Bavaria.
+
+Curriculum: LehrplanPLUS Gymnasium Bayern, Mathematik 6, Lernbereich M6 1.1 Bruchteile und Bruchzahlen.
+
+More on this channel:
+▶ German lesson for children on this topic: [insert link]
+▶ German guide for parents: [insert link]
+▶ Playlist For parents (English): [insert link]
 
 Transparency: the narration is a computer-generated voice (text-to-speech). The script follows the Bavarian LehrplanPLUS and was checked by a second AI model; a parent reviews every video before publication.
+
+#ExpatGermany #GermanSchool #Fractions #GymnasiumBayern

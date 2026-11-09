@@ -91,10 +91,26 @@
 0 scene(s) get a generated AI video clip (chapter openers, the hook, the ending and the writer's picks); 3D scenes and graphics carry the rest.
 
 ### YouTube
-**Title:** Simple past oder present perfect? | Englisch Klasse 6 Gymnasium Bayern
+**Title:** Simple Past oder Present Perfect? Der Unterschied einfach erklärt | Englisch Klasse 6 Bayern
 
-Englisch, 6. Klasse Gymnasium Bayern, Lernbereich E6 1.2 Verfügen über sprachliche Mittel: Wann nimmst du das simple past, wann das present perfect? Mit einem 3D-Zeitstrahl, vier Beispielsätzen (I lost my key yesterday. I have lost my key. We visited London last year. We have visited London twice.), den wichtigsten Signalwörtern, der Perfekt-Falle für deutsche Lernende (Ich habe gestern gespielt heißt I played yesterday) und den unregelmäßigen Verben in drei Formen. Mit fünf Fragen zum Mitdenken.
+Simple past oder present perfect? Mit dem Zeitstrahl in 3D siehst du den Unterschied sofort: abgeschlossene Zeit oder Verbindung zum Jetzt. Mit Signalwörtern, der Perfekt-Falle für deutsche Köpfe und fünf Fragen zum Mitdenken.
 
-Kapitel siehe unten. Lehrplan: LehrplanPLUS Gymnasium Bayern, Englisch 6, Lernbereich 1.2 (present perfect simple: resultativer Gebrauch).
+In diesem Video:
+• Simple past wiederholt: I lost my key yesterday
+• Present perfect: have oder has plus dritte Form, I have lost my key
+• Signalwörter: yesterday und ago gegen just, already, yet, ever, never
+• Die Falle: Ich habe gestern gespielt heißt I played yesterday
+• Fragen und Verneinungen mit did und have
+• Zwei Entscheidungsfragen und ein Tipp für die Schulaufgabe
+
+Für wen: Schülerinnen und Schüler der 6. Klasse am Gymnasium, Englisch als erste Fremdsprache.
+
+Lehrplan: LehrplanPLUS Gymnasium Bayern, Englisch Jahrgangsstufe 6, Lernbereich E6 1.2 Verfügen über sprachliche Mittel (present perfect simple).
+
+Mehr auf dem Kanal:
+▶ Eltern-Guide zu diesem Thema: [Link einfügen]
+▶ Playlist Englisch Klasse 6: [Link einfügen]
 
 Transparenz: Die Sprecherstimme ist computergeneriert (Text-to-Speech). Das Skript folgt dem LehrplanPLUS Bayern und wurde von einem zweiten KI-Modell geprüft; vor der Veröffentlichung sieht ein Elternteil jedes Video durch.
+
+#PresentPerfect #EnglischKlasse6 #Englisch #GymnasiumBayern

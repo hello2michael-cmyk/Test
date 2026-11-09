@@ -79,12 +79,27 @@
 0 scene(s) get a generated AI video clip (chapter openers, the hook, the ending and the writer's picks); 3D scenes and graphics carry the rest.
 
 ### YouTube
-**Title:** German Sentence Parts (Satzglieder) in Year 6: Guide for Non-German-Speaking Parents (Bavaria)
+**Title:** German grammar at a Gymnasium: Satzglieder (sentence parts) in Year 6, explained for parents
 
-For parents who do not speak German and whose child attends Jahrgangsstufe 6 at a Gymnasium in Bavaria. What the LehrplanPLUS curriculum expects in topic D6 4.2 Sprachliche Strukturen untersuchen about sentence parts (Satzglieder), the two tests the school uses (Umstellprobe and Frageprobe) shown in pictures, the German grammar terms your child brings home with their English meaning (Subjekt, Prädikat, Akkusativobjekt, Dativobjekt, Adverbiale, Attribut), the five typical mistakes, and how to practise at home without speaking German.
+Your child has to underline the Prädikat and name the Dativobjekt, and you cannot read the sentence. This guide explains the two tests Bavarian schools use, the German grammar terms with their English meaning, and how to help at home without speaking German.
 
-German terms in this video: Satzglied, Umstellprobe, Frageprobe, Subjekt, Prädikat, Objekt, Akkusativobjekt, Dativobjekt, Adverbiale, Attribut, Aussagesatz, Nebensatz, Komma, Stegreifaufgabe, Schulaufgabe.
+In this video:
+• What the LehrplanPLUS expects in topic D6 4.2
+• The rearranging test (Umstellprobe) and the question test (Frageprobe) in 3D pictures
+• Subjekt, Prädikat, Akkusativobjekt, Dativobjekt, Adverbiale, Attribut: what they mean
+• Why the German verb sits in second position, and how that differs from English
+• Five typical mistakes and the question that corrects each
+• A ten-minute routine at home, in any language
 
-The German version for parents (Eltern-Lektion) and the lesson for children (Lektion) are on this channel as well. Curriculum: LehrplanPLUS Gymnasium Bayern, Deutsch 6, Lernbereich 4.2.
+For whom: international parents of Year 6 pupils (Jahrgangsstufe 6) at a Gymnasium in Bavaria.
+
+Curriculum: LehrplanPLUS Gymnasium Bayern, Deutsch 6, Lernbereich D6 4.2 Sprachliche Strukturen untersuchen.
+
+More on this channel:
+▶ German lesson for children: [insert link]
+▶ German guide for parents: [insert link]
+▶ Playlist For parents (English): [insert link]
 
 Transparency: the narration is a computer-generated voice (text-to-speech). The script follows the Bavarian LehrplanPLUS and was checked by a second AI model; a parent reviews every video before publication.
+
+#GermanGrammar #ExpatGermany #GermanSchool #GymnasiumBayern

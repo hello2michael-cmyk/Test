@@ -2,8 +2,8 @@
  "id": "current",
  "prompt": "Lektion M6-1.1 „Bruchteile und Bruchzahlen“ (Mathematik, Klasse 6 Gymnasium Bayern), aus klasse6/lessons/M6-1.1.lesson.json. 15 Minuten, auf Deutsch, für Kinder von etwa 11 Jahren.",
  "attempts": 0,
- "createdAt": 1794219276600,
- "updatedAt": 1794219276600,
+ "createdAt": 1794241544372,
+ "updatedAt": 1794241544372,
  "stage": "plan",
  "mode": "course",
  "durationApplied": true,
@@ -3222,23 +3222,24 @@
   ]
  },
  "publish": {
-  "title": "Brüche verstehen: Bruchteile und Bruchzahlen | Mathe Klasse 6 Gymnasium Bayern",
-  "description": "Was ist ein Bruch? In dieser Lektion lernst du mit 3D-Pizzen, einem Streifen, einem Hunderterfeld und der Zahlengeraden, was Zähler und Nenner bedeuten, wie du Bruchteile und das Ganze berechnest, warum Erweitern und Kürzen den Wert nicht ändern, wie du Brüche mit dem Hauptnenner vergleichst und warum 25 % dasselbe ist wie ein Viertel. In jedem Kapitel gibt es eine Frage an dich mit Zeit zum Nachdenken.\n\nPasst zum LehrplanPLUS Gymnasium Bayern, Mathematik Jahrgangsstufe 6, Lernbereich M6 1.1 Bruchteile und Bruchzahlen.\n\nDu lernst: Zähler und Nenner · Bruchteil und Ganzes berechnen · Erweitern und Kürzen · Hauptnenner · Prozent als Bruch · Zahlengerade und negative Brüche\n\nTransparenz: Die Sprecherstimme ist computergeneriert (Text-to-Speech). Das Skript folgt dem LehrplanPLUS Bayern und wurde von einem zweiten KI-Modell geprüft; vor der Veröffentlichung sieht ein Elternteil jedes Video durch.",
+  "title": "Brüche verstehen: Zähler, Nenner, Erweitern und Kürzen | Mathe Klasse 6 Gymnasium Bayern",
+  "description": "Brüche einfach erklärt für die 6. Klasse: Was Zähler und Nenner bedeuten, warum Erweitern und Kürzen den Wert nicht ändern, wie du Brüche vergleichst und auf der Zahlengeraden findest.\n\nIn diesem Video:\n• Bruchteile an Pizza und Streifen: Zähler und Nenner\n• Erweitern und Kürzen: gleich viel, anders geschrieben\n• Brüche vergleichen mit dem Hauptnenner\n• Brüche auf der Zahlengeraden, auch negative\n• Prozent als andere Schreibweise\n• Fünf Fragen zum Mitdenken mit Zeit zum Überlegen\n\nFür wen: Schülerinnen und Schüler der 6. Klasse am Gymnasium, zum Verstehen, Wiederholen und zur Vorbereitung auf die Schulaufgabe.\n\nLehrplan: LehrplanPLUS Gymnasium Bayern, Mathematik Jahrgangsstufe 6, Lernbereich M6 1.1 Bruchteile und Bruchzahlen.\n\nMehr auf dem Kanal:\n▶ Eltern-Guide zu diesem Thema: [Link einfügen]\n▶ Playlist Mathe Klasse 6: [Link einfügen]\n\nTransparenz: Die Sprecherstimme ist computergeneriert (Text-to-Speech). Das Skript folgt dem LehrplanPLUS Bayern und wurde von einem zweiten KI-Modell geprüft; vor der Veröffentlichung sieht ein Elternteil jedes Video durch.\n\n#Brüche #MatheKlasse6 #GymnasiumBayern #Bruchrechnung",
   "tags": [
-   "brüche",
-   "bruchrechnung",
-   "mathe klasse 6",
-   "gymnasium bayern",
-   "lehrplanplus",
-   "zähler nenner",
-   "erweitern kürzen",
-   "hauptnenner",
-   "brüche vergleichen",
-   "prozent",
-   "zahlengerade",
-   "mathe lernen",
-   "6. klasse mathe",
-   "bruchteile"
+   "Brüche",
+   "Bruchrechnung",
+   "Brüche Klasse 6",
+   "Mathe Klasse 6",
+   "Gymnasium Bayern",
+   "Brüche einfach erklärt",
+   "Zähler Nenner",
+   "Erweitern Kürzen",
+   "Bruchteile",
+   "Brüche vergleichen",
+   "Zahlengerade",
+   "Mathe lernen",
+   "LehrplanPLUS",
+   "Mathe Nachhilfe",
+   "6. Klasse Mathe"
   ],
   "chapters": [
    {
@@ -3263,6 +3264,6 @@
    }
   ],
   "thumbnailText": "BRÜCHE VERSTEHEN",
-  "pinnedComment": "Welche Frage im Video fandest du am schwersten? Schreib sie in die Kommentare."
+  "pinnedComment": "Welcher Bruch war für dich am schwersten zu verstehen? Schreib ihn in die Kommentare, dann erkläre ich ihn im nächsten Video noch einmal."
  }
 }

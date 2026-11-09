@@ -93,8 +93,25 @@
 ### YouTube
 **Title:** Samen und Früchte: Wie Pflanzen auf Reisen gehen | Natur und Technik Klasse 6 Gymnasium Bayern
 
-Natur und Technik, 6. Klasse Gymnasium Bayern, Lernbereich NT6 1.2 Samenpflanzen als Lebewesen: Was steckt in einem Samen (Samenschale, Nährgewebe, Embryo), was ist der Unterschied zwischen Frucht und Same, wie reisen Samen mit dem Wind (Ahorn, Löwenzahn) und mit Tieren (Kirsche, Klette, Eichhörnchen), was die Technik davon abgeschaut hat (Bionik: Rotor, Klettverschluss), was ein Same zum Keimen braucht und wozu ein Kontrollversuch gut ist. Mit 3D-Bildern und Fragen zum Mitdenken.
+Was steckt in einem Samen, und wie kommt er weit weg von der Mutterpflanze? Samenschale, Nährgewebe und Embryo in 3D, die Ahornfrucht als Propeller, Kirsche, Klette und Eichhörnchen als Reisehelfer, und ein Kresseversuch mit Kontrollversuch für zu Hause.
 
-Kapitel siehe unten. Lehrplan: LehrplanPLUS Gymnasium Bayern, Natur und Technik 6, Lernbereich 1.2.
+In diesem Video:
+• Die drei Teile eines Samens: Samenschale, Nährgewebe, Embryo
+• Frucht oder Same? Kirsche, Erbse, Apfel, Ahorn
+• Ausbreitung mit dem Wind: Ahorn und Löwenzahn
+• Ausbreitung mit Tieren: gefressen, angeheftet, vergraben
+• Bionik: Rotor und Klettverschluss
+• Keimung: Wasser, Wärme, Luft, und wozu ein Kontrollversuch gut ist
+• Fünf Fragen zum Mitdenken
+
+Für wen: Schülerinnen und Schüler der 6. Klasse am Gymnasium, Natur und Technik, Schwerpunkt Biologie.
+
+Lehrplan: LehrplanPLUS Gymnasium Bayern, Natur und Technik Jahrgangsstufe 6, Lernbereich NT6 1.2 Samenpflanzen als Lebewesen.
+
+Mehr auf dem Kanal:
+▶ Eltern-Guide zu diesem Thema: [Link einfügen]
+▶ Playlist Natur und Technik Klasse 6: [Link einfügen]
 
 Transparenz: Die Sprecherstimme ist computergeneriert (Text-to-Speech). Das Skript folgt dem LehrplanPLUS Bayern und wurde von einem zweiten KI-Modell geprüft; vor der Veröffentlichung sieht ein Elternteil jedes Video durch.
+
+#NaturUndTechnik #Biologie #Klasse6 #GymnasiumBayern

@@ -2,8 +2,8 @@
  "id": "current",
  "prompt": "Lektion L6-2.2 „Formenlehre“ (Latein (2. Fremdsprache), Klasse 6 Gymnasium Bayern), aus klasse6/lessons/L6-2.2.lesson.json. 17 Minuten, auf Deutsch, für Kinder von etwa 11 Jahren.",
  "attempts": 0,
- "createdAt": 1794219845298,
- "updatedAt": 1794219845298,
+ "createdAt": 1794241545398,
+ "updatedAt": 1794241545398,
  "stage": "plan",
  "mode": "course",
  "durationApplied": true,
@@ -2785,23 +2785,23 @@
  },
  "publish": {
   "title": "Die Fälle in Latein: a- und o-Deklination einfach erklärt | Latein Klasse 6 Gymnasium Bayern",
-  "description": "Latein, 6. Klasse Gymnasium Bayern, Lernbereich L6 2.2 Formenlehre: Warum braucht Latein Endungen, wo Deutsch Artikel und Wortstellung benutzt? Die fünf wichtigsten Fälle (Nominativ, Genitiv, Dativ, Akkusativ, Ablativ) der a-Deklination (puella) und der o-Deklination (servus, templum) im Singular und Plural, dazu der Vokativ, die Fragen zu jedem Fall wie bei der Frageprobe im Deutschen, und was jeder Fall im Satz tut: Subjekt, Objekt, Attribut, Adverbiale. Mit einfachen Sätzen wie Puella servum vocat und Servus puellam vocat, mit 3D-Tabellen und Fragen zum Mitdenken.\n\nKapitel siehe unten. Lehrplan: LehrplanPLUS Gymnasium Bayern, Latein (2. Fremdsprache) 6, Lernbereich 2.2 Formenlehre, mit Blick auf 2.3 Satzlehre.\n\nTransparenz: Die Sprecherstimme ist computergeneriert (Text-to-Speech). Das Skript folgt dem LehrplanPLUS Bayern und wurde von einem zweiten KI-Modell geprüft; vor der Veröffentlichung sieht ein Elternteil jedes Video durch.",
+  "description": "Latein hat keine Artikel, dafür Endungen: Nominativ, Genitiv, Dativ, Akkusativ und Ablativ einfach erklärt an puella, servus und templum als 3D-Tabelle. Mit den Fragen wie bei der Frageprobe im Deutschen, Beispielsätzen und fünf Fragen zum Mitdenken.\n\nIn diesem Video:\n• Warum Latein Endungen braucht: Stamm bleibt, Endung wechselt\n• Die Fälle der a-Deklination: puella im Singular und Plural\n• Die o-Deklination: servus und templum, Neutrum Nominativ gleich Akkusativ\n• Was die Fälle im Satz tun: Puella servum vocat\n• Formen bestimmen: Kasus, Numerus, Genus; KNG-Kongruenz\n• Tipps zum Tabellenlernen\n\nFür wen: Schülerinnen und Schüler der 6. Klasse am Gymnasium, Latein als zweite Fremdsprache im ersten Lernjahr.\n\nLehrplan: LehrplanPLUS Gymnasium Bayern, Latein Jahrgangsstufe 6, Lernbereich L6 2.2 Formenlehre.\n\nMehr auf dem Kanal:\n▶ Eltern-Guide zu diesem Thema: [Link einfügen]\n▶ Deutsch: Satzglieder und die Frageprobe: [Link einfügen]\n▶ Playlist Latein Klasse 6: [Link einfügen]\n\nTransparenz: Die Sprecherstimme ist computergeneriert (Text-to-Speech). Das Skript folgt dem LehrplanPLUS Bayern und wurde von einem zweiten KI-Modell geprüft; vor der Veröffentlichung sieht ein Elternteil jedes Video durch.\n\n#Latein #LateinKlasse6 #Deklination #GymnasiumBayern",
   "tags": [
-   "Latein",
-   "Klasse 6",
-   "Gymnasium Bayern",
-   "Deklination",
+   "Latein Fälle",
    "a-Deklination",
    "o-Deklination",
-   "Kasus",
+   "Latein Klasse 6",
+   "Latein lernen Anfänger",
+   "Gymnasium Bayern",
    "Nominativ Genitiv Dativ Akkusativ Ablativ",
    "puella servus templum",
-   "Formenlehre",
-   "LehrplanPLUS",
-   "Latein lernen",
-   "Latein Klasse 6",
+   "Latein einfach erklärt",
+   "Latein Deklination Tabelle",
    "KNG-Kongruenz",
-   "L6"
+   "LehrplanPLUS Latein",
+   "Latein Nachhilfe",
+   "Latein 1. Lernjahr",
+   "Kasus bestimmen"
   ],
   "chapters": [
    {
@@ -2826,6 +2826,6 @@
    }
   ],
   "thumbnailText": "DIE FÄLLE",
-  "pinnedComment": "Welche lateinische Endung bringst du immer durcheinander? Schreib sie in die Kommentare, wir klären sie."
+  "pinnedComment": "Welcher Fall macht dir am meisten Mühe? Schreib ihn in die Kommentare, dann gibt es dazu ein eigenes Video."
  }
 }

@@ -42,8 +42,16 @@ for (const v of manifest.videos) {
     `  ${pub.title}`,
     ``,
   ].join('\n');
-  const ytText = yt ? fs.readFileSync(path.join(src, yt), 'utf8') : `BESCHREIBUNG\n${pub.description}\n\nTAGS\n${(pub.tags || []).join(', ')}\n`;
-  fs.writeFileSync(path.join(dir, `${v.slug}-upload.txt`), settings + '\n' + ytText.trim() + '\n');
+  // Chapters come from the rendered video (timestamps), everything else from the current plan (search-optimised texts).
+  const ytOld = yt ? fs.readFileSync(path.join(src, yt), 'utf8') : '';
+  const chapters = (ytOld.match(/\nChapters\n([\s\S]*?)\n\n/) || [, ''])[1].trim();
+  let desc = pub.description.trim();
+  const hashIdx = desc.lastIndexOf('\n\n#');
+  const hashtags = hashIdx > 0 ? desc.slice(hashIdx).trim() : '';
+  if (hashIdx > 0) desc = desc.slice(0, hashIdx).trim();
+  const description = desc + (chapters ? '\n\nKapitel\n' + chapters : '') + (hashtags ? '\n\n' + hashtags : '');
+  const sheet = `${settings}BESCHREIBUNG (${description.length} Zeichen, max. 5000; Kapitel entstehen aus den Zeitmarken)\n${description}\n\nTAGS (kommagetrennt einfügen, ${(pub.tags || []).join(', ').length} Zeichen, max. 500)\n${(pub.tags || []).join(', ')}\n\nANGEHEFTETER KOMMENTAR\n${pub.pinnedComment || ''}\n\nVORSCHAUBILD-TEXT\n${pub.thumbnailText || ''}\n`;
+  fs.writeFileSync(path.join(dir, `${v.slug}-upload.txt`), sheet);
   rows.push({ ...v, title: pub.title, kids, english, size: Math.round(fs.statSync(path.join(dir, `${v.slug}.mp4`)).size / 1e6) });
   console.log(`ok ${v.slug} (${rows[rows.length - 1].size} MB)`);
 }

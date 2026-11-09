@@ -75,10 +75,27 @@
 0 scene(s) get a generated AI video clip (chapter openers, the hook, the ending and the writer's picks); 3D scenes and graphics carry the rest.
 
 ### YouTube
-**Title:** Satzglieder in der 6. Klasse: Was Ihr Kind können sollte | Eltern-Guide Deutsch Gymnasium Bayern
+**Title:** Satzglieder in der 6. Klasse: Was Eltern wissen sollten | Deutsch Gymnasium Bayern Eltern-Guide
 
-Für Eltern und Lehrkräfte: Was der bayerische LehrplanPLUS im Lernbereich D6 4.2 Sprachliche Strukturen untersuchen zu den Satzgliedern verlangt, die zwei Proben in Bildern (Umstellprobe und Frageprobe), die Satzglieder Subjekt, Prädikat, Akkusativ- und Dativobjekt, Adverbialien und das Attribut als Satzgliedteil, die fünf typischen Fehler und wie Sie zu Hause in zehn Minuten sinnvoll üben. Mit Ausblick auf Satzreihe, Satzgefüge und Kommasetzung.
+Satzglieder entscheiden über Kommas, über die Fälle in Latein und über das Verstehen langer Sätze. Dieser Eltern-Guide erklärt in zehn Minuten die zwei Proben, die Ihr Kind lernt, die fünf typischen Fehler und eine Übung für den Esstisch.
 
-Die Kinder-Lektion zum selben Thema gibt es auf diesem Kanal. Lehrplan: LehrplanPLUS Gymnasium Bayern, Deutsch 6, Lernbereich 4.2.
+In diesem Video:
+• Der Lernbereich D6 4.2 im LehrplanPLUS
+• Umstellprobe und Frageprobe in 3D-Bildern
+• Subjekt, Prädikat, Akkusativ- und Dativobjekt, Adverbialien, Attribut
+• Fünf typische Fehler und die Frage, die jeden korrigiert
+• Üben zu Hause mit Sätzen aus dem Alltag
+• Was in Leistungsnachweisen geprüft werden kann, Ausblick auf Satzreihe und Satzgefüge
+
+Für wen: Eltern und Lehrkräfte von Sechstklässlern am Gymnasium in Bayern.
+
+Lehrplan: LehrplanPLUS Gymnasium Bayern, Deutsch Jahrgangsstufe 6, Lernbereich D6 4.2 Sprachliche Strukturen untersuchen.
+
+Mehr auf dem Kanal:
+▶ Kinder-Lektion zu diesem Thema: [Link einfügen]
+▶ English version for parents: [Link einfügen]
+▶ Playlist Eltern-Guide Klasse 6: [Link einfügen]
 
 Transparenz: Die Sprecherstimme ist computergeneriert (Text-to-Speech). Das Skript folgt dem LehrplanPLUS Bayern und wurde von einem zweiten KI-Modell geprüft; vor der Veröffentlichung sieht ein Elternteil jedes Video durch.
+
+#ElternGuide #DeutschKlasse6 #Satzglieder #GymnasiumBayern

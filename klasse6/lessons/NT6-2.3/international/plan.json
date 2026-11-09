@@ -2,8 +2,8 @@
  "id": "current",
  "prompt": "International lesson NT6-2.3 \"Hierarchische Informationsstrukturen – Dateisystem\" (Natur und Technik, Jahrgangsstufe 6, Gymnasium Bavaria), from klasse6/lessons/NT6-2.3.international.lesson.json. 12 minutes, in English with the German school terms, for parents who do not speak German.",
  "attempts": 0,
- "createdAt": 1794219206664,
- "updatedAt": 1794219206664,
+ "createdAt": 1794241545025,
+ "updatedAt": 1794241545025,
  "stage": "plan",
  "mode": "course",
  "durationApplied": true,
@@ -2098,24 +2098,24 @@
   ]
  },
  "publish": {
-  "title": "Informatics in Year 6 (Natur und Technik): The File System as a Tree, for Non-German-Speaking Parent",
-  "description": "For parents who do not speak German and whose child attends Jahrgangsstufe 6 at a Gymnasium in Bavaria. Where informatics sits in Year 6 (inside Natur und Technik), what the LehrplanPLUS expects in topic NT6 2.3 Hierarchische Informationsstrukturen – Dateisystem, the core ideas in 3D pictures (tree with root, nodes, edges and leaves; path; the classes DATEI and ORDNER; recursion; folder sizes as a chart), the German terms with their English meaning, three exercises at the child's own computer, typical misconceptions and how the subject is assessed.\n\nGerman terms in this video: Natur und Technik, Datei, Ordner, Dateisystem, Baum, Wurzel, Knoten, Kante, Blatt, Pfad, Klasse, Objekt, Attribut, Punktnotation, rekursiv, Säulendiagramm, Stegreifaufgabe.\n\nThe German version for parents (Eltern-Lektion) and the lesson for children (Lektion) are on this channel as well. Curriculum: LehrplanPLUS Gymnasium Bayern, Natur und Technik 6, Lernbereich 2.3.\n\nTransparency: the narration is a computer-generated voice (text-to-speech). The script follows the Bavarian LehrplanPLUS and was checked by a second AI model; a parent reviews every video before publication.",
+  "title": "Informatics at age 11 in Germany: the file system as a tree, explained for international parents",
+  "description": "Your eleven-year-old already has informatics inside the subject Natur und Technik. It starts with order, not coding: classes, objects, attributes and a tree every child knows from the computer. This guide explains the topic, the German terms, and three exercises at the computer at home.\n\nIn this video:\n• Where informatics sits in Year 6 and what topic NT6 2.3 expects\n• The core ideas in 3D pictures: tree, path, the classes DATEI and ORDNER, recursion, folder sizes as a chart\n• German terms: Datei, Ordner, Wurzel, Knoten, Kante, Blatt, Pfad, Klasse, Objekt, Attribut, rekursiv\n• Three exercises at home without any German\n• Common misconceptions and how the subject is assessed\n\nFor whom: international parents of Year 6 pupils (Jahrgangsstufe 6) at a Gymnasium in Bavaria.\n\nCurriculum: LehrplanPLUS Gymnasium Bayern, Natur und Technik 6, Lernbereich NT6 2.3 Hierarchische Informationsstrukturen, Dateisystem.\n\nMore on this channel:\n▶ German lesson for children: [insert link]\n▶ German guide for parents: [insert link]\n▶ Playlist For parents (English): [insert link]\n\nTransparency: the narration is a computer-generated voice (text-to-speech). The script follows the Bavarian LehrplanPLUS and was checked by a second AI model; a parent reviews every video before publication.\n\n#ExpatGermany #GermanSchool #Informatics #GymnasiumBayern",
   "tags": [
-   "Natur und Technik",
-   "informatics year 6",
+   "informatics kids",
+   "German school system",
    "Gymnasium Bayern",
-   "Klasse 6",
    "expat parents Germany",
    "file system tree",
-   "computer science kids",
-   "LehrplanPLUS",
-   "Jahrgangsstufe 6",
-   "international parents",
+   "computer science year 6",
+   "international parents Germany",
    "German school vocabulary",
-   "homework help",
+   "Natur und Technik",
+   "LehrplanPLUS",
+   "homework help Germany",
    "Bavaria school",
-   "object oriented",
-   "Dateisystem"
+   "object oriented kids",
+   "expat family Munich",
+   "Jahrgangsstufe 6"
   ],
   "chapters": [
    {

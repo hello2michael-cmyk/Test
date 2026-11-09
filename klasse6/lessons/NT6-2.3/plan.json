@@ -2,8 +2,8 @@
  "id": "current",
  "prompt": "Lektion NT6-2.3 „Hierarchische Informationsstrukturen – Dateisystem“ (Natur und Technik, Klasse 6 Gymnasium Bayern), aus klasse6/lessons/NT6-2.3.lesson.json. 16 Minuten, auf Deutsch, für Kinder von etwa 11 Jahren.",
  "attempts": 0,
- "createdAt": 1794219048594,
- "updatedAt": 1794219048594,
+ "createdAt": 1794241544894,
+ "updatedAt": 1794241544894,
  "stage": "plan",
  "mode": "course",
  "durationApplied": true,
@@ -2686,24 +2686,24 @@
   ]
  },
  "publish": {
-  "title": "Dateien und Ordner: Das Dateisystem ist ein Baum | Natur und Technik Informatik Klasse 6 Gymnasium B",
-  "description": "Natur und Technik, Schwerpunkt Informatik, 6. Klasse Gymnasium Bayern, Lernbereich NT6 2.3 Hierarchische Informationsstrukturen – Dateisystem: Was eine Datei und was ein Ordner ist, warum das Dateisystem ein Baum ist (Wurzel, Knoten, Kante, Blatt), wie man einen Pfad liest, was die Klassen DATEI und ORDNER mit ihren Attributen sind, was rekursiv bedeutet und wie man Ordnergrößen berechnet und in einem Diagramm vergleicht. Mit 3D-Bildern und Fragen zum Mitdenken.\n\nKapitel siehe unten. Lehrplan: LehrplanPLUS Gymnasium Bayern, Natur und Technik 6, Lernbereich 2.3.\n\nTransparenz: Die Sprecherstimme ist computergeneriert (Text-to-Speech). Das Skript folgt dem LehrplanPLUS Bayern und wurde von einem zweiten KI-Modell geprüft; vor der Veröffentlichung sieht ein Elternteil jedes Video durch.",
+  "title": "Dateien und Ordner: Das Dateisystem ist ein Baum | Informatik Klasse 6 Natur und Technik Bayern",
+  "description": "Wo ist meine Datei? Das Dateisystem einfach erklärt: Ordner und Dateien als Baum mit Wurzel, Knoten, Kanten und Blättern, der Pfad als Wegbeschreibung, die Klassen ORDNER und DATEI mit Attributen, was rekursiv heißt und wie man Ordnergrößen im Diagramm vergleicht.\n\nIn diesem Video:\n• Datei oder Ordner? Endungen wie .txt, .jpg, .mp3\n• Der Baum: Wurzel, Knoten, Kante, Blatt\n• Den Pfad zu einer Datei lesen und schreiben\n• Klasse, Objekt, Attribut und Punktnotation\n• Rekursiv: Ordner enthalten Ordner\n• Ordnergrößen berechnen und als Säulendiagramm vergleichen\n• Fünf Fragen zum Mitdenken\n\nFür wen: Schülerinnen und Schüler der 6. Klasse am Gymnasium, Natur und Technik, Schwerpunkt Informatik.\n\nLehrplan: LehrplanPLUS Gymnasium Bayern, Natur und Technik Jahrgangsstufe 6, Lernbereich NT6 2.3 Hierarchische Informationsstrukturen, Dateisystem.\n\nMehr auf dem Kanal:\n▶ Eltern-Guide zu diesem Thema: [Link einfügen]\n▶ Playlist Natur und Technik Klasse 6: [Link einfügen]\n\nTransparenz: Die Sprecherstimme ist computergeneriert (Text-to-Speech). Das Skript folgt dem LehrplanPLUS Bayern und wurde von einem zweiten KI-Modell geprüft; vor der Veröffentlichung sieht ein Elternteil jedes Video durch.\n\n#Informatik #NaturUndTechnik #Klasse6 #GymnasiumBayern",
   "tags": [
-   "Natur und Technik",
-   "Informatik Klasse 6",
-   "Gymnasium Bayern",
    "Dateisystem",
+   "Informatik Klasse 6",
+   "Natur und Technik Informatik",
+   "Gymnasium Bayern",
    "Ordner und Dateien",
    "Baum Informatik",
-   "Pfad",
+   "Wurzel Knoten Kante Blatt",
+   "Pfad Dateisystem",
    "Klasse Objekt Attribut",
-   "rekursiv",
-   "LehrplanPLUS",
-   "NT6",
-   "Informatik Gymnasium",
-   "Wurzel Knoten Blatt",
-   "Dateien finden",
-   "Computer Grundlagen"
+   "rekursiv erklärt",
+   "Informatik einfach erklärt",
+   "LehrplanPLUS Informatik",
+   "Computer Grundlagen Kinder",
+   "NT6 Informatik",
+   "Dateien finden"
   ],
   "chapters": [
    {

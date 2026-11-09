@@ -75,12 +75,26 @@
 0 scene(s) get a generated AI video clip (chapter openers, the hook, the ending and the writer's picks); 3D scenes and graphics carry the rest.
 
 ### YouTube
-**Title:** Informatics in Year 6 (Natur und Technik): The File System as a Tree, for Non-German-Speaking Parent
+**Title:** Informatics at age 11 in Germany: the file system as a tree, explained for international parents
 
-For parents who do not speak German and whose child attends Jahrgangsstufe 6 at a Gymnasium in Bavaria. Where informatics sits in Year 6 (inside Natur und Technik), what the LehrplanPLUS expects in topic NT6 2.3 Hierarchische Informationsstrukturen – Dateisystem, the core ideas in 3D pictures (tree with root, nodes, edges and leaves; path; the classes DATEI and ORDNER; recursion; folder sizes as a chart), the German terms with their English meaning, three exercises at the child's own computer, typical misconceptions and how the subject is assessed.
+Your eleven-year-old already has informatics inside the subject Natur und Technik. It starts with order, not coding: classes, objects, attributes and a tree every child knows from the computer. This guide explains the topic, the German terms, and three exercises at the computer at home.
 
-German terms in this video: Natur und Technik, Datei, Ordner, Dateisystem, Baum, Wurzel, Knoten, Kante, Blatt, Pfad, Klasse, Objekt, Attribut, Punktnotation, rekursiv, Säulendiagramm, Stegreifaufgabe.
+In this video:
+• Where informatics sits in Year 6 and what topic NT6 2.3 expects
+• The core ideas in 3D pictures: tree, path, the classes DATEI and ORDNER, recursion, folder sizes as a chart
+• German terms: Datei, Ordner, Wurzel, Knoten, Kante, Blatt, Pfad, Klasse, Objekt, Attribut, rekursiv
+• Three exercises at home without any German
+• Common misconceptions and how the subject is assessed
 
-The German version for parents (Eltern-Lektion) and the lesson for children (Lektion) are on this channel as well. Curriculum: LehrplanPLUS Gymnasium Bayern, Natur und Technik 6, Lernbereich 2.3.
+For whom: international parents of Year 6 pupils (Jahrgangsstufe 6) at a Gymnasium in Bavaria.
+
+Curriculum: LehrplanPLUS Gymnasium Bayern, Natur und Technik 6, Lernbereich NT6 2.3 Hierarchische Informationsstrukturen, Dateisystem.
+
+More on this channel:
+▶ German lesson for children: [insert link]
+▶ German guide for parents: [insert link]
+▶ Playlist For parents (English): [insert link]
 
 Transparency: the narration is a computer-generated voice (text-to-speech). The script follows the Bavarian LehrplanPLUS and was checked by a second AI model; a parent reviews every video before publication.
+
+#ExpatGermany #GermanSchool #Informatics #GymnasiumBayern

@@ -2,8 +2,8 @@
  "id": "current",
  "prompt": "Lektion E6-1.2 „Verfügen über sprachliche Mittel“ (Englisch (1. Fremdsprache), Klasse 6 Gymnasium Bayern), aus klasse6/lessons/E6-1.2.lesson.json. 16 Minuten, auf Deutsch, für Kinder von etwa 11 Jahren.",
  "attempts": 0,
- "createdAt": 1794219565495,
- "updatedAt": 1794219565495,
+ "createdAt": 1794241545077,
+ "updatedAt": 1794241545077,
  "stage": "plan",
  "mode": "course",
  "durationApplied": true,
@@ -2771,24 +2771,24 @@
   ]
  },
  "publish": {
-  "title": "Simple past oder present perfect? | Englisch Klasse 6 Gymnasium Bayern",
-  "description": "Englisch, 6. Klasse Gymnasium Bayern, Lernbereich E6 1.2 Verfügen über sprachliche Mittel: Wann nimmst du das simple past, wann das present perfect? Mit einem 3D-Zeitstrahl, vier Beispielsätzen (I lost my key yesterday. I have lost my key. We visited London last year. We have visited London twice.), den wichtigsten Signalwörtern, der Perfekt-Falle für deutsche Lernende (Ich habe gestern gespielt heißt I played yesterday) und den unregelmäßigen Verben in drei Formen. Mit fünf Fragen zum Mitdenken.\n\nKapitel siehe unten. Lehrplan: LehrplanPLUS Gymnasium Bayern, Englisch 6, Lernbereich 1.2 (present perfect simple: resultativer Gebrauch).\n\nTransparenz: Die Sprecherstimme ist computergeneriert (Text-to-Speech). Das Skript folgt dem LehrplanPLUS Bayern und wurde von einem zweiten KI-Modell geprüft; vor der Veröffentlichung sieht ein Elternteil jedes Video durch.",
+  "title": "Simple Past oder Present Perfect? Der Unterschied einfach erklärt | Englisch Klasse 6 Bayern",
+  "description": "Simple past oder present perfect? Mit dem Zeitstrahl in 3D siehst du den Unterschied sofort: abgeschlossene Zeit oder Verbindung zum Jetzt. Mit Signalwörtern, der Perfekt-Falle für deutsche Köpfe und fünf Fragen zum Mitdenken.\n\nIn diesem Video:\n• Simple past wiederholt: I lost my key yesterday\n• Present perfect: have oder has plus dritte Form, I have lost my key\n• Signalwörter: yesterday und ago gegen just, already, yet, ever, never\n• Die Falle: Ich habe gestern gespielt heißt I played yesterday\n• Fragen und Verneinungen mit did und have\n• Zwei Entscheidungsfragen und ein Tipp für die Schulaufgabe\n\nFür wen: Schülerinnen und Schüler der 6. Klasse am Gymnasium, Englisch als erste Fremdsprache.\n\nLehrplan: LehrplanPLUS Gymnasium Bayern, Englisch Jahrgangsstufe 6, Lernbereich E6 1.2 Verfügen über sprachliche Mittel (present perfect simple).\n\nMehr auf dem Kanal:\n▶ Eltern-Guide zu diesem Thema: [Link einfügen]\n▶ Playlist Englisch Klasse 6: [Link einfügen]\n\nTransparenz: Die Sprecherstimme ist computergeneriert (Text-to-Speech). Das Skript folgt dem LehrplanPLUS Bayern und wurde von einem zweiten KI-Modell geprüft; vor der Veröffentlichung sieht ein Elternteil jedes Video durch.\n\n#PresentPerfect #EnglischKlasse6 #Englisch #GymnasiumBayern",
   "tags": [
-   "Englisch",
-   "Klasse 6",
-   "Gymnasium Bayern",
    "present perfect",
    "simple past",
-   "Zeitformen Englisch",
-   "Englisch Grammatik",
-   "LehrplanPLUS",
-   "Englisch lernen",
-   "unregelmäßige Verben",
-   "Signalwörter",
    "present perfect simple past Unterschied",
    "Englisch Klasse 6",
-   "E6",
-   "Jahrgangsstufe 6"
+   "Gymnasium Bayern",
+   "Englisch Grammatik",
+   "present perfect einfach erklärt",
+   "Signalwörter present perfect",
+   "Englisch lernen",
+   "Englisch Zeiten",
+   "LehrplanPLUS Englisch",
+   "Englisch Nachhilfe",
+   "6. Klasse Englisch",
+   "present perfect Übungen",
+   "Englisch Schulaufgabe"
   ],
   "chapters": [
    {
@@ -2813,6 +2813,6 @@
    }
   ],
   "thumbnailText": "PAST ODER PERFECT?",
-  "pinnedComment": "Schreib einen Satz im present perfect über deinen Tag in die Kommentare, zum Beispiel: I have finished my homework."
+  "pinnedComment": "Schreib einen Satz im present perfect in die Kommentare und einen im simple past. Ich sage dir, ob sie stimmen."
  }
 }

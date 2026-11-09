@@ -73,10 +73,27 @@
 0 scene(s) get a generated AI video clip (chapter openers, the hook, the ending and the writer's picks); 3D scenes and graphics carry the rest.
 
 ### YouTube
-**Title:** Informatik in der 6. Klasse: Das Dateisystem als Baum | Eltern-Guide Natur und Technik Gymnasium Bay
+**Title:** Informatik in der 6. Klasse: Das Dateisystem als Baum | Natur und Technik Gymnasium Bayern Eltern
 
-Für Eltern und Lehrkräfte: Was der bayerische LehrplanPLUS im Informatikteil von Natur und Technik 6 verlangt, insbesondere im Lernbereich NT6 2.3 Hierarchische Informationsstrukturen – Dateisystem: Klassen DATEI und ORDNER, rekursive Enthält-Beziehung, Baum mit Wurzel, Knoten, Kante, Blatt und Pfad. Die Kernideen in 3D-Bildern, die objektorientierte Denkweise dahinter (Objekt, Klasse, Attribut, Punktnotation), Übungen am eigenen Computer, typische Fehlvorstellungen und die Bewertung in NT.
+Informatik beginnt am bayerischen Gymnasium nicht mit Programmieren, sondern mit Ordnung: Objekte, Klassen, Attribute und ein Baum, den jedes Kind vom Computer kennt. Dieser Eltern-Guide erklärt in gut zehn Minuten den Lernbereich Dateisystem und drei Übungen am eigenen Computer.
 
-Die Kinder-Lektion zum selben Thema gibt es auf diesem Kanal. Lehrplan: LehrplanPLUS Gymnasium Bayern, Natur und Technik 6, Lernbereich 2.3.
+In diesem Video:
+• Der Informatikteil von Natur und Technik 6 und der Lernbereich NT6 2.3
+• Die Kernideen in 3D-Bildern: Baum, Pfad, Klassen DATEI und ORDNER, Rekursion, Ordnergrößen als Diagramm
+• Die objektorientierte Denkweise: Objekt, Klasse, Attribut, Punktnotation
+• Drei Übungen zu Hause: Baum zeichnen, Pfade lesen, Größen vergleichen und aufräumen
+• Vier typische Fehlvorstellungen
+• Wie in NT bewertet wird und wie Informatik weitergeht
+
+Für wen: Eltern und Lehrkräfte von Sechstklässlern am Gymnasium in Bayern.
+
+Lehrplan: LehrplanPLUS Gymnasium Bayern, Natur und Technik Jahrgangsstufe 6, Lernbereich NT6 2.3 Hierarchische Informationsstrukturen, Dateisystem.
+
+Mehr auf dem Kanal:
+▶ Kinder-Lektion zu diesem Thema: [Link einfügen]
+▶ English version for parents: [Link einfügen]
+▶ Playlist Eltern-Guide Klasse 6: [Link einfügen]
 
 Transparenz: Die Sprecherstimme ist computergeneriert (Text-to-Speech). Das Skript folgt dem LehrplanPLUS Bayern und wurde von einem zweiten KI-Modell geprüft; vor der Veröffentlichung sieht ein Elternteil jedes Video durch.
+
+#ElternGuide #Informatik #Klasse6 #GymnasiumBayern

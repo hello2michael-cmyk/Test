@@ -2,8 +2,8 @@
  "id": "current",
  "prompt": "Lektion G6-1 „Der Mensch und seine Geschichte“ (Geschichte, Klasse 6 Gymnasium Bayern), aus klasse6/lessons/G6-1.lesson.json. 18 Minuten, auf Deutsch, für Kinder von etwa 11 Jahren.",
  "attempts": 0,
- "createdAt": 1794219712135,
- "updatedAt": 1794219712135,
+ "createdAt": 1794241545290,
+ "updatedAt": 1794241545290,
  "stage": "plan",
  "mode": "course",
  "durationApplied": true,
@@ -2869,24 +2869,24 @@
   ]
  },
  "publish": {
-  "title": "Zeit, Quellen, Steinzeit: Der Mensch und seine Geschichte | Geschichte Klasse 6 Gymnasium Bayern",
-  "description": "Geschichte, 6. Klasse Gymnasium Bayern, Lernbereich 1 Der Mensch und seine Geschichte: Was ist Geschichte, wie ordnet man die Zeit auf dem Zeitstrahl (Vergangenheit, Gegenwart, Zukunft, v. Chr. und n. Chr., Jahrhundert), welche Quellen gibt es (schriftlich, mündlich, bildlich, gegenständlich; Überrest und Überlieferung), was Archäologie leistet, und wie die Jäger und Sammler der Altsteinzeit und die Bauern der Jungsteinzeit gelebt haben. Mit einem animierten 3D-Zeitstrahl und Fragen zum Mitdenken.\n\nKapitel siehe unten. Lehrplan: LehrplanPLUS Gymnasium Bayern, Geschichte 6, Lernbereich 1.\n\nTransparenz: Die Sprecherstimme ist computergeneriert (Text-to-Speech). Das Skript folgt dem LehrplanPLUS Bayern und wurde von einem zweiten KI-Modell geprüft; vor der Veröffentlichung sieht ein Elternteil jedes Video durch.",
+  "title": "Zeit, Quellen, Steinzeit: Wie Geschichte funktioniert | Geschichte Klasse 6 Gymnasium Bayern",
+  "description": "Geschichte beginnt: Was ist eine Quelle, wie liest man einen Zeitstrahl mit v. Chr. und n. Chr., was macht die Archäologie, und wie lebten Jäger und Sammler in der Altsteinzeit und die ersten Bauern in der Jungsteinzeit? Mit 3D-Zeitstrahl und fünf Fragen zum Mitdenken.\n\nIn diesem Video:\n• Vergangenheit, Gegenwart, Zukunft: der Zeitstrahl, v. Chr., n. Chr., Jahrhundert\n• Quellen: schriftlich, mündlich, bildlich, gegenständlich; Überrest und Überlieferung\n• Archäologie: Spuren ausgraben und deuten\n• Altsteinzeit: Jäger und Sammler, Feuer, Werkzeuge\n• Jungsteinzeit: Ackerbau, Viehzucht, Sesshaftigkeit\n• Fünf Fragen zum Mitdenken\n\nFür wen: Schülerinnen und Schüler der 6. Klasse am Gymnasium, erstes Jahr Geschichte.\n\nLehrplan: LehrplanPLUS Gymnasium Bayern, Geschichte Jahrgangsstufe 6, Lernbereich G6 1 Der Mensch und seine Geschichte.\n\nMehr auf dem Kanal:\n▶ Eltern-Guide zu diesem Thema: [Link einfügen]\n▶ Playlist Geschichte Klasse 6: [Link einfügen]\n\nTransparenz: Die Sprecherstimme ist computergeneriert (Text-to-Speech). Das Skript folgt dem LehrplanPLUS Bayern und wurde von einem zweiten KI-Modell geprüft; vor der Veröffentlichung sieht ein Elternteil jedes Video durch.\n\n#Geschichte #Steinzeit #Klasse6 #GymnasiumBayern",
   "tags": [
-   "Geschichte",
-   "Klasse 6",
-   "Gymnasium Bayern",
-   "Steinzeit",
-   "Altsteinzeit",
-   "Jungsteinzeit",
-   "Zeitstrahl",
-   "Quellen",
-   "Archäologie",
-   "Jäger und Sammler",
-   "LehrplanPLUS",
    "Geschichte Klasse 6",
-   "v. Chr. n. Chr.",
-   "Ötzi",
-   "G6"
+   "Steinzeit",
+   "Altsteinzeit Jungsteinzeit",
+   "Quellen Geschichte",
+   "Zeitstrahl v. Chr. n. Chr.",
+   "Gymnasium Bayern",
+   "Geschichte einfach erklärt",
+   "Archäologie Kinder",
+   "Jäger und Sammler",
+   "erste Bauern",
+   "LehrplanPLUS Geschichte",
+   "Geschichte lernen",
+   "6. Klasse Geschichte",
+   "Überrest Überlieferung",
+   "Geschichte Nachhilfe"
   ],
   "chapters": [
    {
@@ -2911,6 +2911,6 @@
    }
   ],
   "thumbnailText": "ZEIT UND STEINZEIT",
-  "pinnedComment": "Welche alte Sache gibt es bei dir zu Hause, und welche Art Quelle ist sie? Schreib es in die Kommentare."
+  "pinnedComment": "Welche Quelle gibt es bei dir zu Hause, die etwas über früher erzählt? Schreib es in die Kommentare."
  }
 }

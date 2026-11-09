@@ -81,6 +81,9 @@ if (problems.length) { console.error('Problems:\n- ' + problems.join('\n- ')); p
 const prompt = intl
   ? `International lesson ${topic.id} "${topic.title}" (${subject.name}, Jahrgangsstufe 6, Gymnasium Bavaria), from klasse6/lessons/${path.basename(file)}. ${Math.round(estimate / 60)} minutes, in English with the German school terms, for parents who do not speak German.`
   : `${variant === 'eltern' ? 'Eltern-Lektion' : 'Lektion'} ${topic.id} „${topic.title}“ (${subject.name}, Klasse 6 Gymnasium Bayern), aus klasse6/lessons/${path.basename(file)}. ${Math.round(estimate / 60)} Minuten, auf Deutsch, ${variant === 'eltern' ? 'für Eltern und Lehrkräfte' : 'für Kinder von etwa 11 Jahren'}.`;
+// Search-optimised YouTube texts, kept in one place for all videos (klasse6/youtube-seo.json); they override the lesson's own.
+const seoFile = path.join(path.dirname(new URL(import.meta.url).pathname), '../youtube-seo.json');
+const seo = fs.existsSync(seoFile) ? (JSON.parse(fs.readFileSync(seoFile, 'utf8')).videos || {})[`${topic.id}/${variant}`] : null;
 const plan = {
   id: 'current', prompt, attempts: 0, createdAt: Date.now(), updatedAt: Date.now(), stage: 'plan', mode: 'course', durationApplied: true, audios: {}, footage: {}, heroBeats: [],
   settings: { videoStyle: 'course', aspect: '16x9', quality: '1080', fps: 30, theme: 'Midnight', burnInCaptions: true, showProgressBar: true, voice: 'af_heart', speed: speedFactor, sceneHoldSeconds: variant === 'kinder' ? 1.2 : 0.6, musicVolume: 0, ambientBed: false,
@@ -92,9 +95,11 @@ const plan = {
   review: { approved: true, issues: (lesson.review && lesson.review.issues) || [], claimsToVerify: (lesson.review && lesson.review.claimsToVerify) || [], revisedNarration: {}, mustFix: [], reviewer: lesson.review && lesson.review.reviewer },
   storyboard: { scenes: visuals },
   publish: {
-    title: String(lesson.youtube.title).slice(0, 100), description: lesson.youtube.description.trim() + '\n\n' + T.disclosure, tags: (lesson.youtube.tags || []).slice(0, 15),
+    title: String((seo && seo.title) || lesson.youtube.title).slice(0, 100),
+    description: ((seo && seo.description) || lesson.youtube.description).trim() + '\n\n' + T.disclosure + (seo && seo.hashtags ? '\n\n' + seo.hashtags : ''),
+    tags: ((seo && seo.tags) || lesson.youtube.tags || []).slice(0, 15),
     chapters: chapters.map(c => ({ beatId: scenes.find(s => s.chapterId === c.id).beatId, label: c.title })),
-    thumbnailText: (lesson.youtube.thumbnailText || clip(lesson.title, 3)).toUpperCase(), pinnedComment: lesson.youtube.pinnedComment || T.pinned,
+    thumbnailText: (lesson.youtube.thumbnailText || clip(lesson.title, 3)).toUpperCase(), pinnedComment: (seo && seo.pinnedComment) || lesson.youtube.pinnedComment || T.pinned,
   },
 };
 const outDir = path.join(path.dirname(file), topic.id, ...(variant === 'kinder' ? [] : [variant]));

@@ -95,8 +95,24 @@
 ### YouTube
 **Title:** Französische Verben im Präsens: parler, être, avoir, aller und ne … pas | Französisch Klasse 6
 
-Französisch, 6. Klasse Gymnasium Bayern (2. Fremdsprache, erstes Lernjahr), Lernbereich F6 1.2 Verfügen über sprachliche Mittel: Warum französische Verben ihre Endung wechseln, das Muster der -er Verben (Stamm parl- plus e, es, e, ons, ez, ent), welche Endungen man schreibt, aber nicht hört, die beiden wichtigsten Verben être und avoir, das Verb aller und ça va, das Alter mit avoir (j'ai onze ans) und die Verneinung mit ne … pas als Klammer um das Verb. Mit 3D-Verbtabellen, einem Mini-Dialog, fünf Fragen zum Mitdenken und Tipps zum Üben (laut sprechen, Verbkartei).
+Französische Verben einfach erklärt: Warum je parle und tu parles gleich klingen, wie die -er Verben funktionieren, die wichtigsten Verben être, avoir und aller als 3D-Bausteine und die Verneinung mit ne … pas. Mit Mini-Dialog und fünf Fragen zum Mitdenken.
 
-Kapitel siehe unten. Lehrplan: LehrplanPLUS Gymnasium Bayern, Französisch 6 (2. Fremdsprache), Lernbereich 1.2 Verfügen über sprachliche Mittel.
+In diesem Video:
+• Stamm und Endung: das Muster der -er Verben
+• Die stummen Endungen: hören und schreiben
+• être und avoir, die zwei wichtigsten Verben, und das Alter mit avoir
+• aller und was man später damit sagen kann
+• ne … pas und n' vor Vokal
+• Lerntipps: laut sprechen, Verbkartei
+
+Für wen: Schülerinnen und Schüler der 6. Klasse am Gymnasium, Französisch als zweite Fremdsprache im ersten Lernjahr.
+
+Lehrplan: LehrplanPLUS Gymnasium Bayern, Französisch Jahrgangsstufe 6, Lernbereich F6 1.2 Verfügen über sprachliche Mittel.
+
+Mehr auf dem Kanal:
+▶ Eltern-Guide zu diesem Thema: [Link einfügen]
+▶ Playlist Französisch Klasse 6: [Link einfügen]
 
 Transparenz: Die Sprecherstimme ist computergeneriert (Text-to-Speech). Das Skript folgt dem LehrplanPLUS Bayern und wurde von einem zweiten KI-Modell geprüft; vor der Veröffentlichung sieht ein Elternteil jedes Video durch.
+
+#Französisch #FranzösischKlasse6 #Konjugation #GymnasiumBayern

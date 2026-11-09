@@ -73,12 +73,26 @@
 0 scene(s) get a generated AI video clip (chapter openers, the hook, the ending and the writer's picks); 3D scenes and graphics carry the rest.
 
 ### YouTube
-**Title:** Seeds and Fruits in Year 6 Science (Natur und Technik): Guide for Non-German-Speaking Parents (Bavar
+**Title:** Natur und Technik explained: seeds and fruits in Year 6 at a German Gymnasium, for parents
 
-For parents who do not speak German and whose child attends Jahrgangsstufe 6 at a Gymnasium in Bavaria. What the subject Natur und Technik is, what the LehrplanPLUS expects in topic NT6 1.2 Samenpflanzen als Lebewesen, the core ideas in 3D pictures (parts of a seed, the fruit as dispersal unit, dispersal by wind and animals, bionics), the German terms with their English meaning, the cress experiment with a control for home, typical misconceptions and how the subject is assessed.
+Your child's timetable says Natur und Technik and there is cress growing on the windowsill. This guide explains what the subject is, what the Bavarian curriculum teaches about seeds and fruits, the German terms with their English meaning, and how to run the germination experiment at home without any German.
 
-German terms in this video: Natur und Technik, Same, Frucht, Samenschale, Nährgewebe, Embryo, Keimwurzel, Keimspross, Keimblätter, Ausbreitung, Ahornfrucht, Klette, Bionik, Keimung, Hypothese, Variable, Kontrollversuch, Versuchsprotokoll, Ausläufer, Stegreifaufgabe.
+In this video:
+• What Natur und Technik is and what topic NT6 1.2 expects
+• The core ideas in 3D pictures: parts of a seed, the fruit as travel unit, wind and animals, bionics
+• German terms: Same, Frucht, Samenschale, Nährgewebe, Keimling, Keimung, Kontrollversuch
+• The cress experiment with a hypothesis, one variable and a control dish
+• Four common misconceptions and how the subject is assessed
 
-The German version for parents (Eltern-Lektion) and the lesson for children (Lektion) are on this channel as well. Curriculum: LehrplanPLUS Gymnasium Bayern, Natur und Technik 6, Lernbereich 1.2.
+For whom: international parents of Year 6 pupils (Jahrgangsstufe 6) at a Gymnasium in Bavaria.
+
+Curriculum: LehrplanPLUS Gymnasium Bayern, Natur und Technik 6, Lernbereich NT6 1.2 Samenpflanzen als Lebewesen.
+
+More on this channel:
+▶ German lesson for children: [insert link]
+▶ German guide for parents: [insert link]
+▶ Playlist For parents (English): [insert link]
 
 Transparency: the narration is a computer-generated voice (text-to-speech). The script follows the Bavarian LehrplanPLUS and was checked by a second AI model; a parent reviews every video before publication.
+
+#ExpatGermany #GermanSchool #Biology #GymnasiumBayern

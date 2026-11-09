@@ -93,8 +93,25 @@
 ### YouTube
 **Title:** Die Fälle in Latein: a- und o-Deklination einfach erklärt | Latein Klasse 6 Gymnasium Bayern
 
-Latein, 6. Klasse Gymnasium Bayern, Lernbereich L6 2.2 Formenlehre: Warum braucht Latein Endungen, wo Deutsch Artikel und Wortstellung benutzt? Die fünf wichtigsten Fälle (Nominativ, Genitiv, Dativ, Akkusativ, Ablativ) der a-Deklination (puella) und der o-Deklination (servus, templum) im Singular und Plural, dazu der Vokativ, die Fragen zu jedem Fall wie bei der Frageprobe im Deutschen, und was jeder Fall im Satz tut: Subjekt, Objekt, Attribut, Adverbiale. Mit einfachen Sätzen wie Puella servum vocat und Servus puellam vocat, mit 3D-Tabellen und Fragen zum Mitdenken.
+Latein hat keine Artikel, dafür Endungen: Nominativ, Genitiv, Dativ, Akkusativ und Ablativ einfach erklärt an puella, servus und templum als 3D-Tabelle. Mit den Fragen wie bei der Frageprobe im Deutschen, Beispielsätzen und fünf Fragen zum Mitdenken.
 
-Kapitel siehe unten. Lehrplan: LehrplanPLUS Gymnasium Bayern, Latein (2. Fremdsprache) 6, Lernbereich 2.2 Formenlehre, mit Blick auf 2.3 Satzlehre.
+In diesem Video:
+• Warum Latein Endungen braucht: Stamm bleibt, Endung wechselt
+• Die Fälle der a-Deklination: puella im Singular und Plural
+• Die o-Deklination: servus und templum, Neutrum Nominativ gleich Akkusativ
+• Was die Fälle im Satz tun: Puella servum vocat
+• Formen bestimmen: Kasus, Numerus, Genus; KNG-Kongruenz
+• Tipps zum Tabellenlernen
+
+Für wen: Schülerinnen und Schüler der 6. Klasse am Gymnasium, Latein als zweite Fremdsprache im ersten Lernjahr.
+
+Lehrplan: LehrplanPLUS Gymnasium Bayern, Latein Jahrgangsstufe 6, Lernbereich L6 2.2 Formenlehre.
+
+Mehr auf dem Kanal:
+▶ Eltern-Guide zu diesem Thema: [Link einfügen]
+▶ Deutsch: Satzglieder und die Frageprobe: [Link einfügen]
+▶ Playlist Latein Klasse 6: [Link einfügen]
 
 Transparenz: Die Sprecherstimme ist computergeneriert (Text-to-Speech). Das Skript folgt dem LehrplanPLUS Bayern und wurde von einem zweiten KI-Modell geprüft; vor der Veröffentlichung sieht ein Elternteil jedes Video durch.
+
+#Latein #LateinKlasse6 #Deklination #GymnasiumBayern

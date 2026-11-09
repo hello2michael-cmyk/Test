@@ -79,12 +79,26 @@
 0 scene(s) get a generated AI video clip (chapter openers, the hook, the ending and the writer's picks); 3D scenes and graphics carry the rest.
 
 ### YouTube
-**Title:** Brüche in der 6. Klasse: Was Ihr Kind können muss | Eltern-Guide Gymnasium Bayern
+**Title:** Brüche in der 6. Klasse: Was Eltern wissen sollten | Mathe Gymnasium Bayern Eltern-Guide
 
-Für Eltern und Lehrkräfte: Was der bayerische LehrplanPLUS im Lernbereich M6 1.1 Bruchteile und Bruchzahlen verlangt, die vier Kernideen in Bildern (Anteil, Erweitern und Kürzen, Hauptnenner, Zahlengerade), die fünf typischen Fehler aus Schulaufgaben und wie Sie zu Hause in zehn Minuten sinnvoll üben. Mit Ausblick auf Dezimalbrüche und Prozentrechnung.
+Brüche sind das Fundament der Schulmathematik bis zum Abitur. Dieser Eltern-Guide erklärt in zehn Minuten, was der LehrplanPLUS in der 6. Klasse verlangt, welche Fehler Kinder typischerweise machen und wie Sie zu Hause ohne Streit üben.
 
-Die passende Kinder-Lektion mit Fragen und Denkpausen gibt es ebenfalls auf diesem Kanal.
+In diesem Video:
+• Der Lernbereich M6 1.1 und seine Rolle für die nächsten Schuljahre
+• Die vier Kernideen in 3D-Bildern: Anteil, Erweitern und Kürzen, Vergleichen, Zahlengerade
+• Fünf typische Fehler aus Schulaufgaben und wie Sie sie erkennen
+• Eine Zehn-Minuten-Übungsroutine mit Pizza, Messbecher und Maßband
+• Was in der Schulaufgabe geprüft werden kann und was als Nächstes kommt
 
-Lehrplan: LehrplanPLUS Gymnasium Bayern, Mathematik Jahrgangsstufe 6, M6 1.1 (ca. 13 Unterrichtsstunden).
+Für wen: Eltern und Lehrkräfte von Sechstklässlern am Gymnasium in Bayern.
+
+Lehrplan: LehrplanPLUS Gymnasium Bayern, Mathematik Jahrgangsstufe 6, Lernbereich M6 1.1 Bruchteile und Bruchzahlen.
+
+Mehr auf dem Kanal:
+▶ Kinder-Lektion zu diesem Thema: [Link einfügen]
+▶ English version for parents: [Link einfügen]
+▶ Playlist Eltern-Guide Klasse 6: [Link einfügen]
 
 Transparenz: Die Sprecherstimme ist computergeneriert (Text-to-Speech). Das Skript folgt dem LehrplanPLUS Bayern und wurde von einem zweiten KI-Modell geprüft; vor der Veröffentlichung sieht ein Elternteil jedes Video durch.
+
+#ElternGuide #MatheKlasse6 #GymnasiumBayern #Brüche

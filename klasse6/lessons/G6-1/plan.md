@@ -93,10 +93,26 @@
 0 scene(s) get a generated AI video clip (chapter openers, the hook, the ending and the writer's picks); 3D scenes and graphics carry the rest.
 
 ### YouTube
-**Title:** Zeit, Quellen, Steinzeit: Der Mensch und seine Geschichte | Geschichte Klasse 6 Gymnasium Bayern
+**Title:** Zeit, Quellen, Steinzeit: Wie Geschichte funktioniert | Geschichte Klasse 6 Gymnasium Bayern
 
-Geschichte, 6. Klasse Gymnasium Bayern, Lernbereich 1 Der Mensch und seine Geschichte: Was ist Geschichte, wie ordnet man die Zeit auf dem Zeitstrahl (Vergangenheit, Gegenwart, Zukunft, v. Chr. und n. Chr., Jahrhundert), welche Quellen gibt es (schriftlich, mündlich, bildlich, gegenständlich; Überrest und Überlieferung), was Archäologie leistet, und wie die Jäger und Sammler der Altsteinzeit und die Bauern der Jungsteinzeit gelebt haben. Mit einem animierten 3D-Zeitstrahl und Fragen zum Mitdenken.
+Geschichte beginnt: Was ist eine Quelle, wie liest man einen Zeitstrahl mit v. Chr. und n. Chr., was macht die Archäologie, und wie lebten Jäger und Sammler in der Altsteinzeit und die ersten Bauern in der Jungsteinzeit? Mit 3D-Zeitstrahl und fünf Fragen zum Mitdenken.
 
-Kapitel siehe unten. Lehrplan: LehrplanPLUS Gymnasium Bayern, Geschichte 6, Lernbereich 1.
+In diesem Video:
+• Vergangenheit, Gegenwart, Zukunft: der Zeitstrahl, v. Chr., n. Chr., Jahrhundert
+• Quellen: schriftlich, mündlich, bildlich, gegenständlich; Überrest und Überlieferung
+• Archäologie: Spuren ausgraben und deuten
+• Altsteinzeit: Jäger und Sammler, Feuer, Werkzeuge
+• Jungsteinzeit: Ackerbau, Viehzucht, Sesshaftigkeit
+• Fünf Fragen zum Mitdenken
+
+Für wen: Schülerinnen und Schüler der 6. Klasse am Gymnasium, erstes Jahr Geschichte.
+
+Lehrplan: LehrplanPLUS Gymnasium Bayern, Geschichte Jahrgangsstufe 6, Lernbereich G6 1 Der Mensch und seine Geschichte.
+
+Mehr auf dem Kanal:
+▶ Eltern-Guide zu diesem Thema: [Link einfügen]
+▶ Playlist Geschichte Klasse 6: [Link einfügen]
 
 Transparenz: Die Sprecherstimme ist computergeneriert (Text-to-Speech). Das Skript folgt dem LehrplanPLUS Bayern und wurde von einem zweiten KI-Modell geprüft; vor der Veröffentlichung sieht ein Elternteil jedes Video durch.
+
+#Geschichte #Steinzeit #Klasse6 #GymnasiumBayern

@@ -96,12 +96,27 @@
 0 scene(s) get a generated AI video clip (chapter openers, the hook, the ending and the writer's picks); 3D scenes and graphics carry the rest.
 
 ### YouTube
-**Title:** Satzglieder erkennen: Umstellprobe und Frageprobe | Deutsch Klasse 6 Gymnasium Bayern
+**Title:** Satzglieder bestimmen: Umstellprobe und Frageprobe einfach erklärt | Deutsch Klasse 6 Bayern
 
-Wie findest du die Satzglieder eines Satzes? In dieser Lektion siehst du Sätze als 3D-Bausteine: Mit der Umstellprobe erkennst du, was zusammengehört, mit der Frageprobe gibst du jedem Satzglied seinen Namen. Subjekt, Prädikat (im Hauptsatz an zweiter Stelle), Akkusativ- und Dativobjekt, Adverbialien der Zeit, des Ortes, der Art und Weise und des Grundes, und zum Schluss die Attribute als Satzgliedteile. In jedem Kapitel gibt es eine Frage an dich mit Zeit zum Nachdenken.
+Satzglieder bestimmen, einfach erklärt: Mit der Umstellprobe findest du, was zusammengehört, mit der Frageprobe gibst du jedem Satzglied seinen Namen. Subjekt, Prädikat, Objekte, Adverbialien und Attribute als 3D-Bausteine.
 
-Passt zum LehrplanPLUS Gymnasium Bayern, Deutsch Jahrgangsstufe 6, Lernbereich 4.2 Sprachliche Strukturen untersuchen.
+In diesem Video:
+• Die Umstellprobe: Was zusammen wandert, ist ein Satzglied
+• Die Frageprobe: Wer? Was tut? Wen oder was? Wem? Wann? Wo? Wie? Warum?
+• Subjekt und Prädikat, das Prädikat an zweiter Stelle
+• Akkusativobjekt und Dativobjekt unterscheiden
+• Adverbialien der Zeit, des Ortes, der Art und Weise und des Grundes
+• Attribute als Satzgliedteile
+• Fünf Fragen zum Mitdenken
 
-Du lernst: Umstellprobe · Frageprobe · Subjekt und Prädikat · Objekte · Adverbialien · Adverbialsatz · Attribute
+Für wen: Schülerinnen und Schüler der 6. Klasse am Gymnasium, auch zur Vorbereitung auf Grammatiktests und Latein.
+
+Lehrplan: LehrplanPLUS Gymnasium Bayern, Deutsch Jahrgangsstufe 6, Lernbereich D6 4.2 Sprachliche Strukturen untersuchen.
+
+Mehr auf dem Kanal:
+▶ Eltern-Guide zu diesem Thema: [Link einfügen]
+▶ Playlist Deutsch Klasse 6: [Link einfügen]
 
 Transparenz: Die Sprecherstimme ist computergeneriert (Text-to-Speech). Das Skript folgt dem LehrplanPLUS Bayern und wurde von einem zweiten KI-Modell geprüft; vor der Veröffentlichung sieht ein Elternteil jedes Video durch.
+
+#Satzglieder #DeutschKlasse6 #Grammatik #GymnasiumBayern

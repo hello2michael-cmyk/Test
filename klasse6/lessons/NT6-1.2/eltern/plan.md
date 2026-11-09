@@ -71,10 +71,27 @@
 0 scene(s) get a generated AI video clip (chapter openers, the hook, the ending and the writer's picks); 3D scenes and graphics carry the rest.
 
 ### YouTube
-**Title:** Samenpflanzen in der 6. Klasse: Worauf es ankommt | Eltern-Guide Natur und Technik Gymnasium Bayern
+**Title:** Samenpflanzen in der 6. Klasse: Was Eltern wissen sollten | Natur und Technik Gymnasium Bayern
 
-Für Eltern und Lehrkräfte: Was der bayerische LehrplanPLUS im Lernbereich NT6 1.2 Samenpflanzen als Lebewesen verlangt, die Kernideen in 3D-Bildern (Bau des Samens, Frucht als Ausbreitungseinheit, Ausbreitung durch Wind und Tiere, Bionik), die Kosten-Nutzen-Denkweise, der Versuch mit Kontrollversuch für zu Hause, typische Fehlvorstellungen und wie in Natur und Technik geprüft wird. Mit Ausblick auf Keimung, Pflanzenteile und Photosynthese.
+Natur und Technik ist in der 6. Klasse vor allem Biologie, und beim Thema Samenpflanzen geht es um eine Denkweise: Struktur und Funktion, Kosten und Nutzen, Versuch und Kontrollversuch. Dieser Eltern-Guide erklärt in gut zehn Minuten, was der LehrplanPLUS verlangt und wie Sie zu Hause mit einem echten Versuch unterstützen.
 
-Die Kinder-Lektion zum selben Thema gibt es auf diesem Kanal. Lehrplan: LehrplanPLUS Gymnasium Bayern, Natur und Technik 6, Lernbereich 1.2.
+In diesem Video:
+• Das Fach Natur und Technik und der Lernbereich NT6 1.2
+• Die Kernideen in 3D-Bildern: Bau des Samens, Frucht als Ausbreitungseinheit, Wind und Tiere, Bionik
+• Die Kosten-Nutzen-Denkweise des Lehrplans
+• Der Kresseversuch mit Hypothese, Variable, Konstanten und Kontrollversuch
+• Vier typische Fehlvorstellungen
+• Wie in NT bewertet wird, Ausblick auf Photosynthese
+
+Für wen: Eltern und Lehrkräfte von Sechstklässlern am Gymnasium in Bayern.
+
+Lehrplan: LehrplanPLUS Gymnasium Bayern, Natur und Technik Jahrgangsstufe 6, Lernbereich NT6 1.2 Samenpflanzen als Lebewesen.
+
+Mehr auf dem Kanal:
+▶ Kinder-Lektion zu diesem Thema: [Link einfügen]
+▶ English version for parents: [Link einfügen]
+▶ Playlist Eltern-Guide Klasse 6: [Link einfügen]
 
 Transparenz: Die Sprecherstimme ist computergeneriert (Text-to-Speech). Das Skript folgt dem LehrplanPLUS Bayern und wurde von einem zweiten KI-Modell geprüft; vor der Veröffentlichung sieht ein Elternteil jedes Video durch.
+
+#ElternGuide #NaturUndTechnik #Klasse6 #GymnasiumBayern

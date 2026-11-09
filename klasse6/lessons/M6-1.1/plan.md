@@ -104,12 +104,26 @@
 0 scene(s) get a generated AI video clip (chapter openers, the hook, the ending and the writer's picks); 3D scenes and graphics carry the rest.
 
 ### YouTube
-**Title:** Brüche verstehen: Bruchteile und Bruchzahlen | Mathe Klasse 6 Gymnasium Bayern
+**Title:** Brüche verstehen: Zähler, Nenner, Erweitern und Kürzen | Mathe Klasse 6 Gymnasium Bayern
 
-Was ist ein Bruch? In dieser Lektion lernst du mit 3D-Pizzen, einem Streifen, einem Hunderterfeld und der Zahlengeraden, was Zähler und Nenner bedeuten, wie du Bruchteile und das Ganze berechnest, warum Erweitern und Kürzen den Wert nicht ändern, wie du Brüche mit dem Hauptnenner vergleichst und warum 25 % dasselbe ist wie ein Viertel. In jedem Kapitel gibt es eine Frage an dich mit Zeit zum Nachdenken.
+Brüche einfach erklärt für die 6. Klasse: Was Zähler und Nenner bedeuten, warum Erweitern und Kürzen den Wert nicht ändern, wie du Brüche vergleichst und auf der Zahlengeraden findest.
 
-Passt zum LehrplanPLUS Gymnasium Bayern, Mathematik Jahrgangsstufe 6, Lernbereich M6 1.1 Bruchteile und Bruchzahlen.
+In diesem Video:
+• Bruchteile an Pizza und Streifen: Zähler und Nenner
+• Erweitern und Kürzen: gleich viel, anders geschrieben
+• Brüche vergleichen mit dem Hauptnenner
+• Brüche auf der Zahlengeraden, auch negative
+• Prozent als andere Schreibweise
+• Fünf Fragen zum Mitdenken mit Zeit zum Überlegen
 
-Du lernst: Zähler und Nenner · Bruchteil und Ganzes berechnen · Erweitern und Kürzen · Hauptnenner · Prozent als Bruch · Zahlengerade und negative Brüche
+Für wen: Schülerinnen und Schüler der 6. Klasse am Gymnasium, zum Verstehen, Wiederholen und zur Vorbereitung auf die Schulaufgabe.
+
+Lehrplan: LehrplanPLUS Gymnasium Bayern, Mathematik Jahrgangsstufe 6, Lernbereich M6 1.1 Bruchteile und Bruchzahlen.
+
+Mehr auf dem Kanal:
+▶ Eltern-Guide zu diesem Thema: [Link einfügen]
+▶ Playlist Mathe Klasse 6: [Link einfügen]
 
 Transparenz: Die Sprecherstimme ist computergeneriert (Text-to-Speech). Das Skript folgt dem LehrplanPLUS Bayern und wurde von einem zweiten KI-Modell geprüft; vor der Veröffentlichung sieht ein Elternteil jedes Video durch.
+
+#Brüche #MatheKlasse6 #GymnasiumBayern #Bruchrechnung

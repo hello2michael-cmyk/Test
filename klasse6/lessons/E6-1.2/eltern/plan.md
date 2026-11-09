@@ -73,10 +73,25 @@
 0 scene(s) get a generated AI video clip (chapter openers, the hook, the ending and the writer's picks); 3D scenes and graphics carry the rest.
 
 ### YouTube
-**Title:** Present perfect in der 6. Klasse: Worauf es ankommt | Eltern-Guide Englisch Gymnasium Bayern
+**Title:** Present Perfect in der 6. Klasse: Was Eltern wissen sollten | Englisch Gymnasium Bayern Eltern-Guide
 
-Für Eltern und Lehrkräfte: Was der bayerische LehrplanPLUS im Lernbereich E6 1.2 Verfügen über sprachliche Mittel verlangt (Wortschatz, Grammatik, Aussprache), die Kernidee simple past oder present perfect am 3D-Zeitstrahl, die typischen Fehler deutscher Lernender (das deutsche Perfekt ist kein present perfect, Signalwörter, unregelmäßige Verben), wie Sie zu Hause üben können, ohne Englisch zu unterrichten, wie Englisch in der 6. Klasse geprüft wird und welche Grammatik im Lernbereich noch folgt.
+Das present perfect ist die Grammatik, an der deutsche Lernende am häufigsten stolpern, weil das deutsche Perfekt anders funktioniert. Dieser Eltern-Guide erklärt in gut zehn Minuten die Kernidee, die typischen Fehler und wie Sie ohne eigene Englischkenntnisse üben.
 
-Die Kinder-Lektion zum selben Thema gibt es auf diesem Kanal. Lehrplan: LehrplanPLUS Gymnasium Bayern, Englisch 6 (1. Fremdsprache), Lernbereich 1.2.
+In diesem Video:
+• Was der LehrplanPLUS in E6 1.2 verlangt
+• Die Kernidee am Zeitstrahl: abgeschlossene Zeit oder Verbindung zum Jetzt
+• Typische Fehler: Perfekt-Falle, Signalwörter mischen, dritte Form, been oder gone
+• Üben zu Hause: What did you do today?, Lesen und Hören, Verben als Spiel
+• Wie Englisch in der 6. Klasse geprüft wird, Ausblick auf die weitere Grammatik
+
+Für wen: Eltern und Lehrkräfte von Sechstklässlern am Gymnasium in Bayern.
+
+Lehrplan: LehrplanPLUS Gymnasium Bayern, Englisch Jahrgangsstufe 6, Lernbereich E6 1.2 Verfügen über sprachliche Mittel.
+
+Mehr auf dem Kanal:
+▶ Kinder-Lektion zu diesem Thema: [Link einfügen]
+▶ Playlist Eltern-Guide Klasse 6: [Link einfügen]
 
 Transparenz: Die Sprecherstimme ist computergeneriert (Text-to-Speech). Das Skript folgt dem LehrplanPLUS Bayern und wurde von einem zweiten KI-Modell geprüft; vor der Veröffentlichung sieht ein Elternteil jedes Video durch.
+
+#ElternGuide #EnglischKlasse6 #PresentPerfect #GymnasiumBayern

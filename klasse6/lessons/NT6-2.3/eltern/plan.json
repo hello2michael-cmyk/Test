@@ -2,8 +2,8 @@
  "id": "current",
  "prompt": "Eltern-Lektion NT6-2.3 „Hierarchische Informationsstrukturen – Dateisystem“ (Natur und Technik, Klasse 6 Gymnasium Bayern), aus klasse6/lessons/NT6-2.3.eltern.lesson.json. 11 Minuten, auf Deutsch, für Eltern und Lehrkräfte.",
  "attempts": 0,
- "createdAt": 1794219164536,
- "updatedAt": 1794219164536,
+ "createdAt": 1794241544961,
+ "updatedAt": 1794241544961,
  "stage": "plan",
  "mode": "course",
  "durationApplied": true,
@@ -2022,24 +2022,24 @@
   ]
  },
  "publish": {
-  "title": "Informatik in der 6. Klasse: Das Dateisystem als Baum | Eltern-Guide Natur und Technik Gymnasium Bay",
-  "description": "Für Eltern und Lehrkräfte: Was der bayerische LehrplanPLUS im Informatikteil von Natur und Technik 6 verlangt, insbesondere im Lernbereich NT6 2.3 Hierarchische Informationsstrukturen – Dateisystem: Klassen DATEI und ORDNER, rekursive Enthält-Beziehung, Baum mit Wurzel, Knoten, Kante, Blatt und Pfad. Die Kernideen in 3D-Bildern, die objektorientierte Denkweise dahinter (Objekt, Klasse, Attribut, Punktnotation), Übungen am eigenen Computer, typische Fehlvorstellungen und die Bewertung in NT.\n\nDie Kinder-Lektion zum selben Thema gibt es auf diesem Kanal. Lehrplan: LehrplanPLUS Gymnasium Bayern, Natur und Technik 6, Lernbereich 2.3.\n\nTransparenz: Die Sprecherstimme ist computergeneriert (Text-to-Speech). Das Skript folgt dem LehrplanPLUS Bayern und wurde von einem zweiten KI-Modell geprüft; vor der Veröffentlichung sieht ein Elternteil jedes Video durch.",
+  "title": "Informatik in der 6. Klasse: Das Dateisystem als Baum | Natur und Technik Gymnasium Bayern Eltern",
+  "description": "Informatik beginnt am bayerischen Gymnasium nicht mit Programmieren, sondern mit Ordnung: Objekte, Klassen, Attribute und ein Baum, den jedes Kind vom Computer kennt. Dieser Eltern-Guide erklärt in gut zehn Minuten den Lernbereich Dateisystem und drei Übungen am eigenen Computer.\n\nIn diesem Video:\n• Der Informatikteil von Natur und Technik 6 und der Lernbereich NT6 2.3\n• Die Kernideen in 3D-Bildern: Baum, Pfad, Klassen DATEI und ORDNER, Rekursion, Ordnergrößen als Diagramm\n• Die objektorientierte Denkweise: Objekt, Klasse, Attribut, Punktnotation\n• Drei Übungen zu Hause: Baum zeichnen, Pfade lesen, Größen vergleichen und aufräumen\n• Vier typische Fehlvorstellungen\n• Wie in NT bewertet wird und wie Informatik weitergeht\n\nFür wen: Eltern und Lehrkräfte von Sechstklässlern am Gymnasium in Bayern.\n\nLehrplan: LehrplanPLUS Gymnasium Bayern, Natur und Technik Jahrgangsstufe 6, Lernbereich NT6 2.3 Hierarchische Informationsstrukturen, Dateisystem.\n\nMehr auf dem Kanal:\n▶ Kinder-Lektion zu diesem Thema: [Link einfügen]\n▶ English version for parents: [Link einfügen]\n▶ Playlist Eltern-Guide Klasse 6: [Link einfügen]\n\nTransparenz: Die Sprecherstimme ist computergeneriert (Text-to-Speech). Das Skript folgt dem LehrplanPLUS Bayern und wurde von einem zweiten KI-Modell geprüft; vor der Veröffentlichung sieht ein Elternteil jedes Video durch.\n\n#ElternGuide #Informatik #Klasse6 #GymnasiumBayern",
   "tags": [
-   "Natur und Technik",
    "Informatik Klasse 6",
+   "Eltern Gymnasium",
+   "Natur und Technik Informatik",
    "Gymnasium Bayern",
-   "Dateisystem",
-   "Eltern",
-   "LehrplanPLUS",
+   "LehrplanPLUS Informatik",
+   "Dateisystem erklärt",
    "Klasse Objekt Attribut",
+   "Informatikunterricht Bayern",
+   "Elternratgeber Schule",
+   "Computer Kinder lernen",
    "Baum Informatik",
-   "Pfad",
-   "rekursiv",
-   "NT6",
-   "Jahrgangsstufe 6",
-   "Elternratgeber",
-   "Informatikunterricht",
-   "Lernhilfe Informatik"
+   "Lernhilfe Informatik",
+   "Leistungsnachweise NT",
+   "objektorientiert Schule",
+   "Informatik Eltern-Guide"
   ],
   "chapters": [
    {

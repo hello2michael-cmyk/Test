@@ -75,10 +75,26 @@
 0 scene(s) get a generated AI video clip (chapter openers, the hook, the ending and the writer's picks); 3D scenes and graphics carry the rest.
 
 ### YouTube
-**Title:** Französische Verben in der 6. Klasse: Worauf es ankommt | Eltern-Guide Französisch Gymnasium Bayern
+**Title:** Französisch in der 6. Klasse: Verben im Präsens, was Eltern wissen sollten | Gymnasium Bayern
 
-Für Eltern und Lehrkräfte: Was der bayerische LehrplanPLUS im Fach Französisch 6 (2. Fremdsprache) im Lernbereich F6 1.2 Verfügen über sprachliche Mittel bei den Verben verlangt (présent, -er Verben, être, avoir, aller, Verneinung mit ne … pas), die Kernideen in 3D-Verbtabellen, die Denkweise dahinter (Stamm und Endung, Hören und Schreiben trennen), wie Sie zu Hause in zehn Minuten helfen, auch ohne eigene Französischkenntnisse (laut sprechen, Verbkartei, Lieder), typische Fehlvorstellungen, Hinweise zu den Schulaufgaben und ein Ausblick auf futur proche, -re Verben und die weiteren Verneinungen.
+Französisch beginnt in der 6. Klasse als zweite Fremdsprache, und die Verben sind das erste große Thema. Dieser Eltern-Guide erklärt in gut zehn Minuten das Muster hinter den Endungen, warum Hören und Schreiben getrennt geübt werden müssen und wie Sie ohne eigene Französischkenntnisse helfen.
 
-Die Kinder-Lektion zum selben Thema gibt es auf diesem Kanal. Lehrplan: LehrplanPLUS Gymnasium Bayern, Französisch 6 (2. Fremdsprache), Lernbereich 1.2 Verfügen über sprachliche Mittel.
+In diesem Video:
+• Der Lernbereich F6 1.2 im LehrplanPLUS
+• Die Kernideen in 3D-Bildern: Stamm und Endung, stumme Endungen, être und avoir, ne … pas
+• Die Denkweise: Muster erkennen, Hören und Schreiben trennen
+• Üben zu Hause: laut sprechen, Verbkartei, Lieder, zehn Minuten
+• Fehlvorstellungen und was Englisch hilft oder stört
+• Wie Französisch geprüft wird, Ausblick auf das Schuljahr
+
+Für wen: Eltern und Lehrkräfte von Sechstklässlern am Gymnasium in Bayern.
+
+Lehrplan: LehrplanPLUS Gymnasium Bayern, Französisch Jahrgangsstufe 6, Lernbereich F6 1.2 Verfügen über sprachliche Mittel.
+
+Mehr auf dem Kanal:
+▶ Kinder-Lektion zu diesem Thema: [Link einfügen]
+▶ Playlist Eltern-Guide Klasse 6: [Link einfügen]
 
 Transparenz: Die Sprecherstimme ist computergeneriert (Text-to-Speech). Das Skript folgt dem LehrplanPLUS Bayern und wurde von einem zweiten KI-Modell geprüft; vor der Veröffentlichung sieht ein Elternteil jedes Video durch.
+
+#ElternGuide #Französisch #Klasse6 #GymnasiumBayern

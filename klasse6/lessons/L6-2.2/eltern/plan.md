@@ -73,10 +73,26 @@
 0 scene(s) get a generated AI video clip (chapter openers, the hook, the ending and the writer's picks); 3D scenes and graphics carry the rest.
 
 ### YouTube
-**Title:** Latein in der 6. Klasse: Die Fälle verstehen | Eltern-Guide Formenlehre Gymnasium Bayern
+**Title:** Latein in der 6. Klasse: Die Fälle verstehen | Eltern-Guide Gymnasium Bayern
 
-Für Eltern und Lehrkräfte: Was der bayerische LehrplanPLUS für Latein als zweite Fremdsprache in Jahrgangsstufe 6 verlangt (Lernbereich L6 2.2 Formenlehre und 2.3 Satzlehre), die Kernidee der Fälle in 3D-Bildern (Stamm und Endung, a- und o-Deklination, Kasusfunktionen), die Denkweise des Formenbestimmens mit Kasus, Numerus, Genus und KNG-Kongruenz, Übungen für zu Hause mit Vokabelkartei und Fragewörtern, typische Fehlvorstellungen, Hinweise zu Schulaufgaben und ein Ausblick auf 3. Deklination, Konjugationen und Satzlehre.
+Latein beginnt als zweite Fremdsprache, und die Fälle sind eine der ersten Herausforderungen. Dieser Eltern-Guide erklärt in gut zehn Minuten, was der LehrplanPLUS in der Formenlehre verlangt, wie Kinder Formen bestimmen lernen und wie Sie ohne eigenes Latein beim Abfragen helfen.
 
-Die Kinder-Lektion zum selben Thema gibt es auf diesem Kanal. Lehrplan: LehrplanPLUS Gymnasium Bayern, Latein (2. Fremdsprache) 6, Lernbereiche 2.2 und 2.3.
+In diesem Video:
+• Latein als zweite Fremdsprache und die Lernbereiche L6 2.2 und 2.3
+• Die Kernideen in 3D-Bildern: puella, servus, templum und die Kasusfunktionen
+• Die Denkweise: Formen bestimmen, KNG-Kongruenz, Lesen mit der Endung statt der Wortstellung
+• Üben zu Hause: Vokabelkartei mit Genitiv und Genus, Formen mit Fragewörtern abfragen
+• Drei Fehlvorstellungen über Latein
+• Wie Schulaufgaben in Latein aufgebaut sind, Ausblick auf die dritte Deklination
+
+Für wen: Eltern und Lehrkräfte von Sechstklässlern am Gymnasium in Bayern.
+
+Lehrplan: LehrplanPLUS Gymnasium Bayern, Latein Jahrgangsstufe 6, Lernbereiche L6 2.2 Formenlehre und L6 2.3 Satzlehre.
+
+Mehr auf dem Kanal:
+▶ Kinder-Lektion zu diesem Thema: [Link einfügen]
+▶ Playlist Eltern-Guide Klasse 6: [Link einfügen]
 
 Transparenz: Die Sprecherstimme ist computergeneriert (Text-to-Speech). Das Skript folgt dem LehrplanPLUS Bayern und wurde von einem zweiten KI-Modell geprüft; vor der Veröffentlichung sieht ein Elternteil jedes Video durch.
+
+#ElternGuide #Latein #Klasse6 #GymnasiumBayern

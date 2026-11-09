@@ -2,8 +2,8 @@
  "id": "current",
  "prompt": "Eltern-Lektion M6-1.1 „Bruchteile und Bruchzahlen“ (Mathematik, Klasse 6 Gymnasium Bayern), aus klasse6/lessons/M6-1.1.eltern.lesson.json. 10 Minuten, auf Deutsch, für Eltern und Lehrkräfte.",
  "attempts": 0,
- "createdAt": 1794219276653,
- "updatedAt": 1794219276653,
+ "createdAt": 1794241544433,
+ "updatedAt": 1794241544433,
  "stage": "plan",
  "mode": "course",
  "durationApplied": true,
@@ -2016,23 +2016,24 @@
   ]
  },
  "publish": {
-  "title": "Brüche in der 6. Klasse: Was Ihr Kind können muss | Eltern-Guide Gymnasium Bayern",
-  "description": "Für Eltern und Lehrkräfte: Was der bayerische LehrplanPLUS im Lernbereich M6 1.1 Bruchteile und Bruchzahlen verlangt, die vier Kernideen in Bildern (Anteil, Erweitern und Kürzen, Hauptnenner, Zahlengerade), die fünf typischen Fehler aus Schulaufgaben und wie Sie zu Hause in zehn Minuten sinnvoll üben. Mit Ausblick auf Dezimalbrüche und Prozentrechnung.\n\nDie passende Kinder-Lektion mit Fragen und Denkpausen gibt es ebenfalls auf diesem Kanal.\n\nLehrplan: LehrplanPLUS Gymnasium Bayern, Mathematik Jahrgangsstufe 6, M6 1.1 (ca. 13 Unterrichtsstunden).\n\nTransparenz: Die Sprecherstimme ist computergeneriert (Text-to-Speech). Das Skript folgt dem LehrplanPLUS Bayern und wurde von einem zweiten KI-Modell geprüft; vor der Veröffentlichung sieht ein Elternteil jedes Video durch.",
+  "title": "Brüche in der 6. Klasse: Was Eltern wissen sollten | Mathe Gymnasium Bayern Eltern-Guide",
+  "description": "Brüche sind das Fundament der Schulmathematik bis zum Abitur. Dieser Eltern-Guide erklärt in zehn Minuten, was der LehrplanPLUS in der 6. Klasse verlangt, welche Fehler Kinder typischerweise machen und wie Sie zu Hause ohne Streit üben.\n\nIn diesem Video:\n• Der Lernbereich M6 1.1 und seine Rolle für die nächsten Schuljahre\n• Die vier Kernideen in 3D-Bildern: Anteil, Erweitern und Kürzen, Vergleichen, Zahlengerade\n• Fünf typische Fehler aus Schulaufgaben und wie Sie sie erkennen\n• Eine Zehn-Minuten-Übungsroutine mit Pizza, Messbecher und Maßband\n• Was in der Schulaufgabe geprüft werden kann und was als Nächstes kommt\n\nFür wen: Eltern und Lehrkräfte von Sechstklässlern am Gymnasium in Bayern.\n\nLehrplan: LehrplanPLUS Gymnasium Bayern, Mathematik Jahrgangsstufe 6, Lernbereich M6 1.1 Bruchteile und Bruchzahlen.\n\nMehr auf dem Kanal:\n▶ Kinder-Lektion zu diesem Thema: [Link einfügen]\n▶ English version for parents: [Link einfügen]\n▶ Playlist Eltern-Guide Klasse 6: [Link einfügen]\n\nTransparenz: Die Sprecherstimme ist computergeneriert (Text-to-Speech). Das Skript folgt dem LehrplanPLUS Bayern und wurde von einem zweiten KI-Modell geprüft; vor der Veröffentlichung sieht ein Elternteil jedes Video durch.\n\n#ElternGuide #MatheKlasse6 #GymnasiumBayern #Brüche",
   "tags": [
-   "brüche",
-   "bruchrechnung",
-   "mathe klasse 6",
-   "gymnasium bayern",
-   "lehrplanplus",
-   "eltern",
-   "nachhilfe",
-   "schulaufgabe mathe",
-   "zähler nenner",
-   "erweitern kürzen",
-   "hauptnenner",
-   "brüche vergleichen",
-   "lernen zu hause",
-   "6. klasse mathe"
+   "Brüche Klasse 6",
+   "Eltern Gymnasium",
+   "Mathe 6. Klasse Eltern",
+   "Gymnasium Bayern",
+   "LehrplanPLUS Mathematik",
+   "Bruchrechnung üben",
+   "Schulaufgabe Mathe",
+   "Brüche erklären",
+   "Mathe Hausaufgaben helfen",
+   "Elternratgeber Schule",
+   "Bruchteile Bruchzahlen",
+   "Mathe Klasse 6",
+   "Lernhilfe Mathe",
+   "typische Fehler Brüche",
+   "Mathe Eltern-Guide"
   ],
   "chapters": [
    {
@@ -2057,6 +2058,6 @@
    }
   ],
   "thumbnailText": "BRÜCHE: ELTERN-GUIDE",
-  "pinnedComment": "Welcher der fünf Fehler kommt bei Ihrem Kind am häufigsten vor? Schreiben Sie es in die Kommentare."
+  "pinnedComment": "Welche Frage haben Sie zu Brüchen oder zur Schulaufgabe? Schreiben Sie sie in die Kommentare, ich antworte und nehme Themen ins nächste Video."
  }
 }

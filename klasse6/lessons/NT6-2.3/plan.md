@@ -89,10 +89,27 @@
 0 scene(s) get a generated AI video clip (chapter openers, the hook, the ending and the writer's picks); 3D scenes and graphics carry the rest.
 
 ### YouTube
-**Title:** Dateien und Ordner: Das Dateisystem ist ein Baum | Natur und Technik Informatik Klasse 6 Gymnasium B
+**Title:** Dateien und Ordner: Das Dateisystem ist ein Baum | Informatik Klasse 6 Natur und Technik Bayern
 
-Natur und Technik, Schwerpunkt Informatik, 6. Klasse Gymnasium Bayern, Lernbereich NT6 2.3 Hierarchische Informationsstrukturen – Dateisystem: Was eine Datei und was ein Ordner ist, warum das Dateisystem ein Baum ist (Wurzel, Knoten, Kante, Blatt), wie man einen Pfad liest, was die Klassen DATEI und ORDNER mit ihren Attributen sind, was rekursiv bedeutet und wie man Ordnergrößen berechnet und in einem Diagramm vergleicht. Mit 3D-Bildern und Fragen zum Mitdenken.
+Wo ist meine Datei? Das Dateisystem einfach erklärt: Ordner und Dateien als Baum mit Wurzel, Knoten, Kanten und Blättern, der Pfad als Wegbeschreibung, die Klassen ORDNER und DATEI mit Attributen, was rekursiv heißt und wie man Ordnergrößen im Diagramm vergleicht.
 
-Kapitel siehe unten. Lehrplan: LehrplanPLUS Gymnasium Bayern, Natur und Technik 6, Lernbereich 2.3.
+In diesem Video:
+• Datei oder Ordner? Endungen wie .txt, .jpg, .mp3
+• Der Baum: Wurzel, Knoten, Kante, Blatt
+• Den Pfad zu einer Datei lesen und schreiben
+• Klasse, Objekt, Attribut und Punktnotation
+• Rekursiv: Ordner enthalten Ordner
+• Ordnergrößen berechnen und als Säulendiagramm vergleichen
+• Fünf Fragen zum Mitdenken
+
+Für wen: Schülerinnen und Schüler der 6. Klasse am Gymnasium, Natur und Technik, Schwerpunkt Informatik.
+
+Lehrplan: LehrplanPLUS Gymnasium Bayern, Natur und Technik Jahrgangsstufe 6, Lernbereich NT6 2.3 Hierarchische Informationsstrukturen, Dateisystem.
+
+Mehr auf dem Kanal:
+▶ Eltern-Guide zu diesem Thema: [Link einfügen]
+▶ Playlist Natur und Technik Klasse 6: [Link einfügen]
 
 Transparenz: Die Sprecherstimme ist computergeneriert (Text-to-Speech). Das Skript folgt dem LehrplanPLUS Bayern und wurde von einem zweiten KI-Modell geprüft; vor der Veröffentlichung sieht ein Elternteil jedes Video durch.
+
+#Informatik #NaturUndTechnik #Klasse6 #GymnasiumBayern

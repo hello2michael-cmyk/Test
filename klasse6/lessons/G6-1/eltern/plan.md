@@ -73,10 +73,26 @@
 0 scene(s) get a generated AI video clip (chapter openers, the hook, the ending and the writer's picks); 3D scenes and graphics carry the rest.
 
 ### YouTube
-**Title:** Geschichte beginnt: Zeit, Quellen, Steinzeit | Eltern-Guide Geschichte Klasse 6 Gymnasium Bayern
+**Title:** Geschichte in der 6. Klasse: Zeit, Quellen, Steinzeit, was Eltern wissen sollten | Gymnasium Bayern
 
-Für Eltern und Lehrkräfte: Was der bayerische LehrplanPLUS im Lernbereich 1 Der Mensch und seine Geschichte (Geschichte 6, Gymnasium Bayern) verlangt, die Kernideen mit einem animierten Zeitstrahl (Vergangenheit, Gegenwart, Zukunft; v. Chr. und n. Chr.; Quellenarten; Altsteinzeit und Jungsteinzeit), die historische Denkweise der Quellenkritik, konkrete Hilfe für zu Hause (Familiengeschichte als Quelle, Zeitstrahl basteln, Museum), typische Fehlvorstellungen und wie in Geschichte 6 üblicherweise geprüft wird. Mit Ausblick auf Ägypten, Griechenland und Rom.
+Geschichte beginnt in der 6. Klasse mit der Frage, woher wir überhaupt wissen, was früher war. Dieser Eltern-Guide erklärt in gut zehn Minuten, was der LehrplanPLUS im ersten Lernbereich verlangt, wie Kinder Quellen befragen lernen und wie Sie das zu Hause mit der eigenen Familiengeschichte üben.
 
-Die Kinder-Lektion zum selben Thema gibt es auf diesem Kanal. Lehrplan: LehrplanPLUS Gymnasium Bayern, Geschichte 6, Lernbereich 1.
+In diesem Video:
+• Der Lernbereich G6 1 Der Mensch und seine Geschichte
+• Die Kernideen am 3D-Zeitstrahl: Zeit, v. Chr. und n. Chr., Quellen, Steinzeit
+• Die Denkweise: Wer hat die Quelle gemacht, wozu, was fehlt?
+• Üben zu Hause: Familiengeschichte als Quelle, Zeitstrahl basteln, Museum
+• Vier typische Fehlvorstellungen, von Dinosauriern bis zum Jahr null
+• Wie Geschichte bewertet wird, Ausblick auf Ägypten, Griechenland, Rom
+
+Für wen: Eltern und Lehrkräfte von Sechstklässlern am Gymnasium in Bayern.
+
+Lehrplan: LehrplanPLUS Gymnasium Bayern, Geschichte Jahrgangsstufe 6, Lernbereich G6 1.
+
+Mehr auf dem Kanal:
+▶ Kinder-Lektion zu diesem Thema: [Link einfügen]
+▶ Playlist Eltern-Guide Klasse 6: [Link einfügen]
 
 Transparenz: Die Sprecherstimme ist computergeneriert (Text-to-Speech). Das Skript folgt dem LehrplanPLUS Bayern und wurde von einem zweiten KI-Modell geprüft; vor der Veröffentlichung sieht ein Elternteil jedes Video durch.
+
+#ElternGuide #Geschichte #Klasse6 #GymnasiumBayern
