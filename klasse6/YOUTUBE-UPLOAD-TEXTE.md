@@ -12,7 +12,7 @@ Verweise auf andere Videos stehen nur, wenn der Link schon in `klasse6/youtube-l
 Brüche verstehen: Zähler, Nenner, Erweitern und Kürzen | Mathe Klasse 6 Gymnasium Bayern
 ```
 
-**Beschreibung** (1149 Zeichen)
+**Beschreibung** (1291 Zeichen)
 ```
 Brüche einfach erklärt für die 6. Klasse: Was Zähler und Nenner bedeuten, warum Erweitern und Kürzen den Wert nicht ändern, wie du Brüche vergleichst und auf der Zahlengeraden findest.
 
@@ -27,6 +27,10 @@ In diesem Video:
 Für wen: Schülerinnen und Schüler der 6. Klasse am Gymnasium, zum Verstehen, Wiederholen und zur Vorbereitung auf die Schulaufgabe.
 
 Lehrplan: LehrplanPLUS Gymnasium Bayern, Mathematik Jahrgangsstufe 6, Lernbereich M6 1.1 Bruchteile und Bruchzahlen.
+
+Mehr auf dem Kanal:
+▶ Eltern-Guide zu diesem Thema: https://youtu.be/Da73XGrDMGM
+▶ English version for parents: https://youtu.be/c5rhic1aWSI
 
 Kapitel
 0:00 Ein Stück vom Ganzen
@@ -47,7 +51,7 @@ Brüche, Bruchrechnung, Brüche Klasse 6, Mathe Klasse 6, Gymnasium Bayern, Brü
 
 **Angehefteter Kommentar:** entfällt (Kommentare sind bei „für Kinder“ aus).
 
-**Später ergänzen:** Eltern-Guide zu diesem Thema · English version for parents · Playlist Klasse 6 Bayern: Lektionen für Schüler
+**Später ergänzen:** Playlist Klasse 6 Bayern: Lektionen für Schüler
 
 ## 02 · 02-Mathe-Brueche-Eltern
 
@@ -58,7 +62,7 @@ Brüche, Bruchrechnung, Brüche Klasse 6, Mathe Klasse 6, Gymnasium Bayern, Brü
 Brüche in der 6. Klasse: Was Eltern wissen sollten | Mathe Gymnasium Bayern Eltern-Guide
 ```
 
-**Beschreibung** (1330 Zeichen)
+**Beschreibung** (1390 Zeichen)
 ```
 Brüche sind das Fundament der Schulmathematik bis zum Abitur. Dieser Eltern-Guide erklärt in zehn Minuten, was der LehrplanPLUS in der 6. Klasse verlangt, welche Fehler Kinder typischerweise machen und wie Sie zu Hause ohne Streit üben.
 
@@ -75,6 +79,7 @@ Lehrplan: LehrplanPLUS Gymnasium Bayern, Mathematik Jahrgangsstufe 6, Lernbereic
 
 Mehr auf dem Kanal:
 ▶ Kinder-Lektion zu diesem Thema: https://youtu.be/OreoWV9jtjo
+▶ English version for parents: https://youtu.be/c5rhic1aWSI
 
 Kapitel
 0:00 Worum es geht
@@ -98,7 +103,7 @@ Brüche Klasse 6, Eltern Gymnasium, Mathe 6. Klasse Eltern, Gymnasium Bayern, Le
 Welche Frage haben Sie zu Brüchen oder zur Schulaufgabe? Schreiben Sie sie in die Kommentare, ich antworte und nehme Themen ins nächste Video.
 ```
 
-**Später ergänzen:** English version for parents · Playlist Eltern-Guide Klasse 6 Bayern
+**Später ergänzen:** Playlist Eltern-Guide Klasse 6 Bayern
 
 ## 03 · 03-Mathe-Brueche-English
 
@@ -109,7 +114,7 @@ Welche Frage haben Sie zu Brüchen oder zur Schulaufgabe? Schreiben Sie sie in d
 Fractions in Year 6 at a German Gymnasium, explained for parents who don't speak German
 ```
 
-**Beschreibung** (1431 Zeichen)
+**Beschreibung** (1488 Zeichen)
 ```
 Your child is learning fractions at a Bavarian Gymnasium and brings home words like Zähler, Nenner and kürzen. This guide gives you the maths and the German school vocabulary in about twelve minutes, so you can help with homework without speaking German.
 
@@ -126,6 +131,7 @@ Curriculum: LehrplanPLUS Gymnasium Bayern, Mathematik 6, Lernbereich M6 1.1 Bruc
 
 More on this channel:
 ▶ German lesson for children on this topic: https://youtu.be/OreoWV9jtjo
+▶ German guide for parents: https://youtu.be/Da73XGrDMGM
 
 Chapters
 0:00 What this is about
@@ -149,7 +155,7 @@ German school system, Gymnasium Bayern, expat parents Germany, fractions year 6,
 Which German school term puzzles you most? Ask in the comments and we will explain it in the next video.
 ```
 
-**Später ergänzen:** German guide for parents · Playlist For Parents (English): Gymnasium Bavaria Year 6
+**Später ergänzen:** Playlist For Parents (English): Gymnasium Bavaria Year 6
 
 ## 04 · 04-Deutsch-Satzglieder-Kinder
 
