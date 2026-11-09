@@ -33,7 +33,7 @@ const timeline = {
       { t: 0, text: `Der Zeitstrahl von ${fmtYear(T.from)} bis ${fmtYear(T.to)}. Links ist früher, rechts ist später.` },
       { t: 6, text: 'Die Ereignisse erscheinen in ihrer Reihenfolge. Jahreszahlen vor Christi Geburt zählen rückwärts.' },
       { t: 18, text: p.markiert ? `Hervorgehoben: ${T.events[Math.min(T.events.length, p.markiert) - 1][1]}.` : 'Abstände auf dem Zeitstrahl zeigen, wie lange etwas her ist und wie viel Zeit dazwischen liegt.' },
-      { t: 24, text: 'Die Zeit vor Christi Geburt heißt v. Chr., danach n. Chr. Die Grenze ist das Jahr null der Zeitrechnung.' },
+      { t: 24, text: 'Die Zeit vor Christi Geburt heißt v. Chr., danach n. Chr. Die Grenze ist Christi Geburt; ein Jahr null gibt es in der Zeitrechnung nicht.' },
     ];
   },
   draw(S, t, p) {
