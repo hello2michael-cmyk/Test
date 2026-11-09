@@ -9,6 +9,9 @@ die Links. Spalte „Plan“: ✅ = geschrieben, geprüft und eingecheckt.
 Zu jedem Thema gibt es zwei Videos: die **Kinder-Lektion** (`Lektion: <ID>`, langsam, du-Form, Fragen mit Denkpause,
 Kennzeichnung „für Kinder“) und die **Eltern-Lektion** (`Eltern: <ID>`, 8 bis 10 Minuten, Sie-Form, für Eltern und
 Lehrkräfte: Lehrplan, Kernideen, typische Fehler, Üben zu Hause, Schulaufgabe). Spalte „Eltern“: ✅ = eingecheckt.
+Dazu kommt für ausgewählte Themen die **English-Lektion** (`English: <ID>`, auf Englisch für Eltern, die kein Deutsch sprechen;
+die deutschen Fachbegriffe stehen in «…» und werden von der deutschen Stimme gesprochen, Glossar im Lehrplan-JSON).
+Eingecheckt: M6-1.1 (`klasse6/lessons/M6-1.1/international/`).
 
 Fertige Videos (GitHub-Releases, 90 Tage abrufbar):
 

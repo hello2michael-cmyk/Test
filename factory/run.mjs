@@ -24,10 +24,12 @@
 //   LESSON            a Klasse-6 topic id from klasse6/data/klasse6-bayern.json, e.g. M6-2.2: makes a German lesson
 //                     for children from the verified Bavarian syllabus (style course, 3D maths scenes, German voice)
 //   MINUTES           lesson length in minutes (default: the topic's videoMinutes)
-//   VARIANT           kinder (default) | eltern: the parents-and-teachers version of the topic (normal pace, Sie-form)
+//   VARIANT           kinder (default) | eltern: the parents-and-teachers version (normal pace, Sie-form)
+//                     | international: English for parents who do not speak German; «German terms» spoken by the German voice
 //   MUSIC             1 = ambient music bed under lesson narration (default off: voice only)
-//   TTS               google:<voice>  (default for lessons when GOOGLE_TTS_KEY is set: de-DE-Chirp3-HD-Leda for children,
-//                     de-DE-Chirp3-HD-Charon for the parents' version):
+//   TTS               google:<voice>[+<second voice>]  (default for lessons when GOOGLE_TTS_KEY is set: de-DE-Chirp3-HD-Leda for
+//                     children, de-DE-Chirp3-HD-Charon for the parents' version, en-US-Chirp3-HD-Charon+de-DE-Chirp3-HD-Charon for
+//                     the international version: text inside «…» is spoken by the second voice):
 //                     Google Cloud Text-to-Speech, a studio-grade German voice; synthesised here and handed to the page
 //                     piper:<voice>   e.g. piper:de_DE-thorsten-high (default for lessons without a Google key): the voice
 //                     is synthesised here with Piper; the voice files are fetched into .piper/ on first use
@@ -63,8 +65,8 @@ if (lessonId) {
   if (!lesson) { console.error(`LESSON "${lessonId}" is not a topic id in klasse6/data/klasse6-bayern.json (see klasse6/LEKTIONEN.md)`); process.exit(2); }
   // A lesson written and reviewed by Claude in a Claude Code session is committed as klasse6/lessons/<id>/plan.json:
   // it is rendered as it is, so no writer model (and no key) is needed in the factory.
-  const variant = env('VARIANT', 'kinder') === 'eltern' ? 'eltern' : 'kinder';
-  const committed = path.join(process.cwd(), 'klasse6', 'lessons', lesson.topic.id, ...(variant === 'eltern' ? ['eltern'] : []), 'plan.json');
+  const variant = ['eltern', 'international'].includes(env('VARIANT', 'kinder')) ? env('VARIANT', 'kinder') : 'kinder';
+  const committed = path.join(process.cwd(), 'klasse6', 'lessons', lesson.topic.id, ...(variant === 'kinder' ? [] : [variant]), 'plan.json');
   if (!inputPlan && !feedback && fs.existsSync(committed)) {
     inputPlan = JSON.parse(fs.readFileSync(committed, 'utf8'));
     if (inputPlan.plan) inputPlan = inputPlan.plan;
@@ -122,11 +124,11 @@ if (lesson) {
   const variant = env('VARIANT', 'kinder') === 'eltern' ? 'eltern' : 'kinder';
   settings.lesson = { id: lesson.topic.id, title: lesson.topic.title, subject: lesson.subject.name, scene: lesson.subject.id === 'mathematik' && lesson.topic.scene ? lesson.topic.scene : null, minWords: 32, variant };
   if (inputPlan && inputPlan.settings) { if (inputPlan.settings.targetDuration) settings.targetDuration = inputPlan.settings.targetDuration; if (inputPlan.settings.maxDuration) settings.maxDuration = inputPlan.settings.maxDuration; }
-  settings.speed = parseFloat(env('SPEED', variant === 'eltern' ? '1.0' : '0.92')) || 1;   // children: a slightly slower voice
-  settings.sceneHoldSeconds = parseFloat(env('SCENE_HOLD_SECONDS', variant === 'eltern' ? '0.6' : '1.2')) || 0;   // the picture stays a moment after the words
+  settings.speed = parseFloat(env('SPEED', variant === 'kinder' ? '0.92' : '1.0')) || 1;   // children: a slightly slower voice
+  settings.sceneHoldSeconds = parseFloat(env('SCENE_HOLD_SECONDS', variant === 'kinder' ? '1.2' : '0.6')) || 0;   // the picture stays a moment after the words
   settings.footageProvider = env('FOOTAGE', 'none');          // lessons are 3D scenes and graphics; no stock clips of offices
   settings.aiClipBudget = parseInt(env('AI_CLIPS', '0'), 10);
-  settings.cta = env('CTA', 'Abonniere für die nächste Lektion');
+  settings.cta = env('CTA', variant === 'international' ? 'Subscribe for the next topic' : 'Abonniere für die nächste Lektion');
   settings.ambientBed = env('MUSIC', '0') === '1'; settings.musicVolume = settings.ambientBed ? 0.18 : 0;   // lessons: voice only, no synthetic music bed (MUSIC=1 brings it back)
   settings.reviewerModelId = env('REVIEWER', 'hf-text:meta-llama/Llama-3.3-70B-Instruct');
   console.log(`[factory] lesson ${lesson.topic.id} „${lesson.topic.title}“ (${lesson.subject.name}, ${variant}), ${minutes} min, min scene ${settings.minSceneSeconds} s, 3D scene ${settings.lesson.scene || 'none'}`);
@@ -254,19 +256,21 @@ async function cacheHubFile(localUrl) {
 const googleKey = env('GOOGLE_TTS_KEY', '');
 // Default voices, chosen after a side-by-side listen: Leda (lighter, younger) for the children's lessons,
 // Charon (deep, informative) for the parents-and-teachers version.
-const defaultGoogleVoice = env('VARIANT', 'kinder') === 'eltern' ? 'de-DE-Chirp3-HD-Charon' : 'de-DE-Chirp3-HD-Leda';
+const defaultGoogleVoice = { eltern: 'de-DE-Chirp3-HD-Charon', international: 'en-US-Chirp3-HD-Charon+de-DE-Chirp3-HD-Charon' }[env('VARIANT', 'kinder')] || 'de-DE-Chirp3-HD-Leda';
 const ttsSpec = env('TTS', lessonId ? (googleKey ? `google:${defaultGoogleVoice}` : 'piper:de_DE-thorsten-high') : '');
 let google = null, piper = null;
 if (ttsSpec.startsWith('google:') && phase !== 'plan') {
-  const voice = ttsSpec.slice(7);
+  const [voice, secondVoice] = ttsSpec.slice(7).split('+');
   if (!googleKey) console.log(`[factory] WARNING: TTS=${ttsSpec} but no GOOGLE_TTS_KEY; using Piper instead`);
   else {
     const m = voice.match(/^([a-z]{2,3}-[A-Z]{2})-/);
-    google = { voice, languageCode: m ? m[1] : 'de-DE', sampleRate: 24000, cacheDir: path.join(outDir, '.tts-cache') };
+    const m2 = secondVoice ? secondVoice.match(/^([a-z]{2,3}-[A-Z]{2})-/) : null;
+    google = { voice, languageCode: m ? m[1] : 'de-DE', second: secondVoice ? { voice: secondVoice, languageCode: m2 ? m2[1] : 'de-DE' } : null, sampleRate: 24000, cacheDir: path.join(outDir, '.tts-cache') };
     fs.mkdirSync(google.cacheDir, { recursive: true });
     try {
       const probe = await synthGoogle('Hallo, das ist ein Test.', 1);
-      console.log(`[factory] voice: Google Cloud Text-to-Speech ${voice} (${probe.sampleRate} Hz)`);
+      if (google.second) await synthGoogle('«Zähler»', 1);
+      console.log(`[factory] voice: Google Cloud Text-to-Speech ${voice}${google.second ? ' + ' + google.second.voice + ' for «…»' : ''} (${probe.sampleRate} Hz)`);
     } catch (e) { console.log(`[factory] WARNING: Google voice ${voice} unavailable (${e.message}); using Piper instead`); google = null; }
   }
 }
@@ -299,13 +303,30 @@ if (piperVoice && phase !== 'plan') {
 async function synthGoogle(text, speed) {
   const t = String(text || '').replace(/\s+/g, ' ').trim();
   if (!t) return { b64: '', sampleRate: google.sampleRate };
+  // Bilingual narration: «…» marks words for the second voice (the German school terms in the English lessons).
+  if (google.second && /«[^»]+»/.test(t)) {
+    const parts = t.split(/(«[^»]+»)/).map(p => p.trim()).filter(Boolean);
+    const gap = Buffer.alloc(Math.round(0.12 * google.sampleRate) * 2);   // a short breath between the languages
+    const chunks = [];
+    for (const p of parts) {
+      const de = p.startsWith('«');
+      const r = await synthGoogleOne(de ? p.slice(1, -1).trim() : p.replace(/\s+([,.;:!?])/g, '$1'), speed, de ? google.second : google);
+      if (chunks.length) chunks.push(gap);
+      chunks.push(Buffer.from(r.b64, 'base64'));
+    }
+    return { b64: Buffer.concat(chunks).toString('base64'), sampleRate: google.sampleRate };
+  }
+  return synthGoogleOne(t.replace(/[«»]/g, ''), speed, google);
+}
+async function synthGoogleOne(t, speed, v) {
+  if (!t) return { b64: '', sampleRate: google.sampleRate };
   const rate = Math.max(0.5, Math.min(2, speed || 1));
-  const key = crypto.createHash('sha1').update(`${google.voice}|${rate}|${t}`).digest('hex');
+  const key = crypto.createHash('sha1').update(`${v.voice}|${rate}|${t}`).digest('hex');
   const cached = path.join(google.cacheDir, key + '.pcm');
   if (fs.existsSync(cached)) return { b64: fs.readFileSync(cached).toString('base64'), sampleRate: google.sampleRate };
   const body = JSON.stringify({
     input: { text: t },
-    voice: { languageCode: google.languageCode, name: google.voice },
+    voice: { languageCode: v.languageCode, name: v.voice },
     audioConfig: { audioEncoding: 'LINEAR16', sampleRateHertz: google.sampleRate, speakingRate: rate },
   });
   const url = `https://texttospeech.googleapis.com/v1/text:synthesize?key=${encodeURIComponent(googleKey)}`;
@@ -336,7 +357,7 @@ async function synthGoogle(text, speed) {
   return { b64: pcm.toString('base64'), sampleRate: google.sampleRate };
 }
 function synthPiper(text, speed) {
-  const t = String(text || '').replace(/\s+/g, ' ').trim();
+  const t = String(text || '').replace(/[«»]/g, '').replace(/\s+/g, ' ').trim();
   if (!t) return { b64: '', sampleRate: piper.sampleRate };
   const out = execFileSync('piper', ['-m', piper.model, '--output-raw', '--length-scale', String(1 / Math.max(0.6, Math.min(1.6, speed || 1))), '--sentence-silence', String(process.env.SENTENCE_SILENCE || (lessonId ? '0.5' : '0.25'))], { input: t, maxBuffer: 256 * 1024 * 1024, stdio: ['pipe', 'pipe', 'ignore'] });
   return { b64: out.toString('base64'), sampleRate: piper.sampleRate };

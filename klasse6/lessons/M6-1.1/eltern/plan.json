@@ -2,8 +2,8 @@
  "id": "current",
  "prompt": "Eltern-Lektion M6-1.1 „Bruchteile und Bruchzahlen“ (Mathematik, Klasse 6 Gymnasium Bayern), aus klasse6/lessons/M6-1.1.eltern.lesson.json. 10 Minuten, auf Deutsch, für Eltern und Lehrkräfte.",
  "attempts": 0,
- "createdAt": 1794202036789,
- "updatedAt": 1794202036789,
+ "createdAt": 1794208874193,
+ "updatedAt": 1794208874193,
  "stage": "plan",
  "mode": "course",
  "durationApplied": true,
@@ -1194,6 +1194,8 @@
     "question": null,
     "think": 0,
     "hint": null,
+    "thinkText": null,
+    "answerText": null,
     "segment": null,
     "hero": false,
     "chapterId": 1
@@ -1230,6 +1232,8 @@
     "question": null,
     "think": 0,
     "hint": null,
+    "thinkText": null,
+    "answerText": null,
     "segment": null,
     "hero": false,
     "chapterId": 1
@@ -1267,6 +1271,8 @@
     "question": null,
     "think": 0,
     "hint": null,
+    "thinkText": null,
+    "answerText": null,
     "segment": null,
     "hero": false,
     "chapterId": 1
@@ -1304,6 +1310,8 @@
     "question": null,
     "think": 0,
     "hint": null,
+    "thinkText": null,
+    "answerText": null,
     "segment": null,
     "hero": false,
     "chapterId": 2
@@ -1339,6 +1347,8 @@
     "question": null,
     "think": 0,
     "hint": null,
+    "thinkText": null,
+    "answerText": null,
     "segment": [
      0,
      13.9
@@ -1377,6 +1387,8 @@
     "question": null,
     "think": 0,
     "hint": null,
+    "thinkText": null,
+    "answerText": null,
     "segment": [
      13.5,
      30
@@ -1414,6 +1426,8 @@
     "question": null,
     "think": 0,
     "hint": null,
+    "thinkText": null,
+    "answerText": null,
     "segment": [
      0,
      30
@@ -1451,6 +1465,8 @@
     "question": null,
     "think": 0,
     "hint": null,
+    "thinkText": null,
+    "answerText": null,
     "segment": [
      0,
      22
@@ -1492,6 +1508,8 @@
     "question": null,
     "think": 0,
     "hint": null,
+    "thinkText": null,
+    "answerText": null,
     "segment": null,
     "hero": false,
     "chapterId": 3
@@ -1528,6 +1546,8 @@
     "question": null,
     "think": 0,
     "hint": null,
+    "thinkText": null,
+    "answerText": null,
     "segment": null,
     "hero": false,
     "chapterId": 3
@@ -1564,6 +1584,8 @@
     "question": null,
     "think": 0,
     "hint": null,
+    "thinkText": null,
+    "answerText": null,
     "segment": null,
     "hero": false,
     "chapterId": 3
@@ -1600,6 +1622,8 @@
     "question": null,
     "think": 0,
     "hint": null,
+    "thinkText": null,
+    "answerText": null,
     "segment": null,
     "hero": false,
     "chapterId": 3
@@ -1637,6 +1661,8 @@
     "question": null,
     "think": 0,
     "hint": null,
+    "thinkText": null,
+    "answerText": null,
     "segment": null,
     "hero": false,
     "chapterId": 4
@@ -1673,6 +1699,8 @@
     "question": null,
     "think": 0,
     "hint": null,
+    "thinkText": null,
+    "answerText": null,
     "segment": null,
     "hero": false,
     "chapterId": 4
@@ -1709,6 +1737,8 @@
     "question": null,
     "think": 0,
     "hint": null,
+    "thinkText": null,
+    "answerText": null,
     "segment": null,
     "hero": false,
     "chapterId": 4
@@ -1745,6 +1775,8 @@
     "question": null,
     "think": 0,
     "hint": null,
+    "thinkText": null,
+    "answerText": null,
     "segment": null,
     "hero": false,
     "chapterId": 4
@@ -1781,6 +1813,8 @@
     "question": null,
     "think": 0,
     "hint": null,
+    "thinkText": null,
+    "answerText": null,
     "segment": null,
     "hero": false,
     "chapterId": 4
@@ -1818,6 +1852,8 @@
     "question": null,
     "think": 0,
     "hint": null,
+    "thinkText": null,
+    "answerText": null,
     "segment": null,
     "hero": false,
     "chapterId": 5
@@ -1855,6 +1891,8 @@
     "question": null,
     "think": 0,
     "hint": null,
+    "thinkText": null,
+    "answerText": null,
     "segment": null,
     "hero": false,
     "chapterId": 5
@@ -1890,6 +1928,8 @@
     "question": null,
     "think": 0,
     "hint": null,
+    "thinkText": null,
+    "answerText": null,
     "segment": [
      0,
      30
@@ -1925,6 +1965,8 @@
     "question": null,
     "think": 0,
     "hint": null,
+    "thinkText": null,
+    "answerText": null,
     "segment": null,
     "hero": false,
     "chapterId": 5

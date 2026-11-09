@@ -2,8 +2,8 @@
  "id": "current",
  "prompt": "Lektion D6-4.2 „Sprachliche Strukturen untersuchen“ (Deutsch, Klasse 6 Gymnasium Bayern), aus klasse6/lessons/D6-4.2.lesson.json. 14 Minuten, auf Deutsch, für Kinder von etwa 11 Jahren.",
  "attempts": 0,
- "createdAt": 1794168266280,
- "updatedAt": 1794168266280,
+ "createdAt": 1794208874242,
+ "updatedAt": 1794208874242,
  "stage": "plan",
  "mode": "course",
  "durationApplied": true,
@@ -36,7 +36,8 @@
    "subject": "Deutsch",
    "scene": "sentence",
    "minWords": 32,
-   "authored": "D6-4.2.lesson.json"
+   "authored": "D6-4.2.lesson.json",
+   "variant": "kinder"
   }
  },
  "brief": {
@@ -1664,6 +1665,8 @@
     "question": null,
     "think": 0,
     "hint": null,
+    "thinkText": null,
+    "answerText": null,
     "segment": null,
     "hero": false,
     "chapterId": 1
@@ -1699,6 +1702,8 @@
     "question": null,
     "think": 0,
     "hint": null,
+    "thinkText": null,
+    "answerText": null,
     "segment": [
      0,
      3.9
@@ -1737,6 +1742,8 @@
     "question": null,
     "think": 0,
     "hint": null,
+    "thinkText": null,
+    "answerText": null,
     "segment": [
      4.2,
      9.9
@@ -1775,6 +1782,8 @@
     "question": null,
     "think": 0,
     "hint": null,
+    "thinkText": null,
+    "answerText": null,
     "segment": [
      0,
      9.9
@@ -1810,6 +1819,8 @@
     "question": "Wie viele Satzglieder hat der Satz: Nach der Schule spielt Mia Fußball?",
     "think": 10,
     "hint": "Stelle den Satz um. Was wandert zusammen?",
+    "thinkText": null,
+    "answerText": null,
     "segment": null,
     "hero": false,
     "chapterId": 1
@@ -1845,6 +1856,8 @@
     "question": null,
     "think": 0,
     "hint": null,
+    "thinkText": null,
+    "answerText": null,
     "segment": [
      0,
      9.9
@@ -1884,6 +1897,8 @@
     "question": null,
     "think": 0,
     "hint": null,
+    "thinkText": null,
+    "answerText": null,
     "segment": null,
     "hero": false,
     "chapterId": 2
@@ -1919,6 +1934,8 @@
     "question": null,
     "think": 0,
     "hint": null,
+    "thinkText": null,
+    "answerText": null,
     "segment": [
      10,
      15.9
@@ -1957,6 +1974,8 @@
     "question": null,
     "think": 0,
     "hint": null,
+    "thinkText": null,
+    "answerText": null,
     "segment": [
      16,
      21.9
@@ -1996,6 +2015,8 @@
     "question": null,
     "think": 0,
     "hint": null,
+    "thinkText": null,
+    "answerText": null,
     "segment": null,
     "hero": false,
     "chapterId": 2
@@ -2028,6 +2049,8 @@
     "question": "Im Sommer schwimmen die Kinder im See. Was ist das Subjekt, was das Prädikat?",
     "think": 9,
     "hint": "Wer oder was? Und: Was tun sie?",
+    "thinkText": null,
+    "answerText": null,
     "segment": null,
     "hero": false,
     "chapterId": 2
@@ -2063,6 +2086,8 @@
     "question": null,
     "think": 0,
     "hint": null,
+    "thinkText": null,
+    "answerText": null,
     "segment": [
      10,
      15.9
@@ -2103,6 +2128,8 @@
     "question": null,
     "think": 0,
     "hint": null,
+    "thinkText": null,
+    "answerText": null,
     "segment": null,
     "hero": false,
     "chapterId": 3
@@ -2138,6 +2165,8 @@
     "question": null,
     "think": 0,
     "hint": null,
+    "thinkText": null,
+    "answerText": null,
     "segment": [
      10,
      15.9
@@ -2176,6 +2205,8 @@
     "question": null,
     "think": 0,
     "hint": null,
+    "thinkText": null,
+    "answerText": null,
     "segment": [
      10,
      15.9
@@ -2216,6 +2247,8 @@
     "question": null,
     "think": 0,
     "hint": null,
+    "thinkText": null,
+    "answerText": null,
     "segment": null,
     "hero": false,
     "chapterId": 3
@@ -2248,6 +2281,8 @@
     "question": "Der Lehrer gibt den Kindern ein Rätsel. Welches Satzglied ist „den Kindern“?",
     "think": 9,
     "hint": "Welche Frage passt: Wen oder was? oder Wem?",
+    "thinkText": null,
+    "answerText": null,
     "segment": null,
     "hero": false,
     "chapterId": 3
@@ -2284,6 +2319,8 @@
     "question": null,
     "think": 0,
     "hint": null,
+    "thinkText": null,
+    "answerText": null,
     "segment": null,
     "hero": false,
     "chapterId": 3
@@ -2321,6 +2358,8 @@
     "question": null,
     "think": 0,
     "hint": null,
+    "thinkText": null,
+    "answerText": null,
     "segment": null,
     "hero": false,
     "chapterId": 4
@@ -2356,6 +2395,8 @@
     "question": null,
     "think": 0,
     "hint": null,
+    "thinkText": null,
+    "answerText": null,
     "segment": [
      10,
      15.9
@@ -2394,6 +2435,8 @@
     "question": null,
     "think": 0,
     "hint": null,
+    "thinkText": null,
+    "answerText": null,
     "segment": [
      22,
      30
@@ -2434,6 +2477,8 @@
     "question": null,
     "think": 0,
     "hint": null,
+    "thinkText": null,
+    "answerText": null,
     "segment": null,
     "hero": false,
     "chapterId": 4
@@ -2470,6 +2515,8 @@
     "question": null,
     "think": 0,
     "hint": null,
+    "thinkText": null,
+    "answerText": null,
     "segment": null,
     "hero": false,
     "chapterId": 4
@@ -2502,6 +2549,8 @@
     "question": "Wegen des Sturms fällt der Unterricht aus. Welche Art von Adverbiale ist „wegen des Sturms“?",
     "think": 9,
     "hint": "Welche Frage passt: Wann? Wo? Wie? oder Warum?",
+    "thinkText": null,
+    "answerText": null,
     "segment": null,
     "hero": false,
     "chapterId": 4
@@ -2538,6 +2587,8 @@
     "question": null,
     "think": 0,
     "hint": null,
+    "thinkText": null,
+    "answerText": null,
     "segment": null,
     "hero": false,
     "chapterId": 4
@@ -2574,6 +2625,8 @@
     "question": null,
     "think": 0,
     "hint": null,
+    "thinkText": null,
+    "answerText": null,
     "segment": null,
     "hero": false,
     "chapterId": 5
@@ -2609,6 +2662,8 @@
     "question": null,
     "think": 0,
     "hint": null,
+    "thinkText": null,
+    "answerText": null,
     "segment": [
      4.2,
      9.9
@@ -2648,6 +2703,8 @@
     "question": null,
     "think": 0,
     "hint": null,
+    "thinkText": null,
+    "answerText": null,
     "segment": null,
     "hero": false,
     "chapterId": 5
@@ -2680,6 +2737,8 @@
     "question": "Das rote Fahrrad steht im Hof. Welches Wort ist das Attribut?",
     "think": 8,
     "hint": "Was für ein Fahrrad?",
+    "thinkText": null,
+    "answerText": null,
     "segment": null,
     "hero": false,
     "chapterId": 5
@@ -2716,6 +2775,8 @@
     "question": null,
     "think": 0,
     "hint": null,
+    "thinkText": null,
+    "answerText": null,
     "segment": null,
     "hero": false,
     "chapterId": 5
@@ -2748,6 +2809,8 @@
     "question": null,
     "think": 0,
     "hint": null,
+    "thinkText": null,
+    "answerText": null,
     "segment": null,
     "hero": false,
     "chapterId": 5

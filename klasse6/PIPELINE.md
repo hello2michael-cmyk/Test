@@ -76,6 +76,8 @@ Die erste Fassung war zu schnell. Seitdem gilt für Lektionen:
 - **Deutsche Stimme**: Google Cloud Text-to-Speech (Chirp 3 HD, 24 kHz; Standard `de-DE-Chirp3-HD-Leda` für die Kinder-Lektion,
   `de-DE-Chirp3-HD-Charon` für die Eltern-Lektion) im Fabrik-Prozess, sobald das
   Repository-Secret `GOOGLE_TTS_KEY` gesetzt ist; sonst und als Rückfall Piper (Thorsten, 22 kHz). Audiodaten per `__factoryTTS` in die Seite.
+  English-Lektion: `en-US-Chirp3-HD-Charon` für den englischen Text und `de-DE-Chirp3-HD-Charon` für die Begriffe in «…» (derselbe
+  Sprecher in beiden Sprachen; `TTS=google:<Stimme>+<Zweitstimme>`).
   Andere Stimme pro Video: Issue-Zeile `stimme: de-DE-Chirp3-HD-Charon` (oder `stimme: piper:de_DE-thorsten-high`). Synthese wird je Text
   zwischengespeichert, ein Neustart nach Absturz kostet nichts doppelt. Kosten: etwa 30 US-Dollar je Million Zeichen, eine Lektion hat rund
   6.000–10.000 Zeichen.

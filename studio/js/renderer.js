@@ -314,10 +314,10 @@ export class Renderer {
       ctx.fillStyle = theme.text; ctx.font = this.font(this.u(64), 800); ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
       ctx.fillText(String(Math.ceil(remaining)), cx, cy + this.u(4));
       ctx.restore();
-      this.text('Denk kurz nach. Halte das Video an, wenn du mehr Zeit brauchst.', cx + r + this.u(40), cy - this.u(20), this.cw - r * 2 - this.u(60), this.font(this.u(34), 600), theme.text, { alpha: 0.9 });
+      this.text(v.thinkText || 'Denk kurz nach. Halte das Video an, wenn du mehr Zeit brauchst.', cx + r + this.u(40), cy - this.u(20), this.cw - r * 2 - this.u(60), this.font(this.u(34), 600), theme.text, { alpha: 0.9 });
     } else {
       const a = outCubic(prog(elapsed, think, 0.5));
-      this.text('Die Antwort kommt gleich.', cx - r, cy - this.u(20), this.cw, this.font(this.u(40), 700), theme.accent2, { alpha: a });
+      this.text(v.answerText || 'Die Antwort kommt gleich.', cx - r, cy - this.u(20), this.cw, this.font(this.u(40), 700), theme.accent2, { alpha: a });
     }
   }
 

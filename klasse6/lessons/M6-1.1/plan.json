@@ -2,8 +2,8 @@
  "id": "current",
  "prompt": "Lektion M6-1.1 „Bruchteile und Bruchzahlen“ (Mathematik, Klasse 6 Gymnasium Bayern), aus klasse6/lessons/M6-1.1.lesson.json. 15 Minuten, auf Deutsch, für Kinder von etwa 11 Jahren.",
  "attempts": 0,
- "createdAt": 1794168266234,
- "updatedAt": 1794168266234,
+ "createdAt": 1794208874146,
+ "updatedAt": 1794208874146,
  "stage": "plan",
  "mode": "course",
  "durationApplied": true,
@@ -36,7 +36,8 @@
    "subject": "Mathematik",
    "scene": "fraction",
    "minWords": 32,
-   "authored": "M6-1.1.lesson.json"
+   "authored": "M6-1.1.lesson.json",
+   "variant": "kinder"
   }
  },
  "brief": {
@@ -1850,6 +1851,8 @@
     "question": null,
     "think": 0,
     "hint": null,
+    "thinkText": null,
+    "answerText": null,
     "segment": null,
     "hero": false,
     "chapterId": 1
@@ -1885,6 +1888,8 @@
     "question": null,
     "think": 0,
     "hint": null,
+    "thinkText": null,
+    "answerText": null,
     "segment": [
      0,
      8
@@ -1923,6 +1928,8 @@
     "question": null,
     "think": 0,
     "hint": null,
+    "thinkText": null,
+    "answerText": null,
     "segment": [
      8,
      13.9
@@ -1961,6 +1968,8 @@
     "question": null,
     "think": 0,
     "hint": null,
+    "thinkText": null,
+    "answerText": null,
     "segment": [
      0,
      13.9
@@ -1996,6 +2005,8 @@
     "question": "Eine Pizza ist in 10 Stücke geschnitten. Du nimmst 7 Stücke. Welcher Bruch ist das?",
     "think": 8,
     "hint": "Oben: Wie viele Stücke hast du? Unten: In wie viele Stücke wurde geteilt?",
+    "thinkText": null,
+    "answerText": null,
     "segment": null,
     "hero": false,
     "chapterId": 1
@@ -2032,6 +2043,8 @@
     "question": null,
     "think": 0,
     "hint": null,
+    "thinkText": null,
+    "answerText": null,
     "segment": null,
     "hero": false,
     "chapterId": 1
@@ -2068,6 +2081,8 @@
     "question": null,
     "think": 0,
     "hint": null,
+    "thinkText": null,
+    "answerText": null,
     "segment": null,
     "hero": false,
     "chapterId": 2
@@ -2103,6 +2118,8 @@
     "question": null,
     "think": 0,
     "hint": null,
+    "thinkText": null,
+    "answerText": null,
     "segment": [
      0,
      13.9
@@ -2142,6 +2159,8 @@
     "question": null,
     "think": 0,
     "hint": null,
+    "thinkText": null,
+    "answerText": null,
     "segment": null,
     "hero": false,
     "chapterId": 2
@@ -2178,6 +2197,8 @@
     "question": null,
     "think": 0,
     "hint": null,
+    "thinkText": null,
+    "answerText": null,
     "segment": null,
     "hero": false,
     "chapterId": 2
@@ -2210,6 +2231,8 @@
     "question": "Wie viel sind 3/4 von 12 Äpfeln?",
     "think": 10,
     "hint": "Erst durch den Nenner 4 teilen, dann mal den Zähler 3.",
+    "thinkText": null,
+    "answerText": null,
     "segment": null,
     "hero": false,
     "chapterId": 2
@@ -2246,6 +2269,8 @@
     "question": null,
     "think": 0,
     "hint": null,
+    "thinkText": null,
+    "answerText": null,
     "segment": null,
     "hero": false,
     "chapterId": 2
@@ -2282,6 +2307,8 @@
     "question": null,
     "think": 0,
     "hint": null,
+    "thinkText": null,
+    "answerText": null,
     "segment": null,
     "hero": false,
     "chapterId": 2
@@ -2318,6 +2345,8 @@
     "question": null,
     "think": 0,
     "hint": null,
+    "thinkText": null,
+    "answerText": null,
     "segment": null,
     "hero": false,
     "chapterId": 3
@@ -2353,6 +2382,8 @@
     "question": null,
     "think": 0,
     "hint": null,
+    "thinkText": null,
+    "answerText": null,
     "segment": [
      12,
      21
@@ -2391,6 +2422,8 @@
     "question": null,
     "think": 0,
     "hint": null,
+    "thinkText": null,
+    "answerText": null,
     "segment": [
      21,
      30
@@ -2430,6 +2463,8 @@
     "question": null,
     "think": 0,
     "hint": null,
+    "thinkText": null,
+    "answerText": null,
     "segment": null,
     "hero": false,
     "chapterId": 3
@@ -2465,6 +2500,8 @@
     "question": null,
     "think": 0,
     "hint": null,
+    "thinkText": null,
+    "answerText": null,
     "segment": [
      6,
      13.9
@@ -2500,6 +2537,8 @@
     "question": "Kürze 6/8 so weit wie möglich.",
     "think": 8,
     "hint": "Durch welche Zahl kannst du 6 und 8 beide teilen?",
+    "thinkText": null,
+    "answerText": null,
     "segment": null,
     "hero": false,
     "chapterId": 3
@@ -2536,6 +2575,8 @@
     "question": null,
     "think": 0,
     "hint": null,
+    "thinkText": null,
+    "answerText": null,
     "segment": null,
     "hero": false,
     "chapterId": 3
@@ -2572,6 +2613,8 @@
     "question": null,
     "think": 0,
     "hint": null,
+    "thinkText": null,
+    "answerText": null,
     "segment": null,
     "hero": false,
     "chapterId": 4
@@ -2606,6 +2649,8 @@
     "question": null,
     "think": 0,
     "hint": null,
+    "thinkText": null,
+    "answerText": null,
     "segment": [
      0,
      14
@@ -2643,6 +2688,8 @@
     "question": null,
     "think": 0,
     "hint": null,
+    "thinkText": null,
+    "answerText": null,
     "segment": [
      14,
      30
@@ -2680,6 +2727,8 @@
     "question": null,
     "think": 0,
     "hint": null,
+    "thinkText": null,
+    "answerText": null,
     "segment": [
      0,
      30
@@ -2715,6 +2764,8 @@
     "question": "Was ist mehr: 3/5 oder 2/3?",
     "think": 12,
     "hint": "Hauptnenner von 5 und 3 ist 15.",
+    "thinkText": null,
+    "answerText": null,
     "segment": null,
     "hero": false,
     "chapterId": 4
@@ -2749,6 +2800,8 @@
     "question": null,
     "think": 0,
     "hint": null,
+    "thinkText": null,
+    "answerText": null,
     "segment": [
      8,
      30
@@ -2787,6 +2840,8 @@
     "question": null,
     "think": 0,
     "hint": null,
+    "thinkText": null,
+    "answerText": null,
     "segment": [
      0,
      10.5
@@ -2827,6 +2882,8 @@
     "question": null,
     "think": 0,
     "hint": null,
+    "thinkText": null,
+    "answerText": null,
     "segment": null,
     "hero": false,
     "chapterId": 5
@@ -2861,6 +2918,8 @@
     "question": null,
     "think": 0,
     "hint": null,
+    "thinkText": null,
+    "answerText": null,
     "segment": [
      0,
      14
@@ -2898,6 +2957,8 @@
     "question": null,
     "think": 0,
     "hint": null,
+    "thinkText": null,
+    "answerText": null,
     "segment": [
      0,
      14
@@ -2933,6 +2994,8 @@
     "question": "Zwischen welchen ganzen Zahlen liegt −3/4? Und liegt es näher an 0 oder an −1?",
     "think": 8,
     "hint": "Spiegle 3/4 an der Null.",
+    "thinkText": null,
+    "answerText": null,
     "segment": null,
     "hero": false,
     "chapterId": 5
@@ -2967,6 +3030,8 @@
     "question": null,
     "think": 0,
     "hint": null,
+    "thinkText": null,
+    "answerText": null,
     "segment": [
      0,
      16
@@ -3006,6 +3071,8 @@
     "question": null,
     "think": 0,
     "hint": null,
+    "thinkText": null,
+    "answerText": null,
     "segment": null,
     "hero": false,
     "chapterId": 5
@@ -3042,6 +3109,8 @@
     "question": null,
     "think": 0,
     "hint": null,
+    "thinkText": null,
+    "answerText": null,
     "segment": null,
     "hero": false,
     "chapterId": 5
@@ -3074,6 +3143,8 @@
     "question": null,
     "think": 0,
     "hint": null,
+    "thinkText": null,
+    "answerText": null,
     "segment": null,
     "hero": false,
     "chapterId": 5

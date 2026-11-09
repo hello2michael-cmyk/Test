@@ -9,6 +9,7 @@ name: Video factory (make a video from a prompt)
 #     from the verified Bavarian syllabus, with 3D maths scenes, a German voice and a second reviewer model.
 #     Optional lines in the body: "minuten: 7", "footage: free", "stimme: de-DE-Chirp3-HD-Charon" (a Google voice).
 #  5. Open an issue titled "Eltern: M6-1.1": the parents-and-teachers version of the same topic (8-10 minutes).
+#  6. Open an issue titled "English: M6-1.1": the English version for parents who do not speak German (German terms kept).
 on:
   workflow_dispatch:
     inputs:
@@ -45,10 +46,10 @@ on:
         default: ''
         type: string
       variant:
-        description: 'Lesson version: kinder (for children) or eltern (parents and teachers, 8-10 minutes)'
+        description: 'Lesson version: kinder (children), eltern (parents and teachers, German) or international (parents, English with German terms)'
         type: choice
         default: kinder
-        options: [kinder, eltern]
+        options: [kinder, eltern, international]
       voice:
         description: 'Lesson voice: a Google Cloud voice name (e.g. de-DE-Chirp3-HD-Kore) or piper:de_DE-thorsten-high. Empty = default.'
         default: ''
@@ -71,8 +72,8 @@ jobs:
   make:
     if: >-
       github.event_name == 'workflow_dispatch' ||
-      (github.event_name == 'issues' && (startsWith(github.event.issue.title, 'Video:') || startsWith(github.event.issue.title, 'Lektion:') || startsWith(github.event.issue.title, 'Eltern:'))) ||
-      (github.event_name == 'issue_comment' && (startsWith(github.event.issue.title, 'Video:') || startsWith(github.event.issue.title, 'Lektion:') || startsWith(github.event.issue.title, 'Eltern:')) && !github.event.issue.pull_request && github.event.comment.user.type != 'Bot')
+      (github.event_name == 'issues' && (startsWith(github.event.issue.title, 'Video:') || startsWith(github.event.issue.title, 'Lektion:') || startsWith(github.event.issue.title, 'Eltern:') || startsWith(github.event.issue.title, 'English:'))) ||
+      (github.event_name == 'issue_comment' && (startsWith(github.event.issue.title, 'Video:') || startsWith(github.event.issue.title, 'Lektion:') || startsWith(github.event.issue.title, 'Eltern:') || startsWith(github.event.issue.title, 'English:')) && !github.event.issue.pull_request && github.event.comment.user.type != 'Bot')
     runs-on: ubuntu-latest
     timeout-minutes: 170
     steps:
@@ -119,14 +120,14 @@ jobs:
               if lesson and not ev.get('IN_FOOTAGE'): footage = 'none'
               voice = (ev.get('IN_VOICE') or '').strip()
               if lesson:
-                  variant = 'eltern' if (ev.get('IN_VARIANT') or '') == 'eltern' else 'kinder'
+                  variant = ev.get('IN_VARIANT') if (ev.get('IN_VARIANT') or '') in ('eltern', 'international') else 'kinder'
                   prompt = ''      # a lesson is built from the syllabus; a prompt would be read for a length cap
           else:
               title = ev.get('ISSUE_TITLE') or ''
               body = ev.get('ISSUE_BODY') or ''
               o = opts_from(body)
-              if title.lower().startswith('lektion:') or title.lower().startswith('eltern:'):
-                  variant = 'eltern' if title.lower().startswith('eltern:') else 'kinder'
+              if title.lower().startswith(('lektion:', 'eltern:', 'english:')):
+                  variant = {'eltern:': 'eltern', 'english:': 'international'}.get(title.lower().split(':', 1)[0] + ':', 'kinder')
                   m = re.search(r'([A-Za-z]+\d+-[0-9][0-9.]*|[A-Za-z]+\d+)', title.split(':', 1)[1])
                   lesson = m.group(1) if m else ''
                   minutes = o.get('minuten', o.get('minutes', ''))
@@ -157,7 +158,7 @@ jobs:
               else: phase, feedback = 'plan', comment
           # The prompt carries the length ("9 minutes"); the cap input only applies when given.
           # A lesson plan written and reviewed in Claude Code lives in the repository: render it directly, no plan round-trip.
-          if lesson and os.path.exists(f'klasse6/lessons/{lesson}/plan.json' if variant == 'kinder' else f'klasse6/lessons/{lesson}/eltern/plan.json') and not feedback:
+          if lesson and os.path.exists(f'klasse6/lessons/{lesson}/plan.json' if variant == 'kinder' else f'klasse6/lessons/{lesson}/{variant}/plan.json') and not feedback:
               phase = 'all'
               print('committed lesson plan found: rendering directly')
           if lesson and not prompt and not secs:
@@ -191,7 +192,7 @@ jobs:
           ASPECT: ${{ steps.req.outputs.aspect }}
           FOOTAGE: ${{ steps.req.outputs.footage }}
         run: |
-          if [ -n "${{ steps.req.outputs.lesson }}" ]; then TITLE="$([ "${{ steps.req.outputs.variant }}" = eltern ] && echo Eltern || echo Lektion): ${{ steps.req.outputs.lesson }}"; else TITLE="Video: $(head -c 90 prompt.txt | tr '\n' ' ')"; fi
+          if [ -n "${{ steps.req.outputs.lesson }}" ]; then TITLE="$(case "${{ steps.req.outputs.variant }}" in eltern) echo Eltern;; international) echo English;; *) echo Lektion;; esac): ${{ steps.req.outputs.lesson }}"; else TITLE="Video: $(head -c 90 prompt.txt | tr '\n' ' ')"; fi
           printf '%s\n\nstyle: %s\naspect: %s\nfootage: %s\n' "$(cat prompt.txt)" "$STYLE" "$ASPECT" "$FOOTAGE" > issue-body.txt
           URL=$(gh issue create --title "$TITLE" --body-file issue-body.txt)
           echo "issue=${URL##*/}" >> "$GITHUB_OUTPUT"

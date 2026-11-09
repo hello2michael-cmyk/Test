@@ -57,7 +57,28 @@
               ],
               "inhalte": ["Bruchteil, Anteil, Ganzes", "Erweitern, Kürzen, Hauptnenner", "Vergleich von Brüchen", "Zahlengerade mit Brüchen, negative Brüche", "Prozentschreibweise"],
               "kidExplanation": "Ein Bruch ist ein Stück von etwas Ganzem: eine Pizza in 8 Stücke, 3 davon sind 3/8. Teilst du jedes Stück noch einmal, hast du 6/16, aber genau gleich viel Pizza.",
-              "scene": "fraction", "videoMinutes": 6
+              "scene": "fraction", "videoMinutes": 6,
+              "glossary": [
+                { "de": "der Bruch", "en": "fraction" },
+                { "de": "der Zähler", "en": "numerator (top number)" },
+                { "de": "der Nenner", "en": "denominator (bottom number)" },
+                { "de": "der Bruchstrich", "en": "fraction bar" },
+                { "de": "der Anteil", "en": "share, proportion" },
+                { "de": "der Bruchteil", "en": "fractional part" },
+                { "de": "das Ganze", "en": "the whole" },
+                { "de": "erweitern", "en": "to expand: multiply top and bottom by the same number" },
+                { "de": "kürzen", "en": "to reduce: divide top and bottom by the same number" },
+                { "de": "vollständig gekürzt", "en": "fully reduced" },
+                { "de": "gleichnamig", "en": "with the same denominator" },
+                { "de": "der Hauptnenner", "en": "lowest common denominator" },
+                { "de": "die Zahlengerade", "en": "number line" },
+                { "de": "das Prozent", "en": "per cent" },
+                { "de": "die natürlichen Zahlen", "en": "natural numbers (1, 2, 3, …)" },
+                { "de": "die rationalen Zahlen", "en": "rational numbers" },
+                { "de": "die Schulaufgabe", "en": "major written test" },
+                { "de": "die Stegreifaufgabe", "en": "short unannounced test" },
+                { "de": "das Grundwissen", "en": "core knowledge carried into later years" }
+              ]
             },
             {
               "id": "M6-1.2", "title": "Dezimalbrüche", "hours": 11,

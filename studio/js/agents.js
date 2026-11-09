@@ -989,6 +989,8 @@ export function sanitise(v, script) {
     question: v.question ? clip(String(v.question), 30) : null,
     think: Number.isFinite(Number(v.think)) ? Math.max(0, Math.min(20, Number(v.think))) : null,
     hint: v.hint ? clip(String(v.hint), 22) : null,
+    thinkText: v.thinkText ? clip(String(v.thinkText), 14) : null,
+    answerText: v.answerText ? clip(String(v.answerText), 8) : null,
     segment: Array.isArray(v.segment) && v.segment.length === 2 && v.segment.every(x => Number.isFinite(Number(x))) ? [Number(v.segment[0]), Number(v.segment[1])] : null,
     hero: !!v.hero,
     chapterId: v.chapterId != null ? Number(v.chapterId) : (script.chapterId != null ? Number(script.chapterId) : null),
