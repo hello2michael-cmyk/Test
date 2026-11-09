@@ -10,13 +10,30 @@
     "Frucht und Same unterscheiden und die Frucht als Ausbreitungseinheit erklären",
     "Ausbreitung durch Wind und durch Tiere an Beispielen erklären und vergleichen",
     "Bionik an der Ahornfrucht und der Klette erkennen",
-    "Wissen, was ein Same zum Keimen braucht und wozu ein Kontrollversuch dient"
+    "Wissen, was ein Same zum Keimen braucht und wozu ein Kontrollversuch dient",
+    "Ausläufer als ungeschlechtliche Fortpflanzung von der Fortpflanzung mit Samen unterscheiden"
   ],
   "cta": "Abonniere für die nächste Lektion: Wirbeltiere",
   "youtube": {
     "title": "Samen und Früchte: Wie Pflanzen auf Reisen gehen | Natur und Technik Klasse 6 Gymnasium Bayern",
     "description": "Natur und Technik, 6. Klasse Gymnasium Bayern, Lernbereich NT6 1.2 Samenpflanzen als Lebewesen: Was steckt in einem Samen (Samenschale, Nährgewebe, Embryo), was ist der Unterschied zwischen Frucht und Same, wie reisen Samen mit dem Wind (Ahorn, Löwenzahn) und mit Tieren (Kirsche, Klette, Eichhörnchen), was die Technik davon abgeschaut hat (Bionik: Rotor, Klettverschluss), was ein Same zum Keimen braucht und wozu ein Kontrollversuch gut ist. Mit 3D-Bildern und Fragen zum Mitdenken.\n\nKapitel siehe unten. Lehrplan: LehrplanPLUS Gymnasium Bayern, Natur und Technik 6, Lernbereich 1.2.",
-    "tags": ["Natur und Technik", "Klasse 6", "Gymnasium Bayern", "Samen", "Früchte", "Ausbreitung", "Ahornfrucht", "Bionik", "Keimung", "Biologie Klasse 6", "LehrplanPLUS", "Samenpflanzen", "Klette Klettverschluss", "Kontrollversuch", "NT6"],
+    "tags": [
+      "Natur und Technik",
+      "Klasse 6",
+      "Gymnasium Bayern",
+      "Samen",
+      "Früchte",
+      "Ausbreitung",
+      "Ahornfrucht",
+      "Bionik",
+      "Keimung",
+      "Biologie Klasse 6",
+      "LehrplanPLUS",
+      "Samenpflanzen",
+      "Klette Klettverschluss",
+      "Kontrollversuch",
+      "NT6"
+    ],
     "thumbnailText": "SAMEN AUF REISEN",
     "pinnedComment": "Welche Frucht hast du schon mal fliegen oder kleben sehen? Schreib es in die Kommentare."
   },
@@ -24,7 +41,11 @@
     {
       "title": "Was steckt in einem Samen?",
       "goal": "Du kennst die drei Teile eines Samens und weißt, wozu jeder Teil da ist.",
-      "keyPoints": ["Samenschale", "Nährgewebe", "Embryo"],
+      "keyPoints": [
+        "Samenschale",
+        "Nährgewebe",
+        "Embryo"
+      ],
       "scenes": [
         {
           "kind": "title",
@@ -34,18 +55,30 @@
         {
           "kind": "math3d",
           "scene": "seed",
-          "params": { "wind": 1, "frucht": "Ahorn" },
-          "segment": [0, 3.5],
+          "params": {
+            "wind": 1,
+            "frucht": "Ahorn"
+          },
+          "segment": [
+            0,
+            3
+          ],
           "onScreenTitle": "Ein Same im Längsschnitt",
-          "narration": "Wir schneiden einen Samen der Länge nach durch, so wie hier im Bild. Außen siehst du eine braune Hülle. Innen ist er hell gefüllt, und ganz klein, grün, liegt etwas darin, das wie eine winzige Pflanze aussieht. Genau das ist es auch. Drei Teile hat jeder Same, und jeder Teil hat eine Aufgabe. Wir schauen sie uns der Reihe nach an."
+          "narration": "Wir schneiden einen Samen der Länge nach durch, so wie hier im Bild. Außen siehst du eine braune Hülle. Innen ist er hell gefüllt. Gleich schieben wir die Hülle zur Seite und schauen, was darin liegt. Drei Teile hat jeder Same, und jeder Teil hat eine Aufgabe. Wir schauen sie uns der Reihe nach an, von außen nach innen."
         },
         {
           "kind": "math3d",
           "scene": "seed",
-          "params": { "wind": 1, "frucht": "Ahorn" },
-          "segment": [3, 10],
+          "params": {
+            "wind": 1,
+            "frucht": "Ahorn"
+          },
+          "segment": [
+            3,
+            10
+          ],
           "onScreenTitle": "Samenschale, Nährgewebe, Embryo",
-          "narration": "Die braune Hülle ist die Samenschale. Sie schützt den Samen vor Stößen, vor Austrocknen und vor hungrigen Tieren. Das helle Innere ist das Nährgewebe, der Vorrat. Bei der Bohne steckt dieser Vorrat in den zwei dicken Keimblättern. Die kleine grüne Pflanze ist der Embryo, auch Keimling genannt. Er hat schon eine Keimwurzel, die später nach unten wächst, und einen Keimspross, der nach oben wächst. Samenschale, Nährgewebe, Embryo: Schutz, Vorrat und die junge Pflanze."
+          "narration": "Die braune Hülle ist die Samenschale. Sie schützt den Samen vor Stößen, vor Austrocknen und vor hungrigen Tieren. Das helle Innere ist das Nährgewebe, der Vorrat. Bei der Bohne sind die zwei dicken Keimblätter selbst der Vorratsspeicher, und sie gehören schon zum Embryo. Die kleine Pflanze, hier grün eingefärbt, damit du sie erkennst, ist der Embryo, auch Keimling genannt. Er hat schon eine Keimwurzel, die später nach unten wächst, und einen Keimspross, der nach oben wächst. Samenschale, Nährgewebe, Embryo: Schutz, Vorrat und die junge Pflanze."
         },
         {
           "kind": "question",
@@ -69,31 +102,55 @@
     {
       "title": "Die Frucht: Verpackung für die Reise",
       "goal": "Du unterscheidest Frucht und Same und weißt, warum Samen weg von der Mutterpflanze müssen.",
-      "keyPoints": ["Frucht enthält Samen", "Ausbreitungseinheit", "Licht und Platz"],
+      "keyPoints": [
+        "Frucht enthält Samen",
+        "Ausbreitungseinheit",
+        "Licht und Platz"
+      ],
       "scenes": [
         {
           "kind": "chapter",
-          "labels": ["Frucht", "Same", "Reise"],
-          "narration": "Frucht und Same, das ist nicht dasselbe. Die Frucht ist die Verpackung, der Same steckt darin. Bei der Kirsche ist das süße Fruchtfleisch die Frucht und der Kern ist der Same. Bei der Erbse ist die Hülse die Frucht und die Erbsen darin sind die Samen. Die Frucht hat eine Aufgabe: Sie bringt die Samen weg von der Mutterpflanze. Warum das so wichtig ist, siehst du in diesem Kapitel."
+          "labels": [
+            "Frucht",
+            "Same",
+            "Reise"
+          ],
+          "narration": "Frucht und Same, das ist nicht dasselbe. Die Frucht ist die Verpackung, der Same steckt darin. Bei der Kirsche gehört sogar der harte Kern noch zur Frucht; der Same steckt im Kern. Bei der Erbse ist die Hülse die Frucht und die Erbsen darin sind die Samen. Die Frucht hat eine Aufgabe: Sie bringt die Samen weg von der Mutterpflanze. Warum das so wichtig ist, siehst du in diesem Kapitel."
         },
         {
           "kind": "bullets",
           "onScreenTitle": "Frucht oder Same?",
           "bullets": [
-            "Kirsche: Fruchtfleisch ist Frucht, Kern ist Same",
+            "Kirsche: Fruchtfleisch und Steinkern sind Frucht, Same im Kern",
             "Erbse: Hülse ist Frucht, Erbsen sind Samen",
-            "Apfel: Fruchtfleisch ist Frucht, Kerne sind Samen",
+            "Apfel: der ganze Apfel ist Frucht, Kerne sind Samen",
             "Ahorn: Flügel plus Same ist die Frucht"
           ],
-          "narration": "Schauen wir uns ein paar Beispiele an. Bei der Kirsche isst du die Frucht, das Fruchtfleisch, und spuckst den Samen aus, den Kern. Bei der Erbse ist die grüne Hülse die Frucht, und die runden Erbsen darin sind die Samen. Beim Apfel ist das Fruchtfleisch die Frucht, die braunen Kerne sind die Samen. Und beim Ahorn ist der Flügel mit dem dicken Teil die Frucht, der Same sitzt in dem dicken Teil. Die Frucht ist also immer das, was den Samen umgibt und ihn auf die Reise schickt."
+          "narration": "Schauen wir uns ein paar Beispiele an. Bei der Kirsche gehört das süße Fruchtfleisch zur Frucht, und auch der harte Kern. Den eigentlichen Samen findest du erst, wenn du den Kern aufknackst: Er steckt darin. Bei der Erbse ist die grüne Hülse die Frucht, und die runden Erbsen darin sind die Samen. Beim Apfel ist der ganze Apfel die Frucht, die braunen Kerne sind die Samen. Und beim Ahorn ist der Flügel mit dem dicken Teil die Frucht, der Same sitzt in dem dicken Teil. Die Frucht ist also immer das, was den Samen umgibt und ihn auf die Reise schickt."
         },
         {
           "kind": "math3d",
           "scene": "seed",
-          "params": { "wind": 1, "frucht": "Ahorn" },
-          "segment": [20, 30],
+          "params": {
+            "wind": 2,
+            "frucht": "Löwenzahn"
+          },
+          "segment": [
+            20,
+            30
+          ],
           "onScreenTitle": "Drei Wege für die Reise",
-          "narration": "Es gibt drei große Wege, wie Früchte ihre Samen auf die Reise schicken. Mit dem Wind: Der Löwenzahn hat kleine Schirmchen, und die Früchte schweben davon. Durch Tiere, die die Frucht fressen: Ein Vogel frisst die Kirsche, der Kern wandert durch seinen Bauch und kommt woanders wieder heraus. Und durch Tiere, die die Frucht tragen: Die Klette hat winzige Häkchen und bleibt im Fell hängen. Drei Wege, ein Ziel: weg von der Mutterpflanze."
+          "narration": "Es gibt drei große Wege, wie Früchte ihre Samen auf die Reise schicken. Mit dem Wind: Der Löwenzahn hat kleine Schirmchen, und die Früchte schweben davon. Durch Tiere, die die Frucht fressen: Ein Vogel frisst die Kirsche, der Kern wandert durch seinen Bauch und kommt woanders wieder heraus. Und durch Tiere, die die Frucht tragen: Die Klette hat winzige Häkchen und bleibt im Fell hängen. Manche Tiere vergraben Früchte sogar, dazu später mehr. Wind oder Tiere, ein Ziel: weg von der Mutterpflanze."
+        },
+        {
+          "kind": "bullets",
+          "onScreenTitle": "Wind oder Tier? Kosten und Nutzen",
+          "bullets": [
+            "Wind: kostet wenig, braucht viele Früchte und Glück",
+            "Tiere: bringen die Samen oft weiter",
+            "Dafür bezahlt die Pflanze: Fruchtfleisch oder Häkchen"
+          ],
+          "narration": "Jeder Weg hat einen Preis und einen Vorteil. Der Wind kostet die Pflanze wenig, aber er zielt nicht. Deshalb braucht sie sehr viele Früchte, und die meisten landen irgendwo, wo nichts wächst. Tiere bringen die Samen oft weiter und an bessere Orte. Dafür muss die Pflanze etwas bieten: süßes Fruchtfleisch für den Vogel oder gute Häkchen für das Fell. Wenn du eine Frucht siehst, kannst du selbst abwägen: Was kostet dieser Weg die Pflanze, und was bringt er ihr?"
         },
         {
           "kind": "question",
@@ -117,36 +174,62 @@
     {
       "title": "Mit dem Wind",
       "goal": "Du erklärst, wie Ahorn und Löwenzahn mit dem Wind reisen und was die Technik davon gelernt hat.",
-      "keyPoints": ["Ahorn: Propeller", "Löwenzahn: Schirmchen", "Bionik: Rotor"],
+      "keyPoints": [
+        "Ahorn: Propeller",
+        "Löwenzahn: Schirmchen",
+        "Bionik: Rotor"
+      ],
       "scenes": [
         {
           "kind": "chapter",
-          "labels": ["Ahorn", "Löwenzahn", "Bionik"],
+          "labels": [
+            "Ahorn",
+            "Löwenzahn",
+            "Bionik"
+          ],
           "narration": "Der Wind ist ein kostenloses Taxi, aber er fährt, wohin er will. Pflanzen, die ihn nutzen, haben Früchte mit Tricks: einen Flügel wie der Ahorn oder ein Schirmchen wie der Löwenzahn. In diesem Kapitel lassen wir beide fliegen, und wir schauen, was Ingenieure sich davon abgeschaut haben. Dafür gibt es sogar ein eigenes Wort: Bionik."
         },
         {
           "kind": "math3d",
           "scene": "seed",
-          "params": { "wind": 1, "frucht": "Ahorn" },
-          "segment": [10, 16],
+          "params": {
+            "wind": 2,
+            "frucht": "Ahorn"
+          },
+          "segment": [
+            10,
+            16
+          ],
           "onScreenTitle": "Die Ahornfrucht dreht sich wie ein Propeller",
-          "narration": "Hier fällt eine Ahornfrucht vom Baum. Sie hat einen flachen Flügel, und am Ende sitzt der dicke Teil mit dem Samen. Beim Fallen fängt die Frucht an, sich zu drehen, immer schneller, wie ein Propeller. Dadurch fällt sie viel langsamer als ein Stein. Und je länger sie in der Luft ist, desto weiter kann der Wind sie tragen. Bei leichtem Wind landet sie ein paar Meter weiter, bei starkem Wind viel weiter."
+          "narration": "Hier löst sich eine Ahornfrucht von der Mutterpflanze. Sie hat einen flachen Flügel, und am Ende sitzt der dicke Teil mit dem Samen. Beim Fallen fängt die Frucht an, sich zu drehen, und bald dreht sie sich gleichmäßig wie ein Propeller. Dadurch fällt sie viel langsamer als ein Stein. Und je länger sie in der Luft ist, desto weiter kann der Wind sie tragen. Hier weht es mäßig; bei starkem Wind käme sie noch viel weiter."
         },
         {
           "kind": "math3d",
           "scene": "seed",
-          "params": { "wind": 3, "frucht": "Löwenzahn" },
-          "segment": [10, 16],
+          "params": {
+            "wind": 2,
+            "frucht": "Löwenzahn"
+          },
+          "segment": [
+            10,
+            16
+          ],
           "onScreenTitle": "Der Löwenzahn schwebt mit Schirmchen",
-          "narration": "Der Löwenzahn macht es anders. Jede seiner kleinen Früchte hat ein Schirmchen aus feinen Haaren, fast wie ein Fallschirm. Die Frucht ist so leicht, dass schon ein Hauch Wind sie hochhebt. Hier weht es stark, und die Frucht schwebt weit über den Boden hinweg. Dafür hat der Löwenzahn sehr viele Früchte, denn die meisten landen irgendwo, wo sie nicht wachsen können. Viele leichte Samen auf gut Glück, das ist seine Strategie."
+          "narration": "Der Löwenzahn macht es anders. Jede seiner kleinen Früchte hat ein Schirmchen aus feinen Haaren, fast wie ein Fallschirm. Die Frucht ist so leicht, dass schon ein Hauch Wind sie hochhebt. Hier weht derselbe mäßige Wind wie beim Ahorn, und die Frucht schwebt trotzdem weit, weil sie so leicht ist. Dafür hat der Löwenzahn sehr viele Früchte, denn die meisten landen irgendwo, wo sie nicht wachsen können. Viele leichte Samen auf gut Glück, das ist seine Strategie."
         },
         {
           "kind": "math3d",
           "scene": "seed",
-          "params": { "wind": 1, "frucht": "Ahorn" },
-          "segment": [16, 20],
+          "params": {
+            "wind": 1,
+            "frucht": "Ahorn"
+          },
+          "segment": [
+            16,
+            20
+          ],
           "onScreenTitle": "Bionik: Der Rotor lernt vom Ahorn",
-          "narration": "Und jetzt die Bionik. Das Wort kommt von Biologie und Technik. Ingenieure schauen sich an, wie die Natur ein Problem löst, und bauen es nach. Der Rotor eines Hubschraubers dreht sich nach demselben Prinzip wie die Ahornfrucht: Ein schmaler Flügel, der sich dreht, hält etwas in der Luft. Die Natur hatte die Idee lange vor dem ersten Hubschrauber. Und ein zweites Beispiel für Bionik kommt im nächsten Kapitel, da geht es um Häkchen."
+          "narration": "Und jetzt die Bionik. Das Wort kommt von Biologie und Technik. Ingenieure schauen sich an, wie die Natur ein Problem löst, und bauen es nach. Beim Hubschrauber treibt ein Motor den Rotor an, bei der Ahornfrucht dreht der Fahrtwind beim Fallen den Flügel. Gemeinsam ist: Ein Flügel, der sich dreht, bekommt Auftrieb und hält etwas in der Luft. Die Natur hatte die Idee lange vor dem ersten Hubschrauber. Und ein zweites Beispiel für Bionik kommt im nächsten Kapitel, da geht es um Häkchen."
         },
         {
           "kind": "question",
@@ -163,39 +246,47 @@
             "Ohne Wind landet die Frucht nahe am Baum",
             "Der Trick wirkt erst zusammen mit dem Wind"
           ],
-          "narration": "Ohne Wind kommen die Früchte nicht weit. Der Propeller bremst den Fall, aber er lenkt nicht zur Seite. Die Frucht sinkt langsam fast senkrecht nach unten und landet nahe am Stamm. Der Trick des Ahorns wirkt erst zusammen mit dem Wind: Langsam fallen heißt lange in der Luft sein, und lange in der Luft heißt, der Wind hat viel Zeit, die Frucht wegzutragen. Deshalb lassen viele Bäume ihre Früchte im Herbst los, wenn es oft stürmt."
+          "narration": "Ohne Wind kommen die Früchte nicht weit. Der Propeller bremst den Fall, aber er lenkt nicht zur Seite. Die Frucht sinkt langsam in einer kleinen Spirale nach unten und landet meist nahe am Stamm. Der Trick des Ahorns wirkt erst zusammen mit dem Wind: Langsam fallen heißt lange in der Luft sein, und lange in der Luft heißt, der Wind hat viel Zeit, die Frucht wegzutragen. Vielleicht ist das ein Grund, warum viele Ahornfrüchte erst im Herbst fallen, wenn es oft windig ist."
         }
       ]
     },
     {
       "title": "Mit Tieren",
       "goal": "Du erklärst, wie Samen in Tieren und an Tieren reisen, und erkennst die Bionik der Klette.",
-      "keyPoints": ["Gefressen: Kirsche", "Angeheftet: Klette", "Vergraben: Eichel"],
+      "keyPoints": [
+        "Gefressen: Kirsche",
+        "Angeheftet: Klette",
+        "Vergraben: Eichel"
+      ],
       "scenes": [
         {
           "kind": "chapter",
-          "labels": ["Fressen", "Kleben", "Vergraben"],
-          "narration": "Tiere sind bessere Taxis als der Wind: Sie laufen und fliegen weit, und sie landen oft an Orten, wo Pflanzen wachsen können. Pflanzen locken sie mit süßem Fruchtfleisch, hängen sich mit Häkchen an ihr Fell oder lassen sich von ihnen vergraben. Drei Tricks, und einer davon hat eine Erfindung ausgelöst, die du wahrscheinlich gerade an den Schuhen trägst."
+          "labels": [
+            "Fressen",
+            "Kleben",
+            "Vergraben"
+          ],
+          "narration": "Tiere sind oft zielsicherer als der Wind: Sie laufen und fliegen weit, und sie landen oft an Orten, wo Pflanzen wachsen können. Dafür muss die Pflanze ihnen etwas bieten. Pflanzen locken sie mit süßem Fruchtfleisch, hängen sich mit Häkchen an ihr Fell oder lassen sich von ihnen vergraben. Drei Tricks, und einer davon hat eine Erfindung ausgelöst, die du wahrscheinlich gerade an den Schuhen trägst."
         },
         {
           "kind": "bullets",
           "onScreenTitle": "Gefressen: die Kirsche",
           "bullets": [
             "Süßes Fruchtfleisch lockt Vögel an",
-            "Der Kern übersteht den Bauch des Vogels",
+            "Der harte Kern schützt den Samen im Vogelbauch",
             "Er landet weit weg, mit Dünger dazu"
           ],
-          "narration": "Erster Trick: fressen lassen. Die Kirsche ist süß und rot, damit Vögel sie sehen und fressen. Der Kern ist so hart, dass er die Reise durch den Vogelbauch unbeschadet übersteht. Irgendwo weit weg kommt er mit dem Kot wieder heraus, und das Häufchen ist sogar Dünger für den jungen Keimling. Die Pflanze bezahlt mit Fruchtfleisch, und der Vogel liefert den Samen dafür an einen neuen Ort."
+          "narration": "Erster Trick: fressen lassen. Die Kirsche ist süß und rot, damit Vögel sie sehen und fressen. Der Kern ist so hart, dass er den Samen darin auf der Reise durch den Vogelbauch schützt. Irgendwo weit weg kommt er mit dem Kot wieder heraus, und das Häufchen ist sogar Dünger für den jungen Keimling. Die Pflanze bezahlt mit Fruchtfleisch, und der Vogel liefert den Samen dafür an einen neuen Ort."
         },
         {
           "kind": "bullets",
           "onScreenTitle": "Angeheftet: die Klette",
           "bullets": [
-            "Winzige Häkchen greifen in Fell und Kleidung",
+            "Kleine Häkchen greifen in Fell und Kleidung",
             "Das Tier trägt die Frucht mit sich",
             "Beim Putzen fällt sie irgendwo ab"
           ],
-          "narration": "Zweiter Trick: anhängen. Die Klette hat eine Frucht mit vielen winzigen Häkchen. Läuft ein Hund oder ein Reh vorbei, greifen die Häkchen ins Fell, und die Frucht reist mit. Irgendwann putzt sich das Tier, die Frucht fällt ab, und die Samen sind weit weg von der Mutterpflanze. Du kennst das vielleicht von einem Spaziergang: Kletten hängen auch an Socken und Pullovern. Die Pflanze braucht dafür kein süßes Fruchtfleisch, nur gute Häkchen."
+          "narration": "Zweiter Trick: anhängen. Die Klette hat kleine Köpfe mit vielen Häkchen, in denen die Früchte sitzen; wenn du genau hinschaust, siehst du die Häkchen schon ohne Lupe. Läuft ein Hund oder ein Reh vorbei, greifen die Häkchen ins Fell, und die Frucht reist mit. Irgendwann putzt sich das Tier, die Frucht fällt ab, und die Samen sind weit weg von der Mutterpflanze. Du kennst das vielleicht von einem Spaziergang: Kletten hängen auch an Socken und Pullovern. Die Pflanze braucht dafür kein süßes Fruchtfleisch, nur gute Häkchen."
         },
         {
           "kind": "bullets",
@@ -209,10 +300,10 @@
         },
         {
           "kind": "question",
-          "question": "Die Klette hat winzige Häkchen, die im Fell hängen bleiben. Welche Erfindung hat sich ein Mensch davon abgeschaut?",
+          "question": "Die Klette hat kleine Häkchen, die im Fell hängen bleiben. Welche Erfindung hat sich ein Mensch davon abgeschaut?",
           "think": 8,
           "hint": "Du findest sie an Schuhen, Jacken und Taschen. Es macht ratsch.",
-          "narration": "Zeit für die Bionik-Frage. Die Klette hat winzige Häkchen, die sich im Fell festhalten und sich trotzdem wieder lösen lassen. Welche Erfindung hat sich ein Mensch davon abgeschaut? Tipp: Du findest sie an Schuhen, Jacken und Taschen, und sie macht beim Öffnen ein Geräusch. Denk kurz nach."
+          "narration": "Zeit für die Bionik-Frage. Die Klette hat kleine Häkchen, die sich im Fell festhalten und sich trotzdem wieder lösen lassen. Welche Erfindung hat sich ein Mensch davon abgeschaut? Tipp: Du findest sie an Schuhen, Jacken und Taschen, und sie macht beim Öffnen ein Geräusch. Denk kurz nach."
         },
         {
           "kind": "bullets",
@@ -229,11 +320,19 @@
     {
       "title": "Keimen und ein Versuch für zu Hause",
       "goal": "Du weißt, was ein Same zum Keimen braucht, und kannst einen Versuch mit Kontrollversuch planen.",
-      "keyPoints": ["Wasser, Wärme, Luft", "Kontrollversuch", "Ausläufer ohne Samen"],
+      "keyPoints": [
+        "Wasser, Wärme, Luft",
+        "Kontrollversuch",
+        "Ausläufer ohne Samen"
+      ],
       "scenes": [
         {
           "kind": "chapter",
-          "labels": ["Keimung", "Versuch", "Ausläufer"],
+          "labels": [
+            "Keimung",
+            "Versuch",
+            "Ausläufer"
+          ],
           "narration": "Die Reise ist zu Ende, der Same liegt im Boden. Jetzt muss er keimen: Die Samenschale platzt auf, die Keimwurzel wächst nach unten, der Keimspross nach oben. Aber das passiert nicht einfach so. Der Same wartet, bis die Bedingungen stimmen. Welche das sind, kannst du zu Hause selbst herausfinden, mit einem echten Versuch, so wie Forscherinnen und Forscher es machen."
         },
         {
@@ -245,7 +344,7 @@
             "Luft: Der Keimling atmet Sauerstoff",
             "Licht brauchen nur manche Samen zum Keimen"
           ],
-          "narration": "Ein Same braucht zum Keimen Wasser, Wärme und Luft. Wasser lässt ihn aufquellen, bis die Samenschale platzt. Wärme sagt ihm, dass der Winter vorbei ist; im kalten Boden wartet er. Und Luft braucht er, weil der Keimling Sauerstoff atmet, genau wie du. Licht brauchen nur manche Samen zum Keimen; viele keimen auch im Dunkeln unter der Erde. Zum Wachsen danach brauchen aber alle Pflanzen Licht. Deshalb schiebt sich der Keimspross so schnell nach oben."
+          "narration": "Was ein Same zum Keimen braucht, kannst du mit Versuchen prüfen. Drei Dinge zeigen sich dabei: Wasser, Wärme und Luft. Wasser lässt ihn aufquellen, bis die Samenschale platzt. Wärme sagt ihm, dass der Winter vorbei ist; im kalten Boden wartet er. Und Luft braucht er, weil der Keimling Sauerstoff atmet, genau wie du. Licht brauchen nur manche Samen zum Keimen; viele keimen auch im Dunkeln unter der Erde. Zum Wachsen danach brauchen aber alle Pflanzen Licht. Der Keimspross wächst nach oben, dorthin, wo das Licht ist."
         },
         {
           "kind": "bullets",
@@ -255,7 +354,7 @@
             "Schale 1 mit Wasser, Schale 2 ohne",
             "Nur eine Sache ändern: das ist die Variable"
           ],
-          "narration": "So planst du einen Versuch. Nimm zwei Schalen mit Watte und streue in jede gleich viele Kressesamen. Stelle beide an denselben warmen, hellen Ort. Nur einen Unterschied machst du: Schale eins bekommt Wasser, Schale zwei bleibt trocken. Diese eine Sache, die du änderst, heißt Variable. Alles andere bleibt gleich, das sind die Konstanten. Nach drei Tagen schaust du nach und schreibst auf, was du siehst. Rate vorher, was passiert: Das ist deine Hypothese."
+          "narration": "So planst du einen Versuch. Nimm zwei Schalen mit Watte und streue in jede gleich viele Kressesamen. Stelle beide an denselben warmen, hellen Ort; dieser gleiche Ort ist eine Konstante. Nur einen Unterschied machst du: Schale eins bekommt Wasser, Schale zwei bleibt trocken. Diese eine Sache, die du änderst, heißt Variable. Alles andere bleibt gleich, das sind die Konstanten. Nach drei Tagen schaust du nach und schreibst auf, was du siehst. Überlege vorher mit Begründung, was passieren wird, und schreib es auf: Wenn die Kresse kein Wasser bekommt, dann ... Das ist deine Hypothese."
         },
         {
           "kind": "question",
@@ -270,9 +369,9 @@
           "bullets": [
             "Ohne Vergleich weißt du nicht, woran es lag",
             "Keimt nur die nasse Schale: Wasser war der Grund",
-            "Forscher machen immer einen Kontrollversuch"
+            "Forscher machen wenn möglich einen Kontrollversuch"
           ],
-          "narration": "Die zweite Schale ist der Kontrollversuch. Wenn du nur die nasse Schale hättest und die Kresse wächst, wüsstest du nicht, ob es am Wasser lag. Vielleicht wäre sie auch trocken gewachsen. Erst der Vergleich zeigt es: Keimt die nasse Kresse und die trockene nicht, dann war das Wasser der Grund. Forscherinnen und Forscher machen deshalb immer einen Kontrollversuch. Das hast du schon im ersten Lernbereich gelernt, und hier siehst du, wozu es gut ist."
+          "narration": "Die zweite Schale ist der Kontrollversuch. Wenn du nur die nasse Schale hättest und die Kresse wächst, wüsstest du nicht, ob es wirklich am Wasser lag oder an etwas anderem. Erst der Vergleich zeigt es: Keimt die nasse Kresse und die trockene nicht, dann war das Wasser der Grund. Forscherinnen und Forscher machen deshalb wenn möglich einen Kontrollversuch. Das hast du schon im ersten Lernbereich gelernt, und hier siehst du, wozu es gut ist."
         },
         {
           "kind": "bullets",
@@ -282,13 +381,41 @@
             "Am Ende wurzelt eine neue Pflanze",
             "Schnell und sicher, aber alle Pflanzen sind gleich"
           ],
-          "narration": "Zum Schluss noch ein Trick ohne Samen. Die Erdbeere bildet Ausläufer: lange Triebe, die über den Boden kriechen und am Ende eine neue Pflanze wurzeln lassen. Das geht schnell, braucht keine Blüte und keinen Bestäuber. Aber alle neuen Pflanzen sind genau gleich wie die Mutterpflanze. Kommt eine Krankheit, trifft sie alle. Samen dagegen sind alle ein bisschen verschieden und reisen weit. Beides hat Vorteile und Kosten, und viele Pflanzen machen deshalb beides."
+          "narration": "Zum Schluss noch ein Trick ohne Samen. Die Erdbeere bildet Ausläufer: lange Triebe, die über den Boden kriechen und am Ende eine neue Pflanze wurzeln lassen. Das nennt man ungeschlechtliche Fortpflanzung; Samen dagegen entstehen geschlechtlich, aus Blüte und Bestäubung. Ausläufer gehen schnell und brauchen keine Blüte und keinen Bestäuber. Aber alle neuen Pflanzen sind genau gleich wie die Mutterpflanze. Kommt eine Krankheit, trifft sie alle. Samen dagegen sind alle ein bisschen verschieden und reisen weit. Beides hat Vorteile und Kosten, und viele Pflanzen machen deshalb beides."
         },
         {
           "kind": "outro",
-          "narration": "Merk dir das: Ein Same ist eine junge Pflanze mit Vorrat und Schutzhülle, Embryo, Nährgewebe, Samenschale. Die Frucht ist seine Verpackung für die Reise, mit dem Wind, im Tier oder am Tier, weit weg von der Mutterpflanze, wo Licht und Platz sind. Die Technik hat davon gelernt: der Rotor vom Ahorn, der Klettverschluss von der Klette. Probiere den Kresseversuch mit Kontrollschale aus und schreib in die Kommentare, was passiert ist. Abonniere für die nächste Lektion."
+          "narration": "Merk dir das: Ein Same ist eine junge Pflanze mit Vorrat und Schutzhülle, Embryo, Nährgewebe, Samenschale. Die Frucht ist seine Verpackung für die Reise, mit dem Wind, im Tier oder am Tier, weit weg von der Mutterpflanze, wo Licht und Platz sind. Die Technik hat davon gelernt: der Rotor vom Ahorn, der Klettverschluss von der Klette. Zum Keimen braucht ein Same Wasser, Wärme und Luft, und die Erdbeere vermehrt sich auch ohne Samen über Ausläufer. Probiere den Kresseversuch mit Kontrollschale aus und schreib in die Kommentare, was passiert ist. Abonniere für die nächste Lektion."
         }
       ]
     }
-  ]
+  ],
+  "review": {
+    "reviewer": "Claude Sonnet (Claude Code subagent), independent of the writer (Claude in Claude Code)",
+    "date": "2026-11-09",
+    "mustFixApplied": [
+      "Kirsche: Steinkern gehört zur Frucht, Same steckt im Kern (Kapitel, Beispiele, Vogel-Szene)",
+      "Erstes Samen-Segment auf [0,3] gekürzt, Embryo erst im zweiten Segment beschrieben",
+      "Ahorn und Löwenzahn bei gleichem Wind gezeigt, Vergleich sauber"
+    ],
+    "suggestionsApplied": [
+      "Bohne: Keimblätter als Speicher, Teil des Embryos; Embryo grün eingefärbt",
+      "Apfel: ganzer Apfel ist die Frucht",
+      "Rotor: Motor vs. Fahrtwind, gemeinsam Auftrieb",
+      "Herbst-Satz als Vermutung; Spirale statt senkrecht",
+      "Klette: Köpfe mit Häkchen, nicht winzig",
+      "Vergraben in „Drei Wege“ erwähnt; Tiere „oft zielsicherer“",
+      "Neue Szene Kosten und Nutzen (Wind oder Tier)",
+      "Hypothese als begründete Vermutung; heller Ort als Konstante",
+      "Keimungsfaktoren als prüfbar formuliert",
+      "Kontrollversuch „wenn möglich“",
+      "Ungeschlechtliche vs. geschlechtliche Fortpflanzung benannt; Lernziel und Outro ergänzt"
+    ],
+    "verified": [
+      "Regeln (Wortzahlen, Bullets, Titel, Fragen, Hinweise)",
+      "Fragen und Antworten",
+      "Szenen-Segmente (der Renderer streckt sie auf die Sprechdauer)",
+      "Keimung, Klettverschluss, Eichhörnchen, Ausläufer"
+    ]
+  }
 }

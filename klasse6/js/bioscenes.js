@@ -20,7 +20,7 @@ const seed = {
     { t: 3, text: 'Die Samenschale schützt. Das Nährgewebe ist der Vorrat für den Start. Der Embryo hat schon Keimwurzel und Keimspross.' },
     { t: 10, text: p.frucht === 'Ahorn' ? 'Die Ahornfrucht hat einen Flügel: Sie dreht sich beim Fallen wie ein Propeller und fliegt mit dem Wind weit weg.' : 'Der Löwenzahn hat Schirmchen: Die leichten Früchte schweben mit dem Wind davon.' },
     { t: 16, text: 'Bionik: Der Rotor eines Hubschraubers arbeitet nach demselben Prinzip wie die Ahornfrucht.' },
-    { t: 20, text: 'Ausbreitung: durch den Wind (viele leichte Samen, Zufall), durch Tiere, die Früchte fressen, und durch Tiere, an denen Klettfrüchte hängen bleiben.' },
+    { t: 20, text: 'Ausbreitung: durch den Wind (viele leichte Früchte, Zufall), durch Tiere, die Früchte fressen, und durch Tiere, an denen Klettfrüchte hängen bleiben.' },
     { t: 27, text: 'Die Frucht ist die Ausbreitungseinheit: Sie bringt den Samen weg von der Mutterpflanze, wo Licht und Platz sind.' },
   ],
   draw(S, t, p) {
@@ -98,7 +98,7 @@ const seed = {
     if (t >= 20) {
       const stations = [
         { x: -2.6, label: 'Wind', sub: 'viele, leicht, Zufall', color: th.accent2, at: 20 },
-        { x: 0, label: 'Tiere fressen', sub: 'Kirsche: Same wird ausgeschieden', color: '#e5484d', at: 23 },
+        { x: 0, label: 'Tiere fressen', sub: 'Kirsche: Kern wird ausgeschieden', color: '#e5484d', at: 23 },
         { x: 2.6, label: 'Tiere tragen', sub: 'Klette: Häkchen im Fell', color: '#8b5a2b', at: 26 },
       ];
       stations.forEach((s, i) => {
@@ -108,8 +108,8 @@ const seed = {
           S.box([s.x, y0 + 0.4 * a, z], [0.04, 0.4 * a, 0.04], '#5cc46a');
           for (let k = 0; k < 12; k++) { const an = k / 12 * Math.PI * 2, r = 0.45 * a; S.line([s.x, y0 + 0.8 * a, z], [s.x + Math.cos(an) * r, y0 + 0.8 * a + Math.sin(an) * r, z + (k % 2 ? 0.15 : -0.15)], rgba('#ffffff', 0.8), 0.012); }
         } else if (i === 1) { // cherry: fleshy fruit around a stone
-          S.sector([s.x, z], 0, 0.42 * a, 0, Math.PI * 2, y0, 0.5 * a, s.color);
-          S.sector([s.x, z], 0, 0.14 * a, 0, Math.PI * 2, y0 + 0.5 * a, 0.12 * a, shell);
+          S.sector([s.x, z], 0.16 * a, 0.42 * a, 0, Math.PI * 2, y0, 0.5 * a, s.color);      // flesh, cut open
+          S.sector([s.x, z], 0, 0.14 * a, 0, Math.PI * 2, y0, 0.42 * a, shell);                // the stone inside, seed within
         } else { // burr with hooks
           S.sector([s.x, z], 0, 0.36 * a, 0, Math.PI * 2, y0, 0.45 * a, s.color);
           for (let k = 0; k < 14; k++) { const an = k / 14 * Math.PI * 2, r0 = 0.36 * a, r1 = 0.55 * a; S.line([s.x + Math.cos(an) * r0, y0 + 0.25 * a, z + Math.sin(an) * r0], [s.x + Math.cos(an) * r1, y0 + 0.25 * a + 0.1, z + Math.sin(an) * r1], rgba('#ffffff', 0.9), 0.015); }

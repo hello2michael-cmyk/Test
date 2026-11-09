@@ -4,7 +4,7 @@
   "title": "Seeds and Fruits in Year 6 Science: A Guide for Parents Who Do Not Speak German",
   "audience": "parents of Year 6 pupils at a Bavarian Gymnasium who do not speak German",
   "tone": "calm, precise, practical",
-  "hook": "Your child has a subject called «Natur und Technik» and is growing cress on the windowsill for homework. This video explains what the subject is, what the seed topic teaches, and how to help, in about ten minutes.",
+  "hook": "Your child has a subject called «Natur und Technik» and may well be growing cress on the windowsill, a common homework in this topic. This video explains what the subject is, what the seed topic teaches, and how to help, in about twelve minutes.",
   "keyTakeaway": "The seed topic teaches three ways of thinking: which structure does which job, what a strategy costs and what it gains, and how an experiment with a control proves what caused what. Help with the thinking, not the German words.",
   "learningObjectives": [
     "Know what the subject Natur und Technik is and what the curriculum expects in topic NT6 1.2",
@@ -17,7 +17,23 @@
   "youtube": {
     "title": "Seeds and Fruits in Year 6 Science (Natur und Technik): Guide for Non-German-Speaking Parents (Bavaria)",
     "description": "For parents who do not speak German and whose child attends Jahrgangsstufe 6 at a Gymnasium in Bavaria. What the subject Natur und Technik is, what the LehrplanPLUS expects in topic NT6 1.2 Samenpflanzen als Lebewesen, the core ideas in 3D pictures (parts of a seed, the fruit as dispersal unit, dispersal by wind and animals, bionics), the German terms with their English meaning, the cress experiment with a control for home, typical misconceptions and how the subject is assessed.\n\nGerman terms in this video: Natur und Technik, Same, Frucht, Samenschale, Nährgewebe, Embryo, Keimwurzel, Keimspross, Keimblätter, Ausbreitung, Ahornfrucht, Klette, Bionik, Keimung, Hypothese, Variable, Kontrollversuch, Versuchsprotokoll, Ausläufer, Stegreifaufgabe.\n\nThe German version for parents (Eltern-Lektion) and the lesson for children (Lektion) are on this channel as well. Curriculum: LehrplanPLUS Gymnasium Bayern, Natur und Technik 6, Lernbereich 1.2.",
-    "tags": ["Natur und Technik", "German school science", "Gymnasium Bayern", "Klasse 6", "expat parents Germany", "seeds and fruits", "seed dispersal", "bionics", "LehrplanPLUS", "Jahrgangsstufe 6", "international parents", "German school vocabulary", "homework help", "Bavaria school", "biology year 6"],
+    "tags": [
+      "Natur und Technik",
+      "German school science",
+      "Gymnasium Bayern",
+      "Klasse 6",
+      "expat parents Germany",
+      "seeds and fruits",
+      "seed dispersal",
+      "bionics",
+      "LehrplanPLUS",
+      "Jahrgangsstufe 6",
+      "international parents",
+      "German school vocabulary",
+      "homework help",
+      "Bavaria school",
+      "biology year 6"
+    ],
     "thumbnailText": "SEEDS & FRUITS EXPLAINED",
     "pinnedComment": "Which German science term puzzles you most? Ask in the comments and we will explain it in the next video."
   },
@@ -25,22 +41,26 @@
     {
       "title": "What this is about",
       "goal": "You know what the subject is and what the curriculum expects in this topic.",
-      "keyPoints": ["Natur und Technik", "NT6 1.2, about 16 lessons", "Ways of thinking"],
+      "keyPoints": [
+        "Natur und Technik",
+        "NT6 1.2, about 16 lessons",
+        "Ways of thinking"
+      ],
       "scenes": [
         {
           "kind": "title",
           "onScreenTitle": "Seeds and fruits: a guide for international parents",
-          "narration": "Your child has a subject on the timetable called «Natur und Technik», nature and technology, and is growing cress on the windowsill for homework. This video is for parents who do not speak German. In about ten minutes you learn what the subject is, what the Bavarian curriculum expects in the topic on seed plants, which pictures carry the ideas, the German words your child will use, and how to help with a real experiment at home, even if you cannot read the worksheet."
+          "narration": "Your child has a subject on the timetable called «Natur und Technik», nature and technology, and may well be growing cress on the windowsill, a common homework in this topic. This video is for parents who do not speak German. In about twelve minutes you learn what the subject is, what the Bavarian curriculum expects in the topic on seed plants, which pictures carry the ideas, the German words your child will use, and how to help with a real experiment at home, even if you cannot read the worksheet."
         },
         {
           "kind": "bullets",
           "onScreenTitle": "The subject and the topic",
           "bullets": [
-            "Natur und Technik: the science subject in Years 5 to 7",
+            "Natur und Technik: science, Years 5 to 7",
             "Year 6: mostly biology, plus some informatics",
             "Topic NT6 1.2 Samenpflanzen: seed plants, about 16 lessons"
           ],
-          "narration": "«Natur und Technik», usually shortened to «NT», is the subject where science begins at a Bavarian Gymnasium. There is no separate biology, physics or chemistry yet; they come later. In Year six, «Jahrgangsstufe sechs», pupils aged eleven to twelve, the subject is mostly biology, with a smaller informatics part. The topic in this video is «Samenpflanzen als Lebewesen», seed plants as living things, planned for about sixteen lessons. It follows a first topic on the scientific method, which this topic puts to use."
+          "narration": "«Natur und Technik», usually shortened to «NT», is the subject where science begins at a Bavarian Gymnasium. There is no separate biology, physics or chemistry yet; they come later. In Year six, «Jahrgangsstufe sechs», pupils aged eleven to twelve, the subject is mostly biology, with a smaller informatics part. The topic in this video is «Samenpflanzen als Lebewesen», seed plants as living things, planned for about sixteen lessons. It follows a first topic on how scientists work, gaining knowledge, communicating and judging, and puts those methods to use."
         },
         {
           "kind": "bullets",
@@ -49,68 +69,104 @@
             "Explain how seed and fruit structure serves their function",
             "Compare dispersal strategies: costs and benefits",
             "Bionics: compare plant parts with technical products",
-            "Draw conclusions from germination experiments"
+            "Seeds or runners: compare costs and benefits"
           ],
-          "narration": "The curriculum, the «LehrplanPLUS», lists four expectations for the first half of the topic. One: explain how the structure of fruits and seeds serves reproduction and dispersal, and weigh the costs and benefits of different dispersal strategies. Two: compare plant structures with technical products, which the curriculum calls «Bionik», bionics. Three: compare sexual and asexual reproduction by costs and benefits. Four: conclude from your own experiments how water, light, temperature and oxygen affect germination. The second half, plant parts and photosynthesis, is covered in another video."
+          "narration": "In short, the first part of the topic asks pupils to do four things. One: explain how the structure of fruits and seeds serves reproduction and dispersal, and weigh the costs and benefits of different dispersal strategies. Two: compare plant structures with technical products, which the curriculum calls «Bionik», bionics, to see that nature can give engineers ideas. Three: compare sexual reproduction by seeds with asexual reproduction by runners, «Ausläufer», by costs and benefits. Four: conclude from their own experiments how outside factors such as water, light, temperature and oxygen affect germination and growth. The second part, plant parts and photosynthesis, is covered in other videos. Your school's plan may order things differently."
         }
       ]
     },
     {
       "title": "The core ideas, in pictures",
       "goal": "You know the pictures your child uses for seed, fruit and dispersal, with the German words.",
-      "keyPoints": ["Parts of a seed", "Fruit as travel unit", "Wind and animals", "Bionics"],
+      "keyPoints": [
+        "Parts of a seed",
+        "Fruit as travel unit",
+        "Wind and animals",
+        "Bionics"
+      ],
       "scenes": [
         {
           "kind": "chapter",
-          "labels": ["Seed", "Fruit", "Dispersal", "Bionics"],
+          "labels": [
+            "Seed",
+            "Fruit",
+            "Dispersal",
+            "Bionics"
+          ],
           "narration": "One idea runs through the whole of school biology, and this topic introduces it: structure and function. Every part of a living thing has a shape, and the shape does a job. The question your child learns to ask is: why does it look like this, and what is it for? Three pictures carry that idea here: the seed cut open, the flying fruit, and the three ways a seed can travel. The captions on screen are German, as your child sees them in class."
         },
         {
           "kind": "math3d",
           "scene": "seed",
-          "params": { "wind": 1, "frucht": "Ahorn" },
-          "segment": [0, 10],
-          "onScreenTitle": "Idea 1: the seed, a plant with packed lunch",
-          "narration": "Idea one: the parts of a seed, «der Same». Cut lengthwise, three parts appear, and the curriculum names exactly these three. The seed coat, «die Samenschale», protects. The food store, «das Nährgewebe», feeds the young plant for its first days; in a bean it sits in the two thick seed leaves, «die Keimblätter». And the embryo, «der Embryo» or «der Keimling», is the tiny plant itself, with an embryonic root, «die Keimwurzel», and an embryonic shoot, «der Keimspross». The question is not what the parts are called, but what each part is for."
+          "params": {
+            "wind": 1,
+            "frucht": "Ahorn"
+          },
+          "segment": [
+            0,
+            10
+          ],
+          "onScreenTitle": "Idea 1: the seed, a packed lunch",
+          "narration": "Idea one: the parts of a seed, «der Same». Cut lengthwise, three parts appear, and the curriculum names exactly these three. The seed coat, «die Samenschale», protects. The food store, «das Nährgewebe», feeds the young plant for its first days; in a bean it sits in the two thick seed leaves, «die Keimblätter», which strictly belong to the embryo; school pictures still show the store as its own part, as here. And the embryo, «der Embryo» or «der Keimling», is the tiny plant itself, with an embryonic root, «die Keimwurzel», and an embryonic shoot, «der Keimspross». The question is not what the parts are called, but what each part is for."
         },
         {
           "kind": "math3d",
           "scene": "seed",
-          "params": { "wind": 2, "frucht": "Ahorn" },
-          "segment": [10, 20],
-          "onScreenTitle": "Idea 2: the fruit flies, and so does the rotor",
-          "narration": "Idea two: the fruit, «die Frucht», is the seed's travel unit. The maple fruit, «die Ahornfrucht», carries its seed in a wing that spins as it falls, like a helicopter blade. Falling slowly gives the wind time to carry it away from the parent tree. This is where bionics comes in, «die Bionik», which the curriculum names explicitly: a helicopter rotor works on the same principle. Your child should be able to spot such a shared principle between a plant part and a machine and explain why it works in both."
+          "params": {
+            "wind": 2,
+            "frucht": "Ahorn"
+          },
+          "segment": [
+            10,
+            20
+          ],
+          "onScreenTitle": "Idea 2: the fruit flies like a rotor",
+          "narration": "Idea two: the fruit, «die Frucht», is the seed's travel unit. The maple fruit, «die Ahornfrucht», carries its seed in a wing that spins as it falls, like a helicopter blade. Falling slowly gives the wind time to carry it away from the parent tree; the stronger the wind, the further it goes. The dandelion does it differently and floats on a parachute. This is where bionics comes in, «die Bionik», which the curriculum names explicitly: a helicopter rotor uses a similar principle, a rotating wing that creates lift; the maple spins by itself, the helicopter has a motor. Your child should be able to spot such a shared principle between a plant part and a machine and explain why it works in both."
         },
         {
           "kind": "math3d",
           "scene": "seed",
-          "params": { "wind": 1, "frucht": "Ahorn" },
-          "segment": [20, 30],
+          "params": {
+            "wind": 1,
+            "frucht": "Ahorn"
+          },
+          "segment": [
+            20,
+            30
+          ],
           "onScreenTitle": "Idea 3: three ways to travel, with costs",
-          "narration": "Idea three: dispersal, «die Ausbreitung», compared by costs and benefits. Wind: the dandelion makes very many light fruits with little parachutes; most land badly, some travel far. Animals that eat: the cherry invests in sweet flesh and gets targeted transport, with fertiliser on arrival. Animals that carry: the burr, «die Klette», hooks into fur and pays nothing in flesh. The curriculum asks for exactly this comparison: what does a strategy cost the plant, and what does it gain?"
+          "narration": "Idea three: dispersal, «die Ausbreitung», compared by costs and benefits. Wind: the dandelion makes very many light fruits with little parachutes; most are wasted, but no animal is needed. Animals that eat: the cherry invests in sweet flesh; birds carry the stone far away and drop it with fertiliser. Animals that carry: the burr, «die Klette», hooks into fur and pays nothing in flesh, but depends on an animal passing by. In every case the whole fruit is the travel unit of the seed. The curriculum asks for exactly this comparison: what does a strategy cost the plant, and what does it gain?"
         }
       ]
     },
     {
       "title": "The words your child brings home",
       "goal": "You recognise the German terms and know what they mean.",
-      "keyPoints": ["Same, Frucht, Keimung", "Ausbreitung, Bionik", "Versuch, Kontrollversuch"],
+      "keyPoints": [
+        "Same, Frucht, Keimung",
+        "Ausbreitung, Bionik",
+        "Versuch, Kontrollversuch"
+      ],
       "scenes": [
         {
           "kind": "chapter",
-          "labels": ["Seed words", "Travel words", "Experiment words"],
+          "labels": [
+            "Seed words",
+            "Travel words",
+            "Experiment words"
+          ],
           "narration": "Here are the words in one place, in three groups: the words for the seed and for sprouting, the words for travelling and bionics, and the words for the experiment, which matter beyond this topic because they return in every science lesson for years. You do not need to pronounce them. You need to recognise them when your child says them or when they appear on a worksheet."
         },
         {
           "kind": "bullets",
           "onScreenTitle": "Seed and sprouting words",
           "bullets": [
-            "Same = seed; Frucht = fruit; Samenschale = seed coat",
-            "Nährgewebe = food store; Embryo, Keimling = embryo",
-            "Keimwurzel, Keimspross = embryonic root and shoot",
+            "Same = seed; Frucht = fruit",
+            "Samenschale = seed coat; Nährgewebe = food store",
+            "Embryo, Keimling = embryo; Keimwurzel, Keimspross = root, shoot",
             "Keimung = germination; Mutterpflanze = parent plant"
           ],
-          "narration": "The seed is «der Same», plural «die Samen»; do not confuse it with «der Samen», which also means seed. The fruit is «die Frucht». The coat is «die Samenschale», the store «das Nährgewebe», the embryo «der Embryo» or «der Keimling». Its root is «die Keimwurzel», its shoot «der Keimspross». Sprouting is «die Keimung», and the verb is «keimen». The plant the seed comes from is «die Mutterpflanze», literally the mother plant. Most of these are built from small words: «Keim» means germ or sprout, and it starts half of them."
+          "narration": "The seed is «der Same», plural «die Samen». You will also meet the form «der Samen» in the singular; it is the same word, and in school texts the plural «die Samen» is what you see most. The fruit is «die Frucht». The coat is «die Samenschale», the store «das Nährgewebe», the embryo «der Embryo» or «der Keimling», two words used almost interchangeably, with «Keimling» more common for plants. Its root is «die Keimwurzel», its shoot «der Keimspross». Sprouting is «die Keimung», the verb «keimen». The parent plant is «die Mutterpflanze». «Keim» means a first shoot here; in everyday German it can also mean a germ as in bacteria, and context tells which."
         },
         {
           "kind": "bullets",
@@ -134,9 +190,9 @@
           "kind": "bullets",
           "onScreenTitle": "The answer",
           "bullets": [
-            "Kontrollversuch = the control: everything the same but the variable",
-            "Without it you cannot tell what caused the result",
-            "Cress grows only in the wet dish: water was the cause"
+            "Kontrollversuch = the control dish, same but one variable",
+            "Without it you cannot tell the cause",
+            "Only the wet dish sprouts: water mattered"
           ],
           "narration": "The dry dish is the control, «der Kontrollversuch». It is treated exactly like the other dish, same seeds, same place, same warmth, except for the one thing being tested, the water. If only the watered dish sprouts, the water was the cause. Without the control, cress sprouting in the watered dish would prove nothing; maybe it would have sprouted dry as well. This is the single most important idea in the scientific method your child is learning, and it is worth a conversation at the windowsill."
         }
@@ -145,11 +201,21 @@
     {
       "title": "The experiment at home",
       "goal": "You can support the germination experiment with a variable, constants and a control, without German.",
-      "keyPoints": ["Hypothesis", "One variable", "Control", "Record"],
+      "keyPoints": [
+        "Hypothesis",
+        "One variable",
+        "Control",
+        "Record"
+      ],
       "scenes": [
         {
           "kind": "chapter",
-          "labels": ["Hypothesis", "Variable", "Control", "Record"],
+          "labels": [
+            "Hypothesis",
+            "Variable",
+            "Control",
+            "Record"
+          ],
           "narration": "The most useful thing you can do at home is the experiment itself. The curriculum wants children to conclude from their own experiments how water, light, temperature and oxygen affect germination, guided by a hypothesis. That sounds big, but cress, cotton wool and two dishes do it in a week. You need no German for this: the method is the same in every language, and your child supplies the German words."
         },
         {
@@ -167,7 +233,7 @@
           "kind": "bullets",
           "onScreenTitle": "Questions you can ask, in any language",
           "bullets": [
-            "What did you change, and what did you keep the same?",
+            "What did you change? What stayed the same?",
             "What is the second dish for?",
             "What if you changed two things at once?",
             "Was your hypothesis right? How can you tell?"
@@ -178,46 +244,55 @@
           "kind": "bullets",
           "onScreenTitle": "Further experiments",
           "bullets": [
-            "Temperature: one dish in the fridge",
+            "Temperature: both dishes dark, one box in the fridge",
             "Light: one dish under a cardboard box",
-            "Air: seeds fully under water",
+            "Air: seeds fully under water, result may be unclear",
             "Always one variable at a time"
           ],
-          "narration": "Once the first experiment has worked, the other factors in the curriculum follow the same pattern. Temperature: one dish in the fridge, one in the room. Light: one dish under a cardboard box. Oxygen: seeds fully under water instead of on damp cotton wool. Always one variable at a time, everything else the same. The light experiment holds a surprise worth discussing: many seeds germinate in the dark. Plants need light mainly afterwards, to grow, which is why the shoot races upwards."
+          "narration": "Once the first experiment has worked, the other factors follow the same pattern, with one trap worth discussing. Temperature: a fridge is cold and dark, so put both dishes in closed boxes, one box in the fridge and one in the room; then only the temperature differs. Light: one dish under a cardboard box. Oxygen: seeds fully under water instead of on damp cotton wool; the result can be less clear. Always one variable at a time. The light experiment holds a surprise: many seeds, though not all, germinate in the dark, but the seedlings come up pale and tall. Plants need light mainly afterwards, to grow."
         }
       ]
     },
     {
       "title": "Misconceptions, assessment, and what comes next",
       "goal": "You know the typical misconceptions, how the subject is assessed, and which topics follow.",
-      "keyPoints": ["Fruit vs seed", "Light for germination", "Short tests, no Schulaufgabe", "Photosynthesis"],
+      "keyPoints": [
+        "Fruit vs seed",
+        "Light for germination",
+        "Short tests, no Schulaufgabe",
+        "Photosynthesis"
+      ],
       "scenes": [
         {
           "kind": "chapter",
-          "labels": ["Misconceptions", "Assessment", "Outlook"],
+          "labels": [
+            "Misconceptions",
+            "Assessment",
+            "Outlook"
+          ],
           "narration": "Three things parents often ask. Which wrong ideas are common, and how do you spot them? How is this subject assessed, since it works differently from maths and German? And what else is in this topic? The misconceptions are stubborn because they come from everyday life. The assessment is lighter than in the main subjects. And the second half of the topic is harder than the first."
         },
         {
           "kind": "bullets",
           "onScreenTitle": "Four common misconceptions",
           "bullets": [
-            "Fruit and seed are the same: no, the fruit contains the seed",
-            "All seeds need light to germinate: no, many sprout in the dark",
-            "A seed is dead: no, it rests and waits for conditions",
-            "The seedling eats soil: no, it lives on its store"
+            "Myth: fruit and seed are the same",
+            "Myth: all seeds need light to germinate",
+            "Myth: a seed is dead",
+            "Myth: the seedling eats soil"
           ],
-          "narration": "Four misconceptions that appear in many classes. One: fruit and seed are the same thing. The fruit is the packaging, the seed is inside; a cherry stone and an apple pip make this clear. Two: all seeds need light to germinate. Many sprout in the dark underground; light is needed afterwards, for growing. Three: a seed is dead. It is resting and waiting for water, warmth and air. Four: the seedling feeds on soil. For its first days it lives on the store inside the seed, and later on light, water and carbon dioxide. Each of these is corrected by a picture or an experiment, not by a rule."
+          "narration": "Four misconceptions that appear in many classes. One: fruit and seed are the same thing. The fruit is the packaging, the seed is inside: in an apple the flesh and core are the fruit and the pips are the seeds; in a cherry the seed sits inside the hard stone, which is still part of the fruit. Two: all seeds need light to germinate. Many sprout in the dark underground, though some kinds do need light; all need light afterwards, for growing. Three: a seed is dead. It is resting and waiting for water, warmth and air. Four: the seedling feeds on soil. For its first days it lives on the store inside the seed, and later it makes its own food from light, water and carbon dioxide; it takes water and minerals from the soil, but soil is not its food. Each of these is corrected by a picture or an experiment, not by a rule."
         },
         {
           "kind": "bullets",
           "onScreenTitle": "How this subject is usually assessed",
           "bullets": [
-            "Usually no big written tests (Schulaufgaben) in this subject",
+            "Usually no big written tests in this subject",
             "Short tests, participation, experiment records, presentations",
-            "Typical tasks: label a seed, justify a strategy, evaluate an experiment",
+            "Tasks: label a seed, justify, evaluate an experiment",
             "Details are the teacher's decision"
           ],
-          "narration": "In Year six, «Natur und Technik» is usually one of the subjects without the big written tests called «Schulaufgaben». Grades come from smaller pieces: short unannounced tests, «Stegreifaufgaben», oral participation, experiment records and sometimes presentations. Typical tasks in this topic: label a seed in section, justify the dispersal strategy of a given fruit, compare costs and benefits, evaluate a germination experiment and explain the control. How exactly your child's school handles this is the teacher's decision; the exercise book and the experiment records show it."
+          "narration": "In Year six, «Natur und Technik» is usually one of the subjects without the big written tests called «Schulaufgaben». Grades come from smaller pieces: short unannounced tests, «Stegreifaufgaben», at some schools announced short tests, oral participation, experiment records and sometimes presentations. Typical tasks in this topic: label a seed in section, justify the dispersal strategy of a given fruit, compare costs and benefits, evaluate a germination experiment and explain the control. How exactly your child's school handles this is the teacher's decision; the exercise book and the experiment records show it."
         },
         {
           "kind": "bullets",
@@ -236,5 +311,33 @@
         }
       ]
     }
-  ]
+  ],
+  "review": {
+    "reviewer": "Claude Sonnet (Claude Code subagent), independent of the writer (Claude in Claude Code)",
+    "date": "2026-11-09",
+    "mustFixApplied": [
+      "Same/Samen explanation rewritten",
+      "'targeted transport' removed; cherry stone, not seed, is excreted (also in the 3D label)",
+      "Fruit vs seed example: apple pips as seeds, cherry stone part of the fruit",
+      "Fridge experiment confounds light: both dishes in closed boxes",
+      "Bullets and titles within limits",
+      "Runners (Ausläufer) added to the curriculum scene",
+      "Costs and benefits given for all three strategies; whole fruit as travel unit"
+    ],
+    "suggestionsApplied": [
+      "Hedged cress homework and curriculum grouping",
+      "Cotyledons belong to the embryo",
+      "Rotor: similar principle, motor vs self-spinning; wind strength; dandelion",
+      "Minerals from the soil; light germinators; pale seedlings; oxygen result less clear",
+      "Announced short tests mentioned",
+      "Keim: shoot vs bacteria; Embryo/Keimling",
+      "About twelve minutes"
+    ],
+    "verified": [
+      "All German terms, articles and plurals; every German word inside «…»",
+      "Biology of seed, maple, dandelion, burr, control experiment",
+      "Scene segments vs narration (renderer stretches segments)",
+      "Curriculum and assessment claims hedged"
+    ]
+  }
 }

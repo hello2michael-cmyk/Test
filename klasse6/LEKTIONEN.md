@@ -11,7 +11,7 @@ Kennzeichnung „für Kinder“) und die **Eltern-Lektion** (`Eltern: <ID>`, 8 b
 Lehrkräfte: Lehrplan, Kernideen, typische Fehler, Üben zu Hause, Schulaufgabe). Spalte „Eltern“: ✅ = eingecheckt.
 Dazu kommt für ausgewählte Themen die **English-Lektion** (`English: <ID>`, auf Englisch für Eltern, die kein Deutsch sprechen;
 die deutschen Fachbegriffe stehen in «…» und werden von der deutschen Stimme gesprochen, Glossar im Lehrplan-JSON).
-Eingecheckt: M6-1.1 und D6-4.2 (`klasse6/lessons/<ID>/international/`).
+Eingecheckt: M6-1.1, D6-4.2 und NT6-1.2 (`klasse6/lessons/<ID>/international/`).
 
 Fertige Videos (GitHub-Releases, 90 Tage abrufbar; ohne Hintergrundmusik, mit Transparenzhinweis auf der Schlusskarte):
 
@@ -45,7 +45,7 @@ Reihenfolge: zuerst Mathematik (fertige 3D-Szenen), dann Deutsch (Satzglieder-Sz
 | Issue-Titel | Thema | Lehrplan-Std. | Video (min) | 3D-Szene | Plan | Eltern |
 |---|---|---|---|---|---|---|
 | `Lektion: NT6-1.1` | Erkenntnisse gewinnen – kommunizieren – bewerten | – | 5 | – | – | – |
-| `Lektion: NT6-1.2` | Samenpflanzen als Lebewesen | 16 | 8 | geplant: photosynthesis | – | – |
+| `Lektion: NT6-1.2` | Samenpflanzen als Lebewesen | 16 | 8 | ✅ seed | ✅ | ✅ |
 | `Lektion: NT6-1.3` | Biodiversität bei Wirbeltieren – Variabilität und Angepasstheit | 26 | 9 | geplant: vertebrates | – | – |
 | `Lektion: NT6-1.4` | Verwandtschaft der Wirbeltiere und Evolution | 8 | 6 | – | – | – |
 | `Lektion: NT6-1.5` | Ökosystem Gewässer | 6 | 6 | – | – | – |
