@@ -29,6 +29,14 @@ Fertige Videos (GitHub-Releases, 90 Tage abrufbar; ohne Hintergrundmusik, mit Tr
 | Kinder-Lektion NT6-2.3 Dateisystem | Leda | ca. 16:00 | https://github.com/hello2michael-cmyk/Test/releases/tag/video-39 |
 | Eltern-Lektion NT6-2.3 Informatik | Charon | ca. 11:00 | https://github.com/hello2michael-cmyk/Test/releases/tag/video-40 |
 | English-Lektion NT6-2.3 File system | Charon (en-US + de-DE) | ca. 12:30 | https://github.com/hello2michael-cmyk/Test/releases/tag/video-41 |
+| Kinder-Lektion E6-1.2 Simple past oder present perfect | Leda | ca. 16:00 | https://github.com/hello2michael-cmyk/Test/releases/tag/video-42 |
+| Eltern-Lektion E6-1.2 Englisch | Charon | ca. 11:00 | https://github.com/hello2michael-cmyk/Test/releases/tag/video-43 |
+| Kinder-Lektion F6-1.2 Verben im Präsens | Leda | ca. 16:00 | https://github.com/hello2michael-cmyk/Test/releases/tag/video-44 |
+| Eltern-Lektion F6-1.2 Französisch | Charon | ca. 11:30 | https://github.com/hello2michael-cmyk/Test/releases/tag/video-45 |
+| Kinder-Lektion G6-1 Der Mensch und seine Geschichte | Leda | ca. 18:30 | https://github.com/hello2michael-cmyk/Test/releases/tag/video-46 |
+| Eltern-Lektion G6-1 Geschichte | Charon | ca. 12:30 | https://github.com/hello2michael-cmyk/Test/releases/tag/video-47 |
+| Kinder-Lektion L6-2.2 Die Fälle | Leda | ca. 17:00 | https://github.com/hello2michael-cmyk/Test/releases/tag/video-48 |
+| Eltern-Lektion L6-2.2 Latein | Charon | ca. 11:30 | https://github.com/hello2michael-cmyk/Test/releases/tag/video-49 |
 | Stimmvergleich Eltern M6-1.1 | Kore / Charon / Leda | ca. 10:00 | video-20 / video-21 / video-22 |
 
 Reihenfolge: zuerst Mathematik (fertige 3D-Szenen), dann Deutsch (Satzglieder-Szene vorhanden), Natur und Technik, Geschichte, Fremdsprachen, dann der Rest.
