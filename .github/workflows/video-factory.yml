@@ -92,6 +92,17 @@ jobs:
             gh release download "$tag" -D "downloads/$tag" --clobber
           done
           du -sh downloads
+      - name: Record the chapter timestamps in the repository
+        run: |
+          set -e
+          node -e "
+            const fs=require('fs'); const m=JSON.parse(fs.readFileSync('klasse6/youtube-upload.json','utf8')); const out={};
+            for (const v of m.videos) { const d='downloads/'+v.release; const f=(fs.existsSync(d)?fs.readdirSync(d):[]).find(x=>x.endsWith('-youtube.txt')); if(!f) continue;
+              const t=fs.readFileSync(d+'/'+f,'utf8'); const mm=t.match(/\nChapters\n([\s\S]*?)\n\n/); out[v.lesson+'/'+v.variant]={release:v.release, chapters: mm?mm[1].trim().split('\n'):[]}; }
+            fs.writeFileSync('klasse6/youtube-chapters.json', JSON.stringify(out,null,1)+'\n'); console.log(Object.keys(out).length,'videos with chapters');"
+          git config user.name github-actions; git config user.email github-actions@github.com
+          git add klasse6/youtube-chapters.json
+          git diff --cached --quiet || (git commit -m "Chapter timestamps of the finished videos (from the rendered files)" && git push origin HEAD:${GITHUB_REF_NAME})
       - name: Organise the package
         run: node factory/package.mjs downloads package
       - name: Zip each video folder
