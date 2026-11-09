@@ -37,6 +37,25 @@
     "thumbnailText": "JE PARLE, TU PARLES",
     "pinnedComment": "Welches französische Verb fällt dir am schwersten? Schreib es in die Kommentare, und sag uns, wie du Verben übst."
   },
+  "review": {
+    "reviewer": "Claude Sonnet (Claude Code subagent), independent of the writer (Claude in Claude Code)",
+    "date": "2026-11-09",
+    "mustFixApplied": [],
+    "suggestionsApplied": [
+      "Antwort-Szene zu nous/vous: Überleitung „wie die Verben ihre Endungen bekommen“ statt „rechts daneben“",
+      "aller im Alltag: futur proche als Ausblick benannt",
+      "Stumme Endungen als Regel für Verben formuliert, nicht allgemein; Überleitung „Darum klingen je parle und tu parles gleich“",
+      "Frage zu ils parlent: Stamm auf dem Bildschirm, Sprechtext „Ils, dann der Stamm parl, und welche Endung?“",
+      "Mini-Dialog: nur zwei Zeilen gesprochen, Rest auf dem Bildschirm",
+      "Titelszene: „Das klären wir gleich“ nach der Eingangsfrage"
+    ],
+    "verified": [
+      "Regeln (Wortzahlen, Bullets, Titel, Fragen, Hinweise)",
+      "Fragen und Antworten in der Folgeszene",
+      "Szenen-Segmente der conjugaison-Szene (Negationssegment nur mit parler)",
+      "Verbformen parler, être, avoir, aller; Alter mit avoir; ne … pas und n'"
+    ]
+  },
   "chapters": [
     {
       "title": "Warum Verben ihre Endung wechseln",
@@ -50,7 +69,7 @@
         {
           "kind": "title",
           "onScreenTitle": "Verben im Präsens und die Verneinung",
-          "narration": "Je parle, tu parles, nous parlons. Dreimal dasselbe Verb, und dreimal sieht das Ende anders aus. Und warum klingen je parle und tu parles trotzdem genau gleich? In dieser Lektion lernst du das Muster hinter den französischen Verben kennen: den Stamm, der bleibt, und die Endung, die wechselt. Dazu être, avoir, aller und die Verneinung."
+          "narration": "Je parle, tu parles, nous parlons. Dreimal dasselbe Verb, und dreimal sieht das Ende anders aus. Und warum klingen je parle und tu parles trotzdem genau gleich? Das klären wir gleich. In dieser Lektion lernst du das Muster hinter den französischen Verben kennen: den Stamm, der bleibt, und die Endung, die wechselt. Dazu être, avoir, aller und die Verneinung."
         },
         {
           "kind": "bullets",
@@ -89,7 +108,7 @@
             "vous = ihr, aber auch Sie",
             "Zur Lehrerin sagst du vous"
           ],
-          "narration": "Nous heißt wir. Vous heißt ihr, wenn du mehrere Freunde ansprichst, aber auch Sie, wenn du höflich mit einer erwachsenen Person sprichst. Zu deiner Lehrerin sagst du also vous. Im Französischen gibt es kein eigenes Wort wie das deutsche Sie, vous übernimmt beides. Die Verbform ist in beiden Fällen gleich: vous parlez. Jetzt schauen wir, was rechts daneben passiert."
+          "narration": "Nous heißt wir. Vous heißt ihr, wenn du mehrere Freunde ansprichst, aber auch Sie, wenn du höflich mit einer erwachsenen Person sprichst. Zu deiner Lehrerin sagst du also vous. Im Französischen gibt es kein eigenes Wort wie das deutsche Sie, vous übernimmt beides. Die Verbform ist in beiden Fällen gleich: vous parlez. Jetzt schauen wir, wie die Verben ihre Endungen bekommen."
         }
       ]
     },
@@ -148,14 +167,14 @@
             23
           ],
           "onScreenTitle": "Vier Endungen hörst du nicht",
-          "narration": "Jetzt kommt der Trick. Schau, welche Endungen grau werden: -e, -es, -e und -ent. Diese vier Endungen sind stumm. Man schreibt sie, aber man hört sie nicht. Je parle, tu parles, il parle und ils parlent klingen alle genau gleich, nämlich wie parl. Nur bei nous parlons und vous parlez hörst du die Endung. Deshalb lernst du im Französischen zwei Dinge getrennt: wie ein Wort klingt und wie man es schreibt."
+          "narration": "Darum klingen je parle und tu parles gleich: Schau, welche Endungen grau werden: -e, -es, -e und -ent. Bei Verben sind diese vier Endungen stumm. Man schreibt sie, aber man hört sie nicht. Je parle, tu parles, il parle und ils parlent klingen alle genau gleich, nämlich wie parl. Nur bei nous parlons und vous parlez hörst du die Endung. Deshalb lernst du im Französischen zwei Dinge getrennt: wie ein Wort klingt und wie man es schreibt."
         },
         {
           "kind": "question",
           "question": "Wie schreibst du: sie sprechen, also mehrere Personen? Ils parl, und dann welche Endung?",
           "think": 9,
           "hint": "Du hörst die Endung nicht, aber sie steht da.",
-          "narration": "Frage an dich. Du willst schreiben: sie sprechen, und zwar mehrere Personen. Also ils parl, und dann? Welche Endung hängst du an? Überlege: Du hörst die Endung nicht, wenn du das Wort sprichst, aber geschrieben steht sie da. Denk an die Tabelle von eben und an die letzte Zeile ganz unten. Du hast ein paar Sekunden."
+          "narration": "Frage an dich. Du willst schreiben: sie sprechen, und zwar mehrere Personen. Ils, dann der Stamm parl, und welche Endung? Du siehst es auf dem Bildschirm. Überlege: Du hörst die Endung nicht, wenn du das Wort sprichst, aber geschrieben steht sie da. Denk an die Tabelle von eben und an die letzte Zeile ganz unten. Du hast ein paar Sekunden."
         },
         {
           "kind": "bullets",
@@ -297,7 +316,7 @@
             "Je vais à l'école. Ich gehe zur Schule.",
             "Nous allons à Paris. Wir fahren nach Paris."
           ],
-          "narration": "Aller steckt in der wichtigsten Alltagsfrage überhaupt: Ça va? Wie geht es? Die Antwort: Ça va bien, es geht gut. Darin steckt die Form va, dritte Person Einzahl. Je vais à l'école: Ich gehe zur Schule. Nous allons à Paris: Wir fahren nach Paris. Später im Schuljahr kannst du mit aller sogar sagen, was du gleich tun wirst. Dafür brauchst du genau diese sechs Formen."
+          "narration": "Aller steckt in der wichtigsten Alltagsfrage überhaupt: Ça va? Wie geht es? Die Antwort: Ça va bien, es geht gut. Darin steckt die Form va, dritte Person Einzahl. Je vais à l'école: Ich gehe zur Schule. Nous allons à Paris: Wir fahren nach Paris. Bald lernst du, mit aller auch zu sagen, was du gleich tun wirst, das futur proche. Dafür brauchst du genau diese sechs Formen."
         },
         {
           "kind": "math3d",
@@ -370,7 +389,7 @@
             "Tu es de Lyon? Non, je suis de Nice.",
             "Tu as quel âge? J'ai onze ans."
           ],
-          "narration": "Hier ist der Dialog. Salut! Ça va? Ça va bien. Tu parles anglais? Non, je ne parle pas anglais. Tu es de Lyon? Non, je suis de Nice. Tu as quel âge? J'ai onze ans. Such die Verben: va aus aller, parles und parle aus parler, es und suis aus être, as und ai aus avoir. Dazu eine Verneinung mit ne und pas. Sprich den Dialog laut, am besten zu zweit."
+          "narration": "Hier ist der Dialog, du siehst ihn auf dem Bildschirm. Zwei Zeilen sprechen wir zusammen: Salut! Ça va? Ça va bien. Und: Tu as quel âge? J'ai onze ans. Lies die anderen Zeilen selbst und such die Verben: va aus aller, parles und parle aus parler, es und suis aus être, as und ai aus avoir. Dazu eine Verneinung mit ne und pas. Sprich den Dialog laut, am besten zu zweit."
         },
         {
           "kind": "question",

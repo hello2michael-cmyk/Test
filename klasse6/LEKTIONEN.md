@@ -114,7 +114,7 @@ Reihenfolge: zuerst Mathematik (fertige 3D-Szenen), dann Deutsch (Satzglieder-Sz
 | Issue-Titel | Thema | Lehrplan-Std. | Video (min) | 3D-Szene | Plan | Eltern |
 |---|---|---|---|---|---|---|
 | `Lektion: F6-1.1` | Kommunikative Fertigkeiten | – | 5 | – | – | – |
-| `Lektion: F6-1.2` | Verfügen über sprachliche Mittel | – | 5 | – | – | – |
+| `Lektion: F6-1.2` | Verfügen über sprachliche Mittel | – | 5 | ✅ conjugaison | ✅ | ✅ |
 | `Lektion: F6-2` | Frankreich kennenlernen | – | 5 | – | – | – |
 | `Lektion: F6-3` | Texte und Medien | – | 5 | – | – | – |
 | `Lektion: F6-4` | Lernstrategien | – | 5 | – | – | – |
