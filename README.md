@@ -33,6 +33,12 @@ in Claude Code on your Claude subscription.
 4. You open an issue titled `Lektion: M6-1.2` (from the GitHub app on a phone). The factory finds the committed plan and renders it with
    the 3D scenes, a **German voice** (Piper, Thorsten), burned-in captions, chapters and the YouTube text, and posts the release links.
 
+**Two videos per topic.** `Lektion: <id>` is the children's lesson (slow, du-form, think-pauses; mark it "made for kids" on
+YouTube). `Eltern: <id>` is the parents-and-teachers version of the same topic, 8 to 10 minutes in Sie-form: what the Lehrplan
+demands, the core ideas with the same 3D scenes at normal pace, the typical mistakes, a ten-minute home routine, what the
+Schulaufgabe asks. It is written as `klasse6/lessons/<id>.eltern.lesson.json`, reviewed the same way, and rendered from
+`klasse6/lessons/<id>/eltern/plan.json`.
+
 Without a committed plan, `Lektion: <id>` falls back to the model-driven path below (writer and second reviewer through Hugging Face
 Inference Providers, plan posted for approval), which needs the `HF_TOKEN` secret.
 

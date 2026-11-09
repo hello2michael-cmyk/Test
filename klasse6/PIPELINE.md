@@ -61,6 +61,13 @@ Die erste Fassung war zu schnell. Seitdem gilt für Lektionen:
 - **Mehr Beispiele**: jede Regel wird an zwei Beispielen gezeigt, bevor die Frage kommt.
 - **Mehr Bilder**: Zahlengerade (`numberline`), Pizza-Vergleich (`compare`), Satzglieder-Blöcke (`sentence`) statt Textkarten.
 
+## Zwei Videos je Thema
+
+- **Kinder-Lektion** (`Lektion: <ID>`): für das Kind, Kennzeichnung „für Kinder“ auf YouTube (Kommentare aus, eingeschränkte Werbung).
+- **Eltern-Lektion** (`Eltern: <ID>`, Datei `<ID>.eltern.lesson.json`): 8 bis 10 Minuten in Sie-Form für Eltern und Lehrkräfte, nicht
+  für Kinder gekennzeichnet, mit Mid-Roll-Werbung ab 8 Minuten möglich. Aufbau: Lehrplan und Schulaufgabe, Kernideen in Bildern,
+  typische Fehler, Üben zu Hause, Ausblick. Normales Sprechtempo, kürzerer Nachhall, keine Denkpausen.
+
 ## Was im Code läuft
 
 - **Eingang** `Lektion: <Thema-ID>` als Issue-Titel oder Feld im Actions-Formular; Themen-IDs in `klasse6/LEKTIONEN.md`.

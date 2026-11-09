@@ -16,6 +16,7 @@ export function sceneCatalog() {
 /** Extra house rules appended to every agent prompt when settings.lesson is set. */
 export function lessonRules(lesson) {
   if (!lesson) return '';
+  if (lesson.variant === 'eltern') return `\n\nTHIS IS A LESSON FOR PARENTS AND TEACHERS of a pupil in Jahrgangsstufe 6 at a Gymnasium in Bavaria. Write EVERYTHING in German, addressing the adult viewer as "Sie": what the child must be able to do for topic "${lesson.title}" (${lesson.id}, Fach ${lesson.subject}) according to the LehrplanPLUS, the core ideas shown with pictures, the typical mistakes and how to recognise them, how to practise at home in ten minutes, and what the next topics are. Precise, calm, no hype. Numbers with a decimal comma. Every scene at least ${lesson.minWords || 32} words.`;
   return `\n\nTHIS IS A SCHOOL LESSON FOR CHILDREN, NOT AN AI VIDEO. Audience: pupils of Jahrgangsstufe 6 at a Gymnasium in Bavaria, about 11 years old.
 Write EVERYTHING in German (narration, titles, labels, bullets, chapter titles, YouTube text): simple, warm, concrete, short sentences, address the child as "du". No English words.
 Stay inside the Lehrplan topic "${lesson.title}" (${lesson.id}, Fach ${lesson.subject}) and use the Bavarian Fachbegriffe exactly as given. Numbers use a decimal comma (0,25) and a middle dot for "times" (3 · 4).

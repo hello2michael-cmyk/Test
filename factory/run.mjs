@@ -24,6 +24,7 @@
 //   LESSON            a Klasse-6 topic id from klasse6/data/klasse6-bayern.json, e.g. M6-2.2: makes a German lesson
 //                     for children from the verified Bavarian syllabus (style course, 3D maths scenes, German voice)
 //   MINUTES           lesson length in minutes (default: the topic's videoMinutes)
+//   VARIANT           kinder (default) | eltern: the parents-and-teachers version of the topic (normal pace, Sie-form)
 //   TTS               piper:<voice>  e.g. piper:de_DE-thorsten-high (default for lessons): the voice is synthesised here
 //                     with Piper and handed to the page; the voice files are fetched into .piper/ on first use
 //   REVIEWER          hf-text:<model id> for a second, different reviewer model (lessons default to Llama 3.3 70B)
@@ -55,7 +56,8 @@ if (lessonId) {
   if (!lesson) { console.error(`LESSON "${lessonId}" is not a topic id in klasse6/data/klasse6-bayern.json (see klasse6/LEKTIONEN.md)`); process.exit(2); }
   // A lesson written and reviewed by Claude in a Claude Code session is committed as klasse6/lessons/<id>/plan.json:
   // it is rendered as it is, so no writer model (and no key) is needed in the factory.
-  const committed = path.join(process.cwd(), 'klasse6', 'lessons', lesson.topic.id, 'plan.json');
+  const variant = env('VARIANT', 'kinder') === 'eltern' ? 'eltern' : 'kinder';
+  const committed = path.join(process.cwd(), 'klasse6', 'lessons', lesson.topic.id, ...(variant === 'eltern' ? ['eltern'] : []), 'plan.json');
   if (!inputPlan && !feedback && fs.existsSync(committed)) {
     inputPlan = JSON.parse(fs.readFileSync(committed, 'utf8'));
     if (inputPlan.plan) inputPlan = inputPlan.plan;
@@ -110,15 +112,16 @@ if (lesson) {
   const minutes = parseFloat(env('MINUTES', String(lesson.topic.videoMinutes || 6)));
   settings.videoStyle = 'course';
   settings.targetDuration = Math.round(minutes * 60); settings.maxDuration = Math.min(1500, Math.round(minutes * 60 * 1.08));   // lessons may run up to 25 minutes
-  settings.lesson = { id: lesson.topic.id, title: lesson.topic.title, subject: lesson.subject.name, scene: lesson.subject.id === 'mathematik' && lesson.topic.scene ? lesson.topic.scene : null, minWords: 32 };
+  const variant = env('VARIANT', 'kinder') === 'eltern' ? 'eltern' : 'kinder';
+  settings.lesson = { id: lesson.topic.id, title: lesson.topic.title, subject: lesson.subject.name, scene: lesson.subject.id === 'mathematik' && lesson.topic.scene ? lesson.topic.scene : null, minWords: 32, variant };
   if (inputPlan && inputPlan.settings) { if (inputPlan.settings.targetDuration) settings.targetDuration = inputPlan.settings.targetDuration; if (inputPlan.settings.maxDuration) settings.maxDuration = inputPlan.settings.maxDuration; }
-  settings.speed = parseFloat(env('SPEED', '0.92')) || 0.92;   // children: a slightly slower voice
-  settings.sceneHoldSeconds = parseFloat(env('SCENE_HOLD_SECONDS', '1.2')) || 0;   // the picture stays a moment after the words
+  settings.speed = parseFloat(env('SPEED', variant === 'eltern' ? '1.0' : '0.92')) || 1;   // children: a slightly slower voice
+  settings.sceneHoldSeconds = parseFloat(env('SCENE_HOLD_SECONDS', variant === 'eltern' ? '0.6' : '1.2')) || 0;   // the picture stays a moment after the words
   settings.footageProvider = env('FOOTAGE', 'none');          // lessons are 3D scenes and graphics; no stock clips of offices
   settings.aiClipBudget = parseInt(env('AI_CLIPS', '0'), 10);
   settings.cta = env('CTA', 'Abonniere für die nächste Lektion');
   settings.reviewerModelId = env('REVIEWER', 'hf-text:meta-llama/Llama-3.3-70B-Instruct');
-  console.log(`[factory] lesson ${lesson.topic.id} „${lesson.topic.title}“ (${lesson.subject.name}), ${minutes} min, min scene ${settings.minSceneSeconds} s, 3D scene ${settings.lesson.scene || 'none'}`);
+  console.log(`[factory] lesson ${lesson.topic.id} „${lesson.topic.title}“ (${lesson.subject.name}, ${variant}), ${minutes} min, min scene ${settings.minSceneSeconds} s, 3D scene ${settings.lesson.scene || 'none'}`);
 }
 const mock = /(^|&)mock=1/.test(extra);
 if (mock) settings.modelId = 'mock';
