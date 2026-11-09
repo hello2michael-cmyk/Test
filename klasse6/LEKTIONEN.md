@@ -104,7 +104,7 @@ Reihenfolge: zuerst Mathematik (fertige 3D-Szenen), dann Deutsch (Satzglieder-Sz
 |---|---|---|---|---|---|---|
 | `Lektion: L6-1` | Lehrbuchtexte übersetzen | – | 5 | – | – | – |
 | `Lektion: L6-2.1` | Wortschatz | – | 5 | – | – | – |
-| `Lektion: L6-2.2` | Formenlehre | – | 5 | geplant: declension | – | – |
+| `Lektion: L6-2.2` | Formenlehre | – | 5 | ✅ kasus | ✅ | ✅ |
 | `Lektion: L6-2.3` | Satzlehre | – | 5 | – | – | – |
 | `Lektion: L6-3` | Rom und seine Welt | – | 5 | – | – | – |
 | `Lektion: L6-4` | Übersetzen und Lernen | – | 5 | – | – | – |
