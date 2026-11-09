@@ -11,7 +11,7 @@ Kennzeichnung „für Kinder“) und die **Eltern-Lektion** (`Eltern: <ID>`, 8 b
 Lehrkräfte: Lehrplan, Kernideen, typische Fehler, Üben zu Hause, Schulaufgabe). Spalte „Eltern“: ✅ = eingecheckt.
 Dazu kommt für ausgewählte Themen die **English-Lektion** (`English: <ID>`, auf Englisch für Eltern, die kein Deutsch sprechen;
 die deutschen Fachbegriffe stehen in «…» und werden von der deutschen Stimme gesprochen, Glossar im Lehrplan-JSON).
-Eingecheckt: M6-1.1, D6-4.2 und NT6-1.2 (`klasse6/lessons/<ID>/international/`).
+Eingecheckt: M6-1.1, D6-4.2, NT6-1.2 und NT6-2.3 (`klasse6/lessons/<ID>/international/`).
 
 Fertige Videos (GitHub-Releases, 90 Tage abrufbar; ohne Hintergrundmusik, mit Transparenzhinweis auf der Schlusskarte):
 
@@ -54,7 +54,7 @@ Reihenfolge: zuerst Mathematik (fertige 3D-Szenen), dann Deutsch (Satzglieder-Sz
 | `Lektion: NT6-1.5` | Ökosystem Gewässer | 6 | 6 | – | – | – |
 | `Lektion: NT6-2.1` | Informationsdarstellung mit Grafik-, Text- und Multimediadokumenten | 18 | 7 | geplant: objects | – | – |
 | `Lektion: NT6-2.2` | Projekt: Erstellen einer Multimediapräsentation | 5 | 6 | – | – | – |
-| `Lektion: NT6-2.3` | Hierarchische Informationsstrukturen – Dateisystem | 5 | 5 | geplant: tree | – | – |
+| `Lektion: NT6-2.3` | Hierarchische Informationsstrukturen – Dateisystem | 5 | 5 | ✅ filetree | ✅ | ✅ |
 
 ## Geschichte (2 Wochenstunden)
 

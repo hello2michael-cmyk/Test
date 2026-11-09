@@ -74,7 +74,9 @@ Die erste Fassung war zu schnell. Seitdem gilt für Lektionen:
 - **Eingecheckte Pläne** werden direkt gerendert (Workflow erkennt `klasse6/lessons/<ID>/plan.json`).
 - **Szenenart `math3d`** mit Parametern und `segment`; aufeinanderfolgende Szenen ohne `segment` spielen eine durchgehende Animation.
 - **3D-Szenen** liegen in `klasse6/js/mathscenes.js` (Mathematik), `langscenes.js` (Deutsch: Satzglieder) und `bioscenes.js` (Natur und Technik: Same,
-  Flugfrucht, Ausbreitung); `scenes.js` fasst sie zusammen.
+  Flugfrucht, Ausbreitung), `infoscenes.js` (Informatik: Dateibaum mit Pfad, Klassen und Größen-Säulendiagramm), `histscenes.js`
+  (Geschichte: Zeitstrahl mit gedehnter Skala) und `fremdsprachen.js` (Englisch: Zeitformen auf dem Zeitstrahl; Latein: Kasus-Tabelle;
+  Französisch: Konjugationsblöcke); `scenes.js` fasst sie zusammen.
 - **Deutsche Stimme**: Google Cloud Text-to-Speech (Chirp 3 HD, 24 kHz; Standard `de-DE-Chirp3-HD-Leda` für die Kinder-Lektion,
   `de-DE-Chirp3-HD-Charon` für die Eltern-Lektion) im Fabrik-Prozess, sobald das
   Repository-Secret `GOOGLE_TTS_KEY` gesetzt ist; sonst und als Rückfall Piper (Thorsten, 22 kHz). Audiodaten per `__factoryTTS` in die Seite.

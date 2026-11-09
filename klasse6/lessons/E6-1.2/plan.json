@@ -2,8 +2,8 @@
  "id": "current",
  "prompt": "Lektion E6-1.2 „Verfügen über sprachliche Mittel“ (Englisch (1. Fremdsprache), Klasse 6 Gymnasium Bayern), aus klasse6/lessons/E6-1.2.lesson.json. 16 Minuten, auf Deutsch, für Kinder von etwa 11 Jahren.",
  "attempts": 0,
- "createdAt": 1794218994133,
- "updatedAt": 1794218994133,
+ "createdAt": 1794219102862,
+ "updatedAt": 1794219102862,
  "stage": "plan",
  "mode": "course",
  "durationApplied": true,
@@ -28,8 +28,8 @@
   "footageProvider": "none",
   "aiClipBudget": 0,
   "minSceneSeconds": 10,
-  "maxDuration": 1117,
-  "targetDuration": 971,
+  "maxDuration": 1112,
+  "targetDuration": 967,
   "lesson": {
    "id": "E6-1.2",
    "title": "Verfügen über sprachliche Mittel",
@@ -119,7 +119,7 @@
     "id": 1,
     "chapterId": 1,
     "purpose": "hook",
-    "keyPoint": "Stell dir vor, du suchst deinen Schlüssel. Auf Englisch kannst du dazu zwei Sätze sagen: I lost my key yesterday. Oder: I have lost my key. Beide handeln von der Vergangenheit, aber sie bedeuten nicht dasselbe. Der eine erzählt, was gestern passiert ist. Der andere sagt: Der Schlüssel ist jetzt weg. In dieser Lektion lernst du, wann du das simple past nimmst und wann das present perfect. Und du lernst die Falle kennen, in die fast alle deutschen Kinder einmal tappen.",
+    "keyPoint": "Stell dir vor, du suchst deinen Schlüssel. Auf Englisch kannst du dazu zwei Sätze sagen: I lost my key yesterday. Oder: I have lost my key. Beide handeln von der Vergangenheit, aber sie bedeuten nicht dasselbe. Der eine erzählt, was gestern passiert ist. Der andere sagt: Der Schlüssel ist jetzt weg. In dieser Lektion lernst du, wann das simple past passt und wann das present perfect. Und du lernst die Falle kennen, in die fast alle deutschen Kinder einmal tappen.",
     "suggestedVisual": "title"
    },
    {
@@ -161,7 +161,7 @@
     "id": 7,
     "chapterId": 2,
     "purpose": "chapter",
-    "keyPoint": "Jetzt kommt die neue Zeitform: das present perfect. Der Name verrät schon etwas: present heißt Gegenwart. Das present perfect verbindet etwas aus der Vergangenheit mit dem Jetzt. Etwas ist passiert, und das Ergebnis ist jetzt zu sehen. Gebildet wird es mit have oder has und der dritten Form des Verbs. In diesem Kapitel lernst du, wie du es bildest und wann du es brauchst.",
+    "keyPoint": "Jetzt kommt die neue Zeitform: das present perfect. Der Name verrät schon etwas: present heißt Gegenwart. Das present perfect verbindet etwas aus der Vergangenheit mit dem Jetzt. Etwas ist passiert, und das Ergebnis ist jetzt zu sehen. Gebildet wird es mit have oder has und der dritten Form des Verbs. In diesem Kapitel lernst du beides: bilden und benutzen.",
     "suggestedVisual": "chapter"
    },
    {
@@ -217,7 +217,7 @@
     "id": 15,
     "chapterId": 3,
     "purpose": "explain",
-    "keyPoint": "Diese Signalwörter zeigen auf das present perfect. Just, also gerade eben: I have just finished. Already, schon: She has already left. Yet, in Fragen und Verneinungen: Have you finished yet? Ever und never fragen nach dem ganzen Leben bis jetzt: Have you ever seen a whale? I have never been to Spain. Keines dieser Wörter nennt einen festen Zeitpunkt. Sie spannen einen Bogen von früher bis zum Jetzt.",
+    "keyPoint": "Diese Signalwörter zeigen auf das present perfect. Just, also gerade eben: I have just finished. Already, schon: She has already left. Yet, in Fragen und Verneinungen: Have you finished yet? Ever und never fragen nach dem ganzen Leben bis jetzt: Have you ever seen a whale? I have never been to Spain. Keines dieser Wörter nennt einen festen Zeitpunkt. Sie reichen von früher bis zum Jetzt.",
     "suggestedVisual": "bullets"
    },
    {
@@ -266,7 +266,7 @@
     "id": 22,
     "chapterId": 4,
     "purpose": "explain",
-    "keyPoint": "Auch bei Fragen und Verneinungen musst du die Zeitform durchhalten. Im simple past hilft did: Did you see the film yesterday? No, I didn't see it. Nach did steht immer die Grundform see. Im present perfect stellst du have oder has nach vorn: Have you seen the film? No, I haven't seen it. Nach have steht die dritte Form seen. Zwei Muster, die du dir gut einprägen solltest.",
+    "keyPoint": "Auch bei Fragen und Verneinungen musst du die Zeitform durchhalten. Im simple past hilft did: Did you see the film yesterday? No, I didn't see it. Nach did steht immer die Grundform see. Im present perfect stellst du have oder has nach vorn: Have you seen the film? No, I haven't seen it. Nach have steht die dritte Form seen. Zwei Muster, die du dir einprägen solltest.",
     "suggestedVisual": "bullets"
    },
    {
@@ -301,7 +301,7 @@
     "id": 27,
     "chapterId": 5,
     "purpose": "explain",
-    "keyPoint": "Für beide Zeitformen brauchst du die unregelmäßigen Verben, und zwar alle drei Formen. Die zweite Form für das simple past, die dritte für das present perfect. Lern sie immer als Dreierpack: go, went, gone. See, saw, seen. Eat, ate, eaten. Write, wrote, written. Sprich sie laut, wie einen Rhythmus. Bei manchen sind die zweite und dritte Form gleich, lose, lost, lost. Die Liste in deinem Buch ist dein Freund.",
+    "keyPoint": "Für beide Zeitformen brauchst du die unregelmäßigen Verben, und zwar alle drei Formen. Die zweite Form für das simple past, die dritte für das present perfect. Lern sie immer als Dreierpack: go, went, gone. See, saw, seen. Eat, ate, eaten. Write, wrote, written. Sprich sie laut, wie einen Rhythmus. Bei manchen sind zweite und dritte Form gleich: lose, lost, lost. Die Liste in deinem Buch hilft dir.",
     "suggestedVisual": "bullets"
    },
    {
@@ -315,7 +315,7 @@
     "id": 29,
     "chapterId": 5,
     "purpose": "explain",
-    "keyPoint": "Die letzte Frage. Ein kleines Gespräch: Have you ever been to London? Yes, I ... there two years ago. Du sollst das Verb go einsetzen. Achtung: Die Frage steht im present perfect, mit ever. Aber die Antwort nennt einen Zeitpunkt. Welche Zeitform brauchst du also in der Antwort? Nimm dir ein paar Sekunden Zeit.",
+    "keyPoint": "Die letzte Frage. Ein kleines Gespräch: Have you ever been to London? Yes, I ... there two years ago. Du sollst das Verb go einsetzen. Achtung: Die Frage steht im present perfect, mit ever. Aber die Antwort nennt einen genauen Zeitpunkt. Welche Zeitform brauchst du also in der Antwort? Nimm dir ein paar Sekunden Zeit.",
     "suggestedVisual": "question"
    },
    {
@@ -337,7 +337,7 @@
  "chapterBeats": {
   "1": [
    {
-    "narration": "Stell dir vor, du suchst deinen Schlüssel. Auf Englisch kannst du dazu zwei Sätze sagen: I lost my key yesterday. Oder: I have lost my key. Beide handeln von der Vergangenheit, aber sie bedeuten nicht dasselbe. Der eine erzählt, was gestern passiert ist. Der andere sagt: Der Schlüssel ist jetzt weg. In dieser Lektion lernst du, wann du das simple past nimmst und wann das present perfect. Und du lernst die Falle kennen, in die fast alle deutschen Kinder einmal tappen.",
+    "narration": "Stell dir vor, du suchst deinen Schlüssel. Auf Englisch kannst du dazu zwei Sätze sagen: I lost my key yesterday. Oder: I have lost my key. Beide handeln von der Vergangenheit, aber sie bedeuten nicht dasselbe. Der eine erzählt, was gestern passiert ist. Der andere sagt: Der Schlüssel ist jetzt weg. In dieser Lektion lernst du, wann das simple past passt und wann das present perfect. Und du lernst die Falle kennen, in die fast alle deutschen Kinder einmal tappen.",
     "onScreenTitle": "Simple past oder present perfect?",
     "question": null,
     "think": null,
@@ -540,7 +540,7 @@
   ],
   "2": [
    {
-    "narration": "Jetzt kommt die neue Zeitform: das present perfect. Der Name verrät schon etwas: present heißt Gegenwart. Das present perfect verbindet etwas aus der Vergangenheit mit dem Jetzt. Etwas ist passiert, und das Ergebnis ist jetzt zu sehen. Gebildet wird es mit have oder has und der dritten Form des Verbs. In diesem Kapitel lernst du, wie du es bildest und wann du es brauchst.",
+    "narration": "Jetzt kommt die neue Zeitform: das present perfect. Der Name verrät schon etwas: present heißt Gegenwart. Das present perfect verbindet etwas aus der Vergangenheit mit dem Jetzt. Etwas ist passiert, und das Ergebnis ist jetzt zu sehen. Gebildet wird es mit have oder has und der dritten Form des Verbs. In diesem Kapitel lernst du beides: bilden und benutzen.",
     "onScreenTitle": "Present perfect: Vergangenheit mit Folgen",
     "question": null,
     "think": null,
@@ -815,7 +815,7 @@
     "stockQuery": null
    },
    {
-    "narration": "Diese Signalwörter zeigen auf das present perfect. Just, also gerade eben: I have just finished. Already, schon: She has already left. Yet, in Fragen und Verneinungen: Have you finished yet? Ever und never fragen nach dem ganzen Leben bis jetzt: Have you ever seen a whale? I have never been to Spain. Keines dieser Wörter nennt einen festen Zeitpunkt. Sie spannen einen Bogen von früher bis zum Jetzt.",
+    "narration": "Diese Signalwörter zeigen auf das present perfect. Just, also gerade eben: I have just finished. Already, schon: She has already left. Yet, in Fragen und Verneinungen: Have you finished yet? Ever und never fragen nach dem ganzen Leben bis jetzt: Have you ever seen a whale? I have never been to Spain. Keines dieser Wörter nennt einen festen Zeitpunkt. Sie reichen von früher bis zum Jetzt.",
     "onScreenTitle": "Signalwörter für das present perfect",
     "question": null,
     "think": null,
@@ -1056,7 +1056,7 @@
     "stockQuery": null
    },
    {
-    "narration": "Auch bei Fragen und Verneinungen musst du die Zeitform durchhalten. Im simple past hilft did: Did you see the film yesterday? No, I didn't see it. Nach did steht immer die Grundform see. Im present perfect stellst du have oder has nach vorn: Have you seen the film? No, I haven't seen it. Nach have steht die dritte Form seen. Zwei Muster, die du dir gut einprägen solltest.",
+    "narration": "Auch bei Fragen und Verneinungen musst du die Zeitform durchhalten. Im simple past hilft did: Did you see the film yesterday? No, I didn't see it. Nach did steht immer die Grundform see. Im present perfect stellst du have oder has nach vorn: Have you seen the film? No, I haven't seen it. Nach have steht die dritte Form seen. Zwei Muster, die du dir einprägen solltest.",
     "onScreenTitle": "Fragen und Verneinungen",
     "question": null,
     "think": null,
@@ -1227,7 +1227,7 @@
     "stockQuery": null
    },
    {
-    "narration": "Für beide Zeitformen brauchst du die unregelmäßigen Verben, und zwar alle drei Formen. Die zweite Form für das simple past, die dritte für das present perfect. Lern sie immer als Dreierpack: go, went, gone. See, saw, seen. Eat, ate, eaten. Write, wrote, written. Sprich sie laut, wie einen Rhythmus. Bei manchen sind die zweite und dritte Form gleich, lose, lost, lost. Die Liste in deinem Buch ist dein Freund.",
+    "narration": "Für beide Zeitformen brauchst du die unregelmäßigen Verben, und zwar alle drei Formen. Die zweite Form für das simple past, die dritte für das present perfect. Lern sie immer als Dreierpack: go, went, gone. See, saw, seen. Eat, ate, eaten. Write, wrote, written. Sprich sie laut, wie einen Rhythmus. Bei manchen sind zweite und dritte Form gleich: lose, lost, lost. Die Liste in deinem Buch hilft dir.",
     "onScreenTitle": "Unregelmäßige Verben: immer drei Formen",
     "question": null,
     "think": null,
@@ -1298,7 +1298,7 @@
     "stockQuery": null
    },
    {
-    "narration": "Die letzte Frage. Ein kleines Gespräch: Have you ever been to London? Yes, I ... there two years ago. Du sollst das Verb go einsetzen. Achtung: Die Frage steht im present perfect, mit ever. Aber die Antwort nennt einen Zeitpunkt. Welche Zeitform brauchst du also in der Antwort? Nimm dir ein paar Sekunden Zeit.",
+    "narration": "Die letzte Frage. Ein kleines Gespräch: Have you ever been to London? Yes, I ... there two years ago. Du sollst das Verb go einsetzen. Achtung: Die Frage steht im present perfect, mit ever. Aber die Antwort nennt einen genauen Zeitpunkt. Welche Zeitform brauchst du also in der Antwort? Nimm dir ein paar Sekunden Zeit.",
     "onScreenTitle": "Üben und merken",
     "question": "Have you ever been to London? Yes, I ... there two years ago. Setze go ein.",
     "think": 9,
@@ -1398,7 +1398,7 @@
    {
     "beatId": 1,
     "chapterId": 1,
-    "narration": "Stell dir vor, du suchst deinen Schlüssel. Auf Englisch kannst du dazu zwei Sätze sagen: I lost my key yesterday. Oder: I have lost my key. Beide handeln von der Vergangenheit, aber sie bedeuten nicht dasselbe. Der eine erzählt, was gestern passiert ist. Der andere sagt: Der Schlüssel ist jetzt weg. In dieser Lektion lernst du, wann du das simple past nimmst und wann das present perfect. Und du lernst die Falle kennen, in die fast alle deutschen Kinder einmal tappen.",
+    "narration": "Stell dir vor, du suchst deinen Schlüssel. Auf Englisch kannst du dazu zwei Sätze sagen: I lost my key yesterday. Oder: I have lost my key. Beide handeln von der Vergangenheit, aber sie bedeuten nicht dasselbe. Der eine erzählt, was gestern passiert ist. Der andere sagt: Der Schlüssel ist jetzt weg. In dieser Lektion lernst du, wann das simple past passt und wann das present perfect. Und du lernst die Falle kennen, in die fast alle deutschen Kinder einmal tappen.",
     "onScreenTitle": "Simple past oder present perfect?",
     "emphasisWords": []
    },
@@ -1440,7 +1440,7 @@
    {
     "beatId": 7,
     "chapterId": 2,
-    "narration": "Jetzt kommt die neue Zeitform: das present perfect. Der Name verrät schon etwas: present heißt Gegenwart. Das present perfect verbindet etwas aus der Vergangenheit mit dem Jetzt. Etwas ist passiert, und das Ergebnis ist jetzt zu sehen. Gebildet wird es mit have oder has und der dritten Form des Verbs. In diesem Kapitel lernst du, wie du es bildest und wann du es brauchst.",
+    "narration": "Jetzt kommt die neue Zeitform: das present perfect. Der Name verrät schon etwas: present heißt Gegenwart. Das present perfect verbindet etwas aus der Vergangenheit mit dem Jetzt. Etwas ist passiert, und das Ergebnis ist jetzt zu sehen. Gebildet wird es mit have oder has und der dritten Form des Verbs. In diesem Kapitel lernst du beides: bilden und benutzen.",
     "onScreenTitle": "Present perfect: Vergangenheit mit Folgen",
     "emphasisWords": []
    },
@@ -1496,7 +1496,7 @@
    {
     "beatId": 15,
     "chapterId": 3,
-    "narration": "Diese Signalwörter zeigen auf das present perfect. Just, also gerade eben: I have just finished. Already, schon: She has already left. Yet, in Fragen und Verneinungen: Have you finished yet? Ever und never fragen nach dem ganzen Leben bis jetzt: Have you ever seen a whale? I have never been to Spain. Keines dieser Wörter nennt einen festen Zeitpunkt. Sie spannen einen Bogen von früher bis zum Jetzt.",
+    "narration": "Diese Signalwörter zeigen auf das present perfect. Just, also gerade eben: I have just finished. Already, schon: She has already left. Yet, in Fragen und Verneinungen: Have you finished yet? Ever und never fragen nach dem ganzen Leben bis jetzt: Have you ever seen a whale? I have never been to Spain. Keines dieser Wörter nennt einen festen Zeitpunkt. Sie reichen von früher bis zum Jetzt.",
     "onScreenTitle": "Signalwörter für das present perfect",
     "emphasisWords": []
    },
@@ -1545,7 +1545,7 @@
    {
     "beatId": 22,
     "chapterId": 4,
-    "narration": "Auch bei Fragen und Verneinungen musst du die Zeitform durchhalten. Im simple past hilft did: Did you see the film yesterday? No, I didn't see it. Nach did steht immer die Grundform see. Im present perfect stellst du have oder has nach vorn: Have you seen the film? No, I haven't seen it. Nach have steht die dritte Form seen. Zwei Muster, die du dir gut einprägen solltest.",
+    "narration": "Auch bei Fragen und Verneinungen musst du die Zeitform durchhalten. Im simple past hilft did: Did you see the film yesterday? No, I didn't see it. Nach did steht immer die Grundform see. Im present perfect stellst du have oder has nach vorn: Have you seen the film? No, I haven't seen it. Nach have steht die dritte Form seen. Zwei Muster, die du dir einprägen solltest.",
     "onScreenTitle": "Fragen und Verneinungen",
     "emphasisWords": []
    },
@@ -1580,7 +1580,7 @@
    {
     "beatId": 27,
     "chapterId": 5,
-    "narration": "Für beide Zeitformen brauchst du die unregelmäßigen Verben, und zwar alle drei Formen. Die zweite Form für das simple past, die dritte für das present perfect. Lern sie immer als Dreierpack: go, went, gone. See, saw, seen. Eat, ate, eaten. Write, wrote, written. Sprich sie laut, wie einen Rhythmus. Bei manchen sind die zweite und dritte Form gleich, lose, lost, lost. Die Liste in deinem Buch ist dein Freund.",
+    "narration": "Für beide Zeitformen brauchst du die unregelmäßigen Verben, und zwar alle drei Formen. Die zweite Form für das simple past, die dritte für das present perfect. Lern sie immer als Dreierpack: go, went, gone. See, saw, seen. Eat, ate, eaten. Write, wrote, written. Sprich sie laut, wie einen Rhythmus. Bei manchen sind zweite und dritte Form gleich: lose, lost, lost. Die Liste in deinem Buch hilft dir.",
     "onScreenTitle": "Unregelmäßige Verben: immer drei Formen",
     "emphasisWords": []
    },
@@ -1594,7 +1594,7 @@
    {
     "beatId": 29,
     "chapterId": 5,
-    "narration": "Die letzte Frage. Ein kleines Gespräch: Have you ever been to London? Yes, I ... there two years ago. Du sollst das Verb go einsetzen. Achtung: Die Frage steht im present perfect, mit ever. Aber die Antwort nennt einen Zeitpunkt. Welche Zeitform brauchst du also in der Antwort? Nimm dir ein paar Sekunden Zeit.",
+    "narration": "Die letzte Frage. Ein kleines Gespräch: Have you ever been to London? Yes, I ... there two years ago. Du sollst das Verb go einsetzen. Achtung: Die Frage steht im present perfect, mit ever. Aber die Antwort nennt einen genauen Zeitpunkt. Welche Zeitform brauchst du also in der Antwort? Nimm dir ein paar Sekunden Zeit.",
     "onScreenTitle": "Üben und merken",
     "emphasisWords": []
    },
@@ -1613,7 +1613,7 @@
     "emphasisWords": []
    }
   ],
-  "totalWords": 1988
+  "totalWords": 1978
  },
  "review": {
   "approved": true,
