@@ -60,7 +60,7 @@ Reihenfolge: zuerst Mathematik (fertige 3D-Szenen), dann Deutsch (Satzglieder-Sz
 
 | Issue-Titel | Thema | Lehrplan-Std. | Video (min) | 3D-Szene | Plan | Eltern |
 |---|---|---|---|---|---|---|
-| `Lektion: G6-1` | Der Mensch und seine Geschichte | 6 | 6 | geplant: timeline | – | – |
+| `Lektion: G6-1` | Der Mensch und seine Geschichte | 6 | 6 | ✅ timeline | ✅ | ✅ |
 | `Lektion: G6-2` | Ägypten – eine frühe Hochkultur | 6 | 7 | geplant: pyramid | – | – |
 | `Lektion: G6-3` | Die griechische Antike | 10 | 8 | – | – | – |
 | `Lektion: G6-4` | Menschen machen Geschichte | 6 | 6 | – | – | – |

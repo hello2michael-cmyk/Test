@@ -2,8 +2,8 @@
  "id": "current",
  "prompt": "Eltern-Lektion G6-1 „Der Mensch und seine Geschichte“ (Geschichte, Klasse 6 Gymnasium Bayern), aus klasse6/lessons/G6-1.eltern.lesson.json. 12 Minuten, auf Deutsch, für Eltern und Lehrkräfte.",
  "attempts": 0,
- "createdAt": 1794219305423,
- "updatedAt": 1794219305423,
+ "createdAt": 1794219712186,
+ "updatedAt": 1794219712186,
  "stage": "plan",
  "mode": "course",
  "durationApplied": true,
@@ -28,8 +28,8 @@
   "footageProvider": "none",
   "aiClipBudget": 0,
   "minSceneSeconds": 10,
-  "maxDuration": 823,
-  "targetDuration": 716,
+  "maxDuration": 861,
+  "targetDuration": 749,
   "lesson": {
    "id": "G6-1",
    "title": "Der Mensch und seine Geschichte",
@@ -107,8 +107,8 @@
     "title": "Fehlvorstellungen, Leistungsnachweise, Ausblick",
     "goal": "Sie erkennen typische Fehlvorstellungen, wissen, wie in Geschichte 6 üblicherweise geprüft wird, und kennen die nächsten Themen.",
     "keyPoints": [
+     "Vier Fehlvorstellungen",
      "Steinzeit ohne Dinosaurier",
-     "Quelle ist nicht nur Text",
      "Kleine Leistungsnachweise",
      "Ägypten, Griechenland, Rom"
     ],
@@ -127,7 +127,7 @@
     "id": 2,
     "chapterId": 1,
     "purpose": "explain",
-    "keyPoint": "Geschichte wird in Jahrgangsstufe 6 in der Regel mit zwei Wochenstunden unterrichtet. Das Schuljahr spannt einen Bogen von den ersten Menschen bis zur Kaiserkrönung Karls des Großen. Der erste Lernbereich, Der Mensch und seine Geschichte, ist im LehrplanPLUS mit etwa sechs Stunden angesetzt. Danach folgen Ägypten, die griechische Antike, ein Längsschnitt zu Menschen, die Geschichte machen, das Imperium Romanum, der Übergang zum Mittelalter und ein Längsschnitt zum Leben in der Familie. Der Lehrplan verweist außerdem auf das Fach Kunst der fünften Klasse.",
+    "keyPoint": "Geschichte wird in Jahrgangsstufe 6 meist mit zwei Wochenstunden unterrichtet, je nach Stundentafel der Schule. Das Schuljahr spannt einen Bogen von den ersten Menschen bis zur Kaiserkrönung Karls des Großen. Der erste Lernbereich, Der Mensch und seine Geschichte, ist im LehrplanPLUS mit etwa sechs Stunden angesetzt. Danach folgen Ägypten, die griechische Antike, ein Längsschnitt zu Menschen, die Geschichte machen, das Imperium Romanum, der Übergang zum Mittelalter und ein Längsschnitt zum Leben in der Familie. Der Lehrplan verweist außerdem auf das Fach Kunst der fünften Klasse.",
     "suggestedVisual": "bullets"
    },
    {
@@ -148,21 +148,21 @@
     "id": 5,
     "chapterId": 2,
     "purpose": "explain",
-    "keyPoint": "Idee eins: der Zeitstrahl. Links ist früher, rechts ist später, in der Mitte steht Christi Geburt, von der aus unsere Zeitrechnung zählt. Vor Christi Geburt wird rückwärts gezählt: Das Jahr 3000 vor Christus liegt weiter zurück als das Jahr 1000 vor Christus. Für viele Kinder ist das die erste echte Hürde des Fachs, weil es der Zahlenintuition widerspricht. Dazu kommt das Jahrhundert: Die Jahre 1 bis 100 bilden das erste, also gehört 1492 ins fünfzehnte. Am gezeichneten Strahl klärt sich beides schnell, im Kopf allein deutlich schwerer.",
+    "keyPoint": "Idee eins: der Zeitstrahl. Links ist früher, rechts ist später, rechts von der Mitte steht Christi Geburt, von der aus unsere Zeitrechnung zählt. Ein Jahr null gibt es nicht: Auf 1 vor Christus folgt 1 nach Christus. Vor Christi Geburt wird rückwärts gezählt: Das Jahr 3000 vor Christus liegt weiter zurück als das Jahr 1000 vor Christus. Für viele Kinder ist das die erste echte Hürde des Fachs, weil es der Zahlenintuition widerspricht. Dazu kommt das Jahrhundert: Die Jahre 1 bis 100 bilden das erste, also gehört 1492 ins fünfzehnte. Am gezeichneten Strahl klärt sich beides schnell, im Kopf allein deutlich schwerer.",
     "suggestedVisual": "math3d"
    },
    {
     "id": 6,
     "chapterId": 2,
     "purpose": "explain",
-    "keyPoint": "Idee zwei: die Proportionen. Die Ereignisse erscheinen in ihrer Reihenfolge, hervorgehoben wird das Ende der Altsteinzeit um zehntausend vor Christus, als die letzte Eiszeit ausklang. Alles links davon, und weit über diesen Strahl hinaus, ist Altsteinzeit: über zwei Millionen Jahre, in denen Menschen als Jäger und Sammler lebten. Bauern, Hochkulturen, Römer und Kaiser passen dagegen in die rechten gut siebentausend Jahre. Dieses Größenverhältnis gehört zu dem, was der Lehrplan mit Zeit als zentraler Dimension der Geschichte meint.",
+    "keyPoint": "Idee zwei: die Größenverhältnisse. Die Ereignisse erscheinen in ihrer Reihenfolge, hervorgehoben wird das Ende der Altsteinzeit um zehntausend vor Christus, als die letzte Eiszeit ausklang. Achtung: Der Strahl ist rechts gedehnt, sonst wäre dort kaum etwas zu erkennen; maßstabsgetreu wäre die Steinzeit fast die ganze Linie. Alles links der Markierung, und weit über diesen Strahl hinaus, ist Altsteinzeit: über zwei Millionen Jahre, in denen Menschen als Jäger und Sammler lebten. Bauern, Hochkulturen, Römer und Kaiser teilen sich dagegen die letzten gut siebentausend Jahre. Dieses Größenverhältnis gehört zu dem, was der Lehrplan mit Zeit als zentraler Dimension der Geschichte meint.",
     "suggestedVisual": "math3d"
    },
    {
     "id": 7,
     "chapterId": 2,
     "purpose": "explain",
-    "keyPoint": "Idee drei: die Quellen. Der Lehrplan nennt schriftliche, mündliche, bildliche und gegenständliche Quellen sowie die Unterscheidung von Überrest und Überlieferung. Ein Überrest ist unabsichtlich geblieben, etwa eine verlorene Münze oder ein Knochen mit Schnittspuren. Eine Überlieferung wurde für spätere Menschen gemacht, etwa ein Denkmal oder eine Chronik, und ist deshalb oft geschönt. Für die Steinzeit gibt es keine Schrift; hier liegt die Bedeutung der Archäologie: Ausgrabung Schicht für Schicht, genaue Dokumentation, Deutung der Funde. Der Mann aus dem Eis, Ötzi, ist das Beispiel, das viele Schulbücher dafür wählen.",
+    "keyPoint": "Idee drei: die Quellen. Der Lehrplan nennt schriftliche, mündliche, bildliche und gegenständliche Quellen sowie die Unterscheidung von Überrest und Überlieferung. Ein Überrest ist unabsichtlich geblieben, etwa eine verlorene Münze oder ein Knochen mit Schnittspuren. Eine Überlieferung wurde für spätere Menschen gemacht, etwa ein Denkmal oder eine Chronik, und ist deshalb oft geschönt. Für die Steinzeit gibt es keine Schrift; hier liegt die Bedeutung der Archäologie: Ausgrabung Schicht für Schicht, genaue Dokumentation, Deutung der Funde. Ein häufig genutztes Beispiel für einen Überrest ist der Mann aus dem Eis, Ötzi: ein Gletscherfund, der ohne Ausgrabung ans Licht kam und doch vieles über die Jungsteinzeit verrät.",
     "suggestedVisual": "bullets"
    },
    {
@@ -218,42 +218,42 @@
     "id": 15,
     "chapterId": 4,
     "purpose": "explain",
-    "keyPoint": "Idee zwei: der eigene Zeitstrahl. Ein langer Papierstreifen, Christi Geburt in der Mitte, zuerst die Familie: die eigene Geburt, die Einschulung, die Geburtsjahre der Eltern und Großeltern. Dann die Schuldaten: die Gründung Roms 753 vor Christus, die frühen Hochkulturen um 3000 vor Christus, das Ende der Altsteinzeit um zehntausend vor Christus. Spätestens hier merkt Ihr Kind, dass der Streifen nicht reicht, und erlebt den Maßstab körperlich. Nebenbei wird das Rückwärtszählen geübt, ohne dass es wie Üben wirkt. Der Streifen kann das ganze Schuljahr mitwachsen.",
+    "keyPoint": "Idee zwei: der eigene Zeitstrahl. Ein langer Papierstreifen, Christi Geburt in der Mitte, zuerst die Familie: die eigene Geburt, die Einschulung, die Geburtsjahre der Eltern und Großeltern. Dann die Schuldaten: die Gründung Roms, der Sage nach 753 vor Christus, die frühen Hochkulturen um 3000 vor Christus, das Ende der Altsteinzeit um zehntausend vor Christus. Spätestens hier merkt Ihr Kind, dass der Streifen nicht reicht, und erlebt den Maßstab körperlich. Nebenbei wird das Rückwärtszählen geübt, ohne dass es wie Üben wirkt. Der Streifen kann das ganze Schuljahr mitwachsen.",
     "suggestedVisual": "bullets"
    },
    {
     "id": 16,
     "chapterId": 4,
     "purpose": "explain",
-    "keyPoint": "Idee drei: ein Museumsbesuch. Archäologische Sammlungen mit steinzeitlichen Funden gibt es in vielen bayerischen Städten, in München etwa die Archäologische Staatssammlung; Heimatmuseen zeigen oft Funde aus der unmittelbaren Umgebung. Hilfreich ist ein kleiner Auftrag: Such dir einen einzigen Fund aus und erzähle, was er über die Menschen damals verrät und woher man das weiß. Fragen Sie auch, ob das Stück ein Überrest oder eine Überlieferung ist. Manche Ausgrabungen öffnen im Sommer für Besucher; ein echter Grabungsschnitt zeigt die Schichten besser als jedes Bild.",
+    "keyPoint": "Idee drei: ein Museumsbesuch. Archäologische Sammlungen mit steinzeitlichen Funden gibt es in vielen bayerischen Städten, in München etwa die Archäologische Staatssammlung; Heimatmuseen zeigen oft Funde aus der unmittelbaren Umgebung. Hilfreich ist ein kleiner Auftrag: Bitten Sie Ihr Kind, sich einen einzigen Fund auszusuchen und zu erzählen, was er über die Menschen damals verrät und woher man das weiß. Fragen Sie auch, ob das Stück ein Überrest oder eine Überlieferung ist. Manche Ausgrabungen öffnen im Sommer für Besucher; ein echter Grabungsschnitt zeigt die Schichten besser als jedes Bild.",
     "suggestedVisual": "bullets"
    },
    {
     "id": 17,
     "chapterId": 5,
     "purpose": "chapter",
-    "keyPoint": "Zum Schluss drei Dinge, die Eltern häufig fragen: Welche Fehlvorstellungen bringen Kinder in den ersten Geschichtsunterricht mit, wie wird in diesem Fach eigentlich geprüft, und was kommt danach? Die Fehlvorstellungen stammen meist aus Filmen und Comics und sind hartnäckig. Die Prüfungsform ist in Geschichte anders als in Mathematik oder Deutsch. Und der Ausblick zeigt, warum der Zeitstrahl das ganze Jahr über wichtig bleibt.",
+    "keyPoint": "Zum Schluss drei Dinge, die Eltern häufig fragen: Welche vier Fehlvorstellungen bringen Kinder typischerweise in den ersten Geschichtsunterricht mit, wie wird in diesem Fach eigentlich geprüft, und was kommt danach? Die Fehlvorstellungen stammen meist aus Filmen und Comics und sind hartnäckig. Die Prüfungsform ist in Geschichte anders als in Mathematik oder Deutsch. Und der Ausblick zeigt, warum der Zeitstrahl das ganze Jahr über wichtig bleibt.",
     "suggestedVisual": "chapter"
    },
    {
     "id": 18,
     "chapterId": 5,
     "purpose": "explain",
-    "keyPoint": "Erstens: Steinzeitmenschen hätten mit Dinosauriern gelebt. Die Dinosaurier starben vor rund 66 Millionen Jahren aus, die ersten Menschen erschienen vor etwa zwei bis drei Millionen Jahren. Zweitens: Eine Quelle sei immer ein Text. Für die Steinzeit gibt es keine Schrift; hier zählen Gegenstände, Bilder und Befunde. Drittens: Früher sei alles primitiv gewesen. Wer mit Feuerstein, Sehne und Knochen in der Eiszeit überlebt, ist hoch spezialisiert; Fortschritt ist kein gerader Weg nach oben. Viertens: Vor Christi Geburt bedeutet die größere Zahl das frühere Jahr. Diese Umkehrung braucht Übung am Zeitstrahl.",
+    "keyPoint": "Erstens: Steinzeitmenschen hätten mit Dinosauriern gelebt. Die Dinosaurier starben vor rund 66 Millionen Jahren aus, die ersten Menschen erschienen vor etwa zwei bis drei Millionen Jahren. Zweitens: Eine Quelle sei immer ein Text. Für die Steinzeit gibt es keine Schrift; hier zählen Gegenstände, Bilder und Befunde. Drittens: Früher sei alles primitiv gewesen. Wer mit Feuerstein, Sehne und Knochen in der Eiszeit überlebt, ist hoch spezialisiert; Fortschritt ist kein gerader Weg nach oben. Viertens: Vor Christi Geburt bedeutet die größere Zahl das frühere Jahr. Diese Umkehrung braucht Übung am Zeitstrahl. Ähnlich tückisch: Das Jahr 1500 gehört noch zum fünfzehnten Jahrhundert.",
     "suggestedVisual": "bullets"
    },
    {
     "id": 19,
     "chapterId": 5,
     "purpose": "explain",
-    "keyPoint": "Geschichte zählt in Jahrgangsstufe 6 in der Regel zu den Fächern ohne Schulaufgaben. Bewertet wird üblicherweise mit kleinen Leistungsnachweisen: Stegreifaufgaben, mündliche Mitarbeit, kurze Abfragen, gelegentlich Referate. Typische Aufgaben in diesem Lernbereich wären, eine abgebildete Quelle einer Quellenart zuzuordnen und als Überrest oder Überlieferung zu bestimmen, Jahreszahlen auf einem Zeitstrahl zu ordnen und die Lebensweisen der Alt- und Jungsteinzeit zu vergleichen. Wie viele Nachweise es gibt und wie sie gewichtet werden, legt die Lehrkraft im Rahmen der Schulordnung fest. Das Heft Ihres Kindes zeigt, wie es gehandhabt wird.",
+    "keyPoint": "Geschichte zählt in Jahrgangsstufe 6 in der Regel zu den Fächern ohne Schulaufgaben. Bewertet wird üblicherweise mit kleinen Leistungsnachweisen, zum Beispiel Stegreifaufgaben, Kurzarbeiten, mündliche Mitarbeit, kurze Abfragen, gelegentlich Referate. Typische Aufgaben in diesem Lernbereich wären, eine abgebildete Quelle einer Quellenart zuzuordnen und als Überrest oder Überlieferung zu bestimmen, Jahreszahlen auf einem Zeitstrahl zu ordnen und die Lebensweisen der Alt- und Jungsteinzeit zu vergleichen. Wie viele Nachweise es gibt und wie sie gewichtet werden, legt die Lehrkraft im Rahmen der Schulordnung fest. Das Heft Ihres Kindes zeigt, wie es gehandhabt wird.",
     "suggestedVisual": "bullets"
    },
    {
     "id": 20,
     "chapterId": 5,
     "purpose": "explain",
-    "keyPoint": "Der Ausblick lässt sich am Zeitstrahl ablesen. Nach der Steinzeit folgt Ägypten als frühe Hochkultur ab etwa 3000 vor Christus: Nil, Pharao, Pyramiden. Dann die griechische Antike mit Polis, Olympischen Spielen und der Demokratie Athens im fünften Jahrhundert vor Christus. Ein Längsschnitt fragt an Hatschepsut, Themistokles und Alexander nach Grenzen von Herrschaft. Es folgen das Imperium Romanum von der Gründungssage bis zu Augustus und den Provinzen, darunter das römische Bayern, und der Übergang zum Mittelalter bis zur Kaiserkrönung Karls des Großen im Jahr 800. Der Zeitstrahl bleibt das Ordnungsgerüst.",
+    "keyPoint": "Der Ausblick lässt sich am Zeitstrahl ablesen. Nach der Steinzeit folgt Ägypten als frühe Hochkultur ab etwa 3000 vor Christus: Nil, Pharao, Pyramiden. Dann die griechische Antike mit Polis, Olympischen Spielen und der Demokratie Athens im fünften Jahrhundert vor Christus. Ein Längsschnitt fragt an Beispielen wie Hatschepsut, Themistokles und Alexander nach Möglichkeiten und Grenzen von Herrschaft. Es folgen das Imperium Romanum von der Gründungssage bis zu Augustus und den Provinzen, darunter das römische Bayern, und der Übergang zum Mittelalter bis zur Kaiserkrönung Karls des Großen im Jahr 800. Der Zeitstrahl bleibt das Ordnungsgerüst.",
     "suggestedVisual": "math3d"
    },
    {
@@ -298,7 +298,7 @@
     "stockQuery": null
    },
    {
-    "narration": "Geschichte wird in Jahrgangsstufe 6 in der Regel mit zwei Wochenstunden unterrichtet. Das Schuljahr spannt einen Bogen von den ersten Menschen bis zur Kaiserkrönung Karls des Großen. Der erste Lernbereich, Der Mensch und seine Geschichte, ist im LehrplanPLUS mit etwa sechs Stunden angesetzt. Danach folgen Ägypten, die griechische Antike, ein Längsschnitt zu Menschen, die Geschichte machen, das Imperium Romanum, der Übergang zum Mittelalter und ein Längsschnitt zum Leben in der Familie. Der Lehrplan verweist außerdem auf das Fach Kunst der fünften Klasse.",
+    "narration": "Geschichte wird in Jahrgangsstufe 6 meist mit zwei Wochenstunden unterrichtet, je nach Stundentafel der Schule. Das Schuljahr spannt einen Bogen von den ersten Menschen bis zur Kaiserkrönung Karls des Großen. Der erste Lernbereich, Der Mensch und seine Geschichte, ist im LehrplanPLUS mit etwa sechs Stunden angesetzt. Danach folgen Ägypten, die griechische Antike, ein Längsschnitt zu Menschen, die Geschichte machen, das Imperium Romanum, der Übergang zum Mittelalter und ein Längsschnitt zum Leben in der Familie. Der Lehrplan verweist außerdem auf das Fach Kunst der fünften Klasse.",
     "onScreenTitle": "Das Fach und der Lernbereich",
     "question": null,
     "think": null,
@@ -405,7 +405,7 @@
     "stockQuery": null
    },
    {
-    "narration": "Idee eins: der Zeitstrahl. Links ist früher, rechts ist später, in der Mitte steht Christi Geburt, von der aus unsere Zeitrechnung zählt. Vor Christi Geburt wird rückwärts gezählt: Das Jahr 3000 vor Christus liegt weiter zurück als das Jahr 1000 vor Christus. Für viele Kinder ist das die erste echte Hürde des Fachs, weil es der Zahlenintuition widerspricht. Dazu kommt das Jahrhundert: Die Jahre 1 bis 100 bilden das erste, also gehört 1492 ins fünfzehnte. Am gezeichneten Strahl klärt sich beides schnell, im Kopf allein deutlich schwerer.",
+    "narration": "Idee eins: der Zeitstrahl. Links ist früher, rechts ist später, rechts von der Mitte steht Christi Geburt, von der aus unsere Zeitrechnung zählt. Ein Jahr null gibt es nicht: Auf 1 vor Christus folgt 1 nach Christus. Vor Christi Geburt wird rückwärts gezählt: Das Jahr 3000 vor Christus liegt weiter zurück als das Jahr 1000 vor Christus. Für viele Kinder ist das die erste echte Hürde des Fachs, weil es der Zahlenintuition widerspricht. Dazu kommt das Jahrhundert: Die Jahre 1 bis 100 bilden das erste, also gehört 1492 ins fünfzehnte. Am gezeichneten Strahl klärt sich beides schnell, im Kopf allein deutlich schwerer.",
     "onScreenTitle": "Idee 1: Der Zeitstrahl und Christi Geburt",
     "question": null,
     "think": null,
@@ -441,7 +441,7 @@
     "stockQuery": null
    },
    {
-    "narration": "Idee zwei: die Proportionen. Die Ereignisse erscheinen in ihrer Reihenfolge, hervorgehoben wird das Ende der Altsteinzeit um zehntausend vor Christus, als die letzte Eiszeit ausklang. Alles links davon, und weit über diesen Strahl hinaus, ist Altsteinzeit: über zwei Millionen Jahre, in denen Menschen als Jäger und Sammler lebten. Bauern, Hochkulturen, Römer und Kaiser passen dagegen in die rechten gut siebentausend Jahre. Dieses Größenverhältnis gehört zu dem, was der Lehrplan mit Zeit als zentraler Dimension der Geschichte meint.",
+    "narration": "Idee zwei: die Größenverhältnisse. Die Ereignisse erscheinen in ihrer Reihenfolge, hervorgehoben wird das Ende der Altsteinzeit um zehntausend vor Christus, als die letzte Eiszeit ausklang. Achtung: Der Strahl ist rechts gedehnt, sonst wäre dort kaum etwas zu erkennen; maßstabsgetreu wäre die Steinzeit fast die ganze Linie. Alles links der Markierung, und weit über diesen Strahl hinaus, ist Altsteinzeit: über zwei Millionen Jahre, in denen Menschen als Jäger und Sammler lebten. Bauern, Hochkulturen, Römer und Kaiser teilen sich dagegen die letzten gut siebentausend Jahre. Dieses Größenverhältnis gehört zu dem, was der Lehrplan mit Zeit als zentraler Dimension der Geschichte meint.",
     "onScreenTitle": "Idee 2: Die Steinzeit ist der lange Anfang",
     "question": null,
     "think": null,
@@ -477,7 +477,7 @@
     "stockQuery": null
    },
    {
-    "narration": "Idee drei: die Quellen. Der Lehrplan nennt schriftliche, mündliche, bildliche und gegenständliche Quellen sowie die Unterscheidung von Überrest und Überlieferung. Ein Überrest ist unabsichtlich geblieben, etwa eine verlorene Münze oder ein Knochen mit Schnittspuren. Eine Überlieferung wurde für spätere Menschen gemacht, etwa ein Denkmal oder eine Chronik, und ist deshalb oft geschönt. Für die Steinzeit gibt es keine Schrift; hier liegt die Bedeutung der Archäologie: Ausgrabung Schicht für Schicht, genaue Dokumentation, Deutung der Funde. Der Mann aus dem Eis, Ötzi, ist das Beispiel, das viele Schulbücher dafür wählen.",
+    "narration": "Idee drei: die Quellen. Der Lehrplan nennt schriftliche, mündliche, bildliche und gegenständliche Quellen sowie die Unterscheidung von Überrest und Überlieferung. Ein Überrest ist unabsichtlich geblieben, etwa eine verlorene Münze oder ein Knochen mit Schnittspuren. Eine Überlieferung wurde für spätere Menschen gemacht, etwa ein Denkmal oder eine Chronik, und ist deshalb oft geschönt. Für die Steinzeit gibt es keine Schrift; hier liegt die Bedeutung der Archäologie: Ausgrabung Schicht für Schicht, genaue Dokumentation, Deutung der Funde. Ein häufig genutztes Beispiel für einen Überrest ist der Mann aus dem Eis, Ötzi: ein Gletscherfund, der ohne Ausgrabung ans Licht kam und doch vieles über die Jungsteinzeit verrät.",
     "onScreenTitle": "Idee 3: Quellen sind Spuren, nicht nur Texte",
     "question": null,
     "think": null,
@@ -760,7 +760,7 @@
     "stockQuery": null
    },
    {
-    "narration": "Idee zwei: der eigene Zeitstrahl. Ein langer Papierstreifen, Christi Geburt in der Mitte, zuerst die Familie: die eigene Geburt, die Einschulung, die Geburtsjahre der Eltern und Großeltern. Dann die Schuldaten: die Gründung Roms 753 vor Christus, die frühen Hochkulturen um 3000 vor Christus, das Ende der Altsteinzeit um zehntausend vor Christus. Spätestens hier merkt Ihr Kind, dass der Streifen nicht reicht, und erlebt den Maßstab körperlich. Nebenbei wird das Rückwärtszählen geübt, ohne dass es wie Üben wirkt. Der Streifen kann das ganze Schuljahr mitwachsen.",
+    "narration": "Idee zwei: der eigene Zeitstrahl. Ein langer Papierstreifen, Christi Geburt in der Mitte, zuerst die Familie: die eigene Geburt, die Einschulung, die Geburtsjahre der Eltern und Großeltern. Dann die Schuldaten: die Gründung Roms, der Sage nach 753 vor Christus, die frühen Hochkulturen um 3000 vor Christus, das Ende der Altsteinzeit um zehntausend vor Christus. Spätestens hier merkt Ihr Kind, dass der Streifen nicht reicht, und erlebt den Maßstab körperlich. Nebenbei wird das Rückwärtszählen geübt, ohne dass es wie Üben wirkt. Der Streifen kann das ganze Schuljahr mitwachsen.",
     "onScreenTitle": "Idee 2: Einen Zeitstrahl basteln",
     "question": null,
     "think": null,
@@ -795,7 +795,7 @@
     "stockQuery": null
    },
    {
-    "narration": "Idee drei: ein Museumsbesuch. Archäologische Sammlungen mit steinzeitlichen Funden gibt es in vielen bayerischen Städten, in München etwa die Archäologische Staatssammlung; Heimatmuseen zeigen oft Funde aus der unmittelbaren Umgebung. Hilfreich ist ein kleiner Auftrag: Such dir einen einzigen Fund aus und erzähle, was er über die Menschen damals verrät und woher man das weiß. Fragen Sie auch, ob das Stück ein Überrest oder eine Überlieferung ist. Manche Ausgrabungen öffnen im Sommer für Besucher; ein echter Grabungsschnitt zeigt die Schichten besser als jedes Bild.",
+    "narration": "Idee drei: ein Museumsbesuch. Archäologische Sammlungen mit steinzeitlichen Funden gibt es in vielen bayerischen Städten, in München etwa die Archäologische Staatssammlung; Heimatmuseen zeigen oft Funde aus der unmittelbaren Umgebung. Hilfreich ist ein kleiner Auftrag: Bitten Sie Ihr Kind, sich einen einzigen Fund auszusuchen und zu erzählen, was er über die Menschen damals verrät und woher man das weiß. Fragen Sie auch, ob das Stück ein Überrest oder eine Überlieferung ist. Manche Ausgrabungen öffnen im Sommer für Besucher; ein echter Grabungsschnitt zeigt die Schichten besser als jedes Bild.",
     "onScreenTitle": "Idee 3: Ins Museum",
     "question": null,
     "think": null,
@@ -832,7 +832,7 @@
   ],
   "5": [
    {
-    "narration": "Zum Schluss drei Dinge, die Eltern häufig fragen: Welche Fehlvorstellungen bringen Kinder in den ersten Geschichtsunterricht mit, wie wird in diesem Fach eigentlich geprüft, und was kommt danach? Die Fehlvorstellungen stammen meist aus Filmen und Comics und sind hartnäckig. Die Prüfungsform ist in Geschichte anders als in Mathematik oder Deutsch. Und der Ausblick zeigt, warum der Zeitstrahl das ganze Jahr über wichtig bleibt.",
+    "narration": "Zum Schluss drei Dinge, die Eltern häufig fragen: Welche vier Fehlvorstellungen bringen Kinder typischerweise in den ersten Geschichtsunterricht mit, wie wird in diesem Fach eigentlich geprüft, und was kommt danach? Die Fehlvorstellungen stammen meist aus Filmen und Comics und sind hartnäckig. Die Prüfungsform ist in Geschichte anders als in Mathematik oder Deutsch. Und der Ausblick zeigt, warum der Zeitstrahl das ganze Jahr über wichtig bleibt.",
     "onScreenTitle": "Fehlvorstellungen, Leistungsnachweise, Ausblick",
     "question": null,
     "think": null,
@@ -866,8 +866,8 @@
     "stockQuery": null
    },
    {
-    "narration": "Erstens: Steinzeitmenschen hätten mit Dinosauriern gelebt. Die Dinosaurier starben vor rund 66 Millionen Jahren aus, die ersten Menschen erschienen vor etwa zwei bis drei Millionen Jahren. Zweitens: Eine Quelle sei immer ein Text. Für die Steinzeit gibt es keine Schrift; hier zählen Gegenstände, Bilder und Befunde. Drittens: Früher sei alles primitiv gewesen. Wer mit Feuerstein, Sehne und Knochen in der Eiszeit überlebt, ist hoch spezialisiert; Fortschritt ist kein gerader Weg nach oben. Viertens: Vor Christi Geburt bedeutet die größere Zahl das frühere Jahr. Diese Umkehrung braucht Übung am Zeitstrahl.",
-    "onScreenTitle": "Drei typische Fehlvorstellungen",
+    "narration": "Erstens: Steinzeitmenschen hätten mit Dinosauriern gelebt. Die Dinosaurier starben vor rund 66 Millionen Jahren aus, die ersten Menschen erschienen vor etwa zwei bis drei Millionen Jahren. Zweitens: Eine Quelle sei immer ein Text. Für die Steinzeit gibt es keine Schrift; hier zählen Gegenstände, Bilder und Befunde. Drittens: Früher sei alles primitiv gewesen. Wer mit Feuerstein, Sehne und Knochen in der Eiszeit überlebt, ist hoch spezialisiert; Fortschritt ist kein gerader Weg nach oben. Viertens: Vor Christi Geburt bedeutet die größere Zahl das frühere Jahr. Diese Umkehrung braucht Übung am Zeitstrahl. Ähnlich tückisch: Das Jahr 1500 gehört noch zum fünfzehnten Jahrhundert.",
+    "onScreenTitle": "Vier typische Fehlvorstellungen",
     "question": null,
     "think": null,
     "hint": null,
@@ -901,7 +901,7 @@
     "stockQuery": null
    },
    {
-    "narration": "Geschichte zählt in Jahrgangsstufe 6 in der Regel zu den Fächern ohne Schulaufgaben. Bewertet wird üblicherweise mit kleinen Leistungsnachweisen: Stegreifaufgaben, mündliche Mitarbeit, kurze Abfragen, gelegentlich Referate. Typische Aufgaben in diesem Lernbereich wären, eine abgebildete Quelle einer Quellenart zuzuordnen und als Überrest oder Überlieferung zu bestimmen, Jahreszahlen auf einem Zeitstrahl zu ordnen und die Lebensweisen der Alt- und Jungsteinzeit zu vergleichen. Wie viele Nachweise es gibt und wie sie gewichtet werden, legt die Lehrkraft im Rahmen der Schulordnung fest. Das Heft Ihres Kindes zeigt, wie es gehandhabt wird.",
+    "narration": "Geschichte zählt in Jahrgangsstufe 6 in der Regel zu den Fächern ohne Schulaufgaben. Bewertet wird üblicherweise mit kleinen Leistungsnachweisen, zum Beispiel Stegreifaufgaben, Kurzarbeiten, mündliche Mitarbeit, kurze Abfragen, gelegentlich Referate. Typische Aufgaben in diesem Lernbereich wären, eine abgebildete Quelle einer Quellenart zuzuordnen und als Überrest oder Überlieferung zu bestimmen, Jahreszahlen auf einem Zeitstrahl zu ordnen und die Lebensweisen der Alt- und Jungsteinzeit zu vergleichen. Wie viele Nachweise es gibt und wie sie gewichtet werden, legt die Lehrkraft im Rahmen der Schulordnung fest. Das Heft Ihres Kindes zeigt, wie es gehandhabt wird.",
     "onScreenTitle": "So wird in Geschichte 6 meist geprüft",
     "question": null,
     "think": null,
@@ -916,7 +916,7 @@
     "formula": null,
     "bullets": [
      "In der Regel keine Schulaufgaben in Geschichte 6",
-     "Kleine Leistungsnachweise: Stegreifaufgaben, Mitarbeit, Abfragen, Referate",
+     "Zum Beispiel Stegreifaufgaben, Kurzarbeiten, Mitarbeit, Abfragen, Referate",
      "Typisch: Quelle einordnen, Zeitstrahl, Lebensweisen vergleichen",
      "Details legt die Lehrkraft fest"
     ],
@@ -936,7 +936,7 @@
     "stockQuery": null
    },
    {
-    "narration": "Der Ausblick lässt sich am Zeitstrahl ablesen. Nach der Steinzeit folgt Ägypten als frühe Hochkultur ab etwa 3000 vor Christus: Nil, Pharao, Pyramiden. Dann die griechische Antike mit Polis, Olympischen Spielen und der Demokratie Athens im fünften Jahrhundert vor Christus. Ein Längsschnitt fragt an Hatschepsut, Themistokles und Alexander nach Grenzen von Herrschaft. Es folgen das Imperium Romanum von der Gründungssage bis zu Augustus und den Provinzen, darunter das römische Bayern, und der Übergang zum Mittelalter bis zur Kaiserkrönung Karls des Großen im Jahr 800. Der Zeitstrahl bleibt das Ordnungsgerüst.",
+    "narration": "Der Ausblick lässt sich am Zeitstrahl ablesen. Nach der Steinzeit folgt Ägypten als frühe Hochkultur ab etwa 3000 vor Christus: Nil, Pharao, Pyramiden. Dann die griechische Antike mit Polis, Olympischen Spielen und der Demokratie Athens im fünften Jahrhundert vor Christus. Ein Längsschnitt fragt an Beispielen wie Hatschepsut, Themistokles und Alexander nach Möglichkeiten und Grenzen von Herrschaft. Es folgen das Imperium Romanum von der Gründungssage bis zu Augustus und den Provinzen, darunter das römische Bayern, und der Übergang zum Mittelalter bis zur Kaiserkrönung Karls des Großen im Jahr 800. Der Zeitstrahl bleibt das Ordnungsgerüst.",
     "onScreenTitle": "Ausblick: Ägypten, Griechenland, Rom",
     "question": null,
     "think": null,
@@ -1015,7 +1015,7 @@
    {
     "beatId": 2,
     "chapterId": 1,
-    "narration": "Geschichte wird in Jahrgangsstufe 6 in der Regel mit zwei Wochenstunden unterrichtet. Das Schuljahr spannt einen Bogen von den ersten Menschen bis zur Kaiserkrönung Karls des Großen. Der erste Lernbereich, Der Mensch und seine Geschichte, ist im LehrplanPLUS mit etwa sechs Stunden angesetzt. Danach folgen Ägypten, die griechische Antike, ein Längsschnitt zu Menschen, die Geschichte machen, das Imperium Romanum, der Übergang zum Mittelalter und ein Längsschnitt zum Leben in der Familie. Der Lehrplan verweist außerdem auf das Fach Kunst der fünften Klasse.",
+    "narration": "Geschichte wird in Jahrgangsstufe 6 meist mit zwei Wochenstunden unterrichtet, je nach Stundentafel der Schule. Das Schuljahr spannt einen Bogen von den ersten Menschen bis zur Kaiserkrönung Karls des Großen. Der erste Lernbereich, Der Mensch und seine Geschichte, ist im LehrplanPLUS mit etwa sechs Stunden angesetzt. Danach folgen Ägypten, die griechische Antike, ein Längsschnitt zu Menschen, die Geschichte machen, das Imperium Romanum, der Übergang zum Mittelalter und ein Längsschnitt zum Leben in der Familie. Der Lehrplan verweist außerdem auf das Fach Kunst der fünften Klasse.",
     "onScreenTitle": "Das Fach und der Lernbereich",
     "emphasisWords": []
    },
@@ -1036,21 +1036,21 @@
    {
     "beatId": 5,
     "chapterId": 2,
-    "narration": "Idee eins: der Zeitstrahl. Links ist früher, rechts ist später, in der Mitte steht Christi Geburt, von der aus unsere Zeitrechnung zählt. Vor Christi Geburt wird rückwärts gezählt: Das Jahr 3000 vor Christus liegt weiter zurück als das Jahr 1000 vor Christus. Für viele Kinder ist das die erste echte Hürde des Fachs, weil es der Zahlenintuition widerspricht. Dazu kommt das Jahrhundert: Die Jahre 1 bis 100 bilden das erste, also gehört 1492 ins fünfzehnte. Am gezeichneten Strahl klärt sich beides schnell, im Kopf allein deutlich schwerer.",
+    "narration": "Idee eins: der Zeitstrahl. Links ist früher, rechts ist später, rechts von der Mitte steht Christi Geburt, von der aus unsere Zeitrechnung zählt. Ein Jahr null gibt es nicht: Auf 1 vor Christus folgt 1 nach Christus. Vor Christi Geburt wird rückwärts gezählt: Das Jahr 3000 vor Christus liegt weiter zurück als das Jahr 1000 vor Christus. Für viele Kinder ist das die erste echte Hürde des Fachs, weil es der Zahlenintuition widerspricht. Dazu kommt das Jahrhundert: Die Jahre 1 bis 100 bilden das erste, also gehört 1492 ins fünfzehnte. Am gezeichneten Strahl klärt sich beides schnell, im Kopf allein deutlich schwerer.",
     "onScreenTitle": "Idee 1: Der Zeitstrahl und Christi Geburt",
     "emphasisWords": []
    },
    {
     "beatId": 6,
     "chapterId": 2,
-    "narration": "Idee zwei: die Proportionen. Die Ereignisse erscheinen in ihrer Reihenfolge, hervorgehoben wird das Ende der Altsteinzeit um zehntausend vor Christus, als die letzte Eiszeit ausklang. Alles links davon, und weit über diesen Strahl hinaus, ist Altsteinzeit: über zwei Millionen Jahre, in denen Menschen als Jäger und Sammler lebten. Bauern, Hochkulturen, Römer und Kaiser passen dagegen in die rechten gut siebentausend Jahre. Dieses Größenverhältnis gehört zu dem, was der Lehrplan mit Zeit als zentraler Dimension der Geschichte meint.",
+    "narration": "Idee zwei: die Größenverhältnisse. Die Ereignisse erscheinen in ihrer Reihenfolge, hervorgehoben wird das Ende der Altsteinzeit um zehntausend vor Christus, als die letzte Eiszeit ausklang. Achtung: Der Strahl ist rechts gedehnt, sonst wäre dort kaum etwas zu erkennen; maßstabsgetreu wäre die Steinzeit fast die ganze Linie. Alles links der Markierung, und weit über diesen Strahl hinaus, ist Altsteinzeit: über zwei Millionen Jahre, in denen Menschen als Jäger und Sammler lebten. Bauern, Hochkulturen, Römer und Kaiser teilen sich dagegen die letzten gut siebentausend Jahre. Dieses Größenverhältnis gehört zu dem, was der Lehrplan mit Zeit als zentraler Dimension der Geschichte meint.",
     "onScreenTitle": "Idee 2: Die Steinzeit ist der lange Anfang",
     "emphasisWords": []
    },
    {
     "beatId": 7,
     "chapterId": 2,
-    "narration": "Idee drei: die Quellen. Der Lehrplan nennt schriftliche, mündliche, bildliche und gegenständliche Quellen sowie die Unterscheidung von Überrest und Überlieferung. Ein Überrest ist unabsichtlich geblieben, etwa eine verlorene Münze oder ein Knochen mit Schnittspuren. Eine Überlieferung wurde für spätere Menschen gemacht, etwa ein Denkmal oder eine Chronik, und ist deshalb oft geschönt. Für die Steinzeit gibt es keine Schrift; hier liegt die Bedeutung der Archäologie: Ausgrabung Schicht für Schicht, genaue Dokumentation, Deutung der Funde. Der Mann aus dem Eis, Ötzi, ist das Beispiel, das viele Schulbücher dafür wählen.",
+    "narration": "Idee drei: die Quellen. Der Lehrplan nennt schriftliche, mündliche, bildliche und gegenständliche Quellen sowie die Unterscheidung von Überrest und Überlieferung. Ein Überrest ist unabsichtlich geblieben, etwa eine verlorene Münze oder ein Knochen mit Schnittspuren. Eine Überlieferung wurde für spätere Menschen gemacht, etwa ein Denkmal oder eine Chronik, und ist deshalb oft geschönt. Für die Steinzeit gibt es keine Schrift; hier liegt die Bedeutung der Archäologie: Ausgrabung Schicht für Schicht, genaue Dokumentation, Deutung der Funde. Ein häufig genutztes Beispiel für einen Überrest ist der Mann aus dem Eis, Ötzi: ein Gletscherfund, der ohne Ausgrabung ans Licht kam und doch vieles über die Jungsteinzeit verrät.",
     "onScreenTitle": "Idee 3: Quellen sind Spuren, nicht nur Texte",
     "emphasisWords": []
    },
@@ -1106,42 +1106,42 @@
    {
     "beatId": 15,
     "chapterId": 4,
-    "narration": "Idee zwei: der eigene Zeitstrahl. Ein langer Papierstreifen, Christi Geburt in der Mitte, zuerst die Familie: die eigene Geburt, die Einschulung, die Geburtsjahre der Eltern und Großeltern. Dann die Schuldaten: die Gründung Roms 753 vor Christus, die frühen Hochkulturen um 3000 vor Christus, das Ende der Altsteinzeit um zehntausend vor Christus. Spätestens hier merkt Ihr Kind, dass der Streifen nicht reicht, und erlebt den Maßstab körperlich. Nebenbei wird das Rückwärtszählen geübt, ohne dass es wie Üben wirkt. Der Streifen kann das ganze Schuljahr mitwachsen.",
+    "narration": "Idee zwei: der eigene Zeitstrahl. Ein langer Papierstreifen, Christi Geburt in der Mitte, zuerst die Familie: die eigene Geburt, die Einschulung, die Geburtsjahre der Eltern und Großeltern. Dann die Schuldaten: die Gründung Roms, der Sage nach 753 vor Christus, die frühen Hochkulturen um 3000 vor Christus, das Ende der Altsteinzeit um zehntausend vor Christus. Spätestens hier merkt Ihr Kind, dass der Streifen nicht reicht, und erlebt den Maßstab körperlich. Nebenbei wird das Rückwärtszählen geübt, ohne dass es wie Üben wirkt. Der Streifen kann das ganze Schuljahr mitwachsen.",
     "onScreenTitle": "Idee 2: Einen Zeitstrahl basteln",
     "emphasisWords": []
    },
    {
     "beatId": 16,
     "chapterId": 4,
-    "narration": "Idee drei: ein Museumsbesuch. Archäologische Sammlungen mit steinzeitlichen Funden gibt es in vielen bayerischen Städten, in München etwa die Archäologische Staatssammlung; Heimatmuseen zeigen oft Funde aus der unmittelbaren Umgebung. Hilfreich ist ein kleiner Auftrag: Such dir einen einzigen Fund aus und erzähle, was er über die Menschen damals verrät und woher man das weiß. Fragen Sie auch, ob das Stück ein Überrest oder eine Überlieferung ist. Manche Ausgrabungen öffnen im Sommer für Besucher; ein echter Grabungsschnitt zeigt die Schichten besser als jedes Bild.",
+    "narration": "Idee drei: ein Museumsbesuch. Archäologische Sammlungen mit steinzeitlichen Funden gibt es in vielen bayerischen Städten, in München etwa die Archäologische Staatssammlung; Heimatmuseen zeigen oft Funde aus der unmittelbaren Umgebung. Hilfreich ist ein kleiner Auftrag: Bitten Sie Ihr Kind, sich einen einzigen Fund auszusuchen und zu erzählen, was er über die Menschen damals verrät und woher man das weiß. Fragen Sie auch, ob das Stück ein Überrest oder eine Überlieferung ist. Manche Ausgrabungen öffnen im Sommer für Besucher; ein echter Grabungsschnitt zeigt die Schichten besser als jedes Bild.",
     "onScreenTitle": "Idee 3: Ins Museum",
     "emphasisWords": []
    },
    {
     "beatId": 17,
     "chapterId": 5,
-    "narration": "Zum Schluss drei Dinge, die Eltern häufig fragen: Welche Fehlvorstellungen bringen Kinder in den ersten Geschichtsunterricht mit, wie wird in diesem Fach eigentlich geprüft, und was kommt danach? Die Fehlvorstellungen stammen meist aus Filmen und Comics und sind hartnäckig. Die Prüfungsform ist in Geschichte anders als in Mathematik oder Deutsch. Und der Ausblick zeigt, warum der Zeitstrahl das ganze Jahr über wichtig bleibt.",
+    "narration": "Zum Schluss drei Dinge, die Eltern häufig fragen: Welche vier Fehlvorstellungen bringen Kinder typischerweise in den ersten Geschichtsunterricht mit, wie wird in diesem Fach eigentlich geprüft, und was kommt danach? Die Fehlvorstellungen stammen meist aus Filmen und Comics und sind hartnäckig. Die Prüfungsform ist in Geschichte anders als in Mathematik oder Deutsch. Und der Ausblick zeigt, warum der Zeitstrahl das ganze Jahr über wichtig bleibt.",
     "onScreenTitle": "Fehlvorstellungen, Leistungsnachweise, Ausblick",
     "emphasisWords": []
    },
    {
     "beatId": 18,
     "chapterId": 5,
-    "narration": "Erstens: Steinzeitmenschen hätten mit Dinosauriern gelebt. Die Dinosaurier starben vor rund 66 Millionen Jahren aus, die ersten Menschen erschienen vor etwa zwei bis drei Millionen Jahren. Zweitens: Eine Quelle sei immer ein Text. Für die Steinzeit gibt es keine Schrift; hier zählen Gegenstände, Bilder und Befunde. Drittens: Früher sei alles primitiv gewesen. Wer mit Feuerstein, Sehne und Knochen in der Eiszeit überlebt, ist hoch spezialisiert; Fortschritt ist kein gerader Weg nach oben. Viertens: Vor Christi Geburt bedeutet die größere Zahl das frühere Jahr. Diese Umkehrung braucht Übung am Zeitstrahl.",
-    "onScreenTitle": "Drei typische Fehlvorstellungen",
+    "narration": "Erstens: Steinzeitmenschen hätten mit Dinosauriern gelebt. Die Dinosaurier starben vor rund 66 Millionen Jahren aus, die ersten Menschen erschienen vor etwa zwei bis drei Millionen Jahren. Zweitens: Eine Quelle sei immer ein Text. Für die Steinzeit gibt es keine Schrift; hier zählen Gegenstände, Bilder und Befunde. Drittens: Früher sei alles primitiv gewesen. Wer mit Feuerstein, Sehne und Knochen in der Eiszeit überlebt, ist hoch spezialisiert; Fortschritt ist kein gerader Weg nach oben. Viertens: Vor Christi Geburt bedeutet die größere Zahl das frühere Jahr. Diese Umkehrung braucht Übung am Zeitstrahl. Ähnlich tückisch: Das Jahr 1500 gehört noch zum fünfzehnten Jahrhundert.",
+    "onScreenTitle": "Vier typische Fehlvorstellungen",
     "emphasisWords": []
    },
    {
     "beatId": 19,
     "chapterId": 5,
-    "narration": "Geschichte zählt in Jahrgangsstufe 6 in der Regel zu den Fächern ohne Schulaufgaben. Bewertet wird üblicherweise mit kleinen Leistungsnachweisen: Stegreifaufgaben, mündliche Mitarbeit, kurze Abfragen, gelegentlich Referate. Typische Aufgaben in diesem Lernbereich wären, eine abgebildete Quelle einer Quellenart zuzuordnen und als Überrest oder Überlieferung zu bestimmen, Jahreszahlen auf einem Zeitstrahl zu ordnen und die Lebensweisen der Alt- und Jungsteinzeit zu vergleichen. Wie viele Nachweise es gibt und wie sie gewichtet werden, legt die Lehrkraft im Rahmen der Schulordnung fest. Das Heft Ihres Kindes zeigt, wie es gehandhabt wird.",
+    "narration": "Geschichte zählt in Jahrgangsstufe 6 in der Regel zu den Fächern ohne Schulaufgaben. Bewertet wird üblicherweise mit kleinen Leistungsnachweisen, zum Beispiel Stegreifaufgaben, Kurzarbeiten, mündliche Mitarbeit, kurze Abfragen, gelegentlich Referate. Typische Aufgaben in diesem Lernbereich wären, eine abgebildete Quelle einer Quellenart zuzuordnen und als Überrest oder Überlieferung zu bestimmen, Jahreszahlen auf einem Zeitstrahl zu ordnen und die Lebensweisen der Alt- und Jungsteinzeit zu vergleichen. Wie viele Nachweise es gibt und wie sie gewichtet werden, legt die Lehrkraft im Rahmen der Schulordnung fest. Das Heft Ihres Kindes zeigt, wie es gehandhabt wird.",
     "onScreenTitle": "So wird in Geschichte 6 meist geprüft",
     "emphasisWords": []
    },
    {
     "beatId": 20,
     "chapterId": 5,
-    "narration": "Der Ausblick lässt sich am Zeitstrahl ablesen. Nach der Steinzeit folgt Ägypten als frühe Hochkultur ab etwa 3000 vor Christus: Nil, Pharao, Pyramiden. Dann die griechische Antike mit Polis, Olympischen Spielen und der Demokratie Athens im fünften Jahrhundert vor Christus. Ein Längsschnitt fragt an Hatschepsut, Themistokles und Alexander nach Grenzen von Herrschaft. Es folgen das Imperium Romanum von der Gründungssage bis zu Augustus und den Provinzen, darunter das römische Bayern, und der Übergang zum Mittelalter bis zur Kaiserkrönung Karls des Großen im Jahr 800. Der Zeitstrahl bleibt das Ordnungsgerüst.",
+    "narration": "Der Ausblick lässt sich am Zeitstrahl ablesen. Nach der Steinzeit folgt Ägypten als frühe Hochkultur ab etwa 3000 vor Christus: Nil, Pharao, Pyramiden. Dann die griechische Antike mit Polis, Olympischen Spielen und der Demokratie Athens im fünften Jahrhundert vor Christus. Ein Längsschnitt fragt an Beispielen wie Hatschepsut, Themistokles und Alexander nach Möglichkeiten und Grenzen von Herrschaft. Es folgen das Imperium Romanum von der Gründungssage bis zu Augustus und den Provinzen, darunter das römische Bayern, und der Übergang zum Mittelalter bis zur Kaiserkrönung Karls des Großen im Jahr 800. Der Zeitstrahl bleibt das Ordnungsgerüst.",
     "onScreenTitle": "Ausblick: Ägypten, Griechenland, Rom",
     "emphasisWords": []
    },
@@ -1153,14 +1153,15 @@
     "emphasisWords": []
    }
   ],
-  "totalWords": 1717
+  "totalWords": 1798
  },
  "review": {
   "approved": true,
   "issues": [],
   "claimsToVerify": [],
   "revisedNarration": {},
-  "mustFix": []
+  "mustFix": [],
+  "reviewer": "Claude Sonnet (Claude Code subagent), independent of the writer (Claude in Claude Code)"
  },
  "storyboard": {
   "scenes": [
@@ -1860,7 +1861,7 @@
     "beatId": 18,
     "kind": "bullets",
     "kicker": "Fehlvorstellungen, Leistungsnachweise, Ausblick",
-    "title": "Drei typische Fehlvorstellungen",
+    "title": "Vier typische Fehlvorstellungen",
     "subtitle": null,
     "bullets": [
      "Steinzeitmenschen und Dinosaurier? Nein, Millionen Jahre dazwischen",
@@ -1905,7 +1906,7 @@
     "subtitle": null,
     "bullets": [
      "In der Regel keine Schulaufgaben in Geschichte 6",
-     "Kleine Leistungsnachweise: Stegreifaufgaben, Mitarbeit, Abfragen, Referate",
+     "Zum Beispiel Stegreifaufgaben, Kurzarbeiten, Mitarbeit, Abfragen, Referate",
      "Typisch: Quelle einordnen, Zeitstrahl, Lebensweisen vergleichen",
      "Details legt die Lehrkraft fest"
     ],

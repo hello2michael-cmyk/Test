@@ -2,8 +2,8 @@
  "id": "current",
  "prompt": "Lektion G6-1 „Der Mensch und seine Geschichte“ (Geschichte, Klasse 6 Gymnasium Bayern), aus klasse6/lessons/G6-1.lesson.json. 18 Minuten, auf Deutsch, für Kinder von etwa 11 Jahren.",
  "attempts": 0,
- "createdAt": 1794219305494,
- "updatedAt": 1794219305494,
+ "createdAt": 1794219712135,
+ "updatedAt": 1794219712135,
  "stage": "plan",
  "mode": "course",
  "durationApplied": true,
@@ -28,8 +28,8 @@
   "footageProvider": "none",
   "aiClipBudget": 0,
   "minSceneSeconds": 10,
-  "maxDuration": 1216,
-  "targetDuration": 1057,
+  "maxDuration": 1270,
+  "targetDuration": 1104,
   "lesson": {
    "id": "G6-1",
    "title": "Der Mensch und seine Geschichte",
@@ -43,7 +43,7 @@
  "brief": {
   "title": "Der Mensch und seine Geschichte: Zeit, Quellen, Steinzeit",
   "audience": "Kinder der 6. Klasse (etwa 11 Jahre)",
-  "hook": "Niemand von uns war in der Steinzeit dabei. Trotzdem wissen wir, was die Menschen damals gegessen, gejagt und gebaut haben. Wie geht das?",
+  "hook": "Niemand von uns war in der Steinzeit dabei. Trotzdem wissen wir erstaunlich viel darüber, was die Menschen damals gegessen, gejagt und gebaut haben. Wie geht das?",
   "learningObjectives": [
    "Vergangenheit, Gegenwart und Zukunft unterscheiden und auf das eigene Leben beziehen",
    "Jahreszahlen vor und nach Christi Geburt auf dem Zeitstrahl ordnen und Jahrhunderte zuordnen",
@@ -137,21 +137,21 @@
     "id": 3,
     "chapterId": 1,
     "purpose": "explain",
-    "keyPoint": "Um die Vergangenheit zu ordnen, benutzen wir einen Zeitstrahl. Hier wächst er gerade von links nach rechts. Links ist früher, rechts ist später, und ganz rechts stehen wir heute. In der Mitte siehst du eine Markierung: Christi Geburt. Von diesem Punkt aus zählen wir unsere Jahre. Alles davor heißt vor Christus, alles danach nach Christus. Auf dem Bildschirm siehst du die Abkürzungen dafür. Dieser Zeitstrahl reicht von zwölftausend vor Christus bis in unsere Zeit.",
+    "keyPoint": "Um die Vergangenheit zu ordnen, benutzen wir einen Zeitstrahl. Hier wächst er gerade von links nach rechts. Links ist früher, rechts ist später, und ganz rechts stehen wir heute. Rechts von der Mitte siehst du eine Markierung: Christi Geburt. Von diesem Punkt aus zählen wir unsere Jahre; diese Zählung hat man vor langer Zeit festgelegt. Alles davor heißt vor Christus, alles danach nach Christus. An den beiden Enden des Strahls siehst du die Abkürzungen dafür. Noch etwas: Der Strahl ist nicht maßstabsgetreu. Rechts ist er gedehnt, damit die jüngeren Ereignisse Platz haben.",
     "suggestedVisual": "math3d"
    },
    {
     "id": 4,
     "chapterId": 1,
     "purpose": "explain",
-    "keyPoint": "Vor Christi Geburt zählen wir rückwärts. Das Jahr dreitausend vor Christus liegt also weiter zurück als das Jahr tausend vor Christus. Nach Christi Geburt zählen wir vorwärts, wie du es kennst: Das Jahr 800 kommt vor dem Jahr 2026. Hundert Jahre nennt man ein Jahrhundert. Die Jahre 1 bis 100 bilden das erste Jahrhundert. Deshalb gehört das Jahr 1492 ins fünfzehnte Jahrhundert: Hunderterzahl plus eins. Wir heute leben im einundzwanzigsten Jahrhundert.",
+    "keyPoint": "Vor Christi Geburt zählen wir rückwärts. Das Jahr dreitausend vor Christus liegt also weiter zurück als das Jahr tausend vor Christus. Nach Christi Geburt zählen wir vorwärts, wie du es kennst: Das Jahr 800 kommt vor dem Jahr 2026. Ein Jahr null gibt es übrigens nicht: Auf 1 vor Christus folgt gleich 1 nach Christus. Hundert Jahre nennt man ein Jahrhundert. Die Jahre 1 bis 100 bilden das erste Jahrhundert, die Jahre 1401 bis 1500 das fünfzehnte. Das Jahr 1492 gehört also ins fünfzehnte Jahrhundert, und das volle Jahr 1500 noch dazu. Wir heute leben im einundzwanzigsten Jahrhundert.",
     "suggestedVisual": "bullets"
    },
    {
     "id": 5,
     "chapterId": 1,
     "purpose": "explain",
-    "keyPoint": "Jetzt eine Frage für dich. Der Sage nach wurde Rom im Jahr 753 vor Christus gegründet. Die ersten Olympischen Spiele in Griechenland fanden 776 vor Christus statt. Welches Ereignis war früher? Denk an die Regel vom Zeitstrahl: Vor Christi Geburt zählen wir rückwärts. Nimm dir ein paar Sekunden Zeit.",
+    "keyPoint": "Jetzt eine Frage für dich. Der Sage nach wurde Rom im Jahr 753 vor Christus gegründet. Die ersten Olympischen Spiele in Griechenland fanden nach der Überlieferung 776 vor Christus statt. Welches Ereignis war früher? Denk an die Regel vom Zeitstrahl: Vor Christi Geburt zählen wir rückwärts. Nimm dir ein paar Sekunden Zeit.",
     "suggestedVisual": "question"
    },
    {
@@ -186,7 +186,7 @@
     "id": 10,
     "chapterId": 2,
     "purpose": "explain",
-    "keyPoint": "In deinem Geschichtsbuch findest du beides. Quellen stammen aus der Zeit, um die es geht, zum Beispiel das Foto eines Faustkeils oder ein alter Text, oft in einem farbigen Kasten. Der Lerntext daneben ist eine Darstellung: Jemand hat ihn heute geschrieben, nachdem er viele Quellen untersucht hat. Eine Darstellung erklärt und ordnet. Die Quelle ist das Material dafür. Schau beim nächsten Mal genau hin: Was im Buch ist Quelle, was ist Darstellung?",
+    "keyPoint": "In deinem Geschichtsbuch findest du beides. Quellen stammen aus der Zeit, um die es geht, zum Beispiel ein alter Text oder ein Faustkeil selbst; das Foto im Buch zeigt dir nur diese Quelle, meist in einem farbigen Kasten. Der Lerntext daneben ist eine Darstellung: Jemand hat ihn heute geschrieben, nachdem er viele Quellen untersucht hat. Eine Darstellung erklärt und ordnet. Die Quelle ist das Material dafür. Schau beim nächsten Mal genau hin: Was im Buch ist Quelle, was ist Darstellung?",
     "suggestedVisual": "bullets"
    },
    {
@@ -249,7 +249,7 @@
     "id": 19,
     "chapterId": 4,
     "purpose": "explain",
-    "keyPoint": "Schau auf den Zeitstrahl. Die Ereignisse erscheinen nacheinander, und gleich leuchtet das erste auf: das Ende der Altsteinzeit um zehntausend vor Christus. Alles links davon, und noch viel weiter links, als der Zeitstrahl überhaupt reicht, ist Altsteinzeit. Vergleiche die Abstände: Von den ersten Bauern bis heute sind es rund siebeneinhalbtausend Jahre. Die Altsteinzeit dauerte mehr als zweihundertmal so lang. Fast die ganze Geschichte der Menschen ist also Steinzeit, und erst ganz am Ende kommen Pyramiden, Rom und wir.",
+    "keyPoint": "Schau auf den Zeitstrahl. Die Ereignisse erscheinen nacheinander, und gleich leuchtet das erste auf: das Ende der Altsteinzeit um zehntausend vor Christus. Alles links davon, und noch viel weiter links, als der Zeitstrahl überhaupt reicht, ist Altsteinzeit. Achtung: Damit rechts Platz bleibt, ist der Strahl hier gestaucht; die Abstände stimmen nicht maßstabsgetreu. Rechne lieber: Von den ersten Bauern bis heute sind es rund siebeneinhalbtausend Jahre. Die Altsteinzeit dauerte mehr als zweihundertmal so lang. Fast die ganze Geschichte der Menschen ist also Steinzeit, und erst ganz am Ende kommen Pyramiden, Rom und wir.",
     "suggestedVisual": "math3d"
    },
    {
@@ -284,14 +284,14 @@
     "id": 24,
     "chapterId": 5,
     "purpose": "chapter",
-    "keyPoint": "Vor ungefähr zwölftausend Jahren wurde das Klima wärmer, die Eiszeit ging zu Ende. Irgendwann machten Menschen eine Entdeckung, die alles veränderte: Aus Samen, die man in die Erde steckt, wachsen neue Pflanzen. Und Tiere kann man zähmen und halten, statt sie nur zu jagen. Die Menschen wurden Bauern. Dieser neue Abschnitt heißt Jungsteinzeit, und viele nennen den Wandel die größte Veränderung in der Geschichte der Menschheit.",
+    "keyPoint": "Vor ungefähr zwölftausend Jahren wurde das Klima wärmer, die Eiszeit ging zu Ende. Irgendwann machten Menschen eine Entdeckung, die alles veränderte: Aus Samen, die man in die Erde steckt, wachsen neue Pflanzen. Und Tiere kann man zähmen und halten, statt sie nur zu jagen. Die Menschen wurden Bauern. Im Vorderen Orient begannen Menschen vor ungefähr elftausend Jahren mit dem Ackerbau, bei uns erst viel später. Dieser neue Abschnitt heißt Jungsteinzeit, und viele nennen den Wandel die größte Veränderung in der Geschichte der Menschheit.",
     "suggestedVisual": "chapter"
    },
    {
     "id": 25,
     "chapterId": 5,
     "purpose": "explain",
-    "keyPoint": "Auf dem Zeitstrahl leuchtet jetzt das zweite Ereignis: die ersten Bauern in Mitteleuropa, also auch bei uns in Bayern, um fünftausendfünfhundert vor Christus. Im Vorderen Orient, in der Gegend des heutigen Irak, Syrien und der Türkei, hatten Menschen schon einige tausend Jahre früher mit Ackerbau begonnen. Von dort breitete sich die neue Lebensweise langsam aus. Du siehst: Zwischen dem Ende der Altsteinzeit und den ersten Bauern bei uns liegen noch einmal mehrere tausend Jahre.",
+    "keyPoint": "Auf dem Zeitstrahl leuchtet jetzt das zweite Ereignis: die ersten Bauern in Mitteleuropa, also auch bei uns in Bayern, um fünftausendfünfhundert vor Christus. Im Vorderen Orient, in der Gegend des heutigen Irak, Syrien und der Türkei, hatten Menschen schon einige tausend Jahre früher mit Ackerbau begonnen. Von dort breitete sich die neue Lebensweise langsam aus. Du siehst: Zwischen dem Ende der Altsteinzeit und den ersten Bauern bei uns liegen noch einmal mehrere tausend Jahre. In der Zwischenzeit lebten die Menschen bei uns weiter als Jäger und Sammler.",
     "suggestedVisual": "math3d"
    },
    {
@@ -305,7 +305,7 @@
     "id": 27,
     "chapterId": 5,
     "purpose": "explain",
-    "keyPoint": "Mit den Bauern kam vieles Neue. Getreide muss man lagern, also formten die Menschen Gefäße aus Ton: Die Töpferei begann. Sie schliffen Steinbeile scharf, um Wald zu roden, und webten Stoffe aus Wolle und Flachs. Weil Vorräte da waren, konnten mehr Menschen zusammenleben. Aber leichter wurde das Leben nicht einfach: Feldarbeit ist hart, und fiel die Ernte aus, drohte Hunger. Außerdem gab es nun Besitz, Felder und Vieh, und vielleicht auch Streit darum. Forscherinnen und Forscher nennen diesen großen Umbruch die neolithische Revolution.",
+    "keyPoint": "Mit den Bauern kam vieles Neue. Getreide muss man lagern, also formten die Menschen Gefäße aus Ton: Bei uns kommt die Töpferei mit den Bauern auf. Sie schliffen Steinbeile scharf, um Wald zu roden, und webten Stoffe aus Wolle und Flachs. Weil Vorräte da waren, konnten mehr Menschen zusammenleben. Aber leichter wurde das Leben nicht einfach: Feldarbeit ist hart, und fiel die Ernte aus, drohte Hunger. Außerdem gab es nun Besitz, Felder und Vieh, und vielleicht auch Streit darum. Forscherinnen und Forscher nennen diesen großen Umbruch die neolithische Revolution.",
     "suggestedVisual": "bullets"
    },
    {
@@ -326,7 +326,7 @@
     "id": 30,
     "chapterId": 5,
     "purpose": "explain",
-    "keyPoint": "Zum Schluss noch einmal der ganze Zeitstrahl. Links die Steinzeit, der riesige Anfang. Dann die frühen Hochkulturen wie Ägypten um dreitausend vor Christus, die Gründung Roms, Christi Geburt in der Mitte, Karl der Große im Jahr 800 und ganz rechts wir. Merke dir die Regel am Fuß des Strahls: vor Christus rückwärts zählen, nach Christus vorwärts. Alle Themen, die in diesem Schuljahr noch kommen, findest du auf diesem Strahl wieder.",
+    "keyPoint": "Zum Schluss noch einmal der ganze Zeitstrahl. Links die Steinzeit, der riesige Anfang. Dann die frühen Hochkulturen wie Ägypten um dreitausend vor Christus, die Gründung Roms, Christi Geburt rechts von der Mitte, Karl der Große im Jahr 800 und ganz rechts wir. Merke dir die Regel am Fuß des Strahls: vor Christus rückwärts zählen, nach Christus vorwärts. Alle Themen, die in diesem Schuljahr noch kommen, findest du auf diesem Strahl wieder.",
     "suggestedVisual": "math3d"
    },
    {
@@ -406,7 +406,7 @@
     "stockQuery": null
    },
    {
-    "narration": "Um die Vergangenheit zu ordnen, benutzen wir einen Zeitstrahl. Hier wächst er gerade von links nach rechts. Links ist früher, rechts ist später, und ganz rechts stehen wir heute. In der Mitte siehst du eine Markierung: Christi Geburt. Von diesem Punkt aus zählen wir unsere Jahre. Alles davor heißt vor Christus, alles danach nach Christus. Auf dem Bildschirm siehst du die Abkürzungen dafür. Dieser Zeitstrahl reicht von zwölftausend vor Christus bis in unsere Zeit.",
+    "narration": "Um die Vergangenheit zu ordnen, benutzen wir einen Zeitstrahl. Hier wächst er gerade von links nach rechts. Links ist früher, rechts ist später, und ganz rechts stehen wir heute. Rechts von der Mitte siehst du eine Markierung: Christi Geburt. Von diesem Punkt aus zählen wir unsere Jahre; diese Zählung hat man vor langer Zeit festgelegt. Alles davor heißt vor Christus, alles danach nach Christus. An den beiden Enden des Strahls siehst du die Abkürzungen dafür. Noch etwas: Der Strahl ist nicht maßstabsgetreu. Rechts ist er gedehnt, damit die jüngeren Ereignisse Platz haben.",
     "onScreenTitle": "Der Zeitstrahl: links früher, rechts später",
     "question": null,
     "think": null,
@@ -442,7 +442,7 @@
     "stockQuery": null
    },
    {
-    "narration": "Vor Christi Geburt zählen wir rückwärts. Das Jahr dreitausend vor Christus liegt also weiter zurück als das Jahr tausend vor Christus. Nach Christi Geburt zählen wir vorwärts, wie du es kennst: Das Jahr 800 kommt vor dem Jahr 2026. Hundert Jahre nennt man ein Jahrhundert. Die Jahre 1 bis 100 bilden das erste Jahrhundert. Deshalb gehört das Jahr 1492 ins fünfzehnte Jahrhundert: Hunderterzahl plus eins. Wir heute leben im einundzwanzigsten Jahrhundert.",
+    "narration": "Vor Christi Geburt zählen wir rückwärts. Das Jahr dreitausend vor Christus liegt also weiter zurück als das Jahr tausend vor Christus. Nach Christi Geburt zählen wir vorwärts, wie du es kennst: Das Jahr 800 kommt vor dem Jahr 2026. Ein Jahr null gibt es übrigens nicht: Auf 1 vor Christus folgt gleich 1 nach Christus. Hundert Jahre nennt man ein Jahrhundert. Die Jahre 1 bis 100 bilden das erste Jahrhundert, die Jahre 1401 bis 1500 das fünfzehnte. Das Jahr 1492 gehört also ins fünfzehnte Jahrhundert, und das volle Jahr 1500 noch dazu. Wir heute leben im einundzwanzigsten Jahrhundert.",
     "onScreenTitle": "Rückwärts zählen und Jahrhunderte",
     "question": null,
     "think": null,
@@ -457,9 +457,9 @@
     "formula": null,
     "bullets": [
      "v. Chr.: Je größer die Zahl, desto früher",
-     "n. Chr.: Je größer die Zahl, desto später",
+     "Kein Jahr null zwischen v. Chr. und n. Chr.",
      "Ein Jahrhundert sind 100 Jahre",
-     "1492: Hunderter plus eins ergibt das 15. Jahrhundert"
+     "1401 bis 1500: das 15. Jahrhundert"
     ],
     "nodes": null,
     "leftTitle": null,
@@ -477,9 +477,9 @@
     "stockQuery": null
    },
    {
-    "narration": "Jetzt eine Frage für dich. Der Sage nach wurde Rom im Jahr 753 vor Christus gegründet. Die ersten Olympischen Spiele in Griechenland fanden 776 vor Christus statt. Welches Ereignis war früher? Denk an die Regel vom Zeitstrahl: Vor Christi Geburt zählen wir rückwärts. Nimm dir ein paar Sekunden Zeit.",
+    "narration": "Jetzt eine Frage für dich. Der Sage nach wurde Rom im Jahr 753 vor Christus gegründet. Die ersten Olympischen Spiele in Griechenland fanden nach der Überlieferung 776 vor Christus statt. Welches Ereignis war früher? Denk an die Regel vom Zeitstrahl: Vor Christi Geburt zählen wir rückwärts. Nimm dir ein paar Sekunden Zeit.",
     "onScreenTitle": "Was ist Geschichte? Zeit ordnen",
-    "question": "Rom wurde der Sage nach 753 v. Chr. gegründet, die ersten Olympischen Spiele fanden 776 v. Chr. statt. Was war früher?",
+    "question": "Rom wurde der Sage nach 753 v. Chr. gegründet, die ersten Olympischen Spiele fanden nach der Überlieferung 776 v. Chr. statt. Was war früher?",
     "think": 8,
     "hint": "Vor Christi Geburt zählen wir rückwärts: Die größere Zahl liegt weiter zurück.",
     "emphasisWords": [],
@@ -648,7 +648,7 @@
     "stockQuery": null
    },
    {
-    "narration": "In deinem Geschichtsbuch findest du beides. Quellen stammen aus der Zeit, um die es geht, zum Beispiel das Foto eines Faustkeils oder ein alter Text, oft in einem farbigen Kasten. Der Lerntext daneben ist eine Darstellung: Jemand hat ihn heute geschrieben, nachdem er viele Quellen untersucht hat. Eine Darstellung erklärt und ordnet. Die Quelle ist das Material dafür. Schau beim nächsten Mal genau hin: Was im Buch ist Quelle, was ist Darstellung?",
+    "narration": "In deinem Geschichtsbuch findest du beides. Quellen stammen aus der Zeit, um die es geht, zum Beispiel ein alter Text oder ein Faustkeil selbst; das Foto im Buch zeigt dir nur diese Quelle, meist in einem farbigen Kasten. Der Lerntext daneben ist eine Darstellung: Jemand hat ihn heute geschrieben, nachdem er viele Quellen untersucht hat. Eine Darstellung erklärt und ordnet. Die Quelle ist das Material dafür. Schau beim nächsten Mal genau hin: Was im Buch ist Quelle, was ist Darstellung?",
     "onScreenTitle": "Quelle oder Darstellung?",
     "question": null,
     "think": null,
@@ -953,7 +953,7 @@
     "stockQuery": null
    },
    {
-    "narration": "Schau auf den Zeitstrahl. Die Ereignisse erscheinen nacheinander, und gleich leuchtet das erste auf: das Ende der Altsteinzeit um zehntausend vor Christus. Alles links davon, und noch viel weiter links, als der Zeitstrahl überhaupt reicht, ist Altsteinzeit. Vergleiche die Abstände: Von den ersten Bauern bis heute sind es rund siebeneinhalbtausend Jahre. Die Altsteinzeit dauerte mehr als zweihundertmal so lang. Fast die ganze Geschichte der Menschen ist also Steinzeit, und erst ganz am Ende kommen Pyramiden, Rom und wir.",
+    "narration": "Schau auf den Zeitstrahl. Die Ereignisse erscheinen nacheinander, und gleich leuchtet das erste auf: das Ende der Altsteinzeit um zehntausend vor Christus. Alles links davon, und noch viel weiter links, als der Zeitstrahl überhaupt reicht, ist Altsteinzeit. Achtung: Damit rechts Platz bleibt, ist der Strahl hier gestaucht; die Abstände stimmen nicht maßstabsgetreu. Rechne lieber: Von den ersten Bauern bis heute sind es rund siebeneinhalbtausend Jahre. Die Altsteinzeit dauerte mehr als zweihundertmal so lang. Fast die ganze Geschichte der Menschen ist also Steinzeit, und erst ganz am Ende kommen Pyramiden, Rom und wir.",
     "onScreenTitle": "Die Altsteinzeit endet um 10 000 v. Chr.",
     "question": null,
     "think": null,
@@ -1126,7 +1126,7 @@
   ],
   "5": [
    {
-    "narration": "Vor ungefähr zwölftausend Jahren wurde das Klima wärmer, die Eiszeit ging zu Ende. Irgendwann machten Menschen eine Entdeckung, die alles veränderte: Aus Samen, die man in die Erde steckt, wachsen neue Pflanzen. Und Tiere kann man zähmen und halten, statt sie nur zu jagen. Die Menschen wurden Bauern. Dieser neue Abschnitt heißt Jungsteinzeit, und viele nennen den Wandel die größte Veränderung in der Geschichte der Menschheit.",
+    "narration": "Vor ungefähr zwölftausend Jahren wurde das Klima wärmer, die Eiszeit ging zu Ende. Irgendwann machten Menschen eine Entdeckung, die alles veränderte: Aus Samen, die man in die Erde steckt, wachsen neue Pflanzen. Und Tiere kann man zähmen und halten, statt sie nur zu jagen. Die Menschen wurden Bauern. Im Vorderen Orient begannen Menschen vor ungefähr elftausend Jahren mit dem Ackerbau, bei uns erst viel später. Dieser neue Abschnitt heißt Jungsteinzeit, und viele nennen den Wandel die größte Veränderung in der Geschichte der Menschheit.",
     "onScreenTitle": "Bauern der Jungsteinzeit",
     "question": null,
     "think": null,
@@ -1161,7 +1161,7 @@
     "stockQuery": null
    },
    {
-    "narration": "Auf dem Zeitstrahl leuchtet jetzt das zweite Ereignis: die ersten Bauern in Mitteleuropa, also auch bei uns in Bayern, um fünftausendfünfhundert vor Christus. Im Vorderen Orient, in der Gegend des heutigen Irak, Syrien und der Türkei, hatten Menschen schon einige tausend Jahre früher mit Ackerbau begonnen. Von dort breitete sich die neue Lebensweise langsam aus. Du siehst: Zwischen dem Ende der Altsteinzeit und den ersten Bauern bei uns liegen noch einmal mehrere tausend Jahre.",
+    "narration": "Auf dem Zeitstrahl leuchtet jetzt das zweite Ereignis: die ersten Bauern in Mitteleuropa, also auch bei uns in Bayern, um fünftausendfünfhundert vor Christus. Im Vorderen Orient, in der Gegend des heutigen Irak, Syrien und der Türkei, hatten Menschen schon einige tausend Jahre früher mit Ackerbau begonnen. Von dort breitete sich die neue Lebensweise langsam aus. Du siehst: Zwischen dem Ende der Altsteinzeit und den ersten Bauern bei uns liegen noch einmal mehrere tausend Jahre. In der Zwischenzeit lebten die Menschen bei uns weiter als Jäger und Sammler.",
     "onScreenTitle": "Erste Bauern in Mitteleuropa um 5500 v. Chr.",
     "question": null,
     "think": null,
@@ -1232,7 +1232,7 @@
     "stockQuery": null
    },
    {
-    "narration": "Mit den Bauern kam vieles Neue. Getreide muss man lagern, also formten die Menschen Gefäße aus Ton: Die Töpferei begann. Sie schliffen Steinbeile scharf, um Wald zu roden, und webten Stoffe aus Wolle und Flachs. Weil Vorräte da waren, konnten mehr Menschen zusammenleben. Aber leichter wurde das Leben nicht einfach: Feldarbeit ist hart, und fiel die Ernte aus, drohte Hunger. Außerdem gab es nun Besitz, Felder und Vieh, und vielleicht auch Streit darum. Forscherinnen und Forscher nennen diesen großen Umbruch die neolithische Revolution.",
+    "narration": "Mit den Bauern kam vieles Neue. Getreide muss man lagern, also formten die Menschen Gefäße aus Ton: Bei uns kommt die Töpferei mit den Bauern auf. Sie schliffen Steinbeile scharf, um Wald zu roden, und webten Stoffe aus Wolle und Flachs. Weil Vorräte da waren, konnten mehr Menschen zusammenleben. Aber leichter wurde das Leben nicht einfach: Feldarbeit ist hart, und fiel die Ernte aus, drohte Hunger. Außerdem gab es nun Besitz, Felder und Vieh, und vielleicht auch Streit darum. Forscherinnen und Forscher nennen diesen großen Umbruch die neolithische Revolution.",
     "onScreenTitle": "Was sich alles änderte",
     "question": null,
     "think": null,
@@ -1246,7 +1246,7 @@
     "segment": null,
     "formula": null,
     "bullets": [
-     "Vorräte in Tongefäßen: Die Töpferei entsteht",
+     "Vorräte in Tongefäßen: Töpferei kommt mit den Bauern",
      "Geschliffene Steinbeile, Webstuhl, später der Pflug",
      "Mehr Menschen, aber auch mehr und härtere Arbeit",
      "Besitz: Felder, Vieh, Haus"
@@ -1332,7 +1332,7 @@
     "stockQuery": null
    },
    {
-    "narration": "Zum Schluss noch einmal der ganze Zeitstrahl. Links die Steinzeit, der riesige Anfang. Dann die frühen Hochkulturen wie Ägypten um dreitausend vor Christus, die Gründung Roms, Christi Geburt in der Mitte, Karl der Große im Jahr 800 und ganz rechts wir. Merke dir die Regel am Fuß des Strahls: vor Christus rückwärts zählen, nach Christus vorwärts. Alle Themen, die in diesem Schuljahr noch kommen, findest du auf diesem Strahl wieder.",
+    "narration": "Zum Schluss noch einmal der ganze Zeitstrahl. Links die Steinzeit, der riesige Anfang. Dann die frühen Hochkulturen wie Ägypten um dreitausend vor Christus, die Gründung Roms, Christi Geburt rechts von der Mitte, Karl der Große im Jahr 800 und ganz rechts wir. Merke dir die Regel am Fuß des Strahls: vor Christus rückwärts zählen, nach Christus vorwärts. Alle Themen, die in diesem Schuljahr noch kommen, findest du auf diesem Strahl wieder.",
     "onScreenTitle": "Der ganze Zeitstrahl auf einen Blick",
     "question": null,
     "think": null,
@@ -1418,21 +1418,21 @@
    {
     "beatId": 3,
     "chapterId": 1,
-    "narration": "Um die Vergangenheit zu ordnen, benutzen wir einen Zeitstrahl. Hier wächst er gerade von links nach rechts. Links ist früher, rechts ist später, und ganz rechts stehen wir heute. In der Mitte siehst du eine Markierung: Christi Geburt. Von diesem Punkt aus zählen wir unsere Jahre. Alles davor heißt vor Christus, alles danach nach Christus. Auf dem Bildschirm siehst du die Abkürzungen dafür. Dieser Zeitstrahl reicht von zwölftausend vor Christus bis in unsere Zeit.",
+    "narration": "Um die Vergangenheit zu ordnen, benutzen wir einen Zeitstrahl. Hier wächst er gerade von links nach rechts. Links ist früher, rechts ist später, und ganz rechts stehen wir heute. Rechts von der Mitte siehst du eine Markierung: Christi Geburt. Von diesem Punkt aus zählen wir unsere Jahre; diese Zählung hat man vor langer Zeit festgelegt. Alles davor heißt vor Christus, alles danach nach Christus. An den beiden Enden des Strahls siehst du die Abkürzungen dafür. Noch etwas: Der Strahl ist nicht maßstabsgetreu. Rechts ist er gedehnt, damit die jüngeren Ereignisse Platz haben.",
     "onScreenTitle": "Der Zeitstrahl: links früher, rechts später",
     "emphasisWords": []
    },
    {
     "beatId": 4,
     "chapterId": 1,
-    "narration": "Vor Christi Geburt zählen wir rückwärts. Das Jahr dreitausend vor Christus liegt also weiter zurück als das Jahr tausend vor Christus. Nach Christi Geburt zählen wir vorwärts, wie du es kennst: Das Jahr 800 kommt vor dem Jahr 2026. Hundert Jahre nennt man ein Jahrhundert. Die Jahre 1 bis 100 bilden das erste Jahrhundert. Deshalb gehört das Jahr 1492 ins fünfzehnte Jahrhundert: Hunderterzahl plus eins. Wir heute leben im einundzwanzigsten Jahrhundert.",
+    "narration": "Vor Christi Geburt zählen wir rückwärts. Das Jahr dreitausend vor Christus liegt also weiter zurück als das Jahr tausend vor Christus. Nach Christi Geburt zählen wir vorwärts, wie du es kennst: Das Jahr 800 kommt vor dem Jahr 2026. Ein Jahr null gibt es übrigens nicht: Auf 1 vor Christus folgt gleich 1 nach Christus. Hundert Jahre nennt man ein Jahrhundert. Die Jahre 1 bis 100 bilden das erste Jahrhundert, die Jahre 1401 bis 1500 das fünfzehnte. Das Jahr 1492 gehört also ins fünfzehnte Jahrhundert, und das volle Jahr 1500 noch dazu. Wir heute leben im einundzwanzigsten Jahrhundert.",
     "onScreenTitle": "Rückwärts zählen und Jahrhunderte",
     "emphasisWords": []
    },
    {
     "beatId": 5,
     "chapterId": 1,
-    "narration": "Jetzt eine Frage für dich. Der Sage nach wurde Rom im Jahr 753 vor Christus gegründet. Die ersten Olympischen Spiele in Griechenland fanden 776 vor Christus statt. Welches Ereignis war früher? Denk an die Regel vom Zeitstrahl: Vor Christi Geburt zählen wir rückwärts. Nimm dir ein paar Sekunden Zeit.",
+    "narration": "Jetzt eine Frage für dich. Der Sage nach wurde Rom im Jahr 753 vor Christus gegründet. Die ersten Olympischen Spiele in Griechenland fanden nach der Überlieferung 776 vor Christus statt. Welches Ereignis war früher? Denk an die Regel vom Zeitstrahl: Vor Christi Geburt zählen wir rückwärts. Nimm dir ein paar Sekunden Zeit.",
     "onScreenTitle": "Was ist Geschichte? Zeit ordnen",
     "emphasisWords": []
    },
@@ -1467,7 +1467,7 @@
    {
     "beatId": 10,
     "chapterId": 2,
-    "narration": "In deinem Geschichtsbuch findest du beides. Quellen stammen aus der Zeit, um die es geht, zum Beispiel das Foto eines Faustkeils oder ein alter Text, oft in einem farbigen Kasten. Der Lerntext daneben ist eine Darstellung: Jemand hat ihn heute geschrieben, nachdem er viele Quellen untersucht hat. Eine Darstellung erklärt und ordnet. Die Quelle ist das Material dafür. Schau beim nächsten Mal genau hin: Was im Buch ist Quelle, was ist Darstellung?",
+    "narration": "In deinem Geschichtsbuch findest du beides. Quellen stammen aus der Zeit, um die es geht, zum Beispiel ein alter Text oder ein Faustkeil selbst; das Foto im Buch zeigt dir nur diese Quelle, meist in einem farbigen Kasten. Der Lerntext daneben ist eine Darstellung: Jemand hat ihn heute geschrieben, nachdem er viele Quellen untersucht hat. Eine Darstellung erklärt und ordnet. Die Quelle ist das Material dafür. Schau beim nächsten Mal genau hin: Was im Buch ist Quelle, was ist Darstellung?",
     "onScreenTitle": "Quelle oder Darstellung?",
     "emphasisWords": []
    },
@@ -1530,7 +1530,7 @@
    {
     "beatId": 19,
     "chapterId": 4,
-    "narration": "Schau auf den Zeitstrahl. Die Ereignisse erscheinen nacheinander, und gleich leuchtet das erste auf: das Ende der Altsteinzeit um zehntausend vor Christus. Alles links davon, und noch viel weiter links, als der Zeitstrahl überhaupt reicht, ist Altsteinzeit. Vergleiche die Abstände: Von den ersten Bauern bis heute sind es rund siebeneinhalbtausend Jahre. Die Altsteinzeit dauerte mehr als zweihundertmal so lang. Fast die ganze Geschichte der Menschen ist also Steinzeit, und erst ganz am Ende kommen Pyramiden, Rom und wir.",
+    "narration": "Schau auf den Zeitstrahl. Die Ereignisse erscheinen nacheinander, und gleich leuchtet das erste auf: das Ende der Altsteinzeit um zehntausend vor Christus. Alles links davon, und noch viel weiter links, als der Zeitstrahl überhaupt reicht, ist Altsteinzeit. Achtung: Damit rechts Platz bleibt, ist der Strahl hier gestaucht; die Abstände stimmen nicht maßstabsgetreu. Rechne lieber: Von den ersten Bauern bis heute sind es rund siebeneinhalbtausend Jahre. Die Altsteinzeit dauerte mehr als zweihundertmal so lang. Fast die ganze Geschichte der Menschen ist also Steinzeit, und erst ganz am Ende kommen Pyramiden, Rom und wir.",
     "onScreenTitle": "Die Altsteinzeit endet um 10 000 v. Chr.",
     "emphasisWords": []
    },
@@ -1565,14 +1565,14 @@
    {
     "beatId": 24,
     "chapterId": 5,
-    "narration": "Vor ungefähr zwölftausend Jahren wurde das Klima wärmer, die Eiszeit ging zu Ende. Irgendwann machten Menschen eine Entdeckung, die alles veränderte: Aus Samen, die man in die Erde steckt, wachsen neue Pflanzen. Und Tiere kann man zähmen und halten, statt sie nur zu jagen. Die Menschen wurden Bauern. Dieser neue Abschnitt heißt Jungsteinzeit, und viele nennen den Wandel die größte Veränderung in der Geschichte der Menschheit.",
+    "narration": "Vor ungefähr zwölftausend Jahren wurde das Klima wärmer, die Eiszeit ging zu Ende. Irgendwann machten Menschen eine Entdeckung, die alles veränderte: Aus Samen, die man in die Erde steckt, wachsen neue Pflanzen. Und Tiere kann man zähmen und halten, statt sie nur zu jagen. Die Menschen wurden Bauern. Im Vorderen Orient begannen Menschen vor ungefähr elftausend Jahren mit dem Ackerbau, bei uns erst viel später. Dieser neue Abschnitt heißt Jungsteinzeit, und viele nennen den Wandel die größte Veränderung in der Geschichte der Menschheit.",
     "onScreenTitle": "Bauern der Jungsteinzeit",
     "emphasisWords": []
    },
    {
     "beatId": 25,
     "chapterId": 5,
-    "narration": "Auf dem Zeitstrahl leuchtet jetzt das zweite Ereignis: die ersten Bauern in Mitteleuropa, also auch bei uns in Bayern, um fünftausendfünfhundert vor Christus. Im Vorderen Orient, in der Gegend des heutigen Irak, Syrien und der Türkei, hatten Menschen schon einige tausend Jahre früher mit Ackerbau begonnen. Von dort breitete sich die neue Lebensweise langsam aus. Du siehst: Zwischen dem Ende der Altsteinzeit und den ersten Bauern bei uns liegen noch einmal mehrere tausend Jahre.",
+    "narration": "Auf dem Zeitstrahl leuchtet jetzt das zweite Ereignis: die ersten Bauern in Mitteleuropa, also auch bei uns in Bayern, um fünftausendfünfhundert vor Christus. Im Vorderen Orient, in der Gegend des heutigen Irak, Syrien und der Türkei, hatten Menschen schon einige tausend Jahre früher mit Ackerbau begonnen. Von dort breitete sich die neue Lebensweise langsam aus. Du siehst: Zwischen dem Ende der Altsteinzeit und den ersten Bauern bei uns liegen noch einmal mehrere tausend Jahre. In der Zwischenzeit lebten die Menschen bei uns weiter als Jäger und Sammler.",
     "onScreenTitle": "Erste Bauern in Mitteleuropa um 5500 v. Chr.",
     "emphasisWords": []
    },
@@ -1586,7 +1586,7 @@
    {
     "beatId": 27,
     "chapterId": 5,
-    "narration": "Mit den Bauern kam vieles Neue. Getreide muss man lagern, also formten die Menschen Gefäße aus Ton: Die Töpferei begann. Sie schliffen Steinbeile scharf, um Wald zu roden, und webten Stoffe aus Wolle und Flachs. Weil Vorräte da waren, konnten mehr Menschen zusammenleben. Aber leichter wurde das Leben nicht einfach: Feldarbeit ist hart, und fiel die Ernte aus, drohte Hunger. Außerdem gab es nun Besitz, Felder und Vieh, und vielleicht auch Streit darum. Forscherinnen und Forscher nennen diesen großen Umbruch die neolithische Revolution.",
+    "narration": "Mit den Bauern kam vieles Neue. Getreide muss man lagern, also formten die Menschen Gefäße aus Ton: Bei uns kommt die Töpferei mit den Bauern auf. Sie schliffen Steinbeile scharf, um Wald zu roden, und webten Stoffe aus Wolle und Flachs. Weil Vorräte da waren, konnten mehr Menschen zusammenleben. Aber leichter wurde das Leben nicht einfach: Feldarbeit ist hart, und fiel die Ernte aus, drohte Hunger. Außerdem gab es nun Besitz, Felder und Vieh, und vielleicht auch Streit darum. Forscherinnen und Forscher nennen diesen großen Umbruch die neolithische Revolution.",
     "onScreenTitle": "Was sich alles änderte",
     "emphasisWords": []
    },
@@ -1607,7 +1607,7 @@
    {
     "beatId": 30,
     "chapterId": 5,
-    "narration": "Zum Schluss noch einmal der ganze Zeitstrahl. Links die Steinzeit, der riesige Anfang. Dann die frühen Hochkulturen wie Ägypten um dreitausend vor Christus, die Gründung Roms, Christi Geburt in der Mitte, Karl der Große im Jahr 800 und ganz rechts wir. Merke dir die Regel am Fuß des Strahls: vor Christus rückwärts zählen, nach Christus vorwärts. Alle Themen, die in diesem Schuljahr noch kommen, findest du auf diesem Strahl wieder.",
+    "narration": "Zum Schluss noch einmal der ganze Zeitstrahl. Links die Steinzeit, der riesige Anfang. Dann die frühen Hochkulturen wie Ägypten um dreitausend vor Christus, die Gründung Roms, Christi Geburt rechts von der Mitte, Karl der Große im Jahr 800 und ganz rechts wir. Merke dir die Regel am Fuß des Strahls: vor Christus rückwärts zählen, nach Christus vorwärts. Alle Themen, die in diesem Schuljahr noch kommen, findest du auf diesem Strahl wieder.",
     "onScreenTitle": "Der ganze Zeitstrahl auf einen Blick",
     "emphasisWords": []
    },
@@ -1619,14 +1619,15 @@
     "emphasisWords": []
    }
   ],
-  "totalWords": 2188
+  "totalWords": 2295
  },
  "review": {
   "approved": true,
   "issues": [],
   "claimsToVerify": [],
   "revisedNarration": {},
-  "mustFix": []
+  "mustFix": [],
+  "reviewer": "Claude Sonnet (Claude Code subagent), independent of the writer (Claude in Claude Code)"
  },
  "storyboard": {
   "scenes": [
@@ -1757,9 +1758,9 @@
     "subtitle": null,
     "bullets": [
      "v. Chr.: Je größer die Zahl, desto früher",
-     "n. Chr.: Je größer die Zahl, desto später",
+     "Kein Jahr null zwischen v. Chr. und n. Chr.",
      "Ein Jahrhundert sind 100 Jahre",
-     "1492: Hunderter plus eins ergibt das 15. Jahrhundert"
+     "1401 bis 1500: das 15. Jahrhundert"
     ],
     "nodes": null,
     "leftTitle": null,
@@ -1815,7 +1816,7 @@
     "scene": null,
     "params": null,
     "formula": null,
-    "question": "Rom wurde der Sage nach 753 v. Chr. gegründet, die ersten Olympischen Spiele fanden 776 v. Chr. statt. Was war früher?",
+    "question": "Rom wurde der Sage nach 753 v. Chr. gegründet, die ersten Olympischen Spiele fanden nach der Überlieferung 776 v. Chr. statt. Was war früher?",
     "think": 8,
     "hint": "Vor Christi Geburt zählen wir rückwärts: Die größere Zahl liegt weiter zurück.",
     "thinkText": null,
@@ -2676,7 +2677,7 @@
     "title": "Was sich alles änderte",
     "subtitle": null,
     "bullets": [
-     "Vorräte in Tongefäßen: Die Töpferei entsteht",
+     "Vorräte in Tongefäßen: Töpferei kommt mit den Bauern",
      "Geschliffene Steinbeile, Webstuhl, später der Pflug",
      "Mehr Menschen, aber auch mehr und härtere Arbeit",
      "Besitz: Felder, Vieh, Haus"
