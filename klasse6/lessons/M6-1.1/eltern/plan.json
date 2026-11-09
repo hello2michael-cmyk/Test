@@ -2,8 +2,8 @@
  "id": "current",
  "prompt": "Eltern-Lektion M6-1.1 „Bruchteile und Bruchzahlen“ (Mathematik, Klasse 6 Gymnasium Bayern), aus klasse6/lessons/M6-1.1.eltern.lesson.json. 10 Minuten, auf Deutsch, für Eltern und Lehrkräfte.",
  "attempts": 0,
- "createdAt": 1794201371093,
- "updatedAt": 1794201371093,
+ "createdAt": 1794202036789,
+ "updatedAt": 1794202036789,
  "stage": "plan",
  "mode": "course",
  "durationApplied": true,
@@ -951,7 +951,7 @@
      0,
      30
     ],
-    "formula": "25 % = 1/4 · 25 % von 200 € = 50 €",
+    "formula": "25 % = 1/4 · von 200 € = 50 €",
     "bullets": null,
     "nodes": null,
     "leftTitle": null,
@@ -1886,7 +1886,7 @@
      "p": 25,
      "G": 200
     },
-    "formula": "25 % = 1/4 · 25 % von 200 €",
+    "formula": "25 % = 1/4 · von 200 € = 50",
     "question": null,
     "think": 0,
     "hint": null,
