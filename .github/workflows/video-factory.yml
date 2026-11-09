@@ -54,6 +54,11 @@ on:
         description: 'Lesson voice: a Google Cloud voice name (e.g. de-DE-Chirp3-HD-Kore) or piper:de_DE-thorsten-high. Empty = default.'
         default: ''
         type: string
+      package:
+        description: 'yes = build the YouTube upload package from all finished lesson videos instead of making a video'
+        type: choice
+        default: 'no'
+        options: ['no', 'yes']
   issues:
     types: [opened]
   issue_comment:
@@ -69,9 +74,43 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  # ---------- YouTube upload package: every finished lesson video, organised and renamed, as the release youtube-upload ----------
+  package:
+    if: github.event_name == 'workflow_dispatch' && github.event.inputs.package == 'yes'
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: '22' }
+      - name: Download the release assets
+        env: { GH_TOKEN: '${{ github.token }}' }
+        run: |
+          set -e
+          for tag in $(node -e "console.log(JSON.parse(require('fs').readFileSync('klasse6/youtube-upload.json','utf8')).videos.map(v=>v.release).join(' '))"); do
+            mkdir -p downloads/$tag
+            gh release download "$tag" -D "downloads/$tag" --clobber
+          done
+          du -sh downloads
+      - name: Organise the package
+        run: node factory/package.mjs downloads package
+      - name: Zip each video folder
+        run: |
+          set -e
+          cd package
+          for d in */; do d="${d%/}"; zip -q -r "$d.zip" "$d"; rm -r "$d"; done
+          ls -la
+      - name: Publish as the release youtube-upload
+        env: { GH_TOKEN: '${{ github.token }}' }
+        run: |
+          set -e
+          gh release delete youtube-upload --yes --cleanup-tag 2>/dev/null || true
+          gh release create youtube-upload --title "YouTube-Upload-Paket ($(date -u +%Y-%m-%d))" --notes-file package/00-CHECKLISTE.md package/*
+          echo "Release: https://github.com/${{ github.repository }}/releases/tag/youtube-upload"
+
   make:
     if: >-
-      github.event_name == 'workflow_dispatch' ||
+      (github.event_name == 'workflow_dispatch' && github.event.inputs.package != 'yes') ||
       (github.event_name == 'issues' && (startsWith(github.event.issue.title, 'Video:') || startsWith(github.event.issue.title, 'Lektion:') || startsWith(github.event.issue.title, 'Eltern:') || startsWith(github.event.issue.title, 'English:'))) ||
       (github.event_name == 'issue_comment' && (startsWith(github.event.issue.title, 'Video:') || startsWith(github.event.issue.title, 'Lektion:') || startsWith(github.event.issue.title, 'Eltern:') || startsWith(github.event.issue.title, 'English:')) && !github.event.issue.pull_request && github.event.comment.user.type != 'Bot')
     runs-on: ubuntu-latest
