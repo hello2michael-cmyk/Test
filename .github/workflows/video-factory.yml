@@ -208,6 +208,8 @@ jobs:
           mkdir -p plan-in
           gh run download ${{ steps.req.outputs.prev_run }} -n "plan-issue-${{ steps.issue.outputs.number }}" -D plan-in
           ls -la plan-in
+          # Older runs named the file plan.json
+          if [ ! -f plan-in/content-plan.json ] && [ -f plan-in/plan.json ]; then mv plan-in/plan.json plan-in/content-plan.json; fi
 
       - name: Tell the issue we started
         if: steps.issue.outputs.number != ''
@@ -265,30 +267,30 @@ jobs:
         run: |
           export PROMPT="$(cat prompt.txt)"
           export FEEDBACK="$(cat feedback.txt)"
-          if [ -f plan-in/plan.json ]; then export PLAN_FILE=plan-in/plan.json; fi
+          if [ -f plan-in/content-plan.json ]; then export PLAN_FILE=plan-in/content-plan.json; fi
           if [ -n "$LESSON" ] && [ -z "$GOOGLE_TTS_KEY" ]; then echo "::warning::No GOOGLE_TTS_KEY secret: the lesson is voiced by Piper (free, less natural). Add a Google Cloud Text-to-Speech API key under Settings → Secrets and variables → Actions."; fi
           if [ -z "$HF_TOKEN" ]; then echo "::warning::No HF_TOKEN secret: the writer falls back to a template script and free GPU priority is anonymous. Add it under Settings → Secrets and variables → Actions."; fi
           node factory/run.mjs
 
       # ---------- Plan phase: post the plan for review ----------
       - name: Keep the plan for the approval step
-        if: hashFiles('out/plan.json') != ''
+        if: hashFiles('out/content-plan.json') != ''
         uses: actions/upload-artifact@v4
         with:
           name: plan-issue-${{ steps.issue.outputs.number || github.run_number }}
           path: |
-            out/plan.json
-            out/plan.md
+            out/content-plan.json
+            out/content-plan.md
           retention-days: 90
           overwrite: true
 
       - name: Post the plan on the issue
-        if: hashFiles('out/plan.json') != '' && steps.issue.outputs.number != ''
+        if: hashFiles('out/content-plan.json') != '' && steps.issue.outputs.number != ''
         env: { GH_TOKEN: '${{ github.token }}' }
         run: |
           python3 - <<'PY'
           import json
-          md = open('out/plan.md', encoding='utf-8').read()
+          md = open('out/content-plan.md', encoding='utf-8').read()
           if len(md) > 58000: md = md[:58000] + '\n\n*(plan shortened for display; the full plan is used for the video)*\n'
           foot = ('\n\n---\n**Your turn.** Reply **approve** to make the video from this plan, or reply with the changes you want '
                   '(for example: "chapter 3 is too long, add an example about email, make the ending warmer"). '
@@ -300,7 +302,7 @@ jobs:
 
       # ---------- Video phases ----------
       - name: Final encode (H.264 + AAC, YouTube-ready)
-        if: hashFiles('out/plan.json') == ''
+        if: hashFiles('out/content-plan.json') == ''
         run: |
           set -e
           RAW=$(ls out/video-raw.* | head -1)
@@ -317,14 +319,14 @@ jobs:
           rm -f out/video-raw.*
 
       - uses: actions/upload-artifact@v4
-        if: always() && hashFiles('out/plan.json') == ''
+        if: always() && hashFiles('out/content-plan.json') == ''
         with:
           name: video-${{ github.run_number }}
           path: out/
           retention-days: 30
 
       - name: Publish as a release (same links for 90 days)
-        if: hashFiles('out/plan.json') == ''
+        if: hashFiles('out/content-plan.json') == ''
         uses: softprops/action-gh-release@v2
         with:
           tag_name: video-${{ github.run_number }}
@@ -338,7 +340,7 @@ jobs:
           make_latest: false
 
       - name: Post the links on the issue
-        if: hashFiles('out/plan.json') == '' && steps.issue.outputs.number != ''
+        if: hashFiles('out/content-plan.json') == '' && steps.issue.outputs.number != ''
         env: { GH_TOKEN: '${{ github.token }}' }
         run: |
           FOOT=$(python3 -c "import json;print(json.load(open('out/summary.json')).get('footage',''))")

@@ -15,7 +15,7 @@
 //   OUT_DIR           output folder                           (default ./out)
 //   EXTRA_QUERY       extra URL params for tests (e.g. mock=1&footage=mock&tts=mock)
 //   PHASE             all | plan | video                     (default all)
-//                     plan: stop after the content plan and write out/plan.json + out/plan.md (nothing rendered)
+//                     plan: stop after the content plan and write out/content-plan.json + .md (nothing rendered)
 //                     video: make the video from PLAN_FILE (a plan.json the creator approved)
 //   PLAN_FILE         path to a plan.json (video phase; or the previous plan when FEEDBACK is given)
 //   FEEDBACK          the creator's change requests: PHASE=plan re-plans from PLAN_FILE with this feedback
@@ -140,7 +140,8 @@ if (!mock && !settings.hfToken && !process.env.WRITER) {
 if (process.env.WRITER === 'none') extraQuery = (extraQuery ? extraQuery + '&' : '') + 'nomodel=1';
 
 console.log(`[factory] phase=${phase} style=${settings.videoStyle} aspect=${settings.aspect} cap=${settings.maxDuration}s footage=${settings.footageProvider} writer=${settings.modelId} token=${settings.hfToken ? 'yes' : 'no'}${inputPlan ? ' plan=' + planFile : ''}${feedback ? ' feedback=yes' : ''}`);
-if (phase === 'video' && inputPlan && inputPlan.stage === 'plan' && !inputPlan.script) { console.error('The plan file has no script; it was probably not finished.'); process.exit(2); }
+if (phase === 'video' && !(inputPlan && inputPlan.brief && inputPlan.script && inputPlan.storyboard)) { console.error('PLAN_FILE is not a content plan (it needs brief, script and storyboard).'); process.exit(2); }
+if (feedback && inputPlan && !(inputPlan.brief && inputPlan.script)) { console.log('[factory] the previous plan file is unusable; planning afresh with the feedback as notes'); inputPlan = null; prompt += `\n\nCreator notes: ${feedback}`; }
 // The MP4 is streamed from the page to this file as it is encoded (so a ten-minute video never sits in page memory).
 const rawPath = path.join(outDir, 'video-raw.mp4');
 let sinkFd = null;
@@ -464,12 +465,13 @@ const planVisible = await page.evaluate(() => !document.getElementById('planCard
 if (phase === 'plan' && !planVisible) console.log('[factory] this video has no plan-review step (short explainer or cinematic piece): it was made directly.');
 if (phase === 'plan' && planVisible) {
   const out = await page.evaluate(() => window.__studio.plan());
-  fs.writeFileSync(path.join(outDir, 'plan.json'), JSON.stringify(out.plan));
-  fs.writeFileSync(path.join(outDir, 'plan.md'), out.markdown);
+  // Named content-plan.* so it is never confused with plan.json, the render plan written next to a finished video.
+  fs.writeFileSync(path.join(outDir, 'content-plan.json'), JSON.stringify(out.plan));
+  fs.writeFileSync(path.join(outDir, 'content-plan.md'), out.markdown);
   const b = out.plan.brief, sc = out.plan.script.scenes;
   const words = out.plan.script.totalWords || 0, est = Math.round(words / 3.1 + sc.length * 0.8);
   fs.writeFileSync(path.join(outDir, 'summary.json'), JSON.stringify({ phase: 'plan', title: b.title, chapters: b.chapters.length, scenes: sc.length, words, estimatedSeconds: est, aiClips: (out.plan.heroBeats || []).length, prompt }, null, 2));
-  console.log(`[factory] plan ready in ${Math.round((Date.now() - started) / 1000)} s: “${b.title}”, ${b.chapters.length} chapters, ${sc.length} scenes, about ${Math.floor(est / 60)}:${String(est % 60).padStart(2, '0')}. Wrote plan.json and plan.md.`);
+  console.log(`[factory] plan ready in ${Math.round((Date.now() - started) / 1000)} s: “${b.title}”, ${b.chapters.length} chapters, ${sc.length} scenes, about ${Math.floor(est / 60)}:${String(est % 60).padStart(2, '0')}. Wrote content-plan.json and content-plan.md.`);
   await hardClose();
   process.exit(0);
 }

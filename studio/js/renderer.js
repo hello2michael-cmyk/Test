@@ -326,7 +326,8 @@ export class Renderer {
     const { ctx, theme } = this;
     if (!this.hasFootageFrame) {
       this.three = this.three || new Scene3D(this);
-      this.three.draw(v.model || 'orbit', v.labels || [], local, duration || 10, { alpha: 0.55, framing: this.portrait ? 'center' : 'right' });
+      // Backdrop only: no in-world labels, they would fight the chapter title.
+      this.three.draw(v.model || 'orbit', v.labels || [], local, duration || 10, { alpha: 0.5, framing: this.portrait ? 'center' : 'right', showLabels: false });
     }
     const p = outCubic(prog(local, 0.1, 0.6));
     const top = this.h * (this.portrait ? 0.30 : 0.30);
