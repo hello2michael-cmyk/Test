@@ -111,3 +111,5 @@ Was ist ein Bruch? In dieser Lektion lernst du mit 3D-Pizzen, einem Streifen, ei
 Passt zum LehrplanPLUS Gymnasium Bayern, Mathematik Jahrgangsstufe 6, Lernbereich M6 1.1 Bruchteile und Bruchzahlen.
 
 Du lernst: Zähler und Nenner · Bruchteil und Ganzes berechnen · Erweitern und Kürzen · Hauptnenner · Prozent als Bruch · Zahlengerade und negative Brüche
+
+Transparenz: Die Sprecherstimme ist computergeneriert (Text-to-Speech). Das Skript folgt dem LehrplanPLUS Bayern und wurde von einem zweiten KI-Modell geprüft; vor der Veröffentlichung sieht ein Elternteil jedes Video durch.

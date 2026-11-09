@@ -84,3 +84,5 @@ For parents who do not speak German and whose child attends Jahrgangsstufe 6 at 
 German terms in this video: Bruch, Zähler, Nenner, Bruchstrich, Anteil, das Ganze, erweitern, kürzen, vollständig gekürzt, gleichnamig, Hauptnenner, Zahlengerade, Prozent, natürliche Zahlen, rationale Zahlen, Schulaufgabe, Stegreifaufgabe, Grundwissen.
 
 The German version for parents (Eltern-Lektion) and the lesson for children (Lektion) are on this channel as well. Curriculum: LehrplanPLUS Gymnasium Bayern, Mathematik 6, Lernbereich 1.1.
+
+Transparency: the narration is a computer-generated voice (text-to-speech). The script follows the Bavarian LehrplanPLUS and was checked by a second AI model; a parent reviews every video before publication.

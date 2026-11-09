@@ -584,7 +584,7 @@ export class Renderer {
     const top = this.h * (this.portrait ? 0.30 : 0.28);
     ctx.save(); ctx.globalAlpha *= p; ctx.font = this.font(this.u(26), 700); ctx.fillStyle = theme.accent; ctx.textBaseline = 'top'; ctx.textAlign = 'center';
     if ('letterSpacing' in ctx) ctx.letterSpacing = this.u(3) + 'px';
-    ctx.fillText('REMEMBER THIS', this.w / 2, top);
+    ctx.fillText(v.eyebrow || 'REMEMBER THIS', this.w / 2, top);
     ctx.restore();
     const px = this.fitFont(v.title, this.u(this.portrait ? 84 : 92), this.u(44), 900, this.cw, 3);
     const h = this.text(v.title, this.mx, top + this.u(60), this.cw, this.font(px, 900), theme.text, { align: 'center', alpha: p, offsetY: (1 - p) * this.u(30), lineHeightMultiple: 0.98 });
@@ -596,6 +596,8 @@ export class Renderer {
       this.pill(cta, cx, cy, this.font(this.u(36), 700), theme.dark ? theme.bgTop : '#fff', theme.accent, this.u(40), this.u(20), 1, this.cw);
       ctx.restore();
     }
+    // Small print at the bottom (lessons: the voice is synthetic, the content follows the curriculum).
+    if (v.footnote) this.text(v.footnote, this.mx, this.h - this.my - this.u(70), this.cw, this.font(this.u(22), 500), theme.muted, { align: 'center', alpha: p * 0.85 });
   }
 }
 

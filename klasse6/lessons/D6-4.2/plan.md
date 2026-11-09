@@ -103,3 +103,5 @@ Wie findest du die Satzglieder eines Satzes? In dieser Lektion siehst du Sätze 
 Passt zum LehrplanPLUS Gymnasium Bayern, Deutsch Jahrgangsstufe 6, Lernbereich 4.2 Sprachliche Strukturen untersuchen.
 
 Du lernst: Umstellprobe · Frageprobe · Subjekt und Prädikat · Objekte · Adverbialien · Adverbialsatz · Attribute
+
+Transparenz: Die Sprecherstimme ist computergeneriert (Text-to-Speech). Das Skript folgt dem LehrplanPLUS Bayern und wurde von einem zweiten KI-Modell geprüft; vor der Veröffentlichung sieht ein Elternteil jedes Video durch.

@@ -15,8 +15,15 @@ const lesson = JSON.parse(fs.readFileSync(file, 'utf8'));
 const variant = ['eltern', 'international'].includes(lesson.variant) ? lesson.variant : 'kinder';   // kinder: slow, du-form, think-pauses · eltern: parents and teachers, normal pace · international: English for non-German-speaking parents, «German terms» spoken by the German voice
 const intl = variant === 'international';
 const T = intl
-  ? { chapter: (i, n) => `Chapter ${i} of ${n}`, forAudience: a => `For ${a}`, cta: 'Subscribe for the next topic', questionKicker: 'Question for you', thinkText: 'Take a moment. Pause the video if you need more time.', answerText: 'The answer is coming up.', pinned: 'Which German school term puzzles you most? Ask in the comments.' }
-  : { chapter: (i, n) => `Kapitel ${i} von ${n}`, forAudience: a => `Für ${a}`, cta: 'Abonniere für die nächste Lektion', questionKicker: null, thinkText: null, answerText: null, pinned: 'Welche Frage hast du zu dieser Lektion? Schreib sie in die Kommentare.' };
+  ? { chapter: (i, n) => `Chapter ${i} of ${n}`, forAudience: a => `For ${a}`, cta: 'Subscribe for the next topic', questionKicker: 'Question for you', thinkText: 'Take a moment. Pause the video if you need more time.', answerText: 'The answer is coming up.', pinned: 'Which German school term puzzles you most? Ask in the comments.',
+      kicker: s => `${s} · Year 6 · Gymnasium Bavaria`, eyebrow: 'REMEMBER THIS',
+      footnote: 'Voice: computer-generated (text-to-speech). Content follows the Bavarian LehrplanPLUS and was checked by a second AI model.',
+      disclosure: 'Transparency: the narration is a computer-generated voice (text-to-speech). The script follows the Bavarian LehrplanPLUS and was checked by a second AI model; a parent reviews every video before publication.' }
+  : { chapter: (i, n) => `Kapitel ${i} von ${n}`, forAudience: a => `Für ${a}`, cta: 'Abonniere für die nächste Lektion', questionKicker: null, thinkText: null, answerText: null, pinned: 'Welche Frage hast du zu dieser Lektion? Schreib sie in die Kommentare.',
+      kicker: s => `${s} · Klasse 6 · Gymnasium Bayern`, eyebrow: variant === 'eltern' ? 'DAS WICHTIGSTE' : 'MERK DIR DAS',
+      footnote: 'Sprecherstimme computergeneriert (Text-to-Speech). Inhalt nach LehrplanPLUS Bayern, von einem zweiten KI-Modell geprüft.',
+      disclosure: 'Transparenz: Die Sprecherstimme ist computergeneriert (Text-to-Speech). Das Skript folgt dem LehrplanPLUS Bayern und wurde von einem zweiten KI-Modell geprüft; vor der Veröffentlichung sieht ein Elternteil jedes Video durch.' };
+const SUBJECT_EN = { Mathematik: 'Maths', Deutsch: 'German', Englisch: 'English', Latein: 'Latin', Französisch: 'French', Geschichte: 'History', 'Natur und Technik': 'Science and Technology', Musik: 'Music', Kunst: 'Art', Sport: 'PE' };
 const syllabus = JSON.parse(fs.readFileSync(path.join(path.dirname(new URL(import.meta.url).pathname), '../data/klasse6-bayern.json'), 'utf8'));
 let subject = null, lb = null, topic = null;
 for (const s of syllabus.subjects) for (const l of s.lernbereiche) for (const t of l.topics) if (t.id === lesson.topic) { subject = s; lb = l; topic = t; }
@@ -54,7 +61,8 @@ lesson.chapters.forEach((c, ci) => {
     scenes.push(sc);
     visuals.push(sanitise({
       ...beat, kind, chapterId: ch.id,
-      kicker: kind === 'chapter' ? T.chapter(ci + 1, chapters.length) : (kind === 'title' || kind === 'outro') ? null : kind === 'question' && T.questionKicker ? T.questionKicker : ch.title,
+      kicker: kind === 'chapter' ? T.chapter(ci + 1, chapters.length) : kind === 'title' ? T.kicker(intl ? (SUBJECT_EN[subject.name] || subject.name) : subject.name) : kind === 'outro' ? null : kind === 'question' && T.questionKicker ? T.questionKicker : ch.title,
+      eyebrow: kind === 'outro' ? T.eyebrow : null, footnote: kind === 'outro' ? T.footnote : null,
       thinkText: kind === 'question' ? T.thinkText : null, answerText: kind === 'question' ? T.answerText : null,
       title: kind === 'chapter' ? ch.title : kind === 'title' ? lesson.title : kind === 'outro' ? clip(lesson.keyTakeaway, 10) : beat.onScreenTitle,
       subtitle: kind === 'chapter' ? ch.goal : kind === 'title' ? T.forAudience(lesson.audience) : kind === 'outro' ? (lesson.cta || T.cta) : null,
@@ -84,7 +92,7 @@ const plan = {
   review: { approved: true, issues: (lesson.review && lesson.review.issues) || [], claimsToVerify: (lesson.review && lesson.review.claimsToVerify) || [], revisedNarration: {}, mustFix: [], reviewer: lesson.review && lesson.review.reviewer },
   storyboard: { scenes: visuals },
   publish: {
-    title: String(lesson.youtube.title).slice(0, 100), description: lesson.youtube.description, tags: (lesson.youtube.tags || []).slice(0, 15),
+    title: String(lesson.youtube.title).slice(0, 100), description: lesson.youtube.description.trim() + '\n\n' + T.disclosure, tags: (lesson.youtube.tags || []).slice(0, 15),
     chapters: chapters.map(c => ({ beatId: scenes.find(s => s.chapterId === c.id).beatId, label: c.title })),
     thumbnailText: (lesson.youtube.thumbnailText || clip(lesson.title, 3)).toUpperCase(), pinnedComment: lesson.youtube.pinnedComment || T.pinned,
   },

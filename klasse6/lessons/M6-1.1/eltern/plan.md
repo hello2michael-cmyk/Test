@@ -86,3 +86,5 @@ Für Eltern und Lehrkräfte: Was der bayerische LehrplanPLUS im Lernbereich M6 1
 Die passende Kinder-Lektion mit Fragen und Denkpausen gibt es ebenfalls auf diesem Kanal.
 
 Lehrplan: LehrplanPLUS Gymnasium Bayern, Mathematik Jahrgangsstufe 6, M6 1.1 (ca. 13 Unterrichtsstunden).
+
+Transparenz: Die Sprecherstimme ist computergeneriert (Text-to-Speech). Das Skript folgt dem LehrplanPLUS Bayern und wurde von einem zweiten KI-Modell geprüft; vor der Veröffentlichung sieht ein Elternteil jedes Video durch.
