@@ -44,6 +44,11 @@ on:
         description: 'Klasse-6 lesson: a topic id from klasse6/LEKTIONEN.md (e.g. M6-2.2). Leave empty for a normal video.'
         default: ''
         type: string
+      variant:
+        description: 'Lesson version: kinder (for children) or eltern (parents and teachers, 8-10 minutes)'
+        type: choice
+        default: kinder
+        options: [kinder, eltern]
       voice:
         description: 'Lesson voice: a Google Cloud voice name (e.g. de-DE-Chirp3-HD-Kore) or piper:de_DE-thorsten-high. Empty = default.'
         default: ''
@@ -86,6 +91,7 @@ jobs:
           IN_REVIEW: ${{ github.event.inputs.review }}
           IN_LESSON: ${{ github.event.inputs.lesson }}
           IN_VOICE: ${{ github.event.inputs.voice }}
+          IN_VARIANT: ${{ github.event.inputs.variant }}
           ISSUE_NUMBER: ${{ github.event.issue.number }}
           ISSUE_TITLE: ${{ github.event.issue.title }}
           ISSUE_BODY: ${{ github.event.issue.body }}
@@ -112,6 +118,9 @@ jobs:
               lesson = (ev.get('IN_LESSON') or '').strip()
               if lesson and not ev.get('IN_FOOTAGE'): footage = 'none'
               voice = (ev.get('IN_VOICE') or '').strip()
+              if lesson:
+                  variant = 'eltern' if (ev.get('IN_VARIANT') or '') == 'eltern' else 'kinder'
+                  prompt = ''      # a lesson is built from the syllabus; a prompt would be read for a length cap
           else:
               title = ev.get('ISSUE_TITLE') or ''
               body = ev.get('ISSUE_BODY') or ''
