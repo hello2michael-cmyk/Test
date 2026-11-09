@@ -1,0 +1,1140 @@
+1
+00:00:00,350 --> 00:00:02,565
+Brüche sind das Fundament der gesamten
+
+2
+00:00:02,565 --> 00:00:04,382
+Schulmathematik bis zum Abitur.
+
+3
+00:00:04,382 --> 00:00:06,086
+Prozentrechnung, Gleichungen,
+
+4
+00:00:06,086 --> 00:00:08,358
+Wahrscheinlichkeit, Funktionen: Überall
+
+5
+00:00:08,358 --> 00:00:09,551
+stecken Brüche drin.
+
+6
+00:00:09,551 --> 00:00:11,369
+In der sechsten Klasse wird die
+
+7
+00:00:11,369 --> 00:00:12,732
+Grundlage dafür gelegt.
+
+8
+00:00:12,732 --> 00:00:15,004
+Dieses Video richtet sich an Eltern und
+
+9
+00:00:15,004 --> 00:00:15,685
+Lehrkräfte.
+
+10
+00:00:15,685 --> 00:00:17,844
+Sie erfahren in zehn Minuten, was der
+
+11
+00:00:17,844 --> 00:00:19,945
+bayerische Lehrplan verlangt, welche
+
+12
+00:00:19,945 --> 00:00:21,933
+vier Ideen den Kern bilden, welche
+
+13
+00:00:21,933 --> 00:00:24,149
+Fehler viele Kinder machen und wie Sie
+
+14
+00:00:24,149 --> 00:00:26,250
+zu Hause sinnvoll üben.
+
+15
+00:00:27,650 --> 00:00:29,710
+Im LehrplanPLUS für das bayerische
+
+16
+00:00:29,710 --> 00:00:32,005
+Gymnasium heißt der Lernbereich M6 1.1
+
+17
+00:00:32,005 --> 00:00:33,652
+Bruchteile und Bruchzahlen.
+
+18
+00:00:33,652 --> 00:00:35,123
+Er ist mit etwa dreizehn
+
+19
+00:00:35,123 --> 00:00:37,065
+Unterrichtsstunden angesetzt und
+
+20
+00:00:37,065 --> 00:00:39,184
+eröffnet den großen Block Rationale
+
+21
+00:00:39,184 --> 00:00:41,478
+Zahlen, der mit achtundsechzig Stunden
+
+22
+00:00:41,478 --> 00:00:43,597
+mehr als die Hälfte des Schuljahres
+
+23
+00:00:43,597 --> 00:00:44,197
+füllt.
+
+24
+00:00:44,197 --> 00:00:46,551
+Alles, was danach kommt, Dezimalbrüche,
+
+25
+00:00:46,551 --> 00:00:48,610
+Addition, Multiplikation, baut auf
+
+26
+00:00:48,610 --> 00:00:50,776
+diesen dreizehn Stunden auf.
+
+27
+00:00:52,176 --> 00:00:54,390
+Vier Kompetenzen stehen im Lehrplan.
+
+28
+00:00:54,390 --> 00:00:56,724
+Erstens: Anteile deuten und mit Kreis-
+
+29
+00:00:56,724 --> 00:00:58,998
+und Rechteckbildern veranschaulichen,
+
+30
+00:00:58,998 --> 00:01:00,913
+Bruchteil und Ganzes bestimmen.
+
+31
+00:01:00,913 --> 00:01:03,306
+Zweitens: verstehen, dass Erweitern und
+
+32
+00:01:03,306 --> 00:01:05,580
+Kürzen den Wert nicht ändern, und den
+
+33
+00:01:05,580 --> 00:01:08,034
+Hauptnenner finden, später auch über die
+
+34
+00:01:08,034 --> 00:01:09,290
+Primfaktorzerlegung.
+
+35
+00:01:09,290 --> 00:01:11,744
+Drittens: Brüche vergleichen und Prozent
+
+36
+00:01:11,744 --> 00:01:13,659
+als andere Schreibweise kennen.
+
+37
+00:01:13,659 --> 00:01:15,813
+Viertens: Brüche als Zahlen auf der
+
+38
+00:01:15,813 --> 00:01:18,207
+Zahlengeraden einordnen, auch negative.
+
+39
+00:01:18,207 --> 00:01:20,541
+Diese vier Punkte bilden die Grundlage
+
+40
+00:01:20,541 --> 00:01:22,455
+dessen, was in der Schulaufgabe
+
+41
+00:01:22,455 --> 00:01:24,311
+typischerweise abgefragt wird.
+
+42
+00:01:24,311 --> 00:01:26,585
+Die genaue Auswahl legt die Lehrkraft
+
+43
+00:01:26,585 --> 00:01:27,901
+fest.
+
+44
+00:01:29,301 --> 00:01:30,679
+Der Lehrplan spricht von
+
+45
+00:01:30,679 --> 00:01:32,938
+Grundvorstellungen: Ein Bruch ist zuerst
+
+46
+00:01:32,938 --> 00:01:34,481
+ein Bild, nicht eine Regel.
+
+47
+00:01:34,481 --> 00:01:36,521
+Kinder, die Regeln ohne Bild lernen,
+
+48
+00:01:36,521 --> 00:01:38,670
+verwechseln sie oft spätestens bei der
+
+49
+00:01:38,670 --> 00:01:39,270
+Addition.
+
+50
+00:01:39,270 --> 00:01:41,419
+Darum zeige ich Ihnen die vier Bilder,
+
+51
+00:01:41,419 --> 00:01:43,513
+mit denen der Unterricht arbeitet und
+
+52
+00:01:43,513 --> 00:01:45,773
+mit denen Sie zu Hause anknüpfen können.
+
+53
+00:01:45,773 --> 00:01:47,922
+Jedes Bild beantwortet eine Frage, die
+
+54
+00:01:47,922 --> 00:01:50,353
+Ihr Kind sich selbst stellen soll.
+
+55
+00:01:51,753 --> 00:01:54,188
+Die erste Idee: Ein Bruch ist ein Anteil
+
+56
+00:01:54,188 --> 00:01:56,445
+von einem Ganzen, das in gleich große
+
+57
+00:01:56,445 --> 00:01:57,573
+Teile zerlegt ist.
+
+58
+00:01:57,573 --> 00:01:59,770
+Drei Achtel heißt: Das Ganze in acht
+
+59
+00:01:59,770 --> 00:02:01,433
+gleiche Stücke, drei davon.
+
+60
+00:02:01,433 --> 00:02:03,749
+Der Nenner nennt die Größe der Stücke,
+
+61
+00:02:03,749 --> 00:02:05,055
+der Zähler zählt sie.
+
+62
+00:02:05,055 --> 00:02:07,252
+Achten Sie auf das Wort gleich groß:
+
+63
+00:02:07,252 --> 00:02:09,390
+Viele Fehler entstehen, weil Kinder
+
+64
+00:02:09,390 --> 00:02:10,875
+ungleiche Stücke zählen.
+
+65
+00:02:10,875 --> 00:02:13,012
+Fragen Sie: Was ist hier das Ganze?
+
+66
+00:02:13,012 --> 00:02:14,734
+Diese Frage löst die meisten
+
+67
+00:02:14,734 --> 00:02:16,278
+Textaufgaben.
+
+68
+00:02:17,678 --> 00:02:19,906
+Die zweite Idee: Schneidet man jedes
+
+69
+00:02:19,906 --> 00:02:22,375
+Stück noch einmal durch, hat man doppelt
+
+70
+00:02:22,375 --> 00:02:24,603
+so viele, halb so große Stücke, aber
+
+71
+00:02:24,603 --> 00:02:25,807
+genauso viel Pizza.
+
+72
+00:02:25,807 --> 00:02:27,975
+Drei Achtel sind sechs Sechzehntel.
+
+73
+00:02:27,975 --> 00:02:30,444
+Das ist Erweitern: Zähler und Nenner mit
+
+74
+00:02:30,444 --> 00:02:32,310
+derselben Zahl multiplizieren.
+
+75
+00:02:32,310 --> 00:02:33,936
+Kürzen ist der Weg zurück.
+
+76
+00:02:33,936 --> 00:02:36,224
+Der Streifen zeigt dasselbe: Drei von
+
+77
+00:02:36,224 --> 00:02:38,211
+acht Feldern, sechs von sechzehn
+
+78
+00:02:38,211 --> 00:02:38,811
+Feldern.
+
+79
+00:02:38,811 --> 00:02:41,100
+Ihr Kind soll sagen können, warum der
+
+80
+00:02:41,100 --> 00:02:43,508
+Wert gleich bleibt, nicht nur die Regel
+
+81
+00:02:43,508 --> 00:02:44,835
+aufsagen.
+
+82
+00:02:46,235 --> 00:02:48,457
+Die dritte Idee: Vergleichen geht nur
+
+83
+00:02:48,457 --> 00:02:50,035
+mit gleich großen Stücken.
+
+84
+00:02:50,035 --> 00:02:51,906
+Zwei Drittel oder drei Viertel?
+
+85
+00:02:51,906 --> 00:02:54,010
+Beide Pizzen werden in zwölf Stücke
+
+86
+00:02:54,010 --> 00:02:56,407
+geschnitten, denn zwölf ist die kleinste
+
+87
+00:02:56,407 --> 00:02:58,453
+Zahl, in die drei und vier passen.
+
+88
+00:02:58,453 --> 00:03:00,675
+Zwei Drittel sind acht Zwölftel, drei
+
+89
+00:03:00,675 --> 00:03:02,896
+Viertel sind neun Zwölftel, also sind
+
+90
+00:03:02,896 --> 00:03:05,118
+drei Viertel größer, um ein Zwölftel.
+
+91
+00:03:05,118 --> 00:03:06,930
+In der Schulaufgabe heißt das:
+
+92
+00:03:06,930 --> 00:03:09,327
+Hauptnenner bestimmen, erweitern, Zähler
+
+93
+00:03:09,327 --> 00:03:10,087
+vergleichen.
+
+94
+00:03:10,087 --> 00:03:12,250
+Später kommt die Primfaktorzerlegung
+
+95
+00:03:12,250 --> 00:03:13,361
+dazu.
+
+96
+00:03:14,761 --> 00:03:17,052
+Die vierte Idee ist die abstrakteste und
+
+97
+00:03:17,052 --> 00:03:19,121
+wird am häufigsten unterschätzt: Ein
+
+98
+00:03:19,121 --> 00:03:21,189
+Bruch ist eine Zahl mit einem festen
+
+99
+00:03:21,189 --> 00:03:23,369
+Platz auf der Zahlengeraden, auch eine
+
+100
+00:03:23,369 --> 00:03:23,969
+negative.
+
+101
+00:03:23,969 --> 00:03:26,204
+Minus drei Viertel liegt zwischen minus
+
+102
+00:03:26,204 --> 00:03:27,602
+eins und minus ein Halb.
+
+103
+00:03:27,602 --> 00:03:29,390
+Der Lehrplan verlangt außerdem,
+
+104
+00:03:29,390 --> 00:03:31,570
+natürliche, ganze und rationale Zahlen
+
+105
+00:03:31,570 --> 00:03:32,576
+zu unterscheiden.
+
+106
+00:03:32,576 --> 00:03:34,645
+Gut zu wissen: Zwischen zwei Brüchen
+
+107
+00:03:34,645 --> 00:03:36,769
+liegen immer unendlich viele weitere.
+
+108
+00:03:36,769 --> 00:03:38,445
+Das kann in Schulaufgaben als
+
+109
+00:03:38,445 --> 00:03:40,696
+Verständnisfrage vorkommen.
+
+110
+00:03:42,096 --> 00:03:44,271
+Aus Korrekturen von Schulaufgaben kennen
+
+111
+00:03:44,271 --> 00:03:46,393
+viele Lehrkräfte dieselben fünf Fehler.
+
+112
+00:03:46,393 --> 00:03:48,355
+Sie sind so verbreitet, weil sie aus
+
+113
+00:03:48,355 --> 00:03:50,371
+einer Regel entstehen, die an anderer
+
+114
+00:03:50,371 --> 00:03:51,432
+Stelle richtig war.
+
+115
+00:03:51,432 --> 00:03:53,607
+Wenn Sie die Fehler kennen, erkennen Sie
+
+116
+00:03:53,607 --> 00:03:55,357
+in den Hausaufgaben Ihres Kindes
+
+117
+00:03:55,357 --> 00:03:57,214
+schnell, wo das Verständnis fehlt.
+
+118
+00:03:57,214 --> 00:03:59,283
+Und bei jedem Fehler gibt es ein Bild,
+
+119
+00:03:59,283 --> 00:04:00,821
+das ihn korrigiert.
+
+120
+00:04:02,221 --> 00:04:04,442
+Fehler eins: Ihr Kind zählt Teile, die
+
+121
+00:04:04,442 --> 00:04:05,808
+nicht gleich groß sind.
+
+122
+00:04:05,808 --> 00:04:07,688
+Ein Kreis wird mit zwei schiefen
+
+123
+00:04:07,688 --> 00:04:09,681
+Strichen in fünf verschieden große
+
+124
+00:04:09,681 --> 00:04:12,016
+Stücke geteilt, zwei davon markiert, und
+
+125
+00:04:12,016 --> 00:04:13,838
+das Kind schreibt zwei Fünftel.
+
+126
+00:04:13,838 --> 00:04:15,717
+Das stimmt nur bei gleich großen
+
+127
+00:04:15,717 --> 00:04:16,317
+Stücken.
+
+128
+00:04:16,317 --> 00:04:18,595
+Fehler zwei, der Klassiker der nächsten
+
+129
+00:04:18,595 --> 00:04:20,873
+Wochen: Zähler plus Zähler, Nenner plus
+
+130
+00:04:20,873 --> 00:04:21,473
+Nenner.
+
+131
+00:04:21,473 --> 00:04:23,637
+Ein Halb plus ein Drittel gleich zwei
+
+132
+00:04:23,637 --> 00:04:24,237
+Fünftel.
+
+133
+00:04:24,237 --> 00:04:26,458
+Das Bild zeigt den Fehler sofort: Zwei
+
+134
+00:04:26,458 --> 00:04:28,793
+Fünftel ist weniger als ein Halb, obwohl
+
+135
+00:04:28,793 --> 00:04:30,159
+etwas dazugekommen ist.
+
+136
+00:04:30,159 --> 00:04:32,323
+Richtig sind fünf Sechstel, das lernt
+
+137
+00:04:32,323 --> 00:04:34,908
+Ihr Kind im Lernbereich Addition.
+
+138
+00:04:36,308 --> 00:04:38,638
+Fehler drei: Ein Achtel wird für größer
+
+139
+00:04:38,638 --> 00:04:40,735
+gehalten als ein Viertel, weil acht
+
+140
+00:04:40,735 --> 00:04:41,958
+größer ist als vier.
+
+141
+00:04:41,958 --> 00:04:44,288
+Das Bild: Je mehr Stücke, desto kleiner
+
+142
+00:04:44,288 --> 00:04:45,453
+ist jedes einzelne.
+
+143
+00:04:45,453 --> 00:04:47,200
+Fehler vier: falsches Kürzen.
+
+144
+00:04:47,200 --> 00:04:49,472
+Kinder streichen Ziffern, statt Zähler
+
+145
+00:04:49,472 --> 00:04:51,453
+und Nenner durch dieselbe Zahl zu
+
+146
+00:04:51,453 --> 00:04:52,053
+teilen.
+
+147
+00:04:52,053 --> 00:04:54,324
+Sechzehn Vierundsechzigstel gleich ein
+
+148
+00:04:54,324 --> 00:04:56,712
+Viertel stimmt zufällig, die Methode ist
+
+149
+00:04:56,712 --> 00:04:57,703
+trotzdem falsch.
+
+150
+00:04:57,703 --> 00:05:00,091
+Fragen Sie immer: Durch welche Zahl hast
+
+151
+00:05:00,091 --> 00:05:02,287
+du oben und unten geteilt?
+
+152
+00:05:03,687 --> 00:05:05,872
+Fehler fünf betrifft die Textaufgaben:
+
+153
+00:05:05,872 --> 00:05:08,058
+Das Kind rechnet richtig, aber mit dem
+
+154
+00:05:08,058 --> 00:05:09,010
+falschen Ganzen.
+
+155
+00:05:09,010 --> 00:05:10,972
+Drei Viertel von zwanzig Euro sind
+
+156
+00:05:10,972 --> 00:05:13,045
+fünfzehn Euro, aber wenn die Aufgabe
+
+157
+00:05:13,045 --> 00:05:15,119
+nach dem Rest fragt, ist die Antwort
+
+158
+00:05:15,119 --> 00:05:15,735
+fünf Euro.
+
+159
+00:05:15,735 --> 00:05:17,641
+Und rückwärts: Zwei Fünftel einer
+
+160
+00:05:17,641 --> 00:05:19,826
+Strecke sind sechs Kilometer, also ist
+
+161
+00:05:19,826 --> 00:05:22,124
+ein Fünftel drei Kilometer und das Ganze
+
+162
+00:05:22,124 --> 00:05:23,245
+fünfzehn Kilometer.
+
+163
+00:05:23,245 --> 00:05:25,542
+Die Korrektur ist eine Angewohnheit: Vor
+
+164
+00:05:25,542 --> 00:05:27,840
+dem Rechnen in einem Satz sagen, was das
+
+165
+00:05:27,840 --> 00:05:29,185
+Ganze ist.
+
+166
+00:05:30,585 --> 00:05:32,597
+Üben muss nicht lange dauern, aber
+
+167
+00:05:32,597 --> 00:05:33,575
+regelmäßig sein.
+
+168
+00:05:33,575 --> 00:05:35,702
+Zehn Minuten an drei Tagen pro Woche
+
+169
+00:05:35,702 --> 00:05:37,887
+bringen erfahrungsgemäß mehr als eine
+
+170
+00:05:37,887 --> 00:05:40,186
+Stunde am Sonntag vor der Schulaufgabe.
+
+171
+00:05:40,186 --> 00:05:42,429
+Und es muss nicht wie Schule aussehen.
+
+172
+00:05:42,429 --> 00:05:44,786
+Die besten Übungen für Brüche stecken im
+
+173
+00:05:44,786 --> 00:05:46,971
+Alltag: in der Küche, beim Einkaufen,
+
+174
+00:05:46,971 --> 00:05:48,408
+auf der Uhr, am Maßband.
+
+175
+00:05:48,408 --> 00:05:50,535
+Ich zeige Ihnen eine Routine in vier
+
+176
+00:05:50,535 --> 00:05:51,743
+Schritten.
+
+177
+00:05:53,143 --> 00:05:55,456
+Schritt eins: Brüche im Alltag benennen.
+
+178
+00:05:55,456 --> 00:05:57,713
+Beim Pizzaschneiden fragen Sie, welcher
+
+179
+00:05:57,713 --> 00:05:59,914
+Bruch auf dem Teller liegt und welcher
+
+180
+00:05:59,914 --> 00:06:00,704
+übrig bleibt.
+
+181
+00:06:00,704 --> 00:06:02,848
+Der Messbecher zeigt Viertelliter und
+
+182
+00:06:02,848 --> 00:06:05,106
+Dreiviertelliter, die Uhr die halbe und
+
+183
+00:06:05,106 --> 00:06:06,178
+die Viertelstunde.
+
+184
+00:06:06,178 --> 00:06:08,040
+Und ein Maßband ist eine fertige
+
+185
+00:06:08,040 --> 00:06:10,071
+Zahlengerade: Wo liegt drei Viertel
+
+186
+00:06:10,071 --> 00:06:11,990
+Meter, wo liegt ein halber Meter?
+
+187
+00:06:11,990 --> 00:06:13,570
+Diese Bilder sind genau die
+
+188
+00:06:13,570 --> 00:06:15,658
+Grundvorstellungen, die der Lehrplan
+
+189
+00:06:15,658 --> 00:06:18,536
+meint, und sie kosten kaum Extra-Zeit.
+
+190
+00:06:19,936 --> 00:06:22,074
+Schritt zwei: Lassen Sie sich etwas
+
+191
+00:06:22,074 --> 00:06:23,738
+erklären, statt abzufragen.
+
+192
+00:06:23,738 --> 00:06:25,698
+Warum sind drei Achtel und sechs
+
+193
+00:06:25,698 --> 00:06:27,183
+Sechzehntel gleich viel?
+
+194
+00:06:27,183 --> 00:06:29,381
+Warum ist ein Achtel kleiner als ein
+
+195
+00:06:29,381 --> 00:06:29,981
+Viertel?
+
+196
+00:06:29,981 --> 00:06:32,417
+Wer es erklären kann, hat es verstanden.
+
+197
+00:06:32,417 --> 00:06:34,734
+Wer nur die Regel aufsagt, hat es noch
+
+198
+00:06:34,734 --> 00:06:35,334
+nicht.
+
+199
+00:06:35,334 --> 00:06:37,472
+Sie müssen die Antwort nicht selbst
+
+200
+00:06:37,472 --> 00:06:39,908
+wissen; es reicht, nachzufragen, bis das
+
+201
+00:06:39,908 --> 00:06:41,678
+Kind ein Bild benutzt.
+
+202
+00:06:43,078 --> 00:06:45,417
+Schritt drei: drei Aufgaben, jede aus
+
+203
+00:06:45,417 --> 00:06:46,587
+einem anderen Typ.
+
+204
+00:06:46,587 --> 00:06:48,926
+Ein Bruchteil: drei Viertel von zwölf
+
+205
+00:06:48,926 --> 00:06:50,342
+Äpfeln, das sind neun.
+
+206
+00:06:50,342 --> 00:06:52,866
+Eine Umformung: sechs Achtel so weit wie
+
+207
+00:06:52,866 --> 00:06:55,267
+möglich kürzen, das sind drei Viertel.
+
+208
+00:06:55,267 --> 00:06:57,606
+Ein Vergleich: drei Fünftel oder zwei
+
+209
+00:06:57,606 --> 00:06:58,206
+Drittel?
+
+210
+00:06:58,206 --> 00:07:00,422
+Über den Hauptnenner fünfzehn: neun
+
+211
+00:07:00,422 --> 00:07:02,946
+Fünfzehntel gegen zehn Fünfzehntel, also
+
+212
+00:07:02,946 --> 00:07:04,546
+sind zwei Drittel größer.
+
+213
+00:07:04,546 --> 00:07:07,070
+Zur Abwechslung die Prozentschreibweise:
+
+214
+00:07:07,070 --> 00:07:09,224
+ein Halb sind fünfzig Prozent, ein
+
+215
+00:07:09,224 --> 00:07:10,702
+Viertel fünfundzwanzig.
+
+216
+00:07:10,702 --> 00:07:12,549
+Diese Typen gehören in vielen
+
+217
+00:07:12,549 --> 00:07:14,765
+Schulaufgaben zum Kern; dazu kommen
+
+218
+00:07:14,765 --> 00:07:17,612
+Zahlengerade und Textaufgaben.
+
+219
+00:07:19,012 --> 00:07:21,165
+Schritt vier: Fehler sind Information,
+
+220
+00:07:21,165 --> 00:07:22,435
+kein Grund für Streit.
+
+221
+00:07:22,435 --> 00:07:24,423
+Lassen Sie sich immer den Rechenweg
+
+222
+00:07:24,423 --> 00:07:26,190
+zeigen, nicht nur das Ergebnis.
+
+223
+00:07:26,190 --> 00:07:28,288
+Erkennen Sie einen der fünf typischen
+
+224
+00:07:28,288 --> 00:07:30,552
+Fehler, benennen Sie ihn, und lassen Sie
+
+225
+00:07:30,552 --> 00:07:32,816
+das Kind das passende Bild zeichnen: die
+
+226
+00:07:32,816 --> 00:07:34,970
+Pizza, den Streifen, die Zahlengerade.
+
+227
+00:07:34,970 --> 00:07:37,068
+Eine Minute Bild ersetzt zehn Minuten
+
+228
+00:07:37,068 --> 00:07:37,675
+Erklärung.
+
+229
+00:07:37,675 --> 00:07:39,774
+Und loben Sie das Erklären, nicht nur
+
+230
+00:07:39,774 --> 00:07:41,651
+das richtige Ergebnis.
+
+231
+00:07:43,051 --> 00:07:44,861
+Zum Schluss der Blick nach vorn.
+
+232
+00:07:44,861 --> 00:07:46,945
+Die erste Mathematik-Schulaufgabe der
+
+233
+00:07:46,945 --> 00:07:49,138
+sechsten Klasse prüft an vielen Schulen
+
+234
+00:07:49,138 --> 00:07:51,387
+diesen Lernbereich, oft zusammen mit den
+
+235
+00:07:51,387 --> 00:07:52,264
+Dezimalbrüchen.
+
+236
+00:07:52,264 --> 00:07:54,348
+Die Aufgabentypen folgen meist direkt
+
+237
+00:07:54,348 --> 00:07:56,541
+aus den vier Kompetenzen des Lehrplans;
+
+238
+00:07:56,541 --> 00:07:58,406
+Details können je nach Schule und
+
+239
+00:07:58,406 --> 00:07:59,557
+Lehrkraft abweichen.
+
+240
+00:07:59,557 --> 00:08:01,696
+Wenn Sie unsicher sind, fragen Sie die
+
+241
+00:08:01,696 --> 00:08:03,451
+Lehrkraft nach dem Stoffumfang.
+
+242
+00:08:03,451 --> 00:08:05,973
+Und danach geht es nahtlos weiter.
+
+243
+00:08:07,373 --> 00:08:09,556
+Typische Aufgaben: einen Bruchteil in
+
+244
+00:08:09,556 --> 00:08:11,739
+einer Figur ablesen oder einzeichnen.
+
+245
+00:08:11,739 --> 00:08:14,095
+Brüche erweitern und vollständig kürzen,
+
+246
+00:08:14,095 --> 00:08:15,646
+den Hauptnenner bestimmen.
+
+247
+00:08:15,646 --> 00:08:18,001
+Mehrere Brüche der Größe nach ordnen und
+
+248
+00:08:18,001 --> 00:08:20,184
+auf der Zahlengeraden eintragen, auch
+
+249
+00:08:20,184 --> 00:08:20,784
+negative.
+
+250
+00:08:20,784 --> 00:08:22,738
+Und meist eine Textaufgabe: einen
+
+251
+00:08:22,738 --> 00:08:25,093
+Bruchteil von einer Größe berechnen oder
+
+252
+00:08:25,093 --> 00:08:26,817
+aus einem Bruchteil das Ganze
+
+253
+00:08:26,817 --> 00:08:27,678
+zurückrechnen.
+
+254
+00:08:27,678 --> 00:08:29,804
+Wer die Bilder sicher nutzt, ist für
+
+255
+00:08:29,804 --> 00:08:32,593
+diese Aufgabentypen gut vorbereitet.
+
+256
+00:08:33,993 --> 00:08:36,066
+Der Ausblick: Als Nächstes kommen die
+
+257
+00:08:36,066 --> 00:08:37,866
+Dezimalbrüche, dann Addition und
+
+258
+00:08:37,866 --> 00:08:39,884
+Subtraktion, dann Multiplikation und
+
+259
+00:08:39,884 --> 00:08:41,466
+Division von Brüchen, danach
+
+260
+00:08:41,466 --> 00:08:42,939
+Flächeninhalt und Volumen.
+
+261
+00:08:42,939 --> 00:08:44,794
+Am Ende des Schuljahres steht die
+
+262
+00:08:44,794 --> 00:08:46,757
+Prozentrechnung, und die ist nichts
+
+263
+00:08:46,757 --> 00:08:48,994
+anderes als Bruchrechnung mit dem Nenner
+
+264
+00:08:48,994 --> 00:08:49,594
+hundert.
+
+265
+00:08:49,594 --> 00:08:51,776
+Prozent als Schreibweise lernt Ihr Kind
+
+266
+00:08:51,776 --> 00:08:53,685
+schon jetzt kennen: Fünfundzwanzig
+
+267
+00:08:53,685 --> 00:08:55,921
+Prozent sind ein Viertel, fünfundzwanzig
+
+268
+00:08:55,921 --> 00:08:57,776
+Prozent von zweihundert Euro sind
+
+269
+00:08:57,776 --> 00:08:58,539
+fünfzig Euro.
+
+270
+00:08:58,539 --> 00:09:00,721
+Wer jetzt die Bilder versteht, hat eine
+
+271
+00:09:00,721 --> 00:09:03,339
+gute Grundlage für das ganze Jahr.
+
+272
+00:09:04,739 --> 00:09:06,917
+Zusammengefasst: Brüche sind in der
+
+273
+00:09:06,917 --> 00:09:08,793
+sechsten Klasse das Fundament.
+
+274
+00:09:08,793 --> 00:09:11,273
+Vier Bilder tragen alles: der Anteil vom
+
+275
+00:09:11,273 --> 00:09:13,330
+Ganzen, Erweitern und Kürzen, der
+
+276
+00:09:13,330 --> 00:09:15,387
+Hauptnenner und die Zahlengerade.
+
+277
+00:09:15,387 --> 00:09:17,626
+Fünf Fehler kehren immer wieder, und
+
+278
+00:09:17,626 --> 00:09:19,743
+jedes Bild korrigiert einen davon.
+
+279
+00:09:19,743 --> 00:09:21,981
+Zehn Minuten Üben an drei Tagen, mit
+
+280
+00:09:21,981 --> 00:09:24,220
+Alltag und Erklären-lassen, reichen.
+
+281
+00:09:24,220 --> 00:09:26,277
+Für Ihr Kind gibt es die passende
+
+282
+00:09:26,277 --> 00:09:28,757
+Kinder-Lektion mit Fragen und Denkpausen
+
+283
+00:09:28,757 --> 00:09:29,846
+auf diesem Kanal.
+
+284
+00:09:29,846 --> 00:09:31,782
+Abonnieren Sie für die nächsten
+
+285
+00:09:31,782 --> 00:09:33,416
+Lernbereiche.
+
