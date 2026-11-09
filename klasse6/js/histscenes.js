@@ -4,8 +4,9 @@ import { ease, outBack, smooth, clamp01, rgba, mix } from './engine3d.js';
 
 // Events per theme: [year (negative = v. Chr.), label, colour group]. Years for eras are conventional school values.
 const THEMES = {
-  'Steinzeit bis heute': { from: -12000, to: 2030, events: [
-    [-10000, 'Ende der Altsteinzeit', 0], [-5500, 'Erste Bauern in Mitteleuropa', 1], [-3000, 'Frühe Hochkulturen', 2], [-753, 'Gründung Roms (Sage)', 3], [0, 'Christi Geburt', 4], [800, 'Karl der Große Kaiser', 5], [2026, 'Heute', 6],
+  // warp: the axis is stretched piecewise so that recent millennia get room (the Stone Age would otherwise take 75 % of the line)
+  'Steinzeit bis heute': { from: -12000, to: 2030, warp: [[-12000, 0], [-3000, 0.42], [0, 0.72], [2030, 1]], events: [
+    [-10000, 'Ende der Altsteinzeit', 0], [-5500, 'Erste Bauern in Mitteleuropa', 1], [-3000, 'Frühe Hochkulturen', 2], [-753, 'Gründung Roms (Sage)', 3], [800, 'Karl der Große Kaiser', 5], [2026, 'Heute', 6],
   ] },
   'Ägypten': { from: -3500, to: -300, events: [
     [-3000, 'Reichseinigung, erste Pharaonen', 0], [-2600, 'Pyramiden von Gizeh', 1], [-1479, 'Hatschepsut Pharaonin', 2], [-1279, 'Ramses II.', 3], [-332, 'Alexander erobert Ägypten', 4],
@@ -37,7 +38,8 @@ const timeline = {
   },
   draw(S, t, p) {
     const th = S.theme, T = THEMES[p.thema] || THEMES['Steinzeit bis heute'], y0 = -1.05, L = 8.4;
-    const X = y => -L / 2 + ((y - T.from) / (T.to - T.from)) * L;
+    const frac = y => { const w = T.warp || [[T.from, 0], [T.to, 1]]; for (let i = 1; i < w.length; i++) if (y <= w[i][0]) return w[i - 1][1] + (w[i][1] - w[i - 1][1]) * (y - w[i - 1][0]) / (w[i][0] - w[i - 1][0]); return 1; };
+    const X = y => -L / 2 + frac(y) * L;
     S.heading(`Zeitstrahl: ${p.thema}`, `${fmtYear(T.from)} bis ${fmtYear(T.to)}`);
     S.floor(y0);
     const grow = ease(t, 0, 2.5);
@@ -58,7 +60,7 @@ const timeline = {
     T.events.forEach(([year, label, g], i) => {
       const a = outBack(ease(t, 6 + i * (12 / Math.max(1, T.events.length)), 0.9)); if (a <= 0.01) return;
       const x = X(year), hot = p.markiert === i + 1 && t >= 18;
-      const h = (0.6 + 0.25 * (i % 3)) * a * (hot ? 1.35 : 1);
+      const h = (0.6 + 0.45 * (i % 3)) * a * (hot ? 1.35 : 1);
       S.box([x, y0 + 0.16 + h / 2, 0], [0.16, h / 2, 0.16], hot ? th.accent2 : palette[g % palette.length], { alpha: t >= 18 && p.markiert && !hot ? 0.55 : 1 });
       S.label([x, y0 + 0.16 + h, 0], fmtYear(year), { above: 0.12, size: S.u(20), color: hot ? '#fff' : rgba(th.text, 0.85), strong: hot });
       S.label([x, y0 + 0.16 + h, 0], label, { above: 0.45, size: S.u(hot ? 26 : 21), color: hot ? th.accent2 : '#fff', strong: true });

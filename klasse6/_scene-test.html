@@ -1,0 +1,12 @@
+<!doctype html><meta charset="utf-8"><canvas id="c" width="1280" height="720"></canvas>
+<script type="module">
+import { Scene } from './js/engine3d.js';
+import { SCENES } from './js/scenes.js';
+const THEME = { bgTop: '#0d1229', bgBottom: '#170d38', accent: '#5c9eff', accent2: '#6bedb8', text: '#ffffff', muted: 'rgba(255,255,255,0.7)', dark: true };
+window.drawFrame = (id, t, params) => {
+  const c = document.getElementById('c'), ctx = c.getContext('2d'), sc = SCENES[id];
+  const p = {}; for (const x of sc.params) p[x.id] = x.value; Object.assign(p, params || {});
+  const S = new Scene(ctx, c.width, c.height, THEME, sc.camera || {}); S.background(); sc.draw(S, t, p); S.flush(); return 'ok';
+};
+window.ready = true;
+</script>

@@ -60,7 +60,8 @@ const filetree = {
     S.floor(y0);
     const chart = ease(t, 23, 1.2);
     // ---- the tree (fades a little when the chart comes) ----
-    const treeAlpha = 1 - 0.55 * chart, pathOn = ease(t, 10, 1), classOn = ease(t, 17, 1);
+    const pathOn = ease(t, 10, 1), classOn = ease(t, 17, 1);
+    const treeAlpha = (1 - 0.55 * chart) * (1 - 0.3 * (t < 23.5 ? classOn : 0));
     for (const m of nodes) {
       const a = outBack(ease(t, 0.3 + m.depth * 1.1 + (m.x % 3) * 0.12, 0.9)); if (a <= 0.01) continue;
       const y = yTop - m.depth * dy, isFile = m.n.kind === 'DATEI';
@@ -83,7 +84,7 @@ const filetree = {
     }
     // ---- 17–23: the classes behind it ----
     if (classOn > 0.01 && t < 23.5) {
-      const bx = 3.9, by = yTop - 0.3, a = outBack(classOn);
+      const bx = 4.6, by = yTop - 0.1, a = outBack(classOn);
       S.box([bx, by, 0], [0.9 * a, 0.42 * a, 0.1], folder, { alpha: 0.95 });
       S.label([bx, by + 0.15, 0], 'ORDNER', { above: 0, strong: true, color: '#1a1200', size: S.u(24) });
       S.label([bx, by - 0.22, 0], 'name · enthält', { above: 0, color: '#1a1200', size: S.u(18) });

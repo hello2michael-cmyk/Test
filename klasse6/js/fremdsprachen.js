@@ -6,16 +6,16 @@ import { ease, outBack, smooth, clamp01, rgba, mix } from './engine3d.js';
 // Example pairs. Each: [sentence, tense key, marker position (-1 past … 0 now … 1 future), note]
 const TENSE_SETS = {
   'simple past vs present perfect': [
-    ['I lost my key yesterday.', 'simple past', -0.6, 'finished time: yesterday'],
-    ['I have lost my key.', 'present perfect', -0.15, 'result now: I cannot get in'],
-    ['We visited London last year.', 'simple past', -0.75, 'finished time: last year'],
-    ['We have visited London twice.', 'present perfect', -0.3, 'experience up to now'],
+    ['I lost my key yesterday.', 'simple past', -0.55, 'finished time: yesterday'],
+    ['I have lost my key.', 'present perfect', -0.12, 'result now: I cannot get in'],
+    ['We visited London last year.', 'simple past', -0.85, 'finished time: last year'],
+    ['We have visited London twice.', 'present perfect', -0.35, 'experience up to now'],
   ],
   'will vs going to': [
-    ['Look at the clouds. It is going to rain.', 'going to', 0.3, 'evidence now'],
-    ['I think it will rain tomorrow.', 'will', 0.6, 'opinion, prediction'],
-    ['We are going to visit Grandma on Sunday.', 'going to', 0.45, 'plan already made'],
-    ['Wait, I will help you.', 'will', 0.15, 'spontaneous decision'],
+    ['Look at the clouds. It is going to rain.', 'going to', 0.25, 'evidence now'],
+    ['I think it will rain tomorrow.', 'will', 0.85, 'opinion, prediction'],
+    ['We are going to visit Grandma on Sunday.', 'going to', 0.55, 'plan already made'],
+    ['Wait, I will help you.', 'will', 0.1, 'spontaneous decision'],
   ],
 };
 const TENSE_COLORS = { 'simple past': '#ffb840', 'present perfect': '#6bedb8', 'going to': '#5c9eff', 'will': '#fa739e' };
@@ -49,12 +49,12 @@ const tense = {
       if (p.beispiel && p.beispiel !== i + 1) return;
       const a = outBack(ease(t, 5 + i * 3.2, 0.9)); if (a <= 0.01) return;
       const x = pos * (L / 2), col = TENSE_COLORS[key], row = i % 2;
-      const h = (0.7 + 0.5 * row) * a;
+      const h = (0.6 + 0.55 * i) * a; void row;
       S.box([x, y0 + 0.16 + h / 2, 0], [0.18, h / 2, 0.18], col);
       // present perfect / going to: a bar reaching to NOW shows the link to the present
       if ((key === 'present perfect') && t >= 18) S.box([(x + 0) / 2, y0 + 0.16 + h, 0], [Math.abs(x) / 2, 0.03, 0.03], rgba(col, 0.8));
       S.label([x, y0 + 0.16 + h, 0], key, { above: 0.12, size: S.u(20), color: col, strong: true });
-      S.label([x, y0 + 0.16 + h, 0], sentence, { above: 0.45, size: S.u(22), color: '#fff', strong: true });
+      S.label([x, y0 + 0.16 + h, 0], sentence, { above: 0.45, size: S.u(21), color: '#fff', strong: true });
       if (t >= 18) S.label([x, y0 + 0.16 + h, 0], note, { above: 0.78, size: S.u(19), color: rgba(th.text, 0.7) });
     });
   },
@@ -71,7 +71,7 @@ const CASES = [['Nominativ', 'Wer oder was?', '#5c9eff'], ['Genitiv', 'Wessen?',
 
 const kasus = {
   id: 'kasus', title: 'Latein: die Fälle (Deklination)', duration: 30,
-  camera: { azimuth: -0.3, elevation: 0.5, distance: 9.6, target: [0.4, -0.2, 0] },
+  camera: { azimuth: -0.12, elevation: 0.82, distance: 9.8, target: [0.2, -0.6, 0] },
   params: [
     { id: 'wort', label: 'Welches Wort?', options: Object.keys(DECL), value: 'puella, -ae f' },
     { id: 'fall', label: 'Welcher Fall wird hervorgehoben?', options: ['alle', 'Nominativ', 'Genitiv', 'Dativ', 'Akkusativ', 'Ablativ'], value: 'alle' },
@@ -89,7 +89,7 @@ const kasus = {
     const th = S.theme, d = DECL[p.wort] || DECL['puella, -ae f'], y0 = -1.05;
     S.heading(`Deklination: ${p.wort}`, t < 4 ? `Stamm ${d.stem}- + Endung` : t < 14 ? 'Singular' : t < 22 ? 'Singular und Plural' : 'Endung → Fall → Satzglied');
     S.floor(y0);
-    const colX = [-2.6, 0.9, 3.4], rowZ = i => -1.6 + i * 0.8;
+    const colX = [-3.3, -0.2, 2.6], rowZ = i => -1.7 + i * 0.85;
     const stemW = txt => 0.11 * txt.length + 0.2;
     // header row
     const hdr = ease(t, 0, 1);
@@ -130,7 +130,7 @@ const VERBS = {
 
 const conjugaison = {
   id: 'conjugaison', title: 'Français : le présent', duration: 30,
-  camera: { azimuth: -0.25, elevation: 0.45, distance: 9.4, target: [0.3, -0.2, 0] },
+  camera: { azimuth: -0.15, elevation: 0.7, distance: 9.4, target: [0, -0.5, 0] },
   params: [
     { id: 'verbe', label: 'Quel verbe ?', options: Object.keys(VERBS), value: 'parler (-er)' },
     { id: 'personne', label: 'Quelle personne mettre en avant ? (0 = toutes)', min: 0, max: 6, step: 1, value: 0 },
