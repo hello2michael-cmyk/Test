@@ -13,3 +13,8 @@ out/
 prompt.txt
 server.log
 .hubcache/
+
+# Daybrief (Vite app under daybrief/)
+daybrief/node_modules/
+daybrief/dist/
+daybrief/dev-dist/

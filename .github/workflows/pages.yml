@@ -26,7 +26,19 @@ jobs:
         uses: actions/configure-pages@v5
         with:
           enablement: true
-      - name: Keep only the web app in the site
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: daybrief/package-lock.json
+      - name: Build Daybrief (Vite) into daybrief/
+        run: |
+          npm --prefix daybrief ci
+          npm --prefix daybrief run build
+          mv daybrief/dist /tmp/daybrief-dist
+          rm -rf daybrief
+          mv /tmp/daybrief-dist daybrief
+      - name: Keep only the web apps in the site
         run: rm -rf android .github
       - uses: actions/upload-pages-artifact@v3
         with:
