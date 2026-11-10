@@ -26,7 +26,7 @@
         {
           "kind": "title",
           "onScreenTitle": "Vorbereitung Schulaufgabe: Dezimalbrüche",
-          "narration": "Du tippst eins geteilt durch sechs in den Taschenrechner, und er zeigt null Komma eins sechs sechs sechs sechs sechs sechs sechs sieben. Was ist das für eine Zahl, und warum hört sie nicht auf? Am Ende dieses Videos kannst du das erklären. Das hier ist Teil zwei der Vorbereitung auf deine erste Schulaufgabe. Wir gehen die vier Punkte zu Dezimalbrüchen vom Stoffzettel durch: Stellenwerttafel, Vergleichen, Umwandeln und Runden, und die periodischen Dezimalbrüche. Zu jedem Punkt gibt es eine Aufgabe für dich."
+          "narration": "Du tippst eins geteilt durch sechs in den Taschenrechner, und er zeigt null Komma eins sechs sechs sechs sechs sechs sechs sechs sieben. Was ist das für eine Zahl, und warum hört sie nicht auf? Am Ende dieses Videos kannst du das erklären. Das hier ist Teil zwei der Vorbereitung auf deine erste Schulaufgabe. Wir gehen die fünf Punkte zu Dezimalbrüchen vom Stoffzettel durch: Stellenwerttafel, Vergleichen, Umwandeln, Runden und die periodischen Dezimalbrüche. Zu jedem Punkt gibt es eine Aufgabe für dich."
         },
         {
           "kind": "math3d",
@@ -39,7 +39,7 @@
             20
           ],
           "onScreenTitle": "Stellenwerttafel: Einer, Zehntel, Hundertstel, Tausendstel",
-          "narration": "Die Zahl eins Komma zwei drei vier. Vor dem Komma steht der Einer: ein ganzer Würfel. Die erste Stelle nach dem Komma sind die Zehntel. Der Würfel wird in zehn Scheiben geschnitten, jede Scheibe ist ein Zehntel, also null Komma eins. Hier sind es zwei Zehntel. Die zweite Stelle sind die Hundertstel: eine Scheibe in zehn Stäbe, jeder Stab ein Hundertstel. Hier drei. Die dritte Stelle sind die Tausendstel, kleine Würfel. Hier vier. Zusammen: eins Komma zwei drei vier, das ist dasselbe wie eintausendzweihundertvierunddreißig Tausendstel."
+          "narration": "Erster Punkt: die Stellenwerttafel. Die Zahl eins Komma zwei drei vier. Vor dem Komma steht der Einer: ein ganzer Würfel. Die erste Stelle nach dem Komma sind die Zehntel. Der Würfel wird in zehn Scheiben geschnitten, jede Scheibe ist ein Zehntel, also null Komma eins. Hier sind es zwei Zehntel. Die zweite Stelle sind die Hundertstel: eine Scheibe in zehn Stäbe, jeder Stab ein Hundertstel. Hier drei. Die dritte Stelle sind die Tausendstel, kleine Würfel. Hier vier. Zusammen: eins Komma zwei drei vier, das ist dasselbe wie eintausendzweihundertvierunddreißig Tausendstel."
         },
         {
           "kind": "bullets",
@@ -49,7 +49,7 @@
             "2,305: 2 E, 3 z, 0 h, 5 t",
             "Zahlwort: zwei Komma drei null fünf"
           ],
-          "narration": "In der Schulaufgabe kommen drei Fragen zur Stellenwerttafel vor. Erstens: Trage die Zahl ein. Zwei Komma drei null fünf hat zwei Einer, drei Zehntel, null Hundertstel und fünf Tausendstel. Die Null musst du eintragen, sie hält die Stelle frei. Zweitens: Welche Ziffer steht an der Hundertstelstelle? Bei zwei Komma drei null fünf ist das die Null. Drittens: Schreibe als Bruch. Null Komma sieben sind sieben Zehntel, aber null Komma null sieben sind sieben Hundertstel. Die Anzahl der Nachkommastellen sagt dir den Nenner: eine Stelle Zehntel, zwei Stellen Hundertstel, drei Stellen Tausendstel."
+          "narration": "Typisch sind drei Fragen zur Stellenwerttafel. Erstens: Trage die Zahl ein. Zwei Komma drei null fünf hat zwei Einer, drei Zehntel, null Hundertstel und fünf Tausendstel. Die Null musst du eintragen, sie hält die Stelle frei. Zweitens: Welche Ziffer steht an der Hundertstelstelle? Bei zwei Komma drei null fünf ist das die Null. Drittens: Schreibe als Bruch. Null Komma sieben sind sieben Zehntel, aber null Komma null sieben sind sieben Hundertstel. Die Anzahl der Nachkommastellen sagt dir den Nenner zehn, hundert oder tausend: eine Stelle Zehntel, zwei Stellen Hundertstel, drei Stellen Tausendstel."
         },
         {
           "kind": "question",
@@ -102,7 +102,7 @@
           },
           "segment": [
             0,
-            18
+            16
           ],
           "onScreenTitle": "Dezimalbrüche an der Zahlengerade",
           "narration": "Auch Dezimalbrüche haben ihren Platz auf der Zahlengeraden, und auch negative. Minus eins Komma zwei fünf liegt links von minus eins, ein Viertel weiter. Minus null Komma fünf liegt genau in der Mitte zwischen minus eins und null. Null Komma sieben fünf liegt bei drei Vierteln, eins Komma fünf in der Mitte zwischen eins und zwei. Wenn du beim Vergleichen unsicher bist, stell dir die Zahlengerade vor: Weiter rechts heißt größer. Bei negativen Zahlen ist deshalb minus null Komma fünf größer als minus eins Komma zwei fünf."
@@ -110,9 +110,9 @@
         {
           "kind": "question",
           "question": "Ordne der Größe nach, beginne mit der kleinsten: 2,3; 2,03; 2,33; 2,303",
-          "think": 12,
+          "think": 14,
           "hint": "Hänge Nullen an, bis alle drei Nachkommastellen haben. Dann von links vergleichen.",
-          "narration": "Deine Aufgabe. Ordne der Größe nach und beginne mit der kleinsten Zahl: zwei Komma drei, zwei Komma null drei, zwei Komma drei drei und zwei Komma drei null drei. Hänge zuerst Nullen an, bis alle Zahlen drei Nachkommastellen haben. Du hast ein paar Sekunden."
+          "narration": "Deine Aufgabe. Ordne der Größe nach und beginne mit der kleinsten Zahl: zwei Komma drei, zwei Komma null drei, zwei Komma drei drei und zwei Komma drei null drei. Hänge zuerst Nullen an, bis alle Zahlen drei Nachkommastellen haben. Du hast ein paar Sekunden, und drück ruhig auf Pause, wenn du mehr Zeit brauchst."
         },
         {
           "kind": "bullets",
@@ -166,20 +166,20 @@
         },
         {
           "kind": "question",
-          "question": "Wandle 7/25 in einen Dezimalbruch um. Schreibe 0,35 als vollständig gekürzten Bruch.",
+          "question": "Wandle 7/25 in einen Dezimalbruch um. Schreibe 0,36 als vollständig gekürzten Bruch.",
           "think": 12,
-          "hint": "25 mal 4 ist 100. Für 0,35: zwei Nachkommastellen heißt Hundertstel, dann kürzen.",
-          "narration": "Jetzt du. Wandle sieben Fünfundzwanzigstel in einen Dezimalbruch um. Und schreibe null Komma drei fünf als vollständig gekürzten Bruch. Überlege, mit welcher Zahl du fünfundzwanzig auf hundert erweiterst. Und bei null Komma drei fünf: zwei Nachkommastellen, also Hundertstel, dann kürzen. Du hast ein paar Sekunden."
+          "hint": "25 mal 4 ist 100. Für 0,36: zwei Nachkommastellen heißt Hundertstel, dann kürzen.",
+          "narration": "Jetzt du. Wandle sieben Fünfundzwanzigstel in einen Dezimalbruch um. Und schreibe null Komma drei sechs als vollständig gekürzten Bruch. Überlege, mit welcher Zahl du fünfundzwanzig auf hundert erweiterst. Und bei null Komma drei sechs: zwei Nachkommastellen, also Hundertstel, dann kürzen. Du hast ein paar Sekunden."
         },
         {
           "kind": "bullets",
-          "onScreenTitle": "Antwort: 0,28 und 7/20",
+          "onScreenTitle": "Antwort: 0,28 und 9/25",
           "bullets": [
             "7/25 = 28/100 = 0,28 (mal 4)",
-            "0,35 = 35/100",
-            "Durch 5: 7/20"
+            "0,36 = 36/100",
+            "Durch 4: 9/25"
           ],
-          "narration": "Fünfundzwanzig mal vier ist hundert, also auch sieben mal vier: achtundzwanzig Hundertstel, das ist null Komma zwei acht. Und null Komma drei fünf sind fünfunddreißig Hundertstel. Fünfunddreißig und hundert kann man beide durch fünf teilen: sieben Zwanzigstel. Sieben und zwanzig haben keinen gemeinsamen Teiler mehr, der Bruch ist vollständig gekürzt. Vergiss das Kürzen nicht, fünfunddreißig Hundertstel allein gibt meist nur einen halben Punkt."
+          "narration": "Fünfundzwanzig mal vier ist hundert, also auch sieben mal vier: achtundzwanzig Hundertstel, das ist null Komma zwei acht. Und null Komma drei sechs sind sechsunddreißig Hundertstel. Sechsunddreißig und hundert kann man beide durch vier teilen: neun Fünfundzwanzigstel. Neun und fünfundzwanzig haben keinen gemeinsamen Teiler mehr, der Bruch ist vollständig gekürzt. Vergiss das Kürzen nicht, für sechsunddreißig Hundertstel allein gibt es oft Punktabzug."
         }
       ]
     },
@@ -195,7 +195,7 @@
         {
           "kind": "chapter",
           "onScreenTitle": "Runden",
-          "narration": "Vierter Punkt: Runden. Die Regel kennst du von den natürlichen Zahlen, und sie bleibt gleich. Du schaust auf die Stelle, auf die gerundet werden soll, und dann auf die eine Stelle rechts daneben. Steht dort eine null, eins, zwei, drei oder vier, wird abgerundet. Steht dort fünf, sechs, sieben, acht oder neun, wird aufgerundet. Nur diese eine Stelle entscheidet, nicht die danach. Und statt dem Gleichheitszeichen schreibst du das Rundungszeichen, das Gleichheitszeichen mit den Wellen."
+          "narration": "Vierter Punkt: Runden. Die Regel kennst du von den natürlichen Zahlen, und sie bleibt gleich. Du schaust auf die Stelle, auf die gerundet werden soll, und dann auf die eine Stelle rechts daneben. Steht dort eine null, eins, zwei, drei oder vier, wird abgerundet. Steht dort fünf, sechs, sieben, acht oder neun, wird aufgerundet. Nur diese eine Stelle entscheidet, nicht die danach. Und statt des Gleichheitszeichens schreibst du das Rundungszeichen, das Gleichheitszeichen mit den Wellen."
         },
         {
           "kind": "math3d",
@@ -208,7 +208,7 @@
             30
           ],
           "onScreenTitle": "2,345 auf Hundertstel runden",
-          "narration": "Die Zahl zwei Komma drei vier fünf. Wir runden auf Hundertstel. Die Hundertstel sind die Vier. Rechts daneben stehen die Tausendstel: eine Fünf. Ab fünf wird aufgerundet, also werden aus vier Hundertsteln fünf Hundertstel. Zwei Komma drei vier fünf ist gerundet zwei Komma drei fünf. Und auf Zehntel? Die Zehntel sind die Drei, rechts daneben die Vier. Vier ist kleiner als fünf, also abrunden: zwei Komma drei. Siehst du, auf Zehntel gerundet zählt nur die Vier, die Fünf dahinter spielt keine Rolle mehr."
+          "narration": "Die Zahl zwei Komma drei vier fünf. Wir runden auf Hundertstel. Die Hundertstel sind die Vier. Rechts daneben stehen die Tausendstel: eine Fünf. Ab fünf wird aufgerundet, also werden aus vier Hundertsteln fünf Hundertstel. Zwei Komma drei vier fünf ist gerundet zwei Komma drei fünf. Und auf Zehntel? Die Zehntel sind die Drei, rechts daneben die Vier. Vier ist kleiner als fünf, also abrunden: zwei Komma drei. Merke dir: Auf Zehntel gerundet zählt nur die Vier, die Fünf dahinter spielt keine Rolle mehr."
         },
         {
           "kind": "bullets",
@@ -216,7 +216,7 @@
           "bullets": [
             "0,96 auf Zehntel: 1,0 (Null bleibt stehen)",
             "Nur die nächste Stelle entscheidet",
-            "Rundungszeichen ≈ schreiben"
+            "Rundungszeichen: 2,345 ≈ 2,35"
           ],
           "narration": "Zwei Stolperfallen. Erstens: Null Komma neun sechs auf Zehntel gerundet. Die Zehntel sind neun, daneben eine Sechs, also aufrunden. Aus neun Zehnteln werden zehn Zehntel, also ein Ganzes. Du schreibst eins Komma null, mit der Null, denn die zeigt, dass auf Zehntel gerundet wurde. Zweitens: Nur die eine Stelle rechts entscheidet. Bei zwei Komma drei vier neun auf Zehntel schaust du auf die Vier und rundest ab zu zwei Komma drei, auch wenn dahinter eine Neun steht. Erst Hundertstel und dann noch einmal Zehntel runden ist falsch."
         },
@@ -229,10 +229,10 @@
         },
         {
           "kind": "bullets",
-          "onScreenTitle": "Antwort: 5,27 und 5,3",
+          "onScreenTitle": "Antwort: 5,2749 ≈ 5,27 und ≈ 5,3",
           "bullets": [
-            "Hundertstel: 7, daneben 4: abrunden, 5,27",
-            "Zehntel: 2, daneben 7: aufrunden, 5,3",
+            "Hundertstel: 7, daneben 4: abrunden, ≈ 5,27",
+            "Zehntel: 2, daneben 7: aufrunden, ≈ 5,3",
             "Nicht 5,275 erst und dann weiter"
           ],
           "narration": "Auf Hundertstel: Die Hundertstel sind die Sieben, daneben steht die Vier, also abrunden. Fünf Komma zwei sieben. Auf Zehntel: Die Zehntel sind die Zwei, daneben steht die Sieben, also aufrunden. Fünf Komma drei. Beachte, dass die Neun ganz hinten in beiden Fällen keine Rolle spielt. Wer zuerst auf Tausendstel rundet, dann auf Hundertstel und so weiter, bekommt manchmal ein falsches Ergebnis. Immer direkt die eine Nachbarstelle anschauen."
@@ -251,7 +251,7 @@
         {
           "kind": "chapter",
           "onScreenTitle": "Periodische Dezimalbrüche",
-          "narration": "Letzter Punkt, und jetzt lösen wir das Rätsel vom Anfang. Manche Divisionen gehen nie auf. Ein Drittel: Eins geteilt durch drei. Zehn durch drei ist drei, Rest eins. Wieder zehn durch drei ist drei, Rest eins. Und so weiter, für immer. Das Ergebnis ist null Komma drei drei drei drei, unendlich viele Dreien. Man nennt das einen periodischen Dezimalbruch. Die Ziffer, die sich wiederholt, heißt Periode. Du schreibst sie nur einmal und setzt einen Strich darüber. Null Komma Periode drei."
+          "narration": "Letzter Punkt, und jetzt lösen wir das Rätsel vom Anfang. Manche Divisionen gehen nie auf. Ein Drittel: Eins geteilt durch drei. Zehn durch drei ist drei, Rest eins. Wieder zehn durch drei ist drei, Rest eins. Und so weiter, für immer. Das Ergebnis ist null Komma drei drei drei drei, unendlich viele Dreien. Man nennt das einen periodischen Dezimalbruch. Die Ziffer oder Ziffernfolge, die sich wiederholt, heißt Periode. Du schreibst sie nur einmal und setzt einen Strich darüber. Null Komma Periode drei."
         },
         {
           "kind": "math3d",
@@ -263,7 +263,7 @@
             0,
             30
           ],
-          "onScreenTitle": "1/3 = 0,333… = 0,Periode 3",
+          "onScreenTitle": "1/3 = 0,333… mit Periodenstrich über der 3",
           "narration": "Eins geteilt durch drei. Eins durch drei geht null mal, Komma. Zehn durch drei ist drei, Rest eins. Und jetzt passiert es: Der Rest eins war schon einmal da. Ab hier wiederholt sich alles, zehn durch drei, drei, Rest eins, immer wieder. Sobald ein Rest zum zweiten Mal auftaucht, weißt du: Die Division wird nie aufgehen, und die Ziffern ab dieser Stelle wiederholen sich. Das ist die Periode. In der Schulaufgabe schreibst du null Komma drei mit einem Strich über der Drei. Der Strich heißt Periodenstrich."
         },
         {
@@ -276,8 +276,21 @@
             0,
             30
           ],
-          "onScreenTitle": "5/6 = 0,8 Periode 3",
-          "narration": "Es gibt auch gemischte Fälle. Fünf Sechstel: fünf geteilt durch sechs. Fünfzig durch sechs ist acht, Rest zwei. Zwanzig durch sechs ist drei, Rest zwei. Der Rest zwei kommt zum zweiten Mal, also wiederholt sich ab hier die Drei. Null Komma acht, dann Periode drei. Der Periodenstrich kommt nur über die Drei, nicht über die Acht, denn die Acht wiederholt sich nicht. Und jetzt der Taschenrechner vom Anfang: Eins durch sechs ist null Komma eins, Periode sechs. Der Rechner hat nur begrenzt Platz und rundet die letzte Stelle auf: null Komma eins sechs sechs sechs sechs sechs sechs sechs sieben. Die Sieben ist nur gerundet."
+          "onScreenTitle": "5/6 = 0,8333…: Strich nur über der 3",
+          "narration": "Es gibt auch gemischte Fälle. Fünf Sechstel: fünf geteilt durch sechs. Fünfzig durch sechs ist acht, Rest zwei. Zwanzig durch sechs ist drei, Rest zwei. Der Rest zwei kommt zum zweiten Mal, also wiederholt sich ab hier die Drei. Null Komma acht, dann Periode drei. Der Periodenstrich kommt nur über die Drei, nicht über die Acht, denn die Acht wiederholt sich nicht. Die Acht vor der Periode nennt man Vorperiode. Schau oben in die Zeile: Der grüne Strich über der Drei ist der Periodenstrich, genau so schreibst du es ins Heft."
+        },
+        {
+          "kind": "math3d",
+          "scene": "division",
+          "params": {
+            "aufgabe": "1 : 6"
+          },
+          "segment": [
+            0,
+            30
+          ],
+          "onScreenTitle": "Taschenrechner: 1/6 = 0,166666667?",
+          "narration": "Und jetzt der Taschenrechner vom Anfang. Eins geteilt durch sechs. Zehn durch sechs ist eins, Rest vier. Vierzig durch sechs ist sechs, Rest vier. Der Rest vier kehrt zurück, also Periode sechs: null Komma eins, dann Periode sechs. Der Taschenrechner hat aber nur Platz für neun Nachkommastellen. Er rundet die letzte Stelle auf, und so zeigt er null Komma eins sechs sechs sechs sechs sechs sechs sechs sieben. Die Sieben ist nur gerundet. In Wirklichkeit geht die Sechs unendlich weiter. Wenn in der Schulaufgabe eine Taschenrechner-Anzeige steht, schreibst du die Zahl mit Periodenstrich und erklärst genau das."
         },
         {
           "kind": "bullets",
@@ -293,19 +306,19 @@
         {
           "kind": "question",
           "question": "Endlich oder periodisch? Entscheide ohne zu dividieren: 9/40, 4/9, 3/12",
-          "think": 14,
+          "think": 16,
           "hint": "Erst kürzen. Dann den Nenner in Primfaktoren zerlegen: nur 2 und 5 heißt endlich.",
-          "narration": "Deine letzte Aufgabe, und so steht sie gern in der Schulaufgabe: Entscheide ohne zu dividieren, ob der Dezimalbruch endlich oder periodisch ist, und begründe. Neun Vierzigstel, vier Neuntel und drei Zwölftel. Kürze zuerst, dann zerlege den Nenner in Primfaktoren. Du hast ein paar Sekunden."
+          "narration": "Deine letzte Aufgabe, und so steht sie gern in der Schulaufgabe: Entscheide ohne zu dividieren, ob der Dezimalbruch endlich oder periodisch ist, und begründe. Neun Vierzigstel, vier Neuntel und drei Zwölftel. Kürze zuerst, dann zerlege den Nenner in Primfaktoren. Du hast etwas mehr Zeit, und drück ruhig auf Pause, wenn du sie brauchst."
         },
         {
           "kind": "bullets",
           "onScreenTitle": "Antwort",
           "bullets": [
             "9/40: 40 = 2·2·2·5, endlich (0,225)",
-            "4/9: 9 = 3·3, periodisch (0,Periode 4)",
+            "4/9: 9 = 3·3, periodisch (0,444…)",
             "3/12 = 1/4: endlich (0,25)"
           ],
-          "narration": "Neun Vierzigstel: Vierzig ist zwei mal zwei mal zwei mal fünf, nur Zweien und eine Fünf, also endlich. Es ist null Komma zwei zwei fünf. Vier Neuntel: Neun ist drei mal drei, also periodisch, null Komma Periode vier. Drei Zwölftel: Erst kürzen, das ist ein Viertel. Vier ist zwei mal zwei, endlich, null Komma zwei fünf. Wer bei drei Zwölfteln nicht kürzt, sieht die Drei im Nenner und sagt periodisch. Das wäre falsch. Deshalb immer zuerst vollständig kürzen."
+          "narration": "Neun Vierzigstel: Vierzig ist zwei mal zwei mal zwei mal fünf, nur Zweien und eine Fünf, also endlich. Es ist null Komma zwei zwei fünf. Vier Neuntel: Neun ist drei mal drei, also periodisch, null Komma vier vier vier und so weiter, mit Periodenstrich über der Vier. Drei Zwölftel: Erst kürzen, das ist ein Viertel. Vier ist zwei mal zwei, endlich, null Komma zwei fünf. Wer bei drei Zwölfteln nicht kürzt, sieht die Drei im Nenner und sagt periodisch. Das wäre falsch. Deshalb immer zuerst vollständig kürzen."
         }
       ]
     },
@@ -358,5 +371,26 @@
       "Mathe 6. Klasse",
       "Schulaufgabe Vorbereitung"
     ]
+  },
+  "review": {
+    "reviewer": "second Claude model (Claude Code subagent), independent of the writer",
+    "date": "2026-11-10",
+    "mustFixApplied": [
+      "Zählfehler: fünf statt vier Punkte, 'Erster Punkt' ergänzt",
+      "Szene division zeichnet die Periode jetzt mit Periodenstrich (Linie über den Periodenziffern) statt in Klammern",
+      "Bildschirmtexte '0,Periode 3' ersetzt durch Schreibweise mit Periodenstrich bzw. 0,333…"
+    ],
+    "issuesApplied": [
+      "eigene Szene 1 : 6 für die Taschenrechner-Anzeige",
+      "Zahlengerade-Segment auf 16 s",
+      "'Typisch sind drei Fragen' statt Behauptung über die Schulaufgabe",
+      "Umkehraufgabe 0,36 = 9/25 statt des gerade gezeigten 0,35",
+      "'Merke dir' statt 'Siehst du' beim Runden auf Zehntel; ≈ in Antworten",
+      "Grammatik 'statt des Gleichheitszeichens'",
+      "Periode: Ziffer oder Ziffernfolge; Vorperiode benannt",
+      "mehr Denkzeit bei Ordnen und Endlich/Periodisch, Pause-Hinweis",
+      "Nenner zehn, hundert oder tausend"
+    ],
+    "verdictAfter": "ok"
   }
 }

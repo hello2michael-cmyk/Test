@@ -64,7 +64,7 @@ const primfaktor = {
 };
 
 /* ------------------------------------------------------------------ Bruch → Dezimalbruch: schriftliche Division */
-const DIV_TASKS = ['3 : 8', '1 : 3', '5 : 6', '7 : 20', '2 : 7', '1 : 4', '4 : 11'];
+const DIV_TASKS = ['3 : 8', '1 : 3', '5 : 6', '1 : 6', '7 : 20', '2 : 7', '1 : 4', '4 : 11'];
 /** Long division of a by b: digits after the comma, and the period (start index, length) if any. */
 function divide(a, b, max = 12) {
   const intPart = Math.floor(a / b); let r = a % b; const digits = [], seen = new Map(); let period = null;
@@ -92,9 +92,14 @@ const division = {
     const th = S.theme, [a, b] = p.aufgabe.split(' : ').map(Number), d = divide(a, b), fs = factors(b), y0 = -1.05;
     const shown = Math.min(d.digits.length, Math.floor(Math.max(0, t - 4) / 2.2) + (t >= 4 ? 1 : 0));
     const digitsStr = d.digits.slice(0, shown).map(x => x.q).join('');
-    let result = `${d.intPart},${digitsStr}`;
-    if (t >= 20 && !d.finite && d.period) { const [s, l] = d.period; const all = d.digits.map(x => x.q).join(''); result = `${d.intPart},${all.slice(0, s)}(${all.slice(s, s + l)})`; }
+    let result = `${d.intPart},${digitsStr}`, periodBar = null;
+    if (t >= 20 && !d.finite && d.period) { const [s, l] = d.period; const all = d.digits.map(x => x.q).join(''); result = `${d.intPart},${all.slice(0, s)}${all.slice(s, s + l)}`; periodBar = [`${a} : ${b} = ${d.intPart},${all.slice(0, s)}`, all.slice(s, s + l)]; }   // Periodenstrich drawn below
     S.heading(`${a}/${b} als Dezimalbruch`, t < 4 ? `${a} : ${b} = ?` : `${a} : ${b} = ${de(result)}${t >= 20 ? (d.finite ? '   endlich' : '   periodisch') : ''}`);
+    if (periodBar && typeof S.formulaOverride !== 'string') {   // the bar over the period, as written in Bavarian exercise books
+      const ctx = S.ctx, px = S.u(38); ctx.save(); ctx.font = S.font(px, 700);
+      const x0 = S.u(56) + ctx.measureText(periodBar[0].replace(/\./g, ',')).width, wPer = ctx.measureText(periodBar[1]).width;
+      ctx.strokeStyle = th.accent2; ctx.lineWidth = S.u(3); ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(x0 + S.u(1), S.u(156) - px * 0.98); ctx.lineTo(x0 + wPer - S.u(1), S.u(156) - px * 0.98); ctx.stroke(); ctx.restore();
+    }
     S.floor(y0);
     // the division written as rows of blocks: each step one row, left the number brought down, middle the digit, right the rest
     const rowY = i => 1.9 - i * 0.62, xB = -2.6, xQ = -0.6, xR = 1.6;
