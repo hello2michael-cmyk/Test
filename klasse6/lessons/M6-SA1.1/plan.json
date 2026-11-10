@@ -2,8 +2,8 @@
  "id": "current",
  "prompt": "Lektion M6-SA1.1 „Vorbereitung 1. Schulaufgabe: Brüche“ (Mathematik, Klasse 6 Gymnasium Bayern), aus klasse6/lessons/M6-SA1.1.lesson.json. 17 Minuten, auf Deutsch, für Kinder von etwa 11 Jahren.",
  "attempts": 0,
- "createdAt": 1794288403091,
- "updatedAt": 1794288403091,
+ "createdAt": 1794288598791,
+ "updatedAt": 1794288598791,
  "stage": "plan",
  "mode": "course",
  "durationApplied": true,
@@ -2660,8 +2660,8 @@
   ]
  },
  "publish": {
-  "title": "1. Mathe-Schulaufgabe Klasse 6: Brüche komplett wiederholt (Teil 1) | Gymnasium Bayern",
-  "description": "Vorbereitung auf die erste Mathe-Schulaufgabe in der 6. Klasse: Alle Punkte zu Brüchen vom Stoffzettel, erklärt mit 3D-Bildern und mit Übungsaufgaben im Schulaufgaben-Stil (mit Zeit zum Nachdenken und Lösung). Bruchteil, Anteil und Ganzes · Kürzen und Erweitern · Brüche als Quotient · Brüche an der Zahlengeraden · Vergleichen mit Hauptnenner und Primfaktorzerlegung · Zahlenmengen ℕ, ℤ, ℚ.\n\nPasst zum LehrplanPLUS Gymnasium Bayern, Mathematik Jahrgangsstufe 6, Lernbereich M6 1.1. Teil 2 behandelt die Dezimalbrüche (M6 1.2).\n\nTransparenz: Die Sprecherstimme ist computergeneriert (Text-to-Speech). Das Skript folgt dem LehrplanPLUS Bayern und wurde von einem zweiten KI-Modell geprüft; vor der Veröffentlichung sieht ein Elternteil jedes Video durch.",
+  "title": "Mathe-Schulaufgabe Klasse 6 vorbereiten: Brüche (Teil 1) | Gymnasium Bayern",
+  "description": "Die erste Mathe-Schulaufgabe in der 6. Klasse steht an? In Teil 1 wiederholen wir alle Punkte zu Brüchen vom Stoffzettel, mit 3D-Bildern und mit Aufgaben im Schulaufgaben-Stil zum Mitrechnen (mit Denkpause und Lösung).\n\nIn diesem Video:\n• Bruchteil, Anteil und Ganzes: 3/4 von 20 kg, 2/5 sind 6 km\n• Kürzen und Erweitern, vollständig kürzen, Lücken füllen\n• Brüche als Quotient: 3 : 4 = 3/4, unechter Bruch und gemischte Zahl\n• Brüche an der Zahlengeraden, auch negative\n• Zahlenmengen ℕ, ℤ, ℚ\n• Vergleichen mit Hauptnenner und Primfaktorzerlegung\n• Checkliste: typische Fehler, die Punkte kosten\n\nFür wen: Schülerinnen und Schüler der 6. Klasse am Gymnasium (Bayern), zur Vorbereitung auf die erste Mathe-Schulaufgabe. Zu den Videos gibt es drei Übungs-Schulaufgaben (je 40 BE, mit Lösungen) und einen Lernzettel zum Ausdrucken: https://github.com/hello2michael-cmyk/Test/tree/claude/dazzling-franklin-jex2oz/klasse6/schulaufgabe\n\nLehrplan: LehrplanPLUS Gymnasium Bayern, Mathematik Jahrgangsstufe 6, Lernbereiche M6 1.1 Bruchteile und Bruchzahlen und M6 1.2 Dezimalbrüche.\n\nTransparenz: Die Sprecherstimme ist computergeneriert (Text-to-Speech). Das Skript folgt dem LehrplanPLUS Bayern und wurde von einem zweiten KI-Modell geprüft; vor der Veröffentlichung sieht ein Elternteil jedes Video durch.\n\n#Schulaufgabe #Brüche #MatheKlasse6 #GymnasiumBayern",
   "tags": [
    "Schulaufgabe Mathe Klasse 6",
    "Brüche Klasse 6",
@@ -2669,12 +2669,15 @@
    "Kürzen und Erweitern",
    "Hauptnenner",
    "Primfaktorzerlegung",
+   "kgV",
    "Zahlengerade Brüche",
    "rationale Zahlen",
    "Gymnasium Bayern",
    "LehrplanPLUS",
    "Mathe 6. Klasse",
-   "Schulaufgabe Vorbereitung"
+   "Schulaufgabe Vorbereitung",
+   "Brüche vergleichen",
+   "Mathe lernen"
   ],
   "chapters": [
    {
@@ -2703,6 +2706,6 @@
    }
   ],
   "thumbnailText": "VORBEREITUNG AUF DIE",
-  "pinnedComment": "Welche Frage hast du zu dieser Lektion? Schreib sie in die Kommentare."
+  "pinnedComment": "Teil 2 (Dezimalbrüche) und die Übungs-Schulaufgaben mit Lösungen findest du in der Beschreibung. Viel Erfolg bei der Schulaufgabe!"
  }
 }

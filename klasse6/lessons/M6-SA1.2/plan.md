@@ -95,10 +95,23 @@
 0 scene(s) get a generated AI video clip (chapter openers, the hook, the ending and the writer's picks); 3D scenes and graphics carry the rest.
 
 ### YouTube
-**Title:** 1. Mathe-Schulaufgabe Klasse 6: Dezimalbrüche komplett wiederholt (Teil 2) | Gymnasium Bayern
+**Title:** Mathe-Schulaufgabe Klasse 6 vorbereiten: Dezimalbrüche (Teil 2) | Gymnasium Bayern
 
-Vorbereitung auf die erste Mathe-Schulaufgabe in der 6. Klasse, Teil 2: Alle Punkte zu Dezimalbrüchen vom Stoffzettel, erklärt mit 3D-Bildern und mit Übungsaufgaben im Schulaufgaben-Stil (mit Zeit zum Nachdenken und Lösung). Stellenwerttafel · Dezimalbrüche vergleichen und ordnen · Brüche in Dezimalbrüche umwandeln und zurück · Runden · periodische Dezimalbrüche und die Taschenrechner-Anzeige 0,166666667.
+Teil 2 der Vorbereitung auf die erste Mathe-Schulaufgabe in der 6. Klasse: alle Punkte zu Dezimalbrüchen vom Stoffzettel, mit 3D-Bildern und mit Aufgaben im Schulaufgaben-Stil zum Mitrechnen (mit Denkpause und Lösung).
 
-Passt zum LehrplanPLUS Gymnasium Bayern, Mathematik Jahrgangsstufe 6, Lernbereich M6 1.2. Teil 1 behandelt die Brüche (M6 1.1).
+In diesem Video:
+• Stellenwerttafel: Zehntel, Hundertstel, Tausendstel
+• Dezimalbrüche vergleichen und ordnen (Nullen anhängen)
+• Brüche in Dezimalbrüche umwandeln: Erweitern oder schriftlich dividieren, und zurück
+• Runden auf Zehntel und Hundertstel
+• Periodische Dezimalbrüche, Periodenstrich, Taschenrechner-Anzeige 0,166666667
+• Endlich oder periodisch? Der Nenner verrät es
+• Checkliste: typische Fehler, die Punkte kosten
+
+Für wen: Schülerinnen und Schüler der 6. Klasse am Gymnasium (Bayern), zur Vorbereitung auf die erste Mathe-Schulaufgabe. Zu den Videos gibt es drei Übungs-Schulaufgaben (je 40 BE, mit Lösungen) und einen Lernzettel zum Ausdrucken: https://github.com/hello2michael-cmyk/Test/tree/claude/dazzling-franklin-jex2oz/klasse6/schulaufgabe
+
+Lehrplan: LehrplanPLUS Gymnasium Bayern, Mathematik Jahrgangsstufe 6, Lernbereiche M6 1.1 Bruchteile und Bruchzahlen und M6 1.2 Dezimalbrüche.
 
 Transparenz: Die Sprecherstimme ist computergeneriert (Text-to-Speech). Das Skript folgt dem LehrplanPLUS Bayern und wurde von einem zweiten KI-Modell geprüft; vor der Veröffentlichung sieht ein Elternteil jedes Video durch.
+
+#Schulaufgabe #Dezimalbrüche #MatheKlasse6 #GymnasiumBayern

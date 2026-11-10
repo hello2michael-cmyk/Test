@@ -93,10 +93,23 @@
 0 scene(s) get a generated AI video clip (chapter openers, the hook, the ending and the writer's picks); 3D scenes and graphics carry the rest.
 
 ### YouTube
-**Title:** 1. Mathe-Schulaufgabe Klasse 6: Brüche komplett wiederholt (Teil 1) | Gymnasium Bayern
+**Title:** Mathe-Schulaufgabe Klasse 6 vorbereiten: Brüche (Teil 1) | Gymnasium Bayern
 
-Vorbereitung auf die erste Mathe-Schulaufgabe in der 6. Klasse: Alle Punkte zu Brüchen vom Stoffzettel, erklärt mit 3D-Bildern und mit Übungsaufgaben im Schulaufgaben-Stil (mit Zeit zum Nachdenken und Lösung). Bruchteil, Anteil und Ganzes · Kürzen und Erweitern · Brüche als Quotient · Brüche an der Zahlengeraden · Vergleichen mit Hauptnenner und Primfaktorzerlegung · Zahlenmengen ℕ, ℤ, ℚ.
+Die erste Mathe-Schulaufgabe in der 6. Klasse steht an? In Teil 1 wiederholen wir alle Punkte zu Brüchen vom Stoffzettel, mit 3D-Bildern und mit Aufgaben im Schulaufgaben-Stil zum Mitrechnen (mit Denkpause und Lösung).
 
-Passt zum LehrplanPLUS Gymnasium Bayern, Mathematik Jahrgangsstufe 6, Lernbereich M6 1.1. Teil 2 behandelt die Dezimalbrüche (M6 1.2).
+In diesem Video:
+• Bruchteil, Anteil und Ganzes: 3/4 von 20 kg, 2/5 sind 6 km
+• Kürzen und Erweitern, vollständig kürzen, Lücken füllen
+• Brüche als Quotient: 3 : 4 = 3/4, unechter Bruch und gemischte Zahl
+• Brüche an der Zahlengeraden, auch negative
+• Zahlenmengen ℕ, ℤ, ℚ
+• Vergleichen mit Hauptnenner und Primfaktorzerlegung
+• Checkliste: typische Fehler, die Punkte kosten
+
+Für wen: Schülerinnen und Schüler der 6. Klasse am Gymnasium (Bayern), zur Vorbereitung auf die erste Mathe-Schulaufgabe. Zu den Videos gibt es drei Übungs-Schulaufgaben (je 40 BE, mit Lösungen) und einen Lernzettel zum Ausdrucken: https://github.com/hello2michael-cmyk/Test/tree/claude/dazzling-franklin-jex2oz/klasse6/schulaufgabe
+
+Lehrplan: LehrplanPLUS Gymnasium Bayern, Mathematik Jahrgangsstufe 6, Lernbereiche M6 1.1 Bruchteile und Bruchzahlen und M6 1.2 Dezimalbrüche.
 
 Transparenz: Die Sprecherstimme ist computergeneriert (Text-to-Speech). Das Skript folgt dem LehrplanPLUS Bayern und wurde von einem zweiten KI-Modell geprüft; vor der Veröffentlichung sieht ein Elternteil jedes Video durch.
+
+#Schulaufgabe #Brüche #MatheKlasse6 #GymnasiumBayern

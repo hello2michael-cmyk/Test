@@ -13,6 +13,14 @@ Dazu kommt für ausgewählte Themen die **English-Lektion** (`English: <ID>`, au
 die deutschen Fachbegriffe stehen in «…» und werden von der deutschen Stimme gesprochen, Glossar im Lehrplan-JSON).
 Eingecheckt: M6-1.1, D6-4.2, NT6-1.2 und NT6-2.3 (`klasse6/lessons/<ID>/international/`).
 
+## Schulaufgaben-Vorbereitung (`klasse6/schulaufgabe/`)
+
+Für eine konkrete Schulaufgabe gibt es Vorbereitungs-Lektionen (`Lektion: M6-SA1.1` Brüche, `Lektion: M6-SA1.2` Dezimalbrüche;
+je etwa 17 Minuten, Kinder-Variante, jede Frage im Schulaufgaben-Stil mit Denkpause) und dazu im Ordner `klasse6/schulaufgabe/`
+drei Übungs-Schulaufgaben A/B/C (je 40 BE, mit Lösungen, PDF und Markdown) sowie einen Lernzettel (PDF, 3 Seiten).
+Neue 3D-Szenen dafür: `primfaktor` (Primfaktorbaum, kgV = Hauptnenner), `division` (schriftliche Division mit Periodenstrich),
+`zahlenmengen` (ℕ ⊂ ℤ ⊂ ℚ). PDFs entstehen mit `node klasse6/tools/make-pdf.mjs <datei.md>`.
+
 Fertige Videos (GitHub-Releases, 90 Tage abrufbar; ohne Hintergrundmusik, mit Transparenzhinweis auf der Schlusskarte):
 
 | Video | Stimme | Länge | Link |
