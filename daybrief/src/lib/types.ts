@@ -66,7 +66,7 @@ export const DEFAULT_SETTINGS: Settings = {
   onboarded: false,
   name: '',
   theme: 'system',
-  mail: { provider: 'demo', googleClientId: '', email: '', maxMessages: 30 },
+  mail: { provider: 'demo', googleClientId: (import.meta.env.VITE_GOOGLE_CLIENT_ID as string | undefined) ?? '', email: '', maxMessages: 30 },
   ai: { provider: 'demo', apiKey: '', model: '', effort: 'medium' },
   topics: ['Technology', 'Business'],
   voice: { enabled: true, rate: 1, autoplay: false },

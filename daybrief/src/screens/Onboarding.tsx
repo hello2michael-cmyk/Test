@@ -7,6 +7,7 @@ import { PROVIDER_META, defaultModel } from '../lib/ai';
 import { TOPIC_CATALOGUE, type AiProviderId } from '../lib/types';
 import { connectGoogle } from '../lib/session';
 import { toast } from '../lib/toast';
+import { GoogleSetupGuide } from '../components/GoogleSetupGuide';
 
 const steps = ['welcome', 'mail', 'ai', 'topics'] as const;
 type Step = typeof steps[number];
@@ -15,6 +16,7 @@ export function Onboarding() {
   const s = useSettings();
   const [step, setStep] = useState<Step>('welcome');
   const [busy, setBusy] = useState(false);
+  const [guide, setGuide] = useState(false);
   const i = steps.indexOf(step);
   const next = () => setStep(steps[Math.min(i + 1, steps.length - 1)]);
 
@@ -55,13 +57,18 @@ export function Onboarding() {
                 <h1 className="font-display text-[32px] font-bold leading-tight tracking-tight">Connect your mail</h1>
                 <p className="mt-3 text-[16px] leading-relaxed text-ink-2">Tap the button and Google asks you directly. Daybrief only gets permission to read, label and send; it never sees your password.</p>
                 <div className="mt-6 space-y-4">
-                  <Input label="Google OAuth client ID" placeholder="1234567890-abc.apps.googleusercontent.com" value={s.mail.googleClientId}
-                    onChange={e => updateSettings({ mail: { ...s.mail, googleClientId: e.target.value.trim() } })}
-                    hint={<>One-time setup, about five minutes: see <b>SETUP.md</b> in the project. You can also skip this and explore in demo mode.</>} />
-                  <Button size="lg" full variant="secondary" disabled={!s.mail.googleClientId || busy}
-                    onClick={async () => { setBusy(true); try { await connectGoogle(); toast('Gmail connected'); next(); } catch (e) { toast(e instanceof Error ? e.message : 'Sign-in failed', 'err'); } finally { setBusy(false); } }}>
+                  <Button size="lg" full variant="secondary" disabled={busy}
+                    onClick={async () => {
+                      if (!s.mail.googleClientId) { setGuide(true); return; }
+                      setBusy(true);
+                      try { await connectGoogle(); toast('Gmail connected'); next(); } catch (e) { toast(e instanceof Error ? e.message : 'Sign-in failed', 'err'); } finally { setBusy(false); }
+                    }}>
                     <GoogleMark /> {busy ? 'Waiting for Google…' : s.mail.email ? `Connected: ${s.mail.email}` : 'Continue with Google'}
                   </Button>
+                  {!s.mail.googleClientId
+                    ? <p className="text-center text-[13px] leading-relaxed text-ink-3">First time: Google needs a one-time registration from you. Tap the button and the app walks you through it, about five minutes.</p>
+                    : <p className="truncate text-center text-[12.5px] text-ink-3">Client ID: {s.mail.googleClientId}</p>}
+                  <button className="w-full text-center text-[14px] font-semibold text-accent" onClick={() => setGuide(true)}>{s.mail.googleClientId ? 'Change client ID' : 'Show me the setup steps'}</button>
                   <Button size="lg" full variant="ghost" onClick={() => { updateSettings({ mail: { ...s.mail, provider: 'demo' } }); next(); }}>Use the demo inbox for now</Button>
                 </div>
               </div>
@@ -108,6 +115,7 @@ export function Onboarding() {
           </motion.div>
         </AnimatePresence>
       </div>
+      <GoogleSetupGuide open={guide} onClose={() => setGuide(false)} />
     </div>
   );
 }

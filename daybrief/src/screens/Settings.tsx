@@ -3,6 +3,7 @@ import { ExternalLink, Fingerprint, KeyRound, LogOut, Lock, Trash2 } from 'lucid
 import { Button, Card, Input, Section, Segmented, Switch, Textarea, cx } from '../components/ui';
 import { GoogleMark } from './Onboarding';
 import { OwnerConsole } from './OwnerConsole';
+import { GoogleSetupGuide } from '../components/GoogleSetupGuide';
 import { clearMailCache, updateSettings, useSettings, wipeEverything } from '../lib/store';
 import { deactivate, forgetOwner, useLicense } from '../lib/license';
 import { forgetDeviceKeys } from '../lib/crypto';
@@ -19,6 +20,7 @@ export function SettingsScreen() {
   const lic = useLicense();
   const lock = useAppLock();
   const [ownerOpen, setOwnerOpen] = useState(false);
+  const [guide, setGuide] = useState(false);
   const [pin, setPinDraft] = useState('');
   const isOwner = lic.state === 'ok' && lic.isOwnerDevice;
 
@@ -35,10 +37,14 @@ export function SettingsScreen() {
             </div>
           ) : (
             <div className="space-y-3">
-              <Input label="Google OAuth client ID" placeholder="…apps.googleusercontent.com" value={s.mail.googleClientId} onChange={e => updateSettings({ mail: { ...s.mail, googleClientId: e.target.value.trim() } })} hint="See SETUP.md for the five-minute Google Cloud setup." />
-              <Button full variant="secondary" disabled={!s.mail.googleClientId || busy} onClick={async () => { setBusy(true); try { await connectGoogle(); toast('Gmail connected'); void refresh({ force: true }); } catch (e) { toast(e instanceof Error ? e.message : 'Sign-in failed', 'err'); } finally { setBusy(false); } }}>
+              <Button full variant="secondary" disabled={busy} onClick={async () => {
+                if (!s.mail.googleClientId) { setGuide(true); return; }
+                setBusy(true);
+                try { await connectGoogle(); toast('Gmail connected'); void refresh({ force: true }); } catch (e) { toast(e instanceof Error ? e.message : 'Sign-in failed', 'err'); } finally { setBusy(false); }
+              }}>
                 <GoogleMark /> {busy ? 'Waiting for Google…' : 'Continue with Google'}
               </Button>
+              <button className="w-full text-center text-[14px] font-semibold text-accent" onClick={() => setGuide(true)}>{s.mail.googleClientId ? 'Change client ID' : 'Google one-time setup steps'}</button>
               <p className="text-[13px] text-ink-3">Currently showing the demo inbox.</p>
             </div>
           )}
@@ -191,6 +197,7 @@ export function SettingsScreen() {
         </Card>
       </Section>
       <OwnerConsole open={ownerOpen} onClose={() => setOwnerOpen(false)} />
+      <GoogleSetupGuide open={guide} onClose={() => setGuide(false)} />
       <p className="pb-4 text-center text-[12px] text-ink-3">Daybrief 0.2 · phase one, browser-only, invite-only</p>
     </div>
   );
