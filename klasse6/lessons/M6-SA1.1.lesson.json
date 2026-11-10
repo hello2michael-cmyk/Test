@@ -1,0 +1,389 @@
+{
+  "topic": "M6-SA1.1",
+  "title": "Vorbereitung auf die 1. Schulaufgabe, Teil 1: Brüche",
+  "audience": "Kinder der 6. Klasse (etwa 11 Jahre), kurz vor der ersten Mathe-Schulaufgabe",
+  "tone": "ruhig, ermutigend und genau, wie eine gute Nachhilfestunde",
+  "hook": "In ein paar Tagen ist die erste Mathe-Schulaufgabe. Wir gehen den Stoffzettel Punkt für Punkt durch, und zu jedem Punkt bekommst du eine Aufgabe, wie sie in der Schulaufgabe vorkommen kann.",
+  "keyTakeaway": "Bruchteil, Kürzen und Erweitern, Quotient, Zahlengerade, Hauptnenner und Zahlenmengen: Das sind die sechs Werkzeuge für den Bruch-Teil der Schulaufgabe.",
+  "learningObjectives": [
+    "Bruchteil berechnen und das Ganze bestimmen",
+    "Vollständig kürzen, erweitern und Lücken wie 3/7 = ?/35 füllen",
+    "Einen Quotienten als Bruch und als gemischte Zahl schreiben",
+    "Brüche auf der Zahlengeraden eintragen und ablesen, auch negative",
+    "Brüche mit dem Hauptnenner vergleichen; Hauptnenner über Primfaktorzerlegung finden",
+    "Zahlen den Mengen ℕ, ℤ und ℚ zuordnen"
+  ],
+  "cta": "Teil 2 zu den Dezimalbrüchen findest du im Kanal",
+  "chapters": [
+    {
+      "title": "Bruchteil, Anteil, Ganzes",
+      "goal": "Du kannst einen Bruchteil berechnen und aus einem Bruchteil das Ganze bestimmen.",
+      "keyPoints": [
+        "Nenner teilt, Zähler vervielfacht",
+        "Das Ganze rückwärts berechnen",
+        "Einheit nicht vergessen"
+      ],
+      "scenes": [
+        {
+          "kind": "title",
+          "onScreenTitle": "Vorbereitung Schulaufgabe: Brüche",
+          "narration": "In ein paar Tagen schreibst du deine erste Mathe-Schulaufgabe. Keine Sorge, das schaffen wir zusammen. Auf deinem Stoffzettel stehen zehn Punkte. Die ersten sechs gehören zu den Brüchen, und genau die gehen wir jetzt der Reihe nach durch. Zu jedem Punkt zeige ich dir das Bild dazu, dann bekommst du eine Aufgabe, so wie sie in der Schulaufgabe vorkommen kann. Halte das Video an, wenn du mehr Zeit brauchst. Legen wir los."
+        },
+        {
+          "kind": "math3d",
+          "scene": "fraction",
+          "params": {
+            "n": 12,
+            "k": 5
+          },
+          "segment": [
+            0,
+            14
+          ],
+          "onScreenTitle": "Bruchteil, Anteil, Ganzes",
+          "narration": "Erster Punkt: Bruchteil, Anteil und Ganzes. Die ganze Pizza ist das Ganze. Sie wird in zwölf gleich große Stücke geteilt. Du nimmst fünf Stücke. Dein Anteil ist fünf Zwölftel. Der Nenner zwölf sagt, in wie viele gleich große Teile das Ganze zerlegt wurde. Der Zähler fünf sagt, wie viele davon du hast. In der Schulaufgabe musst du so einen Anteil in einer Figur ablesen oder selbst einfärben. Zähle dafür immer zuerst alle Felder, das ist der Nenner, wenn alle Felder gleich groß sind."
+        },
+        {
+          "kind": "bullets",
+          "onScreenTitle": "Bruchteil berechnen und Ganzes bestimmen",
+          "bullets": [
+            "3/4 von 20 kg: 20:4=5, 5·3=15 kg",
+            "Ganzes: 2/5 sind 6 km, 6:2·5=15 km",
+            "Immer die Einheit dazuschreiben"
+          ],
+          "narration": "Zwei Rechenwege musst du sicher können. Erstens den Bruchteil einer Größe: drei Viertel von zwanzig Kilogramm. Zuerst durch den Nenner teilen, zwanzig durch vier ist fünf. Dann mal den Zähler, fünf mal drei ist fünfzehn. Also fünfzehn Kilogramm. Zweitens rückwärts, das Ganze bestimmen: Zwei Fünftel einer Strecke sind sechs Kilometer. Zwei Fünftel sind sechs, also ist ein Fünftel drei Kilometer. Fünf Fünftel sind dann fünfzehn Kilometer. Schreib in der Schulaufgabe immer die Einheit dazu, sonst kann es einen Punkt kosten."
+        },
+        {
+          "kind": "question",
+          "question": "Wie viele Minuten sind 5/8 von 2 Stunden?",
+          "think": 12,
+          "hint": "Erst die Stunden in Minuten umrechnen. Dann durch den Nenner teilen und mal den Zähler nehmen.",
+          "narration": "Jetzt du, eine typische Schulaufgaben-Aufgabe. Wie viele Minuten sind fünf Achtel von zwei Stunden? Rechne zuerst die zwei Stunden in Minuten um. Dann teilst du durch den Nenner und nimmst das Ergebnis mal den Zähler. Du hast ein paar Sekunden Zeit. Halte das Video an, wenn du länger brauchst."
+        },
+        {
+          "kind": "bullets",
+          "onScreenTitle": "Antwort: 75 Minuten",
+          "bullets": [
+            "2 h = 120 min",
+            "120 : 8 = 15 (ein Achtel)",
+            "15 · 5 = 75 min (fünf Achtel)"
+          ],
+          "narration": "Zwei Stunden sind hundertzwanzig Minuten. Hundertzwanzig geteilt durch acht ist fünfzehn, das ist ein Achtel. Fünfzehn mal fünf ist fünfundsiebzig. Fünf Achtel von zwei Stunden sind also fünfundsiebzig Minuten. Wenn du in der Schulaufgabe den Rechenweg so in zwei Zeilen aufschreibst, bekommst du auch dann Punkte, wenn dir am Ende ein kleiner Rechenfehler passiert."
+        }
+      ]
+    },
+    {
+      "title": "Kürzen und Erweitern",
+      "goal": "Du kannst Brüche vollständig kürzen, auf einen Nenner erweitern und Lücken füllen.",
+      "keyPoints": [
+        "Erweitern: Zähler und Nenner mal dieselbe Zahl",
+        "Kürzen: beide durch dieselbe Zahl",
+        "Vollständig kürzen bis zum Ende"
+      ],
+      "scenes": [
+        {
+          "kind": "chapter",
+          "onScreenTitle": "Kürzen und Erweitern",
+          "narration": "Zweiter Punkt auf dem Stoffzettel: Kürzen und Erweitern. Das ist die wichtigste Technik für alles, was danach kommt, denn Vergleichen, Addieren und Umwandeln brauchen sie. Die Regel ist einfach: Beim Erweitern multiplizierst du Zähler und Nenner mit derselben Zahl. Beim Kürzen teilst du beide durch dieselbe Zahl. Der Wert des Bruchs bleibt dabei gleich, nur die Stücke werden kleiner oder größer. Schauen wir es uns an."
+        },
+        {
+          "kind": "math3d",
+          "scene": "fraction",
+          "params": {
+            "n": 6,
+            "k": 4
+          },
+          "segment": [
+            14,
+            30
+          ],
+          "onScreenTitle": "4/6 = 8/12",
+          "narration": "Vier Sechstel der Pizza. Jetzt schneiden wir jedes Stück noch einmal durch. Es sind doppelt so viele Stücke, aber jedes ist halb so groß. Acht Zwölftel. Es ist genau gleich viel Pizza. Das ist Erweitern mit zwei. Der Streifen zeigt dasselbe. Kürzen ist der Weg zurück, den rechnen wir im Kopf mit: Vier Sechstel, Zähler und Nenner durch zwei, ergibt zwei Drittel. Zwei Drittel lässt sich nicht weiter kürzen, zwei und drei haben keinen gemeinsamen Teiler außer eins. Dann sagt man: Der Bruch ist vollständig gekürzt."
+        },
+        {
+          "kind": "bullets",
+          "onScreenTitle": "So kommt es in der Schulaufgabe",
+          "bullets": [
+            "Vollständig kürzen: 18/24 = 3/4 (durch 6)",
+            "Erweitern auf Nenner 24: 5/8 = 15/24",
+            "Lücke füllen: 3/7 = 15/35 (mal 5)"
+          ],
+          "narration": "Drei Aufgabentypen kommen immer wieder. Erstens vollständig kürzen: Achtzehn Vierundzwanzigstel. Beide durch sechs, das ergibt drei Viertel. Wenn du den größten gemeinsamen Teiler nicht sofort siehst, kürze in Schritten, erst durch zwei, dann durch drei. Zweitens erweitern auf einen bestimmten Nenner: Fünf Achtel auf Nenner vierundzwanzig. Acht mal drei ist vierundzwanzig, also auch fünf mal drei: fünfzehn Vierundzwanzigstel. Drittens Lücken füllen: Drei Siebtel gleich wie viele Fünfunddreißigstel? Sieben mal fünf ist fünfunddreißig, also drei mal fünf: fünfzehn."
+        },
+        {
+          "kind": "question",
+          "question": "Kürze 36/48 vollständig. Und fülle die Lücke: 4/9 = ?/45",
+          "think": 12,
+          "hint": "Durch welche Zahl teilen 36 und 48 beide? Mit welcher Zahl wird 9 zu 45?",
+          "narration": "Deine Aufgabe. Kürze sechsunddreißig Achtundvierzigstel vollständig. Und dann die Lücke: Vier Neuntel ist gleich wie viele Fünfundvierzigstel? Überlege, durch welche Zahl du sechsunddreißig und achtundvierzig beide teilen kannst, und mit welcher Zahl aus neun fünfundvierzig wird. Du hast ein paar Sekunden."
+        },
+        {
+          "kind": "bullets",
+          "onScreenTitle": "Antwort: 3/4 und 20/45",
+          "bullets": [
+            "36/48: durch 12 ergibt 3/4",
+            "Oder in Schritten: durch 2, 2, 3",
+            "4/9 = 20/45, weil 9 · 5 = 45"
+          ],
+          "narration": "Sechsunddreißig und achtundvierzig kann man beide durch zwölf teilen: drei Viertel. Wenn du die Zwölf nicht sofort siehst, geht es in Schritten: durch zwei ergibt achtzehn Vierundzwanzigstel, noch einmal durch zwei ergibt neun Zwölftel, durch drei ergibt drei Viertel. Dasselbe Ergebnis. Bei der Lücke: Neun mal fünf ist fünfundvierzig, also auch vier mal fünf. Vier Neuntel ist gleich zwanzig Fünfundvierzigstel. Prüfe am Ende immer, ob dein Bruch wirklich vollständig gekürzt ist."
+        }
+      ]
+    },
+    {
+      "title": "Brüche als Quotient",
+      "goal": "Du kannst eine Division als Bruch schreiben und einen Bruch als Division lesen.",
+      "keyPoints": [
+        "Bruchstrich bedeutet geteilt durch",
+        "3 : 4 = 3/4",
+        "Unechte Brüche als gemischte Zahl"
+      ],
+      "scenes": [
+        {
+          "kind": "chapter",
+          "onScreenTitle": "Brüche als Quotient schreiben",
+          "narration": "Dritter Punkt: Brüche als Quotient schreiben. Quotient ist das Ergebnis einer Division. Der Bruchstrich ist nichts anderes als ein Geteiltzeichen. Drei geteilt durch vier ist genau drei Viertel. Die erste Zahl, der Dividend, kommt in den Zähler, die zweite Zahl, der Divisor, in den Nenner. Umgekehrt kannst du jeden Bruch als Division lesen. Sieben Neuntel heißt sieben geteilt durch neun. Das brauchst du später auch, um Brüche in Dezimalbrüche umzuwandeln."
+        },
+        {
+          "kind": "math3d",
+          "scene": "fraction",
+          "params": {
+            "n": 4,
+            "k": 3
+          },
+          "segment": [
+            0,
+            14
+          ],
+          "onScreenTitle": "3 : 4 = 3/4, Anteil eines Kindes",
+          "narration": "Stell dir drei Pizzen für vier Kinder vor. Drei geteilt durch vier. Wir schauen auf eine der Pizzen: Sie wird in vier Viertel geschnitten, und jedes Kind bekommt davon ein Viertel. Von jeder der drei Pizzen bekommt jedes Kind so ein Viertel. Das Bild zeigt den Anteil eines Kindes: drei Viertel einer Pizza. Drei geteilt durch vier ist also drei Viertel. Das Ergebnis ist keine ganze Zahl, aber es lässt sich als Bruch schreiben. Genau dafür gibt es Brüche: Mit ihnen lässt sich jede Division von natürlichen Zahlen lösen, solange nicht durch null geteilt wird."
+        },
+        {
+          "kind": "bullets",
+          "onScreenTitle": "Quotient, Bruch, gemischte Zahl",
+          "bullets": [
+            "7 : 9 = 7/9",
+            "15 : 6 = 15/6 = 5/2",
+            "5/2 = 2½ (gemischte Zahl)"
+          ],
+          "narration": "In der Schulaufgabe steht dann: Schreibe als Bruch und kürze, wenn möglich. Sieben geteilt durch neun ist sieben Neuntel, das lässt sich nicht kürzen. Fünfzehn geteilt durch sechs ist fünfzehn Sechstel, beide durch drei, also fünf Halbe. Fünf Halbe ist ein unechter Bruch: Der Zähler ist mindestens so groß wie der Nenner. Als gemischte Zahl: Fünf Halbe sind zwei Ganze und ein Halbes, also zweieinhalb. Beide Schreibweisen sind richtig, wenn die Aufgabe nichts anderes verlangt."
+        },
+        {
+          "kind": "question",
+          "question": "Schreibe als Bruch und kürze vollständig: 20 : 8. Gib auch die gemischte Zahl an.",
+          "think": 12,
+          "hint": "20 in den Zähler, 8 in den Nenner. Dann kürzen. Wie oft passt der Nenner in den Zähler?",
+          "narration": "Jetzt du. Schreibe zwanzig geteilt durch acht als Bruch und kürze vollständig. Gib das Ergebnis auch als gemischte Zahl an. Die zwanzig kommt in den Zähler, die acht in den Nenner. Dann kürzen, und für die gemischte Zahl überlegst du, wie oft der Nenner in den Zähler passt. Du hast ein paar Sekunden."
+        },
+        {
+          "kind": "bullets",
+          "onScreenTitle": "Antwort: 5/2 = 2½",
+          "bullets": [
+            "20 : 8 = 20/8",
+            "Durch 4 kürzen: 5/2",
+            "2 passt zweimal in 5, Rest 1: 2½"
+          ],
+          "narration": "Zwanzig geteilt durch acht ist zwanzig Achtel. Zwanzig und acht durch vier teilen ergibt fünf Halbe. Für die gemischte Zahl: Zwei passt zweimal in fünf, Rest eins. Also zwei Ganze und ein Halbes, zweieinhalb. Du kannst die Probe machen: Zweieinhalb mal acht ist zwanzig. Wenn eine Probe so leicht geht, mach sie in der Schulaufgabe immer. Das kostet zehn Sekunden und rettet oft einen Punkt."
+        }
+      ]
+    },
+    {
+      "title": "Zahlengerade und Zahlenmengen",
+      "goal": "Du kannst Brüche auf der Zahlengeraden eintragen und Zahlen den Mengen ℕ, ℤ und ℚ zuordnen.",
+      "keyPoints": [
+        "Abschnitt in Nenner-Teile einteilen",
+        "Negative Brüche links von null",
+        "ℕ natürlich, ℤ ganz, ℚ rational"
+      ],
+      "scenes": [
+        {
+          "kind": "chapter",
+          "onScreenTitle": "Brüche an der Zahlengerade",
+          "narration": "Vierter Punkt: Brüche an der Zahlengeraden. Jeder Bruch ist eine Zahl und hat genau einen Platz. Um einen Bruch einzutragen, teilst du den Abschnitt zwischen zwei ganzen Zahlen in so viele gleiche Teile, wie der Nenner sagt. Für Viertel also in vier Teile. Dann zählst du vom Nullpunkt aus so viele Teile ab, wie der Zähler sagt. Negative Brüche liegen links von der Null, und zwar genauso weit von ihr entfernt wie die positiven rechts."
+        },
+        {
+          "kind": "math3d",
+          "scene": "numberline",
+          "params": {
+            "marks": "-1 | -3/4 | -1/2 | 0 | 1/2 | 1"
+          },
+          "segment": [
+            0,
+            18
+          ],
+          "onScreenTitle": "Eintragen und ablesen, auch negativ",
+          "narration": "Hier liegen die Zahlen minus eins, minus drei Viertel, minus ein Halb, null, ein Halb und eins. Minus drei Viertel liegt links von null, drei Viertel vom Weg zu minus eins. Stell dir den Abschnitt von null bis minus eins in vier gleiche Teile geteilt vor, dann siehst du den Platz. Beim Ablesen gehst du umgekehrt vor: Zähle, in wie viele Teile der Abschnitt zwischen zwei ganzen Zahlen geteilt ist, das ist der Nenner. Dann zähle die Teile bis zum Punkt, das ist der Zähler. Steht der Punkt links von null, bekommt die Zahl ein Minus. Zwischen zwei Brüchen liegen immer noch weitere Brüche, unendlich viele."
+        },
+        {
+          "kind": "math3d",
+          "scene": "zahlenmengen",
+          "params": {
+            "zahlen": "0 | 1 | -1 | 1/2 | -2,5 | 10/5"
+          },
+          "segment": [
+            0,
+            30
+          ],
+          "onScreenTitle": "Rationale Zahlen: ℕ, ℤ, ℚ",
+          "narration": "Fünfter Punkt: rationale Zahlen. Drei Kästen liegen ineinander. Innen die natürlichen Zahlen, eins, zwei, drei und so weiter. In Bayern gehört die Null nicht dazu. Darum herum die ganzen Zahlen: dazu kommen die Null und die negativen Zahlen. Und außen die rationalen Zahlen, das sind alle Zahlen, die man als Bruch schreiben kann, also auch Dezimalbrüche und negative Brüche. Jede natürliche Zahl ist auch ganz und rational. Umgekehrt gilt das nicht. Jetzt fliegen sechs Zahlen in ihre Kästen: Die Eins landet innen bei den natürlichen Zahlen. Null und minus eins gehören zu den ganzen Zahlen. Ein Halb und minus zwei Komma fünf sind nur rational. Und zehn Fünftel? Vorsicht: Das ist zwei, also eine natürliche Zahl. Erst kürzen, dann einordnen."
+        },
+        {
+          "kind": "question",
+          "question": "Welche dieser Zahlen gehören zu ℤ, welche nur zu ℚ: -3; 0; 7/7; 2,5; -0,75; 12/4?",
+          "think": 14,
+          "hint": "Kürze 7/7 und 12/4 zuerst. Zahlen mit Nachkommastellen oder echte Brüche gehören nur zu ℚ.",
+          "narration": "Deine Aufgabe, genau so steht sie oft in der Schulaufgabe. Welche dieser Zahlen gehören zu den ganzen Zahlen, und welche nur zu den rationalen Zahlen? Minus drei, null, sieben Siebtel, zwei Komma fünf, minus null Komma fünfundsiebzig und zwölf Viertel. Kürze die Brüche zuerst. Du hast ein paar Sekunden."
+        },
+        {
+          "kind": "bullets",
+          "onScreenTitle": "Antwort",
+          "bullets": [
+            "ℤ: -3, 0, 7/7 = 1, 12/4 = 3",
+            "Davon ℕ: 1 und 3",
+            "Nur ℚ: 2,5 und -0,75"
+          ],
+          "narration": "Zu den ganzen Zahlen gehören minus drei, null, sieben Siebtel, das ist eins, und zwölf Viertel, das ist drei. Eins und drei sind sogar natürliche Zahlen. Nur rational sind zwei Komma fünf und minus null Komma fünfundsiebzig, denn sie liegen zwischen zwei ganzen Zahlen. Merke dir die Reihenfolge der Kästen: natürlich, ganz, rational. Und merke dir, dass in Bayern die Null keine natürliche Zahl ist, aber eine ganze."
+        }
+      ]
+    },
+    {
+      "title": "Vergleichen mit dem Hauptnenner",
+      "goal": "Du findest den Hauptnenner über die Primfaktorzerlegung und vergleichst Brüche sicher.",
+      "keyPoints": [
+        "Primfaktoren zerlegen",
+        "kgV = Hauptnenner",
+        "Erweitern, dann Zähler vergleichen"
+      ],
+      "scenes": [
+        {
+          "kind": "chapter",
+          "onScreenTitle": "Vergleichen von Brüchen",
+          "narration": "Sechster Punkt, und der ist der wichtigste für die Schulaufgabe: Brüche vergleichen. Bei gleichem Nenner vergleichst du einfach die Zähler. Bei gleichem Zähler ist der Bruch mit dem kleineren Nenner größer, denn seine Stücke sind größer. Sind Zähler und Nenner verschieden, brauchst du den Hauptnenner. Der Hauptnenner ist das kleinste gemeinsame Vielfache der Nenner, kurz kgV. Kürze die Brüche vorher, wenn es geht. Und das kgV findest du sicher mit der Primfaktorzerlegung. Das schauen wir uns jetzt an."
+        },
+        {
+          "kind": "math3d",
+          "scene": "primfaktor",
+          "params": {
+            "zahlen": "12 und 18"
+          },
+          "segment": [
+            0,
+            30
+          ],
+          "onScreenTitle": "Primfaktorzerlegung: kgV(12, 18) = 36",
+          "narration": "Die Nenner zwölf und achtzehn. Wir zerlegen beide wie einen Baum. Zwölf ist zwei mal sechs, sechs ist zwei mal drei. Also zwölf gleich zwei mal zwei mal drei. Achtzehn ist zwei mal neun, neun ist drei mal drei. Also achtzehn gleich zwei mal drei mal drei. Für das kleinste gemeinsame Vielfache nimmst du jeden Primfaktor so oft, wie er in einer der beiden Zahlen am häufigsten vorkommt. Die Zwei kommt höchstens zweimal vor, die Drei höchstens zweimal. Zwei mal zwei mal drei mal drei ist sechsunddreißig. Das ist der Hauptnenner."
+        },
+        {
+          "kind": "math3d",
+          "scene": "compare",
+          "params": {
+            "task": "5/12 und 7/18"
+          },
+          "segment": [
+            0,
+            30
+          ],
+          "onScreenTitle": "5/12 oder 7/18?",
+          "narration": "Jetzt vergleichen wir fünf Zwölftel und sieben Achtzehntel. Beide Pizzen werden in sechsunddreißig gleich große Stücke geschnitten, denn sechsunddreißig ist der Hauptnenner. Fünf Zwölftel erweitert mit drei sind fünfzehn Sechsunddreißigstel. Sieben Achtzehntel erweitert mit zwei sind vierzehn Sechsunddreißigstel. Fünfzehn ist mehr als vierzehn, also ist fünf Zwölftel größer als sieben Achtzehntel. In der Schulaufgabe schreibst du beide erweiterten Brüche hin und dazwischen das richtige Zeichen. Die offene Seite des Zeichens zeigt immer zur größeren Zahl."
+        },
+        {
+          "kind": "bullets",
+          "onScreenTitle": "Der Weg in vier Schritten",
+          "bullets": [
+            "Nenner in Primfaktoren zerlegen",
+            "kgV bilden: das ist der Hauptnenner",
+            "Beide Brüche erweitern",
+            "Zähler vergleichen, Zeichen setzen"
+          ],
+          "narration": "Merk dir den Weg in vier Schritten. Erstens die Nenner in Primfaktoren zerlegen. Zweitens das kgV bilden, jeden Primfaktor so oft wie nötig. Drittens beide Brüche auf den Hauptnenner erweitern. Viertens die Zähler vergleichen und das Zeichen setzen. Wenn du mehrere Brüche der Größe nach ordnen sollst, geht es genauso, nur mit allen Nennern auf einmal. Schreibe dann die Brüche in der ursprünglichen Form hin, nicht die erweiterten, sonst kann es Abzug geben."
+        },
+        {
+          "kind": "question",
+          "question": "Vergleiche 3/8 und 7/20 mit dem Hauptnenner. Setze <, > oder =.",
+          "think": 15,
+          "hint": "Zerlege 8 und 20 in Primfaktoren. Nimm jeden Primfaktor so oft wie nötig.",
+          "narration": "Deine Aufgabe. Vergleiche drei Achtel und sieben Zwanzigstel mit dem Hauptnenner und setze das richtige Zeichen. Zerlege acht und zwanzig in Primfaktoren, bilde das kgV, erweitere beide Brüche und vergleiche die Zähler. Du hast etwas mehr Zeit, denn das ist die längste Aufgabe heute."
+        },
+        {
+          "kind": "bullets",
+          "onScreenTitle": "Antwort: 3/8 > 7/20",
+          "bullets": [
+            "8 = 2·2·2, 20 = 2·2·5",
+            "kgV = 2·2·2·5 = 40",
+            "15/40 > 14/40, also 3/8 > 7/20"
+          ],
+          "narration": "Acht ist zwei mal zwei mal zwei. Zwanzig ist zwei mal zwei mal fünf. Die Zwei kommt höchstens dreimal vor, die Fünf einmal. Das kgV ist zwei mal zwei mal zwei mal fünf, also vierzig. Drei Achtel erweitert mit fünf sind fünfzehn Vierzigstel. Sieben Zwanzigstel erweitert mit zwei sind vierzehn Vierzigstel. Fünfzehn ist größer als vierzehn, also ist drei Achtel größer als sieben Zwanzigstel. Ein häufiger Umweg: Einfach die Nenner multiplizieren, acht mal zwanzig gleich hundertsechzig. Das ist nicht falsch, aber unnötig groß, und man verrechnet sich leichter."
+        }
+      ]
+    },
+    {
+      "title": "Checkliste für die Schulaufgabe",
+      "goal": "Du kennst die typischen Fehler und weißt, was du vor der Abgabe prüfst.",
+      "keyPoints": [
+        "Vollständig gekürzt?",
+        "Einheit und Zeichen?",
+        "Rechenweg aufgeschrieben?"
+      ],
+      "scenes": [
+        {
+          "kind": "chapter",
+          "onScreenTitle": "Typische Fehler, die Punkte kosten",
+          "narration": "Zum Schluss die Checkliste. In Schulaufgaben gehen die meisten Punkte nicht verloren, weil jemand etwas nicht kann, sondern wegen kleiner Flüchtigkeitsfehler. Prüfe am Ende jeder Aufgabe vier Dinge. Ist der Bruch vollständig gekürzt? Steht die Einheit dabei, also Kilogramm, Minuten oder Euro? Zeigt das Vergleichszeichen in die richtige Richtung? Und steht der Rechenweg da, nicht nur das Ergebnis? Denn für den Weg gibt es Punkte, auch wenn das Ergebnis nicht stimmt."
+        },
+        {
+          "kind": "bullets",
+          "onScreenTitle": "Checkliste vor der Abgabe",
+          "bullets": [
+            "Vollständig gekürzt, Einheit dabei",
+            "Vergleichszeichen: offene Seite zur größeren Zahl",
+            "ℕ beginnt in Bayern bei 1",
+            "Rechenweg hinschreiben, Probe machen"
+          ],
+          "narration": "Hier noch einmal alles auf einen Blick. Vollständig kürzen und die Einheit dazuschreiben. Beim Vergleichszeichen zeigt die offene Seite zur größeren Zahl. Die natürlichen Zahlen beginnen in Bayern bei eins, die Null ist eine ganze Zahl. Und schreibe den Rechenweg hin und mache die Probe, wo sie schnell geht. Unter dem Video findest du drei Übungs-Schulaufgaben mit Lösungen zum Ausdrucken. Rechne sie mit Stoppuhr, fünfundvierzig Minuten, dann weißt du genau, wo du stehst."
+        },
+        {
+          "kind": "outro",
+          "narration": "Das war Teil eins der Vorbereitung: Bruchteil und Ganzes, Kürzen und Erweitern, Brüche als Quotient, die Zahlengerade, die Zahlenmengen und das Vergleichen mit dem Hauptnenner. Im zweiten Teil geht es um die Dezimalbrüche: Stellenwerttafel, Vergleichen, Umwandeln, Runden und periodische Dezimalbrüche. Du schaffst das. Viel Erfolg bei der Schulaufgabe."
+        }
+      ]
+    }
+  ],
+  "youtube": {
+    "title": "1. Mathe-Schulaufgabe Klasse 6: Brüche komplett wiederholt (Teil 1) | Gymnasium Bayern",
+    "description": "Vorbereitung auf die erste Mathe-Schulaufgabe in der 6. Klasse: Alle Punkte zu Brüchen vom Stoffzettel, erklärt mit 3D-Bildern und mit Übungsaufgaben im Schulaufgaben-Stil (mit Zeit zum Nachdenken und Lösung). Bruchteil, Anteil und Ganzes · Kürzen und Erweitern · Brüche als Quotient · Brüche an der Zahlengeraden · Vergleichen mit Hauptnenner und Primfaktorzerlegung · Zahlenmengen ℕ, ℤ, ℚ.\n\nPasst zum LehrplanPLUS Gymnasium Bayern, Mathematik Jahrgangsstufe 6, Lernbereich M6 1.1. Teil 2 behandelt die Dezimalbrüche (M6 1.2).",
+    "tags": [
+      "Schulaufgabe Mathe Klasse 6",
+      "Brüche Klasse 6",
+      "Bruchrechnung",
+      "Kürzen und Erweitern",
+      "Hauptnenner",
+      "Primfaktorzerlegung",
+      "Zahlengerade Brüche",
+      "rationale Zahlen",
+      "Gymnasium Bayern",
+      "LehrplanPLUS",
+      "Mathe 6. Klasse",
+      "Schulaufgabe Vorbereitung"
+    ]
+  },
+  "review": {
+    "reviewer": "second Claude model (Claude Code subagent), independent of the writer",
+    "date": "2026-11-10",
+    "mustFixApplied": [
+      "Zahlenmengen-Szene zeigte genau die Zahlen der folgenden Frage: andere Zahlenmenge (0, 1, -1, 1/2, -2,5, 10/5) mit passender Narration.",
+      "Quotient-Szene: Narration an das Bild (eine Pizza, drei Viertel als Anteil eines Kindes) gebunden; 'Division geht auf' ersetzt; 'nicht durch null' ergänzt."
+    ],
+    "issuesApplied": [
+      "Titel 4/6 = 8/12 statt = 2/3 (Kürzen wird nicht gezeichnet)",
+      "Zahlengerade: Vorstellung der Vierteleinteilung ergänzt",
+      "gleich große Felder beim Zählen des Nenners",
+      "'kann einen Punkt kosten' statt 'kostet'",
+      "unechter Bruch: Zähler mindestens so groß wie Nenner",
+      "2½ statt 2 1/2; zweieinhalb",
+      "Grammatik 'die Zwölf'",
+      "'häufiger Umweg' statt 'beliebter Fehler'",
+      "Hinweis 'vorher kürzen' beim Hauptnenner",
+      "Hint der Vergleichsaufgabe verrät die Zerlegung nicht mehr"
+    ],
+    "verdictAfter": "ok"
+  }
+}

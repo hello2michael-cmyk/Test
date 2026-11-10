@@ -392,8 +392,8 @@ function pctFrac(p) { const g = gcd(p || 100, 100); return g > 1 && p > 0 && p <
 
 
 /* ------------------------------------------------------------------ Zahlengerade (M6 1.1) */
-const NL_MARKS = ['0 | 1/2 | 1', '0 | 1/4 | 1/2 | 3/4 | 1', '0 | 1/3 | 2/3 | 1', '-1 | -1/2 | 0 | 1/2 | 1', '-1 | -3/4 | -1/2 | 0 | 1/2 | 1'];
-const parseVal = s => { const m = String(s).trim().match(/^(-?)(\d+)(?:\/(\d+))?$/); if (!m) return 0; const v = m[3] ? +m[2] / +m[3] : +m[2]; return m[1] ? -v : v; };
+const NL_MARKS = ['0 | 1/2 | 1', '0 | 1/4 | 1/2 | 3/4 | 1', '0 | 1/3 | 2/3 | 1', '-1 | -1/2 | 0 | 1/2 | 1', '-1 | -3/4 | -1/2 | 0 | 1/2 | 1', '-1,25 | -1 | -0,5 | 0 | 0,75 | 1,5', '-1 | -3/4 | -0,25 | 0 | 0,5 | 1'];
+const parseVal = s => { const m = String(s).trim().match(/^(-?)(\d+)(?:[,.](\d+))?(?:\/(\d+))?$/); if (!m) return 0; const v = m[4] ? +m[2] / +m[4] : +(m[2] + '.' + (m[3] || '0')); return m[1] ? -v : v; };
 const numberline = {
   id: 'numberline', title: 'Brüche auf der Zahlengeraden', duration: 30,
   camera: { azimuth: 0.0, elevation: 0.5, distance: 8.4, target: [0, -0.5, 0] },
@@ -430,7 +430,7 @@ const numberline = {
 };
 
 /* ------------------------------------------------------------------ Zwei Brüche vergleichen (M6 1.1) */
-const CMP_TASKS = ['2/3 und 3/4', '1/2 und 2/5', '3/5 und 2/3', '5/8 und 3/8', '1/3 und 1/4'];
+const CMP_TASKS = ['2/3 und 3/4', '1/2 und 2/5', '3/5 und 2/3', '5/8 und 3/8', '1/3 und 1/4', '5/12 und 7/18', '3/8 und 7/20'];
 const parseCmp = s => s.split(/und/).map(x => x.trim().split('/').map(Number));
 const compare = {
   id: 'compare', title: 'Brüche vergleichen: der Hauptnenner', duration: 30,

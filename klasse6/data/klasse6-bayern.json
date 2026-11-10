@@ -92,6 +92,20 @@
               "scene": "decimal", "videoMinutes": 6
             },
             {
+              "id": "M6-SA1.1", "title": "Vorbereitung 1. Schulaufgabe: Brüche", "hours": 0,
+              "kompetenzen": ["Wiederholung von M6 1.1 für die erste Schulaufgabe: Bruchteil, Anteil und Ganzes; Kürzen und Erweitern; Brüche als Quotient; Zahlengerade; Vergleichen mit Hauptnenner und Primfaktorzerlegung; Zahlenmengen ℕ, ℤ, ℚ"],
+              "inhalte": ["Bruchteil berechnen und das Ganze bestimmen", "vollständig kürzen, erweitern, Lücken füllen", "Quotient als Bruch, gemischte Zahl", "Hauptnenner über Primfaktorzerlegung", "ℕ ⊂ ℤ ⊂ ℚ"],
+              "kidExplanation": "Alles, was in der ersten Schulaufgabe zu Brüchen drankommt, noch einmal in Ruhe und mit Übungsfragen im Schulaufgaben-Stil.",
+              "scene": "primfaktor", "videoMinutes": 12, "preparation": true
+            },
+            {
+              "id": "M6-SA1.2", "title": "Vorbereitung 1. Schulaufgabe: Dezimalbrüche", "hours": 0,
+              "kompetenzen": ["Wiederholung von M6 1.2 für die erste Schulaufgabe: Stellenwerttafel; Dezimalbrüche vergleichen und ordnen; Bruch in Dezimalbruch umwandeln und zurück; Runden; endliche und periodische Dezimalbrüche; Taschenrechner-Anzeige deuten"],
+              "inhalte": ["Zehntel, Hundertstel, Tausendstel", "stellenweise vergleichen", "Erweitern auf 10, 100, 1000 oder schriftlich dividieren", "Rundungsregel", "Periode; Nenner mit nur 2 und 5 ergibt endlichen Dezimalbruch"],
+              "kidExplanation": "Alles, was in der ersten Schulaufgabe zu Dezimalbrüchen drankommt, noch einmal in Ruhe und mit Übungsfragen im Schulaufgaben-Stil.",
+              "scene": "division", "videoMinutes": 12, "preparation": true
+            },
+            {
               "id": "M6-1.3", "title": "Addition und Subtraktion rationaler Zahlen", "hours": 15,
               "kompetenzen": [
                 "Rechenregeln an Beispielen plausibel machen",
