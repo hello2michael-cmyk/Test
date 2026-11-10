@@ -1,202 +1,224 @@
 {
- "M6-1.1/kinder": {
-  "release": "video-30",
-  "chapters": [
-   "0:00 Ein Stück vom Ganzen",
-   "2:37 Zähler und Nenner",
-   "5:29 Erweitern und Kürzen",
-   "8:19 Brüche vergleichen",
-   "11:21 Brüche sind Zahlen"
-  ]
- },
- "M6-1.1/eltern": {
-  "release": "video-32",
-  "chapters": [
-   "0:00 Worum es geht",
-   "1:33 Die vier Kernideen in Bildern",
-   "3:48 Die fünf typischen Fehler",
-   "5:39 So üben Sie zu Hause",
-   "8:00 Schulaufgabe und Ausblick"
-  ]
- },
- "M6-1.1/international": {
-  "release": "video-33",
-  "chapters": [
-   "0:00 What this is about",
-   "1:51 The four core ideas, in pictures",
-   "4:43 The words your child brings home",
-   "7:37 Five typical mistakes",
-   "9:29 Helping at home, and what comes next"
-  ]
- },
- "D6-4.2/kinder": {
-  "release": "video-31",
-  "chapters": [
-   "0:00 Was ist ein Satzglied?",
-   "2:30 Subjekt und Prädikat",
-   "5:32 Objekte",
-   "8:37 Adverbialien",
-   "11:53 Attribute und Zusammenfassung"
-  ]
- },
- "D6-4.2/eltern": {
-  "release": "video-34",
-  "chapters": [
-   "0:00 Worum es geht",
-   "1:44 Die zwei Proben in Bildern",
-   "4:24 Die Satzglieder im Einzelnen",
-   "6:32 Die fünf typischen Fehler",
-   "8:32 So üben Sie zu Hause, und was kommt danach"
-  ]
- },
- "D6-4.2/international": {
-  "release": "video-35",
-  "chapters": [
-   "0:00 What this is about",
-   "2:01 The two tests, in pictures",
-   "5:22 The parts and their German names",
-   "8:59 Five typical mistakes",
-   "11:10 Helping at home, and what comes next"
-  ]
- },
- "NT6-1.2/kinder": {
-  "release": "video-36",
-  "chapters": [
-   "0:00 Was steckt in einem Samen?",
-   "2:29 Die Frucht: Verpackung für die Reise",
-   "5:46 Mit dem Wind",
-   "8:44 Mit Tieren",
-   "11:38 Keimen und ein Versuch für zu Hause"
-  ]
- },
- "NT6-1.2/eltern": {
-  "release": "video-37",
-  "chapters": [
-   "0:00 Worum es geht",
-   "1:52 Die Kernideen in Bildern",
-   "4:20 Die Denkweise: Kosten und Nutzen",
-   "6:30 Der Versuch zu Hause",
-   "9:01 Fehlvorstellungen, Leistungsnachweise, Ausblick"
-  ]
- },
- "NT6-1.2/international": {
-  "release": "video-38",
-  "chapters": [
-   "0:00 What this is about",
-   "2:00 The core ideas, in pictures",
-   "4:40 The words your child brings home",
-   "7:44 The experiment at home",
-   "10:06 Misconceptions, assessment, and what comes next"
-  ]
- },
- "NT6-2.3/kinder": {
-  "release": "video-39",
-  "chapters": [
-   "0:00 Wo ist meine Datei?",
-   "2:35 Der Baum steht auf dem Kopf",
-   "5:01 Der Pfad: der Weg zur Datei",
-   "8:21 Klassen: ORDNER und DATEI",
-   "12:05 Statistik: Welcher Ordner ist am größten?"
-  ]
- },
- "NT6-2.3/eltern": {
-  "release": "video-40",
-  "chapters": [
-   "0:00 Worum es geht",
-   "1:42 Die Kernideen in Bildern",
-   "4:40 Die Denkweise: Objekte, Klassen, Strukturen",
-   "6:53 Üben am eigenen Computer",
-   "8:55 Fehlvorstellungen, Bewertung, Ausblick"
-  ]
- },
- "NT6-2.3/international": {
-  "release": "video-41",
-  "chapters": [
-   "0:00 What this is about",
-   "2:07 The core ideas, in pictures",
-   "5:43 The words your child brings home",
-   "9:00 Practising at the computer at home",
-   "10:58 Misconceptions, assessment, and what comes next"
-  ]
- },
- "E6-1.2/kinder": {
-  "release": "video-42",
-  "chapters": [
-   "0:00 Zwei Zeiten für die Vergangenheit",
-   "3:03 Present perfect: Vergangenheit mit Folgen",
-   "6:08 Signalwörter: Ist die Zeit vorbei?",
-   "9:32 Die Falle für deutsche Köpfe",
-   "12:10 Üben und merken"
-  ]
- },
- "E6-1.2/eltern": {
-  "release": "video-43",
-  "chapters": [
-   "0:00 Worum es geht",
-   "1:58 Die Kernidee in Bildern",
-   "4:39 Typische Fehler deutscher Lernender",
-   "7:07 Üben zu Hause ohne Englischlehrkraft",
-   "9:09 Leistungsnachweise und Ausblick"
-  ]
- },
- "F6-1.2/kinder": {
-  "release": "video-44",
-  "chapters": [
-   "0:00 Warum Verben ihre Endung wechseln",
-   "2:32 Das Muster der -er Verben",
-   "5:57 Die zwei wichtigsten Verben: être und avoir",
-   "9:19 aller und die Verneinung mit ne … pas",
-   "12:52 Ein kleiner Dialog und Tipps zum Üben"
-  ]
- },
- "F6-1.2/eltern": {
-  "release": "video-45",
-  "chapters": [
-   "0:00 Worum es geht",
-   "1:51 Die Kernideen in Bildern",
-   "6:01 Die Denkweise: Muster statt Auswendiglernen",
-   "7:28 Zu Hause üben: zehn Minuten am Tag",
-   "9:04 Fehlvorstellungen, Schulaufgaben, Ausblick"
-  ]
- },
- "G6-1/kinder": {
-  "release": "video-46",
-  "chapters": [
-   "0:00 Was ist Geschichte? Zeit ordnen",
-   "3:28 Quellen: Spuren der Vergangenheit",
-   "6:47 Archäologie: Was die Erde bewahrt hat",
-   "9:32 Jäger und Sammler der Altsteinzeit",
-   "13:02 Bauern der Jungsteinzeit"
-  ]
- },
- "G6-1/eltern": {
-  "release": "video-47",
-  "chapters": [
-   "0:00 Worum es geht",
-   "2:05 Die Kernideen in Bildern",
-   "5:27 Die Denkweise: Quellen befragen",
-   "7:46 Zu Hause unterstützen",
-   "10:04 Fehlvorstellungen, Leistungsnachweise, Ausblick"
-  ]
- },
- "L6-2.2/kinder": {
-  "release": "video-48",
-  "chapters": [
-   "0:00 Warum Latein Endungen braucht",
-   "2:49 Die fünf Fälle: puella",
-   "6:58 Die o-Deklination: servus und templum",
-   "10:47 Was die Fälle im Satz tun",
-   "14:50 Formen bestimmen wie ein Profi"
-  ]
- },
- "L6-2.2/eltern": {
-  "release": "video-49",
-  "chapters": [
-   "0:00 Worum es geht",
-   "2:21 Die Kernidee in Bildern",
-   "5:45 Die Denkweise: Formen bestimmen",
-   "8:10 Zu Hause unterstützen",
-   "10:38 Schulaufgaben und Ausblick"
-  ]
- }
+  "M6-1.1/kinder": {
+    "release": "video-30",
+    "chapters": [
+      "0:00 Ein Stück vom Ganzen",
+      "2:37 Zähler und Nenner",
+      "5:29 Erweitern und Kürzen",
+      "8:19 Brüche vergleichen",
+      "11:21 Brüche sind Zahlen"
+    ]
+  },
+  "M6-1.1/eltern": {
+    "release": "video-32",
+    "chapters": [
+      "0:00 Worum es geht",
+      "1:33 Die vier Kernideen in Bildern",
+      "3:48 Die fünf typischen Fehler",
+      "5:39 So üben Sie zu Hause",
+      "8:00 Schulaufgabe und Ausblick"
+    ]
+  },
+  "M6-1.1/international": {
+    "release": "video-33",
+    "chapters": [
+      "0:00 What this is about",
+      "1:51 The four core ideas, in pictures",
+      "4:43 The words your child brings home",
+      "7:37 Five typical mistakes",
+      "9:29 Helping at home, and what comes next"
+    ]
+  },
+  "D6-4.2/kinder": {
+    "release": "video-31",
+    "chapters": [
+      "0:00 Was ist ein Satzglied?",
+      "2:30 Subjekt und Prädikat",
+      "5:32 Objekte",
+      "8:37 Adverbialien",
+      "11:53 Attribute und Zusammenfassung"
+    ]
+  },
+  "D6-4.2/eltern": {
+    "release": "video-34",
+    "chapters": [
+      "0:00 Worum es geht",
+      "1:44 Die zwei Proben in Bildern",
+      "4:24 Die Satzglieder im Einzelnen",
+      "6:32 Die fünf typischen Fehler",
+      "8:32 So üben Sie zu Hause, und was kommt danach"
+    ]
+  },
+  "D6-4.2/international": {
+    "release": "video-35",
+    "chapters": [
+      "0:00 What this is about",
+      "2:01 The two tests, in pictures",
+      "5:22 The parts and their German names",
+      "8:59 Five typical mistakes",
+      "11:10 Helping at home, and what comes next"
+    ]
+  },
+  "NT6-1.2/kinder": {
+    "release": "video-36",
+    "chapters": [
+      "0:00 Was steckt in einem Samen?",
+      "2:29 Die Frucht: Verpackung für die Reise",
+      "5:46 Mit dem Wind",
+      "8:44 Mit Tieren",
+      "11:38 Keimen und ein Versuch für zu Hause"
+    ]
+  },
+  "NT6-1.2/eltern": {
+    "release": "video-37",
+    "chapters": [
+      "0:00 Worum es geht",
+      "1:52 Die Kernideen in Bildern",
+      "4:20 Die Denkweise: Kosten und Nutzen",
+      "6:30 Der Versuch zu Hause",
+      "9:01 Fehlvorstellungen, Leistungsnachweise, Ausblick"
+    ]
+  },
+  "NT6-1.2/international": {
+    "release": "video-38",
+    "chapters": [
+      "0:00 What this is about",
+      "2:00 The core ideas, in pictures",
+      "4:40 The words your child brings home",
+      "7:44 The experiment at home",
+      "10:06 Misconceptions, assessment, and what comes next"
+    ]
+  },
+  "NT6-2.3/kinder": {
+    "release": "video-39",
+    "chapters": [
+      "0:00 Wo ist meine Datei?",
+      "2:35 Der Baum steht auf dem Kopf",
+      "5:01 Der Pfad: der Weg zur Datei",
+      "8:21 Klassen: ORDNER und DATEI",
+      "12:05 Statistik: Welcher Ordner ist am größten?"
+    ]
+  },
+  "NT6-2.3/eltern": {
+    "release": "video-40",
+    "chapters": [
+      "0:00 Worum es geht",
+      "1:42 Die Kernideen in Bildern",
+      "4:40 Die Denkweise: Objekte, Klassen, Strukturen",
+      "6:53 Üben am eigenen Computer",
+      "8:55 Fehlvorstellungen, Bewertung, Ausblick"
+    ]
+  },
+  "NT6-2.3/international": {
+    "release": "video-41",
+    "chapters": [
+      "0:00 What this is about",
+      "2:07 The core ideas, in pictures",
+      "5:43 The words your child brings home",
+      "9:00 Practising at the computer at home",
+      "10:58 Misconceptions, assessment, and what comes next"
+    ]
+  },
+  "E6-1.2/kinder": {
+    "release": "video-42",
+    "chapters": [
+      "0:00 Zwei Zeiten für die Vergangenheit",
+      "3:03 Present perfect: Vergangenheit mit Folgen",
+      "6:08 Signalwörter: Ist die Zeit vorbei?",
+      "9:32 Die Falle für deutsche Köpfe",
+      "12:10 Üben und merken"
+    ]
+  },
+  "E6-1.2/eltern": {
+    "release": "video-43",
+    "chapters": [
+      "0:00 Worum es geht",
+      "1:58 Die Kernidee in Bildern",
+      "4:39 Typische Fehler deutscher Lernender",
+      "7:07 Üben zu Hause ohne Englischlehrkraft",
+      "9:09 Leistungsnachweise und Ausblick"
+    ]
+  },
+  "F6-1.2/kinder": {
+    "release": "video-44",
+    "chapters": [
+      "0:00 Warum Verben ihre Endung wechseln",
+      "2:32 Das Muster der -er Verben",
+      "5:57 Die zwei wichtigsten Verben: être und avoir",
+      "9:19 aller und die Verneinung mit ne … pas",
+      "12:52 Ein kleiner Dialog und Tipps zum Üben"
+    ]
+  },
+  "F6-1.2/eltern": {
+    "release": "video-45",
+    "chapters": [
+      "0:00 Worum es geht",
+      "1:51 Die Kernideen in Bildern",
+      "6:01 Die Denkweise: Muster statt Auswendiglernen",
+      "7:28 Zu Hause üben: zehn Minuten am Tag",
+      "9:04 Fehlvorstellungen, Schulaufgaben, Ausblick"
+    ]
+  },
+  "G6-1/kinder": {
+    "release": "video-46",
+    "chapters": [
+      "0:00 Was ist Geschichte? Zeit ordnen",
+      "3:28 Quellen: Spuren der Vergangenheit",
+      "6:47 Archäologie: Was die Erde bewahrt hat",
+      "9:32 Jäger und Sammler der Altsteinzeit",
+      "13:02 Bauern der Jungsteinzeit"
+    ]
+  },
+  "G6-1/eltern": {
+    "release": "video-47",
+    "chapters": [
+      "0:00 Worum es geht",
+      "2:05 Die Kernideen in Bildern",
+      "5:27 Die Denkweise: Quellen befragen",
+      "7:46 Zu Hause unterstützen",
+      "10:04 Fehlvorstellungen, Leistungsnachweise, Ausblick"
+    ]
+  },
+  "L6-2.2/kinder": {
+    "release": "video-48",
+    "chapters": [
+      "0:00 Warum Latein Endungen braucht",
+      "2:49 Die fünf Fälle: puella",
+      "6:58 Die o-Deklination: servus und templum",
+      "10:47 Was die Fälle im Satz tun",
+      "14:50 Formen bestimmen wie ein Profi"
+    ]
+  },
+  "L6-2.2/eltern": {
+    "release": "video-49",
+    "chapters": [
+      "0:00 Worum es geht",
+      "2:21 Die Kernidee in Bildern",
+      "5:45 Die Denkweise: Formen bestimmen",
+      "8:10 Zu Hause unterstützen",
+      "10:38 Schulaufgaben und Ausblick"
+    ]
+  },
+  "M6-SA1.1/kinder": {
+    "release": "video-53",
+    "chapters": [
+      "0:00 Bruchteil, Anteil, Ganzes",
+      "2:40 Kürzen und Erweitern",
+      "5:34 Brüche als Quotient",
+      "8:23 Zahlengerade und Zahlenmengen",
+      "11:36 Vergleichen mit dem Hauptnenner",
+      "15:18 Checkliste für die Schulaufgabe"
+    ]
+  },
+  "M6-SA1.2/kinder": {
+    "release": "video-54",
+    "chapters": [
+      "0:00 Dezimalbrüche und Stellenwerttafel",
+      "3:05 Dezimalbrüche vergleichen",
+      "6:06 Bruch in Dezimalbruch und zurück",
+      "9:11 Runden",
+      "12:01 Periodische Dezimalbrüche",
+      "16:48 Checkliste"
+    ]
+  }
 }

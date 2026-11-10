@@ -1,166 +1,182 @@
 {
- "generated": "2026-11-09",
- "note": "Order and names of the finished videos for the YouTube upload package (factory/package.mjs, workflow youtube-package.yml).",
- "videos": [
-  {
-   "nr": 1,
-   "lesson": "M6-1.1",
-   "variant": "kinder",
-   "release": "video-30",
-   "slug": "01-Mathe-Brueche-Kinder",
-   "fach": "Mathe"
-  },
-  {
-   "nr": 2,
-   "lesson": "M6-1.1",
-   "variant": "eltern",
-   "release": "video-32",
-   "slug": "02-Mathe-Brueche-Eltern",
-   "fach": "Mathe"
-  },
-  {
-   "nr": 3,
-   "lesson": "M6-1.1",
-   "variant": "international",
-   "release": "video-33",
-   "slug": "03-Mathe-Brueche-English",
-   "fach": "Mathe"
-  },
-  {
-   "nr": 4,
-   "lesson": "D6-4.2",
-   "variant": "kinder",
-   "release": "video-31",
-   "slug": "04-Deutsch-Satzglieder-Kinder",
-   "fach": "Deutsch"
-  },
-  {
-   "nr": 5,
-   "lesson": "D6-4.2",
-   "variant": "eltern",
-   "release": "video-34",
-   "slug": "05-Deutsch-Satzglieder-Eltern",
-   "fach": "Deutsch"
-  },
-  {
-   "nr": 6,
-   "lesson": "D6-4.2",
-   "variant": "international",
-   "release": "video-35",
-   "slug": "06-Deutsch-Satzglieder-English",
-   "fach": "Deutsch"
-  },
-  {
-   "nr": 7,
-   "lesson": "NT6-1.2",
-   "variant": "kinder",
-   "release": "video-36",
-   "slug": "07-NT-Biologie-Samen-und-Fruechte-Kinder",
-   "fach": "NT Biologie"
-  },
-  {
-   "nr": 8,
-   "lesson": "NT6-1.2",
-   "variant": "eltern",
-   "release": "video-37",
-   "slug": "08-NT-Biologie-Samen-und-Fruechte-Eltern",
-   "fach": "NT Biologie"
-  },
-  {
-   "nr": 9,
-   "lesson": "NT6-1.2",
-   "variant": "international",
-   "release": "video-38",
-   "slug": "09-NT-Biologie-Samen-und-Fruechte-English",
-   "fach": "NT Biologie"
-  },
-  {
-   "nr": 10,
-   "lesson": "NT6-2.3",
-   "variant": "kinder",
-   "release": "video-39",
-   "slug": "10-NT-Informatik-Dateisystem-Kinder",
-   "fach": "NT Informatik"
-  },
-  {
-   "nr": 11,
-   "lesson": "NT6-2.3",
-   "variant": "eltern",
-   "release": "video-40",
-   "slug": "11-NT-Informatik-Dateisystem-Eltern",
-   "fach": "NT Informatik"
-  },
-  {
-   "nr": 12,
-   "lesson": "NT6-2.3",
-   "variant": "international",
-   "release": "video-41",
-   "slug": "12-NT-Informatik-Dateisystem-English",
-   "fach": "NT Informatik"
-  },
-  {
-   "nr": 13,
-   "lesson": "E6-1.2",
-   "variant": "kinder",
-   "release": "video-42",
-   "slug": "13-Englisch-Present-perfect-Kinder",
-   "fach": "Englisch"
-  },
-  {
-   "nr": 14,
-   "lesson": "E6-1.2",
-   "variant": "eltern",
-   "release": "video-43",
-   "slug": "14-Englisch-Present-perfect-Eltern",
-   "fach": "Englisch"
-  },
-  {
-   "nr": 15,
-   "lesson": "F6-1.2",
-   "variant": "kinder",
-   "release": "video-44",
-   "slug": "15-Franzoesisch-Verben-Praesens-Kinder",
-   "fach": "Franzoesisch"
-  },
-  {
-   "nr": 16,
-   "lesson": "F6-1.2",
-   "variant": "eltern",
-   "release": "video-45",
-   "slug": "16-Franzoesisch-Verben-Praesens-Eltern",
-   "fach": "Franzoesisch"
-  },
-  {
-   "nr": 17,
-   "lesson": "G6-1",
-   "variant": "kinder",
-   "release": "video-46",
-   "slug": "17-Geschichte-Zeit-Quellen-Steinzeit-Kinder",
-   "fach": "Geschichte"
-  },
-  {
-   "nr": 18,
-   "lesson": "G6-1",
-   "variant": "eltern",
-   "release": "video-47",
-   "slug": "18-Geschichte-Zeit-Quellen-Steinzeit-Eltern",
-   "fach": "Geschichte"
-  },
-  {
-   "nr": 19,
-   "lesson": "L6-2.2",
-   "variant": "kinder",
-   "release": "video-48",
-   "slug": "19-Latein-Die-Faelle-Kinder",
-   "fach": "Latein"
-  },
-  {
-   "nr": 20,
-   "lesson": "L6-2.2",
-   "variant": "eltern",
-   "release": "video-49",
-   "slug": "20-Latein-Die-Faelle-Eltern",
-   "fach": "Latein"
-  }
- ]
+  "generated": "2026-11-09",
+  "note": "Order and names of the finished videos for the YouTube upload package (factory/package.mjs, workflow youtube-package.yml).",
+  "videos": [
+    {
+      "nr": 1,
+      "lesson": "M6-1.1",
+      "variant": "kinder",
+      "release": "video-30",
+      "slug": "01-Mathe-Brueche-Kinder",
+      "fach": "Mathe"
+    },
+    {
+      "nr": 2,
+      "lesson": "M6-1.1",
+      "variant": "eltern",
+      "release": "video-32",
+      "slug": "02-Mathe-Brueche-Eltern",
+      "fach": "Mathe"
+    },
+    {
+      "nr": 3,
+      "lesson": "M6-1.1",
+      "variant": "international",
+      "release": "video-33",
+      "slug": "03-Mathe-Brueche-English",
+      "fach": "Mathe"
+    },
+    {
+      "nr": 4,
+      "lesson": "D6-4.2",
+      "variant": "kinder",
+      "release": "video-31",
+      "slug": "04-Deutsch-Satzglieder-Kinder",
+      "fach": "Deutsch"
+    },
+    {
+      "nr": 5,
+      "lesson": "D6-4.2",
+      "variant": "eltern",
+      "release": "video-34",
+      "slug": "05-Deutsch-Satzglieder-Eltern",
+      "fach": "Deutsch"
+    },
+    {
+      "nr": 6,
+      "lesson": "D6-4.2",
+      "variant": "international",
+      "release": "video-35",
+      "slug": "06-Deutsch-Satzglieder-English",
+      "fach": "Deutsch"
+    },
+    {
+      "nr": 7,
+      "lesson": "NT6-1.2",
+      "variant": "kinder",
+      "release": "video-36",
+      "slug": "07-NT-Biologie-Samen-und-Fruechte-Kinder",
+      "fach": "NT Biologie"
+    },
+    {
+      "nr": 8,
+      "lesson": "NT6-1.2",
+      "variant": "eltern",
+      "release": "video-37",
+      "slug": "08-NT-Biologie-Samen-und-Fruechte-Eltern",
+      "fach": "NT Biologie"
+    },
+    {
+      "nr": 9,
+      "lesson": "NT6-1.2",
+      "variant": "international",
+      "release": "video-38",
+      "slug": "09-NT-Biologie-Samen-und-Fruechte-English",
+      "fach": "NT Biologie"
+    },
+    {
+      "nr": 10,
+      "lesson": "NT6-2.3",
+      "variant": "kinder",
+      "release": "video-39",
+      "slug": "10-NT-Informatik-Dateisystem-Kinder",
+      "fach": "NT Informatik"
+    },
+    {
+      "nr": 11,
+      "lesson": "NT6-2.3",
+      "variant": "eltern",
+      "release": "video-40",
+      "slug": "11-NT-Informatik-Dateisystem-Eltern",
+      "fach": "NT Informatik"
+    },
+    {
+      "nr": 12,
+      "lesson": "NT6-2.3",
+      "variant": "international",
+      "release": "video-41",
+      "slug": "12-NT-Informatik-Dateisystem-English",
+      "fach": "NT Informatik"
+    },
+    {
+      "nr": 13,
+      "lesson": "E6-1.2",
+      "variant": "kinder",
+      "release": "video-42",
+      "slug": "13-Englisch-Present-perfect-Kinder",
+      "fach": "Englisch"
+    },
+    {
+      "nr": 14,
+      "lesson": "E6-1.2",
+      "variant": "eltern",
+      "release": "video-43",
+      "slug": "14-Englisch-Present-perfect-Eltern",
+      "fach": "Englisch"
+    },
+    {
+      "nr": 15,
+      "lesson": "F6-1.2",
+      "variant": "kinder",
+      "release": "video-44",
+      "slug": "15-Franzoesisch-Verben-Praesens-Kinder",
+      "fach": "Franzoesisch"
+    },
+    {
+      "nr": 16,
+      "lesson": "F6-1.2",
+      "variant": "eltern",
+      "release": "video-45",
+      "slug": "16-Franzoesisch-Verben-Praesens-Eltern",
+      "fach": "Franzoesisch"
+    },
+    {
+      "nr": 17,
+      "lesson": "G6-1",
+      "variant": "kinder",
+      "release": "video-46",
+      "slug": "17-Geschichte-Zeit-Quellen-Steinzeit-Kinder",
+      "fach": "Geschichte"
+    },
+    {
+      "nr": 18,
+      "lesson": "G6-1",
+      "variant": "eltern",
+      "release": "video-47",
+      "slug": "18-Geschichte-Zeit-Quellen-Steinzeit-Eltern",
+      "fach": "Geschichte"
+    },
+    {
+      "nr": 19,
+      "lesson": "L6-2.2",
+      "variant": "kinder",
+      "release": "video-48",
+      "slug": "19-Latein-Die-Faelle-Kinder",
+      "fach": "Latein"
+    },
+    {
+      "nr": 20,
+      "lesson": "L6-2.2",
+      "variant": "eltern",
+      "release": "video-49",
+      "slug": "20-Latein-Die-Faelle-Eltern",
+      "fach": "Latein"
+    },
+    {
+      "nr": 21,
+      "lesson": "M6-SA1.1",
+      "variant": "kinder",
+      "release": "video-53",
+      "slug": "21-Mathe-Schulaufgabe-Teil-1-Brueche-Kinder",
+      "fach": "Mathematik"
+    },
+    {
+      "nr": 22,
+      "lesson": "M6-SA1.2",
+      "variant": "kinder",
+      "release": "video-54",
+      "slug": "22-Mathe-Schulaufgabe-Teil-2-Dezimalbrueche-Kinder",
+      "fach": "Mathematik"
+    }
+  ]
 }

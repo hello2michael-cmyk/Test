@@ -968,3 +968,99 @@ Welche Frage haben Sie zu Latein in der 6. Klasse? Schreiben Sie sie in die Komm
 ```
 
 **Später ergänzen:** Kinder-Lektion zu diesem Thema · Playlist Eltern-Guide Klasse 6 Bayern
+
+## 21 · 21-Mathe-Schulaufgabe-Teil-1-Brueche-Kinder
+
+**Einstellungen:** Für Kinder: JA · KI-Frage (vier Fälle): Nein · Sprache: Deutsch · Kategorie: Bildung · Playlist: Klasse 6 Bayern: Lektionen für Schüler · Vorschaubild: 21-Mathe-Schulaufgabe-Teil-1-Brueche-Kinder-thumbnail.jpg · Untertitel: 21-Mathe-Schulaufgabe-Teil-1-Brueche-Kinder.srt
+
+**Titel** (75 Zeichen)
+```
+Mathe-Schulaufgabe Klasse 6 vorbereiten: Brüche (Teil 1) | Gymnasium Bayern
+```
+
+**Beschreibung** (1556 Zeichen)
+```
+Die erste Mathe-Schulaufgabe in der 6. Klasse steht an? In Teil 1 wiederholen wir alle Punkte zu Brüchen vom Stoffzettel, mit 3D-Bildern und mit Aufgaben im Schulaufgaben-Stil zum Mitrechnen (mit Denkpause und Lösung).
+
+In diesem Video:
+• Bruchteil, Anteil und Ganzes: 3/4 von 20 kg, 2/5 sind 6 km
+• Kürzen und Erweitern, vollständig kürzen, Lücken füllen
+• Brüche als Quotient: 3 : 4 = 3/4, unechter Bruch und gemischte Zahl
+• Brüche an der Zahlengeraden, auch negative
+• Zahlenmengen ℕ, ℤ, ℚ
+• Vergleichen mit Hauptnenner und Primfaktorzerlegung
+• Checkliste: typische Fehler, die Punkte kosten
+
+Für wen: Schülerinnen und Schüler der 6. Klasse am Gymnasium (Bayern), zur Vorbereitung auf die erste Mathe-Schulaufgabe. Zu den Videos gibt es drei Übungs-Schulaufgaben (je 40 BE, mit Lösungen) und einen Lernzettel zum Ausdrucken: https://github.com/hello2michael-cmyk/Test/tree/claude/dazzling-franklin-jex2oz/klasse6/schulaufgabe
+
+Lehrplan: LehrplanPLUS Gymnasium Bayern, Mathematik Jahrgangsstufe 6, Lernbereiche M6 1.1 Bruchteile und Bruchzahlen und M6 1.2 Dezimalbrüche.
+
+Kapitel
+0:00 Bruchteil, Anteil, Ganzes
+2:40 Kürzen und Erweitern
+5:34 Brüche als Quotient
+8:23 Zahlengerade und Zahlenmengen
+11:36 Vergleichen mit dem Hauptnenner
+15:18 Checkliste für die Schulaufgabe
+
+Transparenz: Die Sprecherstimme ist computergeneriert (Text-to-Speech). Das Skript folgt dem LehrplanPLUS Bayern und wurde von einem zweiten KI-Modell geprüft; vor der Veröffentlichung sieht ein Elternteil jedes Video durch.
+
+#Schulaufgabe #Brüche #MatheKlasse6 #GymnasiumBayern
+```
+
+**Tags** (269 Zeichen)
+```
+Schulaufgabe Mathe Klasse 6, Brüche Klasse 6, Bruchrechnung, Kürzen und Erweitern, Hauptnenner, Primfaktorzerlegung, kgV, Zahlengerade Brüche, rationale Zahlen, Gymnasium Bayern, LehrplanPLUS, Mathe 6. Klasse, Schulaufgabe Vorbereitung, Brüche vergleichen, Mathe lernen
+```
+
+**Angehefteter Kommentar:** entfällt (Kommentare sind bei „für Kinder“ aus).
+
+**Später ergänzen:** Eltern-Guide zu diesem Thema · Playlist Klasse 6 Bayern: Lektionen für Schüler
+
+## 22 · 22-Mathe-Schulaufgabe-Teil-2-Dezimalbrueche-Kinder
+
+**Einstellungen:** Für Kinder: JA · KI-Frage (vier Fälle): Nein · Sprache: Deutsch · Kategorie: Bildung · Playlist: Klasse 6 Bayern: Lektionen für Schüler · Vorschaubild: 22-Mathe-Schulaufgabe-Teil-2-Dezimalbrueche-Kinder-thumbnail.jpg · Untertitel: 22-Mathe-Schulaufgabe-Teil-2-Dezimalbrueche-Kinder.srt
+
+**Titel** (82 Zeichen)
+```
+Mathe-Schulaufgabe Klasse 6 vorbereiten: Dezimalbrüche (Teil 2) | Gymnasium Bayern
+```
+
+**Beschreibung** (1592 Zeichen)
+```
+Teil 2 der Vorbereitung auf die erste Mathe-Schulaufgabe in der 6. Klasse: alle Punkte zu Dezimalbrüchen vom Stoffzettel, mit 3D-Bildern und mit Aufgaben im Schulaufgaben-Stil zum Mitrechnen (mit Denkpause und Lösung).
+
+In diesem Video:
+• Stellenwerttafel: Zehntel, Hundertstel, Tausendstel
+• Dezimalbrüche vergleichen und ordnen (Nullen anhängen)
+• Brüche in Dezimalbrüche umwandeln: Erweitern oder schriftlich dividieren, und zurück
+• Runden auf Zehntel und Hundertstel
+• Periodische Dezimalbrüche, Periodenstrich, Taschenrechner-Anzeige 0,166666667
+• Endlich oder periodisch? Der Nenner verrät es
+• Checkliste: typische Fehler, die Punkte kosten
+
+Für wen: Schülerinnen und Schüler der 6. Klasse am Gymnasium (Bayern), zur Vorbereitung auf die erste Mathe-Schulaufgabe. Zu den Videos gibt es drei Übungs-Schulaufgaben (je 40 BE, mit Lösungen) und einen Lernzettel zum Ausdrucken: https://github.com/hello2michael-cmyk/Test/tree/claude/dazzling-franklin-jex2oz/klasse6/schulaufgabe
+
+Lehrplan: LehrplanPLUS Gymnasium Bayern, Mathematik Jahrgangsstufe 6, Lernbereiche M6 1.1 Bruchteile und Bruchzahlen und M6 1.2 Dezimalbrüche.
+
+Kapitel
+0:00 Dezimalbrüche und Stellenwerttafel
+3:05 Dezimalbrüche vergleichen
+6:06 Bruch in Dezimalbruch und zurück
+9:11 Runden
+12:01 Periodische Dezimalbrüche
+16:48 Checkliste
+
+Transparenz: Die Sprecherstimme ist computergeneriert (Text-to-Speech). Das Skript folgt dem LehrplanPLUS Bayern und wurde von einem zweiten KI-Modell geprüft; vor der Veröffentlichung sieht ein Elternteil jedes Video durch.
+
+#Schulaufgabe #Dezimalbrüche #MatheKlasse6 #GymnasiumBayern
+```
+
+**Tags** (322 Zeichen)
+```
+Schulaufgabe Mathe Klasse 6, Dezimalbrüche Klasse 6, Dezimalbrüche vergleichen, Bruch in Dezimalbruch umwandeln, periodische Dezimalbrüche, Periodenstrich, Runden Dezimalbrüche, Stellenwerttafel, schriftliche Division, Gymnasium Bayern, LehrplanPLUS, Mathe 6. Klasse, Schulaufgabe Vorbereitung, Dezimalzahlen, Mathe lernen
+```
+
+**Angehefteter Kommentar:** entfällt (Kommentare sind bei „für Kinder“ aus).
+
+**Später ergänzen:** Eltern-Guide zu diesem Thema · Playlist Klasse 6 Bayern: Lektionen für Schüler

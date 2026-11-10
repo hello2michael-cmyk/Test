@@ -45,6 +45,8 @@ Fertige Videos (GitHub-Releases, 90 Tage abrufbar; ohne Hintergrundmusik, mit Tr
 | Eltern-Lektion G6-1 Geschichte | Charon | ca. 12:30 | https://github.com/hello2michael-cmyk/Test/releases/tag/video-47 |
 | Kinder-Lektion L6-2.2 Die Fälle | Leda | ca. 17:00 | https://github.com/hello2michael-cmyk/Test/releases/tag/video-48 |
 | Eltern-Lektion L6-2.2 Latein | Charon | ca. 11:30 | https://github.com/hello2michael-cmyk/Test/releases/tag/video-49 |
+| Kinder-Lektion M6-SA1.1 Schulaufgabe Teil 1: Brüche | Leda | ca. 16:52 | https://github.com/hello2michael-cmyk/Test/releases/tag/video-53 |
+| Kinder-Lektion M6-SA1.2 Schulaufgabe Teil 2: Dezimalbrüche | Leda | ca. 18:27 | https://github.com/hello2michael-cmyk/Test/releases/tag/video-54 |
 | Stimmvergleich Eltern M6-1.1 | Kore / Charon / Leda | ca. 10:00 | video-20 / video-21 / video-22 |
 
 Reihenfolge: zuerst Mathematik (fertige 3D-Szenen), dann Deutsch (Satzglieder-Szene vorhanden), Natur und Technik, Geschichte, Fremdsprachen, dann der Rest.
