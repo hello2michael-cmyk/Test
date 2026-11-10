@@ -1,8 +1,12 @@
 import { useState } from 'react';
-import { ExternalLink, LogOut, Trash2 } from 'lucide-react';
+import { ExternalLink, Fingerprint, KeyRound, LogOut, Lock, Trash2 } from 'lucide-react';
 import { Button, Card, Input, Section, Segmented, Switch, Textarea, cx } from '../components/ui';
 import { GoogleMark } from './Onboarding';
-import { updateSettings, useSettings, wipeEverything } from '../lib/store';
+import { OwnerConsole } from './OwnerConsole';
+import { clearMailCache, updateSettings, useSettings, wipeEverything } from '../lib/store';
+import { deactivate, forgetOwner, useLicense } from '../lib/license';
+import { forgetDeviceKeys } from '../lib/crypto';
+import { disableLock, enrollBiometric, lockNow, setPin, useAppLock } from '../lib/applock';
 import { PROVIDER_META, defaultModel } from '../lib/ai';
 import { TOPIC_CATALOGUE, type AiProviderId } from '../lib/types';
 import { connectGoogle, disconnectGoogle, refresh, resetSession } from '../lib/session';
@@ -12,6 +16,11 @@ export function SettingsScreen() {
   const s = useSettings();
   const [busy, setBusy] = useState(false);
   const meta = PROVIDER_META[s.ai.provider];
+  const lic = useLicense();
+  const lock = useAppLock();
+  const [ownerOpen, setOwnerOpen] = useState(false);
+  const [pin, setPinDraft] = useState('');
+  const isOwner = lic.state === 'ok' && lic.isOwnerDevice;
 
   return (
     <div className="px-4 pt-2 safe-top">
@@ -120,13 +129,69 @@ export function SettingsScreen() {
         </Card>
       </Section>
 
-      <Section title="Privacy">
+      <Section title="Security">
         <Card className="p-4">
-          <p className="text-[14px] leading-relaxed text-ink-2">Mail, summaries, keys and preferences live only in this browser's storage. Nothing is sent anywhere except to Google for mail and to the AI provider you chose for summaries.</p>
-          <Button variant="danger" full className="mt-4" onClick={async () => { if (confirm('Delete all local data and sign out?')) { disconnectGoogle(); await wipeEverything(); } }}><Trash2 size={18} /> Delete everything</Button>
+          <div className="flex items-center gap-2 text-[15px] font-semibold"><Lock size={18} className="text-accent" /> App lock</div>
+          <p className="mt-1 text-[13px] text-ink-3">Ask for {lock.biometricAvailable ? 'Face ID, fingerprint or ' : ''}a PIN when the app opens and after it has been in the background.</p>
+          <div className="mt-3 space-y-3">
+            {s.security.lock === 'off' ? (
+              <>
+                <div className="flex gap-2">
+                  <Input className="flex-1" inputMode="numeric" pattern="[0-9]*" type="password" placeholder="Choose a 4–8 digit PIN" value={pin} onChange={e => setPinDraft(e.target.value.replace(/\D/g, '').slice(0, 8))} />
+                  <Button variant="secondary" disabled={pin.length < 4} onClick={async () => { try { await setPin(pin); setPinDraft(''); toast('PIN set'); } catch (e) { toast(e instanceof Error ? e.message : 'Invalid PIN', 'err'); } }}>Set</Button>
+                </div>
+                {lock.biometricAvailable && <Button full variant="secondary" onClick={async () => { try { await enrollBiometric(s.name); toast('Biometric lock on'); } catch (e) { toast(e instanceof Error ? e.message : 'Could not enrol', 'err'); } }}><Fingerprint size={18} /> Use Face ID / fingerprint</Button>}
+              </>
+            ) : (
+              <>
+                <div className="flex items-center justify-between rounded-xl bg-card-2 px-3.5 py-2.5 text-[14px]">
+                  <span>{s.security.lock === 'biometric' ? 'Biometrics' : 'PIN'}{s.security.pinHash && s.security.lock === 'biometric' ? ' + PIN fallback' : ''} on</span>
+                  <Button size="sm" variant="ghost" onClick={() => { disableLock(); toast('App lock off'); }}>Turn off</Button>
+                </div>
+                {s.security.lock === 'biometric' && !s.security.pinHash && (
+                  <div className="flex gap-2">
+                    <Input className="flex-1" inputMode="numeric" type="password" placeholder="Add a PIN fallback" value={pin} onChange={e => setPinDraft(e.target.value.replace(/\D/g, '').slice(0, 8))} />
+                    <Button variant="secondary" disabled={pin.length < 4} onClick={async () => { await setPin(pin); setPinDraft(''); toast('PIN set'); }}>Set</Button>
+                  </div>
+                )}
+                {s.security.lock === 'pin' && lock.biometricAvailable && <Button full variant="secondary" onClick={async () => { try { await enrollBiometric(s.name); toast('Biometric lock on'); } catch (e) { toast(e instanceof Error ? e.message : 'Could not enrol', 'err'); } }}><Fingerprint size={18} /> Also allow Face ID / fingerprint</Button>}
+                <label className="flex items-center justify-between text-[15px]"><span>Lock after</span>
+                  <select className="rounded-xl bg-card-2 px-3 py-1.5" value={s.security.autoLockMinutes} onChange={e => updateSettings({ security: { ...s.security, autoLockMinutes: Number(e.target.value) } })}>
+                    {[0, 1, 5, 15, 60].map(n => <option key={n} value={n}>{n === 0 ? 'immediately' : `${n} min`}</option>)}
+                  </select>
+                </label>
+                <Button full variant="ghost" size="sm" onClick={lockNow}>Lock now</Button>
+              </>
+            )}
+          </div>
+          <div className="mt-4 border-t border-line pt-1">
+            <Switch label="Keep mail offline" description="Encrypted copy on this device so the app opens instantly" checked={s.security.keepMailOffline} onChange={v => { updateSettings({ security: { ...s.security, keepMailOffline: v } }); if (!v) clearMailCache(); }} />
+          </div>
         </Card>
       </Section>
-      <p className="pb-4 text-center text-[12px] text-ink-3">Daybrief 0.1 · phase one, browser-only</p>
+
+      <Section title="Access">
+        <Card className="p-4">
+          {lic.state === 'ok' && (
+            <div className="text-[14px] text-ink-2">
+              <div className="flex items-center justify-between"><span>This device</span><span className="font-semibold">{lic.lic.role === 'owner' ? 'Owner' : 'Invited'} · {lic.lic.name}</span></div>
+              <div className="mt-1 flex items-center justify-between text-ink-3"><span>Invite id</span><span className="font-mono text-[12.5px]">{lic.lic.id}</span></div>
+              {lic.lic.exp && <div className="mt-1 flex items-center justify-between text-ink-3"><span>Expires</span><span>{new Date(lic.lic.exp).toLocaleDateString()}</span></div>}
+            </div>
+          )}
+          {isOwner && <Button full variant="sun" className="mt-3" onClick={() => setOwnerOpen(true)}><KeyRound size={18} /> Owner console: invite people</Button>}
+          <p className="mt-3 text-[13px] leading-relaxed text-ink-3">Invites are tied to one device and cannot be forwarded. Only the owner can create them.</p>
+        </Card>
+      </Section>
+
+      <Section title="Privacy">
+        <Card className="p-4">
+          <p className="text-[14px] leading-relaxed text-ink-2">Mail, summaries, keys and preferences are encrypted and live only in this browser's storage. Nothing is sent anywhere except to Google for mail and to the AI provider you chose for summaries.</p>
+          <Button variant="danger" full className="mt-4" onClick={async () => { if (confirm('Delete all local data, keys and this device\'s invite, and sign out?')) { disconnectGoogle(); await wipeEverything(); await forgetOwner(); await deactivate(); await forgetDeviceKeys(); location.reload(); } }}><Trash2 size={18} /> Delete everything</Button>
+        </Card>
+      </Section>
+      <OwnerConsole open={ownerOpen} onClose={() => setOwnerOpen(false)} />
+      <p className="pb-4 text-center text-[12px] text-ink-3">Daybrief 0.2 · phase one, browser-only, invite-only</p>
     </div>
   );
 }

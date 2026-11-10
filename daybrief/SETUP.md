@@ -46,3 +46,30 @@ DAYBRIEF_BASE=/ npm run dev
 ```
 
 Google sign-in works on `http://localhost:5173` once that origin is added to the OAuth client.
+
+## Sharing the app: invite-only access
+
+The app is private. A device opens it only with an invite signed by you, and an invite is tied to one device, so nobody can forward it.
+
+**You, once:** open the app, tap **I am the owner**, paste the contents of your owner key file (`daybrief-owner-key.json`, delivered to you separately, never committed to the repository), choose a passphrase. Keep the key file in a password manager; without it no new invites can be made.
+
+**Inviting someone:**
+
+1. They open the link. The app shows their **device code** (it starts with `db1.`). They send it to you by any messenger.
+2. You open **Settings → Owner console**, paste the code, add their name and an optional expiry, tap **Create invite**, and send them the invite text (starts with `dbl1.`).
+3. They paste it into the app. It unlocks on that device only.
+
+If they want to bring someone else in, that person has to send *you* their device code. Nobody but the holder of the owner key can create invites.
+
+**Revoking:** add the invite id (shown in the owner console) to `daybrief/public/revoked.json` and commit. Every device re-checks that file each time it opens.
+
+**What this does and does not protect.** The invite check runs in the browser. It stops casual sharing completely: the invite text is useless on another device, and the device key cannot be exported. It does not stop someone who downloads the source and hosts their own copy without the check, which is true of every app that runs on the user's own device. Your mail and keys are never at risk from that: they live only on each user's own phone.
+
+## Data security
+
+- **Encrypted at rest.** Settings, API keys and the cached mail are encrypted with AES-GCM using a non-extractable key that the browser generates on the device. A copied or exported browser profile does not reveal them.
+- **App lock.** Settings → Security lets each user require Face ID / fingerprint or a PIN when the app opens and after it has been in the background for a chosen number of minutes. Repeated wrong PINs slow down.
+- **No server, no copies.** Mail goes from Google to the phone and from the phone to the AI provider the user chose. Nothing else sees it. "Keep mail offline" can be switched off so mail bodies never touch storage.
+- **Content Security Policy.** The page may only talk to Google, Gmail and the chosen AI provider. Injected scripts or a compromised dependency cannot send data anywhere else.
+- **Prompt-injection resistance.** The model is told that emails are untrusted data, and nothing is ever sent without the user's tap.
+- **Delete everything.** One button wipes settings, keys, cache and the device identity.

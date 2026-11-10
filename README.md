@@ -16,7 +16,7 @@ Live at: https://hello2michael-cmyk.github.io/Test/
 
 A daily assistant that signs you in with Google (no password is ever asked for), reads your unread mail, sorts it into *needs a reply*, *needs an action*, *good to know* and *noise*, drafts replies in your own voice that you send with one tap, and reads the whole briefing aloud. Works with Claude, OpenAI or Gemini using your own key, or in a demo mode with no key at all. Everything stays on the phone; there is no server. Add it to the Home Screen like the studio app.
 
-Setup (a Google OAuth client ID and an AI key, both self-service) is in [`daybrief/SETUP.md`](daybrief/SETUP.md). The source is a Vite + React app under `daybrief/`, built by the Pages workflow.
+Access is invite-only: the owner signs a license for each device, invites cannot be forwarded, and data is encrypted on the phone with an optional Face ID / PIN lock. Setup (a Google OAuth client ID and an AI key, both self-service) and the sharing model are in [`daybrief/SETUP.md`](daybrief/SETUP.md). The source is a Vite + React app under `daybrief/`, built by the Pages workflow.
 
 ## Video factory: make videos from GitHub, no app and no phone limits
 

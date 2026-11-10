@@ -9,7 +9,11 @@ import { Today } from './screens/Today';
 import { Inbox } from './screens/Inbox';
 import { SettingsScreen } from './screens/Settings';
 import { MessageDetail } from './screens/MessageDetail';
+import { Locked } from './screens/Locked';
+import { LockScreen } from './screens/LockScreen';
 import { refresh } from './lib/session';
+import { initLicense, useLicense } from './lib/license';
+import { initAppLock, useAppLock } from './lib/applock';
 
 function useTheme(theme: 'system' | 'dark' | 'light') {
   useEffect(() => {
@@ -25,23 +29,32 @@ function useTheme(theme: 'system' | 'dark' | 'light') {
   }, [theme]);
 }
 
+const Spinner = () => <div className="grid h-full place-items-center"><div className="h-8 w-8 animate-spin rounded-full border-2 border-ink-3/30 border-t-accent" /></div>;
+
 export function App() {
   const { settings, loaded } = useStore();
+  const license = useLicense();
+  const lock = useAppLock();
   const toast = useToast();
   const [tab, setTab] = useState<Tab>('today');
   const [openId, setOpenId] = useState<string | null>(null);
   useTheme(settings.theme);
 
-  // Refresh on open and whenever the app comes back to the foreground.
+  // Gate order: owner invite → app lock → onboarding → app.
+  useEffect(() => { if (loaded) { void initLicense(); void initAppLock(); } }, [loaded]);
+
+  const active = loaded && license.state === 'ok' && !lock.locked && settings.onboarded;
   useEffect(() => {
-    if (!loaded || !settings.onboarded) return;
+    if (!active) return;
     void refresh();
     const onVis = () => { if (document.visibilityState === 'visible') void refresh(); };
     document.addEventListener('visibilitychange', onVis);
     return () => document.removeEventListener('visibilitychange', onVis);
-  }, [loaded, settings.onboarded]);
+  }, [active]);
 
-  if (!loaded) return <div className="grid h-full place-items-center"><div className="h-8 w-8 animate-spin rounded-full border-2 border-ink-3/30 border-t-accent" /></div>;
+  if (!loaded || license.state === 'checking') return <Spinner />;
+  if (license.state === 'locked') return <><Locked /><Toast toast={toast} /></>;
+  if (lock.locked && settings.onboarded) return <LockScreen />;
   if (!settings.onboarded) return <><Onboarding /><Toast toast={toast} /></>;
 
   return (

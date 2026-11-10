@@ -50,6 +50,16 @@ export interface Settings {
   voice: { enabled: boolean; rate: number; autoplay: boolean };
   signature: string;
   replyStyle: 'concise' | 'friendly' | 'formal';
+  security: SecuritySettings;
+}
+
+export interface SecuritySettings {
+  lock: 'off' | 'pin' | 'biometric';
+  pinHash?: string;
+  pinSalt?: string;
+  credentialId?: string;
+  autoLockMinutes: number;
+  keepMailOffline: boolean;
 }
 
 export const DEFAULT_SETTINGS: Settings = {
@@ -62,6 +72,7 @@ export const DEFAULT_SETTINGS: Settings = {
   voice: { enabled: true, rate: 1, autoplay: false },
   signature: '',
   replyStyle: 'friendly',
+  security: { lock: 'off', autoLockMinutes: 5, keepMailOffline: true },
 };
 
 export const TOPIC_CATALOGUE = [
