@@ -66,7 +66,7 @@ section.block{margin-top:38px;scroll-margin-top:80px}
 section.block>h2{font-size:22px;margin:0 0 4px;display:flex;align-items:center;gap:10px}
 section.block>h2 .n{font-size:12px;color:var(--muted);font-weight:500;background:var(--chip);padding:2px 8px;border-radius:999px}
 section.block>p.sub{margin:0 0 16px;color:var(--muted);font-size:14px}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:14px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:14px;align-items:start}
 .card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:16px 16px 14px;display:flex;flex-direction:column;gap:8px;transition:transform .12s,border-color .12s}
 .card:hover{transform:translateY(-2px);border-color:color-mix(in srgb,var(--accent) 60%,var(--line))}
 .card.hidden{display:none}
@@ -95,7 +95,7 @@ footer a{color:var(--muted);text-decoration:underline}
 .archive-list li{padding:12px 0;border-bottom:1px solid var(--line)}
 .archive-list li a{font-size:17px;color:var(--text)}
 .archive-list li span{display:block;color:var(--muted);font-size:14px}
-@media (max-width:640px){.grid{grid-template-columns:1fr}.hero{padding-top:22px}}
+@media (max-width:640px){.grid{grid-template-columns:1fr}.hero{padding-top:22px}nav.tabs{flex-wrap:nowrap;overflow-x:auto;width:100%;margin-left:0;padding-bottom:2px;scrollbar-width:none}nav.tabs::-webkit-scrollbar{display:none}.search{max-width:none}}
 """
 
 JS = r"""
