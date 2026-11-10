@@ -22,7 +22,11 @@
           "date": "2026-11-09",
           "summary": "New top model claude-fable-5-2 with 1M context, 128k output, always-on adaptive thinking and up to 30% faster output than Fable 5.1. Priced at $8 input / $40 output per million tokens (down from $10/$50), cache reads $0.20, fast mode $16/$80 via speed: \"fast\" with no beta header. Reported benchmarks vs Opus 5.5: FrontierSWE v2 69.9 vs 62.3, OSWorld 2.1 89.3 vs 87.2. Mythos 5.2 is the same model, restricted to verified cyber and life-sciences organisations.",
           "why": "Day-one availability on Amazon Bedrock and Claude Platform on AWS means you can A/B it against Fable 5.1 in your framework this week; the price cut improves the economics of long-context runs.",
-          "tags": ["model", "pricing", "bedrock"]
+          "tags": [
+            "model",
+            "pricing",
+            "bedrock"
+          ]
         },
         {
           "title": "What's new in Fable 5.2: the breaking changes you must handle before switching",
@@ -31,7 +35,11 @@
           "date": "2026-11-09",
           "summary": "The preserved-thinking prefix check is now enforced for every account: editing system prompt, tools or earlier messages and then replaying a 5.2 thinking block returns a 400. Only Fable/Mythos 5.2 can read 5.2 thinking blocks; falling back to Opus 5.5 silently drops them. The computer_20251124 tool returns 400 everywhere except Bedrock. Forced tool_choice (any / specific tool) returns 400, thinking cannot be disabled, default effort is high. 30-day retention is required.",
           "why": "If any part of your framework builds raw Messages requests (routers, compaction, retries, model fallback), make conversation history append-only first. The docs say nothing changes if the Agent SDK builds the requests for you.",
-          "tags": ["breaking-change", "agent-sdk", "api"]
+          "tags": [
+            "breaking-change",
+            "agent-sdk",
+            "api"
+          ]
         },
         {
           "title": "Claude Code 2.1.321 and 2.1.322: Fable 5.2 default, security fixes, fast mode on Vertex",
@@ -40,7 +48,11 @@
           "date": "2026-11-09",
           "summary": "2.1.321 makes Fable 5.2 the default fable model and migrates saved Fable 5.1 picks. It ships 15 improvements and 74 fixes, including security fixes (MCP OAuth no longer sends refresh tokens to a redirect host, read-only Bash can no longer escape the sandbox without a prompt, deny rules now apply to cp and mv targets). SDK fixes: project skills, commands and agents no longer disappear after entering a worktree. Gateway change: Bedrock, Vertex and Foundry upstreams now ignore ANTHROPIC_*_BASE_URL unless base_url is set on the upstream. 2.1.322 (Nov 10) adds fast mode on Vertex.",
           "why": "Bump the bundled CLI in your SDK deployment to get the worktree-skills fix and the permission hardening; audit any gateway config that relied on ANTHROPIC_BEDROCK_BASE_URL in the gateway's environment.",
-          "tags": ["claude-code", "security", "gateway"]
+          "tags": [
+            "claude-code",
+            "security",
+            "gateway"
+          ]
         },
         {
           "title": "Claude Code 2.1.319: MCP tasks run in the background, denyInsteadOfPrompting, Bedrock gateway warnings",
@@ -49,7 +61,11 @@
           "date": "2026-11-06",
           "summary": "When an MCP server runs a tool call as a task, Claude Code now backgrounds it and reports when it completes (CLAUDE_CODE_DISABLE_MCP_TASKS=1 turns it off). New setting permissions.denyInsteadOfPrompting: a call that would block on a prompt is denied and the turn continues. The gateway now warns at startup about GovCloud-mixed upstreams and Bedrock guardrail headers it does not forward. Also new: /usage spend view and a /claude-api latency-optimize subcommand.",
           "why": "denyInsteadOfPrompting is the headless-safe permission posture for an unattended SDK agent. Note the TypeScript SDK changelog says MCP task support in SDK sessions is not available on Bedrock, Vertex or Foundry.",
-          "tags": ["claude-code", "mcp", "permissions"]
+          "tags": [
+            "claude-code",
+            "mcp",
+            "permissions"
+          ]
         },
         {
           "title": "Claude Agent SDK for TypeScript 0.3.319, 0.3.321, 0.3.322",
@@ -58,7 +74,10 @@
           "date": "2026-11-10",
           "summary": "0.3.319 adds MCP task support in SDK sessions (CLAUDE_AUTO_BACKGROUND_TASKS=1 with streaming input) and fixes the OpenTelemetry session count for unclaimed prewarm() processes. 0.3.321 fixes canUseTool decisionReason mixing hook reasons, hooks being dropped when one event is undefined, a WarmQuery.query() hang after startup() with resume, and reloadSkills()/reloadPlugins() dropping project skills in worktrees. 0.3.322 matches CLI 2.1.322.",
           "why": "If you use prewarm() or SpareProcess.claim() pools or WarmQuery to cut latency on AgentCore, 0.3.321 fixes real hangs. The undefined-hook fix matters if you build hook maps conditionally.",
-          "tags": ["agent-sdk", "typescript"]
+          "tags": [
+            "agent-sdk",
+            "typescript"
+          ]
         },
         {
           "title": "Claude Agent SDK for Python 0.2.177 to 0.2.180: hooks can now fail closed",
@@ -67,7 +86,11 @@
           "date": "2026-11-09",
           "summary": "0.2.177 added HookMatcher(on_failure=\"block\"): a hook callback that raises or returns None now blocks the action instead of letting it through (default remains \"continue\"). 0.2.178 bundles CLI 2.1.318. 0.2.179 (Nov 6) and 0.2.180 (Nov 9) have no release notes on GitHub beyond bundling the newer CLI, so their exact contents are uncertain.",
           "why": "Set on_failure=\"block\" on your PreToolUse guardrails so a bug in a policy hook denies rather than allows. That is the right default for an internal framework on AWS.",
-          "tags": ["agent-sdk", "python", "guardrails"]
+          "tags": [
+            "agent-sdk",
+            "python",
+            "guardrails"
+          ]
         },
         {
           "title": "Engineering: The components of agent memory",
@@ -76,7 +99,10 @@
           "date": "2026-11-06",
           "summary": "Lance Martin lays out a memory hierarchy: searchable transcripts, memory notes, wiki-style memory representations, and a small injected context layer, plus offline \"dreaming\" passes where Claude reviews logs and fixes its notes. Reported results: CL-Bench reward from 0.564 to 0.828 with memory; wiki accuracy from 13% to 48% over 128 dreaming sessions. Guidance: keep the injected layer small, one page per entity to avoid parallel-agent overwrites, tell Claude what memory is for rather than giving rigid rules.",
           "why": "A concrete blueprint for a memory layer in your harness: an S3 or EFS-backed memory directory plus a scheduled dreaming job. It needs no Anthropic-side memory store, so it works on Bedrock.",
-          "tags": ["memory", "architecture"]
+          "tags": [
+            "memory",
+            "architecture"
+          ]
         },
         {
           "title": "anthropics/skills: docx, pdf, pptx and xlsx relicensed to Apache 2.0",
@@ -85,7 +111,10 @@
           "date": "2026-11-06",
           "summary": "The four document skills, previously under a proprietary licence, now use Apache 2.0 like the rest of the repository. The repo currently holds 19 skills and a spec folder for the Agent Skills standard (agentskills.io). An Oct 28 commit updated mcp-builder to teach v2 of the MCP TypeScript SDK.",
           "why": "Removes the licensing blocker to vendoring the document skills into an internal framework. See the Skills section below for the install pattern.",
-          "tags": ["skills", "licensing"]
+          "tags": [
+            "skills",
+            "licensing"
+          ]
         },
         {
           "title": "Official plugin marketplace: Xcode plugin and champion-kit added, plugin.json normalised",
@@ -94,7 +123,10 @@
           "date": "2026-11-06",
           "summary": "An xcode plugin (exposes Xcode via MCP for Apple-platform work) and champion-kit were merged, and plugin.json was added to 14 plugins that lacked one. The security-guidance plugin was bumped to 2.0.19 on Nov 7 with rule and test commits continuing through Nov 10.",
           "why": "Marketplace plugins such as agent-sdk-dev, mcp-server-dev and security-guidance load into Agent SDK sessions via the plugins option, so they are a cheap way to seed capabilities.",
-          "tags": ["plugins", "marketplace"]
+          "tags": [
+            "plugins",
+            "marketplace"
+          ]
         },
         {
           "title": "Claude Desktop and Cowork 4.23118.1: pin your Fable model ID if you run a gateway",
@@ -103,7 +135,11 @@
           "date": "2026-11-09",
           "summary": "The build bundles Claude Code 2.1.321. Breaking for third-party gateways: fable in inferenceModels now requests the newest Fable unless the gateway serves a matching ID (pin with the exact ID plus anthropicFamilyTier: \"fable\"). Plugin-code tool calls no longer show approval cards. The Nov 5 build removed organizationPluginsUrl in favour of allowedPluginMarketplaces and added spend-limit administration for the apps gateway.",
           "why": "If your framework fronts Bedrock with a Claude apps gateway, pin Fable IDs now or desktop clients will start requesting claude-fable-5-2.",
-          "tags": ["gateway", "desktop", "breaking-change"]
+          "tags": [
+            "gateway",
+            "desktop",
+            "breaking-change"
+          ]
         },
         {
           "title": "Safely scaling multi-agent teams with Claude Fable 5.2 (1,000 sandboxed agents)",
@@ -112,7 +148,10 @@
           "date": "2026-11-09",
           "summary": "Per secondary summaries (the page itself could not be fetched from this session, so details are unverified): 1,000 sandboxed agents, one lead and 999 helpers with shell and file tools and no internet, each confined to its own Git branch with merge requests into main, self-organised via Git and a shared database and reproduced a formal Lean proof of Fermat's Last Theorem in about 28.7 hours. When a classifier blocks a tool call the whole team halts for human review. Companion post: \"Which Claude model should you build with?\".",
           "why": "The halt-the-team-on-a-blocked-call pattern and branch-per-agent isolation are directly reusable in a multi-agent framework on AWS.",
-          "tags": ["multi-agent", "unverified-details"]
+          "tags": [
+            "multi-agent",
+            "unverified-details"
+          ]
         },
         {
           "title": "JPMorganChase expands Claude Code firm-wide inside its own containers",
@@ -121,7 +160,10 @@
           "date": "2026-11-09",
           "summary": "Claude Code rolled out beyond engineers to operations, security, risk and product teams, running inside the firm's Devspace containers on its own infrastructure. Agents get no direct credentials, automated hard-pass and halt gates stop Claude approving its own work, and new models go through internal approval before use.",
           "why": "A public reference for the controls an internal framework needs: containerised sandbox, credential isolation and pipeline-enforced gates.",
-          "tags": ["enterprise", "reference-architecture"]
+          "tags": [
+            "enterprise",
+            "reference-architecture"
+          ]
         },
         {
           "title": "Message threads beta: server-side conversation state on the Messages API",
@@ -130,7 +172,10 @@
           "date": "2026-11-02",
           "summary": "With the message-threads-2026-08-12 beta the conversation stays on the server and each turn sends only new messages, lowering time to first token at the same price. Threads expire 5 minutes after the last request. Listed for the Claude API, Claude Platform on AWS, Google Cloud and Foundry, not for Bedrock.",
           "why": "From AWS this is only reachable through Claude Platform on AWS, not Bedrock, and the Agent SDK does not expose it directly. Included because it is a week old and easy to miss.",
-          "tags": ["api", "beta"]
+          "tags": [
+            "api",
+            "beta"
+          ]
         }
       ]
     },
@@ -139,21 +184,30 @@
       "items": [
         {
           "title": "Claude Fable 5.2 on Amazon Bedrock and Claude Platform on AWS",
-          "url": "https://platform.claude.com/docs/en/build-with-claude/claude-in-amazon-bedrock",
-          "source": "Claude Platform docs (Bedrock page)",
+          "url": "https://aws.amazon.com/blogs/machine-learning/introducing-claude-fable-5-2-on-aws/",
+          "source": "AWS Machine Learning Blog",
           "date": "2026-11-09",
-          "summary": "Bedrock serves anthropic.claude-fable-5-2 (global and us inference profiles at launch, no eu, apac or jp yet) and anthropic.claude-mythos-5-2 for verified orgs. Both are covered models: on Bedrock they require data retention mode aws_review in the invocation Region or the request fails with a ValidationException. Bedrock still lacks the Files API, server-side tools, the Agent Skills API, the MCP connector, Batches and Managed Agents; Claude Platform on AWS (Anthropic-operated, AWS Marketplace billing) has near-full parity including Skills and code execution but no fast mode. The AWS blog post announcing the launch could not be fetched from this session.",
+          "summary": "AWS confirms both models are available today on Bedrock through US Geo CRIS and Global CRIS inference profiles (model ID global.anthropic.claude-fable-5-2), with Enterprise Frontier Safeguards built with AWS. As covered models they require up to 30 days of retention plus human safety review, performed by Amazon personnel inside the AWS boundary: set the aws_review data retention mode on your account or project before invoking, or the request fails. The post points to Claude Code's /claude-api migrate command, which rewrites code to the Bedrock model ID format. Per the Claude Platform Bedrock page, Bedrock still lacks the Files API, server-side tools, the Agent Skills API, the MCP connector, Batches and Managed Agents; Claude Platform on AWS has near-full parity but no fast mode.",
           "why": "Decide per feature which AWS surface your framework talks to: Bedrock for the strict data boundary, Claude Platform on AWS when you need Skills, Files or code execution.",
-          "tags": ["bedrock", "fable-5.2", "pricing"]
+          "tags": [
+            "bedrock",
+            "fable-5.2",
+            "pricing"
+          ]
         },
         {
-          "title": "AgentCore Runtime V2 now in 10 Regions, DynamoDB bulk put items GA (AWS Weekly Roundup)",
+          "title": "AgentCore November release notes: Runtime V2 in five more Regions, 250 connections per session, new InvokeWebSearch API",
           "url": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/release-notes.html",
-          "source": "AWS Weekly Roundup / AgentCore release notes",
+          "source": "AgentCore release notes",
           "date": "2026-11-09",
-          "summary": "AgentCore Runtime platform version V2 added Frankfurt, Stockholm, Mumbai, Singapore and Sydney. V2 agents hold up to 250 concurrent connections per session on the default 2 vCPU, and a new OverheadLatency CloudWatch metric was added. The roundup cites P75 cold starts of about 2 seconds for 200 MB to 2 GB images on V2 versus 5 to 30 seconds on V1; opt in with platformVersion V2. Date and details come from search results and a syndicated copy of the roundup, since aws.amazon.com could not be fetched from this session.",
+          "summary": "The November entries confirm Runtime platform version V2 in Europe (Frankfurt), Europe (Stockholm), Asia Pacific (Mumbai, Singapore, Sydney); V2 starts agents from a snapshot so cold starts stay fast regardless of concurrency or image size. V2 agents now hold up to 250 concurrent connections per session on the default 2 vCPU (previously 16). Also new: a Web Search API (InvokeWebSearch) callable from the AWS SDKs or CLI without a gateway, in six Regions, and Runtime support for MCP protocol version 2026-07-28 with a recommended GET /ping health endpoint. The AWS Weekly Roundup of Nov 9 cites P75 cold starts of about 2 seconds on V2 versus 5 to 30 seconds on V1.",
           "why": "If your Agent SDK containers run on AgentCore Runtime, moving to V2 is the single biggest latency win available this week, and the Frankfurt Region unlocks EU-resident deployments.",
-          "tags": ["agentcore", "latency", "regions"]
+          "tags": [
+            "agentcore",
+            "latency",
+            "regions",
+            "web-search"
+          ]
         },
         {
           "title": "AgentCore Gateway built-in Web Answer connector is generally available",
@@ -162,7 +216,11 @@
           "date": "2026-11-05",
           "summary": "One MCP tool call returns a synthesised answer with citations to current web sources. You add a Gateway target with connector ID web-answer and grant the Gateway service role InvokeWebAnswer. us-east-1 only at launch.",
           "why": "Gives Bedrock-hosted agents web grounding without Anthropic's server-side web search tool, which Bedrock does not support.",
-          "tags": ["agentcore", "mcp", "web-search"]
+          "tags": [
+            "agentcore",
+            "mcp",
+            "web-search"
+          ]
         },
         {
           "title": "Claude Mythos 5.2 offered to eligible customers in AWS GovCloud (US)",
@@ -171,7 +229,11 @@
           "date": "2026-11-09",
           "summary": "AWS describes Mythos 5.2 as the first Anthropic model with its strongest cyber capabilities available in GovCloud (us-gov-east-1 and us-gov-west-1), restricted to organisations allow-listed through Anthropic's Cyber Verification Program. A companion item reports Fable 5.2 in GovCloud as well. Date taken from search mirrors; the announcement page was not fetched.",
           "why": "Relevant only if you serve regulated US public-sector workloads; otherwise a signal that Bedrock gets Anthropic's gated models at the same time as the API.",
-          "tags": ["bedrock", "govcloud", "uncertain-date"]
+          "tags": [
+            "bedrock",
+            "govcloud",
+            "uncertain-date"
+          ]
         },
         {
           "title": "Moonshot AI Kimi K3.1 Pro now available on Amazon Bedrock",
@@ -180,16 +242,23 @@
           "date": "2026-11-06",
           "summary": "An open-weight, natively multimodal agentic model with 1M context, served via cross-Region inference as moonshotai.kimi-k3.1 with Global, US and India profiles. Reported global pricing $4/$20 per million tokens with $0.20 cache reads; reasoning on by default with a reasoning_effort knob. Caveats: each output token counts 10x against service quota, and document input, explicit prompt caching and count-tokens are not supported via Converse. One tracker dates GA to Nov 4, the What's New post to Nov 6.",
           "why": "A cheaper long-context option for low-stakes subagents (summarisation, classification) inside a Bedrock-only framework, if your governance allows a non-Anthropic model.",
-          "tags": ["bedrock", "open-weights", "pricing"]
+          "tags": [
+            "bedrock",
+            "open-weights",
+            "pricing"
+          ]
         },
         {
           "title": "Bedrock Managed Knowledge Base: single-shot and agentic retrieval through one API",
           "url": "https://aws.amazon.com/blogs/machine-learning/single-shot-and-agentic-retrieval-with-amazon-bedrock-managed-knowledge-base/",
           "source": "AWS Machine Learning Blog",
           "date": "2026-11-09",
-          "summary": "Managed Knowledge Base now serves single-shot RAG and retrieval-only requests through the same AgenticRetrieveStream API used for multi-step agentic retrieval; maxAgentIteration sets retrieval effort per request. Agentic retrieval currently supports only managed knowledge bases, up to 5 retrievers per request. Search shows the post as published within the last day; the page was not fetched.",
+          "summary": "Managed Knowledge Base now serves single-shot RAG and retrieval-only requests through the same AgenticRetrieveStream API used for multi-step agentic retrieval. The maxAgentIteration range is now 0 to 5 and selects one of three modes per request: retrieval-only (equivalent to the Retrieve API, generateResponse must be false), single-shot RAG (retrieve once, generate), or agentic retrieval with planning. All three modes support multiple knowledge bases. Publication date not shown on the page; search indexes it as published within the last day.",
           "why": "One retrieval tool definition in your framework can now cover both cheap lookups and deep research by changing a single parameter.",
-          "tags": ["bedrock", "rag", "uncertain-date"]
+          "tags": [
+            "bedrock",
+            "rag"
+          ]
         },
         {
           "title": "Kiro Crew: bots are generally available",
@@ -198,7 +267,10 @@
           "date": "2026-11-05",
           "summary": "Bots are named, long-running agents that each own one responsibility, such as triaging an issue queue or reviewing pull requests against earlier team decisions, with their own memory and sessions. They can run on a laptop, Mac mini or EC2 instance and draw from pooled Kiro credits. Third-party write-ups note bots act without per-action approval and the default sandbox leaves ~/.ssh and ~/.aws readable.",
           "why": "Worth comparing against your own long-running agent design, and a reminder to lock down credential directories in any agent sandbox.",
-          "tags": ["kiro", "agents"]
+          "tags": [
+            "kiro",
+            "agents"
+          ]
         },
         {
           "title": "Strands Agents: Strands Box sandbox now previews on Linux",
@@ -207,7 +279,10 @@
           "date": "2026-11-05",
           "summary": "Strands Box, AWS's open-source Rust agent sandbox with default-deny policies and credential injection, now supports Linux in preview, limited to ARM64 hosts. A separate Strands post from about Nov 9 describes Amazon replacing a Claude Sonnet 4.6 call with a small Strands Decider model in an internal ticketing system; its body was not verified.",
           "why": "A credential-injecting, default-deny sandbox you could place around Agent SDK tool execution on Graviton instances.",
-          "tags": ["strands", "sandbox"]
+          "tags": [
+            "strands",
+            "sandbox"
+          ]
         },
         {
           "title": "Amazon Q Developer in the console renamed AWS assistant",
@@ -216,7 +291,10 @@
           "date": "2026-11-05",
           "summary": "The console and mobile Q Developer experience is now called the AWS assistant; existing Q Developer Pro subscribers keep Pro-tier capabilities. AWS says it is currently free and available globally. No other Amazon Q or Nova announcements were found for Nov 6 to 10, and no official re:Invent 2026 (Nov 30 to Dec 4) pre-announcements surfaced.",
           "why": "Naming only, but update any internal docs that point people at Amazon Q in the console.",
-          "tags": ["amazon-q", "naming"]
+          "tags": [
+            "amazon-q",
+            "naming"
+          ]
         }
       ]
     },
@@ -230,7 +308,10 @@
           "status": "recommended",
           "summary": "Word read/write/edit with tracked changes, PDF extract/merge/split/fill/OCR, deck generation, spreadsheet creation and formula work. All four moved to Apache 2.0 on Nov 6. They rely on Bash and Python in the agent's own sandbox, which is fine for the Agent SDK on AgentCore; the Anthropic-hosted Skills API path is not available on Bedrock.",
           "why": "The workhorse skills for any enterprise document pipeline. Vendor the folders into .claude/skills/ and load with setting_sources=[\"project\"] and skills=\"all\" (see https://code.claude.com/docs/en/agent-sdk/skills), or add the marketplace with /plugin marketplace add anthropics/skills.",
-          "tags": ["documents", "apache-2.0"]
+          "tags": [
+            "documents",
+            "apache-2.0"
+          ]
         },
         {
           "title": "skill-creator",
@@ -239,7 +320,9 @@
           "status": "recommended",
           "summary": "Scaffolds a SKILL.md, runs the skill with and without evals, and tunes the trigger description so it fires at the right time.",
           "why": "Lets your team author internal skills (your AWS conventions, your ticketing format) consistently instead of hand-writing them.",
-          "tags": ["authoring"]
+          "tags": [
+            "authoring"
+          ]
         },
         {
           "title": "mcp-builder",
@@ -248,7 +331,9 @@
           "status": "recommended",
           "summary": "Guide for building MCP servers, updated Oct 28 to teach FastMCP and v2 of the MCP TypeScript SDK.",
           "why": "Use it to wrap internal AWS services (DynamoDB tables, Step Functions, internal APIs) as MCP tools your agents can call through AgentCore Gateway.",
-          "tags": ["mcp"]
+          "tags": [
+            "mcp"
+          ]
         },
         {
           "title": "webapp-testing",
@@ -257,7 +342,9 @@
           "status": "recommended",
           "summary": "Playwright-based local web app testing with a server lifecycle helper.",
           "why": "Good for a verification subagent that proves a change works before the framework reports success.",
-          "tags": ["testing"]
+          "tags": [
+            "testing"
+          ]
         },
         {
           "title": "claude-api",
@@ -266,7 +353,10 @@
           "status": "recommended",
           "summary": "Reference for the Claude API and SDKs including the Bedrock Mantle clients, with migrate, cost-optimize and latency-optimize sub-commands.",
           "why": "Needed whenever your agents write or review code that calls Claude, especially during the Fable 5.2 migration.",
-          "tags": ["reference", "bedrock"]
+          "tags": [
+            "reference",
+            "bedrock"
+          ]
         },
         {
           "title": "security-guidance plugin (official marketplace)",
@@ -275,7 +365,10 @@
           "status": "recommended",
           "summary": "Bumped to 2.0.19 on Nov 7 with rule and test commits through Nov 10. Install with /plugin install security-guidance@claude-plugins-official, or load via the Agent SDK plugins option. Same directory also holds agent-sdk-dev, mcp-server-dev, code-review, pr-review-toolkit, hookify and session-report. Plugin contents were not individually fetched.",
           "why": "Actively maintained secure-coding rules that run inside the agent, complementing your PreToolUse guardrails.",
-          "tags": ["security", "plugin"]
+          "tags": [
+            "security",
+            "plugin"
+          ]
         },
         {
           "title": "frontend-design",
@@ -284,7 +377,9 @@
           "status": "consider",
           "summary": "Opinionated UI generation guidance that avoids generic AI-looking output.",
           "why": "Only if your agents build internal dashboards or customer-facing pages.",
-          "tags": ["ui"]
+          "tags": [
+            "ui"
+          ]
         }
       ]
     },
@@ -297,7 +392,9 @@
           "channel": "YouTube",
           "date": "about 1 day ago",
           "summary": "First-day reaction and walkthrough of the Fable 5.2 launch. Channel name not returned by search; age is approximate.",
-          "tags": ["fable-5.2"]
+          "tags": [
+            "fable-5.2"
+          ]
         },
         {
           "title": "You missed these CRAZY Claude Code Upgrades",
@@ -305,7 +402,9 @@
           "channel": "aicodeking",
           "date": "about 1 day ago",
           "summary": "Round-up of the latest Claude Code updates from the past week.",
-          "tags": ["claude-code"]
+          "tags": [
+            "claude-code"
+          ]
         },
         {
           "title": "O Claude Code no computador virou uma equipe: 6 novidades (Portuguese)",
@@ -313,7 +412,10 @@
           "channel": "YouTube",
           "date": "today",
           "summary": "Six new Claude Code desktop features: sessions that spawn other sessions, saved environments, parallel side questions, plus the creator's workflow.",
-          "tags": ["claude-code", "desktop"]
+          "tags": [
+            "claude-code",
+            "desktop"
+          ]
         },
         {
           "title": "30 Claude Code Tips in Under 5 Minutes",
@@ -321,7 +423,10 @@
           "channel": "YouTube",
           "date": "about 3 days ago",
           "summary": "Thirty rapid-fire tips, each demonstrated in a real session, aimed at moving beyond type-a-prompt-and-wait.",
-          "tags": ["claude-code", "tips"]
+          "tags": [
+            "claude-code",
+            "tips"
+          ]
         },
         {
           "title": "Claude Just Dropped 7 Updates (Here's Which 4 to Use)",
@@ -329,7 +434,9 @@
           "channel": "YouTube",
           "date": "about 4 days ago",
           "summary": "Seven new Claude desktop-app updates and which four are worth adopting.",
-          "tags": ["claude-app"]
+          "tags": [
+            "claude-app"
+          ]
         },
         {
           "title": "Claude Code Can Now Split Itself Into Parallel Sessions (Desktop Update)",
@@ -337,7 +444,10 @@
           "channel": "YouTube",
           "date": "about 5 days ago",
           "summary": "Running many sessions side by side with parent and child nested sessions in the desktop app.",
-          "tags": ["claude-code", "multi-session"]
+          "tags": [
+            "claude-code",
+            "multi-session"
+          ]
         },
         {
           "title": "Claude Code Tutorial for Beginners: Build Your First App (No Coding)",
@@ -345,7 +455,10 @@
           "channel": "YouTube",
           "date": "about 5 days ago",
           "summary": "Describe a project in plain language, refine it by conversation, save and deploy. Episode 9 of a beginner course.",
-          "tags": ["build-an-app", "side-business"]
+          "tags": [
+            "build-an-app",
+            "side-business"
+          ]
         },
         {
           "title": "How to Use and Create Skills in Claude (SKILL.md Explained)",
@@ -353,7 +466,9 @@
           "channel": "YouTube",
           "date": "2026-10-31",
           "summary": "Skills as packaged workflows that apply automatically when relevant, with the tip to freeze unchanging steps as code (the creator claims a large cost drop). Newest skills-specific video found; nothing newer surfaced in the last 7 days.",
-          "tags": ["skills"]
+          "tags": [
+            "skills"
+          ]
         },
         {
           "title": "Claude Code Skills and Slash Commands: SKILL.md, context: fork, allowed-tools",
@@ -361,7 +476,9 @@
           "channel": "YouTube",
           "date": "within ~2 weeks",
           "summary": "Anatomy of a skill file, slash-command invocation, and restricting tools per skill.",
-          "tags": ["skills"]
+          "tags": [
+            "skills"
+          ]
         },
         {
           "title": "Adding the Browserless MCP to Claude desktop takes one custom connector and a URL (Short)",
@@ -369,7 +486,10 @@
           "channel": "YouTube",
           "date": "about 10 days ago",
           "summary": "Customize, then Connectors, then custom connector in the Claude desktop app. Newest connectors video found.",
-          "tags": ["connectors", "mcp"]
+          "tags": [
+            "connectors",
+            "mcp"
+          ]
         },
         {
           "title": "Mods in Claude Code: change how Claude Code works (Anthropic)",
@@ -377,7 +497,10 @@
           "channel": "Anthropic",
           "date": "2026-10-05",
           "summary": "Three example mods: a live context breakdown, an agent side pane, and hover-to-reveal. Mods changed behaviour in 2.1.321 (no longer auto-enable in auto or bypass modes).",
-          "tags": ["claude-code", "mods"]
+          "tags": [
+            "claude-code",
+            "mods"
+          ]
         },
         {
           "title": "Claude Agent SDK Tutorial (Claude Certified Architect Foundations)",
@@ -385,7 +508,9 @@
           "channel": "YouTube",
           "date": "about 8 weeks ago",
           "summary": "Setting up the Anthropic SDK and Agent SDK and writing a first agent. Newest Agent SDK tutorial found; no SDK video appeared in the last 7 days.",
-          "tags": ["agent-sdk"]
+          "tags": [
+            "agent-sdk"
+          ]
         },
         {
           "title": "Claude on Bedrock Part 3: Web Search Tool on Amazon Bedrock AgentCore",
@@ -393,7 +518,10 @@
           "channel": "YouTube",
           "date": "about 3.5 months ago",
           "summary": "Web grounding for Claude via AgentCore. Older, but it pairs with this week's Web Answer connector GA. No AgentCore video appeared in the last 7 days.",
-          "tags": ["agentcore", "bedrock"]
+          "tags": [
+            "agentcore",
+            "bedrock"
+          ]
         }
       ]
     },
@@ -407,7 +535,10 @@
           "date": "2026-11-09",
           "summary": "Priced at $0.10 input / $0.50 output per million tokens via the Meta Model API, with 1M context, up to 512k output and text, image, audio and video input. Positioned as the execution companion to Muse Wonder for tool calls, routing and extraction. Meta claims Haiku 5.5-level scores at about a third of the cost per task, but it is weaker on coding. Weights are not released. Page not fetched; details from multiple outlets.",
           "why": "A candidate for the cheap classifier or router tier in a mixed-model agent stack, if a non-Anthropic model is acceptable.",
-          "tags": ["model", "pricing"]
+          "tags": [
+            "model",
+            "pricing"
+          ]
         },
         {
           "title": "Cursor Build Live Apps: cloud agents build, provision Postgres and auth, and deploy",
@@ -416,7 +547,10 @@
           "date": "2026-11-05",
           "summary": "From a prompt, a cloud agent scaffolds the app, spins up Postgres, sets up auth behind Cursor SSO, provisions hosting and returns a live URL. Works from new or existing repos on Cursor Origin and GitHub, paid plans only. Vercel says it runs on Vercel for Platforms; no hosting price or limits published.",
           "why": "Sets the bar for what an end-to-end app-building agent is expected to do; also a fast way to prototype a side-project idea.",
-          "tags": ["tooling", "agents"]
+          "tags": [
+            "tooling",
+            "agents"
+          ]
         },
         {
           "title": "GitHub Copilot: weekly releases, code-review API management, impact dashboard",
@@ -425,7 +559,9 @@
           "date": "2026-11-06",
           "summary": "Copilot arrives in JetBrains Air and Xcode's coding assistant. Copilot code review settings are now manageable via REST and GraphQL from enterprise policy down to repository level, and the impact dashboard counts Copilot Chat and VS Code agent usage. Copilot CLI 1.0.107 and 1.0.108 added sandbox permissions and indexing.",
           "why": "Useful if your company mixes Copilot with Claude Code and wants policy-as-code for review settings.",
-          "tags": ["tooling"]
+          "tags": [
+            "tooling"
+          ]
         },
         {
           "title": "Google: Gemini Omni 1.2 Flash GA with 15-second video and ~30% lower pricing",
@@ -434,7 +570,10 @@
           "date": "2026-11-05",
           "summary": "Generally available on Google Cloud with 15-second clips, multi-turn video edits and about 30% lower pricing, replacing Veo 3.1 in the global region. Product Hunt lists it at $0.07 per second. Elsewhere this window: Alibaba teased Qwen4 on Nov 6 with no date, and no new OpenAI, DeepSeek, Mistral or xAI model shipped.",
           "why": "Relevant to the video side of your own projects: cheaper generated clips change the cost of an AI-video product.",
-          "tags": ["model", "video"]
+          "tags": [
+            "model",
+            "video"
+          ]
         },
         {
           "title": "NVIDIA unveils GR00T 2 and Isaac Lab 3.0 at CoRL",
@@ -443,7 +582,9 @@
           "date": "2026-11-09",
           "summary": "GR00T 2 is an open world-action model trained on robot data plus 100k hours of egocentric human video; NVIDIA reports 40 of 50 tasks zero-shot and 95% success with five demonstrations. Isaac Lab 3.0 adds a modular physics backend and multi-GPU training. Code is slated for December.",
           "why": "Background only, unless robotics is on your roadmap.",
-          "tags": ["robotics"]
+          "tags": [
+            "robotics"
+          ]
         },
         {
           "title": "Google adds TPU 8tx (confidential computing) and TPU 8i Max to its 8th-gen lineup",
@@ -452,7 +593,9 @@
           "date": "2026-11-09",
           "summary": "8tx pairs 8t silicon with AMD EPYC hosts for confidential inference; 8i Max packages two 8i chips, doubling compute, SRAM and HBM bandwidth. Availability conflicts across outlets, with Bloomberg putting 8i Max in 2027.",
           "why": "Infrastructure context for anyone comparing Trainium and Inferentia roadmaps against Google's.",
-          "tags": ["infrastructure"]
+          "tags": [
+            "infrastructure"
+          ]
         },
         {
           "title": "Anthropic launches IPO roadshow: 825M shares at $70 to $78, Nasdaq ticker ANT",
@@ -461,7 +604,9 @@
           "date": "2026-11-10",
           "summary": "825,000,000 Class A shares (801.35M from Anthropic, 23.65M from existing holders) plus a 30-day option for 123.75M more, expected price $70 to $78, on the Nasdaq Global Select Market. Press reports put the raise near $64B and the implied valuation around $1.0 to 1.1T, with trading expected the week of Nov 16.",
           "why": "Expect procurement and commercial-terms attention from your vendor-management side; no technical impact.",
-          "tags": ["business"]
+          "tags": [
+            "business"
+          ]
         },
         {
           "title": "Report: Claude Code's Don't Ask Again flow left secrets in 1,122 public GitHub files",
@@ -470,7 +615,9 @@
           "date": "2026-11-08",
           "summary": "Apiiro's report, which reached 588 points on Hacker News, claims the permission shortcut led to credentials committed to public repositories. The same week a thread about Claude Code sending user emails to websites reached 1,600 points, and 2.1.321 shipped several permission and sandbox fixes. Report page not fetched.",
           "why": "Ammunition for deny-by-default permissions and secret-scanning hooks in your framework; see the Stroq item below.",
-          "tags": ["security"]
+          "tags": [
+            "security"
+          ]
         },
         {
           "title": "Nvidia: Jensen Huang's relationship with an alleged Chinese informant draws export-control scrutiny",
@@ -479,7 +626,10 @@
           "date": "2026-11-09",
           "summary": "Per FT and Bloomberg reporting, Huang acknowledged in an internal memo a relationship with a former executive at an Nvidia customer whom US intelligence considers a suspected informant; the board opened an independent investigation and House Democrats asked Commerce to halt advanced-chip export approvals to China. Nvidia shares fell.",
           "why": "Watch for knock-on effects on GPU supply and export rules if you plan capacity outside the US.",
-          "tags": ["industry", "policy"]
+          "tags": [
+            "industry",
+            "policy"
+          ]
         },
         {
           "title": "Microsoft Research's AI Frontiers group (AutoGen) is over, says founder John Langford",
@@ -488,7 +638,9 @@
           "date": "2026-11-06",
           "summary": "Langford writes that he has left Microsoft and that the roughly 50-person group behind AutoGen and Fara is finished after moving into Microsoft AI in September. Microsoft has not formally confirmed a shutdown; secondary posts warn AutoGen already receives no security fixes.",
           "why": "If any team still runs AutoGen, plan a migration; the Agent SDK or Strands are the natural targets on AWS.",
-          "tags": ["frameworks"]
+          "tags": [
+            "frameworks"
+          ]
         }
       ]
     },
@@ -502,7 +654,10 @@
           "date": "2026-11-04",
           "summary": "Partners across security, dev infrastructure, creative and productivity were added, and enterprise customers can apply committed Anthropic spend to partner products. The marketplace page offers Add a connector or plugin, Submit a product or agent, and Become a service partner. No revenue-share terms are published.",
           "why": "The cheapest wedge for a solo developer is the connector or plugin path: an MCP connector for a niche SaaS or data source, with the committed-spend channel as the upside if you later qualify as a product partner.",
-          "tags": ["marketplace", "distribution"]
+          "tags": [
+            "marketplace",
+            "distribution"
+          ]
         },
         {
           "title": "Claude Managed Agents (beta) now lists Fable 5.2 and is on for every API account",
@@ -511,7 +666,10 @@
           "date": "2026-11-09",
           "summary": "A hosted agent harness (agent, environment, session, events) with built-in Bash, file operations, web search and fetch, MCP servers, skills, caching and compaction, in cloud or self-hosted sandboxes, with scheduled deployments. Beta header managed-agents-2026-04-01. The pricing sub-page returned 404, so the per-session-hour fee quoted by third parties is unverified. Not available on Bedrock.",
           "why": "Skip building your own loop and sandbox: a solo developer can ship a scheduled-agent product (weekly competitor scan, data cleanup bot) and bill above token cost.",
-          "tags": ["managed-agents", "no-infra"]
+          "tags": [
+            "managed-agents",
+            "no-infra"
+          ]
         },
         {
           "title": "Product Hunt Nov 10: DocsAlot, NoMac, Memorias, AXL",
@@ -520,7 +678,10 @@
           "date": "2026-11-10",
           "summary": "Top AI launches of the day: AXL, a go-to-market copilot exposing 1,200+ actions via MCP; DocsAlot, a Slack and Discord bot answering support questions from your docs; NoMac, per-minute macOS environments for agents; Memorias, an AI biographer that turns stories into a memoir book. Vote counts are snapshots from a third-party digest.",
           "why": "DocsAlot and Memorias are classic one-person builds (a docs RAG bot sold per workspace; a memoir generator sold as a one-off product). NoMac shows that renting a machine to an agent by the minute is a sellable primitive.",
-          "tags": ["launches", "ideas"]
+          "tags": [
+            "launches",
+            "ideas"
+          ]
         },
         {
           "title": "Product Hunt Nov 9: LiveReview, Exa Monitors v2, Switchy",
@@ -529,7 +690,10 @@
           "date": "2026-11-09",
           "summary": "LiveReview auto-approves low-risk pull requests with AI; Exa Monitors v2 runs scheduled web searches with agents that trigger actions on change; Switchy is a Mac menu-bar app for deployments, two-factor codes and AI usage limits.",
           "why": "A Switchy-style utility that tracks your Claude, Codex and Cursor usage caps is a weekend build with a small one-time price. Exa Monitors is an API you can resell as vertical alerts (pricing changes, job posts, regulatory updates).",
-          "tags": ["launches", "ideas"]
+          "tags": [
+            "launches",
+            "ideas"
+          ]
         },
         {
           "title": "Product Hunt Nov 5 to 7: Clocknext billing for AI apps, Orphex MCP, AgentKit by Scalekit, Render Sandboxes",
@@ -538,7 +702,11 @@
           "date": "2026-11-07",
           "summary": "Clocknext is a pricing and billing layer for AI-native apps (prepaid credits, wallets, usage and outcome-based pricing) with a Node SDK on npm. Orphex MCP is a single MCP server for marketing analytics, content and campaigns. AgentKit by Scalekit, an MCP gateway for agents in production, topped Nov 5; Render Sandboxes gives agents short-lived isolated compute.",
           "why": "Use a credits or wallet billing layer instead of flat seats so your AI margin survives heavy users. And the clearest repeatable pattern this week: wrap three to five APIs a niche already pays for into one MCP server and sell seats.",
-          "tags": ["billing", "mcp", "ideas"]
+          "tags": [
+            "billing",
+            "mcp",
+            "ideas"
+          ]
         },
         {
           "title": "Hacker News demand: 'What is your current AI agentic setup?' (508 points) and 'How do you manage agent context across clients?'",
@@ -547,7 +715,10 @@
           "date": "2026-11-06",
           "summary": "Two large threads where practitioners describe fragmented, do-it-yourself agent setups and no standard way to carry memory across Claude Code, Codex and Cursor or across projects. Anthropic's agent-memory post landed the same week, and memory tools (claude-mem, mem0, cognee) are surging on GitHub. Thread content read via a digest, not fetched directly.",
           "why": "A paid, local-first agent context sync (per-client memory, portable across tools) is a gap users are actively asking for. Freelancers and agencies juggling client codebases are the buyers.",
-          "tags": ["demand-signal", "memory"]
+          "tags": [
+            "demand-signal",
+            "memory"
+          ]
         },
         {
           "title": "Agent-session security is a hot solo niche: Stroq (open source) scans Claude Code, Codex and Cursor sessions for leaked secrets",
@@ -556,7 +727,10 @@
           "date": "2026-11-06",
           "summary": "Stroq (Apache 2.0) scans your last 30 days of agent sessions for secrets that left the machine and installs local hooks to deny risky commands such as curl piped to sh. No telemetry, no account. It landed the same week as the Apiiro report on leaked credentials.",
           "why": "Build the paid tier Stroq deliberately does not: team dashboard, CI gate, Slack alerts, sold per developer. The audience is primed and the open-source core exists.",
-          "tags": ["security", "ideas"]
+          "tags": [
+            "security",
+            "ideas"
+          ]
         },
         {
           "title": "Zero-cost prototyping: Ollama 0.40.16 adds Ripple Preview and reliable 'ollama launch claude'",
@@ -565,7 +739,10 @@
           "date": "2026-11-09",
           "summary": "Ollama adds Ripple Preview, a 65B dense agentic-coding model, and ollama launch claude now reliably routes Claude Code to a local model. Also this week: Supabase CLI 3.1.0 (Nov 9) and MCP Registry 1.8.8 and 1.8.9 (Nov 6 and 10).",
           "why": "Prototype on Ollama plus Claude Code at zero token cost, then switch the same harness to Fable 5.2 for production. Publish your MCP server to the official registry so clients can discover it.",
-          "tags": ["local", "cost"]
+          "tags": [
+            "local",
+            "cost"
+          ]
         }
       ]
     }
