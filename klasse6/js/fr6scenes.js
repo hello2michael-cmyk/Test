@@ -63,7 +63,7 @@ function drawDate(S, t, p, y0) {
   const th = S.theme, [d, m] = p.datum.split(' '), n = +d, word = NUM[n];
   S.heading('La date', t < 6 ? 'le + Zahl + Monat' : `Nous sommes le ${word} ${m}.`);
   S.floor(y0);
-  const blocks = [['Nous sommes', rgba(th.text, 0.3), 'Wir haben (den)', 1.3], ['le', '#5c9eff', 'immer le', 0.42], [word, n === 1 ? '#fa739e' : '#ffb840', `Zahl: ${d}`, 0.16 * word.length + 0.3], [m, '#6bedb8', 'Monat, klein', 0.16 * m.length + 0.3]];
+  const blocks = [['Nous sommes', rgba(th.text, 0.3), 'wörtlich: wir sind', 1.3], ['le', '#5c9eff', 'immer le', 0.42], [word, n === 1 ? '#fa739e' : '#ffb840', `Zahl: ${d}`, 0.16 * word.length + 0.3], [m, '#6bedb8', 'Monat, klein', 0.16 * m.length + 0.3]];
   let x = -4.6;
   blocks.forEach(([txt, col, note, hw], i) => {
     const a = outBack(ease(t, i === 0 ? 0.3 : 4 + i * 2.2, 0.9));
@@ -104,7 +104,7 @@ const pluriel = {
       { t: 0, text: `Einzahl: ${sg}. Mehrzahl: ${plArt} ${nn.pl}.` },
       { t: 8, text: nn.end === 's' ? 'Das -s am Ende wird geschrieben, aber nicht gesprochen: Es ist stumm.' : nn.end === 'x' ? 'Nomen auf -eau bekommen ein -x statt -s. Auch das -x ist stumm.' : 'Abkürzungen wie BD bleiben im Plural gleich.' },
       { t: 16, text: p.artikel.startsWith('Zahl') ? 'Man hört die Mehrzahl also nur an der Zahl davor.' : p.artikel.startsWith('le') ? 'le, la und l’ werden alle zu les. Man hört den Plural am Artikel: le [lə] gegen les [le].' : 'un und une werden zu des. Im Deutschen steht da oft gar kein Artikel: des livres, Bücher.' },
-      { t: 23, text: nn.vowel ? `Vor Vokal gibt es die Liaison: ${plArt}‿${nn.pl}, das s klingt wie ein z.` : 'Vor einem Konsonanten bleibt das s des Artikels stumm.' },
+      { t: 23, text: nn.vowel ? `Vor Vokal gibt es die Liaison: ${plArt}‿${nn.pl}, das s klingt wie ein z.` : plArt === 'deux' ? 'Die Mehrzahl hört man hier nur an der Zahl.' : 'Vor einem Konsonanten bleibt das s des Artikels stumm.' },
     ];
   },
   draw(S, t, p) {

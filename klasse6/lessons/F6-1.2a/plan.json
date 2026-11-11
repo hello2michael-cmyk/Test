@@ -2,8 +2,8 @@
  "id": "current",
  "prompt": "Lektion F6-1.2a „Das Datum und der Plural“ (Französisch (2. Fremdsprache), Klasse 6 Gymnasium Bayern), aus klasse6/lessons/F6-1.2a.lesson.json. 17 Minuten, auf Deutsch, für Kinder von etwa 11 Jahren.",
  "attempts": 0,
- "createdAt": 1794426149727,
- "updatedAt": 1794426149727,
+ "createdAt": 1794426371160,
+ "updatedAt": 1794426371160,
  "stage": "plan",
  "mode": "course",
  "durationApplied": true,
@@ -28,8 +28,8 @@
   "footageProvider": "none",
   "aiClipBudget": 0,
   "minSceneSeconds": 10,
-  "maxDuration": 1147,
-  "targetDuration": 997,
+  "maxDuration": 1151,
+  "targetDuration": 1001,
   "lesson": {
    "id": "F6-1.2a",
    "title": "Das Datum und der Plural",
@@ -43,7 +43,7 @@
  "brief": {
   "title": "Französisch: Das Datum und der Plural",
   "audience": "Kinder der 6. Klasse (etwa 11 Jahre), erstes Lernjahr Französisch",
-  "hook": "Le dix novembre. In zwei Minuten kannst du jedes Datum des Jahres auf Französisch sagen, und du weißt, warum man das s am Ende von livres nicht hört.",
+  "hook": "Le dix novembre. In dieser Lektion lernst du, jedes Datum des Jahres auf Französisch sagen, und du weißt, warum man das s am Ende von livres nicht hört.",
   "learningObjectives": [
    "Die vier Jahreszeiten und die zwölf Monate nennen und zuordnen",
    "Die Zahlen von 1 bis 31 sagen und schreiben",
@@ -144,21 +144,21 @@
     "id": 3,
     "chapterId": 1,
     "purpose": "explain",
-    "keyPoint": "Schau dir die vier Jahreszeiten noch einmal an. Drei davon haben den Artikel l’ mit Apostroph, weil sie mit einem Vokal beginnen: «l’hiver, l’été, l’automne». Nur «le printemps» beginnt mit einem Konsonanten und behält das le. Ein Trick zum Merken: Der Winter beginnt schon im Dezember, also gehört décembre zu l’hiver und nicht zum Herbst. Und achte auf die Akzente: «février» mit Akzent auf dem e, «août» mit dem Dach auf dem u, «décembre» mit Akzent.",
+    "keyPoint": "Schau dir die vier Jahreszeiten noch einmal an. Drei davon haben den Artikel l’ mit Apostroph, weil sie mit einem Vokal-Laut beginnen: «l’hiver, l’été, l’automne». Bei «hiver» ist das h stumm, man hört es nicht. Nur «le printemps» beginnt mit einem Konsonanten und behält das «le». Ein Trick zum Merken: Der Winter beginnt schon im Dezember, also gehört «décembre» zu «l’hiver» und nicht zum Herbst. Und achte auf die Akzente: «février» mit Akzent auf dem e, «août» mit dem Dach auf dem u, «décembre» mit Akzent.",
     "suggestedVisual": "bullets"
    },
    {
     "id": 4,
     "chapterId": 1,
     "purpose": "explain",
-    "keyPoint": "Jetzt du. Welche drei Monate gehören zu «l’été», dem Sommer? Und wie heißt der Monat, der nach «août» kommt? Sag die Monate laut auf Französisch und überlege, zu welcher Jahreszeit der nächste Monat gehört. Du hast ein paar Sekunden.",
+    "keyPoint": "Jetzt du. Welche drei Monate gehören zu «le printemps», dem Frühling? Und wie heißt der Monat, der vor «juin» kommt? Sag die Monate laut auf Französisch und überlege, zu welcher Jahreszeit sie gehören. Du hast ein paar Sekunden.",
     "suggestedVisual": "question"
    },
    {
     "id": 5,
     "chapterId": 1,
     "purpose": "explain",
-    "keyPoint": "«L’été», der Sommer, hat die Monate «juin, juillet, août». Nach «août» kommt «septembre», und der gehört schon zum Herbst, «l’automne». Wenn du die Monate in Dreiergruppen lernst, immer eine Jahreszeit auf einmal, bleiben sie viel besser im Kopf als alle zwölf hintereinander.",
+    "keyPoint": "«Le printemps», der Frühling, hat die Monate «mars, avril, mai». Vor «juin» kommt «mai», der letzte Monat des Frühlings. Danach beginnt mit «juin» der Sommer, «l’été». Wenn du die Monate in Dreiergruppen lernst, immer eine Jahreszeit auf einmal, bleiben sie viel besser im Kopf als alle zwölf hintereinander.",
     "suggestedVisual": "bullets"
    },
    {
@@ -172,28 +172,28 @@
     "id": 7,
     "chapterId": 2,
     "purpose": "explain",
-    "keyPoint": "Elf bis sechzehn haben eigene Namen: «onze, douze, treize, quatorze, quinze, seize». Siebzehn, achtzehn und neunzehn sind zusammengesetzt aus zehn und der Einerzahl: «dix-sept, dix-huit, dix-neuf». Also zehn-sieben, zehn-acht, zehn-neun, mit Bindestrich geschrieben. Und zwanzig heißt «vingt». Das g und das t am Ende von vingt sind stumm, du hörst nur «vingt».",
+    "keyPoint": "Elf bis sechzehn haben eigene Namen: «onze, douze, treize, quatorze, quinze, seize». Siebzehn, achtzehn und neunzehn sind zusammengesetzt aus zehn und der Einerzahl: «dix-sept, dix-huit, dix-neuf». Also zehn-sieben, zehn-acht, zehn-neun, mit Bindestrich geschrieben. Und zwanzig heißt «vingt». Bei «vingt» allein sind das g und das t am Ende stumm, du sagst ungefähr wäng. Aber Vorsicht: In «vingt-deux», «vingt-trois» und «vingt-et-un» sprichst du das t mit.",
     "suggestedVisual": "bullets"
    },
    {
     "id": 8,
     "chapterId": 2,
     "purpose": "explain",
-    "keyPoint": "Ab zwanzig baust du weiter: Zwanzig und die Einerzahl. Einundzwanzig ist besonders: «vingt-et-un», mit einem et dazwischen, das heißt und. Danach ohne et: «vingt-deux, vingt-trois, vingt-quatre, vingt-cinq, vingt-six, vingt-sept, vingt-huit, vingt-neuf». Dreißig heißt «trente», und einunddreißig wieder mit et: «trente-et-un». Deine Lehrerin schreibt die Bindestriche zwischen alle Teile, so wie es seit der Rechtschreibreform empfohlen ist. Die alte Schreibweise vingt et un ohne Bindestriche gilt auch noch, aber bleib bei einer Schreibweise, am besten bei der aus deinem Heft.",
+    "keyPoint": "Ab zwanzig baust du weiter: Zwanzig und die Einerzahl. Einundzwanzig ist besonders: «vingt-et-un», mit einem «et» dazwischen, das heißt und. Danach ohne «et»: «vingt-deux, vingt-trois, vingt-quatre, vingt-cinq, vingt-six, vingt-sept, vingt-huit, vingt-neuf». Dreißig heißt «trente», und einunddreißig wieder mit «et»: «trente-et-un». Im Heft stehen die Bindestriche zwischen allen Teilen, so wird es heute empfohlen. Die alte Schreibweise «vingt et un» ohne Bindestriche gilt auch noch, aber bleib bei der Schreibweise aus deinem Heft.",
     "suggestedVisual": "bullets"
    },
    {
     "id": 9,
     "chapterId": 2,
     "purpose": "explain",
-    "keyPoint": "Deine Aufgabe. Wie heißen neunundzwanzig und einunddreißig auf Französisch? Und welche Zahl ist «quinze»? Sag die Zahlen laut und überlege, wo ein et hineingehört und wo nicht. Du hast ein paar Sekunden, halte das Video an, wenn du mehr Zeit brauchst.",
+    "keyPoint": "Deine Aufgabe. Wie heißen sechsundzwanzig und einunddreißig auf Französisch? Und welche Zahl ist «treize»? Sag die Zahlen laut und überlege, wo ein «et» hineingehört und wo nicht. Du hast ein paar Sekunden, halte das Video an, wenn du mehr Zeit brauchst.",
     "suggestedVisual": "question"
    },
    {
     "id": 10,
     "chapterId": 2,
     "purpose": "explain",
-    "keyPoint": "Neunundzwanzig ist «vingt-neuf», zwanzig und neun, ohne et. Einunddreißig ist «trente-et-un», mit et, denn bei allen Zahlen, die auf eins enden, kommt das et dazu: vingt-et-un, trente-et-un. Und «quinze» ist die fünfzehn. Wenn du beim Zählen unsicher bist, zähle beim Treppensteigen oder beim Zähneputzen jeden Tag einmal bis einunddreißig durch.",
+    "keyPoint": "Sechsundzwanzig ist «vingt-six», zwanzig und sechs, ohne «et». Einunddreißig ist «trente-et-un», mit «et», denn bei einundzwanzig und einunddreißig kommt das «et» dazu: «vingt-et-un, trente-et-un». Und «treize» ist die dreizehn. Wenn du beim Zählen unsicher bist, zähle beim Treppensteigen oder beim Zähneputzen jeden Tag einmal bis einunddreißig durch.",
     "suggestedVisual": "bullets"
    },
    {
@@ -207,14 +207,14 @@
     "id": 12,
     "chapterId": 3,
     "purpose": "explain",
-    "keyPoint": "Schau, wie die Bausteine zusammenkommen. Erst «Nous sommes». Dann «le», das bleibt immer gleich, bei jedem Datum. Dann die Zahl: «dix». Dann der Monat: «novembre». Zusammen: «Nous sommes le dix novembre.» Sprich es nach. Und die kurze Form: «C’est le dix novembre.» Zwei Dinge musst du dir merken. Zwischen Zahl und Monat steht nichts, kein de und kein Punkt. Und der Monat wird kleingeschrieben, auch mitten im Satz.",
+    "keyPoint": "Schau, wie die Bausteine zusammenkommen. Erst «Nous sommes». Dann «le», das bleibt immer gleich, bei jedem Datum. Dann die Zahl: «dix». Dann der Monat: «novembre». Zusammen: «Nous sommes le dix novembre.» Sprich es nach. Und die kurze Form: «C’est le dix novembre.» Zwei Dinge musst du dir merken. Zwischen Zahl und Monat steht nichts, kein «de» und kein Punkt. Und der Monat wird immer kleingeschrieben.",
     "suggestedVisual": "math3d"
    },
    {
     "id": 13,
     "chapterId": 3,
     "purpose": "explain",
-    "keyPoint": "Eine einzige Ausnahme gibt es, und die steht in deinem Heft mit Achtung markiert: der Erste des Monats. Da sagt man nicht le un, sondern «le premier», der erste. «Nous sommes le premier avril.» Der erste April. Alle anderen Tage sind einfache Zahlen: «le deux avril, le trois avril, le dix avril». Nur der Erste bekommt das Wort premier. In der Schulaufgabe wird genau diese Ausnahme gern abgefragt, zum Beispiel der erste Januar oder der erste Dezember.",
+    "keyPoint": "Eine einzige Ausnahme gibt es, und die steht in deinem Heft mit Achtung markiert: der Erste des Monats. Da sagt man nicht «le un», sondern «le premier», der erste. «Nous sommes le premier avril.» Der erste April. Alle anderen Tage sind einfache Zahlen: «le deux avril, le trois avril, le dix avril». Nur der Erste bekommt das Wort premier. Merk dir diese Ausnahme gut, sie ist der häufigste Fehler beim Datum.",
     "suggestedVisual": "math3d"
    },
    {
@@ -235,14 +235,14 @@
     "id": 16,
     "chapterId": 3,
     "purpose": "explain",
-    "keyPoint": "«C’est le vingt-et-un mai.» Und: «C’est le premier décembre.» Nicht le un décembre, das ist der häufigste Fehler. Prüfe am Ende immer drei Dinge: Steht le vor der Zahl? Steht zwischen Zahl und Monat nichts? Und ist der Monat kleingeschrieben? Mit Ziffern geht es übrigens auch: «le 2 juin», so wie im Heft. Beim Ersten schreibt man dann «le 1er avril», mit einem kleinen hochgestellten er.",
+    "keyPoint": "«C’est le vingt-et-un mai.» Und: «C’est le premier décembre.» Nicht «le un décembre», das ist der häufigste Fehler. Prüfe am Ende immer drei Dinge: Steht «le» vor der Zahl? Steht zwischen Zahl und Monat nichts? Und ist der Monat kleingeschrieben? Mit Ziffern geht es übrigens auch: «le 2 juin». Beim Ersten schreibt man dann «le 1er avril», mit einem kleinen hochgestellten er.",
     "suggestedVisual": "bullets"
    },
    {
     "id": 17,
     "chapterId": 4,
     "purpose": "chapter",
-    "keyPoint": "Zweites Thema: der Plural, die Mehrzahl. Die Grundregel ist leicht: An das Nomen hängst du ein s. «Un livre», ein Buch, «deux livres», zwei Bücher. «Un garçon, deux garçons. Une fille, deux filles.» Aber jetzt kommt das Besondere, und das steht mit Ausrufezeichen in deinem Heft: Dieses s ist stumm. Man schreibt es, aber man hört es nicht. «Livre» und «livres» klingen genau gleich.",
+    "keyPoint": "Zweites Thema: der Plural, die Mehrzahl. Die Grundregel ist leicht: An das Nomen hängst du ein s. «Un livre», ein Buch, «deux livres», zwei Bücher. «Un garçon, deux garçons. Une fille, deux filles.» Aber jetzt kommt das Besondere, und das steht in deinem Heft: Dieses s ist stumm. Man schreibt es, aber man hört es nicht. «Livre» und «livres» klingen genau gleich.",
     "suggestedVisual": "chapter"
    },
    {
@@ -256,7 +256,7 @@
     "id": 19,
     "chapterId": 4,
     "purpose": "explain",
-    "keyPoint": "Erste Ausnahme: Nomen, die auf -eau enden, bekommen kein s, sondern ein x. «Un cadeau», ein Geschenk, «deux cadeaux», zwei Geschenke. Das x ist genauso stumm wie das s. «Cadeau, cadeaux», gleicher Klang. Merk dir: Nach -eau kommt ein x. Bald lernst du noch mehr Wörter mit x im Plural, zum Beispiel «un jeu, des jeux», ein Spiel, Spiele.",
+    "keyPoint": "Erste Ausnahme: Nomen, die auf -eau enden, bekommen kein s, sondern ein x. «Un cadeau», ein Geschenk, «deux cadeaux», zwei Geschenke. Das x ist genauso stumm wie das s. «Cadeau, cadeaux», gleicher Klang. Merk dir: Nach -eau kommt ein x. Später lernst du noch mehr Wörter mit x im Plural, zum Beispiel «un jeu, deux jeux», ein Spiel, zwei Spiele.",
     "suggestedVisual": "math3d"
    },
    {
@@ -305,14 +305,14 @@
     "id": 26,
     "chapterId": 5,
     "purpose": "explain",
-    "keyPoint": "Zum Schluss der unbestimmte Artikel. «Une affiche», ein Plakat. Im Plural: «des affiches», mit Liaison, weil affiche mit a beginnt. «Des» ist ein Wort, das es im Deutschen gar nicht gibt. Wir sagen einfach Plakate oder Bücher ohne Artikel: Ich habe Bücher. Im Französischen muss das des aber stehen: «J’ai des livres.» Merk dir: Wenn du im Deutschen gar keinen Artikel hast, brauchst du im Französischen des. Und wenn du im Deutschen die sagst, brauchst du les.",
+    "keyPoint": "Zum Schluss der unbestimmte Artikel. «Une affiche», ein Plakat. Im Plural: «des affiches», mit Liaison, weil affiche mit a beginnt. «Des» spricht man wie «les», mit hellem e. «Des» hat im Deutschen keine Entsprechung: Wir sagen einfach Plakate oder Bücher ohne Artikel, ich habe Bücher. Im Französischen muss das «des» aber stehen: «J’ai des livres.» Meistens gilt: Steht im Deutschen kein Artikel, brauchst du im Französischen «des». Steht im Deutschen die, brauchst du «les». Eine wichtige Ausnahme kommt gleich: mögen.",
     "suggestedVisual": "math3d"
    },
    {
     "id": 27,
     "chapterId": 5,
     "purpose": "explain",
-    "keyPoint": "Ein Beispiel aus deinem Heft: «J’aime les livres de Harry Potter.» Ich mag die Harry-Potter-Bücher. Hier steht les, weil es um bestimmte Bücher geht, die von Harry Potter. Und auch wenn du sagst, dass du etwas allgemein magst, nimmt das Französische immer les: «J’aime les BD», ich mag Comics. Nach aimer kommt also les, nie des. Das ist ein Punkt, der in Tests gern vorkommt.",
+    "keyPoint": "Ein Beispiel aus deinem Heft: «J’aime les livres de Harry Potter.» Ich mag die Harry-Potter-Bücher. Hier steht les, weil es um bestimmte Bücher geht, die von Harry Potter. Und auch wenn du sagst, dass du etwas allgemein magst, nimmt das Französische immer les: «J’aime les BD», ich mag Comics. Im Deutschen steht hier kein Artikel, im Französischen aber trotzdem «les». Nach «aimer» kommt also «les», nie «des».",
     "suggestedVisual": "bullets"
    },
    {
@@ -333,7 +333,7 @@
     "id": 30,
     "chapterId": 6,
     "purpose": "chapter",
-    "keyPoint": "Zum Schluss die Fehler, die am häufigsten passieren, damit du sie nicht machst. Erstens: le un statt «le premier». Zweitens: ein de oder ein Punkt zwischen Zahl und Monat, da steht nichts. Drittens: der Monat großgeschrieben, auf Französisch immer klein. Viertens: das s im Plural vergessen, weil man es nicht hört. Fünftens: cadeaus mit s statt «cadeaux» mit x. Sechstens: BDs mit s, Abkürzungen bleiben gleich. Und siebtens: le und les gleich ausgesprochen, dabei ist das e der ganze Unterschied.",
+    "keyPoint": "Zum Schluss die Fehler, die am häufigsten passieren, damit du sie nicht machst. Erstens: «le un» statt «le premier». Zweitens: ein «de» oder ein Punkt zwischen Zahl und Monat, da steht nichts. Drittens: der Monat großgeschrieben, auf Französisch immer klein. Viertens: das s im Plural vergessen, weil man es nicht hört. Fünftens: «cadeaus» mit s statt «cadeaux» mit x. Sechstens: «BDs» mit s, Abkürzungen bleiben gleich. Und siebtens: «le» und «les» gleich ausgesprochen, dabei ist das e der ganze Unterschied.",
     "suggestedVisual": "chapter"
    },
    {
@@ -421,7 +421,7 @@
     "stockQuery": null
    },
    {
-    "narration": "Schau dir die vier Jahreszeiten noch einmal an. Drei davon haben den Artikel l’ mit Apostroph, weil sie mit einem Vokal beginnen: «l’hiver, l’été, l’automne». Nur «le printemps» beginnt mit einem Konsonanten und behält das le. Ein Trick zum Merken: Der Winter beginnt schon im Dezember, also gehört décembre zu l’hiver und nicht zum Herbst. Und achte auf die Akzente: «février» mit Akzent auf dem e, «août» mit dem Dach auf dem u, «décembre» mit Akzent.",
+    "narration": "Schau dir die vier Jahreszeiten noch einmal an. Drei davon haben den Artikel l’ mit Apostroph, weil sie mit einem Vokal-Laut beginnen: «l’hiver, l’été, l’automne». Bei «hiver» ist das h stumm, man hört es nicht. Nur «le printemps» beginnt mit einem Konsonanten und behält das «le». Ein Trick zum Merken: Der Winter beginnt schon im Dezember, also gehört «décembre» zu «l’hiver» und nicht zum Herbst. Und achte auf die Akzente: «février» mit Akzent auf dem e, «août» mit dem Dach auf dem u, «décembre» mit Akzent.",
     "onScreenTitle": "Die vier Jahreszeiten",
     "question": null,
     "think": null,
@@ -456,11 +456,11 @@
     "stockQuery": null
    },
    {
-    "narration": "Jetzt du. Welche drei Monate gehören zu «l’été», dem Sommer? Und wie heißt der Monat, der nach «août» kommt? Sag die Monate laut auf Französisch und überlege, zu welcher Jahreszeit der nächste Monat gehört. Du hast ein paar Sekunden.",
+    "narration": "Jetzt du. Welche drei Monate gehören zu «le printemps», dem Frühling? Und wie heißt der Monat, der vor «juin» kommt? Sag die Monate laut auf Französisch und überlege, zu welcher Jahreszeit sie gehören. Du hast ein paar Sekunden.",
     "onScreenTitle": "Jahreszeiten und Monate",
-    "question": "Welche drei Monate gehören zu l’été? Und wie heißt der Monat nach août?",
+    "question": "Welche drei Monate gehören zu le printemps? Und wie heißt der Monat vor juin?",
     "think": 8,
-    "hint": "L’été ist der Sommer. Danach beginnt l’automne.",
+    "hint": "Le printemps ist der Frühling. Davor liegt l’hiver, danach l’été.",
     "emphasisWords": [],
     "kind": "question",
     "model": null,
@@ -486,7 +486,7 @@
     "stockQuery": null
    },
    {
-    "narration": "«L’été», der Sommer, hat die Monate «juin, juillet, août». Nach «août» kommt «septembre», und der gehört schon zum Herbst, «l’automne». Wenn du die Monate in Dreiergruppen lernst, immer eine Jahreszeit auf einmal, bleiben sie viel besser im Kopf als alle zwölf hintereinander.",
+    "narration": "«Le printemps», der Frühling, hat die Monate «mars, avril, mai». Vor «juin» kommt «mai», der letzte Monat des Frühlings. Danach beginnt mit «juin» der Sommer, «l’été». Wenn du die Monate in Dreiergruppen lernst, immer eine Jahreszeit auf einmal, bleiben sie viel besser im Kopf als alle zwölf hintereinander.",
     "onScreenTitle": "Antwort",
     "question": null,
     "think": null,
@@ -500,9 +500,9 @@
     "segment": null,
     "formula": null,
     "bullets": [
-     "l’été: juin, juillet, août",
-     "Nach août kommt septembre",
-     "septembre gehört schon zu l’automne"
+     "le printemps: mars, avril, mai",
+     "Vor juin kommt mai",
+     "mai ist der letzte Frühlingsmonat"
     ],
     "nodes": null,
     "leftTitle": null,
@@ -552,7 +552,7 @@
     "stockQuery": null
    },
    {
-    "narration": "Elf bis sechzehn haben eigene Namen: «onze, douze, treize, quatorze, quinze, seize». Siebzehn, achtzehn und neunzehn sind zusammengesetzt aus zehn und der Einerzahl: «dix-sept, dix-huit, dix-neuf». Also zehn-sieben, zehn-acht, zehn-neun, mit Bindestrich geschrieben. Und zwanzig heißt «vingt». Das g und das t am Ende von vingt sind stumm, du hörst nur «vingt».",
+    "narration": "Elf bis sechzehn haben eigene Namen: «onze, douze, treize, quatorze, quinze, seize». Siebzehn, achtzehn und neunzehn sind zusammengesetzt aus zehn und der Einerzahl: «dix-sept, dix-huit, dix-neuf». Also zehn-sieben, zehn-acht, zehn-neun, mit Bindestrich geschrieben. Und zwanzig heißt «vingt». Bei «vingt» allein sind das g und das t am Ende stumm, du sagst ungefähr wäng. Aber Vorsicht: In «vingt-deux», «vingt-trois» und «vingt-et-un» sprichst du das t mit.",
     "onScreenTitle": "11 bis 20",
     "question": null,
     "think": null,
@@ -586,7 +586,7 @@
     "stockQuery": null
    },
    {
-    "narration": "Ab zwanzig baust du weiter: Zwanzig und die Einerzahl. Einundzwanzig ist besonders: «vingt-et-un», mit einem et dazwischen, das heißt und. Danach ohne et: «vingt-deux, vingt-trois, vingt-quatre, vingt-cinq, vingt-six, vingt-sept, vingt-huit, vingt-neuf». Dreißig heißt «trente», und einunddreißig wieder mit et: «trente-et-un». Deine Lehrerin schreibt die Bindestriche zwischen alle Teile, so wie es seit der Rechtschreibreform empfohlen ist. Die alte Schreibweise vingt et un ohne Bindestriche gilt auch noch, aber bleib bei einer Schreibweise, am besten bei der aus deinem Heft.",
+    "narration": "Ab zwanzig baust du weiter: Zwanzig und die Einerzahl. Einundzwanzig ist besonders: «vingt-et-un», mit einem «et» dazwischen, das heißt und. Danach ohne «et»: «vingt-deux, vingt-trois, vingt-quatre, vingt-cinq, vingt-six, vingt-sept, vingt-huit, vingt-neuf». Dreißig heißt «trente», und einunddreißig wieder mit «et»: «trente-et-un». Im Heft stehen die Bindestriche zwischen allen Teilen, so wird es heute empfohlen. Die alte Schreibweise «vingt et un» ohne Bindestriche gilt auch noch, aber bleib bei der Schreibweise aus deinem Heft.",
     "onScreenTitle": "21 bis 31",
     "question": null,
     "think": null,
@@ -621,11 +621,11 @@
     "stockQuery": null
    },
    {
-    "narration": "Deine Aufgabe. Wie heißen neunundzwanzig und einunddreißig auf Französisch? Und welche Zahl ist «quinze»? Sag die Zahlen laut und überlege, wo ein et hineingehört und wo nicht. Du hast ein paar Sekunden, halte das Video an, wenn du mehr Zeit brauchst.",
+    "narration": "Deine Aufgabe. Wie heißen sechsundzwanzig und einunddreißig auf Französisch? Und welche Zahl ist «treize»? Sag die Zahlen laut und überlege, wo ein «et» hineingehört und wo nicht. Du hast ein paar Sekunden, halte das Video an, wenn du mehr Zeit brauchst.",
     "onScreenTitle": "Die Zahlen bis 31",
-    "question": "Wie heißen 29 und 31 auf Französisch? Und welche Zahl ist quinze?",
+    "question": "Wie heißen 26 und 31 auf Französisch? Und welche Zahl ist treize?",
     "think": 10,
-    "hint": "29 ist zwanzig und neun. 31 braucht ein et. Quinze liegt zwischen quatorze und seize.",
+    "hint": "26 ist zwanzig und sechs. 31 braucht ein et. Treize liegt zwischen douze und quatorze.",
     "emphasisWords": [],
     "kind": "question",
     "model": null,
@@ -651,7 +651,7 @@
     "stockQuery": null
    },
    {
-    "narration": "Neunundzwanzig ist «vingt-neuf», zwanzig und neun, ohne et. Einunddreißig ist «trente-et-un», mit et, denn bei allen Zahlen, die auf eins enden, kommt das et dazu: vingt-et-un, trente-et-un. Und «quinze» ist die fünfzehn. Wenn du beim Zählen unsicher bist, zähle beim Treppensteigen oder beim Zähneputzen jeden Tag einmal bis einunddreißig durch.",
+    "narration": "Sechsundzwanzig ist «vingt-six», zwanzig und sechs, ohne «et». Einunddreißig ist «trente-et-un», mit «et», denn bei einundzwanzig und einunddreißig kommt das «et» dazu: «vingt-et-un, trente-et-un». Und «treize» ist die dreizehn. Wenn du beim Zählen unsicher bist, zähle beim Treppensteigen oder beim Zähneputzen jeden Tag einmal bis einunddreißig durch.",
     "onScreenTitle": "Antwort",
     "question": null,
     "think": null,
@@ -665,9 +665,9 @@
     "segment": null,
     "formula": null,
     "bullets": [
-     "29 = vingt-neuf",
+     "26 = vingt-six",
      "31 = trente-et-un",
-     "quinze = 15"
+     "treize = 13"
     ],
     "nodes": null,
     "leftTitle": null,
@@ -717,7 +717,7 @@
     "stockQuery": null
    },
    {
-    "narration": "Schau, wie die Bausteine zusammenkommen. Erst «Nous sommes». Dann «le», das bleibt immer gleich, bei jedem Datum. Dann die Zahl: «dix». Dann der Monat: «novembre». Zusammen: «Nous sommes le dix novembre.» Sprich es nach. Und die kurze Form: «C’est le dix novembre.» Zwei Dinge musst du dir merken. Zwischen Zahl und Monat steht nichts, kein de und kein Punkt. Und der Monat wird kleingeschrieben, auch mitten im Satz.",
+    "narration": "Schau, wie die Bausteine zusammenkommen. Erst «Nous sommes». Dann «le», das bleibt immer gleich, bei jedem Datum. Dann die Zahl: «dix». Dann der Monat: «novembre». Zusammen: «Nous sommes le dix novembre.» Sprich es nach. Und die kurze Form: «C’est le dix novembre.» Zwei Dinge musst du dir merken. Zwischen Zahl und Monat steht nichts, kein «de» und kein Punkt. Und der Monat wird immer kleingeschrieben.",
     "onScreenTitle": "Nous sommes le dix novembre",
     "question": null,
     "think": null,
@@ -753,7 +753,7 @@
     "stockQuery": null
    },
    {
-    "narration": "Eine einzige Ausnahme gibt es, und die steht in deinem Heft mit Achtung markiert: der Erste des Monats. Da sagt man nicht le un, sondern «le premier», der erste. «Nous sommes le premier avril.» Der erste April. Alle anderen Tage sind einfache Zahlen: «le deux avril, le trois avril, le dix avril». Nur der Erste bekommt das Wort premier. In der Schulaufgabe wird genau diese Ausnahme gern abgefragt, zum Beispiel der erste Januar oder der erste Dezember.",
+    "narration": "Eine einzige Ausnahme gibt es, und die steht in deinem Heft mit Achtung markiert: der Erste des Monats. Da sagt man nicht «le un», sondern «le premier», der erste. «Nous sommes le premier avril.» Der erste April. Alle anderen Tage sind einfache Zahlen: «le deux avril, le trois avril, le dix avril». Nur der Erste bekommt das Wort premier. Merk dir diese Ausnahme gut, sie ist der häufigste Fehler beim Datum.",
     "onScreenTitle": "Achtung: le premier avril",
     "question": null,
     "think": null,
@@ -854,7 +854,7 @@
     "stockQuery": null
    },
    {
-    "narration": "«C’est le vingt-et-un mai.» Und: «C’est le premier décembre.» Nicht le un décembre, das ist der häufigste Fehler. Prüfe am Ende immer drei Dinge: Steht le vor der Zahl? Steht zwischen Zahl und Monat nichts? Und ist der Monat kleingeschrieben? Mit Ziffern geht es übrigens auch: «le 2 juin», so wie im Heft. Beim Ersten schreibt man dann «le 1er avril», mit einem kleinen hochgestellten er.",
+    "narration": "«C’est le vingt-et-un mai.» Und: «C’est le premier décembre.» Nicht «le un décembre», das ist der häufigste Fehler. Prüfe am Ende immer drei Dinge: Steht «le» vor der Zahl? Steht zwischen Zahl und Monat nichts? Und ist der Monat kleingeschrieben? Mit Ziffern geht es übrigens auch: «le 2 juin». Beim Ersten schreibt man dann «le 1er avril», mit einem kleinen hochgestellten er.",
     "onScreenTitle": "Antwort",
     "question": null,
     "think": null,
@@ -891,7 +891,7 @@
   ],
   "4": [
    {
-    "narration": "Zweites Thema: der Plural, die Mehrzahl. Die Grundregel ist leicht: An das Nomen hängst du ein s. «Un livre», ein Buch, «deux livres», zwei Bücher. «Un garçon, deux garçons. Une fille, deux filles.» Aber jetzt kommt das Besondere, und das steht mit Ausrufezeichen in deinem Heft: Dieses s ist stumm. Man schreibt es, aber man hört es nicht. «Livre» und «livres» klingen genau gleich.",
+    "narration": "Zweites Thema: der Plural, die Mehrzahl. Die Grundregel ist leicht: An das Nomen hängst du ein s. «Un livre», ein Buch, «deux livres», zwei Bücher. «Un garçon, deux garçons. Une fille, deux filles.» Aber jetzt kommt das Besondere, und das steht in deinem Heft: Dieses s ist stumm. Man schreibt es, aber man hört es nicht. «Livre» und «livres» klingen genau gleich.",
     "onScreenTitle": "Le pluriel des noms",
     "question": null,
     "think": null,
@@ -957,7 +957,7 @@
     "stockQuery": null
    },
    {
-    "narration": "Erste Ausnahme: Nomen, die auf -eau enden, bekommen kein s, sondern ein x. «Un cadeau», ein Geschenk, «deux cadeaux», zwei Geschenke. Das x ist genauso stumm wie das s. «Cadeau, cadeaux», gleicher Klang. Merk dir: Nach -eau kommt ein x. Bald lernst du noch mehr Wörter mit x im Plural, zum Beispiel «un jeu, des jeux», ein Spiel, Spiele.",
+    "narration": "Erste Ausnahme: Nomen, die auf -eau enden, bekommen kein s, sondern ein x. «Un cadeau», ein Geschenk, «deux cadeaux», zwei Geschenke. Das x ist genauso stumm wie das s. «Cadeau, cadeaux», gleicher Klang. Merk dir: Nach -eau kommt ein x. Später lernst du noch mehr Wörter mit x im Plural, zum Beispiel «un jeu, deux jeux», ein Spiel, zwei Spiele.",
     "onScreenTitle": "un cadeau → deux cadeaux",
     "question": null,
     "think": null,
@@ -1197,7 +1197,7 @@
     "stockQuery": null
    },
    {
-    "narration": "Zum Schluss der unbestimmte Artikel. «Une affiche», ein Plakat. Im Plural: «des affiches», mit Liaison, weil affiche mit a beginnt. «Des» ist ein Wort, das es im Deutschen gar nicht gibt. Wir sagen einfach Plakate oder Bücher ohne Artikel: Ich habe Bücher. Im Französischen muss das des aber stehen: «J’ai des livres.» Merk dir: Wenn du im Deutschen gar keinen Artikel hast, brauchst du im Französischen des. Und wenn du im Deutschen die sagst, brauchst du les.",
+    "narration": "Zum Schluss der unbestimmte Artikel. «Une affiche», ein Plakat. Im Plural: «des affiches», mit Liaison, weil affiche mit a beginnt. «Des» spricht man wie «les», mit hellem e. «Des» hat im Deutschen keine Entsprechung: Wir sagen einfach Plakate oder Bücher ohne Artikel, ich habe Bücher. Im Französischen muss das «des» aber stehen: «J’ai des livres.» Meistens gilt: Steht im Deutschen kein Artikel, brauchst du im Französischen «des». Steht im Deutschen die, brauchst du «les». Eine wichtige Ausnahme kommt gleich: mögen.",
     "onScreenTitle": "une affiche → des affiches",
     "question": null,
     "think": null,
@@ -1233,7 +1233,7 @@
     "stockQuery": null
    },
    {
-    "narration": "Ein Beispiel aus deinem Heft: «J’aime les livres de Harry Potter.» Ich mag die Harry-Potter-Bücher. Hier steht les, weil es um bestimmte Bücher geht, die von Harry Potter. Und auch wenn du sagst, dass du etwas allgemein magst, nimmt das Französische immer les: «J’aime les BD», ich mag Comics. Nach aimer kommt also les, nie des. Das ist ein Punkt, der in Tests gern vorkommt.",
+    "narration": "Ein Beispiel aus deinem Heft: «J’aime les livres de Harry Potter.» Ich mag die Harry-Potter-Bücher. Hier steht les, weil es um bestimmte Bücher geht, die von Harry Potter. Und auch wenn du sagst, dass du etwas allgemein magst, nimmt das Französische immer les: «J’aime les BD», ich mag Comics. Im Deutschen steht hier kein Artikel, im Französischen aber trotzdem «les». Nach «aimer» kommt also «les», nie «des».",
     "onScreenTitle": "les oder des?",
     "question": null,
     "think": null,
@@ -1248,7 +1248,7 @@
     "formula": null,
     "bullets": [
      "die Bücher → les livres",
-     "Bücher (ohne Artikel) → des livres",
+     "Bücher (ich habe Bücher) → des livres",
      "J’aime les livres de Harry Potter",
      "Mögen allgemein: immer les"
     ],
@@ -1334,7 +1334,7 @@
   ],
   "6": [
    {
-    "narration": "Zum Schluss die Fehler, die am häufigsten passieren, damit du sie nicht machst. Erstens: le un statt «le premier». Zweitens: ein de oder ein Punkt zwischen Zahl und Monat, da steht nichts. Drittens: der Monat großgeschrieben, auf Französisch immer klein. Viertens: das s im Plural vergessen, weil man es nicht hört. Fünftens: cadeaus mit s statt «cadeaux» mit x. Sechstens: BDs mit s, Abkürzungen bleiben gleich. Und siebtens: le und les gleich ausgesprochen, dabei ist das e der ganze Unterschied.",
+    "narration": "Zum Schluss die Fehler, die am häufigsten passieren, damit du sie nicht machst. Erstens: «le un» statt «le premier». Zweitens: ein «de» oder ein Punkt zwischen Zahl und Monat, da steht nichts. Drittens: der Monat großgeschrieben, auf Französisch immer klein. Viertens: das s im Plural vergessen, weil man es nicht hört. Fünftens: «cadeaus» mit s statt «cadeaux» mit x. Sechstens: «BDs» mit s, Abkürzungen bleiben gleich. Und siebtens: «le» und «les» gleich ausgesprochen, dabei ist das e der ganze Unterschied.",
     "onScreenTitle": "Typische Fehler",
     "question": null,
     "think": null,
@@ -1449,21 +1449,21 @@
    {
     "beatId": 3,
     "chapterId": 1,
-    "narration": "Schau dir die vier Jahreszeiten noch einmal an. Drei davon haben den Artikel l’ mit Apostroph, weil sie mit einem Vokal beginnen: «l’hiver, l’été, l’automne». Nur «le printemps» beginnt mit einem Konsonanten und behält das le. Ein Trick zum Merken: Der Winter beginnt schon im Dezember, also gehört décembre zu l’hiver und nicht zum Herbst. Und achte auf die Akzente: «février» mit Akzent auf dem e, «août» mit dem Dach auf dem u, «décembre» mit Akzent.",
+    "narration": "Schau dir die vier Jahreszeiten noch einmal an. Drei davon haben den Artikel l’ mit Apostroph, weil sie mit einem Vokal-Laut beginnen: «l’hiver, l’été, l’automne». Bei «hiver» ist das h stumm, man hört es nicht. Nur «le printemps» beginnt mit einem Konsonanten und behält das «le». Ein Trick zum Merken: Der Winter beginnt schon im Dezember, also gehört «décembre» zu «l’hiver» und nicht zum Herbst. Und achte auf die Akzente: «février» mit Akzent auf dem e, «août» mit dem Dach auf dem u, «décembre» mit Akzent.",
     "onScreenTitle": "Die vier Jahreszeiten",
     "emphasisWords": []
    },
    {
     "beatId": 4,
     "chapterId": 1,
-    "narration": "Jetzt du. Welche drei Monate gehören zu «l’été», dem Sommer? Und wie heißt der Monat, der nach «août» kommt? Sag die Monate laut auf Französisch und überlege, zu welcher Jahreszeit der nächste Monat gehört. Du hast ein paar Sekunden.",
+    "narration": "Jetzt du. Welche drei Monate gehören zu «le printemps», dem Frühling? Und wie heißt der Monat, der vor «juin» kommt? Sag die Monate laut auf Französisch und überlege, zu welcher Jahreszeit sie gehören. Du hast ein paar Sekunden.",
     "onScreenTitle": "Jahreszeiten und Monate",
     "emphasisWords": []
    },
    {
     "beatId": 5,
     "chapterId": 1,
-    "narration": "«L’été», der Sommer, hat die Monate «juin, juillet, août». Nach «août» kommt «septembre», und der gehört schon zum Herbst, «l’automne». Wenn du die Monate in Dreiergruppen lernst, immer eine Jahreszeit auf einmal, bleiben sie viel besser im Kopf als alle zwölf hintereinander.",
+    "narration": "«Le printemps», der Frühling, hat die Monate «mars, avril, mai». Vor «juin» kommt «mai», der letzte Monat des Frühlings. Danach beginnt mit «juin» der Sommer, «l’été». Wenn du die Monate in Dreiergruppen lernst, immer eine Jahreszeit auf einmal, bleiben sie viel besser im Kopf als alle zwölf hintereinander.",
     "onScreenTitle": "Antwort",
     "emphasisWords": []
    },
@@ -1477,28 +1477,28 @@
    {
     "beatId": 7,
     "chapterId": 2,
-    "narration": "Elf bis sechzehn haben eigene Namen: «onze, douze, treize, quatorze, quinze, seize». Siebzehn, achtzehn und neunzehn sind zusammengesetzt aus zehn und der Einerzahl: «dix-sept, dix-huit, dix-neuf». Also zehn-sieben, zehn-acht, zehn-neun, mit Bindestrich geschrieben. Und zwanzig heißt «vingt». Das g und das t am Ende von vingt sind stumm, du hörst nur «vingt».",
+    "narration": "Elf bis sechzehn haben eigene Namen: «onze, douze, treize, quatorze, quinze, seize». Siebzehn, achtzehn und neunzehn sind zusammengesetzt aus zehn und der Einerzahl: «dix-sept, dix-huit, dix-neuf». Also zehn-sieben, zehn-acht, zehn-neun, mit Bindestrich geschrieben. Und zwanzig heißt «vingt». Bei «vingt» allein sind das g und das t am Ende stumm, du sagst ungefähr wäng. Aber Vorsicht: In «vingt-deux», «vingt-trois» und «vingt-et-un» sprichst du das t mit.",
     "onScreenTitle": "11 bis 20",
     "emphasisWords": []
    },
    {
     "beatId": 8,
     "chapterId": 2,
-    "narration": "Ab zwanzig baust du weiter: Zwanzig und die Einerzahl. Einundzwanzig ist besonders: «vingt-et-un», mit einem et dazwischen, das heißt und. Danach ohne et: «vingt-deux, vingt-trois, vingt-quatre, vingt-cinq, vingt-six, vingt-sept, vingt-huit, vingt-neuf». Dreißig heißt «trente», und einunddreißig wieder mit et: «trente-et-un». Deine Lehrerin schreibt die Bindestriche zwischen alle Teile, so wie es seit der Rechtschreibreform empfohlen ist. Die alte Schreibweise vingt et un ohne Bindestriche gilt auch noch, aber bleib bei einer Schreibweise, am besten bei der aus deinem Heft.",
+    "narration": "Ab zwanzig baust du weiter: Zwanzig und die Einerzahl. Einundzwanzig ist besonders: «vingt-et-un», mit einem «et» dazwischen, das heißt und. Danach ohne «et»: «vingt-deux, vingt-trois, vingt-quatre, vingt-cinq, vingt-six, vingt-sept, vingt-huit, vingt-neuf». Dreißig heißt «trente», und einunddreißig wieder mit «et»: «trente-et-un». Im Heft stehen die Bindestriche zwischen allen Teilen, so wird es heute empfohlen. Die alte Schreibweise «vingt et un» ohne Bindestriche gilt auch noch, aber bleib bei der Schreibweise aus deinem Heft.",
     "onScreenTitle": "21 bis 31",
     "emphasisWords": []
    },
    {
     "beatId": 9,
     "chapterId": 2,
-    "narration": "Deine Aufgabe. Wie heißen neunundzwanzig und einunddreißig auf Französisch? Und welche Zahl ist «quinze»? Sag die Zahlen laut und überlege, wo ein et hineingehört und wo nicht. Du hast ein paar Sekunden, halte das Video an, wenn du mehr Zeit brauchst.",
+    "narration": "Deine Aufgabe. Wie heißen sechsundzwanzig und einunddreißig auf Französisch? Und welche Zahl ist «treize»? Sag die Zahlen laut und überlege, wo ein «et» hineingehört und wo nicht. Du hast ein paar Sekunden, halte das Video an, wenn du mehr Zeit brauchst.",
     "onScreenTitle": "Die Zahlen bis 31",
     "emphasisWords": []
    },
    {
     "beatId": 10,
     "chapterId": 2,
-    "narration": "Neunundzwanzig ist «vingt-neuf», zwanzig und neun, ohne et. Einunddreißig ist «trente-et-un», mit et, denn bei allen Zahlen, die auf eins enden, kommt das et dazu: vingt-et-un, trente-et-un. Und «quinze» ist die fünfzehn. Wenn du beim Zählen unsicher bist, zähle beim Treppensteigen oder beim Zähneputzen jeden Tag einmal bis einunddreißig durch.",
+    "narration": "Sechsundzwanzig ist «vingt-six», zwanzig und sechs, ohne «et». Einunddreißig ist «trente-et-un», mit «et», denn bei einundzwanzig und einunddreißig kommt das «et» dazu: «vingt-et-un, trente-et-un». Und «treize» ist die dreizehn. Wenn du beim Zählen unsicher bist, zähle beim Treppensteigen oder beim Zähneputzen jeden Tag einmal bis einunddreißig durch.",
     "onScreenTitle": "Antwort",
     "emphasisWords": []
    },
@@ -1512,14 +1512,14 @@
    {
     "beatId": 12,
     "chapterId": 3,
-    "narration": "Schau, wie die Bausteine zusammenkommen. Erst «Nous sommes». Dann «le», das bleibt immer gleich, bei jedem Datum. Dann die Zahl: «dix». Dann der Monat: «novembre». Zusammen: «Nous sommes le dix novembre.» Sprich es nach. Und die kurze Form: «C’est le dix novembre.» Zwei Dinge musst du dir merken. Zwischen Zahl und Monat steht nichts, kein de und kein Punkt. Und der Monat wird kleingeschrieben, auch mitten im Satz.",
+    "narration": "Schau, wie die Bausteine zusammenkommen. Erst «Nous sommes». Dann «le», das bleibt immer gleich, bei jedem Datum. Dann die Zahl: «dix». Dann der Monat: «novembre». Zusammen: «Nous sommes le dix novembre.» Sprich es nach. Und die kurze Form: «C’est le dix novembre.» Zwei Dinge musst du dir merken. Zwischen Zahl und Monat steht nichts, kein «de» und kein Punkt. Und der Monat wird immer kleingeschrieben.",
     "onScreenTitle": "Nous sommes le dix novembre",
     "emphasisWords": []
    },
    {
     "beatId": 13,
     "chapterId": 3,
-    "narration": "Eine einzige Ausnahme gibt es, und die steht in deinem Heft mit Achtung markiert: der Erste des Monats. Da sagt man nicht le un, sondern «le premier», der erste. «Nous sommes le premier avril.» Der erste April. Alle anderen Tage sind einfache Zahlen: «le deux avril, le trois avril, le dix avril». Nur der Erste bekommt das Wort premier. In der Schulaufgabe wird genau diese Ausnahme gern abgefragt, zum Beispiel der erste Januar oder der erste Dezember.",
+    "narration": "Eine einzige Ausnahme gibt es, und die steht in deinem Heft mit Achtung markiert: der Erste des Monats. Da sagt man nicht «le un», sondern «le premier», der erste. «Nous sommes le premier avril.» Der erste April. Alle anderen Tage sind einfache Zahlen: «le deux avril, le trois avril, le dix avril». Nur der Erste bekommt das Wort premier. Merk dir diese Ausnahme gut, sie ist der häufigste Fehler beim Datum.",
     "onScreenTitle": "Achtung: le premier avril",
     "emphasisWords": []
    },
@@ -1540,14 +1540,14 @@
    {
     "beatId": 16,
     "chapterId": 3,
-    "narration": "«C’est le vingt-et-un mai.» Und: «C’est le premier décembre.» Nicht le un décembre, das ist der häufigste Fehler. Prüfe am Ende immer drei Dinge: Steht le vor der Zahl? Steht zwischen Zahl und Monat nichts? Und ist der Monat kleingeschrieben? Mit Ziffern geht es übrigens auch: «le 2 juin», so wie im Heft. Beim Ersten schreibt man dann «le 1er avril», mit einem kleinen hochgestellten er.",
+    "narration": "«C’est le vingt-et-un mai.» Und: «C’est le premier décembre.» Nicht «le un décembre», das ist der häufigste Fehler. Prüfe am Ende immer drei Dinge: Steht «le» vor der Zahl? Steht zwischen Zahl und Monat nichts? Und ist der Monat kleingeschrieben? Mit Ziffern geht es übrigens auch: «le 2 juin». Beim Ersten schreibt man dann «le 1er avril», mit einem kleinen hochgestellten er.",
     "onScreenTitle": "Antwort",
     "emphasisWords": []
    },
    {
     "beatId": 17,
     "chapterId": 4,
-    "narration": "Zweites Thema: der Plural, die Mehrzahl. Die Grundregel ist leicht: An das Nomen hängst du ein s. «Un livre», ein Buch, «deux livres», zwei Bücher. «Un garçon, deux garçons. Une fille, deux filles.» Aber jetzt kommt das Besondere, und das steht mit Ausrufezeichen in deinem Heft: Dieses s ist stumm. Man schreibt es, aber man hört es nicht. «Livre» und «livres» klingen genau gleich.",
+    "narration": "Zweites Thema: der Plural, die Mehrzahl. Die Grundregel ist leicht: An das Nomen hängst du ein s. «Un livre», ein Buch, «deux livres», zwei Bücher. «Un garçon, deux garçons. Une fille, deux filles.» Aber jetzt kommt das Besondere, und das steht in deinem Heft: Dieses s ist stumm. Man schreibt es, aber man hört es nicht. «Livre» und «livres» klingen genau gleich.",
     "onScreenTitle": "Le pluriel des noms",
     "emphasisWords": []
    },
@@ -1561,7 +1561,7 @@
    {
     "beatId": 19,
     "chapterId": 4,
-    "narration": "Erste Ausnahme: Nomen, die auf -eau enden, bekommen kein s, sondern ein x. «Un cadeau», ein Geschenk, «deux cadeaux», zwei Geschenke. Das x ist genauso stumm wie das s. «Cadeau, cadeaux», gleicher Klang. Merk dir: Nach -eau kommt ein x. Bald lernst du noch mehr Wörter mit x im Plural, zum Beispiel «un jeu, des jeux», ein Spiel, Spiele.",
+    "narration": "Erste Ausnahme: Nomen, die auf -eau enden, bekommen kein s, sondern ein x. «Un cadeau», ein Geschenk, «deux cadeaux», zwei Geschenke. Das x ist genauso stumm wie das s. «Cadeau, cadeaux», gleicher Klang. Merk dir: Nach -eau kommt ein x. Später lernst du noch mehr Wörter mit x im Plural, zum Beispiel «un jeu, deux jeux», ein Spiel, zwei Spiele.",
     "onScreenTitle": "un cadeau → deux cadeaux",
     "emphasisWords": []
    },
@@ -1610,14 +1610,14 @@
    {
     "beatId": 26,
     "chapterId": 5,
-    "narration": "Zum Schluss der unbestimmte Artikel. «Une affiche», ein Plakat. Im Plural: «des affiches», mit Liaison, weil affiche mit a beginnt. «Des» ist ein Wort, das es im Deutschen gar nicht gibt. Wir sagen einfach Plakate oder Bücher ohne Artikel: Ich habe Bücher. Im Französischen muss das des aber stehen: «J’ai des livres.» Merk dir: Wenn du im Deutschen gar keinen Artikel hast, brauchst du im Französischen des. Und wenn du im Deutschen die sagst, brauchst du les.",
+    "narration": "Zum Schluss der unbestimmte Artikel. «Une affiche», ein Plakat. Im Plural: «des affiches», mit Liaison, weil affiche mit a beginnt. «Des» spricht man wie «les», mit hellem e. «Des» hat im Deutschen keine Entsprechung: Wir sagen einfach Plakate oder Bücher ohne Artikel, ich habe Bücher. Im Französischen muss das «des» aber stehen: «J’ai des livres.» Meistens gilt: Steht im Deutschen kein Artikel, brauchst du im Französischen «des». Steht im Deutschen die, brauchst du «les». Eine wichtige Ausnahme kommt gleich: mögen.",
     "onScreenTitle": "une affiche → des affiches",
     "emphasisWords": []
    },
    {
     "beatId": 27,
     "chapterId": 5,
-    "narration": "Ein Beispiel aus deinem Heft: «J’aime les livres de Harry Potter.» Ich mag die Harry-Potter-Bücher. Hier steht les, weil es um bestimmte Bücher geht, die von Harry Potter. Und auch wenn du sagst, dass du etwas allgemein magst, nimmt das Französische immer les: «J’aime les BD», ich mag Comics. Nach aimer kommt also les, nie des. Das ist ein Punkt, der in Tests gern vorkommt.",
+    "narration": "Ein Beispiel aus deinem Heft: «J’aime les livres de Harry Potter.» Ich mag die Harry-Potter-Bücher. Hier steht les, weil es um bestimmte Bücher geht, die von Harry Potter. Und auch wenn du sagst, dass du etwas allgemein magst, nimmt das Französische immer les: «J’aime les BD», ich mag Comics. Im Deutschen steht hier kein Artikel, im Französischen aber trotzdem «les». Nach «aimer» kommt also «les», nie «des».",
     "onScreenTitle": "les oder des?",
     "emphasisWords": []
    },
@@ -1638,7 +1638,7 @@
    {
     "beatId": 30,
     "chapterId": 6,
-    "narration": "Zum Schluss die Fehler, die am häufigsten passieren, damit du sie nicht machst. Erstens: le un statt «le premier». Zweitens: ein de oder ein Punkt zwischen Zahl und Monat, da steht nichts. Drittens: der Monat großgeschrieben, auf Französisch immer klein. Viertens: das s im Plural vergessen, weil man es nicht hört. Fünftens: cadeaus mit s statt «cadeaux» mit x. Sechstens: BDs mit s, Abkürzungen bleiben gleich. Und siebtens: le und les gleich ausgesprochen, dabei ist das e der ganze Unterschied.",
+    "narration": "Zum Schluss die Fehler, die am häufigsten passieren, damit du sie nicht machst. Erstens: «le un» statt «le premier». Zweitens: ein «de» oder ein Punkt zwischen Zahl und Monat, da steht nichts. Drittens: der Monat großgeschrieben, auf Französisch immer klein. Viertens: das s im Plural vergessen, weil man es nicht hört. Fünftens: «cadeaus» mit s statt «cadeaux» mit x. Sechstens: «BDs» mit s, Abkürzungen bleiben gleich. Und siebtens: «le» und «les» gleich ausgesprochen, dabei ist das e der ganze Unterschied.",
     "onScreenTitle": "Typische Fehler",
     "emphasisWords": []
    },
@@ -1657,14 +1657,15 @@
     "emphasisWords": []
    }
   ],
-  "totalWords": 2027
+  "totalWords": 2036
  },
  "review": {
   "approved": true,
   "issues": [],
   "claimsToVerify": [],
   "revisedNarration": {},
-  "mustFix": []
+  "mustFix": [],
+  "reviewer": "second Claude model (Claude Code subagent), independent of the writer"
  },
  "storyboard": {
   "scenes": [
@@ -1812,9 +1813,9 @@
     "scene": null,
     "params": null,
     "formula": null,
-    "question": "Welche drei Monate gehören zu l’été? Und wie heißt der Monat nach août?",
+    "question": "Welche drei Monate gehören zu le printemps? Und wie heißt der Monat vor juin?",
     "think": 8,
-    "hint": "L’été ist der Sommer. Danach beginnt l’automne.",
+    "hint": "Le printemps ist der Frühling. Davor liegt l’hiver, danach l’été.",
     "thinkText": null,
     "eyebrow": null,
     "footnote": null,
@@ -1830,9 +1831,9 @@
     "title": "Antwort",
     "subtitle": null,
     "bullets": [
-     "l’été: juin, juillet, août",
-     "Nach août kommt septembre",
-     "septembre gehört schon zu l’automne"
+     "le printemps: mars, avril, mai",
+     "Vor juin kommt mai",
+     "mai ist der letzte Frühlingsmonat"
     ],
     "nodes": null,
     "leftTitle": null,
@@ -2009,9 +2010,9 @@
     "scene": null,
     "params": null,
     "formula": null,
-    "question": "Wie heißen 29 und 31 auf Französisch? Und welche Zahl ist quinze?",
+    "question": "Wie heißen 26 und 31 auf Französisch? Und welche Zahl ist treize?",
     "think": 10,
-    "hint": "29 ist zwanzig und neun. 31 braucht ein et. Quinze liegt zwischen quatorze und seize.",
+    "hint": "26 ist zwanzig und sechs. 31 braucht ein et. Treize liegt zwischen douze und quatorze.",
     "thinkText": null,
     "eyebrow": null,
     "footnote": null,
@@ -2027,9 +2028,9 @@
     "title": "Antwort",
     "subtitle": null,
     "bullets": [
-     "29 = vingt-neuf",
+     "26 = vingt-six",
      "31 = trente-et-un",
-     "quinze = 15"
+     "treize = 13"
     ],
     "nodes": null,
     "leftTitle": null,
@@ -2718,7 +2719,7 @@
     "subtitle": null,
     "bullets": [
      "die Bücher → les livres",
-     "Bücher (ohne Artikel) → des livres",
+     "Bücher (ich habe Bücher) → des livres",
      "J’aime les livres de Harry Potter",
      "Mögen allgemein: immer les"
     ],
@@ -2947,17 +2948,20 @@
   ]
  },
  "publish": {
-  "title": "Französisch Klasse 6: Das Datum und der Plural einfach erklärt (le premier, les, des) | Gymnasium Ba",
-  "description": "Jahreszeiten, Monate, die Zahlen bis 31 und das Datum auf Französisch (Nous sommes le dix novembre, le premier avril, C’est quand ton anniversaire ?), dazu der Plural der Nomen: stummes -s, cadeaux mit -x, BD ohne Endung, die Artikel les und des und die Liaison. Mit 3D-Bildern, französischer Stimme zum Nachsprechen und Fragen mit Zeit zum Nachdenken.\n\nPasst zum LehrplanPLUS Gymnasium Bayern, Französisch Jahrgangsstufe 6 (erstes Lernjahr), Lernbereich F6 1.2 Verfügen über sprachliche Mittel.\n\nTransparenz: Die Sprecherstimme ist computergeneriert (Text-to-Speech). Das Skript folgt dem LehrplanPLUS Bayern und wurde von einem zweiten KI-Modell geprüft; vor der Veröffentlichung sieht ein Elternteil jedes Video durch.",
+  "title": "Französisch Klasse 6: Datum und Plural einfach erklärt (le premier, les, des) | Gymnasium Bayern",
+  "description": "Das Datum auf Französisch und der Plural, erklärt für das erste Lernjahr: die vier Jahreszeiten und zwölf Monate, die Zahlen bis 31, der Bauplan le + Zahl + Monat (Nous sommes le dix novembre, C’est le premier avril), die Fragen nach Datum und Geburtstag, und dann der Plural: stummes -s, cadeaux mit -x, BD ohne Endung, die Artikel les und des, le gegen les und die Liaison vor Vokal. Eine französische Stimme spricht alle Beispiele zum Nachsprechen.\n\nIn diesem Video:\n• l’hiver, le printemps, l’été, l’automne und ihre Monate\n• Zahlen 1 bis 31: onze bis seize, dix-sept, vingt-et-un, trente-et-un\n• Nous sommes le / C’est le + Zahl + Monat, le premier für den 1.\n• Aujourd’hui, nous sommes quelle date ? C’est quand ton anniversaire ?\n• Plural: -s (stumm), -eau → -eaux, Abkürzungen bleiben\n• le, la, l’ → les und un, une → des, Liaison les‿ordinateurs\n• Fünf Fragen zum Mitdenken und ein Übungsblatt mit Lösungen\n\nFür wen: Schülerinnen und Schüler der 6. Klasse am Gymnasium im ersten Lernjahr Französisch.\n\nÜbungsblatt mit Lösungen: https://github.com/hello2michael-cmyk/Test/tree/claude/dazzling-franklin-jex2oz/klasse6/schulaufgabe\n\nLehrplan: LehrplanPLUS Gymnasium Bayern, Französisch Jahrgangsstufe 6, Lernbereich F6 1.2 Verfügen über sprachliche Mittel.\n\nTransparenz: Die Sprecherstimme ist computergeneriert (Text-to-Speech). Das Skript folgt dem LehrplanPLUS Bayern und wurde von einem zweiten KI-Modell geprüft; vor der Veröffentlichung sieht ein Elternteil jedes Video durch.\n\n#Französisch #FranzösischKlasse6 #GymnasiumBayern #LeDate",
   "tags": [
    "Französisch Klasse 6",
    "Französisch Datum",
-   "le premier",
+   "le premier avril",
    "Französisch Plural",
-   "les des",
+   "les des Französisch",
    "Liaison Französisch",
    "Monate Französisch",
-   "Zahlen Französisch bis 31",
+   "Jahreszeiten Französisch",
+   "Zahlen Französisch 1 bis 31",
+   "Nous sommes le",
+   "C’est quand ton anniversaire",
    "Gymnasium Bayern",
    "LehrplanPLUS",
    "Französisch lernen Anfänger",
@@ -2990,6 +2994,6 @@
    }
   ],
   "thumbnailText": "FRANZÖSISCH: DAS DATUM",
-  "pinnedComment": "Welche Frage hast du zu dieser Lektion? Schreib sie in die Kommentare."
+  "pinnedComment": "Das Übungsblatt mit Lösungen zu Datum und Plural findest du in der Beschreibung. Bonne chance !"
  }
 }
