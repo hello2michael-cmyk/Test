@@ -213,7 +213,7 @@ Satzglieder, Satzglieder bestimmen, Umstellprobe, Frageprobe, Subjekt Prädikat 
 Satzglieder in der 6. Klasse: Was Eltern wissen sollten | Deutsch Gymnasium Bayern Eltern-Guide
 ```
 
-**Beschreibung** (1260 Zeichen)
+**Beschreibung** (1344 Zeichen)
 ```
 Satzglieder entscheiden über Kommas, über die Fälle in Latein und über das Verstehen langer Sätze. Dieser Eltern-Guide erklärt in zehn Minuten die zwei Proben, die Ihr Kind lernt, die fünf typischen Fehler und eine Übung für den Esstisch.
 
@@ -228,6 +228,9 @@ In diesem Video:
 Für wen: Eltern und Lehrkräfte von Sechstklässlern am Gymnasium in Bayern.
 
 Lehrplan: LehrplanPLUS Gymnasium Bayern, Deutsch Jahrgangsstufe 6, Lernbereich D6 4.2 Sprachliche Strukturen untersuchen.
+
+Mehr auf dem Kanal:
+▶ Kinder-Lektion zu diesem Thema: https://youtu.be/xLx1Mf6E01Y
 
 Kapitel
 0:00 Worum es geht
@@ -251,7 +254,7 @@ Satzglieder Klasse 6, Eltern Gymnasium, Deutsch 6. Klasse Eltern, Gymnasium Baye
 Welche Frage haben Sie zu Satzgliedern oder zu Grammatiktests? Schreiben Sie sie in die Kommentare.
 ```
 
-**Später ergänzen:** Kinder-Lektion zu diesem Thema · English version for parents · Playlist Eltern-Guide Klasse 6 Bayern
+**Später ergänzen:** English version for parents · Playlist Eltern-Guide Klasse 6 Bayern
 
 ## 06 · 06-Deutsch-Satzglieder-English
 
@@ -262,7 +265,7 @@ Welche Frage haben Sie zu Satzgliedern oder zu Grammatiktests? Schreiben Sie sie
 German grammar at a Gymnasium: Satzglieder (sentence parts) in Year 6, explained for parents
 ```
 
-**Beschreibung** (1337 Zeichen)
+**Beschreibung** (1433 Zeichen)
 ```
 Your child has to underline the Prädikat and name the Dativobjekt, and you cannot read the sentence. This guide explains the two tests Bavarian schools use, the German grammar terms with their English meaning, and how to help at home without speaking German.
 
@@ -277,6 +280,9 @@ In this video:
 For whom: international parents of Year 6 pupils (Jahrgangsstufe 6) at a Gymnasium in Bavaria.
 
 Curriculum: LehrplanPLUS Gymnasium Bayern, Deutsch 6, Lernbereich D6 4.2 Sprachliche Strukturen untersuchen.
+
+More on this channel:
+▶ German lesson for children on this topic: https://youtu.be/xLx1Mf6E01Y
 
 Chapters
 0:00 What this is about
@@ -300,7 +306,7 @@ German grammar explained, Satzglieder, German school system, Gymnasium Bayern, e
 Which German grammar term puzzles you most? Ask in the comments and we will explain it in the next video.
 ```
 
-**Später ergänzen:** German lesson for children on this topic · German guide for parents · Playlist For Parents (English): Gymnasium Bavaria Year 6
+**Später ergänzen:** German guide for parents · Playlist For Parents (English): Gymnasium Bavaria Year 6
 
 ## 07 · 07-NT-Biologie-Samen-und-Fruechte-Kinder
 
