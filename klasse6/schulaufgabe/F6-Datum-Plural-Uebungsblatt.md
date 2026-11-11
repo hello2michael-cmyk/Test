@@ -74,7 +74,7 @@ Name: ______________________   Datum: le ____ novembre
 
 - **le** spricht man [lə] (wie ein kurzes, dumpfes „lö"), **les** spricht man [le] (wie „leh"). Das ist oft der **einzige hörbare Unterschied** zwischen Singular und Plural: le livre [lə livr] – les livres [le livr].
 - Das **-s** oder **-x** am Wortende ist **stumm**: des garçons, des cadeaux.
-- **Liaison:** Beginnt das Nomen mit einem Vokal (oder stummem h), wird das -s von les/des als **[z]** an das nächste Wort gebunden: les‿ordinateurs [le-z-ordinatör], des‿affiches [de-z-afisch], les‿élèves.
+- **Liaison:** Beginnt das Nomen mit einem Vokal (oder stummem h), wird das -s von les/des als **[z]** an das nächste Wort gebunden: les‿ordinateurs, des‿affiches, les‿élèves (Aussprachehilfe: le-z-ordinatör, de-z-afisch).
 
 **Was heißt das auf Deutsch?**
 
@@ -174,10 +174,10 @@ Setze in den Plural. Achte auf den Artikel: le / la / l' → les, un / une → d
 a) Lies laut. Hört man am Ende des Artikels ein [z] (Liaison)? Kreuze an: ja / nein.
 
 1. les livres → ja ☐ nein ☐
-2. les‿ordinateurs → ja ☐ nein ☐
+2. les ordinateurs → ja ☐ nein ☐
 3. des garçons → ja ☐ nein ☐
-4. des‿affiches → ja ☐ nein ☐
-5. deux cadeaux → ja ☐ nein ☐
+4. des affiches → ja ☐ nein ☐
+5. deux cadeaux → ja ☐ nein ☐  (Hinweis: Hier geht es nur um les und des; deux hat kein s.)
 
 b) Lies laut und unterstreiche: Spricht man den Artikel [lə] (= le, Singular) oder [le] (= les, Plural)?
 
@@ -185,14 +185,14 @@ b) Lies laut und unterstreiche: Spricht man den Artikel [lə] (= le, Singular) o
 2. les cadeaux → [lə] / [le]
 3. les filles → [lə] / [le]
 4. le garçon → [lə] / [le]
-5. les‿affiches → [lə] / [le]
+5. les affiches → [lə] / [le]
 
 ### Übung 8: Trouve les fautes !
 
 In jedem Satz steckt ein Fehler. Unterstreiche ihn und schreibe den Satz richtig.
 
 1. Nous sommes le un novembre. → ____________________________________________
-2. C'est le 9 de novembre. → ____________________________________________
+2. C'est le 9 de novembre. → ____________________________________________  (Zahl als Wort oder Ziffer, beides gilt)
 3. Nous sommes le dix Novembre. → ____________________________________________
 4. J'ai deux cadeaus. → ____________________________________________
 5. J'aime les BDs. → ____________________________________________
@@ -203,7 +203,7 @@ In jedem Satz steckt ein Fehler. Unterstreiche ihn und schreibe den Satz richtig
 Sag laut auf Französisch:
 
 - das heutige Datum („Aujourd'hui, nous sommes le …"),
-- den Geburtstag von drei Personen aus deiner Familie („L'anniversaire de ma mère, c'est le …" / „L'anniversaire de mon frère, c'est le …").
+- den Geburtstag von drei Personen aus deiner Familie („L'anniversaire de ma mère, c'est le …" / „L'anniversaire de mon frère, c'est le …" / „L'anniversaire de ma sœur, c'est le …").
 
 Achte dabei auf: le premier beim 1. des Monats, nichts zwischen Zahl und Monat, Monat klein.
 
@@ -307,8 +307,8 @@ Aujourd'hui, nous sommes le onze novembre. L'anniversaire de ma mère, c'est le 
 1. **Jeden Tag das Datum schreiben:** Schreibe oben auf jede Heftseite das Datum auf Französisch, z. B. „le 11 novembre". So übst du das Datum ganz nebenbei jeden Tag.
 2. **Monate in Dreiergruppen lernen:** Lerne die Monate nicht als lange Liste, sondern immer drei zusammen mit ihrer Jahreszeit: l'hiver – décembre, janvier, février usw.
 3. **Monate singen:** Sing die zwölf Monate zu einer Melodie, die du kennst (z. B. „Bruder Jakob" oder ein Lied aus dem Buch). Was man singt, vergisst man nicht so schnell.
-4. **Zahlen im Alltag üben:** Sag die Uhrzeit (die Minuten), Hausnummern, Seitenzahlen oder Buslinien auf Französisch, wenn du sie siehst. So kommen die Zahlen 1 bis 31 ganz automatisch.
-5. **le und les übertrieben laut sprechen:** Sprich Paare wie „le livre – les livres" laut und übertreibe den Unterschied: [lö] – [leh]. Dein Ohr lernt, dass der Artikel den Plural zeigt.
+4. **Zahlen im Alltag üben:** Sag Hausnummern, Seitenzahlen oder Buslinien auf Französisch, wenn du sie siehst. So kommen die Zahlen 1 bis 31 ganz automatisch.
+5. **le und les übertrieben laut sprechen:** Sprich Paare wie „le livre – les livres" laut und übertreibe den Unterschied: [lə] – [le], also „lö" gegen „leh". Dein Ohr lernt, dass der Artikel den Plural zeigt.
 6. **Das -s mit dem Finger zudecken:** Lege beim Lesen den Finger auf das -s oder -x am Wortende. So merkst du dir: Es steht da, aber man hört es nicht.
 7. **Geburtstagskalender der Familie:** Schreib die Geburtstage deiner Familie auf Französisch auf einen Zettel (z. B. „Maman : le trois mars") und hänge ihn an die Pinnwand. Dann kannst du die Sprechaufgabe immer wieder üben.
 8. **Vokabelkärtchen immer mit Artikel:** Schreibe auf jedes Kärtchen das Wort mit Artikel (un livre, une affiche) und auf die Rückseite auch den Plural (des livres). Der Artikel zeigt dir später, ob Singular oder Plural gemeint ist.
