@@ -289,7 +289,12 @@
             "Grammatik: impératif; Fragen mit est-ce que, Intonation, Inversion; quel",
             "Grammatik: présent, futur proche; Verben auf -er (acheter, préférer, -cer, -ger), -re; être, avoir, pouvoir, vouloir, aller, dire, écrire, faire, lire, prendre",
             "Aussprache: Nasale, e-Laute, /y/, Lautschrift"
-          ] }
+          ] },
+          { "id": "F6-1.2a", "title": "Das Datum und der Plural", "hours": 0,
+            "kompetenzen": ["Jahreszeiten und Monate nennen; Zahlen 1 bis 31; das Datum sagen und schreiben (Nous sommes le / C’est le + Zahl + Monat, le premier); nach dem Geburtstag fragen", "Den Plural der Nomen bilden (-s stumm, -x bei -eau, Abkürzungen unverändert); les und des; Liaison vor Vokal"],
+            "inhalte": ["l’hiver, le printemps, l’été, l’automne", "les mois", "Nous sommes quelle date ? C’est quand ton anniversaire ?", "le pluriel des noms", "l’article défini et indéfini au pluriel"],
+            "kidExplanation": "Das Datum ist ein Bauplan: le + Zahl + Monat. Nur der Erste heißt le premier. Im Plural bekommt das Nomen ein stummes -s, und der Artikel verrät die Mehrzahl: les, des.",
+            "scene": "calendrier", "videoMinutes": 14 }
         ]},
         { "id": "F6-2", "title": "Interkulturelle Kompetenzen", "topics": [ { "id": "F6-2", "title": "Frankreich kennenlernen", "inhalte": ["elementare Geographie Frankreichs", "Alltag in Deutschland und Frankreich vergleichen", "Höflichkeit: Bonjour, Madame; Salut"] } ] },
         { "id": "F6-3", "title": "Text- und Medienkompetenzen", "topics": [ { "id": "F6-3", "title": "Texte und Medien", "inhalte": ["Entschlüsselungshilfen (Englisch, Bilder)", "kurze E-Mails, Kurznachrichten", "BD, Rollenspiel, Kinderlieder, comptines"] } ] },
