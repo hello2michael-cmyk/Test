@@ -166,7 +166,7 @@ Which German school term puzzles you most? Ask in the comments and we will expla
 Satzglieder bestimmen: Umstellprobe und Frageprobe einfach erklärt | Deutsch Klasse 6 Bayern
 ```
 
-**Beschreibung** (1259 Zeichen)
+**Beschreibung** (1341 Zeichen)
 ```
 Satzglieder bestimmen, einfach erklärt: Mit der Umstellprobe findest du, was zusammengehört, mit der Frageprobe gibst du jedem Satzglied seinen Namen. Subjekt, Prädikat, Objekte, Adverbialien und Attribute als 3D-Bausteine.
 
@@ -182,6 +182,9 @@ In diesem Video:
 Für wen: Schülerinnen und Schüler der 6. Klasse am Gymnasium, auch zur Vorbereitung auf Grammatiktests und Latein.
 
 Lehrplan: LehrplanPLUS Gymnasium Bayern, Deutsch Jahrgangsstufe 6, Lernbereich D6 4.2 Sprachliche Strukturen untersuchen.
+
+Mehr auf dem Kanal:
+▶ Eltern-Guide zu diesem Thema: https://youtu.be/PfiRVkV-mDQ
 
 Kapitel
 0:00 Was ist ein Satzglied?
@@ -202,7 +205,7 @@ Satzglieder, Satzglieder bestimmen, Umstellprobe, Frageprobe, Subjekt Prädikat 
 
 **Angehefteter Kommentar:** entfällt (Kommentare sind bei „für Kinder“ aus).
 
-**Später ergänzen:** Eltern-Guide zu diesem Thema · English version for parents · Playlist Klasse 6 Bayern: Lektionen für Schüler
+**Später ergänzen:** English version for parents · Playlist Klasse 6 Bayern: Lektionen für Schüler
 
 ## 05 · 05-Deutsch-Satzglieder-Eltern
 
@@ -265,7 +268,7 @@ Welche Frage haben Sie zu Satzgliedern oder zu Grammatiktests? Schreiben Sie sie
 German grammar at a Gymnasium: Satzglieder (sentence parts) in Year 6, explained for parents
 ```
 
-**Beschreibung** (1433 Zeichen)
+**Beschreibung** (1490 Zeichen)
 ```
 Your child has to underline the Prädikat and name the Dativobjekt, and you cannot read the sentence. This guide explains the two tests Bavarian schools use, the German grammar terms with their English meaning, and how to help at home without speaking German.
 
@@ -283,6 +286,7 @@ Curriculum: LehrplanPLUS Gymnasium Bayern, Deutsch 6, Lernbereich D6 4.2 Sprachl
 
 More on this channel:
 ▶ German lesson for children on this topic: https://youtu.be/xLx1Mf6E01Y
+▶ German guide for parents: https://youtu.be/PfiRVkV-mDQ
 
 Chapters
 0:00 What this is about
@@ -306,7 +310,7 @@ German grammar explained, Satzglieder, German school system, Gymnasium Bayern, e
 Which German grammar term puzzles you most? Ask in the comments and we will explain it in the next video.
 ```
 
-**Später ergänzen:** German guide for parents · Playlist For Parents (English): Gymnasium Bavaria Year 6
+**Später ergänzen:** Playlist For Parents (English): Gymnasium Bavaria Year 6
 
 ## 07 · 07-NT-Biologie-Samen-und-Fruechte-Kinder
 
