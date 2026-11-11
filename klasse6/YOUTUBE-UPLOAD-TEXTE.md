@@ -1076,3 +1076,53 @@ Schulaufgabe Mathe Klasse 6, Dezimalbrüche Klasse 6, Dezimalbrüche vergleichen
 **Angehefteter Kommentar:** entfällt (Kommentare sind bei „für Kinder“ aus).
 
 **Später ergänzen:** Eltern-Guide zu diesem Thema · Playlist Klasse 6 Bayern: Lektionen für Schüler
+
+## 23 · 23-Franzoesisch-Datum-und-Plural-Kinder
+
+**Einstellungen:** Für Kinder: JA · KI-Frage (vier Fälle): Nein · Sprache: Deutsch · Kategorie: Bildung · Playlist: Klasse 6 Bayern: Lektionen für Schüler · Vorschaubild: 23-Franzoesisch-Datum-und-Plural-Kinder-thumbnail.jpg · Untertitel: 23-Franzoesisch-Datum-und-Plural-Kinder.srt
+
+**Titel** (96 Zeichen)
+```
+Französisch Klasse 6: Datum und Plural einfach erklärt (le premier, les, des) | Gymnasium Bayern
+```
+
+**Beschreibung** (1694 Zeichen)
+```
+Das Datum auf Französisch und der Plural, erklärt für das erste Lernjahr: die vier Jahreszeiten und zwölf Monate, die Zahlen bis 31, der Bauplan le + Zahl + Monat (Nous sommes le dix novembre, C’est le premier avril), die Fragen nach Datum und Geburtstag, und dann der Plural: stummes -s, cadeaux mit -x, BD ohne Endung, die Artikel les und des, le gegen les und die Liaison vor Vokal. Eine französische Stimme spricht alle Beispiele zum Nachsprechen.
+
+In diesem Video:
+• l’hiver, le printemps, l’été, l’automne und ihre Monate
+• Zahlen 1 bis 31: onze bis seize, dix-sept, vingt-et-un, trente-et-un
+• Nous sommes le / C’est le + Zahl + Monat, le premier für den 1.
+• Aujourd’hui, nous sommes quelle date ? C’est quand ton anniversaire ?
+• Plural: -s (stumm), -eau → -eaux, Abkürzungen bleiben
+• le, la, l’ → les und un, une → des, Liaison les‿ordinateurs
+• Fünf Fragen zum Mitdenken und ein Übungsblatt mit Lösungen
+
+Für wen: Schülerinnen und Schüler der 6. Klasse am Gymnasium im ersten Lernjahr Französisch.
+
+Übungsblatt mit Lösungen: https://github.com/hello2michael-cmyk/Test/tree/claude/dazzling-franklin-jex2oz/klasse6/schulaufgabe
+
+Lehrplan: LehrplanPLUS Gymnasium Bayern, Französisch Jahrgangsstufe 6, Lernbereich F6 1.2 Verfügen über sprachliche Mittel.
+
+Kapitel
+0:00 Jahreszeiten und Monate
+3:05 Die Zahlen bis 31
+6:24 Das Datum
+9:39 Der Plural der Nomen
+12:41 Les und des
+17:04 Tipps und Checkliste
+
+Transparenz: Die Sprecherstimme ist computergeneriert (Text-to-Speech). Das Skript folgt dem LehrplanPLUS Bayern und wurde von einem zweiten KI-Modell geprüft; vor der Veröffentlichung sieht ein Elternteil jedes Video durch.
+
+#Französisch #FranzösischKlasse6 #GymnasiumBayern #LeDate
+```
+
+**Tags** (326 Zeichen)
+```
+Französisch Klasse 6, Französisch Datum, le premier avril, Französisch Plural, les des Französisch, Liaison Französisch, Monate Französisch, Jahreszeiten Französisch, Zahlen Französisch 1 bis 31, Nous sommes le, C’est quand ton anniversaire, Gymnasium Bayern, LehrplanPLUS, Französisch lernen Anfänger, Französisch 1. Lernjahr
+```
+
+**Angehefteter Kommentar:** entfällt (Kommentare sind bei „für Kinder“ aus).
+
+**Später ergänzen:** Eltern-Guide zu diesem Thema · Playlist Klasse 6 Bayern: Lektionen für Schüler

@@ -177,6 +177,14 @@
       "release": "video-54",
       "slug": "22-Mathe-Schulaufgabe-Teil-2-Dezimalbrueche-Kinder",
       "fach": "Mathematik"
+    },
+    {
+      "nr": 23,
+      "lesson": "F6-1.2a",
+      "variant": "kinder",
+      "release": "video-55",
+      "slug": "23-Franzoesisch-Datum-und-Plural-Kinder",
+      "fach": "Franzoesisch"
     }
   ]
 }
