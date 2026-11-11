@@ -166,7 +166,7 @@ Which German school term puzzles you most? Ask in the comments and we will expla
 Satzglieder bestimmen: Umstellprobe und Frageprobe einfach erklärt | Deutsch Klasse 6 Bayern
 ```
 
-**Beschreibung** (1341 Zeichen)
+**Beschreibung** (1401 Zeichen)
 ```
 Satzglieder bestimmen, einfach erklärt: Mit der Umstellprobe findest du, was zusammengehört, mit der Frageprobe gibst du jedem Satzglied seinen Namen. Subjekt, Prädikat, Objekte, Adverbialien und Attribute als 3D-Bausteine.
 
@@ -185,6 +185,7 @@ Lehrplan: LehrplanPLUS Gymnasium Bayern, Deutsch Jahrgangsstufe 6, Lernbereich D
 
 Mehr auf dem Kanal:
 ▶ Eltern-Guide zu diesem Thema: https://youtu.be/PfiRVkV-mDQ
+▶ English version for parents: https://youtu.be/iO8j_PH9dT4
 
 Kapitel
 0:00 Was ist ein Satzglied?
@@ -205,7 +206,7 @@ Satzglieder, Satzglieder bestimmen, Umstellprobe, Frageprobe, Subjekt Prädikat 
 
 **Angehefteter Kommentar:** entfällt (Kommentare sind bei „für Kinder“ aus).
 
-**Später ergänzen:** English version for parents · Playlist Klasse 6 Bayern: Lektionen für Schüler
+**Später ergänzen:** Playlist Klasse 6 Bayern: Lektionen für Schüler
 
 ## 05 · 05-Deutsch-Satzglieder-Eltern
 
@@ -216,7 +217,7 @@ Satzglieder, Satzglieder bestimmen, Umstellprobe, Frageprobe, Subjekt Prädikat 
 Satzglieder in der 6. Klasse: Was Eltern wissen sollten | Deutsch Gymnasium Bayern Eltern-Guide
 ```
 
-**Beschreibung** (1344 Zeichen)
+**Beschreibung** (1404 Zeichen)
 ```
 Satzglieder entscheiden über Kommas, über die Fälle in Latein und über das Verstehen langer Sätze. Dieser Eltern-Guide erklärt in zehn Minuten die zwei Proben, die Ihr Kind lernt, die fünf typischen Fehler und eine Übung für den Esstisch.
 
@@ -234,6 +235,7 @@ Lehrplan: LehrplanPLUS Gymnasium Bayern, Deutsch Jahrgangsstufe 6, Lernbereich D
 
 Mehr auf dem Kanal:
 ▶ Kinder-Lektion zu diesem Thema: https://youtu.be/xLx1Mf6E01Y
+▶ English version for parents: https://youtu.be/iO8j_PH9dT4
 
 Kapitel
 0:00 Worum es geht
@@ -257,7 +259,7 @@ Satzglieder Klasse 6, Eltern Gymnasium, Deutsch 6. Klasse Eltern, Gymnasium Baye
 Welche Frage haben Sie zu Satzgliedern oder zu Grammatiktests? Schreiben Sie sie in die Kommentare.
 ```
 
-**Später ergänzen:** English version for parents · Playlist Eltern-Guide Klasse 6 Bayern
+**Später ergänzen:** Playlist Eltern-Guide Klasse 6 Bayern
 
 ## 06 · 06-Deutsch-Satzglieder-English
 
