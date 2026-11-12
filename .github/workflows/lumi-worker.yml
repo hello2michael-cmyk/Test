@@ -27,11 +27,18 @@ jobs:
         with:
           node-version: 22
       - name: Check the Cloudflare credentials
+        id: creds
         run: |
           if [ -z "$CLOUDFLARE_API_TOKEN" ] || [ -z "$CLOUDFLARE_ACCOUNT_ID" ]; then
-            echo "::error::Add the repository secrets CLOUDFLARE_API_TOKEN and CLOUDFLARE_ACCOUNT_ID first (see klasse6/tutor/README.md)."; exit 1
+            echo "configured=false" >> "$GITHUB_OUTPUT"
+            msg="Add the repository secrets CLOUDFLARE_API_TOKEN and CLOUDFLARE_ACCOUNT_ID first (see klasse6/tutor/README.md)."
+            # automatic runs skip quietly until the server is set up; a manual run says what is missing
+            if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then echo "::error::$msg"; exit 1; else echo "::notice::$msg Skipped."; fi
+          else
+            echo "configured=true" >> "$GITHUB_OUTPUT"
           fi
       - name: Deploy
+        if: steps.creds.outputs.configured == 'true'
         id: deploy
         run: |
           npx --yes wrangler@4 deploy \
@@ -40,6 +47,7 @@ jobs:
           url=$(grep -oE 'https://[a-z0-9.-]+\.workers\.dev' deploy.log | head -1)
           echo "url=$url" >> "$GITHUB_OUTPUT"
       - name: Store the secrets in the worker
+        if: steps.creds.outputs.configured == 'true'
         env:
           S_ACCESS_CODE: ${{ secrets.LUMI_ACCESS_CODE }}
           S_ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
@@ -52,6 +60,7 @@ jobs:
             else echo "::warning::$name is not set as a repository secret; that feature stays off."; fi
           done
       - name: Result
+        if: steps.creds.outputs.configured == 'true'
         run: |
           echo "### Lumi key server" >> "$GITHUB_STEP_SUMMARY"
           echo "Address for the tutor's settings: ${{ steps.deploy.outputs.url }}" >> "$GITHUB_STEP_SUMMARY"
