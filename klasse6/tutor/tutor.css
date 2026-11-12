@@ -85,3 +85,7 @@ body.focus .classroom.has-visual ~ .caption { top: calc((100vw) * 0.625 + 8px); 
 body.focus.nocc .caption { display: none; }
 body.focus .card { padding-bottom: 52%; }
 @media (min-aspect-ratio: 5/4) { body.focus .card { padding-bottom: 110px; } body.focus .classroom.has-visual ~ .caption { top: auto; bottom: 100px; left: 26%; } }
+.natural { background: rgba(107,237,184,0.08); border: 1px solid rgba(107,237,184,0.35); border-radius: 12px; padding: 10px 12px; margin: 10px 0; }
+.natural input { width: 100%; font: inherit; padding: 9px 10px; border-radius: 10px; border: 1px solid var(--line); background: rgba(0,0,0,0.3); color: var(--text); }
+.overlay label.check { display: flex; gap: 8px; align-items: center; color: var(--text); }
+.overlay label.check input { width: auto; margin: 0; }
