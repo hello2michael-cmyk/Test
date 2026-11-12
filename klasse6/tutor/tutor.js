@@ -7,18 +7,19 @@ import { Anthropic } from './vendor/anthropic-sdk.js';
 import { Scene } from '../js/engine3d.js';
 import { SCENES } from '../js/scenes.js';
 import { Avatar } from './avatar.js?v=5';
+import { createVideoAvatar } from './video-avatar.js?v=1';
 
 const $ = id => document.getElementById(id);
 const THEME = { bgTop: '#0d1229', bgBottom: '#170d38', accent: '#5c9eff', accent2: '#6bedb8', text: '#ffffff', muted: 'rgba(255,255,255,0.7)', dark: true };
 const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 const MODELS = ['claude-opus-5-5', 'claude-sonnet-5-5', 'claude-haiku-5-5'];
-const DEFAULTS = { apiKey: '', model: 'claude-sonnet-5-5', effort: 'low', tts: 'web', googleKey: '', googleVoice: 'de-DE-Chirp3-HD-Leda', rate: 0.95, tv: false, nickname: '', fallbacks: true, mode: 'kind', ui: 'de', voiceMode: true, focus: true, cc: true, fast: true };
+const DEFAULTS = { apiKey: '', model: 'claude-sonnet-5-5', effort: 'low', tts: 'web', googleKey: '', googleVoice: 'de-DE-Chirp3-HD-Leda', rate: 0.95, tv: false, nickname: '', fallbacks: true, mode: 'kind', ui: 'de', voiceMode: true, focus: true, cc: true, fast: true, server: '', code: '', video: true };
 // mode: kind = child, German du-form · eltern = parents and teachers, German Sie-form · parent = parents who do not speak German, English
 const STR = {
-  de: { brand: 'Lern-Tutor · Klasse 6 Gymnasium Bayern', new: 'Neu', placeholder: 'Frag mich etwas … (oder tippe auf das Mikrofon)', send: 'Senden', quiz: 'Abfragen', stop: 'Stopp', introTitle: 'Hallo, ich bin Lumi.', introText: 'Dein sprechender Lern-Tutor für die 6. Klasse: Mathe, Deutsch, Englisch, Französisch, Latein, Natur und Technik, Geschichte und mehr. Frag mich mit deiner Stimme, ich antworte und zeige dir Bilder dazu. Wähle, wer du bist:', start: 'Los geht’s', introFine: 'Lumi nutzt ein KI-Modell (Claude). Die Antworten können Fehler enthalten. Bei Zweifeln: Heft und Lehrkraft fragen.', settings: 'Einstellungen', lblMode: 'Modus', lblUi: 'Sprache der Oberfläche', lblKey: 'API-Schlüssel (Anthropic, beginnt mit sk-ant-)', lblModel: 'Modell', lblEffort: 'Gründlichkeit', effLow: 'niedrig (schnell)', effMed: 'mittel', effHigh: 'hoch', lblVoice: 'Stimme', voiceWeb: 'Gerätestimme (kostenlos, sofort)', voiceGoogle: 'Google Cloud, Leda (wie in den Videos; Schlüssel nötig)', lblGKey: 'Google-Cloud-TTS-Schlüssel (optional)', lblGVoice: 'Google-Stimme (de-DE-… oder en-US-…)', lblRate: 'Sprechtempo', natTitle: 'Natürliche Stimme (empfohlen)', natText: 'Mit einem Google-Cloud-Text-to-Speech-Schlüssel spricht Lumi mit einer menschlichen Stimme statt der Roboterstimme des Geräts. Einmal eintragen, bleibt auf diesem Gerät.', fastLbl: 'Schnellmodus (schnellere Antworten, doppelte Kosten pro Antwort)', testVoice: 'Stimme testen', talk: 'Gespräch', soundHint: 'Ton: Lautstärke hoch und den Klingelschalter am iPhone auf laut, sonst bleibt Lumi stumm.', lblNick: 'Dein Vorname (optional): Lumi spricht dich damit an', hearQ: 'Hörst du mich?', hearYes: 'Ja', hearNo: 'Kein Ton', shTitle: 'Kein Ton?', sh1: 'iPhone: den Schalter an der Seite auf „Klingeln“ stellen (nicht stumm). Die eingebaute Stimme ist im Stumm-Modus aus.', sh2: 'Lautstärke mit den Tasten an der Seite hochdrehen.', sh3: 'Oder die menschlichere Google-Stimme nutzen: Sie funktioniert auch im Stumm-Modus. Dafür in den Einstellungen bei „Stimme“ Google Cloud wählen und den Google-Schlüssel eintragen.', close: 'Schließen', setFine: 'Schlüssel bleiben nur in diesem Browser auf diesem Gerät (localStorage) und gehen direkt an Anthropic bzw. Google. Gespräche werden nicht gespeichert, außer für die laufende Sitzung.', save: 'Speichern',
+  de: { brand: 'Lern-Tutor · Klasse 6 Gymnasium Bayern', new: 'Neu', placeholder: 'Frag mich etwas … (oder tippe auf das Mikrofon)', send: 'Senden', quiz: 'Abfragen', stop: 'Stopp', introTitle: 'Hallo, ich bin Lumi.', introText: 'Dein sprechender Lern-Tutor für die 6. Klasse: Mathe, Deutsch, Englisch, Französisch, Latein, Natur und Technik, Geschichte und mehr. Frag mich mit deiner Stimme, ich antworte und zeige dir Bilder dazu. Wähle, wer du bist:', start: 'Los geht’s', introFine: 'Lumi nutzt ein KI-Modell (Claude). Die Antworten können Fehler enthalten. Bei Zweifeln: Heft und Lehrkraft fragen.', settings: 'Einstellungen', lblMode: 'Modus', lblUi: 'Sprache der Oberfläche', lblKey: 'API-Schlüssel (Anthropic, beginnt mit sk-ant-)', lblModel: 'Modell', lblEffort: 'Gründlichkeit', effLow: 'niedrig (schnell)', effMed: 'mittel', effHigh: 'hoch', lblVoice: 'Stimme', voiceWeb: 'Gerätestimme (kostenlos, sofort)', voiceGoogle: 'Google Cloud, Leda (wie in den Videos; Schlüssel nötig)', lblGKey: 'Google-Cloud-TTS-Schlüssel (optional)', lblGVoice: 'Google-Stimme (de-DE-… oder en-US-…)', lblRate: 'Sprechtempo', lblServer: 'Lumi-Server (Adresse, optional)', lblCode: 'Zugangscode', lblVideo: 'Echter Video-Lehrer (über den Lumi-Server)', serverNote: 'Mit Lumi-Server braucht dieses Gerät keinen API-Schlüssel: Server-Adresse und Zugangscode genügen.', videoStarting: 'Der Video-Lehrer kommt …', videoTap: 'Tippe einmal auf den Bildschirm, um den Video-Lehrer zu starten.', videoFailed: 'Video-Lehrer gerade nicht erreichbar, ich spreche als gezeichneter Lehrer weiter.', natTitle: 'Natürliche Stimme (empfohlen)', natText: 'Mit einem Google-Cloud-Text-to-Speech-Schlüssel spricht Lumi mit einer menschlichen Stimme statt der Roboterstimme des Geräts. Einmal eintragen, bleibt auf diesem Gerät.', fastLbl: 'Schnellmodus (schnellere Antworten, doppelte Kosten pro Antwort)', testVoice: 'Stimme testen', talk: 'Gespräch', soundHint: 'Ton: Lautstärke hoch und den Klingelschalter am iPhone auf laut, sonst bleibt Lumi stumm.', lblNick: 'Dein Vorname (optional): Lumi spricht dich damit an', hearQ: 'Hörst du mich?', hearYes: 'Ja', hearNo: 'Kein Ton', shTitle: 'Kein Ton?', sh1: 'iPhone: den Schalter an der Seite auf „Klingeln“ stellen (nicht stumm). Die eingebaute Stimme ist im Stumm-Modus aus.', sh2: 'Lautstärke mit den Tasten an der Seite hochdrehen.', sh3: 'Oder die menschlichere Google-Stimme nutzen: Sie funktioniert auch im Stumm-Modus. Dafür in den Einstellungen bei „Stimme“ Google Cloud wählen und den Google-Schlüssel eintragen.', close: 'Schließen', setFine: 'Schlüssel bleiben nur in diesem Browser auf diesem Gerät (localStorage) und gehen direkt an Anthropic bzw. Google. Gespräche werden nicht gespeichert, außer für die laufende Sitzung.', save: 'Speichern',
     needKey: 'Zum Start brauchst du einmalig einen API-Schlüssel von platform.claude.com (Settings → API keys). Er bleibt nur auf diesem Gerät.', keyFirst: 'Bitte zuerst den API-Schlüssel eintragen.', thinking: 'denkt nach …', listening: 'Ich höre zu … sprich jetzt.', noStt: 'Spracheingabe gibt es in diesem Browser nicht. Tippe deine Frage.', mic: 'Bitte erlaube das Mikrofon.', you: 'Du',
     errAuth: 'Der API-Schlüssel wurde nicht angenommen. Bitte in den Einstellungen prüfen (und ob das Konto Guthaben hat).', errRate: 'Gerade sind zu viele Anfragen unterwegs. Warte einen Moment und frag noch einmal.', errNet: 'Keine Verbindung. Ist das WLAN an?', nothingHeard: 'Ich habe nichts gehört. Tipp auf mich oder aufs Mikrofon und sprich.', errOther: 'Da ist etwas schiefgegangen: ', refusal: ' Darüber kann ich leider nicht sprechen. Lass uns weiter lernen.' },
-  en: { brand: 'Learning tutor · Year 6 Gymnasium Bavaria', new: 'New', placeholder: 'Ask me something … (or tap the microphone)', send: 'Send', quiz: 'Quiz me', stop: 'Stop', introTitle: 'Hello, I am Lumi.', introText: 'Your talking tutor for Year 6 at a Bavarian Gymnasium: maths, German, English, French, Latin, science, history and more. Ask with your voice; I answer and show pictures. Choose who you are:', start: 'Let’s go', introFine: 'Lumi uses an AI model (Claude). Answers can contain mistakes. When in doubt, check the exercise book or ask the teacher.', settings: 'Settings', lblMode: 'Mode', lblUi: 'Interface language', lblKey: 'API key (Anthropic, starts with sk-ant-)', lblModel: 'Model', lblEffort: 'Thoroughness', effLow: 'low (fast)', effMed: 'medium', effHigh: 'high', lblVoice: 'Voice', voiceWeb: 'Device voice (free, instant)', voiceGoogle: 'Google Cloud, Leda (as in the videos; key needed)', lblGKey: 'Google Cloud TTS key (optional)', lblGVoice: 'Google voice (de-DE-… or en-US-…)', lblRate: 'Speaking rate', natTitle: 'Natural voice (recommended)', natText: 'With a Google Cloud Text-to-Speech key Lumi speaks with a human-sounding voice instead of the robotic device voice. Enter it once; it stays on this device.', fastLbl: 'Fast mode (faster replies, double cost per reply)', testVoice: 'Test voice', talk: 'Talk', soundHint: 'Sound: turn the volume up and set the iPhone ring switch to ring, otherwise Lumi stays silent.', lblNick: 'Your first name (optional): Lumi addresses you by it', hearQ: 'Can you hear me?', hearYes: 'Yes', hearNo: 'No sound', shTitle: 'No sound?', sh1: 'iPhone: set the switch on the side to ring (not silent). The built-in voice is off in silent mode.', sh2: 'Turn the volume up with the side buttons.', sh3: 'Or use the more human Google voice: it also works in silent mode. In the settings choose Google Cloud under Voice and enter the Google key.', close: 'Close', setFine: 'Keys stay only in this browser on this device (localStorage) and go straight to Anthropic or Google. Conversations are not stored beyond the current session.', save: 'Save',
+  en: { brand: 'Learning tutor · Year 6 Gymnasium Bavaria', new: 'New', placeholder: 'Ask me something … (or tap the microphone)', send: 'Send', quiz: 'Quiz me', stop: 'Stop', introTitle: 'Hello, I am Lumi.', introText: 'Your talking tutor for Year 6 at a Bavarian Gymnasium: maths, German, English, French, Latin, science, history and more. Ask with your voice; I answer and show pictures. Choose who you are:', start: 'Let’s go', introFine: 'Lumi uses an AI model (Claude). Answers can contain mistakes. When in doubt, check the exercise book or ask the teacher.', settings: 'Settings', lblMode: 'Mode', lblUi: 'Interface language', lblKey: 'API key (Anthropic, starts with sk-ant-)', lblModel: 'Model', lblEffort: 'Thoroughness', effLow: 'low (fast)', effMed: 'medium', effHigh: 'high', lblVoice: 'Voice', voiceWeb: 'Device voice (free, instant)', voiceGoogle: 'Google Cloud, Leda (as in the videos; key needed)', lblGKey: 'Google Cloud TTS key (optional)', lblGVoice: 'Google voice (de-DE-… or en-US-…)', lblRate: 'Speaking rate', lblServer: 'Lumi server (address, optional)', lblCode: 'Access code', lblVideo: 'Real video teacher (via the Lumi server)', serverNote: 'With a Lumi server this device needs no API key: the server address and access code are enough.', videoStarting: 'The video teacher is joining …', videoTap: 'Tap the screen once to start the video teacher.', videoFailed: 'Video teacher not available right now; I will keep talking as the drawn teacher.', natTitle: 'Natural voice (recommended)', natText: 'With a Google Cloud Text-to-Speech key Lumi speaks with a human-sounding voice instead of the robotic device voice. Enter it once; it stays on this device.', fastLbl: 'Fast mode (faster replies, double cost per reply)', testVoice: 'Test voice', talk: 'Talk', soundHint: 'Sound: turn the volume up and set the iPhone ring switch to ring, otherwise Lumi stays silent.', lblNick: 'Your first name (optional): Lumi addresses you by it', hearQ: 'Can you hear me?', hearYes: 'Yes', hearNo: 'No sound', shTitle: 'No sound?', sh1: 'iPhone: set the switch on the side to ring (not silent). The built-in voice is off in silent mode.', sh2: 'Turn the volume up with the side buttons.', sh3: 'Or use the more human Google voice: it also works in silent mode. In the settings choose Google Cloud under Voice and enter the Google key.', close: 'Close', setFine: 'Keys stay only in this browser on this device (localStorage) and go straight to Anthropic or Google. Conversations are not stored beyond the current session.', save: 'Save',
     needKey: 'To start you need an API key once, from platform.claude.com (Settings → API keys). It stays on this device only.', keyFirst: 'Please enter the API key first.', thinking: 'thinking …', listening: 'I am listening … speak now.', noStt: 'This browser has no speech input. Type your question.', mic: 'Please allow the microphone.', you: 'You',
     errAuth: 'The API key was not accepted. Check it in the settings (and whether the account has credit).', errRate: 'Too many requests right now. Wait a moment and ask again.', errNet: 'No connection. Is Wi-Fi on?', nothingHeard: 'I did not hear anything. Tap me or the microphone and speak.', errOther: 'Something went wrong: ', refusal: ' I cannot talk about that. Let us keep learning.' },
 };
@@ -140,9 +141,26 @@ ${syllabusSummary(d)}`;
 }
 
 /* ------------------------------------------------------------------ Claude */
+let videoAvatar = { live: () => false, state: () => 'off', interrupt() {}, start() {}, stop() {}, touch() {}, resume() {}, speak: async () => false };
+const viaServer = () => !!(settings.server && settings.code);
+const serverUrl = p => settings.server.replace(/\/+$/, '') + p;
 function makeClient() {
+  // With the key server, the page holds no API key: requests go to the worker, which adds it.
+  if (viaServer()) return new Anthropic({ apiKey: 'held-by-server', baseURL: settings.server.replace(/\/+$/, ''), defaultHeaders: { 'x-lumi-code': settings.code }, dangerouslyAllowBrowser: true, maxRetries: 1 });
   if (!settings.apiKey) return null;
   return new Anthropic({ apiKey: settings.apiKey, dangerouslyAllowBrowser: true, maxRetries: 1 });
+}
+const naturalVoice = () => viaServer() || (settings.tts === 'google' && !!settings.googleKey);
+/** Natural voice as base64: MP3 for the drawn teacher, raw 16-bit 24 kHz PCM for the video avatar. */
+function fetchVoice(text, format) {
+  if (!viaServer()) return fetchGoogle(text);
+  const key = 'srv|' + format + '|' + googleVoiceFor().name + '|' + settings.rate + '|' + text;
+  if (ttsCache.has(key)) return ttsCache.get(key);
+  const p = fetch(serverUrl('/tts'), { method: 'POST', headers: { 'content-type': 'application/json', 'x-lumi-code': settings.code }, body: JSON.stringify({ text, voice: googleVoiceFor().name, rate: settings.rate, format }) })
+    .then(async res => { if (!res.ok) { diag.errors++; diag.last = 'voice ' + res.status; throw new Error('voice ' + res.status); } return (await res.json()).audio; });
+  ttsCache.set(key, p); if (ttsCache.size > 40) ttsCache.delete(ttsCache.keys().next().value);
+  p.catch(() => ttsCache.delete(key));
+  return p;
 }
 async function ask(userText) {
   if (!client) { openSettings(T().keyFirst); return; }
@@ -275,11 +293,12 @@ function queueIdle() {
 let turnSerial = 0, mutedTurn = -1;   // after Stop, the rest of the current answer stays silent
 function speakNow(text) {
   if (mutedTurn === turnSerial) return;
-  if (settings.tts === 'google' && settings.googleKey) { const audioP = fetchGoogle(text); audioP.catch(() => {}); enqueue(() => speakGoogle(text, audioP)); }
+  if (videoAvatar.live()) { const pcmP = fetchVoice(text, 'pcm'); pcmP.catch(() => {}); enqueue(() => videoAvatar.speak(text, pcmP).then(ok => ok || speakWeb(text))); }
+  else if (naturalVoice()) { const audioP = fetchVoice(text, 'mp3'); audioP.catch(() => {}); enqueue(() => speakGoogle(text, audioP)); }
   else { const p = speakWeb(text); enqueue(() => p); }   // into the system queue now; the ordered queue only waits for it
 }
 function stopSpeaking() {
-  cancelSerial = speakSerial; mutedTurn = turnSerial; clearTimeout(idleTimer);
+  cancelSerial = speakSerial; mutedTurn = turnSerial; videoAvatar.interrupt(); clearTimeout(idleTimer);
   try { speechSynthesis.cancel(); } catch {}
   liveUtterances.clear();
   try { player.pause(); } catch {}
@@ -377,7 +396,7 @@ function startListening() {
   rec.onresult = e => { let interim = ''; for (let i = e.resultIndex; i < e.results.length; i++) { const r = e.results[i]; if (r.isFinal) finalText += r[0].transcript; else interim += r[0].transcript; } $('text').value = (finalText + ' ' + interim).trim(); };
   rec.onerror = e => { setStatus(e.error === 'not-allowed' ? T().mic : ''); stopListening(); };
   rec.onend = () => { const t = ($('text').value || finalText).trim(); stopListening(); if (t) { $('text').value = ''; ask(t); } else setStatus(T().nothingHeard); };
-  listening = true; $('mic').classList.add('on'); avatar.set('listening'); setStatus(T().listening); syncFab();
+  videoAvatar.touch(); listening = true; $('mic').classList.add('on'); avatar.set('listening'); setStatus(T().listening); syncFab();
   try { rec.start(); } catch (e) { stopListening(); }
 }
 function stopListening() { listening = false; $('mic').classList.remove('on'); setTimeout(syncFab, 0); if (avatar.state === 'listening') avatar.set('idle'); try { rec && rec.stop(); } catch {} rec = null; }
@@ -412,11 +431,11 @@ let lumiLine = null;
 function updateLumiLine(text) { if (!lumiLine || !lumiLine.isConnected) lumiLine = addLine('lumi', ''); lumiLine.innerHTML = `<b>Lumi</b> ${esc(text)}`; $('caption').textContent = text; $('caption').scrollTop = 1e9; $('lines').scrollTop = 1e9; }
 function openSettings(note) {
   $('settings').hidden = false; $('setNote').textContent = note || '';
-  $('fast').checked = !!settings.fast; $('mode').value = settings.mode; $('uiLang').value = settings.ui; $('apiKey').value = settings.apiKey; $('model').value = settings.model; $('effort').value = settings.effort; $('tts').value = settings.tts; $('googleKey').value = settings.googleKey; settingsHadGoogle = !!settings.googleKey; $('googleVoice').value = settings.googleVoice; $('rate').value = settings.rate; $('nickname').value = settings.nickname;
+  $('fast').checked = !!settings.fast; $('server').value = settings.server; $('code').value = settings.code; $('video').checked = !!settings.video; $('mode').value = settings.mode; $('uiLang').value = settings.ui; $('apiKey').value = settings.apiKey; $('model').value = settings.model; $('effort').value = settings.effort; $('tts').value = settings.tts; $('googleKey').value = settings.googleKey; settingsHadGoogle = !!settings.googleKey; $('googleVoice').value = settings.googleVoice; $('rate').value = settings.rate; $('nickname').value = settings.nickname;
 }
 let settingsHadGoogle = false;
 function closeSettings() {
-  settings.fast = $('fast').checked; const modeBefore = settings.mode; settings.mode = $('mode').value; settings.ui = $('uiLang').value;
+  settings.fast = $('fast').checked; settings.server = $('server').value.trim().replace(/\/+$/, ''); settings.code = $('code').value.trim(); settings.video = $('video').checked; const modeBefore = settings.mode; settings.mode = $('mode').value; settings.ui = $('uiLang').value;
   settings.apiKey = $('apiKey').value.trim(); settings.model = $('model').value; settings.effort = $('effort').value; settings.tts = $('tts').value; settings.googleKey = $('googleKey').value.trim(); if (settings.googleKey && !settingsHadGoogle) settings.tts = 'google'; settings.googleVoice = $('googleVoice').value.trim() || DEFAULTS.googleVoice; settings.rate = parseFloat($('rate').value) || 0.95; settings.nickname = $('nickname').value.trim().slice(0, 20);
   saveSettings(); client = makeClient(); $('settings').hidden = true; applyLang();
   systemPrompt = buildSystemPrompt(data);
@@ -452,9 +471,10 @@ function wire() {
   $('start').onclick = async () => {
     $('intro').hidden = true;
     const gk = $('introGKey') ? $('introGKey').value.trim() : ''; if (gk) { settings.googleKey = gk; settings.tts = 'google'; saveSettings(); }
-    const google = settings.tts === 'google' && settings.googleKey;
+    const google = naturalVoice();
     unlockAudio(!!google);
-    if (!settings.apiKey) openSettings(T().needKey);
+    if (!settings.apiKey && !viaServer()) openSettings(T().needKey);
+    if (settings.video && viaServer()) videoAvatar.start();   // inside the tap: iOS then allows the avatar's sound
     const hello = settings.mode === 'parent' ? 'Hello, I am Lumi. I explain what your child learns in Year 6 at a Bavarian Gymnasium, with the German terms and pictures. Ask me anything, or tap a topic below.' : settings.mode === 'eltern' ? 'Guten Tag, ich bin Lumi. Ich erkläre Ihnen, was Ihr Kind in der sechsten Klasse lernt, mit Bildern, typischen Fehlern und Übungstipps. Fragen Sie mich, oder tippen Sie unten ein Thema an.' : settings.nickname ? `Hallo ${settings.nickname}! Ich bin Lumi. Worüber möchtest du heute lernen? Du kannst mich fragen oder unten ein Thema antippen.` : 'Hallo! Ich bin Lumi, dein Lern-Tutor für die sechste Klasse. Was möchtest du heute lernen? Frag mich einfach, oder tippe unten ein Thema an.';
     addLine('lumi', hello);
     if (google) speakNow(hello); else { const p = speakWeb(hello); enqueue(() => p); }   // the built-in voice must start inside the tap on iOS
@@ -462,6 +482,7 @@ function wire() {
   };
   document.addEventListener('pointermove', e => avatar.lookAt((e.clientX / innerWidth) * 2 - 1, (e.clientY / innerHeight) * 2 - 1));
   const interrupt = () => { if (document.body.classList.contains('sheet')) { document.body.classList.remove('sheet'); return; }
+    if (videoAvatar.state() === 'needs-tap') { videoAvatar.resume(); return; }
     interrupt2(); };
   const interrupt2 = () => { if (busy || pending > 0 || speechSynthesis.speaking) { stopSpeaking(); setStatus(''); if (settings.voiceMode && !busy) startListening(); } else if (!listening && !busy) startListening(); };
   $('classroom').addEventListener('click', interrupt);
@@ -485,6 +506,17 @@ function wire() {
 
 async function main() {
   avatar = new Avatar($('avatar'));
+  videoAvatar = createVideoAvatar({
+    video: $('avatarVideo'), getServer: () => settings.server.replace(/\/+$/, ''), getCode: () => settings.code,
+    log: m => { diag.last = m; showDiag(); console.info(m); },
+    onChange: st => {
+      document.body.classList.toggle('video', st === 'live' || st === 'needs-tap');
+      if (st === 'starting') setStatus(T().videoStarting);
+      else if (st === 'needs-tap') setStatus(T().videoTap);
+      else if (st === 'failed') setStatus(T().videoFailed);
+      else if (st === 'live' && [T().videoStarting, T().videoTap].includes($('status').textContent)) setStatus('');
+    },
+  });
   data = await (await fetch('../data/klasse6-bayern.json')).json();
   systemPrompt = buildSystemPrompt(data);
   client = makeClient();
