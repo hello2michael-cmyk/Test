@@ -32,6 +32,15 @@ subtitles **CC**, more **⋯**). The board appears only when Lumi shows a scene,
 the next answer has nothing to show. **⋯** opens the full view with topic chips, typing, quiz, language, TV and settings; **⤢** in
 the header returns to "Lumi only". Subtitles sit above his head like a speech bubble and can be switched off with **CC**.
 
+## Speed and a natural voice
+
+- **Natural voice:** the start screen has a field for a Google Cloud Text-to-Speech key. With it Lumi speaks with Chirp 3 HD
+  (Leda, or the English counterpart in the parent mode) instead of the robotic device voice. Every sentence is synthesized as soon as it
+  arrives and the sentences play back to back, so there are no pauses while the next one is fetched.
+- **Fast replies:** fast mode (`speed: "fast"`, Claude Opus 5.5, about 2.5 times faster output at double the price per token) is on by
+  default and switches itself off if the account does not accept it. Thoroughness defaults to "low", answers are capped, the first
+  clause is spoken as soon as it is complete, and the prompt asks for a short first sentence so speech starts at once.
+
 ## Voice troubleshooting on the iPhone
 
 - Lumi asks "Can you hear me?" after the greeting. "No sound" lists the fixes and prints a diagnostic line (voices found, chosen
