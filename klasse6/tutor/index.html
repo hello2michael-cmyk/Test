@@ -41,6 +41,7 @@
   <footer>
     <div id="chips" class="chips"></div>
     <div class="row">
+      <button id="talk" class="talk" data-i18n="talk" title="Gespräch: Lumi hört nach jeder Antwort automatisch zu">Gespräch</button>
       <button id="mic" class="mic" title="Sprechen">🎤</button>
       <input id="text" type="text" data-i18n-ph="placeholder" placeholder="Frag mich etwas … (oder tippe auf das Mikrofon)" autocomplete="off" autocapitalize="sentences">
       <button id="send" data-i18n="send">Senden</button>
@@ -54,6 +55,7 @@
       <h1 data-i18n="introTitle">Hallo, ich bin Lumi.</h1>
       <p data-i18n="introText">Dein sprechender Lern-Tutor für die 6. Klasse: Mathe, Deutsch, Englisch, Französisch, Latein, Natur und Technik, Geschichte und mehr. Frag mich mit deiner Stimme, ich antworte und zeige dir Bilder dazu.</p>
       <div class="modes"><button class="mode" data-mode="kind">Kind · Deutsch</button><button class="mode" data-mode="eltern">Eltern · Deutsch</button><button class="mode" data-mode="parent">Parent · English</button></div>
+      <p class="fine" data-i18n="soundHint">Ton: Lautstärke hoch und den Klingelschalter am iPhone auf laut, sonst bleibt Lumi stumm.</p>
       <button id="start" class="primary" data-i18n="start">Los geht’s</button>
       <p class="fine" data-i18n="introFine">Lumi nutzt ein KI-Modell (Claude). Die Antworten können Fehler enthalten. Bei Zweifeln: Heft und Lehrkraft fragen.</p>
     </div>
@@ -74,6 +76,7 @@
       <label><span data-i18n="lblRate">Sprechtempo</span> <input id="rate" type="number" min="0.7" max="1.3" step="0.05"></label>
       <label><span data-i18n="lblNick">Spitzname des Kindes (optional, nur Vorname oder Fantasiename)</span> <input id="nickname" type="text" maxlength="20"></label>
       <p class="fine" data-i18n="setFine">Schlüssel bleiben nur in diesem Browser auf diesem Gerät (localStorage) und gehen direkt an Anthropic bzw. Google. Gespräche werden nicht gespeichert, außer für die laufende Sitzung.</p>
+      <button id="testVoice" data-i18n="testVoice">Stimme testen</button>
       <button id="saveSettings" class="primary" data-i18n="save">Speichern</button>
     </div>
   </div>
