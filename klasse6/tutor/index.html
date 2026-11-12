@@ -11,12 +11,13 @@
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="apple-touch-icon" href="../../icon-192.png">
   <link rel="icon" href="../../icon-192.png" type="image/png">
-  <link rel="stylesheet" href="tutor.css?v=4">
+  <link rel="stylesheet" href="tutor.css?v=5">
 </head>
 <body>
   <header>
     <div class="brand"><span class="dot"></span> Lumi <small data-i18n="brand">Lern-Tutor · Klasse 6 Gymnasium Bayern</small></div>
     <div class="tools">
+      <button id="focusToggle" title="Nur Lumi / Lumi only">⤢</button>
       <button id="langToggle" title="Deutsch / English">EN</button>
       <button id="tvToggle" title="Großer Bildschirm (Fernseher)">TV</button>
       <button id="clear" data-i18n="new" title="Neues Gespräch">Neu</button>
@@ -30,6 +31,12 @@
       <div id="card" class="card" hidden></div>
       <div id="stageHint" class="hint"></div>
       <canvas id="avatar"></canvas>
+      <div id="fab" class="fab">
+        <button id="fabMic" class="fabmic" title="Sprechen / Talk">🎤</button>
+        <button id="fabStop" title="Stopp">■</button>
+        <button id="fabCC" title="Untertitel / Subtitles">CC</button>
+        <button id="fabMore" title="Mehr / More">⋯</button>
+      </div>
     </section>
     <div id="hear" class="hear" hidden><span data-i18n="hearQ">Hörst du mich?</span> <button id="hearYes" data-i18n="hearYes">Ja</button> <button id="hearNo" data-i18n="hearNo">Kein Ton</button></div>
     <div id="status" class="status"></div>
@@ -68,6 +75,7 @@
         <li data-i18n="sh2">Lautstärke mit den Tasten an der Seite hochdrehen.</li>
         <li data-i18n="sh3">Oder die menschlichere Google-Stimme nutzen: Sie funktioniert auch im Stumm-Modus. Dafür in den Einstellungen bei „Stimme“ Google Cloud wählen und den Google-Schlüssel eintragen.</li>
       </ol>
+      <p id="diag" class="fine"></p>
       <button id="shTest" data-i18n="testVoice">Stimme testen</button>
       <button id="shSettings" data-i18n="settings">Einstellungen</button>
       <button id="shClose" class="primary" data-i18n="close">Schließen</button>
@@ -94,6 +102,6 @@
     </div>
   </div>
 
-  <script type="module" src="tutor.js?v=4"></script>
+  <script type="module" src="tutor.js?v=5"></script>
 </body>
 </html>

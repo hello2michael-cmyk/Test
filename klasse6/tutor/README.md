@@ -25,6 +25,21 @@ The start screen (and the settings) offer three modes. The **EN/DE** button in t
 
 Changing the mode starts a fresh conversation.
 
+## Lumi only (default view)
+
+The page opens in the "Lumi only" view: the teacher fills the screen, with four round buttons at the bottom (microphone, stop,
+subtitles **CC**, more **⋯**). The board appears only when Lumi shows a scene, key points or a question, and disappears again when
+the next answer has nothing to show. **⋯** opens the full view with topic chips, typing, quiz, language, TV and settings; **⤢** in
+the header returns to "Lumi only". Subtitles sit above his head like a speech bubble and can be switched off with **CC**.
+
+## Voice troubleshooting on the iPhone
+
+- Lumi asks "Can you hear me?" after the greeting. "No sound" lists the fixes and prints a diagnostic line (voices found, chosen
+  voice, last speech event, audio session) that helps to find the cause; **Test voice** speaks a sentence.
+- The built-in voice is routed to the loudspeaker (audio session "playback" plus a silent media loop while speaking), utterances are
+  kept referenced and a watchdog moves the queue on if iOS never reports the end of a sentence.
+- The Google Cloud voice plays through one audio element that the first tap unlocks; it is the most reliable and the most human.
+
 ## Talking like a conversation
 
 - Lumi is a full-body teacher in a classroom. With nothing on the board he stands in the middle; when a scene, key points or a
