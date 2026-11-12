@@ -90,7 +90,7 @@
       <label><span data-i18n="lblMode">Modus</span> <select id="mode"><option value="kind">Kind · Deutsch</option><option value="eltern">Eltern · Deutsch</option><option value="parent">Parent · English</option></select></label>
       <label><span data-i18n="lblUi">Sprache der Oberfläche</span> <select id="uiLang"><option value="de">Deutsch</option><option value="en">English</option></select></label>
       <label><span data-i18n="lblKey">API-Schlüssel (Anthropic, beginnt mit sk-ant-)</span> <input id="apiKey" type="password" autocomplete="off" placeholder="sk-ant-…"></label>
-      <label><span data-i18n="lblModel">Modell</span> <select id="model"><option value="claude-opus-5-5">Claude Opus 5.5 (empfohlen)</option><option value="claude-sonnet-5-5">Claude Sonnet 5.5 (schneller, günstiger)</option><option value="claude-haiku-5-5">Claude Haiku 5.5 (am günstigsten)</option></select></label>
+      <label><span data-i18n="lblModel">Modell</span> <select id="model"><option value="claude-sonnet-5-5">Claude Sonnet 5.5 (empfohlen: schnell im Gespräch)</option><option value="claude-opus-5-5">Claude Opus 5.5 (am gründlichsten, langsamer)</option><option value="claude-haiku-5-5">Claude Haiku 5.5 (am günstigsten)</option></select></label>
       <label class="check"><input id="fast" type="checkbox"> <span data-i18n="fastLbl">Schnellmodus (schnellere Antworten, doppelte Kosten pro Antwort)</span></label>
       <label><span data-i18n="lblEffort">Gründlichkeit</span> <select id="effort"><option value="low" data-i18n="effLow">niedrig (schnell)</option><option value="medium" data-i18n="effMed">mittel</option><option value="high" data-i18n="effHigh">hoch</option></select></label>
       <label><span data-i18n="lblVoice">Stimme</span> <select id="tts"><option value="web" data-i18n="voiceWeb">Gerätestimme (kostenlos, sofort)</option><option value="google" data-i18n="voiceGoogle">Google Cloud, Leda (wie in den Videos; Schlüssel nötig)</option></select></label>
@@ -104,6 +104,6 @@
     </div>
   </div>
 
-  <script type="module" src="tutor.js?v=7"></script>
+  <script type="module" src="tutor.js?v=8"></script>
 </body>
 </html>
