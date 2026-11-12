@@ -70,7 +70,7 @@ the header returns to "Lumi only". Subtitles sit above his head like a speech bu
 
 ## How Lumi answers
 
-- Model: Claude Opus 5.5 by default (settings: Sonnet 5.5 for faster and cheaper, Haiku 5.5 for cheapest), effort "mittel".
+- Model: Claude Sonnet 5.5 by default because it starts talking sooner in a voice conversation (settings: Opus 5.5 for the most thorough answers, with fast mode; Haiku 5.5 for cheapest), effort "low".
   The syllabus and scene catalogue are sent as a cached system prompt, so a turn costs roughly a tenth of a cent in cached input plus
   the spoken answer (about 100 to 200 output tokens). A 15-minute session is typically a few cents.
 - Refusal fallback is on: if the safety system declines a request, the API routes it to a fallback model (`fallbacks: "default"`).
