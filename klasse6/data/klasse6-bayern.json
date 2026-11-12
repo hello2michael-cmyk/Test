@@ -1,0 +1,426 @@
+{
+  "meta": {
+    "title": "Lehrplan Klasse 6, Gymnasium Bayern (G9, LehrplanPLUS)",
+    "schoolYear": "gültig ab 2026/27 (LehrplanPLUS, Stand November 2026)",
+    "checkedOn": "2026-11-08",
+    "sources": [
+      { "name": "LehrplanPLUS Fachlehrpläne Gymnasium Jahrgangsstufe 6 (ISB Bayern)", "url": "https://www.lehrplanplus.bayern.de/fachlehrplan/gymnasium/6/" },
+      { "name": "GSO Anlage 1 (zu § 15 Abs. 1): Stundentafeln für die Jahrgangsstufen 5 bis 11, Text gilt ab 01.08.2026", "url": "https://www.gesetze-bayern.de/Content/Document/BayGSO-ANL_1" }
+    ],
+    "notes": [
+      "Alle Lernbereiche, Titel und Stundenrichtwerte (ca. Std.) wurden direkt den amtlichen Fachlehrplan-Seiten entnommen; Kompetenzen und Inhalte sind gekürzt paraphrasiert.",
+      "Die Stundentafel für Jahrgangsstufe 6 ist in allen sechs Ausbildungsrichtungen (HG, SG, NTG, MuG, WWG, SWG) identisch.",
+      "Geographie wird in Jahrgangsstufe 6 nicht unterrichtet (Jgst. 5 und 7). Geschichte beginnt in Jgst. 6.",
+      "Die zweite Fremdsprache beginnt in Jgst. 6: Latein oder Französisch (am HG und MuG Latein). Englisch ist verpflichtend 1. oder 2. Fremdsprache.",
+      "Fächer ohne Stundenrichtwerte im Lehrplan (Deutsch, Fremdsprachen, Kunst, Musik, Sport) sind mit Wochenstunden aus der Stundentafel angegeben."
+    ]
+  },
+  "stundentafel": {
+    "source": "GSO Anlage 1, Spalte Jahrgangsstufe 6",
+    "weeklyHours": [
+      { "subject": "Religionslehre / Ethik / Islamischer Unterricht", "hours": 2 },
+      { "subject": "Deutsch", "hours": 4 },
+      { "subject": "1. Fremdsprache (Englisch, am HG Latein oder Englisch)", "hours": 4 },
+      { "subject": "2. Fremdsprache (Latein oder Französisch; am HG/MuG Latein)", "hours": 4 },
+      { "subject": "Mathematik", "hours": 4 },
+      { "subject": "Natur und Technik (Biologie + Informatik)", "hours": 3 },
+      { "subject": "Geschichte", "hours": 2 },
+      { "subject": "Geographie", "hours": 0, "note": "nicht in Jgst. 6 (Jgst. 5 und 7)" },
+      { "subject": "Kunst", "hours": 2 },
+      { "subject": "Musik", "hours": 2 },
+      { "subject": "Sport (Basissport)", "hours": 2, "note": "plus bis zu 3 weitere Sportstunden in der Unterstufe nach Entscheidung der Schule" },
+      { "subject": "Intensivierungsstunden", "hours": 0, "note": "3 verpflichtende Stunden in der Unterstufe, Verteilung durch die Schule" }
+    ],
+    "total": "30 Wochenstunden (+1/+2 je nach Schule)"
+  },
+  "subjects": [
+    {
+      "id": "mathematik",
+      "name": "Mathematik",
+      "short": "M6",
+      "weeklyHours": 4,
+      "totalHours": 112,
+      "color": "#5c9eff",
+      "url": "https://www.lehrplanplus.bayern.de/fachlehrplan/gymnasium/6/mathematik",
+      "priority": 1,
+      "lernbereiche": [
+        {
+          "id": "M6-1", "title": "Rationale Zahlen", "hours": 68,
+          "topics": [
+            {
+              "id": "M6-1.1", "title": "Bruchteile und Bruchzahlen", "hours": 13,
+              "kompetenzen": [
+                "Anteile deuten und veranschaulichen (Kreis- und Rechteckdiagramme); Anteil, Bruchteil und Ganzes bestimmen",
+                "Erweitern und Kürzen ändern den Wert nicht; Brüche vergleichen, Hauptnenner auch über Primfaktorzerlegung",
+                "Prozent als andere Schreibweise für Brüche kennen",
+                "Brüche als Zahlen; natürliche, ganze und rationale Zahlen unterscheiden; positive und negative Bruchzahlen an der Zahlengeraden"
+              ],
+              "inhalte": ["Bruchteil, Anteil, Ganzes", "Erweitern, Kürzen, Hauptnenner", "Vergleich von Brüchen", "Zahlengerade mit Brüchen, negative Brüche", "Prozentschreibweise"],
+              "kidExplanation": "Ein Bruch ist ein Stück von etwas Ganzem: eine Pizza in 8 Stücke, 3 davon sind 3/8. Teilst du jedes Stück noch einmal, hast du 6/16, aber genau gleich viel Pizza.",
+              "scene": "fraction", "videoMinutes": 6,
+              "glossary": [
+                { "de": "der Bruch", "en": "fraction" },
+                { "de": "der Zähler", "en": "numerator (top number)" },
+                { "de": "der Nenner", "en": "denominator (bottom number)" },
+                { "de": "der Bruchstrich", "en": "fraction bar" },
+                { "de": "der Anteil", "en": "share, proportion" },
+                { "de": "der Bruchteil", "en": "fractional part" },
+                { "de": "das Ganze", "en": "the whole" },
+                { "de": "erweitern", "en": "to expand: multiply top and bottom by the same number" },
+                { "de": "kürzen", "en": "to reduce: divide top and bottom by the same number" },
+                { "de": "vollständig gekürzt", "en": "fully reduced" },
+                { "de": "gleichnamig", "en": "with the same denominator" },
+                { "de": "der Hauptnenner", "en": "lowest common denominator" },
+                { "de": "die Zahlengerade", "en": "number line" },
+                { "de": "das Prozent", "en": "per cent" },
+                { "de": "die natürlichen Zahlen", "en": "natural numbers (1, 2, 3, …)" },
+                { "de": "die rationalen Zahlen", "en": "rational numbers" },
+                { "de": "die Schulaufgabe", "en": "major written test" },
+                { "de": "die Stegreifaufgabe", "en": "short unannounced test" },
+                { "de": "das Grundwissen", "en": "core knowledge carried into later years" }
+              ]
+            },
+            {
+              "id": "M6-1.2", "title": "Dezimalbrüche", "hours": 11,
+              "kompetenzen": [
+                "Stellenwerttafel um Zehntel, Hundertstel usw. erweitern; Kommaschreibweise neu deuten; runden",
+                "Grundvorstellungen von Brüchen (Teil eines Ganzen, Teil mehrerer Ganzer, Zahl, Quotient); endliche und periodische Dezimalbrüche",
+                "Brüche in Dezimalbrüche umwandeln und zurück; Vergleich rationaler Zahlen; Taschenrechner-Anzeigen wie 0,166666667 richtig deuten"
+              ],
+              "inhalte": ["Stellenwerttafel mit Zehnteln und Hundertsteln", "Runden", "endlich oder periodisch (Primfaktoren des Nenners)", "Umwandeln Bruch ↔ Dezimalbruch"],
+              "kidExplanation": "Hinter dem Komma geht die Stellenwerttafel einfach weiter: Zehntel, Hundertstel, Tausendstel. 1/4 ist 0,25, weil 25 Hundertstel ein Viertel von 100 Hundertsteln sind.",
+              "scene": "decimal", "videoMinutes": 6
+            },
+            {
+              "id": "M6-SA1.1", "title": "Vorbereitung 1. Schulaufgabe: Brüche", "hours": 0,
+              "kompetenzen": ["Wiederholung von M6 1.1 für die erste Schulaufgabe: Bruchteil, Anteil und Ganzes; Kürzen und Erweitern; Brüche als Quotient; Zahlengerade; Vergleichen mit Hauptnenner und Primfaktorzerlegung; Zahlenmengen ℕ, ℤ, ℚ"],
+              "inhalte": ["Bruchteil berechnen und das Ganze bestimmen", "vollständig kürzen, erweitern, Lücken füllen", "Quotient als Bruch, gemischte Zahl", "Hauptnenner über Primfaktorzerlegung", "ℕ ⊂ ℤ ⊂ ℚ"],
+              "kidExplanation": "Alles, was in der ersten Schulaufgabe zu Brüchen drankommt, noch einmal in Ruhe und mit Übungsfragen im Schulaufgaben-Stil.",
+              "scene": "primfaktor", "videoMinutes": 12, "preparation": true
+            },
+            {
+              "id": "M6-SA1.2", "title": "Vorbereitung 1. Schulaufgabe: Dezimalbrüche", "hours": 0,
+              "kompetenzen": ["Wiederholung von M6 1.2 für die erste Schulaufgabe: Stellenwerttafel; Dezimalbrüche vergleichen und ordnen; Bruch in Dezimalbruch umwandeln und zurück; Runden; endliche und periodische Dezimalbrüche; Taschenrechner-Anzeige deuten"],
+              "inhalte": ["Zehntel, Hundertstel, Tausendstel", "stellenweise vergleichen", "Erweitern auf 10, 100, 1000 oder schriftlich dividieren", "Rundungsregel", "Periode; Nenner mit nur 2 und 5 ergibt endlichen Dezimalbruch"],
+              "kidExplanation": "Alles, was in der ersten Schulaufgabe zu Dezimalbrüchen drankommt, noch einmal in Ruhe und mit Übungsfragen im Schulaufgaben-Stil.",
+              "scene": "division", "videoMinutes": 12, "preparation": true
+            },
+            {
+              "id": "M6-1.3", "title": "Addition und Subtraktion rationaler Zahlen", "hours": 15,
+              "kompetenzen": [
+                "Rechenregeln an Beispielen plausibel machen",
+                "Brüche, gemischte Zahlen und Dezimalbrüche addieren und subtrahieren, auch im Kopf",
+                "Rechenvorteile (Kommutativ- und Assoziativgesetz, günstige Darstellungsform)",
+                "Terme mit Klammern berechnen; Überschlag zur Kontrolle"
+              ],
+              "inhalte": ["gleichnamig machen", "gemischte Zahlen", "Dezimalbrüche stellengerecht addieren", "Klammern", "Überschlagsrechnung"],
+              "kidExplanation": "Man kann nur gleiche Stücke zusammenzählen. 1/2 + 1/3: erst beide in Sechstel verwandeln, dann 3/6 + 2/6 = 5/6.",
+              "scene": "fracadd", "videoMinutes": 7
+            },
+            {
+              "id": "M6-1.4", "title": "Multiplikation und Division rationaler Zahlen", "hours": 14,
+              "kompetenzen": [
+                "Produkte und Quotienten mit inhaltlichen Vorstellungen (Anteil bilden, Verteilen, Aufteilen) berechnen",
+                "Potenzen mit natürlichen Exponenten und rationalen Basen; negative Exponenten als Brüche mit Zähler 1; Zehnerpotenzen in Alltagsgrößen",
+                "Rechenvorteile nutzen"
+              ],
+              "inhalte": ["Bruch mal Bruch (Anteil vom Anteil)", "Division durch Bruch = Multiplikation mit Kehrbruch", "Dezimalbrüche multiplizieren und dividieren", "Potenzen, 10^-3"],
+              "kidExplanation": "1/2 mal 1/3 heißt: die Hälfte von einem Drittel. Ein Rechteck, 1/2 breit und 1/3 hoch, hat eine Fläche von 1/6 des Ganzen.",
+              "scene": "fracmul", "videoMinutes": 7
+            },
+            {
+              "id": "M6-1.5", "title": "Verbindung der Grundrechenarten bei rationalen Zahlen", "hours": 15,
+              "kompetenzen": [
+                "Termstruktur erkennen und mit Fachbegriffen beschreiben; Werte in klar strukturierter Rechnung berechnen",
+                "Kopfrechnen mit einfachen rationalen Zahlen",
+                "Kommutativ-, Assoziativ- und Distributivgesetz gezielt nutzen",
+                "Sachaufgaben mit mehreren Rechenarten und Anteilen von Anteilen, Skizzen nutzen, Lösungen kritisch prüfen"
+              ],
+              "inhalte": ["Punkt vor Strich, Klammern", "Distributivgesetz", "Anteile von Anteilen in Sachsituationen", "Recherche und Überschlag"],
+              "kidExplanation": "Ein Term ist wie ein Bauplan: Klammern zuerst, dann Punkt vor Strich. Das Distributivgesetz erlaubt, eine Klammer wie ein Paket aufzuteilen.",
+              "scene": "terms", "videoMinutes": 6
+            }
+          ]
+        },
+        {
+          "id": "M6-2", "title": "Flächeninhalt und Volumen", "hours": 24,
+          "topics": [
+            {
+              "id": "M6-2.1", "title": "Flächeninhalt", "hours": 12,
+              "kompetenzen": [
+                "Formeln für Parallelogramm, Dreieck und Trapez aus der Rechtecksformel durch Zerlegen und Ergänzen herleiten",
+                "Formeln flexibel anwenden, relevante Strecken erkennen; Näherungswerte in Sachsituationen",
+                "Flächen vergleichen, Hilfslinien einzeichnen",
+                "Oberflächeninhalte einfacher Körper berechnen, Wechsel zwischen 2D und 3D mit Skizzen"
+              ],
+              "inhalte": ["Rechteck A = a·b", "Parallelogramm A = g·h", "Dreieck A = ½·g·h", "Trapez A = ½·(a+c)·h", "Oberfläche von Quader und Würfel"],
+              "kidExplanation": "Schneide vom Parallelogramm links ein Dreieck ab und klebe es rechts an: ein Rechteck! Darum ist der Flächeninhalt Grundseite mal Höhe.",
+              "scene": "area", "videoMinutes": 7
+            },
+            {
+              "id": "M6-2.2", "title": "Volumen", "hours": 12,
+              "kompetenzen": [
+                "Prinzip des Messens: Volumenformel des Quaders plausibel machen",
+                "Räumliche Vorstellung der Einheitswürfel; Volumeneinheiten umrechnen, auch Liter und Milliliter",
+                "Quaderformel flexibel anwenden; Näherungswerte für Körper aus der Erfahrungswelt",
+                "Volumen durch Zerlegen und Ergänzen bestimmen"
+              ],
+              "inhalte": ["Einheitswürfel 1 cm³, 1 dm³ = 1 l, 1 m³", "V = a·b·c", "Umrechnung 1 dm³ = 1000 cm³", "zusammengesetzte Körper"],
+              "kidExplanation": "Fülle eine Schachtel mit Würfeln von 1 cm Kantenlänge: eine Schicht hat Länge mal Breite Würfel, und es gibt so viele Schichten wie die Höhe. Darum Volumen = Länge mal Breite mal Höhe.",
+              "scene": "volume", "videoMinutes": 7
+            }
+          ]
+        },
+        {
+          "id": "M6-3", "title": "Prozentrechnung, Daten und Diagramme", "hours": 20,
+          "topics": [
+            {
+              "id": "M6-3", "title": "Prozentrechnung, Daten und Diagramme", "hours": 20,
+              "kompetenzen": [
+                "Einfache Prozentaufgaben aus dem Alltag (Rabatt, Zins) mit Grundgleichung oder Schlussrechnung lösen",
+                "Prozentangaben in Texten prüfen; Prozent und Prozentpunkte unterscheiden; 'jeder Siebte', 'drei von fünf'",
+                "Absolute und relative Häufigkeiten (Bruch, Dezimalbruch, Prozent); Kreis- und Säulendiagramme, auch mit Tabellenkalkulation",
+                "Manipulative Diagramme erkennen; arithmetisches Mittel"
+              ],
+              "inhalte": ["Grundwert, Prozentwert, Prozentsatz", "Schlussrechnung", "absolute und relative Häufigkeit", "Kreisdiagramm, Säulendiagramm", "arithmetisches Mittel", "Diagramme kritisch lesen"],
+              "kidExplanation": "Prozent heißt 'von Hundert'. 25 % von 200 Euro: 1 % ist 2 Euro, also sind 25 % 50 Euro. Ein Kreisdiagramm zeigt Anteile wie Tortenstücke.",
+              "scene": "percent", "videoMinutes": 8
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "deutsch", "name": "Deutsch", "short": "D6", "weeklyHours": 4, "color": "#ffb840",
+      "url": "https://www.lehrplanplus.bayern.de/fachlehrplan/gymnasium/6/deutsch", "priority": 2,
+      "lernbereiche": [
+        { "id": "D6-1", "title": "Sprechen und Zuhören", "topics": [
+          { "id": "D6-1.1", "title": "Verstehend zuhören", "inhalte": ["aufmerksam zuhören, Rückmeldung geben", "Informationen aus gesprochenen Texten (z. B. Radiobeiträge) erfassen"] },
+          { "id": "D6-1.2", "title": "Zu und vor anderen sprechen", "inhalte": ["flüssig und sinnbetont vorlesen, Gedichte frei vortragen", "Erzählen, Informieren, Argumentieren", "Kurzreferat mit Plakat oder Handout", "Körpersprache, Mimik, Gestik"] },
+          { "id": "D6-1.3", "title": "Mit anderen sprechen", "inhalte": ["Gesprächsregeln, faire Verständigung, Konfliktlösung", "eigene Meinung begründen"] },
+          { "id": "D6-1.4", "title": "Szenisch spielen", "inhalte": ["Rollenspiel, szenisches Darstellen literarischer Texte"] }
+        ]},
+        { "id": "D6-2", "title": "Lesen – mit Texten und weiteren Medien umgehen", "topics": [
+          { "id": "D6-2.1", "title": "Lesetechniken und -strategien anwenden", "inhalte": ["Kinder- und Jugendbücher, Medienverbund", "literarische und pragmatische Texte unterscheiden", "Markieren, Cluster, Fragen an den Text, Lesetagebuch"] },
+          { "id": "D6-2.2", "title": "Literarische Texte verstehen und nutzen", "inhalte": ["fiktionale Welten, andere Zeiten und Kulturen (v. a. Antike)", "Erzählungen, Sagen, Szenen, Gedichte, Jugendbücher; literarische Grundformen", "Form, Gattung, Aufbau, Figuren, Raum, Zeit", "mindestens eine Ganzschrift, ggf. mit Film"] },
+          { "id": "D6-2.3", "title": "Pragmatische Texte verstehen und nutzen", "inhalte": ["Sachbücher, Lexika, Wörterbücher", "Diagramme und Infografiken lesen (Verbindung zu M6 3)"] },
+          { "id": "D6-2.4", "title": "Weitere Medien verstehen und nutzen", "inhalte": ["Bibliothek und Suchmaschinen, Seriosität prüfen (Impressum)", "eigene Mediennutzung reflektieren", "Film: Kameraeinstellung, Perspektive, Musik"] }
+        ]},
+        { "id": "D6-3", "title": "Schreiben", "topics": [
+          { "id": "D6-3.1", "title": "Über Schreibfertigkeiten verfügen", "inhalte": ["Erzählen, Informieren, Argumentieren unterscheiden", "sprachliche Mittel: Wortwahl, Personifikation, Aktiv/Passiv, Ober- und Unterbegriffe, Satzbau", "Textverarbeitung"] },
+          { "id": "D6-3.2", "title": "Texte planen und schreiben", "inhalte": ["Brainstorming, Cluster, Mindmap, Schreibplan", "Erzählen mit Erzählsituation – Ereignis – Ausgang; Figuren gestalten", "über Vorgänge und Ereignisse informieren (Bericht, Vorgangsbeschreibung)", "Meinung einfach begründen"] },
+          { "id": "D6-3.3", "title": "Texte überarbeiten", "inhalte": ["Kriterien, Überarbeitungsbogen, Schreibkonferenz"] }
+        ]},
+        { "id": "D6-4", "title": "Sprachgebrauch und Sprache untersuchen und reflektieren", "topics": [
+          { "id": "D6-4.1", "title": "Sprachliche Verständigung untersuchen", "inhalte": ["Dialekt und Standardsprache", "Wirkung von Passiv, Dialekt, Redewendungen"] },
+          { "id": "D6-4.2", "title": "Sprachliche Strukturen untersuchen", "inhalte": ["alle Wortarten mit lateinischen Fachbegriffen", "Aktiv und Passiv; Tempusformen", "Satzglieder: Prädikativ, Objekte, Adverbialien; Adverbialsätze (temporal, kausal, final, modal), Subjekt- und Objektsatz; Attribute, Relativsatz", "Satzreihe und Satzgefüge", "Ober- und Unterbegriffe, bildhafte Sprache"],"scene": "sentence",
+            "glossary": [
+              { "de": "das Satzglied", "en": "sentence part (a unit that moves as a whole)" },
+              { "de": "die Umstellprobe", "en": "rearranging test" },
+              { "de": "die Frageprobe", "en": "question test" },
+              { "de": "das Subjekt", "en": "subject (Wer oder was?)" },
+              { "de": "das Prädikat", "en": "predicate, the verb part (Was tut …?)" },
+              { "de": "das Objekt", "en": "object" },
+              { "de": "das Akkusativobjekt", "en": "accusative object (Wen oder was?)" },
+              { "de": "das Dativobjekt", "en": "dative object (Wem?)" },
+              { "de": "das Genitivobjekt", "en": "genitive object (Wessen?)" },
+              { "de": "das Präpositionalobjekt", "en": "prepositional object (Woran? An wen?)" },
+              { "de": "die Adverbiale", "en": "adverbial (Wann? Wo? Wie? Warum?)" },
+              { "de": "temporal, lokal, modal, kausal", "en": "of time, place, manner, reason" },
+              { "de": "das Attribut", "en": "attribute, part of a sentence part (Was für ein?)" },
+              { "de": "der Aussagesatz", "en": "statement; the predicate stands in second position" },
+              { "de": "der Hauptsatz", "en": "main clause" },
+              { "de": "der Nebensatz", "en": "subordinate clause" },
+              { "de": "die Satzreihe", "en": "two or more main clauses joined" },
+              { "de": "das Satzgefüge", "en": "main clause plus subordinate clause" },
+              { "de": "das Komma", "en": "comma" },
+              { "de": "die Wortart", "en": "word class (noun, verb, adjective …)" }
+            ] },
+          { "id": "D6-4.3", "title": "Richtig schreiben", "inhalte": ["Dehnung, Schärfung, das/dass, Groß- und Kleinschreibung, gleich klingende Wörter, Fremdwörter", "Zeichensetzung: wörtliche Rede, Kommas bei Aufzählung, Satzreihe, Satzgefüge", "Rechtschreibstrategien: Ableiten, Verlängern, Mehrzahlprobe"] }
+        ]}
+      ]
+    },
+    {
+      "id": "englisch", "name": "Englisch (1. Fremdsprache)", "short": "E6", "weeklyHours": 4, "color": "#6bedb8",
+      "url": "https://www.lehrplanplus.bayern.de/fachlehrplan/gymnasium/6/englisch/1-fremdsprache", "priority": 3,
+      "lernbereiche": [
+        { "id": "E6-1", "title": "Kommunikative Kompetenzen", "topics": [
+          { "id": "E6-1.1", "title": "Kommunikative Fertigkeiten", "inhalte": ["Hör-/Hörsehverstehen: Gespräche über Freizeit, Urlaub, Telefonate, Sprachnachrichten", "Leseverstehen: Berichte, Infobroschüren, Geschichten über historische Figuren, Webseiten", "Sprechen: über Vergangenes und Zukünftiges, Wegbeschreibung, Einkaufen, two-minute talk", "Schreiben: längere einfache Texte (E-Mail, Bildergeschichte)", "Sprachmittlung in Urlaubssituationen"] },
+          { "id": "E6-1.2", "title": "Verfügen über sprachliche Mittel", "inhalte": [
+            "Wortschatz: Freizeit, Sport, Musik, Reisen, Wetter, Wegbeschreibung, Gesundheit; so that, while, although",
+            "Grammatik: weitere indefinite Begleiter/Pronomen; Steigerung und Vergleich der Adjektive; Relativsätze (defining, contact clauses); Nebensätze mit although, so that, while",
+            "Grammatik: present perfect simple (resultativ); past progressive; going-to-future, will-future, timetable-future; Modalverben could, may, might, should und Ersatzformen; Konditionalsatz Typ I",
+            "Grammatik: question tags; Fragen mit Präpositionen",
+            "Aussprache: Intonation bei Fragen, Lautschrift nutzen"
+          ], "scene": "tense" }
+        ]},
+        { "id": "E6-2", "title": "Interkulturelle Kompetenzen", "topics": [ { "id": "E6-2", "title": "UK und USA", "inhalte": ["Orientierungswissen zu Geographie, Geschichte und Alltagskultur in UK und USA", "Alltag Gleichaltriger vergleichen", "höfliche Kommunikation"] } ] },
+        { "id": "E6-3", "title": "Text- und Medienkompetenzen", "topics": [ { "id": "E6-3", "title": "Texte und Medien", "inhalte": ["Speisekarten, Rezepte, Inserate, Flyer, Webseiten, Dialoge, Lektüren", "erzählende und berichtende Texte, persönliche Briefe", "Reime, Lieder, Gedichte, Rollenspiel", "Filmsequenzen (Trickfilme, Kinderserien)"] } ] },
+        { "id": "E6-4", "title": "Methodische Kompetenzen", "topics": [ { "id": "E6-4", "title": "Lernstrategien", "inhalte": ["mind maps, grammatikalische Übersichten", "Wortbildung un-, re-, -er", "Lehrwerk, Wörterbuch, Online-Wörterbuch"] } ] },
+        { "id": "E6-5", "title": "Themengebiete", "topics": [ { "id": "E6-5", "title": "Themen der Jahrgangsstufe", "inhalte": ["Alltag und Freizeit: Sport, Musik, Reisen (Bahnhof, Flughafen, Arzt, Museum, Kino, Wetter); Feste und Bräuche", "Stadt und Land in UK und USA; multikulturelles Leben", "Cornwall oder Lake District; Florida oder Rocky Mountains; Regionen der USA", "Kelten und Römer in Britannien: Hadrian's Wall, Bath", "aktuelle Anlässe; Sprachreflexion, aspect"] } ] }
+      ]
+    },
+    {
+      "id": "latein", "name": "Latein (2. Fremdsprache)", "short": "L6", "weeklyHours": 4, "color": "#fa739e",
+      "url": "https://www.lehrplanplus.bayern.de/fachlehrplan/gymnasium/6/latein/2-fremdsprache", "priority": 4,
+      "alternativeTo": "franzoesisch",
+      "lernbereiche": [
+        { "id": "L6-1", "title": "Texte", "topics": [ { "id": "L6-1", "title": "Lehrbuchtexte übersetzen", "inhalte": ["Topografie Roms: Forum Romanum, Kapitol, Amphitheater, Circus Maximus, Thermen; Pompeji, Herculaneum, Vesuv, Magna Graecia", "Politik und Gesellschaft: Senat, römische Werte (pietas)", "Alltag: Familie, Sklaven, Gladiatoren, Schule", "Religion und Mythos: Tempel, Orakel, Opfer; Olympier; Unterwelt; Herkules; Trojanischer Krieg, Odysseus; Aeneas, Romulus und Remus, Königszeit"] } ] },
+        { "id": "L6-2", "title": "Sprachliche Basis", "topics": [
+          { "id": "L6-2.1", "title": "Wortschatz", "inhalte": ["ca. 450 Wörter Grundwortschatz plus Kulturwortschatz", "Wortarten, Wortfelder, Wortfamilien, Wortbildung", "Lehn- und Fremdwörter, Verwandtschaft mit Englisch und romanischen Sprachen", "römische Zahlen, Inschriften, Abkürzungen"] },
+          { "id": "L6-2.2", "title": "Formenlehre", "inhalte": ["Substantive und Adjektive der 1.–3. Deklination in allen Kasus", "Pronomina: Personal-, Possessiv-, Reflexivpronomen, is, Relativpronomen qui", "Numeralia 1–12", "Verben aller Konjugationen, esse, posse, velle, nolle, malle, ire: alle Tempora Indikativ Aktiv, Infinitive, Imperativ I; alle Arten der Perfektbildung, Stammformen"], "scene": "declension" },
+          { "id": "L6-2.3", "title": "Satzlehre", "inhalte": ["Satzglieder: Prädikat, Subjekt, Objekt, Adverbiale; Prädikatsnomen, Attribut; KNG-Kongruenz", "Kasusfunktionen: Genitiv der Zugehörigkeit, Dativ des Besitzers, Akkusativ der zeitlichen Ausdehnung, Ablativ des Mittels, Grundes, der Trennung, der Zeit", "Tempora: v. a. Imperfekt und Perfekt", "Haupt- und Nebensatz: Relativsatz, Adverbialsätze (temporal, kausal, konditional, konzessiv)", "AcI (gleichzeitig, vorzeitig; aktiv)"] }
+        ]},
+        { "id": "L6-3", "title": "Kultureller Kontext", "topics": [ { "id": "L6-3", "title": "Rom und seine Welt", "inhalte": ["Forum Romanum, Kapitol, Kolosseum, Konstantinsbogen, Circus Maximus, Ostia, Thermen, Aquädukt", "Vesuvausbruch 79 n. Chr., Plinius d. J.", "Gründungsmythos, Königszeit, frühe Republik, Ständekämpfe", "griechischer Einfluss, Götter, Religion, Tod und Unterwelt", "Alltag: Familie, Namen, Sklaven, Gladiatoren, Kleidung, Kalender, Schule, Schreibmaterial", "Vergil und Livius als Quellen; Fortleben der Antike im Alltag"] } ] },
+        { "id": "L6-4", "title": "Methodik", "topics": [ { "id": "L6-4", "title": "Übersetzen und Lernen", "inhalte": ["Konstruktionsmethode, Abfragen von Sätzen", "Fehler analysieren", "Vokabelkartei, digitale Lernprogramme, Eselsbrücken", "Arbeitsorganisation, Gruppenarbeit"] } ] }
+      ]
+    },
+    {
+      "id": "franzoesisch", "name": "Französisch (2. Fremdsprache)", "short": "F6", "weeklyHours": 4, "color": "#59e6f2",
+      "url": "https://www.lehrplanplus.bayern.de/fachlehrplan/gymnasium/6/franzoesisch/2-fremdsprache", "priority": 4,
+      "alternativeTo": "latein",
+      "lernbereiche": [
+        { "id": "F6-1", "title": "Kommunikative Kompetenzen", "topics": [
+          { "id": "F6-1.1", "title": "Kommunikative Fertigkeiten", "inhalte": ["Hören: sehr kurze, langsam gesprochene Texte, Filmclips", "Lesen: Anzeigen, Plakate, E-Mails, Kurznachrichten", "Sprechen: Begrüßen, Vorstellen, Fragen zu Person und Umfeld", "Schreiben: Steckbrief, Einladung, Formulare", "Sprachmittlung: Einkauf, Weg fragen"] },
+          { "id": "F6-1.2", "title": "Verfügen über sprachliche Mittel", "inhalte": [
+            "Wortschatz: Zahlen bis 100, Datum, Uhrzeit, Mengen; j'aimerais, je voudrais, on pourrait; quand, parce que; pour + infinitif; unregelmäßige Plurale (animaux, cadeaux, jeux)",
+            "Grammatik: Singular/Plural; article défini, indéfini, contracté; déterminants possessifs et démonstratifs; adjectifs + place; Verneinung ne … pas/plus/jamais/rien; COD und COI",
+            "Grammatik: pronoms personnels sujets; pronoms objets directs (auch vor dem Infinitiv)",
+            "Grammatik: impératif; Fragen mit est-ce que, Intonation, Inversion; quel",
+            "Grammatik: présent, futur proche; Verben auf -er (acheter, préférer, -cer, -ger), -re; être, avoir, pouvoir, vouloir, aller, dire, écrire, faire, lire, prendre",
+            "Aussprache: Nasale, e-Laute, /y/, Lautschrift"
+          ] },
+          { "id": "F6-1.2a", "title": "Das Datum und der Plural", "hours": 0,
+            "kompetenzen": ["Jahreszeiten und Monate nennen; Zahlen 1 bis 31; das Datum sagen und schreiben (Nous sommes le / C’est le + Zahl + Monat, le premier); nach dem Geburtstag fragen", "Den Plural der Nomen bilden (-s stumm, -x bei -eau, Abkürzungen unverändert); les und des; Liaison vor Vokal"],
+            "inhalte": ["l’hiver, le printemps, l’été, l’automne", "les mois", "Nous sommes quelle date ? C’est quand ton anniversaire ?", "le pluriel des noms", "l’article défini et indéfini au pluriel"],
+            "kidExplanation": "Das Datum ist ein Bauplan: le + Zahl + Monat. Nur der Erste heißt le premier. Im Plural bekommt das Nomen ein stummes -s, und der Artikel verrät die Mehrzahl: les, des.",
+            "scene": "calendrier", "videoMinutes": 14 }
+        ]},
+        { "id": "F6-2", "title": "Interkulturelle Kompetenzen", "topics": [ { "id": "F6-2", "title": "Frankreich kennenlernen", "inhalte": ["elementare Geographie Frankreichs", "Alltag in Deutschland und Frankreich vergleichen", "Höflichkeit: Bonjour, Madame; Salut"] } ] },
+        { "id": "F6-3", "title": "Text- und Medienkompetenzen", "topics": [ { "id": "F6-3", "title": "Texte und Medien", "inhalte": ["Entschlüsselungshilfen (Englisch, Bilder)", "kurze E-Mails, Kurznachrichten", "BD, Rollenspiel, Kinderlieder, comptines"] } ] },
+        { "id": "F6-4", "title": "Methodische Kompetenzen", "topics": [ { "id": "F6-4", "title": "Lernstrategien", "inhalte": ["Vokabel- und Verbkartei, Nachsprechen", "Akzente am Computer eingeben", "Vorkenntnisse aus Englisch nutzen (there is – il y a)"] } ] },
+        { "id": "F6-5", "title": "Themengebiete", "topics": [ { "id": "F6-5", "title": "Themen der Jahrgangsstufe", "inhalte": ["Feste: Weihnachten, Geburtstag; Begrüßung, Esskultur", "Familie, Haustiere, Freunde, Wohnen, Hobbys, Schule", "Geographie: Lage, Meere, Gebirge, Loire, Seine, Rhône, Garonne; Paris, Marseille, Lyon, Toulouse, Bordeaux; erste Begegnung mit Paris", "Reisen: Bahnhof, Flughafen, Hotel, Wegbeschreibung; baguette, bol", "Kinderlieder, comptines, kleine Gedichte", "Satzstellung im Französischen"] } ] }
+      ]
+    },
+    {
+      "id": "nt", "name": "Natur und Technik", "short": "NT6", "weeklyHours": 3, "totalHours": 84, "color": "#8cccff",
+      "url": "https://www.lehrplanplus.bayern.de/fachlehrplan/gymnasium/6/nt_gym", "priority": 2,
+      "lernbereiche": [
+        { "id": "NT6-1", "title": "Schwerpunkt Biologie", "hours": 56, "topics": [
+          { "id": "NT6-1.1", "title": "Erkenntnisse gewinnen – kommunizieren – bewerten", "inhalte": ["naturwissenschaftlicher Erkenntnisweg: Frage, Hypothese, Untersuchung, Auswertung; Variable, Konstante, Kontrollversuch", "Mikroskopieren, Messwerte erfassen, Präparieren, Schulgarten", "Modelle; Säulen- und Liniendiagramme", "Quellen einschätzen; Tierschutz, biologische Vielfalt"], "note": "integriert in die anderen Lernbereiche" },
+          { "id": "NT6-1.2", "title": "Samenpflanzen als Lebewesen", "hours": 16, "inhalte": ["Frucht und Samen: Schale, Embryo, Nährgewebe; Ausbreitung durch Tiere und Wind; Bionik (Ahornfrucht – Propeller)", "ungeschlechtliche Fortpflanzung (Ausläufer); Keimung: Wasser, Licht, Temperatur, Sauerstoff", "Wurzel, Sprossachse, Blatt", "Photosynthese und Zellatmung: Stoff- und Energieumwandlung, Biomasse; Bedeutung für Nahrung, Rohstoffe, fossile Brennstoffe", "Reizbarkeit: Phototropismus, Blüten öffnen und schließen"],"scene": "seed", "videoMinutes": 8,
+            "glossary": [
+              { "de": "der Same, die Samen", "en": "seed(s)" },
+              { "de": "die Frucht", "en": "fruit: the seed's packaging and travel unit" },
+              { "de": "die Samenschale", "en": "seed coat" },
+              { "de": "das Nährgewebe", "en": "food store inside the seed" },
+              { "de": "der Embryo, der Keimling", "en": "embryo, the tiny young plant" },
+              { "de": "die Keimwurzel", "en": "embryonic root" },
+              { "de": "der Keimspross", "en": "embryonic shoot" },
+              { "de": "die Keimblätter", "en": "seed leaves (cotyledons); in a bean they hold the store" },
+              { "de": "die Keimung", "en": "germination" },
+              { "de": "die Ausbreitung", "en": "dispersal" },
+              { "de": "die Ahornfrucht", "en": "maple fruit, the winged 'helicopter' seed" },
+              { "de": "die Klettfrucht", "en": "burr, a fruit with hooks" },
+              { "de": "das Schirmchen", "en": "parachute of a dandelion fruit" },
+              { "de": "die Bionik", "en": "bionics: technology inspired by nature" },
+              { "de": "die Mutterpflanze", "en": "parent plant" },
+              { "de": "der Ausläufer", "en": "runner (asexual reproduction, e.g. strawberry)" },
+              { "de": "ungeschlechtliche Fortpflanzung", "en": "asexual reproduction" },
+              { "de": "der Kontrollversuch", "en": "control experiment" },
+              { "de": "die Variable", "en": "variable: the one thing you change" },
+              { "de": "das Versuchsprotokoll", "en": "experiment record" },
+              { "de": "die Stegreifaufgabe", "en": "short unannounced test" },
+              { "de": "Natur und Technik (NT)", "en": "the Year 5-7 science subject: biology, physics, informatics" }
+            ] },
+          { "id": "NT6-1.3", "title": "Biodiversität bei Wirbeltieren – Variabilität und Angepasstheit", "hours": 26, "inhalte": ["Fortbewegung im Wasser, an Land, in der Luft; Bionik (Schiff, Flugzeug)", "Nahrungserwerb: Räuber, Weidegänger, Fleisch- und Pflanzenfresser", "Temperaturregulation: Thermokonforme und Thermoregulatoren; Isolation durch Haut, Haare, Federn", "Winterschlaf, Winterruhe, Kältestarre, Vogelzug, Vorräte", "Sauerstoffaufnahme aus Wasser und Luft", "Fortpflanzung: äußere und innere Befruchtung, Eihülle; Metamorphose, Nesthocker, Nestflüchter; Elternaufwand, Brutpflege", "Sinnesleistungen: Ultraschallortung, Seitenlinienorgan, Grubenorgan"], "scene": "vertebrates", "videoMinutes": 9 },
+          { "id": "NT6-1.4", "title": "Verwandtschaft der Wirbeltiere und Evolution", "hours": 8, "inhalte": ["Wirbeltierklassen: Körperbedeckung, Körpertemperatur, Atmung, Fortpflanzung", "vereinfachtes Modell der Evolution: Vorteile durch variierte Merkmale", "Nutz- und Heimtiere: Züchtung, tiergerechte Haltung"], "videoMinutes": 6 },
+          { "id": "NT6-1.5", "title": "Ökosystem Gewässer", "hours": 6, "inhalte": ["abiotische Faktoren: Wassertemperatur, Sichttiefe, Fließgeschwindigkeit", "typische Lebewesen, Nahrungsnetz", "Ökosystem = Lebewesen + unbelebte Natur; Nutzen und Einfluss des Menschen"], "videoMinutes": 6 }
+        ]},
+        { "id": "NT6-2", "title": "Schwerpunkt Informatik", "hours": 28, "topics": [
+          { "id": "NT6-2.1", "title": "Informationsdarstellung mit Grafik-, Text- und Multimediadokumenten", "hours": 18, "inhalte": ["Information darstellen: Text, Bild, Diagramm, Ton", "Objekt, Attribut, Methode, Klasse, Beziehung; Punktnotation; Objekt- und Klassendiagramm", "Vektorgrafik: GRAFIKDOKUMENT, RECHTECK, ELLIPSE, LINIE, TEXTFELD; Vektor- und Pixelgrafik", "Textdokument: TEXTDOKUMENT, ABSATZ, ZEICHEN", "Multimediadokument: FOLIE, BILD, AUDIO; Animation", "Standardsoftware bedienen: Speichern, Kopieren, Formatieren, Tabellen, Bilder"], "scene": "objects", "videoMinutes": 7 },
+          { "id": "NT6-2.2", "title": "Projekt: Erstellen einer Multimediapräsentation", "hours": 5, "inhalte": ["Qualitätskriterien: Textanteil, Schriftgröße, Farben, Animationen", "Urheberrecht, Quellenangabe"] },
+          { "id": "NT6-2.3", "title": "Hierarchische Informationsstrukturen – Dateisystem", "hours": 5, "inhalte": ["Klassen DATEI und ORDNER, rekursive Enthält-Beziehung", "Baum: Wurzel, Knoten, Kante, Blatt, Pfad"], "scene": "tree", "videoMinutes": 5 }
+        ]}
+      ]
+    },
+    {
+      "id": "geschichte", "name": "Geschichte", "short": "G6", "subtitle": "Von den ersten Menschen bis zu Karl dem Großen", "weeklyHours": 2, "totalHours": 54, "color": "#e6a05c",
+      "url": "https://www.lehrplanplus.bayern.de/fachlehrplan/gymnasium/6/geschichte", "priority": 3,
+      "lernbereiche": [
+        { "id": "G6-1", "title": "Der Mensch und seine Geschichte", "hours": 6, "topics": [ { "id": "G6-1", "title": "Der Mensch und seine Geschichte", "hours": 6, "inhalte": ["Zeit: Vergangenheit, Gegenwart, Zukunft", "Quellen: schriftlich, mündlich, bildlich, gegenständlich; Überrest und Überlieferung; Archäologie", "Jäger und Sammler der Altsteinzeit; Bauern der Jungsteinzeit", "Grundbegriffe: Quelle, Altsteinzeit, Jungsteinzeit"], "scene": "timeline", "videoMinutes": 6 } ] },
+        { "id": "G6-2", "title": "Ägypten – eine frühe Hochkultur", "hours": 6, "topics": [ { "id": "G6-2", "title": "Ägypten – eine frühe Hochkultur", "hours": 6, "inhalte": ["Nutzung der Stromlandschaft Nil", "Herrschaft, Religion, Gesellschaft; Pyramiden", "Pharao, Monarchie; ab 3000 v. Chr. Hochkultur"], "scene": "pyramid", "videoMinutes": 7 } ] },
+        { "id": "G6-3", "title": "Die griechische Antike", "hours": 10, "topics": [ { "id": "G6-3", "title": "Die griechische Antike", "hours": 10, "inhalte": ["Landesnatur, Polis, Kolonisation; Vergleich mit heutiger Migration", "Mythen und Epen, Olympische Spiele, Theater", "attische Polis ab Solon, Perserkriege", "Blütezeit Athens unter Perikles: Demokratie; Begriffe Antike, Polis, Aristokratie, Demokratie, Verfassung; 5. Jh. v. Chr."], "videoMinutes": 8 } ] },
+        { "id": "G6-4", "title": "Menschen machen Geschichte (Längsschnitt)", "hours": 6, "topics": [ { "id": "G6-4", "title": "Menschen machen Geschichte", "hours": 6, "inhalte": ["Hatschepsut, Themistokles, Alexander der Große", "Möglichkeiten und Grenzen von Herrschaft"], "videoMinutes": 6 } ] },
+        { "id": "G6-5", "title": "Das Imperium Romanum", "hours": 12, "topics": [ { "id": "G6-5", "title": "Das Imperium Romanum", "hours": 12, "inhalte": ["Anfänge Roms: Mythos und Geschichtsschreibung; 753 v. Chr.", "Republik: Gesellschaft und Macht; Senat, Diktator, Caesar", "von der Republik zum Prinzipat; Augustus (um Christi Geburt)", "Provinzen, Romanisierung, Limes, Bayern unter Rom", "jüdisches Leben, Zerstörung des Tempels, Diaspora", "Christen: Verfolgung, Staatsreligion"], "scene": "empire", "videoMinutes": 9 } ] },
+        { "id": "G6-6", "title": "Von der Antike zum Mittelalter", "hours": 8, "topics": [ { "id": "G6-6", "title": "Von der Antike zum Mittelalter", "hours": 8, "inhalte": ["Völkerwanderung, Zerfall des Römischen Reichs, Dreiteilung der Mittelmeerwelt", "Ausbreitung des Islam", "Reichsbildung der Franken um 500", "Kaiserkrönung Karls des Großen 800"], "videoMinutes": 7 } ] },
+        { "id": "G6-7", "title": "Gesellschaftsordnung im Kleinen: Leben in der Familie (Längsschnitt)", "hours": 6, "topics": [ { "id": "G6-7", "title": "Leben in der Familie", "hours": 6, "inhalte": ["Geschlechterrollen in Athen", "die römische familia", "Familien im Wandel heute"], "videoMinutes": 5 } ] }
+      ]
+    },
+    {
+      "id": "ethik", "name": "Ethik", "short": "Eth6", "weeklyHours": 2, "totalHours": 56, "color": "#c9b8ff",
+      "url": "https://www.lehrplanplus.bayern.de/fachlehrplan/gymnasium/6/ethik", "priority": 5, "alternativeTo": "religion",
+      "lernbereiche": [
+        { "id": "Eth6-1", "title": "Judentum und Christentum", "hours": 14, "topics": [ { "id": "Eth6-1", "title": "Judentum und Christentum", "hours": 14, "inhalte": ["Heilige Schriften als Offenbarung; Schöpfungsgeschichte im Vergleich mit Urknall und Evolution; 10 Gebote", "Abram, Bund, Sabbat", "Bergpredigt, Doppelgebot, Barmherziger Samariter, Tod und Auferstehung", "Besuch einer caritativen Einrichtung"] } ] },
+        { "id": "Eth6-2", "title": "Umgang mit Medien", "hours": 10, "topics": [ { "id": "Eth6-2", "title": "Umgang mit Medien", "hours": 10, "inhalte": ["exzessive Nutzung: Sucht, Schlafmangel, Konzentration", "eigene Mediennutzung analysieren", "Täuschung und Manipulation, Fälschungen", "private Daten, soziale Netzwerke", "Selbstkontrolle"] } ] },
+        { "id": "Eth6-3", "title": "Dem Anderen begegnen", "hours": 14, "topics": [ { "id": "Eth6-3", "title": "Dem Anderen begegnen", "hours": 14, "inhalte": ["Selbstentfaltung, Toleranz, Solidarität, Freundschaft", "Missverständnisse, Vorurteile", "Nein sagen, Spiegeln, verletzende Äußerungen, Außenseiter integrieren", "Teamarbeit als Bereicherung"] } ] },
+        { "id": "Eth6-4", "title": "Konsum und Freizeit", "hours": 18, "topics": [ { "id": "Eth6-4", "title": "Konsum und Freizeit", "hours": 18, "inhalte": ["verantwortungsbewusster Konsum: Billigprodukte, Arbeitsbedingungen, Tierhaltung, ökologischer Fußabdruck", "Handlungsmöglichkeiten: Lebensmittelverschwendung, langlebige Produkte", "vielfältige Freizeit mit wenig Geld", "Werbung, Kaufsucht, Gruppenzwang, Marken"] } ] }
+      ]
+    },
+    {
+      "id": "religion", "name": "Katholische / Evangelische Religionslehre", "short": "KR6 / ER6", "weeklyHours": 2, "totalHours": 56, "color": "#f2d16b",
+      "url": "https://www.lehrplanplus.bayern.de/fachlehrplan/gymnasium/6/katholische-religionslehre", "priority": 5, "alternativeTo": "ethik",
+      "lernbereiche": [
+        { "id": "KR6", "title": "Katholische Religionslehre", "hours": 56, "topics": [
+          { "id": "KR6-1", "title": "Staunen und Nachdenken über Gottes Welt", "hours": 10, "inhalte": ["Fragen nach Ursprung und Sinn", "Antworten aus Kulturgeschichte, Weltsicht der Römer und Germanen", "christliche Sinnantwort; Theologisieren mit Kindern"] },
+          { "id": "KR6-2", "title": "Zwischen Scheitern und Gelingen – Erfahrungen im Alten Testament", "hours": 12, "inhalte": ["Kain und Abel, Jakob und Esau, Josef, Sara, Mose, Rut, Saul, David, Salomo", "Erzväter, Exodus, Königszeit, Exil"] },
+          { "id": "KR6-3", "title": "Jesus Christus – Hoffnung in Leid und Tod", "hours": 12, "inhalte": ["Jesu Zuwendung zu Armen und Kranken", "Kreuzigung, Tod, Auferstehung; Osterfestkreis", "Emmaus, Heilige und Vorbilder"] },
+          { "id": "KR6-4", "title": "Christliches Gemeindeleben: die Begeisterung des Anfangs", "hours": 12, "inhalte": ["Pfingsten, Petrus, Paulus", "Apostelkonzil, Mission", "Verfolgung, Wende unter Konstantin"] },
+          { "id": "KR6-5", "title": "Vielfalt der Kulturen und Lebenswelten – Solidarität im Namen Gottes", "hours": 10, "inhalte": ["Lebensbedingungen von Kindern weltweit", "Nächstenliebe, kirchliche Hilfswerke", "solidarisches Handeln"] }
+        ]},
+        { "id": "ER6", "title": "Evangelische Religionslehre", "hours": 56, "url": "https://www.lehrplanplus.bayern.de/fachlehrplan/gymnasium/6/evangelische-religionslehre", "topics": [
+          { "id": "ER6-1", "title": "In Beziehung", "hours": 12, "inhalte": ["Familie, Familienformen, Freundschaft", "Rollen in Gruppen, Konflikte, Streitschlichter", "biblische Familiengeschichten"] },
+          { "id": "ER6-2", "title": "Zwischen Galiläa und Jerusalem", "hours": 8, "inhalte": ["Lebensbedingungen zur Zeit Jesu", "jüdische Gruppen; Tora, Sabbat, Pessach", "jüdisches Leben heute"] },
+          { "id": "ER6-3", "title": "„Mitten unter euch“ – Jesu Botschaft und Leben", "hours": 16, "inhalte": ["Evangelien als Glaubenszeugnisse", "Reich Gottes: Gleichnisse, Wunder", "Passion und Ostern; 2. Artikel des Glaubensbekenntnisses"] },
+          { "id": "ER6-4", "title": "Feste und Auszeiten", "hours": 10, "inhalte": ["Feiern und Feste deuten", "Kirchenjahr: Weihnachts-, Osterfestkreis, Trinitatiszeit"] },
+          { "id": "ER6-5", "title": "Anders – fremd – verschieden", "hours": 10, "inhalte": ["Fremdsein, Verschiedenheit, Vorurteile", "biblische Impulse: Gottebenbildlichkeit, Nächstenliebe"] }
+        ]}
+      ]
+    },
+    {
+      "id": "kunst", "name": "Kunst", "short": "Ku6", "weeklyHours": 2, "color": "#ff8fa3",
+      "url": "https://www.lehrplanplus.bayern.de/fachlehrplan/gymnasium/6/kunst", "priority": 6,
+      "lernbereiche": [
+        { "id": "Ku6-1", "title": "Bildende Kunst", "topics": [ { "id": "Ku6-1", "title": "Bildende Kunst", "inhalte": ["Räumlichkeit: Größenverhältnisse, Staffelung, Überschneidung, Parallelperspektive", "Ansicht, Platzierung, Bildausschnitt in Malerei, Zeichnung, Druck", "menschlicher Körper und Gesicht mit Proportionsschemata", "griechische und römische Kunst: Archaik, Klassik, Hellenismus; Statue, Kontrapost, Relief, Mosaik, Fresko"], "scene": "perspective", "videoMinutes": 6 } ] },
+        { "id": "Ku6-2", "title": "Architektur und Produktdesign", "topics": [ { "id": "Ku6-2", "title": "Architektur und Produktdesign", "inhalte": ["Objekte aus Ton; Aufbau- und Plattentechnik, Relief, Engobe, Glasur", "Tempel, Basilika, Agora, Forum, Villa, Atriumhaus, Insulae", "Außen- und Innenraum, Material, Konstruktion, Stil"] } ] },
+        { "id": "Ku6-3", "title": "Interaktion, Inszenierung und Kommunikation", "topics": [ { "id": "Ku6-3", "title": "Schrift, Foto, Film", "inhalte": ["Text-Bild-Kombinationen: Bildergeschichte, Plakat, digitale Präsentation", "Versalschrift (Capitalis quadrata), Typografie", "fotografische und filmische Gestaltungsmittel, Standbild"] } ] }
+      ]
+    },
+    {
+      "id": "musik", "name": "Musik", "short": "Mu6", "weeklyHours": 2, "color": "#b5f06b",
+      "url": "https://www.lehrplanplus.bayern.de/fachlehrplan/gymnasium/6/musik", "priority": 6,
+      "lernbereiche": [
+        { "id": "Mu6-1", "title": "Sprechen – Singen – Musizieren", "topics": [ { "id": "Mu6-1", "title": "Sprechen – Singen – Musizieren", "inhalte": ["Volksmusik aus europäischen Ländern, Kanons, Lieder in Fremdsprachen", "Sprechstücke, ein- und mehrstimmige Lieder", "klassische Musik musizieren, improvisieren", "zweistimmige Partituren mit Violin- und Bassschlüssel"] } ] },
+        { "id": "Mu6-2", "title": "Musik – Mensch – Zeit", "topics": [ { "id": "Mu6-2", "title": "Komponisten und ihre Zeit", "inhalte": ["J. S. Bach (Invention, Brandenburgische Konzerte, Kantate, Passion) oder G. F. Händel (London, Feuerwerksmusik)", "I. Strawinsky (Collage, Verfremdung) oder B. Bartók (Volksmusikforschung)"] } ] },
+        { "id": "Mu6-3", "title": "Bewegung – Tanz – Szene", "topics": [ { "id": "Mu6-3", "title": "Bewegung – Tanz – Szene", "inhalte": ["Bewegungspartitur", "europäischer Volkstanz (Polka, Mazurka); barocker Tanz (Menuett, Pavane)", "Ballettszene pantomimisch (Pulcinella)", "Komponistenbiografie szenisch"] } ] },
+        { "id": "Mu6-4", "title": "Musik und ihre Grundlagen", "topics": [ { "id": "Mu6-4", "title": "Musik und ihre Grundlagen", "inhalte": ["Besetzung, Satztechnik (Imitation, unisono), Artikulation (legato, staccato), Rhythmik (Triole, Taktwechsel, 7/8, 5/4), Form (Rondo, Liedform), Tempo, Dynamik", "Intervalle bis zur Oktave: rein, groß, klein; hören bis zur Quinte", "Dur- und Molltonleitern, Dreiklänge, Umkehrungen"], "scene": "intervals", "videoMinutes": 6 } ] }
+      ]
+    },
+    {
+      "id": "sport", "name": "Sport (Basissport)", "short": "S6", "weeklyHours": 2, "color": "#7ad7ff",
+      "url": "https://www.lehrplanplus.bayern.de/fachlehrplan/gymnasium/6/sport/basis_sport", "priority": 7,
+      "lernbereiche": [
+        { "id": "S6-1", "title": "Gesundheit und Fitness", "topics": [ { "id": "S6-1", "title": "Gesundheit und Fitness", "inhalte": ["20 Minuten aerobe Ausdauer, Puls messen", "Belastung und Temperaturregulation", "Kräftigung Bauch und Rücken, Beweglichkeit", "Sicherheitsregeln, Hygiene, Körperwahrnehmung"] } ] },
+        { "id": "S6-2", "title": "Fairness / Kooperation / Selbstkompetenz", "topics": [ { "id": "S6-2", "title": "Fairness und Kooperation", "inhalte": ["Regeln anpassen, Schiedsrichteraufgaben", "Konflikte lösen, helfen, Helfergriffe", "Stärken und Schwächen reflektieren"] } ] },
+        { "id": "S6-3", "title": "Freizeit und Umwelt", "topics": [ { "id": "S6-3", "title": "Freizeit und Umwelt", "inhalte": ["UV-Strahlung, Ozon, Schnee, Temperatur; Ausrüstung", "Sport im Freien, umweltschonend"] } ] },
+        { "id": "S6-4", "title": "Sportliche Handlungsfelder", "topics": [
+          { "id": "S6-4.1", "title": "Leichtathletik", "inhalte": ["Läufe bis 50 m, Tiefstart, Dauerläufe", "Weit- und Hochsprung", "Schlagwurf mit Anlauf"] },
+          { "id": "S6-4.2", "title": "Schwimmen", "inhalte": ["Strecken auf Zeit, Startsprung, Wende", "zweite Schwimmart in Grobform", "Sprünge, Ballspiele, Selbstrettung"] },
+          { "id": "S6-4.3", "title": "Kleine Spiele und Sportspiele", "inhalte": ["Basketball, Fußball, Handball, Volleyball: Grundtechniken", "Freilaufen, Anbieten; Schiedsrichter"] },
+          { "id": "S6-4.4", "title": "Turnen und Bewegungskünste", "inhalte": ["Handstand abrollen, Hüftaufschwung, Felgunterschwung", "Gruppenakrobatik, Pyramide"] },
+          { "id": "S6-4.5", "title": "Gymnastik und Tanz", "inhalte": ["Tanzschrittkombinationen aus verschiedenen Kulturen", "Choreografie mit Ball und Seil"] }
+        ]}
+      ]
+    }
+  ]
+}

@@ -10,6 +10,53 @@ Plus, unrelated to the TV: **AI Video Studio**, an iPhone app that turns one pro
 
 Live at: https://hello2michael-cmyk.github.io/Test/
 
+## Klasse 6 Bayern: ein YouTube-Video pro Lehrplan-Thema
+
+The goal is a YouTube lesson for every topic of Jahrgangsstufe 6 at a Bavarian Gymnasium, built from the official **LehrplanPLUS (G9)**,
+which was checked page by page against the ISB Fachlehrpläne and the Stundentafel of the Gymnasialschulordnung (GSO Anlage 1, valid from
+1 August 2026). `klasse6/LEKTIONEN.md` lists all 84 topics as issue titles, Mathematik first.
+
+**Claude writes, Claude reviews, the factory renders.** No API key and no Hugging Face token are needed for lessons; the writing happens
+in Claude Code on your Claude subscription.
+
+1. In a Claude Code session on this repository say, for example, *"Plane Lektion M6-1.2"*. Claude writes the lesson in German for
+   11-year-olds as `klasse6/lessons/M6-1.2.lesson.json`: chapters, scenes with narration of at least 32 words (so every scene holds ten
+   seconds or more), on-screen titles, and for the maths topics ready-made **3D scenes** with real numbers (`math3d`, with an optional
+   `segment` that plays exactly the part of the animation the narration talks about). Every chapter has at least one **question
+   scene**: the question is spoken and shown, a visible countdown gives the child eight to twelve seconds to think, then the answer
+   follows. The voice is slightly slower and every picture stays a moment after the words end.
+2. A **second Claude model** (a Sonnet subagent) reviews the file: every number recomputed, picture against words for each 3D scene,
+   Lehrplan scope and Bavarian Fachbegriffe, children's language. Blocking findings go back to the writer until none remain; the review
+   is recorded in the lesson file.
+3. `node klasse6/tools/make-plan.mjs klasse6/lessons/M6-1.2.lesson.json` turns it into `klasse6/lessons/M6-1.2/plan.json` (the format the
+   factory renders) and a readable `plan.md`; Claude commits both.
+4. You open an issue titled `Lektion: M6-1.2` (from the GitHub app on a phone). The factory finds the committed plan and renders it with
+   the 3D scenes, a **German voice** (Google Cloud Text-to-Speech, Chirp 3 HD: Leda for children, Charon for parents, when the repository secret `GOOGLE_TTS_KEY` holds a Text-to-Speech API key; Piper/Thorsten otherwise and as fallback), burned-in captions, chapters and the YouTube text, and posts the release links. A line `stimme: de-DE-Chirp3-HD-Charon` in the issue picks another Google voice. An issue `English: M6-1.1` renders the **English version for parents who do not speak German**: English narration, the German school terms in «…» spoken by the German voice, a glossary per topic in the syllabus data.
+
+**Two videos per topic.** `Lektion: <id>` is the children's lesson (slow, du-form, think-pauses; mark it "made for kids" on
+YouTube). `Eltern: <id>` is the parents-and-teachers version of the same topic, 8 to 10 minutes in Sie-form: what the Lehrplan
+demands, the core ideas with the same 3D scenes at normal pace, the typical mistakes, a ten-minute home routine, what the
+Schulaufgabe asks. It is written as `klasse6/lessons/<id>.eltern.lesson.json`, reviewed the same way, and rendered from
+`klasse6/lessons/<id>/eltern/plan.json`.
+
+Without a committed plan, `Lektion: <id>` falls back to the model-driven path below (writer and second reviewer through Hugging Face
+Inference Providers, plan posted for approval), which needs the `HF_TOKEN` secret.
+
+Files: `klasse6/SYLLABUS.md` (readable syllabus with sources), `klasse6/data/klasse6-bayern.json` (the same as data), `klasse6/LEKTIONEN.md`
+(the queue), `klasse6/lessons/` (authored lessons and their plans), `klasse6/tools/make-plan.mjs` (lesson → plan), `klasse6/js/mathscenes.js`,
+`langscenes.js` (a sentence as movable blocks for Satzglieder) and `engine3d.js` (the deterministic 3D scenes, shared with the renderer), `klasse6/PIPELINE.md` (the design and what is still missing),
+`klasse6/index.html` (a preview page to watch and tune every 3D scene with sliders before it goes into a video).
+
+Geographie is not taught in Jahrgangsstufe 6 under the G9 Stundentafel (it is in Jgst. 5 and 7); Geschichte starts in Jgst. 6; the second
+foreign language (Latein or Französisch) starts in Jgst. 6.
+
+## Lumi: a talking tutor with an avatar (iPhone, iPad, TV)
+
+`klasse6/tutor/` is a page with an animated tutor that listens, answers with Claude, speaks, and shows the learning app's 3D scenes
+while it explains any topic of the Klasse 6 syllabus. Open it on the phone or iPad, add it to the Home Screen, mirror it to the TV with
+AirPlay and tap **TV** for big text. It needs an Anthropic API key once per device (stored only in that browser). Details, voices and
+costs: `klasse6/tutor/README.md`.
+
 ## Daybrief: your inbox, sorted and read out loud
 
 **Open this on the phone:** https://hello2michael-cmyk.github.io/Test/daybrief/

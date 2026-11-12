@@ -1,0 +1,363 @@
+{
+  "topic": "F6-1.2",
+  "variant": "eltern",
+  "title": "Französische Verben in der 6. Klasse: Worauf es ankommt",
+  "audience": "Eltern und Lehrkräfte von Sechstklässlern am Gymnasium in Bayern",
+  "tone": "ruhig, präzise, ohne Panikmache",
+  "hook": "Französisch beginnt in der 6. Klasse, und nach wenigen Wochen liegen die ersten Verbtabellen auf dem Küchentisch. Dahinter steckt weniger Auswendiglernen als eine Denkweise: Stamm und Endung erkennen, Hören und Schreiben trennen, Wendungen als Ganzes lernen.",
+  "keyTakeaway": "Im Lernbereich sprachliche Mittel lernt Ihr Kind zuerst das Muster der -er Verben, die unregelmäßigen Verben être, avoir und aller und die Verneinung mit ne … pas. Entscheidend sind drei Gewohnheiten: Stamm und Endung erkennen, Hören und Schreiben getrennt üben, Wendungen wie j'ai onze ans als Ganzes lernen. Zehn Minuten täglich mit Verbkartei und lautem Sprechen genügen, auch ohne eigene Französischkenntnisse.",
+  "learningObjectives": [
+    "Französisch als 2. Fremdsprache ab Jahrgangsstufe 6 und den Lernbereich F6 1.2 im LehrplanPLUS einordnen",
+    "Die Kernideen in Bildern kennen: Stamm und Endung, stumme Endungen, être, avoir, aller, ne … pas",
+    "Die Denkweise des Lernbereichs nachvollziehen: Muster erkennen, Hören und Schreiben trennen",
+    "Zu Hause in zehn Minuten sinnvoll begleiten, auch ohne eigene Französischkenntnisse",
+    "Typische Fehlvorstellungen erkennen und wissen, wie in Französisch geprüft wird",
+    "Die nächsten Grammatikthemen der Jahrgangsstufe kennen"
+  ],
+  "cta": "Abonnieren Sie für die nächsten Lernbereiche",
+  "youtube": {
+    "title": "Französische Verben in der 6. Klasse: Worauf es ankommt | Eltern-Guide Französisch Gymnasium Bayern",
+    "description": "Für Eltern und Lehrkräfte: Was der bayerische LehrplanPLUS im Fach Französisch 6 (2. Fremdsprache) im Lernbereich F6 1.2 Verfügen über sprachliche Mittel bei den Verben verlangt (présent, -er Verben, être, avoir, aller, Verneinung mit ne … pas), die Kernideen in 3D-Verbtabellen, die Denkweise dahinter (Stamm und Endung, Hören und Schreiben trennen), wie Sie zu Hause in zehn Minuten helfen, auch ohne eigene Französischkenntnisse (laut sprechen, Verbkartei, Lieder), typische Fehlvorstellungen, Hinweise zu den Schulaufgaben und ein Ausblick auf futur proche, -re Verben und die weiteren Verneinungen.\n\nDie Kinder-Lektion zum selben Thema gibt es auf diesem Kanal. Lehrplan: LehrplanPLUS Gymnasium Bayern, Französisch 6 (2. Fremdsprache), Lernbereich 1.2 Verfügen über sprachliche Mittel.",
+    "tags": [
+      "Französisch",
+      "Klasse 6",
+      "Gymnasium Bayern",
+      "Eltern",
+      "LehrplanPLUS",
+      "2. Fremdsprache",
+      "Französisch Klasse 6",
+      "Verben konjugieren",
+      "être avoir aller",
+      "Verneinung ne pas",
+      "Verbkartei",
+      "Schulaufgabe Französisch",
+      "Elternratgeber",
+      "Jahrgangsstufe 6",
+      "F6"
+    ],
+    "thumbnailText": "FRANZÖSISCH ELTERN-GUIDE",
+    "pinnedComment": "Welche Frage haben Sie zum Französischunterricht in der 6. Klasse? Schreiben Sie sie in die Kommentare."
+  },
+  "review": {
+    "reviewer": "Claude Sonnet (Claude Code subagent), independent of the writer (Claude in Claude Code)",
+    "date": "2026-11-09",
+    "mustFixApplied": [
+      "„nous immer -ons, vous immer -ez“ korrigiert: gilt bei -er Verben, auch bei avoir und aller (nicht bei être, faire, dire)",
+      "„vier Wochenstunden“ entfernt; Verweis auf die Stundentafel der Schule",
+      "Titelszene: Wahl zwischen Französisch und Latein je nach Schule"
+    ],
+    "suggestionsApplied": [
+      "-er Muster: „fast jedes Verb auf -er“, Ausnahme aller, Schreibänderungen bei acheter, préférer, manger (Bullet und Narration)",
+      "Verbkartei und Nachsprechen im Lehrplan unter methodische Kompetenzen; Kinderlieder und comptines an anderer Stelle",
+      "„Regelmäßigkeit ist wichtiger als Dauer“ statt Vergleich mit anderen Fächern",
+      "Bild 4: ne plus, ne jamais, ne rien im weiteren Schuljahr",
+      "Englisch: „bis zu sechs verschiedene Formen“; Vorkenntnisse „unter Anleitung“ nutzen, wie der Lehrplan formuliert",
+      "Weniger gesprochene französische Formen je Szene (Bild 1, aller)"
+    ],
+    "verified": [
+      "Sie-Form, Wortzahlen, Titel",
+      "Lehrplan-Zitate (présent, futur proche, Verbliste, Verneinungen) gegen f6.txt",
+      "Szenen-Segmente (Negationssegment nur mit parler)",
+      "Schulaufgaben-Aussagen abgesichert formuliert"
+    ]
+  },
+  "chapters": [
+    {
+      "title": "Worum es geht",
+      "goal": "Sie wissen, wo Französisch in der 6. Klasse steht und was der Lernbereich bei den Verben verlangt.",
+      "keyPoints": [
+        "2. Fremdsprache ab Jgst. 6",
+        "F6 1.2: Wortschatz, Grammatik, Aussprache",
+        "présent und futur proche"
+      ],
+      "scenes": [
+        {
+          "kind": "title",
+          "onScreenTitle": "Französische Verben: Worauf es ankommt",
+          "narration": "Französisch beginnt am bayerischen Gymnasium in der sechsten Klasse als zweite Fremdsprache; je nach Schule können Familien zwischen Französisch und Latein wählen. Bald tauchen die ersten Verbtabellen im Heft auf, und mit ihnen Fragen zu Hause: Warum schreibt man eine Endung, die man nicht hört? Warum heißt es j'ai onze ans? Dieses Video für Eltern und Lehrkräfte zeigt, was der Lehrplan verlangt, welche Bilder den Kern bilden, welche Denkweise dahintersteckt und wie Sie zu Hause helfen, auch ohne eigene Französischkenntnisse."
+        },
+        {
+          "kind": "bullets",
+          "onScreenTitle": "Das Fach und der Lernbereich",
+          "bullets": [
+            "Französisch: 2. Fremdsprache ab Jahrgangsstufe 6",
+            "Alternative an vielen Schulen: Latein",
+            "F6 1.2: Wortschatz, Grammatik, Aussprache und Intonation",
+            "Heute: Verben im Präsens und Verneinung"
+          ],
+          "narration": "Im neunjährigen Gymnasium in Bayern setzt die zweite Fremdsprache in Jahrgangsstufe 6 ein, mit der Stundenzahl nach der Stundentafel, die Ihre Schule Ihnen nennt; je nach Schule können Familien zwischen Französisch und Latein wählen. Der Lernbereich 1.2 des Lehrplans Französisch 6, Verfügen über sprachliche Mittel, umfasst Wortschatz, Grammatik sowie Aussprache und Intonation. Dieses Video greift daraus die Verben im Präsens und die Verneinung heraus, das Fundament fast jedes Satzes in diesem Schuljahr."
+        },
+        {
+          "kind": "bullets",
+          "onScreenTitle": "Das listet der Lehrplan für die Verben",
+          "bullets": [
+            "Zeiten: présent und futur proche",
+            "Regelmäßig: Verben auf -er und -re",
+            "Unregelmäßig: être, avoir, aller, faire und sechs weitere",
+            "Verneinung: ne … pas, plus, jamais, rien"
+          ],
+          "narration": "Der Lehrplan erwartet, dass die Kinder Handlungen und Abläufe in der Gegenwart beschreiben und Zukunftspläne ausdrücken. Dafür nennt er zwei Zeiten: présent und futur proche. Regelmäßig: Verben auf -er, auch acheter, préférer und Verben auf -cer und -ger, dazu Verben auf -re. Als häufige unregelmäßige Verben listet er être, avoir, pouvoir, vouloir, aller, dire, écrire, faire, lire und prendre. Verneinte Sätze verlangt er mit ne pas, ne plus, ne jamais und ne rien. Heute geht es um -er Verben, être, avoir, aller und ne pas."
+        }
+      ]
+    },
+    {
+      "title": "Die Kernideen in Bildern",
+      "goal": "Sie kennen die vier Bilder, mit denen Ihr Kind Verbformen und Verneinung verstehen soll.",
+      "keyPoints": [
+        "Stamm und Endung",
+        "stumme Endungen",
+        "être, avoir, aller",
+        "ne … pas als Klammer"
+      ],
+      "scenes": [
+        {
+          "kind": "chapter",
+          "labels": [
+            "Stamm und Endung",
+            "stumme Endungen",
+            "être, avoir, aller",
+            "ne … pas"
+          ],
+          "narration": "Vier Bilder tragen diesen Teil des Lernbereichs. Erstens die Verbtabelle mit Stamm und Endung, die bei allen -er Verben gleich aufgebaut ist. Zweitens die stummen Endungen, die das Schreiben vom Hören trennen. Drittens die unregelmäßigen Verben être, avoir und aller, bei denen jede Form einzeln gelernt wird. Und viertens die Verneinung als Klammer um das Verb. Wer sie kennt, versteht, was im Heft steht, auch ohne selbst Französisch zu sprechen."
+        },
+        {
+          "kind": "math3d",
+          "scene": "conjugaison",
+          "params": {
+            "verbe": "parler (-er)",
+            "personne": 0
+          },
+          "segment": [
+            0,
+            16
+          ],
+          "onScreenTitle": "Bild 1: Stamm parl- und sechs Endungen",
+          "narration": "Bild eins: der Bau einer Verbform. Vom Infinitiv parler, sprechen, wird die Endung -er abgetrennt; übrig bleibt der Stamm parl-. An ihn treten sechs Endungen, eine je Person: e, es, e, ons, ez, ent. Je parle, nous parlons, ils parlent. Dieses Muster gilt für fast jedes Verb auf -er; Ausnahme ist aller, und bei acheter, préférer, manger kommen kleine Schreibänderungen dazu. Ihr Kind soll einen unbekannten Infinitiv auf -er nehmen und die Formen selbstständig bilden können."
+        },
+        {
+          "kind": "math3d",
+          "scene": "conjugaison",
+          "params": {
+            "verbe": "parler (-er)",
+            "personne": 0
+          },
+          "segment": [
+            16,
+            23
+          ],
+          "onScreenTitle": "Bild 2: Vier Endungen sind stumm",
+          "narration": "Bild zwei: die stummen Endungen. Vier der sechs Endungen, -e, -es, -e und -ent, werden geschrieben, aber nicht gesprochen. Je parle, tu parles, il parle und ils parlent klingen identisch; nur -ons und -ez sind hörbar. Für deutschsprachige Kinder ist das die größte Umstellung. Die Folge im Heft: ils parle statt ils parlent. Der Fehler liegt nicht am Verständnis, sondern daran, dass das Kind beim Schreiben nach dem Gehör geht."
+        },
+        {
+          "kind": "math3d",
+          "scene": "conjugaison",
+          "params": {
+            "verbe": "être",
+            "personne": 0
+          },
+          "segment": [
+            0,
+            16
+          ],
+          "onScreenTitle": "Bild 3: être, das wichtigste Verb",
+          "narration": "Bild drei: die unregelmäßigen Verben. Être, sein, hat keinen gemeinsamen Stamm: je suis, tu es, il est, nous sommes, vous êtes, ils sont. Jede Form wird einzeln gelernt, am besten laut und rhythmisch. Être und avoir sind die meistgebrauchten Verben der Sprache und später die Hilfsverben für die Vergangenheitsformen, die in den folgenden Jahrgangsstufen kommen. Wer sie jetzt sicher beherrscht, hat es dann deutlich leichter."
+        },
+        {
+          "kind": "math3d",
+          "scene": "conjugaison",
+          "params": {
+            "verbe": "avoir",
+            "personne": 0
+          },
+          "segment": [
+            0,
+            16
+          ],
+          "onScreenTitle": "avoir: haben, auch für das Alter",
+          "narration": "Avoir, haben: j'ai, tu as, il a, nous avons, vous avez, ils ont. In der ersten Person wird je zu j', weil ai mit einem Vokal beginnt; ebenso bei j'aime oder j'habite. Eine Besonderheit prägt sich schnell ein: Das Alter wird mit avoir ausgedrückt. J'ai onze ans heißt wörtlich: Ich habe elf Jahre. Aus dem Deutschen und Englischen übertragen Kinder gern je suis onze ans, ein typischer Fehler der ersten Monate. Solche Wendungen lernt man als ganze Sätze."
+        },
+        {
+          "kind": "bullets",
+          "onScreenTitle": "aller: gehen, und bald die Zukunft",
+          "bullets": [
+            "je vais, tu vas, il va",
+            "nous allons, vous allez, ils vont",
+            "Ça va? Je vais à l'école.",
+            "Später: futur proche mit aller plus Infinitiv"
+          ],
+          "narration": "Aller, gehen, ist das dritte unregelmäßige Verb dieses Videos; die sechs Formen sehen Sie auf dem Bildschirm, etwa je vais, nous allons, ils vont. Nur die Formen mit nous und vous erinnern an den Infinitiv. Aller hat eine zweite Aufgabe, die der Lehrplan für dieselbe Jahrgangsstufe nennt: das futur proche, die nahe Zukunft, aus einer Form von aller und einem Infinitiv, etwa je vais parler. Wer aller sicher kann, hat diese Zeitform schon fast gelernt."
+        },
+        {
+          "kind": "math3d",
+          "scene": "conjugaison",
+          "params": {
+            "verbe": "parler (-er)",
+            "personne": 0
+          },
+          "segment": [
+            23,
+            30
+          ],
+          "onScreenTitle": "Bild 4: ne … pas als Klammer",
+          "narration": "Bild vier: die Verneinung. Je ne parle pas, ich spreche nicht. Das Französische verneint mit zwei Teilen, ne vor dem Verb und pas dahinter; beide umschließen das Verb wie eine Klammer. Die Verbform bleibt unverändert: nous ne parlons pas, ils ne parlent pas. Vor Vokal wird ne zu n': je n'ai pas. Typischer Fehler ist das fehlende ne, das in schnell gesprochenem Französisch kaum zu hören ist. Im weiteren Schuljahr kommen ne plus, ne jamais und ne rien nach demselben Prinzip dazu."
+        }
+      ]
+    },
+    {
+      "title": "Die Denkweise: Muster statt Auswendiglernen",
+      "goal": "Sie verstehen, welche Denkgewohnheiten hinter den Verbtabellen stecken, und können sie zu Hause anstoßen.",
+      "keyPoints": [
+        "Muster erkennen",
+        "Hören und Schreiben trennen",
+        "Wendungen als Ganzes"
+      ],
+      "scenes": [
+        {
+          "kind": "chapter",
+          "labels": [
+            "Muster erkennen",
+            "Hören und Schreiben",
+            "ganze Sätze"
+          ],
+          "narration": "Hinter den Tabellen steckt eine Denkweise, die über das Französische hinaus trägt. Erstens: Muster erkennen. Eine Verbform ist kein neues Wort, sondern Stamm plus Endung, und wer das Muster kennt, muss viel weniger auswendig lernen. Zweitens: Hören und Schreiben trennen. Drittens: Wendungen als ganze Sätze lernen. Diese drei Gedanken lassen sich zu Hause ansprechen, ohne eine einzige französische Form selbst zu kennen."
+        },
+        {
+          "kind": "bullets",
+          "onScreenTitle": "Muster erkennen: Stamm und Endung",
+          "bullets": [
+            "Fast jedes -er Verb: Stamm abtrennen, Endungen anhängen",
+            "Frage ans Kind: Woran erkennst du die Person?",
+            "-er Verben: nous -ons, vous -ez",
+            "Auch bei avoir und aller: avons, allez"
+          ],
+          "narration": "Das Erkennen von Mustern ist die eigentliche Kompetenz. Geben Sie Ihrem Kind ein -er Verb aus dem Vokabelheft, das es noch nicht konjugiert hat, und lassen Sie es die sechs Formen bilden. Gelingt das, sitzt das Muster. Die Endungen -ons für nous und -ez für vous gelten bei den -er Verben, und auch bei avoir und aller: nous avons, vous avez, nous allons, vous allez. Eine gute Frage für zu Hause: Woran erkennst du in dieser Form, wer spricht?"
+        },
+        {
+          "kind": "bullets",
+          "onScreenTitle": "Hören und Schreiben trennen",
+          "bullets": [
+            "Gesprochen: je parle, tu parles, ils parlent gleich",
+            "Geschrieben: drei verschiedene Endungen",
+            "Sie nennen die Person, das Kind schreibt",
+            "Fehler bei stummen Endungen: kein Verständnisproblem"
+          ],
+          "narration": "Die zweite Denkweise: Hören und Schreiben sind getrennte Fertigkeiten. Der Lehrplan verlangt beides, rezeptiv und produktiv, mündlich und schriftlich. Mündliches Aufsagen allein reicht deshalb nicht, weil die stummen Endungen dabei nicht vorkommen. Ergänzen Sie es durch Schreiben. Eine einfache Übung: Sie nennen eine Person auf Deutsch, etwa sie, mehrere, und das Kind schreibt die Form, ils parlent, und spricht sie dann."
+        }
+      ]
+    },
+    {
+      "title": "Zu Hause üben: zehn Minuten am Tag",
+      "goal": "Sie können das Üben der Verbformen zu Hause begleiten, auch ohne eigene Französischkenntnisse.",
+      "keyPoints": [
+        "laut sprechen",
+        "Verbkartei",
+        "Lieder und comptines",
+        "zehn Minuten"
+      ],
+      "scenes": [
+        {
+          "kind": "chapter",
+          "labels": [
+            "Laut sprechen",
+            "Verbkartei",
+            "Lieder",
+            "zehn Minuten"
+          ],
+          "narration": "Für das Üben zu Hause gilt bei Sprachen besonders: Regelmäßigkeit ist wichtiger als Dauer. Zehn Minuten täglich bringen mehr als eine Stunde am Wochenende. Der Lehrplan nennt bei den methodischen Kompetenzen die Verbkartei und das Mit- und Nachsprechen von Audiodateien; Kinderlieder und comptines kommen an anderer Stelle vor. Drei Dinge können Sie anbieten, ohne selbst Französisch zu können: zuhören, abfragen und den Rahmen schaffen."
+        },
+        {
+          "kind": "bullets",
+          "onScreenTitle": "Laut sprechen und Verbkartei",
+          "bullets": [
+            "Formen laut aufsagen, immer in derselben Reihenfolge",
+            "Verbkartei: vorne Infinitiv, hinten sechs Formen",
+            "Drei Karten pro Tag, gekonnte nach hinten",
+            "Sie halten die Karte, das Kind spricht"
+          ],
+          "narration": "Laut sprechen ist die erste Methode. Die sechs Formen in fester Reihenfolge, je, tu, il, nous, vous, ils, geben einen Rhythmus vor, den sich der Mund merkt. Die zweite ist die Verbkartei, die der Lehrplan ausdrücklich nennt: Vorne der Infinitiv mit deutscher Bedeutung, hinten die sechs Formen. Täglich drei Karten ziehen, aufsagen, umdrehen, prüfen; gekonnte Karten wandern nach hinten. Sie halten die Karte und vergleichen mit der Rückseite."
+        },
+        {
+          "kind": "bullets",
+          "onScreenTitle": "Auch ohne Französischkenntnisse",
+          "bullets": [
+            "Audiodateien des Lehrwerks mit- und nachsprechen lassen",
+            "Kinderlieder und comptines: Verben im Rhythmus",
+            "Fragen Sie: Welche Person ist das?",
+            "Feste Zeit, fester Ort, zehn Minuten"
+          ],
+          "narration": "Viele Eltern haben selbst kein Französisch gelernt oder lange nicht gesprochen. Das ist kein Hindernis. Die Aussprache liefert das Lehrwerk über seine Audiodateien, die Ihr Kind mit- und nachsprechen soll; Sie müssen nichts korrigieren. Französische Kinderlieder und comptines, kleine Reime, sind im Lehrplan vorgesehen und wiederholen Verbformen nebenbei. Und Sie können Fragen stellen, die kein Fachwissen brauchen: Welche Person ist das? Hört man die Endung? Am wirksamsten ist ein fester Rahmen: dieselbe Uhrzeit, derselbe Platz, zehn Minuten."
+        }
+      ]
+    },
+    {
+      "title": "Fehlvorstellungen, Schulaufgaben, Ausblick",
+      "goal": "Sie erkennen typische Fehlvorstellungen, wissen, wie in Französisch geprüft wird, und kennen die nächsten Themen.",
+      "keyPoints": [
+        "schreiben wie hören",
+        "Englisch: Hilfe und Falle",
+        "Schulaufgaben",
+        "futur proche, -re Verben"
+      ],
+      "scenes": [
+        {
+          "kind": "chapter",
+          "labels": [
+            "Fehlvorstellungen",
+            "Englisch",
+            "Schulaufgaben",
+            "Ausblick"
+          ],
+          "narration": "Zum Schluss vier Dinge, die Eltern häufig fragen: Welche Fehlvorstellungen sind typisch, wie viel hilft das Englische aus der fünften Klasse, wie wird in Französisch geprüft, und welche Grammatik kommt in diesem Schuljahr noch? Die Fehlvorstellungen entstehen fast alle aus dem Deutschen und dem Englischen, also aus dem, was das Kind schon kann. Das macht sie verständlich, aber auch hartnäckig."
+        },
+        {
+          "kind": "bullets",
+          "onScreenTitle": "Vier typische Fehlvorstellungen",
+          "bullets": [
+            "Man schreibt, wie man hört: ils parle",
+            "Alter mit sein: je suis onze ans",
+            "Verneinung nur mit pas, ne fehlt",
+            "Wort für Wort übersetzen statt Wendungen lernen"
+          ],
+          "narration": "Erstens: Man schreibe, wie man hört. Im Französischen gilt das nicht; die Endung -ent in ils parlent ist stumm und steht trotzdem. Zweitens: Das Alter mit sein. Je suis onze ans ist die direkte Übertragung aus Deutsch und Englisch, richtig ist j'ai onze ans. Drittens: Die Verneinung nur mit pas. Das ne wird im Alltagsfranzösisch oft verschluckt, in der Schule gehört es dazu. Viertens, die Wurzel der anderen drei: Wort für Wort übersetzen statt Wendungen als Ganzes zu lernen."
+        },
+        {
+          "kind": "bullets",
+          "onScreenTitle": "Englisch hilft, aber nicht überall",
+          "bullets": [
+            "Hilft: Satzbau Subjekt, Verb, Objekt; viele Wörter",
+            "Lehrplan: there is wird il y a",
+            "Vorsicht: I am eleven, aber j'ai onze ans",
+            "Vorsicht: Englisch kaum Endungen, Französisch sechs"
+          ],
+          "narration": "Der Lehrplan nennt ausdrücklich, Vorkenntnisse aus dem Englischen unter Anleitung zu nutzen, etwa den Satzbau Subjekt, Verb, Objekt oder Entsprechungen wie there is und il y a. Bei den Verben trägt die Hilfe aber nur begrenzt: Das Englische hat im Präsens fast keine Endungen, das Französische bis zu sechs verschiedene Formen. Und I am eleven führt direkt zum Fehler je suis onze ans. Besprechen Sie mit dem Kind, wo Englisch hilft und wo es in die Irre führt."
+        },
+        {
+          "kind": "bullets",
+          "onScreenTitle": "Schulaufgaben in Französisch",
+          "bullets": [
+            "Französisch ist in Jahrgangsstufe 6 Schulaufgabenfach",
+            "Anzahl und Form: Vorgaben plus Entscheidung der Schule",
+            "Typisch: Lückentext Verbformen, Sätze verneinen, Dialog",
+            "Dazu kleine Leistungsnachweise und mündliche Mitarbeit"
+          ],
+          "narration": "Anders als etwa Natur und Technik ist Französisch als zweite Fremdsprache in Jahrgangsstufe 6 ein Fach mit Schulaufgaben. Wie viele es im Schuljahr sind, ob eine davon mündlich abgehalten wird und was genau abgefragt wird, richtet sich nach den geltenden Vorgaben und wird an der Schule und von der Lehrkraft festgelegt; verlässliche Auskunft gibt der Elternabend. Zu den Verben sind Aufgaben wie diese üblich: Lückentexte mit der passenden Verbform, Sätze verneinen, ein kurzer Dialog. Dazu Stegreifaufgaben, Vokabeltests und mündliche Mitarbeit."
+        },
+        {
+          "kind": "bullets",
+          "onScreenTitle": "Ausblick: die nächsten Grammatikthemen",
+          "bullets": [
+            "Verben auf -re; pouvoir, vouloir, faire, prendre",
+            "futur proche: aller plus Infinitiv",
+            "Fragen: est-ce que, Intonation, Inversion; impératif",
+            "Weitere Verneinungen: ne plus, ne jamais, ne rien"
+          ],
+          "narration": "Was kommt in diesem Schuljahr noch? Der Lehrplan nennt für Jahrgangsstufe 6 die regelmäßigen Verben auf -re und die weiteren unregelmäßigen Verben pouvoir, vouloir, dire, écrire, faire, lire und prendre. Als zweite Zeitform das futur proche mit aller. Dazu den impératif régulier, die Fragen mit est-ce que, mit Intonation und mit Inversion, den Fragebegleiter quel und die Verneinungen ne plus, ne jamais und ne rien. Vergangenheitsformen wie das passé composé stehen in Jahrgangsstufe 6 nicht im Lehrplan; sie folgen später."
+        },
+        {
+          "kind": "outro",
+          "narration": "Kurz gesagt: Französische Verben sind Stamm plus Endung, und wer das Muster der -er Verben kennt, kann hunderte Verben bilden. Vier Endungen sind stumm, deshalb werden Hören und Schreiben getrennt geübt. Être, avoir und aller lernt man Form für Form, laut und täglich; das Alter heißt j'ai onze ans. Die Verneinung ist eine Klammer aus ne und pas. Zehn Minuten täglich mit Verbkartei reichen, auch ohne eigenes Französisch. Die Kinder-Lektion zum Thema finden Sie auf diesem Kanal. Abonnieren Sie für die nächsten Lernbereiche."
+        }
+      ]
+    }
+  ]
+}

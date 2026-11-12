@@ -1,8 +1,9 @@
 // The production team: five prompts with strict JSON contracts, plus the orchestration
 // of the deterministic producer (narration, timing, mixing, rendering, packaging).
 import * as T from './timing.js';
+import { MATH_SCENE_IDS, lessonRules, sceneCatalog, cleanParams } from './lesson.js';
 
-export const SCENE_KINDS = ['title', 'bullets', 'diagram', 'comparison', 'stat', 'code', 'quote', 'outro', 'footage', 'scene3d', 'chapter'];
+export const SCENE_KINDS = ['title', 'bullets', 'diagram', 'comparison', 'stat', 'code', 'quote', 'outro', 'footage', 'scene3d', 'chapter', 'math3d', 'question'];
 export const MODELS_3D = ['network', 'pipeline', 'hub', 'stack', 'orbit', 'grid'];
 /** Long-form lessons: above this many seconds the explainer becomes a chaptered course. */
 export const COURSE_MIN_SECONDS = 120;
@@ -149,13 +150,16 @@ export class Team {
     this.engine = engine; this.settings = settings; this.log = log; this.small = small || !engine;
   }
 
+  /** House rules, plus the children's-lesson rules when settings.lesson is set (German, Lehrplan scope, teaching order). */
+  rules() { return HOUSE_RULES + lessonRules(this.settings.lesson); }
+
   info(agent, message) { this.log({ agent, level: 'info', message }); }
   ok(agent, message) { this.log({ agent, level: 'success', message }); }
   warn(agent, message) { this.log({ agent, level: 'warning', message }); }
 
-  async structured(agent, system, user, opts = {}, validate = null, repairs = 1) {
-    if (!this.engine) throw new Error('no model');
-    let raw = await this.engine.complete(system, user, { temperature: 0.4, maxTokens: 1200, ...opts },
+  async structured(agent, system, user, opts = {}, validate = null, repairs = 1, engine = this.engine) {
+    if (!engine) throw new Error('no model');
+    let raw = await engine.complete(system, user, { temperature: 0.4, maxTokens: 1200, ...opts },
       (tok) => this.log({ agent, level: 'token', message: tok }));
     for (let attempt = 0; ; attempt++) {
       try {
@@ -165,7 +169,7 @@ export class Team {
       } catch (e) {
         if (attempt >= repairs) throw new Error(e.message);
         this.warn(agent, `Output was not valid JSON (${e.message}). Asking the model to fix it.`);
-        raw = await this.engine.complete(system,
+        raw = await engine.complete(system,
           `Your previous answer could not be parsed as JSON. Error: ${e.message}\nPrevious answer:\n${raw.slice(0, 2500)}\n\nReturn ONLY the corrected JSON object. No prose, no code fences, no comments.`,
           { temperature: 0.1, maxTokens: opts.maxTokens || 1200 }, null);
       }
@@ -202,7 +206,7 @@ export class Team {
 
   async directorJSON(prompt, sceneCount) {
     const s = this.settings;
-    const system = HOUSE_RULES + `\n\nYou are the DIRECTOR. You turn a topic request into a tight plan for a video of at most ${Math.round(s.maxDuration)} seconds.
+    const system = this.rules() + `\n\nYou are the DIRECTOR. You turn a topic request into a tight plan for a video of at most ${Math.round(s.maxDuration)} seconds.
 A good plan: opens with a hook that states a surprising or useful fact or question, defines the idea in plain words,
 gives one concrete example or mechanism, says why it matters, and ends with one memorable takeaway.`;
     const user = `Topic request from the creator: "${prompt}"
@@ -318,7 +322,7 @@ JSON schema:
   }
 
   async scriptJSON(brief, budget, perBeat, previous, feedback) {
-    const system = HOUSE_RULES + `\n\nYou are the SCRIPTWRITER. You write narration that a text-to-speech voice will read aloud.
+    const system = this.rules() + `\n\nYou are the SCRIPTWRITER. You write narration that a text-to-speech voice will read aloud.
 Write for the ear: short sentences, everyday words, active voice, no parentheses, no bullet symbols, no abbreviations
 the voice would mispronounce (write "for example" not "e.g."). Spell out small numbers. Do not say "in this video".
 The whole script must be at most ${budget} words in total; each beat about ${perBeat} words.`;
@@ -402,28 +406,33 @@ JSON schema:
 
   // ----- Reviewer (optional: never blocks) -----
   async reviewer(brief, script, budget) {
-    this.info('Reviewer', 'Reviewing the script for accuracy risk and clarity.');
-    const empty = { approved: true, issues: [], claimsToVerify: [], revisedNarration: {} };
+    const engine = this.reviewEngine || this.engine;
+    const lesson = this.settings.lesson;
+    this.info('Reviewer', `Reviewing the script for accuracy risk and clarity${this.reviewEngine ? ` with a second model (${this.reviewEngine.name})` : ''}.`);
+    const empty = { approved: true, issues: [], claimsToVerify: [], revisedNarration: {}, mustFix: [] };
     const claims = claimsFromText(script.scenes.map(s => s.narration).join(' '));
     if (!this.engine || this.small) {
       this.ok('Reviewer', `${claims.length} claim(s) with numbers or names flagged for checking.`);
       return { ...empty, claimsToVerify: claims };
     }
-    const system = HOUSE_RULES + `\n\nYou are the REVIEWER, a careful AI educator. Check the script for: factual claims that may be wrong or unverifiable,
+    const system = this.rules() + `\n\nYou are the REVIEWER, a careful AI educator. Check the script for: factual claims that may be wrong or unverifiable,
 jargon used without a plain-words definition, sentences that are hard to read aloud, repetition, and a weak hook or ending.
 Be strict about numbers, names and dates: list every specific claim the creator should verify before publishing.
-Only rewrite a beat's narration when it clearly improves it; keep the same meaning, same or fewer words.`;
+Only rewrite a beat's narration when it clearly improves it; keep the same meaning, same or fewer words.${lesson ? `
+You are a different model from the writer and you check a children's lesson: (1) every number, fraction and formula in the narration is correct and consistent with the 3D scene parameters given in brackets; (2) only the Lehrplan topic is taught, with the Bavarian Fachbegriffe; (3) language a child of eleven understands, German throughout, du-form; (4) every scene has at least ${lesson.minWords || 32} words; (5) each chapter goes picture → rule → worked example → question.
+Anything that would teach a child something WRONG goes into "mustFix" with the beat id and the problem; style wishes go into "issues".` : ''}`;
+    const vis = (id) => { const v = this.storyboardScenes && this.storyboardScenes.find(x => x.beatId === id); return v && v.kind === 'math3d' ? ` [3D ${v.scene} ${JSON.stringify(v.params || {})}]` : ''; };
     const user = `Title: ${brief.title}  |  Audience: ${brief.audience}  |  Word budget: ${budget} (current: ${script.totalWords})
 
 Script:
-${script.scenes.map(s => `${s.beatId}: ${s.narration}`).join('\n')}
+${script.scenes.map(s => `${s.beatId}: ${s.narration}${vis(s.beatId)}`).join('\n')}
 
 JSON schema:
 {"approved": true, "issues": ["short description of each problem"], "claimsToVerify": ["each specific factual claim"],
- "revisedNarration": {"2": "improved narration for beat 2"}}
+ "revisedNarration": {"2": "improved narration for beat 2"}${lesson ? `, "mustFix": [{"beatId": 2, "problem": "what is wrong and what the correct statement is"}]` : ''}}
 Use an empty object for revisedNarration when nothing needs rewriting.`;
     let review;
-    try { review = await this.structured('Reviewer', system, user, { temperature: 0.3, maxTokens: script.scenes.length > 10 ? 3000 : 1200 }); }
+    try { review = await this.structured('Reviewer', system, user, { temperature: 0.3, maxTokens: script.scenes.length > 10 ? 3000 : 1200 }, null, 1, engine); }
     catch (e) { this.warn('Reviewer', `Skipped: ${e.message}`); return { ...empty, claimsToVerify: claims }; }
     review.issues = Array.isArray(review.issues) ? review.issues.map(String).slice(0, script.scenes.length > 10 ? 16 : 8) : [];
     review.claimsToVerify = [...new Set([...(Array.isArray(review.claimsToVerify) ? review.claimsToVerify.map(String) : []), ...claims])].slice(0, script.scenes.length > 10 ? 20 : 10);
@@ -436,9 +445,25 @@ Use an empty object for revisedNarration when nothing needs rewriting.`;
       }
     }
     review.revisedNarration = revisions;
+    const ids = new Set(script.scenes.map(s => s.beatId));
+    review.mustFix = lesson && Array.isArray(review.mustFix) ? review.mustFix.filter(m => m && ids.has(Number(m.beatId)) && m.problem).map(m => ({ beatId: Number(m.beatId), problem: clip(String(m.problem), 60) })).slice(0, 8) : [];
     review.approved = true;
-    this.ok('Reviewer', `${review.issues.length} issue(s), ${review.claimsToVerify.length} claim(s) to verify, ${Object.keys(revisions).length} beat(s) rewritten.`);
+    this.ok('Reviewer', `${review.issues.length} issue(s), ${review.claimsToVerify.length} claim(s) to verify, ${Object.keys(revisions).length} beat(s) rewritten${lesson ? `, ${review.mustFix.length} blocking` : ''}.`);
     return review;
+  }
+
+  /** Correction round (lessons): the writer fixes exactly the scenes the reviewer flagged as wrong. Returns {beatId: narration}. */
+  async fixScenes(brief, script, mustFix) {
+    if (!this.engine || !mustFix.length) return {};
+    const system = this.rules() + `\n\nYou are the CHAPTER WRITER correcting scenes a reviewer found wrong. Fix exactly the problem named, keep the scene's place in the lesson, keep the length (same number of words or a few more), keep the teaching order.`;
+    const user = `Lesson: ${brief.title}\n\nScenes to fix:\n${mustFix.map(m => { const sc = script.scenes.find(s => s.beatId === m.beatId); return `${m.beatId}. [problem: ${m.problem}] ${sc ? sc.narration : ''}`; }).join('\n')}\n\nJSON schema: {"narrations": {"${mustFix[0].beatId}": "corrected narration"}}`;
+    try {
+      const out = await this.structured('Scriptwriter', system, user, { temperature: 0.4, maxTokens: 2400 }, (o) => { if (!o.narrations || typeof o.narrations !== 'object') throw new Error('narrations missing'); });
+      const fixed = {};
+      for (const m of mustFix) { const n = out.narrations[String(m.beatId)]; if (typeof n === 'string' && T.wordCount(n) >= 8) fixed[m.beatId] = spoken(n, 120); }
+      this.ok('Scriptwriter', `${Object.keys(fixed).length} of ${mustFix.length} flagged scene(s) rewritten.`);
+      return fixed;
+    } catch (e) { this.warn('Scriptwriter', `Could not fix the flagged scenes (${e.message}).`); return {}; }
   }
 
   // ----- Visual designer -----
@@ -447,7 +472,7 @@ Use an empty object for revisedNarration when nothing needs rewriting.`;
     const kindOf = (id) => (brief.outline.find(b => b.id === id) || {}).suggestedVisual || 'bullets';
     let out = null;
     if (this.engine && !this.small) {
-      const system = HOUSE_RULES + `\n\nYou are the VISUAL DESIGNER for a motion-graphics explainer. For every beat choose a layout and fill its fields.
+      const system = this.rules() + `\n\nYou are the VISUAL DESIGNER for a motion-graphics explainer. For every beat choose a layout and fill its fields.
 On-screen text must be SHORT: titles up to 6 words, bullets up to 7 words, at most 4 bullets, diagram nodes 1-3 words
 and 3-5 nodes, comparison items up to 5 words and at most 3 per side. Code snippets: at most 6 short lines.
 Text on screen should reinforce the narration, not repeat it word for word.
@@ -530,7 +555,7 @@ JSON schema:
   }
 
   async courseJSON(prompt, totalSeconds, chapterCount, revision) {
-    const system = HOUSE_RULES + `\n\nYou are the COURSE DIRECTOR. You turn a creator's request into the plan of a ${Math.round(totalSeconds / 60)}-minute educational video with ${chapterCount} chapters.
+    const system = this.rules() + `\n\nYou are the COURSE DIRECTOR. You turn a creator's request into the plan of a ${Math.round(totalSeconds / 60)}-minute educational video with ${chapterCount} chapters.
 A great lesson: a hook that promises a concrete payoff, then chapters that each teach ONE idea with a plain-words definition,
 a concrete example or analogy and why it matters, building on each other, then a recap that ties the ideas together.
 Cover every topic the creator lists, in a sensible teaching order. Chapter titles are short and specific.`;
@@ -579,7 +604,7 @@ JSON schema (fill every field):
   async expandChapter(brief, chapter, beats, wordsPerBeat) {
     const lo = Math.round(wordsPerBeat * 0.85), hi = Math.round(wordsPerBeat * 1.15);
     const sentences = wordsPerBeat >= 55 ? '4 to 5' : wordsPerBeat >= 38 ? '3 to 4' : '2 to 3';
-    const system = HOUSE_RULES + `\n\nYou are the CHAPTER WRITER revising narration for a text-to-speech voice. Every scene must be ${sentences} sentences and between ${lo} and ${hi} words.
+    const system = this.rules() + `\n\nYou are the CHAPTER WRITER revising narration for a text-to-speech voice. Every scene must be ${sentences} sentences and between ${lo} and ${hi} words.
 Keep each scene's meaning and order. Add what makes a lesson land: a plain-words definition the first time a term appears, one concrete everyday example, and the "so what" for the viewer.
 Short sentences, active voice, no lists, no parentheses, no abbreviations. Do not say "in this video" or "in this chapter".`;
     const user = `Lesson: ${brief.title} (for ${brief.audience}). Chapter: "${chapter.title}" — ${chapter.goal}
@@ -599,13 +624,15 @@ JSON schema: {"narrations": {"1": "expanded narration for scene 1", "2": "..."}}
 
   async chapterJSON(brief, chapter, beatCount, wordsPerBeat, { previousBeats, feedback, index, total }) {
     const first = index === 0, last = index === total - 1;
-    const system = HOUSE_RULES + `\n\nYou are the CHAPTER WRITER and visual designer of a multi-chapter lesson. For one chapter you write the narration a text-to-speech voice reads aloud,
+    const system = this.rules() + `\n\nYou are the CHAPTER WRITER and visual designer of a multi-chapter lesson. For one chapter you write the narration a text-to-speech voice reads aloud,
 and you choose the picture for every scene. Write for the ear: short sentences, everyday words, active voice, no parentheses, no bullet symbols, no abbreviations the voice would mispronounce
 (write "for example", not "e.g."). Define every term in plain words the first time. Use concrete examples. Do not say "in this video" or "in this chapter".
 Each scene is about ${wordsPerBeat} words (hard limit ${wordsPerBeat + 12}).
 
 Visual kinds and when to use them:
-- "scene3d": an animated 3D model of a structure or process; set "model" to one of network (things connected to each other), pipeline (steps in order, loops), hub (one centre with many connections, e.g. connectors or tools), stack (layers), orbit (a core with capabilities around it), grid (a set of options or skills); give 2-6 "labels" of 1-3 words. Use this for at least two scenes per chapter.
+- "scene3d": an animated 3D model of a structure or process; set "model" to one of network (things connected to each other), pipeline (steps in order, loops), hub (one centre with many connections, e.g. connectors or tools), stack (layers), orbit (a core with capabilities around it), grid (a set of options or skills); give 2-6 "labels" of 1-3 words. Use this for at least two scenes per chapter.${this.settings.lesson ? `
+- "math3d": a ready-made animated 3D maths explanation with real numbers. Set "scene" to one of the ids below and "params" to the numbers your narration uses; consecutive scenes with the same scene and params play ONE continuous animation, so spread one explanation over two or three scenes and narrate what the picture shows; or give "segment": [from, to] in seconds of the scene's own timeline to show exactly one part of it. Prefer math3d for every scene that explains the maths itself (at least two per chapter when a scene fits the topic).
+  Scenes: ${sceneCatalog().join(' | ')}` : ''}
 - "footage": a full-frame cinematic live-action clip for a human, real-world moment; give "shot" (one sentence: subject, action, setting, camera) and "stockQuery" (2-4 search words). At most one per chapter.
 - "bullets" (2-4 items up to 7 words), "diagram" (3-5 nodes of 1-3 words, flat flow), "comparison" (X vs Y, up to 3 items a side), "stat" (only a number you are certain of), "code" (rarely, 3-6 short lines), "quote" (rarely).
 Every scene also gets "shot" and "stockQuery" so b-roll can sit behind it when wanted.`;
@@ -622,7 +649,7 @@ Write exactly ${beatCount} scenes. ${first ? 'Scene 1 is the hook for the whole 
 
 JSON schema:
 {"beats": [{"narration": "...", "onScreenTitle": "2-6 words", "emphasisWords": ["1-3 words"],
- "kind": "scene3d", "model": "network", "labels": ["..."], "bullets": null, "nodes": null, "leftTitle": null, "leftItems": null, "rightTitle": null, "rightItems": null,
+ "kind": "scene3d", "model": "network", "labels": ["..."], "scene": null, "params": null, "bullets": null, "nodes": null, "leftTitle": null, "leftItems": null, "rightTitle": null, "rightItems": null,
  "statValue": null, "statLabel": null, "code": null, "codeLanguage": null, "quote": null, "attribution": null,
  "hero": false, "shot": "one sentence describing a realistic cinematic clip", "stockQuery": "2-4 words"}]}
 Set "hero": true on the one scene of this chapter that most deserves real live-action footage.`;
@@ -635,7 +662,7 @@ Set "hero": true on the one scene of this chapter that most deserves real live-a
       narration: spoken(String(b.narration || ''), wordsPerBeat + 12),
       onScreenTitle: clip(String(b.onScreenTitle || headlineFrom(b.narration || chapter.title)), 6),
       emphasisWords: Array.isArray(b.emphasisWords) ? b.emphasisWords.map(String).slice(0, 3) : [],
-      kind: String(b.kind || 'bullets'), model: b.model, labels: b.labels, bullets: b.bullets, nodes: b.nodes,
+      kind: String(b.kind || 'bullets'), model: b.model, labels: b.labels, scene: b.scene, params: b.params, segment: b.segment, bullets: b.bullets, nodes: b.nodes,
       leftTitle: b.leftTitle, leftItems: b.leftItems, rightTitle: b.rightTitle, rightItems: b.rightItems,
       statValue: b.statValue, statLabel: b.statLabel, code: b.code, codeLanguage: b.codeLanguage, quote: b.quote, attribution: b.attribution,
       hero: !!b.hero, shot: b.shot ? String(b.shot) : null, stockQuery: b.stockQuery ? String(b.stockQuery) : null,
@@ -657,7 +684,7 @@ Set "hero": true on the one scene of this chapter that most deserves real live-a
     this.info('Publisher', 'Preparing the YouTube title, description and tags.');
     let pkg = {};
     if (this.engine && !this.small) {
-      const system = HOUSE_RULES + `\n\nYou are the PUBLISHER. Write YouTube metadata that is honest and searchable, not clickbait.
+      const system = this.rules() + `\n\nYou are the PUBLISHER. Write YouTube metadata that is honest and searchable, not clickbait.
 Title: at most 60 characters, specific, front-load the key term. Description: 2 short paragraphs then a line of
 what the viewer will learn; plain text, no links. Tags: 8-12 lowercase search phrases. Thumbnail text: 2-4 words.`;
       const user = `Video: ${brief.title}\nAudience: ${brief.audience}\nTakeaway: ${brief.keyTakeaway}
@@ -922,9 +949,10 @@ function templateChapterBeats(brief, chapter, beatCount, wordsPerBeat, index, to
     else if (/layer|memory|store|long-term|short-term/.test(words)) { kind = 'scene3d'; model = 'stack'; }
     else if (/skill|option|set of|library|many/.test(words)) { kind = 'scene3d'; model = 'grid'; }
     else if (i % 2 === 1) kind = 'scene3d';
+    if (brief.lessonScene && (i === 0 || i === 1)) { kind = 'math3d'; }
     const stop = /^(this|that|these|those|with|from|into|over|time|more|most|make|makes|making|like|them|they|their|what|when|which|about|than|then|also|some|very|just|each|every|such|other|being|have|has)$/i;
     const labels = [...new Set(clip(text.replace(/[^\w\s-]/g, ''), 24).split(/\s+/).filter(w => w.length > 3 && !stop.test(w)).map(titleCase))].slice(0, 4);
-    beats.push({ narration: spoken(text.endsWith('.') ? text : text + '.', wordsPerBeat + 12), onScreenTitle: headlineFrom(text), emphasisWords: [], kind, model, labels: labels.length >= 2 ? labels : [chapter.title, 'Example', 'Result'], hero: false, shot: null, stockQuery: null });
+    beats.push({ narration: spoken(text.endsWith('.') ? text : text + '.', wordsPerBeat + 12), onScreenTitle: headlineFrom(text), emphasisWords: [], kind, model, scene: kind === 'math3d' ? brief.lessonScene : null, params: null, labels: labels.length >= 2 ? labels : [chapter.title, 'Example', 'Result'], hero: false, shot: null, stockQuery: null });
   }
   if (chapter.example && beats.length < beatCount) beats.push({ narration: spoken(`For example: ${chapter.example}`, wordsPerBeat + 12), onScreenTitle: 'For example', emphasisWords: [], kind: 'footage', hero: true, shot: null, stockQuery: null });
   if (last) beats.push({ narration: spoken(`${brief.keyTakeaway} Thanks for watching, and see you in the next lesson.`, wordsPerBeat + 12), onScreenTitle: clip(brief.keyTakeaway, 8), emphasisWords: [], kind: 'outro', hero: false, shot: null, stockQuery: null });
@@ -956,6 +984,16 @@ export function sanitise(v, script) {
     stockQuery: v.stockQuery ? clip(String(v.stockQuery).replace(/[^\w\s-]/g, ' '), 4).toLowerCase() : null,
     model: MODELS_3D.includes(v.model) ? v.model : null,
     labels: list(v.labels, 6, 3),
+    scene: MATH_SCENE_IDS.includes(v.scene) ? v.scene : null, params: null,
+    formula: typeof v.formula === 'string' ? clip(v.formula, 10) : null,
+    question: v.question ? clip(String(v.question), 30) : null,
+    think: Number.isFinite(Number(v.think)) ? Math.max(0, Math.min(20, Number(v.think))) : null,
+    hint: v.hint ? clip(String(v.hint), 22) : null,
+    thinkText: v.thinkText ? clip(String(v.thinkText), 14) : null,
+    eyebrow: v.eyebrow ? clip(String(v.eyebrow), 4) : null,
+    footnote: v.footnote ? clip(String(v.footnote), 20) : null,
+    answerText: v.answerText ? clip(String(v.answerText), 8) : null,
+    segment: Array.isArray(v.segment) && v.segment.length === 2 && v.segment.every(x => Number.isFinite(Number(x))) ? [Number(v.segment[0]), Number(v.segment[1])] : null,
     hero: !!v.hero,
     chapterId: v.chapterId != null ? Number(v.chapterId) : (script.chapterId != null ? Number(script.chapterId) : null),
   };
@@ -964,6 +1002,11 @@ export function sanitise(v, script) {
   switch (out.kind) {
     case 'footage': break;
     case 'chapter': if (!out.model) out.model = 'orbit'; break;
+    case 'question': if (!out.question) out.question = clip(script.narration, 30); if (out.think == null) out.think = 5; break;
+    case 'math3d':
+      if (!out.scene) { if (out.labels && out.labels.length >= 2) { out.kind = 'scene3d'; if (!out.model) out.model = 'pipeline'; } else degrade(); break; }
+      out.params = cleanParams(out.scene, v.params);
+      break;
     case 'scene3d':
       if (!out.labels || out.labels.length < 2) out.labels = [...(out.nodes || []), ...(out.bullets || [])].slice(0, 6);
       if (!out.labels || out.labels.length < 2) { degrade(); break; }

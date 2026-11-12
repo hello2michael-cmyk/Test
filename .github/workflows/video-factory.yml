@@ -5,6 +5,11 @@ name: Video factory (make a video from a prompt)
 #     reply "approve" to make the video, or reply with changes to get a revised plan.
 #  2. Reply on such an issue: "approve" makes the video from the last plan; anything else revises the plan.
 #  3. Actions → Run workflow (the form). With review = yes a tracking issue is created for the plan round-trip.
+#  4. Open an issue titled "Lektion: M6-2.2" (a topic id from klasse6/LEKTIONEN.md): a German lesson for Klasse 6
+#     from the verified Bavarian syllabus, with 3D maths scenes, a German voice and a second reviewer model.
+#     Optional lines in the body: "minuten: 7", "footage: free", "stimme: de-DE-Chirp3-HD-Charon" (a Google voice).
+#  5. Open an issue titled "Eltern: M6-1.1": the parents-and-teachers version of the same topic (8-10 minutes).
+#  6. Open an issue titled "English: M6-1.1": the English version for parents who do not speak German (German terms kept).
 on:
   workflow_dispatch:
     inputs:
@@ -36,6 +41,24 @@ on:
         type: choice
         default: 'yes'
         options: ['yes', 'no']
+      lesson:
+        description: 'Klasse-6 lesson: a topic id from klasse6/LEKTIONEN.md (e.g. M6-2.2). Leave empty for a normal video.'
+        default: ''
+        type: string
+      variant:
+        description: 'Lesson version: kinder (children), eltern (parents and teachers, German) or international (parents, English with German terms)'
+        type: choice
+        default: kinder
+        options: [kinder, eltern, international]
+      voice:
+        description: 'Lesson voice: a Google Cloud voice name (e.g. de-DE-Chirp3-HD-Kore) or piper:de_DE-thorsten-high. Empty = default.'
+        default: ''
+        type: string
+      package:
+        description: 'yes = build the YouTube upload package from all finished lesson videos instead of making a video'
+        type: choice
+        default: 'no'
+        options: ['no', 'yes']
   issues:
     types: [opened]
   issue_comment:
@@ -51,11 +74,56 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  # ---------- YouTube upload package: every finished lesson video, organised and renamed, as the release youtube-upload ----------
+  package:
+    if: github.event_name == 'workflow_dispatch' && github.event.inputs.package == 'yes'
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: '22' }
+      - name: Download the release assets
+        env: { GH_TOKEN: '${{ github.token }}' }
+        run: |
+          set -e
+          for tag in $(node -e "console.log(JSON.parse(require('fs').readFileSync('klasse6/youtube-upload.json','utf8')).videos.map(v=>v.release).join(' '))"); do
+            mkdir -p downloads/$tag
+            gh release download "$tag" -D "downloads/$tag" --clobber
+          done
+          du -sh downloads
+      - name: Record the chapter timestamps in the repository
+        run: |
+          set -e
+          node -e "
+            const fs=require('fs'); const m=JSON.parse(fs.readFileSync('klasse6/youtube-upload.json','utf8')); const out={};
+            for (const v of m.videos) { const d='downloads/'+v.release; const f=(fs.existsSync(d)?fs.readdirSync(d):[]).find(x=>x.endsWith('-youtube.txt')); if(!f) continue;
+              const t=fs.readFileSync(d+'/'+f,'utf8'); const mm=t.match(/\nChapters\n([\s\S]*?)\n\n/); out[v.lesson+'/'+v.variant]={release:v.release, chapters: mm?mm[1].trim().split('\n'):[]}; }
+            fs.writeFileSync('klasse6/youtube-chapters.json', JSON.stringify(out,null,1)+'\n'); console.log(Object.keys(out).length,'videos with chapters');"
+          git config user.name github-actions; git config user.email github-actions@github.com
+          git add klasse6/youtube-chapters.json
+          git diff --cached --quiet || (git commit -m "Chapter timestamps of the finished videos (from the rendered files)" && git push origin HEAD:${GITHUB_REF_NAME})
+      - name: Organise the package
+        run: node factory/package.mjs downloads package
+      - name: Zip each video folder
+        run: |
+          set -e
+          cd package
+          for d in */; do d="${d%/}"; zip -q -r "$d.zip" "$d"; rm -r "$d"; done
+          ls -la
+      - name: Publish as the release youtube-upload
+        env: { GH_TOKEN: '${{ github.token }}' }
+        run: |
+          set -e
+          gh release delete youtube-upload --yes --cleanup-tag 2>/dev/null || true
+          gh release create youtube-upload --title "YouTube-Upload-Paket ($(date -u +%Y-%m-%d))" --notes-file package/00-CHECKLISTE.md package/*
+          echo "Release: https://github.com/${{ github.repository }}/releases/tag/youtube-upload"
+
   make:
     if: >-
-      github.event_name == 'workflow_dispatch' ||
-      (github.event_name == 'issues' && startsWith(github.event.issue.title, 'Video:')) ||
-      (github.event_name == 'issue_comment' && startsWith(github.event.issue.title, 'Video:') && !github.event.issue.pull_request && github.event.comment.user.type != 'Bot')
+      (github.event_name == 'workflow_dispatch' && github.event.inputs.package != 'yes') ||
+      (github.event_name == 'issues' && (startsWith(github.event.issue.title, 'Video:') || startsWith(github.event.issue.title, 'Lektion:') || startsWith(github.event.issue.title, 'Eltern:') || startsWith(github.event.issue.title, 'English:'))) ||
+      (github.event_name == 'issue_comment' && (startsWith(github.event.issue.title, 'Video:') || startsWith(github.event.issue.title, 'Lektion:') || startsWith(github.event.issue.title, 'Eltern:') || startsWith(github.event.issue.title, 'English:')) && !github.event.issue.pull_request && github.event.comment.user.type != 'Bot')
     runs-on: ubuntu-latest
     timeout-minutes: 170
     steps:
@@ -72,6 +140,9 @@ jobs:
           IN_FOOTAGE: ${{ github.event.inputs.footage }}
           IN_SECS: ${{ github.event.inputs.max_seconds }}
           IN_REVIEW: ${{ github.event.inputs.review }}
+          IN_LESSON: ${{ github.event.inputs.lesson }}
+          IN_VOICE: ${{ github.event.inputs.voice }}
+          IN_VARIANT: ${{ github.event.inputs.variant }}
           ISSUE_NUMBER: ${{ github.event.issue.number }}
           ISSUE_TITLE: ${{ github.event.issue.title }}
           ISSUE_BODY: ${{ github.event.issue.body }}
@@ -84,23 +155,38 @@ jobs:
           event = ev['EVENT']
           out = {}
           def opts_from(body):
-              o = dict(re.findall(r'^(style|aspect|footage|seconds|review)\s*:\s*(.+?)\s*$', body or '', flags=re.I | re.M))
+              o = dict(re.findall(r'^(style|aspect|footage|seconds|review|minuten|minutes|stimme|voice)\s*:\s*(.+?)\s*$', body or '', flags=re.I | re.M))
               return {k.lower(): v.strip() for k, v in o.items()}
           def strip_opts(body):
-              return re.sub(r'^(style|aspect|footage|seconds|review)\s*:.*$', '', body or '', flags=re.I | re.M).strip()
+              return re.sub(r'^(style|aspect|footage|seconds|review|minuten|minutes|stimme|voice)\s*:.*$', '', body or '', flags=re.I | re.M).strip()
+          lesson, minutes, variant, voice = '', '', 'kinder', ''
           if event == 'workflow_dispatch':
               prompt = ev['IN_PROMPT'].strip()
               style, aspect, footage = ev.get('IN_STYLE') or 'auto', ev.get('IN_ASPECT') or '16x9', ev.get('IN_FOOTAGE') or 'free'
               secs = ev.get('IN_SECS') or ''
               phase = 'plan' if (ev.get('IN_REVIEW') or 'yes') == 'yes' else 'all'
               issue = ''
+              lesson = (ev.get('IN_LESSON') or '').strip()
+              if lesson and not ev.get('IN_FOOTAGE'): footage = 'none'
+              voice = (ev.get('IN_VOICE') or '').strip()
+              if lesson:
+                  variant = ev.get('IN_VARIANT') if (ev.get('IN_VARIANT') or '') in ('eltern', 'international') else 'kinder'
+                  prompt = ''      # a lesson is built from the syllabus; a prompt would be read for a length cap
           else:
               title = ev.get('ISSUE_TITLE') or ''
               body = ev.get('ISSUE_BODY') or ''
               o = opts_from(body)
-              prompt = strip_opts(body) or title.split(':', 1)[1].strip()
-              style, aspect, footage = o.get('style', 'auto'), o.get('aspect', '16x9'), o.get('footage', 'free')
+              if title.lower().startswith(('lektion:', 'eltern:', 'english:')):
+                  variant = {'eltern:': 'eltern', 'english:': 'international'}.get(title.lower().split(':', 1)[0] + ':', 'kinder')
+                  m = re.search(r'([A-Za-z]+\d+-[0-9][0-9.]*|[A-Za-z]+\d+)', title.split(':', 1)[1])
+                  lesson = m.group(1) if m else ''
+                  minutes = o.get('minuten', o.get('minutes', ''))
+                  prompt = ''          # the factory builds the German prompt from the syllabus
+              else:
+                  prompt = strip_opts(body) or title.split(':', 1)[1].strip()
+              style, aspect, footage = o.get('style', 'auto'), o.get('aspect', '16x9'), o.get('footage', 'none' if lesson else 'free')
               secs = o.get('seconds', '')
+              voice = o.get('stimme', o.get('voice', ''))
               issue = ev['ISSUE_NUMBER']
               phase = 'all' if o.get('review', 'yes').lower() in ('no', 'off', 'false') else 'plan'
           feedback = ''
@@ -121,17 +207,28 @@ jobs:
               elif prev_run: phase, feedback = 'plan', comment
               else: phase, feedback = 'plan', comment
           # The prompt carries the length ("9 minutes"); the cap input only applies when given.
-          if not secs:
+          # A lesson plan written and reviewed in Claude Code lives in the repository: render it directly, no plan round-trip.
+          if lesson and os.path.exists(f'klasse6/lessons/{lesson}/plan.json' if variant == 'kinder' else f'klasse6/lessons/{lesson}/{variant}/plan.json') and not feedback:
+              phase = 'all'
+              print('committed lesson plan found: rendering directly')
+          if lesson and not prompt and not secs:
+              secs = str(round(float((minutes or '0').replace(',', '.')) * 60 * 1.08)) if minutes else ''
+          if not secs and prompt:
               m = re.search(r'(\d{1,2}(?:[.,]\d)?)\s*-?\s*(?:min\b|mins\b|minute|minutes)', prompt, flags=re.I)
-              secs = str(min(600, round(float(m.group(1).replace(',', '.')) * 60 * 1.08))) if m else ''
+              secs = str(min(1500 if lesson else 600, round(float(m.group(1).replace(',', '.')) * 60 * 1.08))) if m else ''
               if not secs:
                   m = re.search(r'(\d{1,3})\s*-?\s*(?:s\b|sec\b|secs\b|second|seconds)', prompt, flags=re.I)
                   secs = m.group(1) if m else '60'
+          # A bare Google voice name ("de-DE-Chirp3-HD-Kore") means the Google provider; "piper:..." stays as written.
+          tts = ''
+          if voice:
+              v = voice.strip().strip('`"\'')
+              tts = v if ':' in v else 'google:' + v
           with open(os.environ['GITHUB_OUTPUT'], 'a') as f:
-              f.write('phase=%s\nstyle=%s\naspect=%s\nfootage=%s\nsecs=%s\nissue=%s\nprev_run=%s\n' % (phase, style, aspect, footage, secs, issue, prev_run))
+              f.write('phase=%s\nstyle=%s\naspect=%s\nfootage=%s\nsecs=%s\nissue=%s\nprev_run=%s\nlesson=%s\nminutes=%s\nvariant=%s\ntts=%s\n' % (phase, style, aspect, footage, secs, issue, prev_run, lesson, minutes, variant, tts))
           open('prompt.txt', 'w').write(prompt)
           open('feedback.txt', 'w').write(feedback)
-          print('event', event, 'phase', phase, 'issue', issue or '-', 'prev_run', prev_run or '-')
+          print('event', event, 'phase', phase, 'issue', issue or '-', 'prev_run', prev_run or '-', 'lesson', lesson or '-')
           print('PROMPT:', prompt[:300]); print('style', style, 'aspect', aspect, 'footage', footage, 'secs', secs)
           if feedback: print('FEEDBACK:', feedback[:300])
           PY
@@ -145,7 +242,7 @@ jobs:
           ASPECT: ${{ steps.req.outputs.aspect }}
           FOOTAGE: ${{ steps.req.outputs.footage }}
         run: |
-          TITLE="Video: $(head -c 90 prompt.txt | tr '\n' ' ')"
+          if [ -n "${{ steps.req.outputs.lesson }}" ]; then TITLE="$(case "${{ steps.req.outputs.variant }}" in eltern) echo Eltern;; international) echo English;; *) echo Lektion;; esac): ${{ steps.req.outputs.lesson }}"; else TITLE="Video: $(head -c 90 prompt.txt | tr '\n' ' ')"; fi
           printf '%s\n\nstyle: %s\naspect: %s\nfootage: %s\n' "$(cat prompt.txt)" "$STYLE" "$ASPECT" "$FOOTAGE" > issue-body.txt
           URL=$(gh issue create --title "$TITLE" --body-file issue-body.txt)
           echo "issue=${URL##*/}" >> "$GITHUB_OUTPUT"
@@ -189,6 +286,9 @@ jobs:
       - name: Install ffmpeg
         if: steps.req.outputs.phase != 'plan'
         run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+      - name: Install the German voice (Piper) for lessons
+        if: steps.req.outputs.phase != 'plan' && steps.req.outputs.lesson != ''
+        run: pip install --quiet piper-tts && piper --help > /dev/null
 
       - name: Serve the studio
         run: (python3 -m http.server 8765 --bind 127.0.0.1 > server.log 2>&1 &) && sleep 1 && curl -sf http://127.0.0.1:8765/studio/index.html > /dev/null
@@ -203,7 +303,14 @@ jobs:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
           PEXELS_KEY: ${{ secrets.PEXELS_KEY }}
           CHANNEL: ${{ vars.CHANNEL_NAME }}
-          AI_CLIPS: ${{ vars.AI_CLIPS || '12' }}
+          AI_CLIPS: ${{ steps.req.outputs.lesson != '' && (vars.LESSON_AI_CLIPS || '0') || (vars.AI_CLIPS || '12') }}
+          LESSON: ${{ steps.req.outputs.lesson }}
+          MINUTES: ${{ steps.req.outputs.minutes }}
+          VARIANT: ${{ steps.req.outputs.variant }}
+          MIN_SCENE_SECONDS: ${{ vars.MIN_SCENE_SECONDS || '' }}
+          REVIEWER: ${{ vars.REVIEWER_MODEL || '' }}
+          TTS: ${{ steps.req.outputs.tts || vars.LESSON_TTS || '' }}
+          GOOGLE_TTS_KEY: ${{ secrets.GOOGLE_TTS_KEY }}
           OUT_DIR: out
           # The runner's Google Chrome decodes and encodes H.264 (the bundled test Chromium cannot, so AI clips were dropped).
           BROWSER_CHANNEL: chrome
@@ -212,6 +319,7 @@ jobs:
           export PROMPT="$(cat prompt.txt)"
           export FEEDBACK="$(cat feedback.txt)"
           if [ -f plan-in/content-plan.json ]; then export PLAN_FILE=plan-in/content-plan.json; fi
+          if [ -n "$LESSON" ] && [ -z "$GOOGLE_TTS_KEY" ]; then echo "::warning::No GOOGLE_TTS_KEY secret: the lesson is voiced by Piper (free, less natural). Add a Google Cloud Text-to-Speech API key under Settings → Secrets and variables → Actions."; fi
           if [ -z "$HF_TOKEN" ]; then echo "::warning::No HF_TOKEN secret: the writer falls back to a template script and free GPU priority is anonymous. Add it under Settings → Secrets and variables → Actions."; fi
           node factory/run.mjs
 
@@ -276,6 +384,7 @@ jobs:
           name: ${{ env.TITLE }}
           body: |
             Prompt: ${{ github.event.inputs.prompt || github.event.issue.title }}
+            ${{ steps.req.outputs.lesson != '' && format('Lesson: {0} ({1}). Voice: {2}.', steps.req.outputs.lesson, steps.req.outputs.variant, steps.req.outputs.tts || vars.LESSON_TTS || 'default') || '' }}
 
             Files: the MP4 (H.264, YouTube-ready), captions (.srt), the YouTube title/description/tags/chapters (-youtube.txt) and a thumbnail.
             Footage: see youtube.txt for credits. Made by the AI Video Studio factory, run ${{ github.run_number }}.
@@ -300,7 +409,7 @@ jobs:
 
           Footage: ${FOOT}
 
-          Open the MP4 link on your phone, save it, and upload from the YouTube app. To make another video, open a new issue whose title starts with \`Video:\`."
+          Open the MP4 link on your phone, save it, and upload from the YouTube app. To make another video, open a new issue whose title starts with \`Video:\`; for the next Klasse-6 lesson use \`Lektion: <topic id>\` from klasse6/LEKTIONEN.md."
 
       - name: Report a failure on the issue
         if: failure() && steps.issue.outputs.number != ''

@@ -1,0 +1,429 @@
+{
+  "topic": "F6-1.2",
+  "title": "Französische Verben im Präsens: parler, être, avoir, aller und ne … pas",
+  "audience": "Kinder der 6. Klasse (etwa 11 Jahre), erstes Lernjahr Französisch",
+  "tone": "warm, ermutigend und genau",
+  "hook": "Je parle, tu parles, ils parlent: dreimal anders geschrieben, dreimal gleich gesprochen. Dahinter steckt ein Muster, und wer es kennt, kann hunderte Verben.",
+  "keyTakeaway": "Französische Verben bestehen aus Stamm und Endung. Bei den -er Verben bleibt der Stamm, die Endungen e, es, e, ons, ez, ent wechseln, vier davon sind stumm. Être, avoir und aller lernst du Form für Form. Die Verneinung ist eine Klammer: ne vor dem Verb, pas dahinter.",
+  "learningObjectives": [
+    "Die sechs Personen je, tu, il/elle, nous, vous, ils/elles den deutschen Pronomen zuordnen",
+    "Die Präsensformen eines -er Verbs aus Stamm und Endung bilden",
+    "Wissen, welche Endungen stumm sind, und beim Schreiben nach der Person fragen",
+    "Die Formen von être, avoir und aller aufsagen und in einfachen Sätzen benutzen",
+    "Das Alter mit avoir ausdrücken: j'ai onze ans",
+    "Einen Satz mit ne … pas verneinen und die Klammer um das Verb erklären"
+  ],
+  "cta": "Abonniere für die nächste Lektion",
+  "youtube": {
+    "title": "Französische Verben im Präsens: parler, être, avoir, aller und ne … pas | Französisch Klasse 6",
+    "description": "Französisch, 6. Klasse Gymnasium Bayern (2. Fremdsprache, erstes Lernjahr), Lernbereich F6 1.2 Verfügen über sprachliche Mittel: Warum französische Verben ihre Endung wechseln, das Muster der -er Verben (Stamm parl- plus e, es, e, ons, ez, ent), welche Endungen man schreibt, aber nicht hört, die beiden wichtigsten Verben être und avoir, das Verb aller und ça va, das Alter mit avoir (j'ai onze ans) und die Verneinung mit ne … pas als Klammer um das Verb. Mit 3D-Verbtabellen, einem Mini-Dialog, fünf Fragen zum Mitdenken und Tipps zum Üben (laut sprechen, Verbkartei).\n\nKapitel siehe unten. Lehrplan: LehrplanPLUS Gymnasium Bayern, Französisch 6 (2. Fremdsprache), Lernbereich 1.2 Verfügen über sprachliche Mittel.",
+    "tags": [
+      "Französisch",
+      "Klasse 6",
+      "Gymnasium Bayern",
+      "Französisch lernen",
+      "Verben konjugieren",
+      "Präsens Französisch",
+      "être avoir aller",
+      "er-Verben",
+      "Verneinung ne pas",
+      "Französisch Anfänger",
+      "LehrplanPLUS",
+      "2. Fremdsprache",
+      "Französisch Klasse 6",
+      "Verbkartei",
+      "F6"
+    ],
+    "thumbnailText": "JE PARLE, TU PARLES",
+    "pinnedComment": "Welches französische Verb fällt dir am schwersten? Schreib es in die Kommentare, und sag uns, wie du Verben übst."
+  },
+  "review": {
+    "reviewer": "Claude Sonnet (Claude Code subagent), independent of the writer (Claude in Claude Code)",
+    "date": "2026-11-09",
+    "mustFixApplied": [],
+    "suggestionsApplied": [
+      "Antwort-Szene zu nous/vous: Überleitung „wie die Verben ihre Endungen bekommen“ statt „rechts daneben“",
+      "aller im Alltag: futur proche als Ausblick benannt",
+      "Stumme Endungen als Regel für Verben formuliert, nicht allgemein; Überleitung „Darum klingen je parle und tu parles gleich“",
+      "Frage zu ils parlent: Stamm auf dem Bildschirm, Sprechtext „Ils, dann der Stamm parl, und welche Endung?“",
+      "Mini-Dialog: nur zwei Zeilen gesprochen, Rest auf dem Bildschirm",
+      "Titelszene: „Das klären wir gleich“ nach der Eingangsfrage"
+    ],
+    "verified": [
+      "Regeln (Wortzahlen, Bullets, Titel, Fragen, Hinweise)",
+      "Fragen und Antworten in der Folgeszene",
+      "Szenen-Segmente der conjugaison-Szene (Negationssegment nur mit parler)",
+      "Verbformen parler, être, avoir, aller; Alter mit avoir; ne … pas und n'"
+    ]
+  },
+  "chapters": [
+    {
+      "title": "Warum Verben ihre Endung wechseln",
+      "goal": "Du weißt, was ein Infinitiv ist, kennst die sechs Personen und verstehst, warum sich die Endung ändert.",
+      "keyPoints": [
+        "Infinitiv parler",
+        "sechs Personen",
+        "Endung passt zur Person"
+      ],
+      "scenes": [
+        {
+          "kind": "title",
+          "onScreenTitle": "Verben im Präsens und die Verneinung",
+          "narration": "Je parle, tu parles, nous parlons. Dreimal dasselbe Verb, und dreimal sieht das Ende anders aus. Und warum klingen je parle und tu parles trotzdem genau gleich? Das klären wir gleich. In dieser Lektion lernst du das Muster hinter den französischen Verben kennen: den Stamm, der bleibt, und die Endung, die wechselt. Dazu être, avoir, aller und die Verneinung."
+        },
+        {
+          "kind": "bullets",
+          "onScreenTitle": "Verben verändern sich, auch im Deutschen",
+          "bullets": [
+            "Deutsch: ich spreche, du sprichst, wir sprechen",
+            "Französisch: je parle, tu parles, nous parlons",
+            "Die Grundform heißt Infinitiv: parler, sprechen",
+            "Wer spricht, bestimmt die Endung"
+          ],
+          "narration": "Fang mit dem Deutschen an. Du sagst ich spreche, du sprichst, wir sprechen. Das Verb verändert sich, je nachdem, wer spricht. Genau das macht das Französische auch, nur mit anderen Endungen. Die Grundform eines Verbs, so wie sie im Wörterbuch steht, heißt Infinitiv: sprechen, auf Französisch parler. Vom Infinitiv aus bildest du alle anderen Formen, und zwar nach einem Muster."
+        },
+        {
+          "kind": "bullets",
+          "onScreenTitle": "Die sechs Personen",
+          "bullets": [
+            "je = ich, tu = du",
+            "il = er, elle = sie",
+            "nous = wir, vous = ihr oder Sie",
+            "ils / elles = sie, mehrere Personen"
+          ],
+          "narration": "Im Französischen gibt es sechs Personen, genau wie im Deutschen. Je heißt ich, tu heißt du. Il heißt er und elle heißt sie, eine einzelne Person. Nous heißt wir. Vous heißt ihr, und vous ist auch die höfliche Anrede, also Sie. Ils und elles heißen beide sie, aber für mehrere Personen: ils für Jungen oder gemischte Gruppen, elles nur für Mädchen und Frauen."
+        },
+        {
+          "kind": "question",
+          "question": "Zu welchem deutschen Wort passt nous? Und was bedeutet vous, wenn du damit deine Lehrerin ansprichst?",
+          "think": 8,
+          "hint": "Eins heißt wir. Das andere ist auch die höfliche Anrede.",
+          "narration": "Eine Frage für dich. Zu welchem deutschen Wort passt nous? Und was bedeutet vous, wenn du damit deine Lehrerin ansprichst? Denk kurz nach. Ein Tipp: Eines der beiden Wörter heißt wir. Das andere benutzt man auch als höfliche Anrede, so wie das deutsche Sie. Nimm dir ein paar Sekunden Zeit und sag die Antwort laut, bevor sie kommt."
+        },
+        {
+          "kind": "bullets",
+          "onScreenTitle": "Antwort: nous ist wir, vous ist Sie",
+          "bullets": [
+            "nous = wir",
+            "vous = ihr, aber auch Sie",
+            "Zur Lehrerin sagst du vous"
+          ],
+          "narration": "Nous heißt wir. Vous heißt ihr, wenn du mehrere Freunde ansprichst, aber auch Sie, wenn du höflich mit einer erwachsenen Person sprichst. Zu deiner Lehrerin sagst du also vous. Im Französischen gibt es kein eigenes Wort wie das deutsche Sie, vous übernimmt beides. Die Verbform ist in beiden Fällen gleich: vous parlez. Jetzt schauen wir, wie die Verben ihre Endungen bekommen."
+        }
+      ]
+    },
+    {
+      "title": "Das Muster der -er Verben",
+      "goal": "Du bildest die Formen von parler aus Stamm und Endung und weißt, welche Endungen stumm sind.",
+      "keyPoints": [
+        "Stamm parl-",
+        "Endungen e, es, e, ons, ez, ent",
+        "vier Endungen stumm"
+      ],
+      "scenes": [
+        {
+          "kind": "chapter",
+          "labels": [
+            "Stamm",
+            "Endung",
+            "stumm"
+          ],
+          "narration": "Die meisten französischen Verben enden im Infinitiv auf -er: parler, aimer, habiter, regarder. Das ist eine gute Nachricht, denn alle diese Verben funktionieren nach demselben Muster. Das Muster besteht aus zwei Teilen: dem Stamm, der immer gleich bleibt, und der Endung, die zur Person passt. In diesem Kapitel baust du die Formen von parler zusammen und entdeckst einen Trick, den das Französische mit seinen Endungen spielt."
+        },
+        {
+          "kind": "math3d",
+          "scene": "conjugaison",
+          "params": {
+            "verbe": "parler (-er)",
+            "personne": 0
+          },
+          "segment": [
+            0,
+            16
+          ],
+          "onScreenTitle": "Stamm parl- plus Endung",
+          "narration": "Schau auf die Tabelle. Links stehen die sechs Personen, rechts entstehen die Verbformen. Vom Infinitiv parler streichst du die Endung -er weg. Übrig bleibt der Stamm parl-, und der bleibt bei allen sechs Formen gleich. Dann kommt die Endung dazu: je parle, tu parles, il oder elle parle, nous parlons, vous parlez, ils oder elles parlent. Sechs Endungen: e, es, e, ons, ez, ent."
+        },
+        {
+          "kind": "bullets",
+          "onScreenTitle": "Ein Muster für hunderte Verben",
+          "bullets": [
+            "aimer: j'aime, tu aimes, nous aimons",
+            "habiter: j'habite, vous habitez",
+            "regarder: il regarde, ils regardent",
+            "Vor Vokal und stummem h: je wird j'"
+          ],
+          "narration": "Dasselbe Muster passt auf fast alle Verben mit -er. Aimer, mögen: j'aime, tu aimes, nous aimons. Habiter, wohnen: j'habite, vous habitez. Regarder, anschauen: il regarde, ils regardent. Eine Kleinigkeit fällt dir vielleicht auf: Bei aimer und habiter steht nicht je, sondern j' mit Apostroph. Das passiert immer, wenn das Verb mit einem Vokal oder einem stummen h beginnt. Stamm und Endungen bleiben genau dieselben."
+        },
+        {
+          "kind": "math3d",
+          "scene": "conjugaison",
+          "params": {
+            "verbe": "parler (-er)",
+            "personne": 0
+          },
+          "segment": [
+            16,
+            23
+          ],
+          "onScreenTitle": "Vier Endungen hörst du nicht",
+          "narration": "Darum klingen je parle und tu parles gleich: Schau, welche Endungen grau werden: -e, -es, -e und -ent. Bei Verben sind diese vier Endungen stumm. Man schreibt sie, aber man hört sie nicht. Je parle, tu parles, il parle und ils parlent klingen alle genau gleich, nämlich wie parl. Nur bei nous parlons und vous parlez hörst du die Endung. Deshalb lernst du im Französischen zwei Dinge getrennt: wie ein Wort klingt und wie man es schreibt."
+        },
+        {
+          "kind": "question",
+          "question": "Wie schreibst du: sie sprechen, also mehrere Personen? Ils parl, und dann welche Endung?",
+          "think": 9,
+          "hint": "Du hörst die Endung nicht, aber sie steht da.",
+          "narration": "Frage an dich. Du willst schreiben: sie sprechen, und zwar mehrere Personen. Ils, dann der Stamm parl, und welche Endung? Du siehst es auf dem Bildschirm. Überlege: Du hörst die Endung nicht, wenn du das Wort sprichst, aber geschrieben steht sie da. Denk an die Tabelle von eben und an die letzte Zeile ganz unten. Du hast ein paar Sekunden."
+        },
+        {
+          "kind": "bullets",
+          "onScreenTitle": "Antwort: ils parlent",
+          "bullets": [
+            "ils parlent, Endung -ent",
+            "Klingt wie il parle, wird anders geschrieben",
+            "Beim Schreiben fragen: Wer spricht?"
+          ],
+          "narration": "Ils parlent, mit der Endung -ent. Gesprochen klingt es genau wie il parle, aber geschrieben steht am Ende -ent, weil es um mehrere Personen geht. Das ist einer der häufigsten Fehler in der sechsten Klasse: Man hört parl und schreibt einfach parle. Deshalb der Tipp: Bevor du eine Verbform schreibst, frag dich, wer spricht. Eine Person oder mehrere?"
+        }
+      ]
+    },
+    {
+      "title": "Die zwei wichtigsten Verben: être und avoir",
+      "goal": "Du kannst die Formen von être und avoir aufsagen und sagst dein Alter mit avoir.",
+      "keyPoints": [
+        "être: suis, es, est, sommes, êtes, sont",
+        "avoir: ai, as, a, avons, avez, ont",
+        "Alter: j'ai onze ans"
+      ],
+      "scenes": [
+        {
+          "kind": "chapter",
+          "labels": [
+            "être",
+            "avoir",
+            "unregelmäßig"
+          ],
+          "narration": "Jetzt kommen zwei Verben, die du in fast jedem französischen Satz brauchst: être, sein, und avoir, haben. Sie halten sich leider nicht an das -er Muster. Man nennt sie unregelmäßig, weil jede Form anders aussieht und du sie einzeln lernen musst. Dafür sind es nur zwölf Formen, und du wirst sie so oft hören, dass sie bald von selbst kommen."
+        },
+        {
+          "kind": "math3d",
+          "scene": "conjugaison",
+          "params": {
+            "verbe": "être",
+            "personne": 0
+          },
+          "segment": [
+            0,
+            16
+          ],
+          "onScreenTitle": "être: sein",
+          "narration": "Être heißt sein. Hier siehst du, dass es keinen festen Stamm gibt: je suis, tu es, il oder elle est, nous sommes, vous êtes, ils oder elles sont. Jede Form sieht anders aus. Tu es und il est klingen gleich, werden aber verschieden geschrieben. Nous sommes und vous êtes hörst du deutlich heraus. Sprich die sechs Formen zweimal laut mit: suis, es, est, sommes, êtes, sont."
+        },
+        {
+          "kind": "bullets",
+          "onScreenTitle": "être im Satz",
+          "bullets": [
+            "Je suis Lena. Ich bin Lena.",
+            "Tu es à Paris? Bist du in Paris?",
+            "Nous sommes amis. Wir sind Freunde.",
+            "C'est super! Das ist super!"
+          ],
+          "narration": "Mit être sagst du, wer oder wo jemand ist. Je suis Lena: Ich bin Lena. Tu es à Paris? Bist du in Paris? Nous sommes amis: Wir sind Freunde. Und ganz oft hörst du c'est, das ist: C'est super. C'est ist ce plus est, mit Apostroph zusammengezogen. Nur für das Alter benutzt man être nicht. Dazu gleich mehr."
+        },
+        {
+          "kind": "math3d",
+          "scene": "conjugaison",
+          "params": {
+            "verbe": "avoir",
+            "personne": 0
+          },
+          "segment": [
+            0,
+            16
+          ],
+          "onScreenTitle": "avoir: haben",
+          "narration": "Avoir heißt haben. Schau auf die erste Zeile: Hier steht nicht je, sondern j' mit Apostroph, weil ai mit einem Vokal beginnt. J'ai, tu as, il oder elle a, nous avons, vous avez, ils oder elles ont. Nous avons und vous avez haben wieder die Endungen -ons und -ez, die du von parler kennst. Sprich mit: ai, as, a, avons, avez, ont."
+        },
+        {
+          "kind": "bullets",
+          "onScreenTitle": "avoir im Satz und das Alter",
+          "bullets": [
+            "J'ai un chat. Ich habe eine Katze.",
+            "Tu as un frère? Hast du einen Bruder?",
+            "Alter: J'ai onze ans.",
+            "Wörtlich: Ich habe elf Jahre."
+          ],
+          "narration": "Mit avoir sagst du, was jemand hat. J'ai un chat: Ich habe eine Katze. Tu as un frère? Hast du einen Bruder? Und jetzt die Besonderheit: Im Französischen sagt man das Alter mit avoir, nicht mit être. J'ai onze ans heißt wörtlich: Ich habe elf Jahre. Merk dir den Satz j'ai onze ans wie eine kleine Formel."
+        },
+        {
+          "kind": "question",
+          "question": "Wie sagst du auf Französisch: Ich bin elf Jahre alt? Welches Verb brauchst du dafür?",
+          "think": 9,
+          "hint": "Nicht être. Die Franzosen haben ihre Jahre.",
+          "narration": "Frage an dich. Wie sagst du auf Französisch: Ich bin elf Jahre alt? Überlege zuerst, welches Verb du brauchst. Im Deutschen ist es bin, also sein. Aber im Französischen? Denk an das, was du gerade gehört hast: Die Franzosen haben ihre Jahre. Welche Form von welchem Verb steht am Anfang? Du hast ein paar Sekunden."
+        },
+        {
+          "kind": "bullets",
+          "onScreenTitle": "Antwort: J'ai onze ans",
+          "bullets": [
+            "J'ai onze ans. Mit avoir.",
+            "Die Frage: Tu as quel âge?",
+            "Nicht: je suis onze ans"
+          ],
+          "narration": "J'ai onze ans, mit avoir. Die Frage danach lautet: Tu as quel âge? Wie alt bist du, wörtlich: Du hast welches Alter? Auch hier steckt avoir drin. Je suis onze ans ist falsch, auch wenn es sich für dich natürlich anfühlt. Das zeigt dir: Eine Sprache übersetzt man nicht Wort für Wort, sondern lernt ganze Sätze."
+        }
+      ]
+    },
+    {
+      "title": "aller und die Verneinung mit ne … pas",
+      "goal": "Du kennst die Formen von aller und verneinst einen Satz mit der Klammer ne … pas.",
+      "keyPoints": [
+        "aller: vais, vas, va, allons, allez, vont",
+        "ne vor dem Verb, pas dahinter",
+        "vor Vokal: n'"
+      ],
+      "scenes": [
+        {
+          "kind": "chapter",
+          "labels": [
+            "aller",
+            "ne … pas",
+            "Klammer"
+          ],
+          "narration": "Ein drittes unregelmäßiges Verb brauchst du ständig: aller, gehen. Du kennst es vielleicht schon aus der Frage ça va, wie geht es. Danach lernst du, wie man einen Satz verneint. Im Deutschen setzt du einfach nicht dazu: Ich spreche nicht. Im Französischen brauchst du zwei kleine Wörter, die das Verb wie eine Klammer einschließen: ne und pas."
+        },
+        {
+          "kind": "math3d",
+          "scene": "conjugaison",
+          "params": {
+            "verbe": "aller",
+            "personne": 0
+          },
+          "segment": [
+            0,
+            16
+          ],
+          "onScreenTitle": "aller: gehen",
+          "narration": "Aller heißt gehen. Die Formen sind: je vais, tu vas, il oder elle va, nous allons, vous allez, ils oder elles vont. Schau genau hin: Die ersten drei Formen und die letzte fangen mit v an und haben mit dem Infinitiv aller fast nichts gemeinsam. Nur nous allons und vous allez sehen nach aller aus, mit den bekannten Endungen -ons und -ez. Dieses Verb lernst du auswendig, du brauchst es jeden Tag."
+        },
+        {
+          "kind": "bullets",
+          "onScreenTitle": "aller im Alltag",
+          "bullets": [
+            "Ça va? Wie geht es?",
+            "Ça va bien. Es geht gut.",
+            "Je vais à l'école. Ich gehe zur Schule.",
+            "Nous allons à Paris. Wir fahren nach Paris."
+          ],
+          "narration": "Aller steckt in der wichtigsten Alltagsfrage überhaupt: Ça va? Wie geht es? Die Antwort: Ça va bien, es geht gut. Darin steckt die Form va, dritte Person Einzahl. Je vais à l'école: Ich gehe zur Schule. Nous allons à Paris: Wir fahren nach Paris. Bald lernst du, mit aller auch zu sagen, was du gleich tun wirst, das futur proche. Dafür brauchst du genau diese sechs Formen."
+        },
+        {
+          "kind": "math3d",
+          "scene": "conjugaison",
+          "params": {
+            "verbe": "parler (-er)",
+            "personne": 0
+          },
+          "segment": [
+            23,
+            30
+          ],
+          "onScreenTitle": "Die Verneinung: ne … pas",
+          "narration": "Jetzt die Verneinung. Schau, was mit je parle passiert: Je ne parle pas. Ich spreche nicht. Das kleine Wort ne steht vor dem Verb, pas steht dahinter. Zusammen bilden sie eine Klammer um das Verb, deshalb sagt man: ne und pas umschließen das Verb. Das funktioniert bei jeder Person: tu ne parles pas, nous ne parlons pas, ils ne parlent pas."
+        },
+        {
+          "kind": "bullets",
+          "onScreenTitle": "ne wird zu n' vor Vokal",
+          "bullets": [
+            "Je ne suis pas de Paris.",
+            "Je ne vais pas à l'école.",
+            "Je n'ai pas de chat.",
+            "Vor Vokal: ne wird zu n'"
+          ],
+          "narration": "Die Klammer funktioniert auch bei être, avoir und aller. Je ne suis pas de Paris: Ich bin nicht aus Paris. Je ne vais pas à l'école: Ich gehe nicht zur Schule. Bei avoir passiert noch etwas: Je n'ai pas de chat, ich habe keine Katze. Aus ne wird n' mit Apostroph, weil ai mit einem Vokal beginnt, genau wie bei j'ai."
+        },
+        {
+          "kind": "question",
+          "question": "Wie verneinst du: nous parlons? Wo steht ne, und wo steht pas?",
+          "think": 8,
+          "hint": "Denk an die Klammer um das Verb.",
+          "narration": "Frage an dich. Nous parlons heißt: wir sprechen. Wie sagst du: wir sprechen nicht? Überlege, wo das ne hinkommt und wo das pas. Denk an die Klammer: Das Verb steht in der Mitte, die beiden kleinen Wörter halten es fest. Sag den Satz laut, bevor die Antwort kommt, so merkst du ihn dir besser. Du hast ein paar Sekunden Zeit."
+        },
+        {
+          "kind": "bullets",
+          "onScreenTitle": "Antwort: Nous ne parlons pas",
+          "bullets": [
+            "Nous ne parlons pas.",
+            "ne vor dem Verb, pas dahinter",
+            "Das Verb bleibt in der Mitte"
+          ],
+          "narration": "Nous ne parlons pas. Das ne steht direkt vor dem Verb parlons, das pas direkt dahinter. Du siehst: Die Verbform selbst ändert sich durch die Verneinung nicht, nur die Klammer kommt dazu. Ein häufiger Fehler ist, das ne zu vergessen, weil man es beim schnellen Sprechen kaum hört. Beim Schreiben gehören aber immer beide Teile dazu: ne und pas."
+        }
+      ]
+    },
+    {
+      "title": "Ein kleiner Dialog und Tipps zum Üben",
+      "goal": "Du erkennst alle vier Verben in einem Mini-Dialog und weißt, wie du Verbformen übst.",
+      "keyPoints": [
+        "Mini-Dialog",
+        "laut sprechen",
+        "Verbkartei"
+      ],
+      "scenes": [
+        {
+          "kind": "chapter",
+          "labels": [
+            "Dialog",
+            "Laut sprechen",
+            "Verbkartei"
+          ],
+          "narration": "Du kennst jetzt die -er Verben, être, avoir, aller und die Verneinung. Damit kannst du schon ein echtes kleines Gespräch führen. In diesem Kapitel liest du einen Mini-Dialog mit und findest darin alle Verben wieder, die du heute gelernt hast. Danach bekommst du drei Tipps, wie du Verbformen so übst, dass sie wirklich sitzen. Denn Verben lernt man durch Sprechen und Schreiben."
+        },
+        {
+          "kind": "bullets",
+          "onScreenTitle": "Mini-Dialog: Salut!",
+          "bullets": [
+            "Salut! Ça va? Ça va bien.",
+            "Tu parles anglais? Non, je ne parle pas anglais.",
+            "Tu es de Lyon? Non, je suis de Nice.",
+            "Tu as quel âge? J'ai onze ans."
+          ],
+          "narration": "Hier ist der Dialog, du siehst ihn auf dem Bildschirm. Zwei Zeilen sprechen wir zusammen: Salut! Ça va? Ça va bien. Und: Tu as quel âge? J'ai onze ans. Lies die anderen Zeilen selbst und such die Verben: va aus aller, parles und parle aus parler, es und suis aus être, as und ai aus avoir. Dazu eine Verneinung mit ne und pas. Sprich den Dialog laut, am besten zu zweit."
+        },
+        {
+          "kind": "question",
+          "question": "Jemand sagt: Nous sommes à Nice. Welches Verb steckt in sommes, und welche Person ist das?",
+          "think": 8,
+          "hint": "Es ist eins der zwei wichtigsten Verben.",
+          "narration": "Letzte Frage. Jemand sagt: Nous sommes à Nice. Welches Verb steckt in der Form sommes, und um welche Person handelt es sich? Überlege: Es ist eins der zwei wichtigsten Verben, die du heute gelernt hast. Und das Wörtchen davor verrät dir die Person. Denk kurz nach und sag Verb und Person laut, bevor die Antwort kommt."
+        },
+        {
+          "kind": "bullets",
+          "onScreenTitle": "Antwort: être, erste Person Plural",
+          "bullets": [
+            "sommes kommt von être, sein",
+            "nous = wir, erste Person Plural",
+            "Nous sommes à Nice: Wir sind in Nizza"
+          ],
+          "narration": "Sommes kommt von être, sein. Nous ist wir, also die erste Person Plural, die vierte Zeile in jeder Verbtabelle. Nous sommes à Nice heißt: Wir sind in Nizza. Genau so sollst du Verbformen lesen können: Du siehst eine Form, erkennst das Verb dahinter und weißt, wer gemeint ist. Das klappt umso besser, je öfter du laut übst. Drei Tipps dazu kommen jetzt."
+        },
+        {
+          "kind": "bullets",
+          "onScreenTitle": "Drei Tipps zum Üben",
+          "bullets": [
+            "Laut sprechen, nicht nur lesen",
+            "Verbkartei: eine Karte pro Verb",
+            "Lieder und Reime: Verben im Rhythmus",
+            "Jeden Tag zehn Minuten"
+          ],
+          "narration": "Tipp eins: Sprich die Formen laut, immer in derselben Reihenfolge, je, tu, il, nous, vous, ils. Tipp zwei: Leg dir eine Verbkartei an. Vorne auf die Karte den Infinitiv, hinten die sechs Formen. Zieh jeden Tag drei Karten, sag die Formen auf, dreh um und prüfe. Tipp drei: Französische Kinderlieder und Reime helfen, weil Verben darin immer wiederkommen. Und: lieber täglich zehn Minuten als einmal pro Woche eine Stunde."
+        },
+        {
+          "kind": "outro",
+          "narration": "Merk dir das: Französische Verben bestehen aus Stamm und Endung. Bei den -er Verben bleibt der Stamm, die Endungen heißen e, es, e, ons, ez, ent, vier davon sind stumm. Être und avoir sind unregelmäßig; das Alter sagst du mit avoir: j'ai onze ans. Aller steckt in ça va. Die Verneinung ist eine Klammer: ne vor dem Verb, pas dahinter. Sprich laut, leg eine Verbkartei an und schreib in die Kommentare, welches Verb dir am schwersten fällt. Abonniere für die nächste Lektion."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,348 @@
+{
+  "topic": "NT6-2.3",
+  "variant": "eltern",
+  "title": "Informatik in der 6. Klasse: Das Dateisystem als Baum",
+  "audience": "Eltern und Lehrkräfte von Sechstklässlern am Gymnasium in Bayern",
+  "tone": "ruhig, präzise, ohne Panikmache",
+  "hook": "Informatik beginnt in Bayern nicht mit Programmieren, sondern mit Ordnung: Klassen, Objekte, Attribute und ein Baum, den jedes Kind schon vom Computer kennt.",
+  "keyTakeaway": "Der Informatikteil in Natur und Technik lehrt eine Denkweise: Dinge als Objekte mit Klasse und Attributen beschreiben, Strukturen als Baum sehen, Wege als Pfad angeben. Das Dateisystem ist das Übungsfeld, das jedes Kind zu Hause hat.",
+  "learningObjectives": [
+    "Den Informatikteil von Natur und Technik 6 und den Lernbereich NT6 2.3 einordnen",
+    "Die Kernideen in Bildern verstehen: Baum, Pfad, Klassen DATEI und ORDNER, Rekursion",
+    "Die objektorientierte Denkweise der bayerischen Schulinformatik nachvollziehen",
+    "Zu Hause am eigenen Computer üben: Ordner aufräumen, Pfade lesen, Größen vergleichen",
+    "Typische Fehlvorstellungen erkennen und wissen, wie in NT bewertet wird"
+  ],
+  "cta": "Abonnieren Sie für die nächsten Lernbereiche",
+  "youtube": {
+    "title": "Informatik in der 6. Klasse: Das Dateisystem als Baum | Eltern-Guide Natur und Technik Gymnasium Bayern",
+    "description": "Für Eltern und Lehrkräfte: Was der bayerische LehrplanPLUS im Informatikteil von Natur und Technik 6 verlangt, insbesondere im Lernbereich NT6 2.3 Hierarchische Informationsstrukturen – Dateisystem: Klassen DATEI und ORDNER, rekursive Enthält-Beziehung, Baum mit Wurzel, Knoten, Kante, Blatt und Pfad. Die Kernideen in 3D-Bildern, die objektorientierte Denkweise dahinter (Objekt, Klasse, Attribut, Punktnotation), Übungen am eigenen Computer, typische Fehlvorstellungen und die Bewertung in NT.\n\nDie Kinder-Lektion zum selben Thema gibt es auf diesem Kanal. Lehrplan: LehrplanPLUS Gymnasium Bayern, Natur und Technik 6, Lernbereich 2.3.",
+    "tags": [
+      "Natur und Technik",
+      "Informatik Klasse 6",
+      "Gymnasium Bayern",
+      "Dateisystem",
+      "Eltern",
+      "LehrplanPLUS",
+      "Klasse Objekt Attribut",
+      "Baum Informatik",
+      "Pfad",
+      "rekursiv",
+      "NT6",
+      "Jahrgangsstufe 6",
+      "Elternratgeber",
+      "Informatikunterricht",
+      "Lernhilfe Informatik"
+    ],
+    "thumbnailText": "INFORMATIK ELTERN-GUIDE",
+    "pinnedComment": "Welche Frage haben Sie zum Informatikunterricht in der 6. Klasse? Schreiben Sie sie in die Kommentare."
+  },
+  "chapters": [
+    {
+      "title": "Worum es geht",
+      "goal": "Sie wissen, was der Informatikteil von Natur und Technik ist und was der Lernbereich verlangt.",
+      "keyPoints": [
+        "Informatik in NT",
+        "NT6 2.3, etwa 5 Stunden",
+        "Ordnung vor Programmierung"
+      ],
+      "scenes": [
+        {
+          "kind": "title",
+          "onScreenTitle": "Informatik: Das Dateisystem als Baum",
+          "narration": "Viele Eltern sind überrascht, dass ihr Kind in der sechsten Klasse schon Informatik hat. Am bayerischen Gymnasium steckt sie im Fach Natur und Technik, und sie beginnt nicht mit Programmieren, sondern mit Ordnung: Wie beschreibt man die Dinge im Computer, und wie sind sie angeordnet? Dieses Video richtet sich an Eltern und Lehrkräfte. Sie erfahren in gut zehn Minuten, was der Lehrplan verlangt, welche Bilder den Kern bilden, welche Denkweise dahintersteckt und wie Sie am eigenen Computer zu Hause üben können."
+        },
+        {
+          "kind": "bullets",
+          "onScreenTitle": "Informatik im Fach Natur und Technik",
+          "bullets": [
+            "NT6 Schwerpunkt Informatik: drei Lernbereiche",
+            "2.1 Informationsdarstellung: Grafik, Text, Multimedia",
+            "2.2 Projekt Multimediapräsentation",
+            "2.3 Dateisystem als Baum, etwa 5 Stunden"
+          ],
+          "narration": "Im LehrplanPLUS hat Natur und Technik in der sechsten Klasse neben der Biologie einen Schwerpunkt Informatik mit drei Lernbereichen. Der erste behandelt die Darstellung von Information in Grafik-, Text- und Multimediadokumenten, dort werden Objekte, Attribute, Methoden und Klassen eingeführt. Der zweite ist ein Projekt, eine Multimediapräsentation. Der dritte, um den es hier geht, heißt Hierarchische Informationsstrukturen, Dateisystem, und ist mit etwa fünf Stunden kurz, aber grundlegend: Hier lernen Kinder den Baum, eine der wichtigsten Strukturen der Informatik."
+        },
+        {
+          "kind": "bullets",
+          "onScreenTitle": "Das verlangt der Lehrplan",
+          "bullets": [
+            "Klassen DATEI und ORDNER",
+            "Rekursive Enthält-Beziehung: Ordner enthalten Ordner",
+            "Baum: Wurzel, Knoten, Kante, Blatt",
+            "Pfad: der Weg von der Wurzel zur Datei"
+          ],
+          "narration": "Die Inhalte des Lernbereichs sind klar umrissen. Erstens die beiden Klassen DATEI und ORDNER mit ihrer rekursiven Enthält-Beziehung: Ein Ordner enthält Dateien, aber auch wieder Ordner. Zweitens der Baum mit seinen Fachbegriffen Wurzel, Knoten, Kante und Blatt. Drittens der Pfad, der eine Datei eindeutig im Baum verortet. Das Kind soll diese Struktur erkennen, benennen und selbst anwenden, etwa indem es Ordner sinnvoll anlegt und Pfade liest. Welche Aufgaben genau geübt und geprüft werden, legt die Lehrkraft fest."
+        }
+      ]
+    },
+    {
+      "title": "Die Kernideen in Bildern",
+      "goal": "Sie kennen die Bilder, mit denen Ihr Kind Baum, Pfad und Klassen verstehen soll.",
+      "keyPoints": [
+        "Der Baum",
+        "Der Pfad",
+        "Die Klassen",
+        "Die Statistik"
+      ],
+      "scenes": [
+        {
+          "kind": "chapter",
+          "labels": [
+            "Baum",
+            "Pfad",
+            "Klassen",
+            "Größen"
+          ],
+          "narration": "Vier Bilder tragen den Lernbereich, und alle vier zeigen denselben Beispielcomputer: den Ordner eines Mädchens namens Mia mit Schule, Fotos und Musik. Zuerst der Baum mit seinen Fachwörtern, dann der Pfad als Weg durch den Baum, dann die beiden Klassen dahinter, und zum Schluss eine kleine Statistik, die zeigt, wie die rekursive Idee praktisch wird: Wie groß ist ein Ordner?"
+        },
+        {
+          "kind": "math3d",
+          "scene": "filetree",
+          "params": {
+            "tiefe": 3,
+            "pfad": "Mia/Schule/Deutsch/Aufsatz.txt"
+          },
+          "segment": [
+            0,
+            10
+          ],
+          "onScreenTitle": "Idee 1: Der Baum steht auf dem Kopf",
+          "narration": "Idee eins: der Baum. Der oberste Ordner ist die Wurzel. Jeder Ordner und jede Datei ist ein Knoten. Die Linien sind Kanten und bedeuten enthält. Knoten ohne Kinder, also die Dateien, sind Blätter. Die Fachwörter stammen von echten Bäumen, nur wächst dieser von oben nach unten, was Kinder anfangs irritiert. Eine Datei kann nichts enthalten, deshalb sind Dateien immer Blätter. In unserem Beispiel sind alle Blätter Dateien; ein leerer Ordner wäre ebenfalls eines. Diese vier Wörter sollte Ihr Kind sicher zuordnen können."
+        },
+        {
+          "kind": "math3d",
+          "scene": "filetree",
+          "params": {
+            "tiefe": 3,
+            "pfad": "Mia/Fotos/Urlaub/strand.jpg"
+          },
+          "segment": [
+            10,
+            17
+          ],
+          "onScreenTitle": "Idee 2: Der Pfad ist eine Wegbeschreibung",
+          "narration": "Idee zwei: der Pfad. Er beschreibt den Weg von der Wurzel bis zur Datei, Ordner für Ordner, mit Schrägstrichen getrennt: Mia, Fotos, Urlaub, strand Punkt j p g. Unter Windows erscheint oft der umgekehrte Schrägstrich, die Bedeutung ist dieselbe. Entscheidend ist die Eindeutigkeit: Im selben Ordner darf ein Name nur einmal vorkommen, in verschiedenen Ordnern dürfen zwei Dateien gleich heißen, denn ihre Pfade unterscheiden sich. Weil der Dateibaum so aufgebaut ist, führt genau ein Weg von der Wurzel zu jeder Datei."
+        },
+        {
+          "kind": "math3d",
+          "scene": "filetree",
+          "params": {
+            "tiefe": 3,
+            "pfad": "Mia/Schule/Deutsch/Aufsatz.txt"
+          },
+          "segment": [
+            17,
+            23
+          ],
+          "onScreenTitle": "Idee 3: Zwei Klassen, eine rekursive Beziehung",
+          "narration": "Idee drei: die Klassen. Die bayerische Schulinformatik beschreibt die Welt von Anfang an objektorientiert. Die Klasse ORDNER hat das Attribut name, die Klasse DATEI die Attribute name und größe; die Beziehung enthält ist als Pfeil gezeichnet. Jeder konkrete Ordner und jede Datei ist ein Objekt seiner Klasse. Unten steht ein Beispiel in Punktnotation: aufsatz Punkt name ergibt Aufsatz Punkt t x t. Der Pfeil von ORDNER zu DATEI heißt enthält. Der Pfeil von ORDNER zurück auf ORDNER ist die rekursive Beziehung: Ein Ordner enthält Ordner. Dieses eine Wort, rekursiv, erklärt, warum ein Baum beliebig tief werden kann."
+        },
+        {
+          "kind": "math3d",
+          "scene": "filetree",
+          "params": {
+            "tiefe": 3,
+            "pfad": "Mia/Schule/Deutsch/Aufsatz.txt"
+          },
+          "segment": [
+            23,
+            30
+          ],
+          "onScreenTitle": "Idee 4: Ordnergrößen als Diagramm",
+          "narration": "Idee vier: die Statistik. Nur Dateien haben im Modell eine Größe; die Größe eines Ordners ergibt sich als Summe aller Dateien darin, bis hinunter zu den Blättern. Schule zehn Megabyte, Fotos siebzehn, Musik fünfzehn; Fotos ist am größten und darum hervorgehoben. Als Säulendiagramm ist der Vergleich auf einen Blick möglich, und das verbindet den Lernbereich mit der Informationsdarstellung aus 2.1: Dieselbe Information als Liste, als Baum oder als Diagramm. Und die Berechnung selbst ist wieder rekursiv: Die Größe eines Ordners braucht die Größen seiner Unterordner."
+        }
+      ]
+    },
+    {
+      "title": "Die Denkweise: Objekte, Klassen, Strukturen",
+      "goal": "Sie verstehen die objektorientierte Denkweise, die den Informatikunterricht in Natur und Technik prägt.",
+      "keyPoints": [
+        "Objekt und Klasse",
+        "Attribut und Punktnotation",
+        "Struktur statt Bedienung"
+      ],
+      "scenes": [
+        {
+          "kind": "chapter",
+          "labels": [
+            "Objekt",
+            "Klasse",
+            "Attribut",
+            "Struktur"
+          ],
+          "narration": "Was Eltern oft überrascht: Der Informatikunterricht in der sechsten Klasse ist kein Computerkurs. Es geht nicht darum, ein bestimmtes Programm bedienen zu können. Es geht um eine Denkweise, die im Informatikunterricht immer wieder aufgegriffen wird: Dinge als Objekte beschreiben, die zu Klassen gehören und Attribute haben. Das Dateisystem ist dafür das ideale Übungsfeld, weil jedes Kind es schon kennt."
+        },
+        {
+          "kind": "bullets",
+          "onScreenTitle": "Objekt, Klasse, Attribut",
+          "bullets": [
+            "Klasse: Bauplan, groß geschrieben: ORDNER, DATEI",
+            "Objekt: ein konkretes Ding: aufsatz, schule",
+            "Attribut: Eigenschaft mit Wert: name, größe",
+            "Punktnotation: aufsatz.name = „Aufsatz.txt“"
+          ],
+          "narration": "Die drei Grundbegriffe. Eine Klasse ist der Bauplan für eine Art von Dingen und wird in Großbuchstaben geschrieben: ORDNER, DATEI, später RECHTECK oder ABSATZ. Ein Objekt ist ein konkretes Ding nach diesem Bauplan, kleingeschrieben: aufsatz, schule. Ein Attribut ist eine Eigenschaft mit einem Wert: name, größe. Zugegriffen wird mit der Punktnotation, Objekt Punkt Attribut: aufsatz Punkt name ergibt Aufsatz Punkt t x t. Diese Schreibweise taucht in Heften, Arbeitsblättern und Tests immer wieder auf; wer sie einmal verstanden hat, liest den ganzen Informatikunterricht leichter."
+        },
+        {
+          "kind": "bullets",
+          "onScreenTitle": "Warum ein Baum und kein Netz?",
+          "bullets": [
+            "Jeder Knoten hat genau einen Elternknoten",
+            "Darum ist jeder Pfad eindeutig",
+            "Hierarchie: eine Ebene unter der anderen",
+            "Dieselbe Struktur: Gliederung, Stammbaum, Menü"
+          ],
+          "narration": "Der Lernbereich heißt Hierarchische Informationsstrukturen, und das Wort Hierarchie ist der Schlüssel. In einem Baum hat jeder Knoten genau einen Elternknoten. Deshalb gibt es zu jeder Datei genau einen Weg von der Wurzel, den Pfad. Diese Struktur begegnet Ihrem Kind überall: in der Gliederung eines Aufsatzes, im Stammbaum, im Menü einer App, im Inhaltsverzeichnis. Wenn Ihr Kind den Baum einmal im Dateisystem verstanden hat, erkennt es ihn an diesen anderen Stellen wieder, und das ist das eigentliche Lernziel."
+        },
+        {
+          "kind": "bullets",
+          "onScreenTitle": "Rekursion, das schwierigste Wort",
+          "bullets": [
+            "Eine Beziehung, die auf dieselbe Klasse zeigt",
+            "Ordner enthält Ordner enthält Ordner",
+            "Bild: Schachteln in Schachteln",
+            "Folge: Der Baum kann beliebig tief werden"
+          ],
+          "narration": "Das schwierigste Wort des Lernbereichs ist rekursiv. Gemeint ist eine Beziehung, die auf dieselbe Klasse zurückzeigt: ORDNER enthält ORDNER. Für Kinder hilft das Bild der Schachteln in Schachteln oder der russischen Puppen. Die Folge ist, dass ein Baum beliebig tief werden kann und dass man viele Fragen an einen Ordner beantwortet, indem man dieselbe Frage an seine Unterordner stellt, etwa die nach der Größe. Mehr als dieses Verständnis steht im Lernbereich nicht im Mittelpunkt; formale Rekursion ist, wenn überhaupt, Thema späterer Jahrgangsstufen."
+        }
+      ]
+    },
+    {
+      "title": "Üben am eigenen Computer",
+      "goal": "Sie haben drei Übungen für zu Hause, die ohne Arbeitsblatt am echten Computer funktionieren.",
+      "keyPoints": [
+        "Eigenen Baum zeichnen",
+        "Pfade lesen",
+        "Größen vergleichen"
+      ],
+      "scenes": [
+        {
+          "kind": "chapter",
+          "labels": [
+            "Zeichnen",
+            "Pfade",
+            "Aufräumen"
+          ],
+          "narration": "Dieser Lernbereich lässt sich zu Hause besser üben als fast jeder andere, denn das Übungsmaterial steht auf dem Schreibtisch: der Computer oder Laptop Ihres Kindes; am Tablet findet sich der Baum meist in einer App namens Dateien. Drei Übungen, je zehn Minuten, die genau das trainieren, was der Lehrplan verlangt, und nebenbei für Ordnung auf dem Gerät sorgen. Sie brauchen dafür keine Informatikkenntnisse, nur Neugier."
+        },
+        {
+          "kind": "bullets",
+          "onScreenTitle": "Übung 1: den eigenen Baum zeichnen",
+          "bullets": [
+            "Eigenen Ordner als Baum auf Papier zeichnen",
+            "Wurzel oben, Dateien als Blätter unten",
+            "Fachwörter dranschreiben: Wurzel, Knoten, Kante, Blatt",
+            "Fragen: Welche Knoten sind Blätter? Warum?"
+          ],
+          "narration": "Übung eins: Lassen Sie Ihr Kind seinen eigenen Schulordner als Baum auf Papier zeichnen, mit der Wurzel oben und den Dateien als Blättern unten. Dann werden die Fachwörter dazugeschrieben: Wurzel, Knoten, Kante, Blatt. Fragen Sie Ihr Kind: Welche Knoten sind Blätter, und woran erkennst du das? Gibt es einen leeren Ordner, und ist der ein Blatt? Dabei zeigt sich meist, dass der echte Ordner unordentlich ist, und das führt direkt zu Übung drei."
+        },
+        {
+          "kind": "bullets",
+          "onScreenTitle": "Übung 2: Pfade lesen und schreiben",
+          "bullets": [
+            "Eine Datei öffnen, den Pfad in der Adresszeile ansehen",
+            "Pfad vorlesen: Wurzel, Ordner, Datei",
+            "Umgekehrt: Pfad aufschreiben, Datei finden lassen",
+            "Zwei gleichnamige Dateien in verschiedenen Ordnern vergleichen"
+          ],
+          "narration": "Übung zwei: Pfade. Im Dateimanager zeigt die Adresszeile den Pfad der geöffneten Datei an. Lassen Sie ihn vorlesen: Wurzel, Ordner, Unterordner, Datei. Dann umgekehrt: Sie schreiben einen Pfad auf, Ihr Kind findet die Datei. Besonders lehrreich sind zwei Dateien mit demselben Namen in verschiedenen Ordnern: Sie machen die Eindeutigkeit des Pfads greifbar. Auch die Schreibweise mit Schrägstrich oder umgekehrtem Schrägstrich lässt sich hier ohne Theorie klären."
+        },
+        {
+          "kind": "bullets",
+          "onScreenTitle": "Übung 3: Größen vergleichen und aufräumen",
+          "bullets": [
+            "Ordnergrößen anzeigen lassen: Eigenschaften, Informationen",
+            "Als Säulendiagramm skizzieren",
+            "Fragen: Warum ist dieser Ordner so groß?",
+            "Aufräumen: sinnvolle Ordner, sprechende Namen"
+          ],
+          "narration": "Übung drei: Lassen Sie sich die Größen der obersten Ordner anzeigen, am Computer über Eigenschaften oder Informationen, und skizzieren Sie gemeinsam ein Säulendiagramm. Fragen Sie: Warum ist dieser Ordner so groß, welche Dateien darin sind es? Das ist die rekursive Idee in der Praxis. Zum Schluss aufräumen: sinnvolle Ordner anlegen, Dateien mit sprechenden Namen versehen, Doppeltes löschen. Ein Kind, das seinen eigenen Baum ordnet, hat einen wichtigen Teil des Lernbereichs praktisch erfahren und findet nebenbei seine Hausaufgaben wieder."
+        }
+      ]
+    },
+    {
+      "title": "Fehlvorstellungen, Bewertung, Ausblick",
+      "goal": "Sie erkennen typische Fehlvorstellungen, wissen, wie in NT bewertet wird, und kennen die nächsten Themen.",
+      "keyPoints": [
+        "Ordner als Datei",
+        "Baum wächst nach oben",
+        "Kleine Leistungsnachweise",
+        "Informatik geht weiter"
+      ],
+      "scenes": [
+        {
+          "kind": "chapter",
+          "labels": [
+            "Fehlvorstellungen",
+            "Bewertung",
+            "Ausblick"
+          ],
+          "narration": "Zum Schluss drei Dinge, die Eltern häufig fragen: Welche Fehlvorstellungen sind typisch, wie wird der Informatikteil von Natur und Technik bewertet, und wie geht es mit Informatik am Gymnasium weiter? Die Fehlvorstellungen kommen meist aus der Alltagssprache und von Geräten, die den Baum verstecken. Die Bewertung läuft meist anders als in den Hauptfächern, nämlich über kleine Leistungsnachweise. Und Informatik bleibt dem Kind erhalten."
+        },
+        {
+          "kind": "bullets",
+          "onScreenTitle": "Vier typische Fehlvorstellungen",
+          "bullets": [
+            "Ordner speichert Inhalt? Nein, er enthält nur",
+            "Baum wächst nach oben? Nein, Wurzel ist oben",
+            "Blatt heißt Datei? Fast: Knoten ohne Kinder",
+            "Suchfeld ersetzt Struktur? Pfade bleiben eindeutig"
+          ],
+          "narration": "Vier Fehlvorstellungen, die in der Praxis häufig vorkommen. Erstens: Ein Ordner speichere selbst Inhalt. Nein, er enthält nur; im Modell tragen nur Dateien Information und eine eigene Größe. Zweitens: Der Baum wachse wie ein echter Baum nach oben. In der Informatik ist die Wurzel oben. Drittens: Blatt sei nur ein anderes Wort für Datei. Fast richtig, aber die Definition lautet Knoten ohne Kinder, und ein leerer Ordner zählt dazu. Viertens, die hartnäckigste: Mit dem Suchfeld brauche man keine Struktur. Handys verstecken den Baum, aber er ist da, und wer Pfade versteht, findet Dateien auch dann, wenn die Suche versagt."
+        },
+        {
+          "kind": "bullets",
+          "onScreenTitle": "So wird in NT meist bewertet",
+          "bullets": [
+            "In der Regel keine Schulaufgaben in Natur und Technik",
+            "Kleine Leistungsnachweise: Stegreifaufgaben, Mitarbeit, Projekte",
+            "Typisch: Baum beschriften, Pfad angeben, Klassendiagramm lesen",
+            "Details legt die Lehrkraft fest"
+          ],
+          "narration": "Natur und Technik gehört in der sechsten Klasse in der Regel zu den Fächern ohne Schulaufgaben. Bewertet wird mit kleinen Leistungsnachweisen: Stegreifaufgaben, mündliche Mitarbeit, praktische Arbeit am Rechner, im Informatikteil oft auch das Präsentationsprojekt aus Lernbereich 2.2. Typische Aufgaben zum Dateisystem: einen Baum mit den Fachwörtern beschriften, einen Pfad angeben oder eine Datei nach Pfad finden, ein Klassendiagramm lesen, Objekte ihrer Klasse zuordnen. Wie das an der Schule Ihres Kindes genau gehandhabt wird, legt die Lehrkraft fest."
+        },
+        {
+          "kind": "bullets",
+          "onScreenTitle": "Ausblick: Informatik bleibt",
+          "bullets": [
+            "Informatik setzt sich in höheren Jahrgangsstufen fort",
+            "Details laut LehrplanPLUS der jeweiligen Jahrgangsstufe",
+            "Die Denkweise bleibt: Objekt, Klasse, Attribut, Beziehung",
+            "Der Baum kehrt wieder: Gliederungen, Menüs, Daten"
+          ],
+          "narration": "Wie geht es weiter? Informatik wird in den folgenden Jahrgangsstufen nach Lehrplan fortgeführt und vertieft; welche Inhalte genau folgen, entnehmen Sie dem LehrplanPLUS der jeweiligen Jahrgangsstufe. Die Denkweise aus der sechsten Klasse bildet dabei ein Fundament, auf dem spätere Themen aufbauen können: Objekte, Klassen, Attribute und Beziehungen. Und der Baum kehrt immer wieder zurück, in Gliederungen, Menüs, Datenbanken und in der Struktur von Webseiten. Was Ihr Kind jetzt am Dateisystem lernt, ist also kein Randthema, sondern ein Grundmuster der Informatik."
+        },
+        {
+          "kind": "outro",
+          "narration": "Kurz gesagt: Der Informatikteil von Natur und Technik lehrt eine Denkweise. Dinge als Objekte mit Klasse und Attributen beschreiben, Strukturen als Baum mit Wurzel, Knoten, Kanten und Blättern sehen, Wege als eindeutigen Pfad angeben, und die rekursive Idee verstehen, dass Ordner Ordner enthalten. Üben Sie am eigenen Computer: Baum zeichnen, Pfade lesen, Größen vergleichen, aufräumen. Die Kinder-Lektion zum Thema finden Sie auf diesem Kanal. Abonnieren Sie für die nächsten Lernbereiche."
+        }
+      ]
+    }
+  ],
+  "review": {
+    "reviewer": "Claude Sonnet (Claude Code subagent), independent of the writer (Claude in Claude Code)",
+    "date": "2026-11-09",
+    "mustFixApplied": [
+      "Aussagen über spätere Jahrgangsstufen generisch und gehedgt (kein „NT 7“, kein „ab Klasse 9“)",
+      "„bis zum Abitur durchgehalten“ abgeschwächt",
+      "Eindeutigkeit der Pfade korrekt begründet (gleicher Name nur in verschiedenen Ordnern; ein Weg von der Wurzel), kein „muss ein Baum sein“",
+      "„Bewertung leichter“ ersetzt durch „anders, über kleine Leistungsnachweise“"
+    ],
+    "suggestionsApplied": [
+      "Punktnotation in Idee 3 erwähnt",
+      "Fotos als hervorgehobene Säule erklärt",
+      "Leerer Ordner als Blatt relativ zum Beispiel",
+      "Rekursion-Erwartung gehedgt",
+      "Tablet-Hinweis; Fragen ans Kind gekennzeichnet; „Neugier“",
+      "Fehlvorstellungen: „in der Praxis häufig“, „im Modell“"
+    ],
+    "verified": [
+      "Größen 10/17/15 MB",
+      "Segmente und Narration",
+      "Konventionen (Klassen groß, Objekte klein, enthält als Beziehung)",
+      "Lehrplanfakten 2.1 bis 2.3",
+      "Sie-Form, Wortzahlen"
+    ]
+  }
+}

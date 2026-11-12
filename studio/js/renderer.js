@@ -1,6 +1,8 @@
 // Draws any frame of the video from the plan. Pure function of (plan, time): deterministic, so the thumbnail is just a frame.
 import { THEMES } from './settings.js';
 import { Scene3D } from './scene3d.js';
+import { Scene as MathScene } from '../../klasse6/js/engine3d.js';
+import { SCENES as MATH_SCENES } from '../../klasse6/js/scenes.js';
 
 const FADE_IN = 0.45, FADE_OUT = 0.3;
 const clamp01 = x => Math.min(1, Math.max(0, x));
@@ -42,6 +44,7 @@ export class Renderer {
     this.hasFootageFrame = !!footageFrame;
     if (index < 0) return;
     const scene = plan.scenes[index];
+    this.plan = plan; this.sceneIndex = index;
     const local = time - scene.start;
     const aIn = outCubic(prog(local, 0, FADE_IN));
     const aOut = index === plan.scenes.length - 1 ? 1 : clamp01((scene.start + scene.duration - time) / FADE_OUT);
@@ -231,6 +234,8 @@ export class Renderer {
       case 'quote': return this.quote(v, local);
       case 'footage': return this.footageOverlay(v, local);
       case 'scene3d': return this.scene3d(v, local, scene.duration);
+      case 'math3d': return this.math3d(v, local, scene);
+      case 'question': return this.question(v, local, scene);
       case 'chapter': return this.chapter(v, local, scene.duration);
       default: return this.outro(v, local);
     }
@@ -243,6 +248,77 @@ export class Renderer {
     let y = this.my;
     y = this.kicker(v.kicker, local, y);
     this.heading(v.title, local, y, 64, 2);
+  }
+
+  /**
+   * A ready-made maths explanation from klasse6/js/mathscenes.js. Consecutive scenes that share the same scene id and
+   * parameters play one continuous animation, stretched over their combined duration, so the writer can narrate a
+   * single 3D explanation across several scenes.
+   */
+  math3d(v, local, scene) {
+    const def = MATH_SCENES[v.scene];
+    if (!def) return this.bullets({ ...v, bullets: v.bullets && v.bullets.length ? v.bullets : [v.title] }, local);
+    let t;
+    if (v.segment) {
+      // An exact slice of the animation's own timeline, stretched over this scene.
+      const [a, b] = v.segment;
+      t = Math.max(0, Math.min(def.duration, a + (local / Math.max(0.1, scene.duration)) * (b - a) * 0.985));
+    } else {
+      const key = v.scene + JSON.stringify(v.params || {});
+      const same = sc => sc && sc.visual && sc.visual.kind === 'math3d' && !sc.visual.segment && sc.visual.scene + JSON.stringify(sc.visual.params || {}) === key;
+      const all = this.plan.scenes; let i0 = this.sceneIndex, i1 = this.sceneIndex;
+      while (i0 > 0 && same(all[i0 - 1])) i0--;
+      while (i1 < all.length - 1 && same(all[i1 + 1])) i1++;
+      const start = all[i0].start, span = Math.max(0.1, all[i1].start + all[i1].duration - start);
+      t = Math.max(0, ((scene.start + local - start) / span) * def.duration * 0.985);
+    }
+    const cam = def.camera || {};
+    const S = new MathScene(this.ctx, this.w, this.h, this.theme, { ...cam, cy: this.h * (this.portrait ? 0.5 : 0.58) });
+    S.titleOverride = v.title || null;
+    if (typeof v.formula === 'string') S.formulaOverride = v.formula;
+    def.draw(S, t, v.params || {});
+    S.flush();
+  }
+
+  /**
+   * Question for the viewer: the question in large type, then a visible countdown during the silent think-pause
+   * (scene.think seconds after the spoken question), then "Die Antwort kommt gleich".
+   */
+  question(v, local, scene) {
+    const { ctx, theme } = this;
+    let y = this.my;
+    y = this.kicker(v.kicker || 'Frage an dich', local, y);
+    const px = this.fitFont(v.question || v.title, this.u(this.portrait ? 72 : 84), this.u(40), 800, this.cw, 3);
+    const p = outCubic(prog(local, 0.1, 0.6));
+    ctx.save(); ctx.shadowColor = 'rgba(0,0,0,0.45)'; ctx.shadowBlur = this.u(16);
+    const h = this.text(v.question || v.title, this.mx, y, this.cw, this.font(px, 800), theme.text, { alpha: p, offsetY: (1 - p) * this.u(24), lineHeightMultiple: 1.0 });
+    ctx.restore();
+    y += h + this.u(40);
+    if (v.hint) y += this.text(v.hint, this.mx, y, this.cw * 0.9, this.font(this.u(36), 500), theme.muted, { alpha: p }) + this.u(30);
+    // scene.narrationDuration is the spoken part only; the think-pause follows it.
+    const think = Math.max(0, scene.think || 0), speechEnd = (scene.narrationStart - scene.start) + scene.narrationDuration;
+    if (think <= 0) return;
+    const elapsed = local - speechEnd;
+    const cx = this.portrait ? this.w / 2 : this.mx + this.u(110), cy = Math.min(this.h - this.my * 1.9, y + this.u(130)), r = this.u(90);
+    if (elapsed < 0) {
+      // Before the pause: a quiet hint that a pause is coming.
+      this.text('Gleich hast du Zeit zum Nachdenken.', this.mx, cy - this.u(18), this.cw, this.font(this.u(32), 500), theme.muted, { alpha: 0.8 });
+      return;
+    }
+    const remaining = Math.max(0, think - elapsed), frac = clamp01(remaining / think);
+    if (remaining > 0.05) {
+      ctx.save();
+      ctx.lineWidth = this.u(12); ctx.lineCap = 'round';
+      ctx.strokeStyle = withAlpha(theme.text, 0.15); ctx.beginPath(); ctx.arc(cx, cy, r, 0, Math.PI * 2); ctx.stroke();
+      ctx.strokeStyle = theme.accent2; ctx.beginPath(); ctx.arc(cx, cy, r, -Math.PI / 2, -Math.PI / 2 + Math.PI * 2 * frac); ctx.stroke();
+      ctx.fillStyle = theme.text; ctx.font = this.font(this.u(64), 800); ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+      ctx.fillText(String(Math.ceil(remaining)), cx, cy + this.u(4));
+      ctx.restore();
+      this.text(v.thinkText || 'Denk kurz nach. Halte das Video an, wenn du mehr Zeit brauchst.', cx + r + this.u(40), cy - this.u(20), this.cw - r * 2 - this.u(60), this.font(this.u(34), 600), theme.text, { alpha: 0.9 });
+    } else {
+      const a = outCubic(prog(elapsed, think, 0.5));
+      this.text(v.answerText || 'Die Antwort kommt gleich.', cx - r, cy - this.u(20), this.cw, this.font(this.u(40), 700), theme.accent2, { alpha: a });
+    }
   }
 
   /** Chapter card: a large chapter number, the chapter title and a faint 3D backdrop (or footage under it). */
@@ -508,7 +584,7 @@ export class Renderer {
     const top = this.h * (this.portrait ? 0.30 : 0.28);
     ctx.save(); ctx.globalAlpha *= p; ctx.font = this.font(this.u(26), 700); ctx.fillStyle = theme.accent; ctx.textBaseline = 'top'; ctx.textAlign = 'center';
     if ('letterSpacing' in ctx) ctx.letterSpacing = this.u(3) + 'px';
-    ctx.fillText('REMEMBER THIS', this.w / 2, top);
+    ctx.fillText(v.eyebrow || 'REMEMBER THIS', this.w / 2, top);
     ctx.restore();
     const px = this.fitFont(v.title, this.u(this.portrait ? 84 : 92), this.u(44), 900, this.cw, 3);
     const h = this.text(v.title, this.mx, top + this.u(60), this.cw, this.font(px, 900), theme.text, { align: 'center', alpha: p, offsetY: (1 - p) * this.u(30), lineHeightMultiple: 0.98 });
@@ -520,6 +596,8 @@ export class Renderer {
       this.pill(cta, cx, cy, this.font(this.u(36), 700), theme.dark ? theme.bgTop : '#fff', theme.accent, this.u(40), this.u(20), 1, this.cw);
       ctx.restore();
     }
+    // Small print at the bottom (lessons: the voice is synthetic, the content follows the curriculum).
+    if (v.footnote) this.text(v.footnote, this.mx, this.h - this.my - this.u(70), this.cw, this.font(this.u(22), 500), theme.muted, { align: 'center', alpha: p * 0.85 });
   }
 }
 

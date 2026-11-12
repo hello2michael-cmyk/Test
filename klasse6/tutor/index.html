@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Lumi · Lern-Tutor Klasse 6</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Lumi">
+  <meta name="theme-color" content="#0d1229">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="apple-touch-icon" href="../../icon-192.png">
+  <link rel="icon" href="../../icon-192.png" type="image/png">
+  <link rel="stylesheet" href="tutor.css">
+</head>
+<body>
+  <header>
+    <div class="brand"><span class="dot"></span> Lumi <small>Lern-Tutor · Klasse 6 Gymnasium Bayern</small></div>
+    <div class="tools">
+      <button id="tvToggle" title="Großer Bildschirm (Fernseher)">TV</button>
+      <button id="clear" title="Neues Gespräch">Neu</button>
+      <button id="gear" title="Einstellungen">⚙</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="who">
+      <canvas id="avatar"></canvas>
+      <div id="status" class="status"></div>
+      <div id="lines" class="lines"></div>
+    </section>
+    <section class="stage">
+      <canvas id="stageCanvas" hidden></canvas>
+      <div id="card" class="card" hidden></div>
+      <div id="stageHint" class="hint"></div>
+    </section>
+    <div id="caption" class="caption"></div>
+  </main>
+
+  <footer>
+    <div id="chips" class="chips"></div>
+    <div class="row">
+      <button id="mic" class="mic" title="Sprechen">🎤</button>
+      <input id="text" type="text" placeholder="Frag mich etwas … (oder tippe auf das Mikrofon)" autocomplete="off" autocapitalize="sentences">
+      <button id="send">Senden</button>
+      <button id="quiz" title="Frag mich ab">Abfragen</button>
+      <button id="stop" title="Lumi unterbrechen">Stopp</button>
+    </div>
+  </footer>
+
+  <div id="intro" class="overlay">
+    <div class="box">
+      <h1>Hallo, ich bin Lumi.</h1>
+      <p>Dein sprechender Lern-Tutor für die 6. Klasse: Mathe, Deutsch, Englisch, Französisch, Latein, Natur und Technik, Geschichte und mehr. Frag mich mit deiner Stimme, ich antworte und zeige dir Bilder dazu.</p>
+      <button id="start" class="primary">Los geht’s</button>
+      <p class="fine">Lumi nutzt ein KI-Modell (Claude). Die Antworten können Fehler enthalten. Bei Zweifeln: Heft und Lehrkraft fragen.</p>
+    </div>
+  </div>
+
+  <div id="settings" class="overlay" hidden>
+    <div class="box">
+      <h2>Einstellungen</h2>
+      <p id="setNote" class="note"></p>
+      <label>API-Schlüssel (Anthropic, beginnt mit sk-ant-) <input id="apiKey" type="password" autocomplete="off" placeholder="sk-ant-…"></label>
+      <label>Modell <select id="model"><option value="claude-opus-5-5">Claude Opus 5.5 (empfohlen)</option><option value="claude-sonnet-5-5">Claude Sonnet 5.5 (schneller, günstiger)</option><option value="claude-haiku-5-5">Claude Haiku 5.5 (am günstigsten)</option></select></label>
+      <label>Gründlichkeit <select id="effort"><option value="low">niedrig (schnell)</option><option value="medium">mittel</option><option value="high">hoch</option></select></label>
+      <label>Stimme <select id="tts"><option value="web">Gerätestimme (kostenlos, sofort)</option><option value="google">Google Cloud, Leda (wie in den Videos; Schlüssel nötig)</option></select></label>
+      <label>Google-Cloud-TTS-Schlüssel (optional) <input id="googleKey" type="password" autocomplete="off"></label>
+      <label>Google-Stimme <input id="googleVoice" type="text" placeholder="de-DE-Chirp3-HD-Leda"></label>
+      <label>Sprechtempo <input id="rate" type="number" min="0.7" max="1.3" step="0.05"></label>
+      <label>Spitzname des Kindes (optional, nur Vorname oder Fantasiename) <input id="nickname" type="text" maxlength="20"></label>
+      <p class="fine">Schlüssel bleiben nur in diesem Browser auf diesem Gerät (localStorage) und gehen direkt an Anthropic bzw. Google. Gespräche werden nicht gespeichert, außer für die laufende Sitzung.</p>
+      <button id="saveSettings" class="primary">Speichern</button>
+    </div>
+  </div>
+
+  <script type="module" src="tutor.js"></script>
+</body>
+</html>

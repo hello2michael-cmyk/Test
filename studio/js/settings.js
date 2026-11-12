@@ -28,6 +28,7 @@ const DEFAULTS = {
   hfProviderModel: 'Wan-AI/Wan2.2-T2V-A14B',
   videoStyle: 'auto',           // 'auto' | 'explainer' | 'course' | 'cinematic'
   aiClipBudget: 12,             // long lessons: how many scenes get a generated AI clip (free GPU quota is limited)
+  minSceneSeconds: 0,           // hold every scene at least this long (children's lessons: 10); 0 = the renderer's own minimum
   reviewShots: true,            // pause to let the creator edit shot prompts before footage is generated
   filmLook: true, letterbox: true,   // film finish for cinematic footage
   falKey: '', falModel: 'ltx2-fast', falEndpoint: '', falExtra: '', footageDuration: 6, footageScope: 'all',

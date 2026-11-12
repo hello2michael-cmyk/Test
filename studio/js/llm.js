@@ -145,6 +145,7 @@ function hfTextEngine(model, settings) {
 // ---------- Mock engine (tests and demos; no download) ----------
 function mockEngine(broken = false) {
   const json = (o) => JSON.stringify(o);
+  let reviews = 0;
   return {
     name: broken ? 'Mock writer (broken JSON)' : 'Mock writer (demo)',
     async complete(system, user, opts, onToken) {
@@ -167,6 +168,9 @@ function mockEngine(broken = false) {
         const topics = ['Welcome: what AI can do for you', 'Models: the engine', 'Agents: models that act', 'Skills: reusable know-how', 'Connectors: reaching your tools', 'Memory: how it remembers', 'Recap and next steps'];
         const chapters = []; for (let i = 1; i <= n; i++) { const t = i === n ? topics[topics.length - 1] : topics[(i - 1) % (topics.length - 1)]; chapters.push({ id: i, title: t, goal: `Understand ${t.toLowerCase()} in plain words.`, keyPoints: [`What ${t.split(':')[0].toLowerCase()} means in one sentence.`, 'How it works, step by step, with the key parts named.', 'One concrete everyday example you can picture.', 'Why it matters when you use AI tools.'], example: 'Planning a weekend trip with an assistant that books the train, checks the weather and remembers your preferences.' }); }
         out = json({ title: 'AI Basics: Models, Agents, Skills, Connectors and Memory', audience: 'curious beginners', hook: 'Most people use AI every day without knowing the five ideas that make it work.', learningObjectives: ['Tell a model from an agent', 'Know what skills and connectors add', 'Understand how memory works'], keyTakeaway: 'An AI assistant is a model that acts, with skills, connections and memory around it.', tone: 'warm and precise', broll: 'A woman in her thirties with dark curly hair and a mustard sweater, in a bright loft office with large windows and warm afternoon light.', chapters });
+      } else if (system.includes('CHAPTER WRITER') && /Scenes to fix/.test(user)) {
+        const rows = [...user.matchAll(/^(\d+)\. \[problem: [^\]]*\] (.+)$/gm)];
+        out = json({ narrations: Object.fromEntries(rows.map(([, id, text]) => [id, `Korrigiert: ${text}`])) });
       } else if (system.includes('CHAPTER WRITER') && /Scenes to expand/.test(user)) {
         const rows = [...user.matchAll(/^(\d+)\. \[[^\]]*\] (.+)$/gm)];
         out = json({ narrations: Object.fromEntries(rows.map(([, id, text]) => [id, `${text} Put simply, this is the part that does the work. For example, think of an assistant that plans a trip and books the train for you. That is why it matters when you use these tools every day.`])) });
@@ -175,11 +179,14 @@ function mockEngine(broken = false) {
         const first = /Scene 1 is the hook/.test(user), last = /last scene is the recap/.test(user);
         const title = (user.match(/THIS chapter \(\d+ of \d+\): "([^"]+)"/) || [0, 'Topic'])[1];
         const models = ['pipeline', 'hub', 'stack', 'orbit', 'grid', 'network'];
+        const mathScene = (system.match(/Scenes: "(\w+)"/) || [])[1] || null;   // lessons: the first catalogue scene
         const beats = [];
         for (let i = 1; i <= n; i++) {
-          const kind = i === 1 ? (first ? 'title' : 'chapter') : (i === n && last) ? 'outro' : i === 2 ? 'scene3d' : i === 3 ? 'footage' : i % 2 ? 'scene3d' : 'bullets';
+          let kind = i === 1 ? (first ? 'title' : 'chapter') : (i === n && last) ? 'outro' : i === 2 ? 'scene3d' : i === 3 ? 'footage' : i % 2 ? 'scene3d' : 'bullets';
+          if (mathScene && (i === 2 || i === 3)) kind = 'math3d';
           beats.push({ narration: i === 1 ? (first ? 'Most people use AI every day without knowing the five ideas that make it work. In the next few minutes you will learn them all.' : `Now let us look at ${title.toLowerCase()}. This is the part most people skip, and it changes everything.`) : (i === n && last) ? 'So remember: a model thinks, an agent acts, skills and connectors extend it, and memory makes it personal. Thanks for watching.' : `Here is scene ${i} of ${title.split(':')[0]}. It explains one idea with a short, concrete example that a voice can read easily and a viewer can picture.`,
             onScreenTitle: i === 1 ? title : `Idea ${i}`, emphasisWords: ['idea'], kind, model: models[(i + beats.length) % models.length], labels: ['Input', 'Model', 'Plan', 'Action', 'Result'].slice(0, 3 + (i % 3)),
+            scene: kind === 'math3d' ? mathScene : null, params: kind === 'math3d' ? { a: 4, b: 3, c: 2, n: 8, k: 3, p: 25, G: 200 } : null,
             bullets: kind === 'bullets' ? ['A clear first point', 'A second concrete point', 'Why it matters'] : null, nodes: null, leftTitle: null, leftItems: null, rightTitle: null, rightItems: null, statValue: null, statLabel: null, code: null, codeLanguage: null, quote: null, attribution: null,
             hero: i === 3, shot: 'A woman in a bright loft office talks to a laptop assistant while planning a trip, slow push-in.', stockQuery: 'woman laptop office' });
         }
@@ -195,7 +202,9 @@ function mockEngine(broken = false) {
         const ids = [...user.matchAll(/^(\d+)\. \[/gm)].map(m => parseInt(m[1], 10));
         out = json({ scenes: ids.map(id => ({ beatId: id, narration: id === 1 ? 'Every word a language model writes depends on which earlier words it chooses to look at.' : id === ids.length ? 'So remember: attention is the model deciding what matters, one word at a time.' : `Here is point number ${id}. It uses a short, clear sentence that a voice can read easily, with one concrete example.`, onScreenTitle: id === 1 ? 'How attention works' : `Point ${id}`, emphasisWords: ['attention', 'matters'] })) });
       } else if (system.includes('REVIEWER')) {
-        out = json({ approved: true, issues: ['Beat 3 could use a concrete example.'], claimsToVerify: ['The original transformer paper was published in 2017.'], revisedNarration: {} });
+        const lesson = /SCHOOL LESSON/.test(system);
+        out = json({ approved: true, issues: ['Beat 3 could use a concrete example.'], claimsToVerify: ['The original transformer paper was published in 2017.'], revisedNarration: {},
+          mustFix: lesson && reviews++ === 0 ? [{ beatId: 2, problem: 'Die Zahl im Text passt nicht zum Bild.' }] : [] });
       } else if (system.includes('VISUAL DESIGNER')) {
         const rows = [...user.matchAll(/^(\d+)\. layout=(\w+) \| headline="([^"]*)"/gm)];
         out = json({ scenes: rows.map(([, id, kind, headline]) => ({ beatId: parseInt(id, 10), kind, kicker: kind === 'title' ? null : 'Step ' + id, title: headline, subtitle: kind === 'title' ? 'An explainer in sixty seconds' : kind === 'outro' ? 'Subscribe for more' : null,
