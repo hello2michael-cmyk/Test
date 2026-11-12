@@ -27,6 +27,7 @@ const spokenLang = () => (settings.mode === 'parent' ? 'en' : 'de');
 
 /* ------------------------------------------------------------------ settings (this device only) */
 const settings = { ...DEFAULTS, ...JSON.parse(localStorage.getItem('lumi.settings') || '{}') };
+if (settings.layoutV !== 2) { settings.focus = true; settings.layoutV = 2; }   // the teacher-only view is the default for everyone once
 const saveSettings = () => localStorage.setItem('lumi.settings', JSON.stringify(settings));
 
 /* ------------------------------------------------------------------ state */
@@ -145,7 +146,7 @@ function makeClient() {
 async function ask(userText) {
   if (!client) { openSettings(T().keyFirst); return; }
   if (busy) return;
-  busy = true; syncFab(); setStatus(T().thinking); avatar.set('thinking'); stopSpeaking();
+  stopSpeaking(); busy = true; turnSerial++; syncFab(); setStatus(T().thinking); avatar.set('thinking');
   addLine('du', userText);
   history.push({ role: 'user', content: userText });
   if (history.length > 24) history = history.slice(-24);
@@ -265,18 +266,21 @@ function enqueue(fn) { const token = ++speakSerial; pending++; speakChain = spea
 let idleTimer = 0;
 function queueIdle() {
   // Everything has been said. In conversation mode, open the microphone after a short pause so the child can answer hands-free.
-  clearTimeout(idleTimer); try { keep.pause(); } catch {}
+  clearTimeout(idleTimer);
   if (!settings.voiceMode || busy || listening || cancelSerial >= speakSerial) return;
   if (!(window.SpeechRecognition || window.webkitSpeechRecognition)) return;
   idleTimer = setTimeout(() => { if (!busy && !listening && settings.voiceMode && document.visibilityState === 'visible' && $('intro').hidden && $('settings').hidden) startListening(); }, 700);
 }
+let turnSerial = 0, mutedTurn = -1;   // after Stop, the rest of the current answer stays silent
 function speakNow(text) {
+  if (mutedTurn === turnSerial) return;
   if (settings.tts === 'google' && settings.googleKey) { const audioP = fetchGoogle(text); audioP.catch(() => {}); enqueue(() => speakGoogle(text, audioP)); }
-  else enqueue(() => speakWeb(text));
+  else { const p = speakWeb(text); enqueue(() => p); }   // into the system queue now; the ordered queue only waits for it
 }
 function stopSpeaking() {
-  cancelSerial = speakSerial; clearTimeout(idleTimer);
+  cancelSerial = speakSerial; mutedTurn = turnSerial; clearTimeout(idleTimer);
   try { speechSynthesis.cancel(); } catch {}
+  liveUtterances.clear();
   try { player.pause(); } catch {}
   avatar.level = 0; if (avatar.state === 'speaking') avatar.set('idle');
 }
@@ -289,35 +293,43 @@ function pickVoice() {
   return voices.find(v => v.localService) || voices[0] || null;
 }
 const diag = { voices: 0, voice: '', last: '', errors: 0 };
-const keep = new Audio(); keep.loop = true; keep.setAttribute('playsinline', '');
-/** iOS: route speech to the loudspeaker and keep it audible in silent mode (playback session + a silent media loop while speaking). */
-function speakerSession(on) {
-  try { if (navigator.audioSession) navigator.audioSession.type = on ? 'playback' : 'auto'; } catch {}
-  try { if (on) { if (!keep.src) keep.src = silentWav(8000); const p = keep.play(); if (p && p.catch) p.catch(() => {}); } else keep.pause(); } catch {}
-}
+/** iOS: send speech to the loudspeaker (after the microphone was used, Safari may otherwise route it to the earpiece). */
+function speakerSession(on) { try { if (navigator.audioSession) navigator.audioSession.type = on ? 'playback' : 'auto'; } catch {} }
 function showDiag() {
   const el = $('diag'); if (!el) return;
-  el.textContent = `speech: ${'speechSynthesis' in window ? 'yes' : 'NO'} · voices(${spokenLang()}): ${diag.voices} · voice: ${diag.voice || 'default'} · last: ${diag.last || '-'} · errors: ${diag.errors} · tts: ${settings.tts} · audioSession: ${navigator.audioSession ? navigator.audioSession.type : 'n/a'}`;
+  el.textContent = `speech: ${'speechSynthesis' in window ? 'yes' : 'NO'} · voices(${spokenLang()}): ${diag.voices} · voice: ${diag.voice || 'default'} · last: ${diag.last || '-'} · errors: ${diag.errors} · tts: ${settings.tts}${settings.googleKey ? ' (key set)' : ''} · audioSession: ${navigator.audioSession ? navigator.audioSession.type : 'n/a'}`;
 }
+const liveUtterances = new Set();   // Safari drops the events of utterances that are garbage-collected
+/**
+ * Device voice. Every sentence goes into the system's own speech queue the moment it is ready (iOS plays that queue
+ * gap-free and reliably); waiting for one sentence before handing over the next is what made iOS stop after the first.
+ * Returns a promise that settles when this sentence has been spoken (end event, or the queue has run dry, or a watchdog).
+ */
 function speakWeb(text) {
-  return new Promise(resolve => {
-    if (!('speechSynthesis' in window)) { diag.last = 'no speechSynthesis'; showDiag(); return resolve(); }
-    speakerSession(true);
-    try { speechSynthesis.resume(); } catch {}
-    const u = new SpeechSynthesisUtterance(text); const v = pickVoice(); if (v) u.voice = v; u.lang = v ? v.lang : (spokenLang() === 'en' ? 'en-US' : 'de-DE'); u.rate = settings.rate; u.pitch = 1.0; u.volume = 1;
-    diag.voice = v ? v.name : ''; diag.voices = speechSynthesis.getVoices().filter(x => (spokenLang() === 'en' ? /^en/i : /^de/i).test(x.lang)).length;
-    let mouth = null, started = false, done = false, dog = 0;
-    const finish = why => { if (done) return; done = true; clearInterval(mouth); clearTimeout(dog); diag.last = why; showDiag(); avatar.level = 0; if (--speakingCount <= 0) { speakingCount = 0; if (avatar.state === 'speaking') avatar.set('idle'); } resolve(); };
-    const begin = () => { if (started) return; started = true; avatar.set('speaking'); mouth = setInterval(() => { avatar.level = 0.25 + Math.random() * 0.6; }, 90); };
-    u.onstart = begin;
-    u.onboundary = () => { avatar.level = 0.9; };
-    u.onend = () => finish('end'); u.onerror = e => { diag.errors++; finish('error: ' + (e.error || '?')); };
-    speakingCount++; currentUtter = u; (window.__utter = window.__utter || []).push(u); if (window.__utter.length > 6) window.__utter.shift();   // keep references: Safari drops the events of collected utterances
-    speechSynthesis.speak(u);
-    setTimeout(() => { if (!started && speechSynthesis.speaking) begin(); else if (!started && !speechSynthesis.pending) finish('never started'); }, 1500);
-    dog = setTimeout(() => finish('watchdog'), 4000 + text.length * 110);   // an end event that never comes must not stall the queue
+  if (!('speechSynthesis' in window)) { diag.last = 'no speechSynthesis'; showDiag(); return Promise.resolve(); }
+  speakerSession(true);
+  const u = new SpeechSynthesisUtterance(text); const v = pickVoice(); if (v) u.voice = v; u.lang = v ? v.lang : (spokenLang() === 'en' ? 'en-US' : 'de-DE'); u.rate = settings.rate; u.pitch = 1.0; u.volume = 1;
+  diag.voice = v ? v.name : ''; diag.voices = speechSynthesis.getVoices().filter(x => (spokenLang() === 'en' ? /^en/i : /^de/i).test(x.lang)).length;
+  liveUtterances.add(u);
+  const done = new Promise(resolve => {
+    let settled = false, sawSpeaking = false;
+    const finish = why => { if (settled) return; settled = true; clearInterval(poll); clearTimeout(dog); liveUtterances.delete(u); diag.last = why; showDiag(); resolve(); };
+    u.onend = () => finish('end'); u.onerror = e => { if (e.error !== 'interrupted' && e.error !== 'canceled') diag.errors++; finish('error: ' + (e.error || '?')); };
+    const poll = setInterval(() => { if (speechSynthesis.speaking) sawSpeaking = true; else if (sawSpeaking && !speechSynthesis.pending) finish('queue empty'); }, 250);
+    const dog = setTimeout(() => finish('watchdog'), 6000 + text.length * 120);
   });
+  try { speechSynthesis.resume(); } catch {}
+  speechSynthesis.speak(u);
+  return done;
 }
+/** One animator for both voices: the mouth moves whenever something is actually playing. */
+setInterval(() => {
+  if (!avatar) return;
+  const talking = (('speechSynthesis' in window) && speechSynthesis.speaking && !speechSynthesis.paused) || (!player.paused && !player.ended && player.volume > 0 && player.src.startsWith('data:audio/mp3'));
+  if (talking) { if (avatar.state !== 'speaking' && avatar.state !== 'happy') avatar.set('speaking'); if (!(!player.paused && analyserActive)) avatar.level = 0.2 + Math.random() * 0.65; }
+  else if (avatar.state === 'speaking') { avatar.level = 0; avatar.set('idle'); }
+}, 90);
+let analyserActive = false;
 let mediaSrc = null;
 function googleVoiceFor() {
   let name = settings.googleVoice || DEFAULTS.googleVoice;
@@ -380,13 +392,12 @@ function unlockAudio(withSpeech = true) {
   if (withSpeech) try { const u = new SpeechSynthesisUtterance('.'); u.volume = 0; speechSynthesis.speak(u); } catch {}
   try { speechSynthesis.getVoices(); } catch {}
   try { player.src = silentWav(); const p = player.play(); if (p && p.catch) p.catch(() => {}); } catch {}
-  try { keep.src = silentWav(8000); const p = keep.play(); if (p && p.catch) p.then(() => keep.pause()).catch(() => {}); } catch {}
   try { audioCtx = audioCtx || new (window.AudioContext || window.webkitAudioContext)(); audioCtx.resume(); } catch {}
 }
 const isIOS = /iP(hone|ad|od)/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
 
 /* ------------------------------------------------------------------ UI */
-function setFocus(on) { settings.focus = !!on; saveSettings(); if (avatar) avatar.inset = settings.focus ? 96 : 0; document.body.classList.toggle('focus', settings.focus); document.body.classList.toggle('nocc', !settings.cc); if ($('fabCC')) $('fabCC').classList.toggle('off', !settings.cc); }
+function setFocus(on) { document.body.classList.remove('sheet'); settings.focus = !!on; saveSettings(); if (avatar) avatar.inset = settings.focus ? 96 : 0; document.body.classList.toggle('focus', settings.focus); document.body.classList.toggle('nocc', !settings.cc); if ($('fabCC')) $('fabCC').classList.toggle('off', !settings.cc); }
 function syncFab() { const m = $('fabMic'); if (!m) return; m.classList.toggle('on', listening); m.classList.toggle('busy', busy && !listening); }
 function setStatus(s) { $('status').textContent = s; }
 function addLine(who, text) {
@@ -449,13 +460,16 @@ function wire() {
     if (!settings.heard && $('hear')) $('hear').hidden = false;
   };
   document.addEventListener('pointermove', e => avatar.lookAt((e.clientX / innerWidth) * 2 - 1, (e.clientY / innerHeight) * 2 - 1));
-  const interrupt = () => { if (busy || pending > 0 || speechSynthesis.speaking) { stopSpeaking(); setStatus(''); if (settings.voiceMode && !busy) startListening(); } else if (!listening && !busy) startListening(); };
+  const interrupt = () => { if (document.body.classList.contains('sheet')) { document.body.classList.remove('sheet'); return; }
+    interrupt2(); };
+  const interrupt2 = () => { if (busy || pending > 0 || speechSynthesis.speaking) { stopSpeaking(); setStatus(''); if (settings.voiceMode && !busy) startListening(); } else if (!listening && !busy) startListening(); };
   $('classroom').addEventListener('click', interrupt);
   const on = (id, fn) => { const el = $(id); if (el) el.onclick = e => { e.stopPropagation(); fn(e); }; };
   on('fabMic', interrupt);
   on('fabStop', () => { stopSpeaking(); stopListening(); setStatus(''); });
   on('fabCC', () => { settings.cc = !settings.cc; setFocus(settings.focus); });
-  on('fabMore', () => setFocus(false));
+  on('fabMore', () => document.body.classList.toggle('sheet'));
+  document.querySelector('footer').addEventListener('click', e => { if (e.target.closest('.chip, #send, #quiz')) setTimeout(() => document.body.classList.remove('sheet'), 50); });
   on('focusToggle', () => setFocus(true));
   on('hearYes', () => { settings.heard = true; saveSettings(); $('hear').hidden = true; });
   on('hearNo', () => { $('hear').hidden = true; $('soundHelp').hidden = false; showDiag(); });
@@ -464,7 +478,7 @@ function wire() {
   on('shTest', () => { unlockAudio(false); stopSpeaking(); const txt = settings.ui === 'en' ? 'Hello, this is my voice. Can you hear me?' : 'Hallo, das ist meine Stimme. Hörst du mich?'; const p = speakWeb(txt); enqueue(() => p); });
   if ($('talk')) $('talk').onclick = () => { settings.voiceMode = !settings.voiceMode; saveSettings(); $('talk').classList.toggle('on', settings.voiceMode); if (settings.voiceMode && !busy && !listening) startListening(); else if (!settings.voiceMode) stopListening(); };
   if ($('talk')) $('talk').classList.toggle('on', settings.voiceMode);
-  if ($('testVoice')) $('testVoice').onclick = () => { unlockAudio(); stopSpeaking(); speakNow(settings.ui === 'en' ? 'Hello, this is my voice. Can you hear me?' : 'Hallo, das ist meine Stimme. Hörst du mich?'); };
+  if ($('testVoice')) $('testVoice').onclick = () => { unlockAudio(); stopSpeaking(); turnSerial++; speakNow(settings.ui === 'en' ? 'Hello, this is my voice. Can you hear me?' : 'Hallo, das ist meine Stimme. Hörst du mich?'); };
   if ('speechSynthesis' in window) speechSynthesis.onvoiceschanged = () => {};
 }
 
