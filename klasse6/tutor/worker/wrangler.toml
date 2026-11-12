@@ -4,7 +4,7 @@ compatibility_date = "2026-11-01"
 
 [vars]
 ALLOWED_ORIGIN = "https://hello2michael-cmyk.github.io"
-# The avatar's ID from app.liveavatar.com (Avatars). Set it here or as a repository variable for the deploy workflow.
-LIVEAVATAR_AVATAR_ID = ""
+# The video teacher: "Judy Teacher Sitting" (public LiveAvatar avatar). A repository variable LIVEAVATAR_AVATAR_ID overrides it.
+LIVEAVATAR_AVATAR_ID = "c72a9099-84b9-4d5d-98f4-a19ba131e654"
 # "true" while testing: free, with watermark and 2-minute sessions. Set to "false" once a paid plan is active.
 LIVEAVATAR_SANDBOX = "true"

@@ -47,13 +47,14 @@ the page closes. LiveAvatar bills per minute (LITE about 1 credit per minute; th
 
 ### Setup (about 20 minutes, works from an iPad)
 
-1. **HeyGen LiveAvatar:** sign up at app.liveavatar.com, copy the API key, choose an avatar and copy its avatar ID.
+1. **HeyGen LiveAvatar:** sign up at app.liveavatar.com and copy the API key. The avatar is preset: "Judy Teacher Sitting"
+   (`c72a9099-84b9-4d5d-98f4-a19ba131e654`, in `worker/wrangler.toml`); a repository variable `LIVEAVATAR_AVATAR_ID` would override it.
 2. **Cloudflare (free):** sign up at dash.cloudflare.com. My Profile → API Tokens → Create Token → template "Edit Cloudflare
    Workers". Copy the token and the Account ID (right side of the Workers & Pages overview).
 3. **GitHub repository → Settings → Secrets and variables → Actions:**
    - Secrets: `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID`, `LIVEAVATAR_API_KEY`, `ANTHROPIC_API_KEY`, `LUMI_ACCESS_CODE`
      (a long password you invent; every device enters it once). `GOOGLE_TTS_KEY` is already there from the videos.
-   - Variables: `LIVEAVATAR_AVATAR_ID`, and `LIVEAVATAR_SANDBOX` = `true` for free testing (`false` once a paid plan is active).
+   - Variables (optional): `LIVEAVATAR_SANDBOX` = `false` once a paid plan is active (default: free sandbox).
 4. **Actions → "Deploy Lumi key server" → Run workflow.** The run summary shows the server address (`https://lumi-tutor.<name>.workers.dev`).
 5. **In Lumi:** ⋯ → ⚙ → "Lumi server" = that address, "Access code" = your code, tick "Real video teacher", Save.
 

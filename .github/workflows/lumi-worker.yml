@@ -2,7 +2,8 @@ name: Deploy Lumi key server (Cloudflare Worker)
 
 # Deploys klasse6/tutor/worker to Cloudflare and stores its secrets there. Run it from the Actions tab (Run workflow).
 # Repository secrets: CLOUDFLARE_API_TOKEN (template "Edit Cloudflare Workers"), CLOUDFLARE_ACCOUNT_ID, LUMI_ACCESS_CODE,
-# ANTHROPIC_API_KEY, GOOGLE_TTS_KEY, LIVEAVATAR_API_KEY. Repository variables: LIVEAVATAR_AVATAR_ID, LIVEAVATAR_SANDBOX (true/false).
+# ANTHROPIC_API_KEY, GOOGLE_TTS_KEY, LIVEAVATAR_API_KEY. Optional repository variables: LIVEAVATAR_AVATAR_ID (default in wrangler.toml:
+# Judy Teacher Sitting), LIVEAVATAR_SANDBOX (default true: free test mode; set false once a paid plan is active).
 on:
   workflow_dispatch:
   push:
@@ -41,9 +42,11 @@ jobs:
         if: steps.creds.outputs.configured == 'true'
         id: deploy
         run: |
-          npx --yes wrangler@4 deploy \
-            --var "LIVEAVATAR_AVATAR_ID:${{ vars.LIVEAVATAR_AVATAR_ID }}" \
-            --var "LIVEAVATAR_SANDBOX:${{ vars.LIVEAVATAR_SANDBOX || 'true' }}" 2>&1 | tee deploy.log
+          # repository variables override wrangler.toml only when they are set (an empty value must not erase the avatar)
+          args=()
+          if [ -n "${{ vars.LIVEAVATAR_AVATAR_ID }}" ]; then args+=(--var "LIVEAVATAR_AVATAR_ID:${{ vars.LIVEAVATAR_AVATAR_ID }}"); fi
+          if [ -n "${{ vars.LIVEAVATAR_SANDBOX }}" ]; then args+=(--var "LIVEAVATAR_SANDBOX:${{ vars.LIVEAVATAR_SANDBOX }}"); fi
+          npx --yes wrangler@4 deploy "${args[@]}" 2>&1 | tee deploy.log
           url=$(grep -oE 'https://[a-z0-9.-]+\.workers\.dev' deploy.log | head -1)
           echo "url=$url" >> "$GITHUB_OUTPUT"
       - name: Store the secrets in the worker
