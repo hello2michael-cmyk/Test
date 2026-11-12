@@ -11,7 +11,7 @@
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="apple-touch-icon" href="../../icon-192.png">
   <link rel="icon" href="../../icon-192.png" type="image/png">
-  <link rel="stylesheet" href="tutor.css">
+  <link rel="stylesheet" href="tutor.css?v=4">
 </head>
 <body>
   <header>
@@ -25,17 +25,16 @@
   </header>
 
   <main>
-    <section class="who">
-      <canvas id="avatar"></canvas>
-      <div id="status" class="status"></div>
-      <div id="lines" class="lines"></div>
-    </section>
-    <section class="stage">
+    <section class="classroom" id="classroom">
       <canvas id="stageCanvas" hidden></canvas>
       <div id="card" class="card" hidden></div>
       <div id="stageHint" class="hint"></div>
+      <canvas id="avatar"></canvas>
     </section>
+    <div id="hear" class="hear" hidden><span data-i18n="hearQ">Hörst du mich?</span> <button id="hearYes" data-i18n="hearYes">Ja</button> <button id="hearNo" data-i18n="hearNo">Kein Ton</button></div>
+    <div id="status" class="status"></div>
     <div id="caption" class="caption"></div>
+    <div id="lines" class="lines"></div>
   </main>
 
   <footer>
@@ -61,6 +60,20 @@
     </div>
   </div>
 
+  <div id="soundHelp" class="overlay" hidden>
+    <div class="box">
+      <h2 data-i18n="shTitle">Kein Ton?</h2>
+      <ol>
+        <li data-i18n="sh1">iPhone: den Schalter an der Seite auf „Klingeln“ stellen (nicht stumm). Die eingebaute Stimme ist im Stumm-Modus aus.</li>
+        <li data-i18n="sh2">Lautstärke mit den Tasten an der Seite hochdrehen.</li>
+        <li data-i18n="sh3">Oder die menschlichere Google-Stimme nutzen: Sie funktioniert auch im Stumm-Modus. Dafür in den Einstellungen bei „Stimme“ Google Cloud wählen und den Google-Schlüssel eintragen.</li>
+      </ol>
+      <button id="shTest" data-i18n="testVoice">Stimme testen</button>
+      <button id="shSettings" data-i18n="settings">Einstellungen</button>
+      <button id="shClose" class="primary" data-i18n="close">Schließen</button>
+    </div>
+  </div>
+
   <div id="settings" class="overlay" hidden>
     <div class="box">
       <h2 data-i18n="settings">Einstellungen</h2>
@@ -81,6 +94,6 @@
     </div>
   </div>
 
-  <script type="module" src="tutor.js"></script>
+  <script type="module" src="tutor.js?v=4"></script>
 </body>
 </html>

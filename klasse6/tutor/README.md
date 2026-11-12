@@ -27,12 +27,15 @@ Changing the mode starts a fresh conversation.
 
 ## Talking like a conversation
 
-- **Gespräch / Talk** (green when on, default on): after every answer Lumi opens the microphone again, so the child just keeps talking.
-  Tap Lumi or the microphone to speak at any time; tapping while Lumi talks interrupts and listens, like a voice chat. **Stop** silences.
-- The avatar is a teacher character: it blinks, follows the pointer, nods while listening, puts a hand to the chin while thinking,
-  moves the mouth with the speech and raises a hand towards the picture when a scene or card appears.
-- **No sound on the iPhone?** Volume up and the ring/silent switch set to ring: iOS mutes the built-in voice when the phone is on silent.
-  **Stimme testen / Test voice** in the settings speaks a test sentence. The Google Cloud voice plays as media and is not muted by the switch.
+- Lumi is a full-body teacher in a classroom. With nothing on the board he stands in the middle; when a scene, key points or a
+  question appear he walks to the side, points at the board with a pointer and says so ("Look at the board, Michael: …"). He gestures
+  while speaking, nods while listening, puts a hand to the chin while thinking and jumps for a right answer.
+- **Gespräch / Talk** (green when on, default on): after every answer the microphone opens again, so you just keep talking.
+  Tap the classroom or the microphone to speak at any time; tapping while Lumi talks interrupts and listens. **Stop** silences.
+- Enter a first name in the settings and Lumi addresses you by it now and then.
+- **No sound on the iPhone?** After the greeting Lumi asks "Can you hear me?". "No sound" shows the three fixes: ring/silent switch
+  to ring (iOS mutes the built-in voice in silent mode), volume up, or the Google Cloud voice, which plays as media through one audio
+  element unlocked by the first tap and is therefore not muted by the switch. **Test voice** speaks a test sentence.
 - Default thoroughness is "low" for fast replies; raise it in the settings for harder questions.
 
 ## Voices
