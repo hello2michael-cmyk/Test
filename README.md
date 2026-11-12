@@ -50,6 +50,13 @@ Files: `klasse6/SYLLABUS.md` (readable syllabus with sources), `klasse6/data/kla
 Geographie is not taught in Jahrgangsstufe 6 under the G9 Stundentafel (it is in Jgst. 5 and 7); Geschichte starts in Jgst. 6; the second
 foreign language (Latein or Französisch) starts in Jgst. 6.
 
+## Lumi: a talking tutor with an avatar (iPhone, iPad, TV)
+
+`klasse6/tutor/` is a page with an animated tutor that listens, answers with Claude, speaks, and shows the learning app's 3D scenes
+while it explains any topic of the Klasse 6 syllabus. Open it on the phone or iPad, add it to the Home Screen, mirror it to the TV with
+AirPlay and tap **TV** for big text. It needs an Anthropic API key once per device (stored only in that browser). Details, voices and
+costs: `klasse6/tutor/README.md`.
+
 ## Video factory: make videos from GitHub, no app and no phone limits
 
 The same pipeline runs on GitHub's servers. You ask for a video, come back in 10–25 minutes, and download the finished MP4 with captions and YouTube text. The writing is done by a large model (Qwen2.5 72B through Hugging Face Inference Providers, pennies per video), the footage by LTX‑2.3 on free Hugging Face GPUs or Wan 2.2 14B via Inference Providers, and the voice, mix, render and encode run in a headless browser, finished with an H.264 encode for YouTube.
