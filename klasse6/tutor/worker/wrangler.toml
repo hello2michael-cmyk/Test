@@ -1,0 +1,10 @@
+name = "lumi-tutor"
+main = "worker.js"
+compatibility_date = "2026-11-01"
+
+[vars]
+ALLOWED_ORIGIN = "https://hello2michael-cmyk.github.io"
+# The avatar's ID from app.liveavatar.com (Avatars). Set it here or as a repository variable for the deploy workflow.
+LIVEAVATAR_AVATAR_ID = ""
+# "true" while testing: free, with watermark and 2-minute sessions. Set to "false" once a paid plan is active.
+LIVEAVATAR_SANDBOX = "true"

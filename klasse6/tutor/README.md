@@ -32,6 +32,35 @@ subtitles **CC**, more **⋯**). The board appears only when Lumi shows a scene,
 the next answer has nothing to show. **⋯** opens the full view with topic chips, typing, quiz, language, TV and settings; **⤢** in
 the header returns to "Lumi only". Subtitles sit above his head like a speech bubble and can be switched off with **CC**.
 
+## Real video teacher (HeyGen LiveAvatar) and the Lumi key server
+
+With the key server, Lumi shows a lifelike video teacher (HeyGen LiveAvatar, LITE mode) that lip-syncs to the natural German or
+English voice, and the devices need no API keys at all: only the server address and an access code.
+
+How it fits together: the page asks the key server (`klasse6/tutor/worker/`, a Cloudflare Worker) for a short-lived avatar session
+token, connects to the avatar over WebRTC, sends every sentence's audio (Google Chirp 3 HD, raw 16-bit 24 kHz, Base64 in a 400 ms
+first chunk and then 1-second chunks) and waits for the avatar's "speak ended" event before the next sentence. Claude's requests and
+the voice also go through the server, which adds the keys. If the avatar cannot start, Lumi keeps talking as the drawn teacher.
+
+Cost safety: the avatar session ends after 4 minutes without conversation, 30 seconds after the page goes to the background, and when
+the page closes. LiveAvatar bills per minute (LITE about 1 credit per minute; the free sandbox has a watermark and 2-minute sessions).
+
+### Setup (about 20 minutes, works from an iPad)
+
+1. **HeyGen LiveAvatar:** sign up at app.liveavatar.com, copy the API key, choose an avatar and copy its avatar ID.
+2. **Cloudflare (free):** sign up at dash.cloudflare.com. My Profile → API Tokens → Create Token → template "Edit Cloudflare
+   Workers". Copy the token and the Account ID (right side of the Workers & Pages overview).
+3. **GitHub repository → Settings → Secrets and variables → Actions:**
+   - Secrets: `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID`, `LIVEAVATAR_API_KEY`, `ANTHROPIC_API_KEY`, `LUMI_ACCESS_CODE`
+     (a long password you invent; every device enters it once). `GOOGLE_TTS_KEY` is already there from the videos.
+   - Variables: `LIVEAVATAR_AVATAR_ID`, and `LIVEAVATAR_SANDBOX` = `true` for free testing (`false` once a paid plan is active).
+4. **Actions → "Deploy Lumi key server" → Run workflow.** The run summary shows the server address (`https://lumi-tutor.<name>.workers.dev`).
+5. **In Lumi:** ⋯ → ⚙ → "Lumi server" = that address, "Access code" = your code, tick "Real video teacher", Save.
+
+Not yet verified against a live account (the vendor documentation could not be fetched from the build environment): the exact body
+of the LiveAvatar token request (`mode`, `avatar_id`, `is_sandbox`). If the first test fails, the "No sound" dialog's diagnostic line
+shows the server's error; it is a one-line change in `worker/worker.js`.
+
 ## Speed and a natural voice
 
 - **Natural voice:** the start screen has a field for a Google Cloud Text-to-Speech key. With it Lumi speaks with Chirp 3 HD

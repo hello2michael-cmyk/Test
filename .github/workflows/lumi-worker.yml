@@ -1,0 +1,57 @@
+name: Deploy Lumi key server (Cloudflare Worker)
+
+# Deploys klasse6/tutor/worker to Cloudflare and stores its secrets there. Run it from the Actions tab (Run workflow).
+# Repository secrets: CLOUDFLARE_API_TOKEN (template "Edit Cloudflare Workers"), CLOUDFLARE_ACCOUNT_ID, LUMI_ACCESS_CODE,
+# ANTHROPIC_API_KEY, GOOGLE_TTS_KEY, LIVEAVATAR_API_KEY. Repository variables: LIVEAVATAR_AVATAR_ID, LIVEAVATAR_SANDBOX (true/false).
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ['klasse6/tutor/worker/**']
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: klasse6/tutor/worker
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Check the Cloudflare credentials
+        run: |
+          if [ -z "$CLOUDFLARE_API_TOKEN" ] || [ -z "$CLOUDFLARE_ACCOUNT_ID" ]; then
+            echo "::error::Add the repository secrets CLOUDFLARE_API_TOKEN and CLOUDFLARE_ACCOUNT_ID first (see klasse6/tutor/README.md)."; exit 1
+          fi
+      - name: Deploy
+        id: deploy
+        run: |
+          npx --yes wrangler@4 deploy \
+            --var "LIVEAVATAR_AVATAR_ID:${{ vars.LIVEAVATAR_AVATAR_ID }}" \
+            --var "LIVEAVATAR_SANDBOX:${{ vars.LIVEAVATAR_SANDBOX || 'true' }}" 2>&1 | tee deploy.log
+          url=$(grep -oE 'https://[a-z0-9.-]+\.workers\.dev' deploy.log | head -1)
+          echo "url=$url" >> "$GITHUB_OUTPUT"
+      - name: Store the secrets in the worker
+        env:
+          S_ACCESS_CODE: ${{ secrets.LUMI_ACCESS_CODE }}
+          S_ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          S_GOOGLE_TTS_KEY: ${{ secrets.GOOGLE_TTS_KEY }}
+          S_LIVEAVATAR_API_KEY: ${{ secrets.LIVEAVATAR_API_KEY }}
+        run: |
+          for name in ACCESS_CODE ANTHROPIC_API_KEY GOOGLE_TTS_KEY LIVEAVATAR_API_KEY; do
+            var="S_$name"; value="${!var}"
+            if [ -n "$value" ]; then printf '%s' "$value" | npx --yes wrangler@4 secret put "$name" >/dev/null && echo "$name stored";
+            else echo "::warning::$name is not set as a repository secret; that feature stays off."; fi
+          done
+      - name: Result
+        run: |
+          echo "### Lumi key server" >> "$GITHUB_STEP_SUMMARY"
+          echo "Address for the tutor's settings: ${{ steps.deploy.outputs.url }}" >> "$GITHUB_STEP_SUMMARY"

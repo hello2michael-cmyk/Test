@@ -93,3 +93,10 @@ body.focus .card { padding-bottom: 52%; }
 body.focus.sheet header { display: flex; position: fixed; top: 0; left: 0; right: 0; z-index: 9; background: rgba(13,18,41,0.96); padding-top: max(10px, env(safe-area-inset-top)); }
 body.focus.sheet footer { display: block; position: fixed; left: 0; right: 0; bottom: 0; z-index: 9; background: rgba(13,18,41,0.97); padding-bottom: max(12px, env(safe-area-inset-bottom)); box-shadow: 0 -10px 30px rgba(0,0,0,0.5); }
 body.focus.sheet .fab { display: none; }
+/* real video teacher (LiveAvatar): replaces the drawn one; shrinks to the side when the board shows something */
+#avatarVideo { display: none; position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 2; background: #0a0f24; transition: all 0.45s ease; }
+body.video #avatarVideo { display: block; }
+body.video #avatar { display: none; }
+body.video .classroom.has-visual #avatarVideo { inset: auto 12px 12px auto; width: 38%; height: auto; aspect-ratio: 3 / 4; border-radius: 16px; box-shadow: 0 8px 30px rgba(0,0,0,0.6); z-index: 4; }
+body.video.focus .classroom.has-visual #avatarVideo { bottom: 104px; }
+@media (min-aspect-ratio: 5/4) { body.video .classroom.has-visual #avatarVideo { inset: 0 auto 0 0; width: 24%; height: 100%; aspect-ratio: auto; border-radius: 0; box-shadow: none; } body.video.focus .classroom.has-visual #avatarVideo { bottom: 0; } }
