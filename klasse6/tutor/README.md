@@ -25,6 +25,16 @@ The start screen (and the settings) offer three modes. The **EN/DE** button in t
 
 Changing the mode starts a fresh conversation.
 
+## Talking like a conversation
+
+- **Gespräch / Talk** (green when on, default on): after every answer Lumi opens the microphone again, so the child just keeps talking.
+  Tap Lumi or the microphone to speak at any time; tapping while Lumi talks interrupts and listens, like a voice chat. **Stop** silences.
+- The avatar is a teacher character: it blinks, follows the pointer, nods while listening, puts a hand to the chin while thinking,
+  moves the mouth with the speech and raises a hand towards the picture when a scene or card appears.
+- **No sound on the iPhone?** Volume up and the ring/silent switch set to ring: iOS mutes the built-in voice when the phone is on silent.
+  **Stimme testen / Test voice** in the settings speaks a test sentence. The Google Cloud voice plays as media and is not muted by the switch.
+- Default thoroughness is "low" for fast replies; raise it in the settings for harder questions.
+
 ## Voices
 
 - Default: the device's own German voice (free, works offline, immediate). On iOS this is usually "Anna".
