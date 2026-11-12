@@ -14,6 +14,17 @@ the learning app's 3D scenes while it explains. Any subject of the Bavarian Jahr
 5. TV: mirror the iPad or iPhone with AirPlay (Control Centre → Screen Mirroring), turn the device sideways and tap **TV**:
    big text, captions under the picture, voice only. The TV shows what the device shows, including the sound.
 
+## Modes and languages
+
+The start screen (and the settings) offer three modes. The **EN/DE** button in the header switches the interface language at any time.
+
+- **Kind · Deutsch**: the child's tutor, German du-form, pictures first, step-by-step help, questions back.
+- **Eltern · Deutsch**: for parents and teachers, Sie-form: what the Lehrplan demands, typical mistakes, how to practise at home, what tests ask.
+- **Parent · English**: for parents who do not speak German. Lumi speaks and listens in English, keeps the German school terms
+  (Zähler, Nenner, Schulaufgabe) with their English meaning, and explains Bavarian conventions. Speech input and the voice switch to English.
+
+Changing the mode starts a fresh conversation.
+
 ## Voices
 
 - Default: the device's own German voice (free, works offline, immediate). On iOS this is usually "Anna".

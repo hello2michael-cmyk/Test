@@ -12,7 +12,18 @@ const $ = id => document.getElementById(id);
 const THEME = { bgTop: '#0d1229', bgBottom: '#170d38', accent: '#5c9eff', accent2: '#6bedb8', text: '#ffffff', muted: 'rgba(255,255,255,0.7)', dark: true };
 const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 const MODELS = ['claude-opus-5-5', 'claude-sonnet-5-5', 'claude-haiku-5-5'];
-const DEFAULTS = { apiKey: '', model: 'claude-opus-5-5', effort: 'medium', tts: 'web', googleKey: '', googleVoice: 'de-DE-Chirp3-HD-Leda', rate: 0.95, tv: false, nickname: '', fallbacks: true };
+const DEFAULTS = { apiKey: '', model: 'claude-opus-5-5', effort: 'medium', tts: 'web', googleKey: '', googleVoice: 'de-DE-Chirp3-HD-Leda', rate: 0.95, tv: false, nickname: '', fallbacks: true, mode: 'kind', ui: 'de' };
+// mode: kind = child, German du-form · eltern = parents and teachers, German Sie-form · parent = parents who do not speak German, English
+const STR = {
+  de: { brand: 'Lern-Tutor · Klasse 6 Gymnasium Bayern', new: 'Neu', placeholder: 'Frag mich etwas … (oder tippe auf das Mikrofon)', send: 'Senden', quiz: 'Abfragen', stop: 'Stopp', introTitle: 'Hallo, ich bin Lumi.', introText: 'Dein sprechender Lern-Tutor für die 6. Klasse: Mathe, Deutsch, Englisch, Französisch, Latein, Natur und Technik, Geschichte und mehr. Frag mich mit deiner Stimme, ich antworte und zeige dir Bilder dazu. Wähle, wer du bist:', start: 'Los geht’s', introFine: 'Lumi nutzt ein KI-Modell (Claude). Die Antworten können Fehler enthalten. Bei Zweifeln: Heft und Lehrkraft fragen.', settings: 'Einstellungen', lblMode: 'Modus', lblUi: 'Sprache der Oberfläche', lblKey: 'API-Schlüssel (Anthropic, beginnt mit sk-ant-)', lblModel: 'Modell', lblEffort: 'Gründlichkeit', effLow: 'niedrig (schnell)', effMed: 'mittel', effHigh: 'hoch', lblVoice: 'Stimme', voiceWeb: 'Gerätestimme (kostenlos, sofort)', voiceGoogle: 'Google Cloud, Leda (wie in den Videos; Schlüssel nötig)', lblGKey: 'Google-Cloud-TTS-Schlüssel (optional)', lblGVoice: 'Google-Stimme (de-DE-… oder en-US-…)', lblRate: 'Sprechtempo', lblNick: 'Spitzname des Kindes (optional, nur Vorname oder Fantasiename)', setFine: 'Schlüssel bleiben nur in diesem Browser auf diesem Gerät (localStorage) und gehen direkt an Anthropic bzw. Google. Gespräche werden nicht gespeichert, außer für die laufende Sitzung.', save: 'Speichern',
+    needKey: 'Zum Start brauchst du einmalig einen API-Schlüssel von platform.claude.com (Settings → API keys). Er bleibt nur auf diesem Gerät.', keyFirst: 'Bitte zuerst den API-Schlüssel eintragen.', thinking: 'denkt nach …', listening: 'Ich höre zu … sprich jetzt.', noStt: 'Spracheingabe gibt es in diesem Browser nicht. Tippe deine Frage.', mic: 'Bitte erlaube das Mikrofon.', you: 'Du',
+    errAuth: 'Der API-Schlüssel wurde nicht angenommen. Bitte in den Einstellungen prüfen (und ob das Konto Guthaben hat).', errRate: 'Gerade sind zu viele Anfragen unterwegs. Warte einen Moment und frag noch einmal.', errNet: 'Keine Verbindung. Ist das WLAN an?', errOther: 'Da ist etwas schiefgegangen: ', refusal: ' Darüber kann ich leider nicht sprechen. Lass uns weiter lernen.' },
+  en: { brand: 'Learning tutor · Year 6 Gymnasium Bavaria', new: 'New', placeholder: 'Ask me something … (or tap the microphone)', send: 'Send', quiz: 'Quiz me', stop: 'Stop', introTitle: 'Hello, I am Lumi.', introText: 'Your talking tutor for Year 6 at a Bavarian Gymnasium: maths, German, English, French, Latin, science, history and more. Ask with your voice; I answer and show pictures. Choose who you are:', start: 'Let’s go', introFine: 'Lumi uses an AI model (Claude). Answers can contain mistakes. When in doubt, check the exercise book or ask the teacher.', settings: 'Settings', lblMode: 'Mode', lblUi: 'Interface language', lblKey: 'API key (Anthropic, starts with sk-ant-)', lblModel: 'Model', lblEffort: 'Thoroughness', effLow: 'low (fast)', effMed: 'medium', effHigh: 'high', lblVoice: 'Voice', voiceWeb: 'Device voice (free, instant)', voiceGoogle: 'Google Cloud, Leda (as in the videos; key needed)', lblGKey: 'Google Cloud TTS key (optional)', lblGVoice: 'Google voice (de-DE-… or en-US-…)', lblRate: 'Speaking rate', lblNick: 'Child’s nickname (optional, first name or made-up name only)', setFine: 'Keys stay only in this browser on this device (localStorage) and go straight to Anthropic or Google. Conversations are not stored beyond the current session.', save: 'Save',
+    needKey: 'To start you need an API key once, from platform.claude.com (Settings → API keys). It stays on this device only.', keyFirst: 'Please enter the API key first.', thinking: 'thinking …', listening: 'I am listening … speak now.', noStt: 'This browser has no speech input. Type your question.', mic: 'Please allow the microphone.', you: 'You',
+    errAuth: 'The API key was not accepted. Check it in the settings (and whether the account has credit).', errRate: 'Too many requests right now. Wait a moment and ask again.', errNet: 'No connection. Is Wi-Fi on?', errOther: 'Something went wrong: ', refusal: ' I cannot talk about that. Let us keep learning.' },
+};
+const T = () => STR[settings.ui] || STR.de;
+const spokenLang = () => (settings.mode === 'parent' ? 'en' : 'de');
 
 /* ------------------------------------------------------------------ settings (this device only) */
 const settings = { ...DEFAULTS, ...JSON.parse(localStorage.getItem('lumi.settings') || '{}') };
@@ -42,6 +53,8 @@ function syllabusSummary(d) {
   return lines.join('\n');
 }
 function buildSystemPrompt(d) {
+  if (settings.mode === 'parent') return buildParentPrompt(d);
+  if (settings.mode === 'eltern') return buildElternPrompt(d);
   return `Du bist Lumi, ein freundlicher, geduldiger Lern-Tutor für ein Kind in der 6. Klasse am Gymnasium in Bayern (LehrplanPLUS, Friedberg). Du sprichst mit dem Kind per Stimme: Alles, was du außerhalb von Anweisungen in doppelten eckigen Klammern schreibst, wird laut vorgelesen.
 
 REGELN FÜRS SPRECHEN
@@ -72,15 +85,60 @@ LEHRPLAN KLASSE 6 (Gymnasium Bayern, geprüft ${d.meta?.checkedOn || ''})
 ${syllabusSummary(d)}`;
 }
 
+function buildElternPrompt(d) {
+  return `Sie sind Lumi, ein ruhiger, sachkundiger Lern-Coach für Eltern und Lehrkräfte eines Kindes in der 6. Klasse am Gymnasium in Bayern (LehrplanPLUS). Sie sprechen per Stimme; alles außerhalb von Anweisungen in doppelten eckigen Klammern wird vorgelesen.
+
+REGELN
+- Deutsch, Sie-Form, präzise und ohne Hype. Pro Antwort höchstens 110 gesprochene Wörter; keine Markdown-Zeichen im gesprochenen Text, Zahlen so schreiben, wie man sie spricht.
+- Erklären Sie, was der Lehrplan verlangt, die Kernidee mit einem Bild, die typischen Fehler des Kindes, wie man zu Hause übt, und was in Leistungsnachweisen (Schulaufgabe, Stegreifaufgabe) gefragt werden kann.
+- Fachlich gilt der LehrplanPLUS Bayern (natürliche Zahlen ab 1, Dezimalkomma, Periodenstrich, Fachbegriffe wie in bayerischen Schulbüchern). Unsicheres kennzeichnen, nichts erfinden. Keine persönlichen Daten erfragen.
+
+ANWEISUNGEN FÜR DEN BILDSCHIRM (je eine eigene Zeile, nicht vorgelesen)
+- [[szene: ID | param=wert, … | von-bis]] zeigt eine 3D-Szene aus dem Katalog (von-bis in Sekunden der 30-Sekunden-Animation).
+- [[punkte: Punkt | Punkt | Punkt]] zeigt bis zu vier Merkpunkte (je höchstens 8 Wörter, Formeln erlaubt).
+- [[frage: …]] zeigt eine Beispielaufgabe groß an. [[richtig]] bei einer richtigen Antwort.
+Höchstens eine Szene pro Antwort.
+
+SZENEN-KATALOG
+${sceneCatalogue()}
+
+LEHRPLAN KLASSE 6 (Gymnasium Bayern)
+${syllabusSummary(d)}`;
+}
+function buildParentPrompt(d) {
+  return `You are Lumi, a calm and knowledgeable learning coach for a parent who does not speak German and whose child attends Jahrgangsstufe 6 (Year 6, about 11 years old) at a Gymnasium in Bavaria, Germany (curriculum: LehrplanPLUS). You talk by voice: everything outside instructions in double square brackets is read aloud.
+
+RULES
+- Clear international English, at most 110 spoken words per answer, no markdown in spoken text, write numbers the way they are spoken.
+- Give every German school term the child will bring home in German with its English meaning the first time (for example: the Nenner, the denominator). Keep German terms in German so the parent recognises them in the exercise book and on the Stoffzettel.
+- Explain what the curriculum expects, the core idea with a picture, the typical mistakes, how to help at home without speaking German, and what tests (Schulaufgabe, Stegreifaufgabe) ask for. Mention Bavarian conventions: natural numbers start at 1, decimal comma (0,25), period bar over repeating digits, grades 1 (best) to 6.
+- If the parent asks in German, answer in English anyway unless asked otherwise. Mark anything uncertain; invent nothing. Ask for no personal data.
+
+SCREEN INSTRUCTIONS (each on its own line, not read aloud)
+- [[szene: ID | param=value, … | from-to]] shows a 3D scene from the catalogue (from-to in seconds of the 30-second animation). The scene labels are in German; name them in English when you describe the picture.
+- [[punkte: point | point | point]] shows up to four key points (at most 8 words each; formulas allowed; German term plus English meaning is a good use).
+- [[frage: …]] shows an example task large on screen. [[richtig]] when the parent answers a check question correctly.
+At most one scene per answer. Example:
+[[szene: fraction | n=8, k=3 | 0-14]]
+This pizza is cut into eight equal pieces and three are taken. In German school this is drei Achtel: the Zähler, the numerator, is three; the Nenner, the denominator, is eight. Your child must name both and explain that the Nenner tells how many pieces the whole was cut into.
+[[punkte: Zähler = numerator (top) | Nenner = denominator (bottom) | gleich große Teile = equal parts]]
+
+SCENE CATALOGUE
+${sceneCatalogue()}
+
+YEAR 6 CURRICULUM (Gymnasium Bavaria, in German)
+${syllabusSummary(d)}`;
+}
+
 /* ------------------------------------------------------------------ Claude */
 function makeClient() {
   if (!settings.apiKey) return null;
   return new Anthropic({ apiKey: settings.apiKey, dangerouslyAllowBrowser: true, maxRetries: 1 });
 }
 async function ask(userText) {
-  if (!client) { openSettings('Bitte zuerst den API-Schlüssel eintragen.'); return; }
+  if (!client) { openSettings(T().keyFirst); return; }
   if (busy) return;
-  busy = true; setStatus('denkt nach …'); avatar.set('thinking'); stopSpeaking();
+  busy = true; setStatus(T().thinking); avatar.set('thinking'); stopSpeaking();
   addLine('du', userText);
   history.push({ role: 'user', content: userText });
   if (history.length > 24) history = history.slice(-24);
@@ -101,7 +159,7 @@ async function ask(userText) {
       if (ev.type === 'content_block_delta' && ev.delta.type === 'text_delta') { assistantText += ev.delta.text; speaker.push(ev.delta.text); }
     }
     const final = await stream.finalMessage();
-    if (final.stop_reason === 'refusal') { speaker.push(' Darüber kann ich leider nicht sprechen. Lass uns weiter lernen.'); }
+    if (final.stop_reason === 'refusal') { speaker.push(T().refusal); }
     speaker.end();
     history.push({ role: 'assistant', content: assistantText || '…' });
     sessionStorage.setItem('lumi.history', JSON.stringify(history));
@@ -109,10 +167,10 @@ async function ask(userText) {
     speaker.end();
     history.pop();
     if (settings.fallbacks && e instanceof Anthropic.BadRequestError && /fallback|beta/i.test(String(e.message))) { settings.fallbacks = false; saveSettings(); busy = false; return ask(userText); }
-    const msg = e instanceof Anthropic.AuthenticationError ? 'Der API-Schlüssel wurde nicht angenommen. Bitte in den Einstellungen prüfen.'
-      : e instanceof Anthropic.RateLimitError ? 'Gerade sind zu viele Anfragen unterwegs. Warte einen Moment und frag noch einmal.'
-      : e instanceof Anthropic.APIConnectionError ? 'Keine Verbindung. Ist das WLAN an?'
-      : `Da ist etwas schiefgegangen: ${e.message || e}`;
+    const msg = e instanceof Anthropic.AuthenticationError ? T().errAuth
+      : e instanceof Anthropic.RateLimitError ? T().errRate
+      : e instanceof Anthropic.APIConnectionError ? T().errNet
+      : `${T().errOther}${e.message || e}`;
     addLine('lumi', msg); speakNow(msg); console.error(e);
   } finally { busy = false; setStatus(''); }
 }
@@ -172,7 +230,8 @@ function showScene(id, given, segment) {
 }
 function showCard(kind, items) {
   $('stageCanvas').hidden = true; $('stageHint').textContent = ''; const card = $('card'); card.hidden = false; card.className = `card ${kind}`;
-  card.innerHTML = kind === 'frage' ? `<div class="kicker">Frage an dich</div><div class="big">${esc(items[0])}</div>` : `<div class="kicker">Merk dir</div><ul>${items.map(i => `<li>${esc(i)}</li>`).join('')}</ul>`;
+  const kick = settings.ui === 'en' ? (kind === 'frage' ? 'Question' : 'Key points') : (kind === 'frage' ? 'Frage an dich' : 'Merk dir');
+  card.innerHTML = kind === 'frage' ? `<div class="kicker">${kick}</div><div class="big">${esc(items[0])}</div>` : `<div class="kicker">${kick}</div><ul>${items.map(i => `<li>${esc(i)}</li>`).join('')}</ul>`;
   stage = { ...stage, kind: 'card' };
 }
 function loop(now) {
@@ -199,15 +258,16 @@ function stopSpeaking() {
   avatar.level = 0; if (avatar.state === 'speaking') avatar.set('idle');
 }
 function pickVoice() {
-  const voices = speechSynthesis.getVoices().filter(v => /^de/i.test(v.lang));
-  const prefer = ['Anna', 'Petra', 'Helena', 'Katja', 'Google Deutsch', 'Vicki', 'Marlene'];
+  const en = spokenLang() === 'en';
+  const voices = speechSynthesis.getVoices().filter(v => (en ? /^en/i : /^de/i).test(v.lang));
+  const prefer = en ? ['Samantha', 'Karen', 'Daniel', 'Moira', 'Google US English', 'Google UK English Female', 'Aria', 'Jenny'] : ['Anna', 'Petra', 'Helena', 'Katja', 'Google Deutsch', 'Vicki', 'Marlene'];
   for (const name of prefer) { const v = voices.find(x => x.name.includes(name)); if (v) return v; }
   return voices.find(v => v.localService) || voices[0] || null;
 }
 function speakWeb(text) {
   return new Promise(resolve => {
     if (!('speechSynthesis' in window)) { addLine('lumi', text); return resolve(); }
-    const u = new SpeechSynthesisUtterance(text); const v = pickVoice(); if (v) u.voice = v; u.lang = 'de-DE'; u.rate = settings.rate; u.pitch = 1.05;
+    const u = new SpeechSynthesisUtterance(text); const v = pickVoice(); if (v) u.voice = v; u.lang = spokenLang() === 'en' ? 'en-US' : 'de-DE'; u.rate = settings.rate; u.pitch = 1.05;
     let mouth = null, started = false;
     const finish = () => { clearInterval(mouth); avatar.level = 0; if (--speakingCount <= 0) { speakingCount = 0; if (avatar.state === 'speaking') avatar.set('idle'); } resolve(); };
     u.onstart = () => { started = true; avatar.set('speaking'); mouth = setInterval(() => { avatar.level = 0.25 + Math.random() * 0.6; }, 90); };
@@ -217,10 +277,16 @@ function speakWeb(text) {
     setTimeout(() => { if (!started && !speechSynthesis.speaking) finish(); }, 2500);   // no voice available: do not hang the queue
   });
 }
+function googleVoiceFor() {
+  let name = settings.googleVoice || DEFAULTS.googleVoice;
+  if (spokenLang() === 'en' && name.startsWith('de-')) name = 'en-US-' + name.split('-').slice(2).join('-');   // same voice family in English
+  if (spokenLang() === 'de' && name.startsWith('en-')) name = 'de-DE-' + name.split('-').slice(2).join('-');
+  return { languageCode: name.slice(0, 5), name };
+}
 async function speakGoogle(text) {
   const res = await fetch(`https://texttospeech.googleapis.com/v1/text:synthesize?key=${encodeURIComponent(settings.googleKey)}`, {
     method: 'POST', headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ input: { text }, voice: { languageCode: settings.googleVoice.slice(0, 5), name: settings.googleVoice }, audioConfig: { audioEncoding: 'MP3', speakingRate: settings.rate } }),
+    body: JSON.stringify({ input: { text }, voice: googleVoiceFor(), audioConfig: { audioEncoding: 'MP3', speakingRate: settings.rate } }),
   });
   if (!res.ok) { console.warn('Google TTS', res.status); return speakWeb(text); }
   const { audioContent } = await res.json();
@@ -239,15 +305,15 @@ async function speakGoogle(text) {
 let rec = null, listening = false;
 function startListening() {
   const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
-  if (!SR) { $('text').focus(); setStatus('Spracheingabe gibt es in diesem Browser nicht. Tippe deine Frage.'); return; }
+  if (!SR) { $('text').focus(); setStatus(T().noStt); return; }
   if (listening) { stopListening(); return; }
   stopSpeaking();
-  rec = new SR(); rec.lang = 'de-DE'; rec.interimResults = true; rec.continuous = false; rec.maxAlternatives = 1;
+  rec = new SR(); rec.lang = spokenLang() === 'en' ? 'en-US' : 'de-DE'; rec.interimResults = true; rec.continuous = false; rec.maxAlternatives = 1;
   let finalText = '';
   rec.onresult = e => { let interim = ''; for (let i = e.resultIndex; i < e.results.length; i++) { const r = e.results[i]; if (r.isFinal) finalText += r[0].transcript; else interim += r[0].transcript; } $('text').value = (finalText + ' ' + interim).trim(); };
-  rec.onerror = e => { setStatus(e.error === 'not-allowed' ? 'Bitte erlaube das Mikrofon.' : ''); stopListening(); };
+  rec.onerror = e => { setStatus(e.error === 'not-allowed' ? T().mic : ''); stopListening(); };
   rec.onend = () => { const t = ($('text').value || finalText).trim(); stopListening(); if (t) { $('text').value = ''; ask(t); } };
-  listening = true; $('mic').classList.add('on'); avatar.set('listening'); setStatus('Ich höre zu … sprich jetzt.');
+  listening = true; $('mic').classList.add('on'); avatar.set('listening'); setStatus(T().listening);
   try { rec.start(); } catch (e) { stopListening(); }
 }
 function stopListening() { listening = false; $('mic').classList.remove('on'); if (avatar.state === 'listening') avatar.set('idle'); try { rec && rec.stop(); } catch {} rec = null; }
@@ -255,7 +321,7 @@ function stopListening() { listening = false; $('mic').classList.remove('on'); i
 /* ------------------------------------------------------------------ UI */
 function setStatus(s) { $('status').textContent = s; }
 function addLine(who, text) {
-  const box = $('lines'); const d = document.createElement('div'); d.className = `line ${who}`; d.innerHTML = `<b>${who === 'du' ? (settings.nickname || 'Du') : 'Lumi'}</b> ${esc(text)}`; box.appendChild(d);
+  const box = $('lines'); const d = document.createElement('div'); d.className = `line ${who}`; d.innerHTML = `<b>${who === 'du' ? (settings.nickname || T().you) : 'Lumi'}</b> ${esc(text)}`; box.appendChild(d);
   while (box.children.length > 6) box.removeChild(box.firstChild);
   box.scrollTop = box.scrollHeight;
   if (who === 'lumi') $('caption').textContent = text;
@@ -265,25 +331,37 @@ let lumiLine = null;
 function updateLumiLine(text) { if (!lumiLine || !lumiLine.isConnected) lumiLine = addLine('lumi', ''); lumiLine.innerHTML = `<b>Lumi</b> ${esc(text)}`; $('caption').textContent = text; $('lines').scrollTop = 1e9; }
 function openSettings(note) {
   $('settings').hidden = false; $('setNote').textContent = note || '';
-  $('apiKey').value = settings.apiKey; $('model').value = settings.model; $('effort').value = settings.effort; $('tts').value = settings.tts; $('googleKey').value = settings.googleKey; $('googleVoice').value = settings.googleVoice; $('rate').value = settings.rate; $('nickname').value = settings.nickname;
+  $('mode').value = settings.mode; $('uiLang').value = settings.ui; $('apiKey').value = settings.apiKey; $('model').value = settings.model; $('effort').value = settings.effort; $('tts').value = settings.tts; $('googleKey').value = settings.googleKey; $('googleVoice').value = settings.googleVoice; $('rate').value = settings.rate; $('nickname').value = settings.nickname;
 }
 function closeSettings() {
+  const modeBefore = settings.mode; settings.mode = $('mode').value; settings.ui = $('uiLang').value;
   settings.apiKey = $('apiKey').value.trim(); settings.model = $('model').value; settings.effort = $('effort').value; settings.tts = $('tts').value; settings.googleKey = $('googleKey').value.trim(); settings.googleVoice = $('googleVoice').value.trim() || DEFAULTS.googleVoice; settings.rate = parseFloat($('rate').value) || 0.95; settings.nickname = $('nickname').value.trim().slice(0, 20);
-  saveSettings(); client = makeClient(); $('settings').hidden = true;
+  saveSettings(); client = makeClient(); $('settings').hidden = true; applyLang();
+  if (modeBefore !== settings.mode) { systemPrompt = buildSystemPrompt(data); history = []; sessionStorage.removeItem('lumi.history'); }
+}
+function applyLang() {
+  const t = T();
+  document.querySelectorAll('[data-i18n]').forEach(el => { const k = el.dataset.i18n; if (t[k]) el.textContent = t[k]; });
+  document.querySelectorAll('[data-i18n-ph]').forEach(el => { el.placeholder = t[el.dataset.i18nPh] || ''; });
+  document.documentElement.lang = settings.ui; $('langToggle').textContent = settings.ui === 'de' ? 'EN' : 'DE';
+  document.querySelectorAll('.mode').forEach(b => b.classList.toggle('on', b.dataset.mode === settings.mode));
+  topicChips();
 }
 function topicChips() {
   const box = $('chips'); box.innerHTML = '';
   const picks = [];
   for (const s of data.subjects) for (const lb of s.lernbereiche) for (const t of lb.topics) if (t.scene) picks.push({ s: s.name, t });
-  for (const { s, t } of picks.slice(0, 14)) { const b = document.createElement('button'); b.className = 'chip'; b.textContent = `${s.split(' ')[0]}: ${t.title}`; b.onclick = () => { currentTopic = t.title; ask(`Erklär mir bitte das Thema ${t.title} (${t.id}, ${s}) mit einem Bild.`); }; box.appendChild(b); }
+  for (const { s, t } of picks.slice(0, 14)) { const b = document.createElement('button'); b.className = 'chip'; b.textContent = `${s.split(' ')[0]}: ${t.title}`; b.onclick = () => { currentTopic = t.title; ask(settings.mode === 'parent' ? `Please explain the topic ${t.title} (${t.id}, ${s}) with a picture: what my child must be able to do, and the German terms.` : settings.mode === 'eltern' ? `Bitte erklären Sie das Thema ${t.title} (${t.id}, ${s}) mit einem Bild: Was muss mein Kind können, und wo liegen die typischen Fehler?` : `Erklär mir bitte das Thema ${t.title} (${t.id}, ${s}) mit einem Bild.`); }; box.appendChild(b); }
 }
 function wire() {
   $('mic').onclick = startListening;
   $('send').onclick = () => { const t = $('text').value.trim(); if (t) { $('text').value = ''; ask(t); } };
   $('text').onkeydown = e => { if (e.key === 'Enter') { e.preventDefault(); $('send').onclick(); } };
-  $('quiz').onclick = () => ask(`Frag mich ${currentTopic ? 'zum Thema ' + currentTopic : 'zu einem Thema aus dem Lehrplan, das wir gerade hatten oder das du vorschlägst,'} ab: eine Aufgabe im Stil einer Schulaufgabe, zeig sie mit [[frage: …]] und warte auf meine Antwort.`);
+  $('quiz').onclick = () => ask(settings.mode === 'parent' ? `Give me one example task${currentTopic ? ' on ' + currentTopic : ''} the way it would appear in a Bavarian Schulaufgabe, show it with [[frage: …]], and wait for my answer.` : settings.mode === 'eltern' ? `Stellen Sie mir eine Beispielaufgabe${currentTopic ? ' zum Thema ' + currentTopic : ''} im Stil einer Schulaufgabe, zeigen Sie sie mit [[frage: …]] und warten Sie auf meine Antwort.` : `Frag mich ${currentTopic ? 'zum Thema ' + currentTopic : 'zu einem Thema aus dem Lehrplan, das wir gerade hatten oder das du vorschlägst,'} ab: eine Aufgabe im Stil einer Schulaufgabe, zeig sie mit [[frage: …]] und warte auf meine Antwort.`);
   $('stop').onclick = () => { stopSpeaking(); setStatus(''); };
   $('gear').onclick = () => openSettings('');
+  $('langToggle').onclick = () => { settings.ui = settings.ui === 'de' ? 'en' : 'de'; saveSettings(); applyLang(); };
+  document.querySelectorAll('.mode').forEach(b => { b.onclick = () => { settings.mode = b.dataset.mode; settings.ui = settings.mode === 'parent' ? 'en' : 'de'; saveSettings(); systemPrompt = buildSystemPrompt(data); history = []; applyLang(); }; });
   $('saveSettings').onclick = closeSettings;
   $('tvToggle').onclick = () => { settings.tv = !settings.tv; saveSettings(); document.body.classList.toggle('tv', settings.tv); };
   $('clear').onclick = () => { history = []; sessionStorage.removeItem('lumi.history'); $('lines').innerHTML = ''; $('caption').textContent = ''; stage = { kind: 'idle' }; $('stageCanvas').hidden = true; $('card').hidden = true; };
@@ -291,8 +369,8 @@ function wire() {
     $('intro').hidden = true;
     try { audioCtx = new (window.AudioContext || window.webkitAudioContext)(); await audioCtx.resume(); } catch {}
     try { speechSynthesis.getVoices(); } catch {}
-    if (!settings.apiKey) openSettings('Zum Start brauchst du einmalig einen API-Schlüssel von console.anthropic.com. Er bleibt nur auf diesem Gerät.');
-    const hello = settings.nickname ? `Hallo ${settings.nickname}! Ich bin Lumi. Worüber möchtest du heute lernen? Du kannst mich fragen oder unten ein Thema antippen.` : 'Hallo! Ich bin Lumi, dein Lern-Tutor für die sechste Klasse. Was möchtest du heute lernen? Frag mich einfach, oder tippe unten ein Thema an.';
+    if (!settings.apiKey) openSettings(T().needKey);
+    const hello = settings.mode === 'parent' ? 'Hello, I am Lumi. I explain what your child learns in Year 6 at a Bavarian Gymnasium, with the German terms and pictures. Ask me anything, or tap a topic below.' : settings.mode === 'eltern' ? 'Guten Tag, ich bin Lumi. Ich erkläre Ihnen, was Ihr Kind in der sechsten Klasse lernt, mit Bildern, typischen Fehlern und Übungstipps. Fragen Sie mich, oder tippen Sie unten ein Thema an.' : settings.nickname ? `Hallo ${settings.nickname}! Ich bin Lumi. Worüber möchtest du heute lernen? Du kannst mich fragen oder unten ein Thema antippen.` : 'Hallo! Ich bin Lumi, dein Lern-Tutor für die sechste Klasse. Was möchtest du heute lernen? Frag mich einfach, oder tippe unten ein Thema an.';
     addLine('lumi', hello); speakNow(hello);
   };
   document.addEventListener('pointermove', e => avatar.lookAt((e.clientX / innerWidth) * 2 - 1, (e.clientY / innerHeight) * 2 - 1));
@@ -306,7 +384,7 @@ async function main() {
   client = makeClient();
   history = JSON.parse(sessionStorage.getItem('lumi.history') || '[]');
   document.body.classList.toggle('tv', !!settings.tv);
-  topicChips(); wire();
+  wire(); applyLang();
   requestAnimationFrame(loop);
   window.lumi = { ask, showScene, showCard, settings, get systemPrompt() { return systemPrompt; } };   // for tests and the console
 }
