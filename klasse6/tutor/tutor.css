@@ -89,3 +89,7 @@ body.focus .card { padding-bottom: 52%; }
 .natural input { width: 100%; font: inherit; padding: 9px 10px; border-radius: 10px; border: 1px solid var(--line); background: rgba(0,0,0,0.3); color: var(--text); }
 .overlay label.check { display: flex; gap: 8px; align-items: center; color: var(--text); }
 .overlay label.check input { width: auto; margin: 0; }
+/* teacher-only view: "⋯" opens the menu over the classroom instead of leaving it */
+body.focus.sheet header { display: flex; position: fixed; top: 0; left: 0; right: 0; z-index: 9; background: rgba(13,18,41,0.96); padding-top: max(10px, env(safe-area-inset-top)); }
+body.focus.sheet footer { display: block; position: fixed; left: 0; right: 0; bottom: 0; z-index: 9; background: rgba(13,18,41,0.97); padding-bottom: max(12px, env(safe-area-inset-bottom)); box-shadow: 0 -10px 30px rgba(0,0,0,0.5); }
+body.focus.sheet .fab { display: none; }
