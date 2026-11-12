@@ -57,6 +57,14 @@ while it explains any topic of the Klasse 6 syllabus. Open it on the phone or iP
 AirPlay and tap **TV** for big text. It needs an Anthropic API key once per device (stored only in that browser). Details, voices and
 costs: `klasse6/tutor/README.md`.
 
+## Daybrief: your inbox, sorted and read out loud
+
+**Open this on the phone:** https://hello2michael-cmyk.github.io/Test/daybrief/
+
+A daily assistant that signs you in with Google (no password is ever asked for), reads your unread mail, sorts it into *needs a reply*, *needs an action*, *good to know* and *noise*, drafts replies in your own voice that you send with one tap, and reads the whole briefing aloud. Works with Claude, OpenAI or Gemini using your own key, or in a demo mode with no key at all. Everything stays on the phone; there is no server. Add it to the Home Screen like the studio app.
+
+Access is invite-only: the owner signs a license for each device, invites cannot be forwarded, and data is encrypted on the phone with an optional Face ID / PIN lock. Setup (a Google OAuth client ID and an AI key, both self-service) and the sharing model are in [`daybrief/SETUP.md`](daybrief/SETUP.md). The source is a Vite + React app under `daybrief/`, built by the Pages workflow.
+
 ## Video factory: make videos from GitHub, no app and no phone limits
 
 The same pipeline runs on GitHub's servers. You ask for a video, come back in 10–25 minutes, and download the finished MP4 with captions and YouTube text. The writing is done by a large model (Qwen2.5 72B through Hugging Face Inference Providers, pennies per video), the footage by LTX‑2.3 on free Hugging Face GPUs or Wan 2.2 14B via Inference Providers, and the voice, mix, render and encode run in a headless browser, finished with an H.264 encode for YouTube.

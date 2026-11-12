@@ -15,3 +15,8 @@ server.log
 .hubcache/
 .piper/
 factory/node_modules/
+
+# Daybrief (Vite app under daybrief/)
+daybrief/node_modules/
+daybrief/dist/
+daybrief/dev-dist/
