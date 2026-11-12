@@ -6,13 +6,13 @@
 import { Anthropic } from './vendor/anthropic-sdk.js';
 import { Scene } from '../js/engine3d.js';
 import { SCENES } from '../js/scenes.js';
-import { Avatar } from './avatar.js?v=4';
+import { Avatar } from './avatar.js?v=5';
 
 const $ = id => document.getElementById(id);
 const THEME = { bgTop: '#0d1229', bgBottom: '#170d38', accent: '#5c9eff', accent2: '#6bedb8', text: '#ffffff', muted: 'rgba(255,255,255,0.7)', dark: true };
 const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 const MODELS = ['claude-opus-5-5', 'claude-sonnet-5-5', 'claude-haiku-5-5'];
-const DEFAULTS = { apiKey: '', model: 'claude-opus-5-5', effort: 'low', tts: 'web', googleKey: '', googleVoice: 'de-DE-Chirp3-HD-Leda', rate: 0.95, tv: false, nickname: '', fallbacks: true, mode: 'kind', ui: 'de', voiceMode: true };
+const DEFAULTS = { apiKey: '', model: 'claude-opus-5-5', effort: 'low', tts: 'web', googleKey: '', googleVoice: 'de-DE-Chirp3-HD-Leda', rate: 0.95, tv: false, nickname: '', fallbacks: true, mode: 'kind', ui: 'de', voiceMode: true, focus: true, cc: true };
 // mode: kind = child, German du-form · eltern = parents and teachers, German Sie-form · parent = parents who do not speak German, English
 const STR = {
   de: { brand: 'Lern-Tutor · Klasse 6 Gymnasium Bayern', new: 'Neu', placeholder: 'Frag mich etwas … (oder tippe auf das Mikrofon)', send: 'Senden', quiz: 'Abfragen', stop: 'Stopp', introTitle: 'Hallo, ich bin Lumi.', introText: 'Dein sprechender Lern-Tutor für die 6. Klasse: Mathe, Deutsch, Englisch, Französisch, Latein, Natur und Technik, Geschichte und mehr. Frag mich mit deiner Stimme, ich antworte und zeige dir Bilder dazu. Wähle, wer du bist:', start: 'Los geht’s', introFine: 'Lumi nutzt ein KI-Modell (Claude). Die Antworten können Fehler enthalten. Bei Zweifeln: Heft und Lehrkraft fragen.', settings: 'Einstellungen', lblMode: 'Modus', lblUi: 'Sprache der Oberfläche', lblKey: 'API-Schlüssel (Anthropic, beginnt mit sk-ant-)', lblModel: 'Modell', lblEffort: 'Gründlichkeit', effLow: 'niedrig (schnell)', effMed: 'mittel', effHigh: 'hoch', lblVoice: 'Stimme', voiceWeb: 'Gerätestimme (kostenlos, sofort)', voiceGoogle: 'Google Cloud, Leda (wie in den Videos; Schlüssel nötig)', lblGKey: 'Google-Cloud-TTS-Schlüssel (optional)', lblGVoice: 'Google-Stimme (de-DE-… oder en-US-…)', lblRate: 'Sprechtempo', testVoice: 'Stimme testen', talk: 'Gespräch', soundHint: 'Ton: Lautstärke hoch und den Klingelschalter am iPhone auf laut, sonst bleibt Lumi stumm.', lblNick: 'Dein Vorname (optional): Lumi spricht dich damit an', hearQ: 'Hörst du mich?', hearYes: 'Ja', hearNo: 'Kein Ton', shTitle: 'Kein Ton?', sh1: 'iPhone: den Schalter an der Seite auf „Klingeln“ stellen (nicht stumm). Die eingebaute Stimme ist im Stumm-Modus aus.', sh2: 'Lautstärke mit den Tasten an der Seite hochdrehen.', sh3: 'Oder die menschlichere Google-Stimme nutzen: Sie funktioniert auch im Stumm-Modus. Dafür in den Einstellungen bei „Stimme“ Google Cloud wählen und den Google-Schlüssel eintragen.', close: 'Schließen', setFine: 'Schlüssel bleiben nur in diesem Browser auf diesem Gerät (localStorage) und gehen direkt an Anthropic bzw. Google. Gespräche werden nicht gespeichert, außer für die laufende Sitzung.', save: 'Speichern',
@@ -145,7 +145,7 @@ function makeClient() {
 async function ask(userText) {
   if (!client) { openSettings(T().keyFirst); return; }
   if (busy) return;
-  busy = true; setStatus(T().thinking); avatar.set('thinking'); stopSpeaking();
+  busy = true; syncFab(); setStatus(T().thinking); avatar.set('thinking'); stopSpeaking();
   addLine('du', userText);
   history.push({ role: 'user', content: userText });
   if (history.length > 24) history = history.slice(-24);
@@ -179,15 +179,15 @@ async function ask(userText) {
       : e instanceof Anthropic.APIConnectionError ? T().errNet
       : `${T().errOther}${e.message || e}`;
     addLine('lumi', msg); speakNow(msg); console.error(e);
-  } finally { busy = false; setStatus(''); }
+  } finally { busy = false; setStatus(''); syncFab(); }
 }
 
 /* ------------------------------------------------------------------ parsing the stream into speech and stage directives */
 class SentenceSpeaker {
-  constructor() { this.buf = ''; this.spoken = ''; }
+  constructor() { this.buf = ''; this.spoken = ''; this.visual = false; }
   push(chunk) { this.buf += chunk; this.drain(false); }
   end() { this.drain(true); }
-  emit(text) { const t = text.replace(/\s+/g, ' ').trim(); if (!t) return; this.spoken += (this.spoken ? ' ' : '') + t; const shown = this.spoken; enqueue(() => { updateLumiLine(shown); }); speakNow(t); }
+  emit(text) { const t = text.replace(/\s+/g, ' ').trim(); if (!t) return; if (!this.spoken && !this.visual) enqueue(clearBoard); this.spoken += (this.spoken ? ' ' : '') + t; const shown = this.spoken; enqueue(() => { updateLumiLine(shown); }); speakNow(t); }
   // Walks the buffer in order, so a directive takes effect exactly when the speech reaches it (not seconds earlier).
   drain(final) {
     for (;;) {
@@ -195,7 +195,7 @@ class SentenceSpeaker {
       if (!this.buf) break;
       if (this.buf.startsWith('[[')) {
         const j = this.buf.indexOf(']]'); if (j < 0) { if (final) this.buf = ''; break; }
-        const d = this.buf.slice(2, j); enqueue(() => handleDirective(d)); this.buf = this.buf.slice(j + 2); continue;
+        const d = this.buf.slice(2, j); if (/^\s*(szene|punkte|frage)\s*:/i.test(d)) this.visual = true; enqueue(() => handleDirective(d)); this.buf = this.buf.slice(j + 2); continue;
       }
       const lim = this.buf.indexOf('[['), text = lim >= 0 ? this.buf.slice(0, lim) : this.buf;
       const m = text.match(/^([\s\S]*?[.!?]+)(?=\s|$)/) || text.match(/^([^\n]*\S)[ \t]*\n/);
@@ -235,6 +235,7 @@ function showScene(id, given, segment) {
   stage = { kind: 'scene', scene: sc, params: cleanParams(sc, given), segment: [Math.max(0, segment[0]), Math.min(sc.duration, Math.max(segment[0] + 3, segment[1]))], time: segment[0], last: 0 };
   $('stageCanvas').hidden = false; $('card').hidden = true; $('stageHint').textContent = sc.title; $('classroom').classList.add('has-visual'); avatar.setVisual(true);
 }
+function clearBoard() { stage = { kind: 'idle' }; $('stageCanvas').hidden = true; $('card').hidden = true; $('stageHint').textContent = ''; $('classroom').classList.remove('has-visual'); avatar.setVisual(false); }
 function showCard(kind, items) {
   $('stageCanvas').hidden = true; $('stageHint').textContent = ''; const card = $('card'); card.hidden = false; card.className = `card ${kind}`;
   const kick = settings.ui === 'en' ? (kind === 'frage' ? 'Question' : 'Key points') : (kind === 'frage' ? 'Frage an dich' : 'Merk dir');
@@ -262,7 +263,7 @@ function enqueue(fn) { const token = ++speakSerial; pending++; speakChain = spea
 let idleTimer = 0;
 function queueIdle() {
   // Everything has been said. In conversation mode, open the microphone after a short pause so the child can answer hands-free.
-  clearTimeout(idleTimer);
+  clearTimeout(idleTimer); try { keep.pause(); } catch {}
   if (!settings.voiceMode || busy || listening || cancelSerial >= speakSerial) return;
   if (!(window.SpeechRecognition || window.webkitSpeechRecognition)) return;
   idleTimer = setTimeout(() => { if (!busy && !listening && settings.voiceMode && document.visibilityState === 'visible' && $('intro').hidden && $('settings').hidden) startListening(); }, 700);
@@ -282,17 +283,34 @@ function pickVoice() {
   for (const name of prefer) { const v = voices.find(x => x.name.includes(name)); if (v) return v; }
   return voices.find(v => v.localService) || voices[0] || null;
 }
+const diag = { voices: 0, voice: '', last: '', errors: 0 };
+const keep = new Audio(); keep.loop = true; keep.setAttribute('playsinline', '');
+/** iOS: route speech to the loudspeaker and keep it audible in silent mode (playback session + a silent media loop while speaking). */
+function speakerSession(on) {
+  try { if (navigator.audioSession) navigator.audioSession.type = on ? 'playback' : 'auto'; } catch {}
+  try { if (on) { if (!keep.src) keep.src = silentWav(8000); const p = keep.play(); if (p && p.catch) p.catch(() => {}); } else keep.pause(); } catch {}
+}
+function showDiag() {
+  const el = $('diag'); if (!el) return;
+  el.textContent = `speech: ${'speechSynthesis' in window ? 'yes' : 'NO'} · voices(${spokenLang()}): ${diag.voices} · voice: ${diag.voice || 'default'} · last: ${diag.last || '-'} · errors: ${diag.errors} · tts: ${settings.tts} · audioSession: ${navigator.audioSession ? navigator.audioSession.type : 'n/a'}`;
+}
 function speakWeb(text) {
   return new Promise(resolve => {
-    if (!('speechSynthesis' in window)) { addLine('lumi', text); return resolve(); }
-    const u = new SpeechSynthesisUtterance(text); const v = pickVoice(); if (v) u.voice = v; u.lang = spokenLang() === 'en' ? 'en-US' : 'de-DE'; u.rate = settings.rate; u.pitch = 1.05;
-    let mouth = null, started = false;
-    const finish = () => { clearInterval(mouth); avatar.level = 0; if (--speakingCount <= 0) { speakingCount = 0; if (avatar.state === 'speaking') avatar.set('idle'); } resolve(); };
-    u.onstart = () => { started = true; avatar.set('speaking'); mouth = setInterval(() => { avatar.level = 0.25 + Math.random() * 0.6; }, 90); };
+    if (!('speechSynthesis' in window)) { diag.last = 'no speechSynthesis'; showDiag(); return resolve(); }
+    speakerSession(true);
+    try { speechSynthesis.resume(); } catch {}
+    const u = new SpeechSynthesisUtterance(text); const v = pickVoice(); if (v) u.voice = v; u.lang = v ? v.lang : (spokenLang() === 'en' ? 'en-US' : 'de-DE'); u.rate = settings.rate; u.pitch = 1.0; u.volume = 1;
+    diag.voice = v ? v.name : ''; diag.voices = speechSynthesis.getVoices().filter(x => (spokenLang() === 'en' ? /^en/i : /^de/i).test(x.lang)).length;
+    let mouth = null, started = false, done = false, dog = 0;
+    const finish = why => { if (done) return; done = true; clearInterval(mouth); clearTimeout(dog); diag.last = why; showDiag(); avatar.level = 0; if (--speakingCount <= 0) { speakingCount = 0; if (avatar.state === 'speaking') avatar.set('idle'); } resolve(); };
+    const begin = () => { if (started) return; started = true; avatar.set('speaking'); mouth = setInterval(() => { avatar.level = 0.25 + Math.random() * 0.6; }, 90); };
+    u.onstart = begin;
     u.onboundary = () => { avatar.level = 0.9; };
-    u.onend = finish; u.onerror = finish;
-    speakingCount++; currentUtter = u; speechSynthesis.speak(u);
-    setTimeout(() => { if (!started && !speechSynthesis.speaking) finish(); }, 2500);   // no voice available: do not hang the queue
+    u.onend = () => finish('end'); u.onerror = e => { diag.errors++; finish('error: ' + (e.error || '?')); };
+    speakingCount++; currentUtter = u; (window.__utter = window.__utter || []).push(u); if (window.__utter.length > 6) window.__utter.shift();   // keep references: Safari drops the events of collected utterances
+    speechSynthesis.speak(u);
+    setTimeout(() => { if (!started && speechSynthesis.speaking) begin(); else if (!started && !speechSynthesis.pending) finish('never started'); }, 1500);
+    dog = setTimeout(() => finish('watchdog'), 4000 + text.length * 110);   // an end event that never comes must not stall the queue
   });
 }
 let mediaSrc = null;
@@ -303,6 +321,7 @@ function googleVoiceFor() {
   return { languageCode: name.slice(0, 5), name };
 }
 async function speakGoogle(text) {
+  speakerSession(true);
   const res = await fetch(`https://texttospeech.googleapis.com/v1/text:synthesize?key=${encodeURIComponent(settings.googleKey)}`, {
     method: 'POST', headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ input: { text }, voice: googleVoiceFor(), audioConfig: { audioEncoding: 'MP3', speakingRate: settings.rate } }),
@@ -324,22 +343,22 @@ async function speakGoogle(text) {
 let rec = null, listening = false;
 function startListening() {
   const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
-  if (!SR) { $('text').focus(); setStatus(T().noStt); return; }
+  if (!SR) { setFocus(false); $('text').focus(); setStatus(T().noStt); return; }
   if (listening) { stopListening(); return; }
-  stopSpeaking();
+  stopSpeaking(); speakerSession(false);
   rec = new SR(); rec.lang = spokenLang() === 'en' ? 'en-US' : 'de-DE'; rec.interimResults = true; rec.continuous = false; rec.maxAlternatives = 1;
   let finalText = '';
   rec.onresult = e => { let interim = ''; for (let i = e.resultIndex; i < e.results.length; i++) { const r = e.results[i]; if (r.isFinal) finalText += r[0].transcript; else interim += r[0].transcript; } $('text').value = (finalText + ' ' + interim).trim(); };
   rec.onerror = e => { setStatus(e.error === 'not-allowed' ? T().mic : ''); stopListening(); };
   rec.onend = () => { const t = ($('text').value || finalText).trim(); stopListening(); if (t) { $('text').value = ''; ask(t); } else setStatus(T().nothingHeard); };
-  listening = true; $('mic').classList.add('on'); avatar.set('listening'); setStatus(T().listening);
+  listening = true; $('mic').classList.add('on'); avatar.set('listening'); setStatus(T().listening); syncFab();
   try { rec.start(); } catch (e) { stopListening(); }
 }
-function stopListening() { listening = false; $('mic').classList.remove('on'); if (avatar.state === 'listening') avatar.set('idle'); try { rec && rec.stop(); } catch {} rec = null; }
+function stopListening() { listening = false; $('mic').classList.remove('on'); setTimeout(syncFab, 0); if (avatar.state === 'listening') avatar.set('idle'); try { rec && rec.stop(); } catch {} rec = null; }
 
 /** iOS plays speech and audio only after a tap: do a silent speak and a silent play inside the tap handler. */
-function silentWav() {
-  const n = 800, bytes = new Uint8Array(44 + n), dv = new DataView(bytes.buffer), w = (o, str) => { for (let i = 0; i < str.length; i++) bytes[o + i] = str.charCodeAt(i); };
+function silentWav(n = 800) {
+  const bytes = new Uint8Array(44 + n), dv = new DataView(bytes.buffer), w = (o, str) => { for (let i = 0; i < str.length; i++) bytes[o + i] = str.charCodeAt(i); };
   w(0, 'RIFF'); dv.setUint32(4, 36 + n, true); w(8, 'WAVEfmt '); dv.setUint32(16, 16, true); dv.setUint16(20, 1, true); dv.setUint16(22, 1, true); dv.setUint32(24, 8000, true); dv.setUint32(28, 8000, true); dv.setUint16(32, 1, true); dv.setUint16(34, 8, true); w(36, 'data'); dv.setUint32(40, n, true);
   bytes.fill(128, 44); let bin = ''; for (const x of bytes) bin += String.fromCharCode(x);
   return 'data:audio/wav;base64,' + btoa(bin);
@@ -347,12 +366,15 @@ function silentWav() {
 function unlockAudio(withSpeech = true) {
   if (withSpeech) try { const u = new SpeechSynthesisUtterance('.'); u.volume = 0; speechSynthesis.speak(u); } catch {}
   try { speechSynthesis.getVoices(); } catch {}
-  try { player.src = silentWav(); player.volume = 0; const p = player.play(); if (p && p.catch) p.catch(() => {}); } catch {}
+  try { player.src = silentWav(); const p = player.play(); if (p && p.catch) p.catch(() => {}); } catch {}
+  try { keep.src = silentWav(8000); const p = keep.play(); if (p && p.catch) p.then(() => keep.pause()).catch(() => {}); } catch {}
   try { audioCtx = audioCtx || new (window.AudioContext || window.webkitAudioContext)(); audioCtx.resume(); } catch {}
 }
 const isIOS = /iP(hone|ad|od)/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
 
 /* ------------------------------------------------------------------ UI */
+function setFocus(on) { settings.focus = !!on; saveSettings(); if (avatar) avatar.inset = settings.focus ? 96 : 0; document.body.classList.toggle('focus', settings.focus); document.body.classList.toggle('nocc', !settings.cc); if ($('fabCC')) $('fabCC').classList.toggle('off', !settings.cc); }
+function syncFab() { const m = $('fabMic'); if (!m) return; m.classList.toggle('on', listening); m.classList.toggle('busy', busy && !listening); }
 function setStatus(s) { $('status').textContent = s; }
 function addLine(who, text) {
   const box = $('lines'); const d = document.createElement('div'); d.className = `line ${who}`; d.innerHTML = `<b>${who === 'du' ? (settings.nickname || T().you) : 'Lumi'}</b> ${esc(text)}`; box.appendChild(d);
@@ -413,9 +435,14 @@ function wire() {
   document.addEventListener('pointermove', e => avatar.lookAt((e.clientX / innerWidth) * 2 - 1, (e.clientY / innerHeight) * 2 - 1));
   const interrupt = () => { if (busy || pending > 0 || speechSynthesis.speaking) { stopSpeaking(); setStatus(''); if (settings.voiceMode && !busy) startListening(); } else if (!listening && !busy) startListening(); };
   $('classroom').addEventListener('click', interrupt);
-  const on = (id, fn) => { const el = $(id); if (el) el.onclick = fn; };
+  const on = (id, fn) => { const el = $(id); if (el) el.onclick = e => { e.stopPropagation(); fn(e); }; };
+  on('fabMic', interrupt);
+  on('fabStop', () => { stopSpeaking(); stopListening(); setStatus(''); });
+  on('fabCC', () => { settings.cc = !settings.cc; setFocus(settings.focus); });
+  on('fabMore', () => setFocus(false));
+  on('focusToggle', () => setFocus(true));
   on('hearYes', () => { settings.heard = true; saveSettings(); $('hear').hidden = true; });
-  on('hearNo', () => { $('hear').hidden = true; $('soundHelp').hidden = false; });
+  on('hearNo', () => { $('hear').hidden = true; $('soundHelp').hidden = false; showDiag(); });
   on('shClose', () => { $('soundHelp').hidden = true; });
   on('shSettings', () => { $('soundHelp').hidden = true; openSettings(''); });
   on('shTest', () => { unlockAudio(false); stopSpeaking(); const txt = settings.ui === 'en' ? 'Hello, this is my voice. Can you hear me?' : 'Hallo, das ist meine Stimme. Hörst du mich?'; const p = speakWeb(txt); enqueue(() => p); });
@@ -432,7 +459,7 @@ async function main() {
   client = makeClient();
   history = JSON.parse(sessionStorage.getItem('lumi.history') || '[]');
   document.body.classList.toggle('tv', !!settings.tv);
-  wire(); applyLang();
+  wire(); applyLang(); setFocus(settings.focus);
   requestAnimationFrame(loop);
   window.lumi = { ask, showScene, showCard, settings, get systemPrompt() { return systemPrompt; } };   // for tests and the console
 }

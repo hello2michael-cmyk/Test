@@ -7,7 +7,7 @@ export class Avatar {
     this.canvas = canvas; this.ctx = canvas.getContext('2d');
     this.state = 'idle'; this.level = 0; this.t0 = performance.now(); this.blinkAt = 1.5; this.blink = 0;
     this.look = { x: 0, y: 0 }; this.target = { x: 0, y: 0 }; this.mood = 0.3;
-    this.pointing = 0; this.pointUntil = 0; this.visual = false; this.x = null; this.h = null; this.walk = 0; this.dir = 1; this.jump = 0;
+    this.pointing = 0; this.pointUntil = 0; this.visual = false; this.x = null; this.h = null; this.walk = 0; this.dir = 1; this.jump = 0; this.inset = 0;   // inset: CSS pixels kept free under the feet in portrait (floating controls)
     requestAnimationFrame(() => this.frame());
   }
   set(state) { this.state = state; if (state === 'happy') { this.jump = 1; setTimeout(() => { if (this.state === 'happy') this.state = 'idle'; }, 2200); } }
@@ -23,9 +23,9 @@ export class Avatar {
     const w = Math.round(c.clientWidth * dpr), h = Math.round(c.clientHeight * dpr); if (!w || !h) return;
     if (c.width !== w || c.height !== h) { c.width = w; c.height = h; }
     const ctx = this.ctx, now = performance.now(), t = (now - this.t0) / 1000;
-    const landscape = w > h * 1.15;
+    const landscape = w > h * 1.15, floor = h - (landscape ? 0 : this.inset * dpr);
     // where to stand and how tall to be
-    const wantH = this.visual ? (landscape ? Math.min(h * 0.72, w * 0.24 * 2.5) : Math.min(h * 0.42, w * 0.8)) : Math.min(h * 0.9, w * 1.5);
+    const wantH = this.visual ? (landscape ? Math.min(h * 0.72, w * 0.24 * 2.5) : Math.min(floor * 0.44, w * 0.8)) : Math.min((floor - (landscape ? 0 : 150 * dpr)) * 0.98, w * 1.5, h * 0.9);
     const wantX = this.visual ? (landscape ? w * 0.12 : wantH * 0.3) : w / 2;
     if (this.x == null) { this.x = wantX; this.h = wantH; }
     const dx = wantX - this.x, step = Math.max(-w * 0.012, Math.min(w * 0.012, dx * 0.08));
@@ -44,7 +44,7 @@ export class Avatar {
     ctx.clearRect(0, 0, w, h);
     const U = this.h / 100, speaking = this.state === 'speaking', listening = this.state === 'listening', thinking = this.state === 'thinking';
     const stepPhase = t * 9, bob = this.walk * Math.abs(Math.sin(stepPhase)) * 1.6 * U + Math.sin(t * 1.2) * 0.5 * U + Math.sin(this.jump * Math.PI) * 6 * U;
-    ctx.save(); ctx.translate(this.x, h - 2 * U - bob);
+    ctx.save(); ctx.translate(this.x, floor - 2 * U - bob);
     // soft shadow
     ctx.beginPath(); ctx.ellipse(0, 1.5 * U + bob, 16 * U, 2.6 * U, 0, 0, Math.PI * 2); ctx.fillStyle = 'rgba(0,0,0,0.35)'; ctx.fill();
     const lean = this.walk * this.dir * 0.06 + (thinking ? -0.03 : 0) + Math.sin(t * 0.5) * 0.012;

@@ -65,3 +65,23 @@ body.tv .card ul { font-size: 1.8em; } body.tv .card .big { font-size: 2.3em; }
 .talk { border-radius: 999px; font-weight: 700; }
 .talk.on { background: rgba(107,237,184,0.22); border-color: var(--accent2); color: var(--accent2); }
 .overlay ol { padding-left: 1.2em; line-height: 1.5; }
+
+/* floating controls inside the classroom (only in the "Lumi only" view) */
+.fab { position: absolute; left: 50%; bottom: 14px; transform: translateX(-50%); display: none; gap: 10px; align-items: center; z-index: 5; }
+.fab button { border-radius: 999px; min-width: 48px; height: 48px; padding: 0 12px; background: rgba(10,15,36,0.7); backdrop-filter: blur(6px); font-weight: 700; }
+.fab .fabmic { min-width: 72px; height: 72px; font-size: 1.7em; background: var(--accent); border-color: transparent; }
+.fab .fabmic.on { background: var(--accent2); box-shadow: 0 0 26px var(--accent2); }
+.fab .fabmic.busy { background: #ffb840; }
+.fab button.off { opacity: 0.45; }
+/* "Lumi only": the teacher fills the screen; the board appears only when there is something to show */
+body.focus header, body.focus footer, body.focus .lines { display: none; }
+body.focus main { padding: 0; gap: 0; position: relative; }
+body.focus .classroom { border: 0; border-radius: 0; }
+body.focus .fab { display: flex; }
+body.focus .status { position: absolute; top: 10px; left: 12px; right: 12px; text-align: center; z-index: 6; text-shadow: 0 1px 6px #000; pointer-events: none; }
+body.focus .hear { position: absolute; top: 44px; left: 12px; right: 12px; z-index: 6; background: rgba(60,40,10,0.92); }
+body.focus .caption { position: absolute; left: 12px; right: 12px; top: 40px; z-index: 4; background: rgba(0,0,0,0.55); max-height: 6.8em; text-align: center; pointer-events: none; }   /* like a speech bubble above the head */
+body.focus .classroom.has-visual ~ .caption { top: calc((100vw) * 0.625 + 8px); max-height: 5.4em; }   /* portrait: between the board and the teacher */
+body.focus.nocc .caption { display: none; }
+body.focus .card { padding-bottom: 52%; }
+@media (min-aspect-ratio: 5/4) { body.focus .card { padding-bottom: 110px; } body.focus .classroom.has-visual ~ .caption { top: auto; bottom: 100px; left: 26%; } }
