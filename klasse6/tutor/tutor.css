@@ -64,3 +64,6 @@ body.tv .lines { display: none; }
 body.tv .status { font-size: 1.1em; }
 body.tv #avatar { max-height: 60vh; }
 body.tv .card ul { font-size: 1.8em; } body.tv .card .big { font-size: 2.3em; }
+.modes { display: flex; gap: 8px; flex-wrap: wrap; margin: 12px 0; }
+.mode { padding: 10px 14px; border-radius: 12px; }
+.mode.on { background: var(--accent2); color: #062; border-color: transparent; font-weight: 700; }
