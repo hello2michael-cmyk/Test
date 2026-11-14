@@ -42,6 +42,11 @@ token, connects to the avatar over WebRTC, sends every sentence's audio (Google 
 first chunk and then 1-second chunks) and waits for the avatar's "speak ended" event before the next sentence. Claude's requests and
 the voice also go through the server, which adds the keys. If the avatar cannot start, Lumi keeps talking as the drawn teacher.
 
+Speech quality: all sentences of an answer go out as one continuous utterance (no "speak_end" between them), each sentence with
+8 ms fades at both ends, so there are no clicks or pauses at the joins. When the plan's session time runs out during a conversation
+(free plan: about 2 minutes, Essential: 20), Judy reconnects by herself. While Judy is on screen the page holds a screen wake lock,
+so the iPhone does not lock and AirPlay mirroring to the TV keeps running; in landscape Judy takes the left third, the board the rest.
+
 Cost safety: the avatar session ends after 4 minutes without conversation, 30 seconds after the page goes to the background, and when
 the page closes. LiveAvatar bills per minute (LITE about 1 credit per minute; the free sandbox has a watermark and 2-minute sessions).
 

@@ -99,4 +99,6 @@ body.video #avatarVideo { display: block; }
 body.video #avatar { display: none; }
 body.video .classroom.has-visual #avatarVideo { inset: auto 12px 12px auto; width: 38%; height: auto; aspect-ratio: 3 / 4; border-radius: 16px; box-shadow: 0 8px 30px rgba(0,0,0,0.6); z-index: 4; }
 body.video.focus .classroom.has-visual #avatarVideo { bottom: 104px; }
-@media (min-aspect-ratio: 5/4) { body.video .classroom.has-visual #avatarVideo { inset: 0 auto 0 0; width: 24%; height: 100%; aspect-ratio: auto; border-radius: 0; box-shadow: none; } body.video.focus .classroom.has-visual #avatarVideo { bottom: 0; } }
+@media (min-aspect-ratio: 5/4) { body.video .classroom.has-visual #avatarVideo { inset: 0 auto 0 0; width: 32%; height: 100%; aspect-ratio: auto; border-radius: 0; box-shadow: none; } body.video.focus .classroom.has-visual #avatarVideo { bottom: 0; } }
+/* landscape (iPad, AirPlay to the TV): with Judy on screen the board starts right of her, not under her */
+@media (min-aspect-ratio: 5/4) { body.video .classroom.has-visual #stageCanvas, body.video .classroom.has-visual .card { left: 32%; width: 68%; } }
