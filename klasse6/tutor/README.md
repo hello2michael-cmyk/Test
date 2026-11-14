@@ -54,7 +54,8 @@ the page closes. LiveAvatar bills per minute (LITE about 1 credit per minute; th
 3. **GitHub repository → Settings → Secrets and variables → Actions:**
    - Secrets: `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID`, `LIVEAVATAR_API_KEY`, `ANTHROPIC_API_KEY`, `LUMI_ACCESS_CODE`
      (a long password you invent; every device enters it once). `GOOGLE_TTS_KEY` is already there from the videos.
-   - Variables (optional): `LIVEAVATAR_SANDBOX` = `false` once a paid plan is active (default: free sandbox).
+   - Variables (optional): `LIVEAVATAR_SANDBOX` = `true` only with LiveAvatar's sandbox test avatars; Judy is not allowed in the
+     sandbox, so the default is `false` (real sessions on the account's credits; the free plan includes a few minutes a month).
 4. **Actions → "Deploy Lumi key server" → Run workflow.** The run summary shows the server address (`https://lumi-tutor.<name>.workers.dev`).
 5. **In Lumi:** ⋯ → ⚙ → "Lumi server" = that address, "Access code" = your code, tick "Real video teacher", Save.
 
