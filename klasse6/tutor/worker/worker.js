@@ -45,7 +45,8 @@ async function session(env, cors) {
   });
   const text = await res.text(); let data = {}; try { data = JSON.parse(text); } catch {}
   const token = data?.data?.session_token || data?.session_token;
-  if (!res.ok || !token) return json({ error: 'LiveAvatar token request failed', status: res.status, detail: (data?.message || data?.detail || data?.error) ? JSON.stringify(data?.message || data?.detail || data?.error).slice(0, 400) : text.slice(0, 400) }, 502, cors);
+  // pass LiveAvatar's whole reply (it carries the validation details), never our key
+  if (!res.ok || !token) return json({ error: 'LiveAvatar token request failed', status: res.status, detail: text.slice(0, 800), sent: { mode: 'LITE', avatar_id: env.LIVEAVATAR_AVATAR_ID, is_sandbox: String(env.LIVEAVATAR_SANDBOX) === 'true' } }, 502, cors);
   return json({ session_token: token, session_id: data?.data?.session_id || data?.session_id || null }, 200, cors);
 }
 
