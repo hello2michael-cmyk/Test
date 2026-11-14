@@ -30,6 +30,7 @@ function fadeEdges(bin) {
 }
 
 export function createVideoAvatar({ video, getServer, getCode, onChange, log, Session = LiveAvatarSession }) {
+  let lastError = '';
   let session = null, state = 'off', idleTimer = 0, hiddenTimer = 0, lastActive = 0, wake = null;
   let turnId = null, playUntil = 0, endWaiters = [];
   const set = s => { state = s; onChange && onChange(s); };
@@ -69,7 +70,8 @@ export function createVideoAvatar({ video, getServer, getCode, onChange, log, Se
       s.on(AgentEventsEnum.AVATAR_SPEAK_ENDED, () => { const w = endWaiters; endWaiters = []; w.forEach(f => f()); });
       await s.start();
     } catch (e) {
-      log && log('avatar unavailable: ' + (e.message || e));
+      lastError = String(e.message || e).replace(/\s+/g, ' ').slice(0, 160);
+      log && log('avatar unavailable: ' + lastError);
       end(); set('failed');
     }
   }
@@ -139,6 +141,7 @@ export function createVideoAvatar({ video, getServer, getCode, onChange, log, Se
     start, stop, speak, endTurn, interrupt, touch,
     live: () => state === 'live' || state === 'needs-tap',
     state: () => state,
+    lastError: () => lastError,
     resume: () => { const p = video.play(); if (p && p.then) p.then(() => set('live')).catch(() => {}); },
   };
 }
