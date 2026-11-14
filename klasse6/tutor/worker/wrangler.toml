@@ -6,5 +6,6 @@ compatibility_date = "2026-11-01"
 ALLOWED_ORIGIN = "https://hello2michael-cmyk.github.io"
 # The video teacher: "Judy Teacher Sitting" (public LiveAvatar avatar). A repository variable LIVEAVATAR_AVATAR_ID overrides it.
 LIVEAVATAR_AVATAR_ID = "c72a9099-84b9-4d5d-98f4-a19ba131e654"
-# "true" while testing: free, with watermark and 2-minute sessions. Set to "false" once a paid plan is active.
-LIVEAVATAR_SANDBOX = "true"
+# "false": real sessions on the account's credits (the free plan includes a few minutes a month). The sandbox ("true") is
+# free but only allows LiveAvatar's own test avatars, not Judy ("This avatar is not supported in sandbox mode").
+LIVEAVATAR_SANDBOX = "false"
