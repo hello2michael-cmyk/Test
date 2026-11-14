@@ -114,3 +114,8 @@ body.video.focus .classroom.has-visual #avatarVideo { bottom: 104px; }
   body.focus.calm .fab { opacity: 0; pointer-events: none; }
   body.focus.calm .status:empty { opacity: 0; }
 }
+/* portrait: the status line is small and the subtitles start below it, so they never overlap */
+@media (max-aspect-ratio: 5/4) {
+  body.focus .status { font-size: 0.85em; line-height: 1.25; }
+  body.focus .caption { top: 72px; }
+}
