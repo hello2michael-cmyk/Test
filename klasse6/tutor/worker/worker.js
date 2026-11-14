@@ -18,7 +18,9 @@ function corsFor(req, env) {
     headers: ok ? {
       'access-control-allow-origin': origin || '*',
       'access-control-allow-methods': 'POST, OPTIONS',
-      'access-control-allow-headers': 'content-type, x-lumi-code, anthropic-version, anthropic-beta, x-api-key, x-stainless-arch, x-stainless-lang, x-stainless-os, x-stainless-package-version, x-stainless-retry-count, x-stainless-runtime, x-stainless-runtime-version, x-stainless-timeout, anthropic-dangerous-direct-browser-access',
+      // echo what the browser announces (the Claude SDK adds headers such as x-stainless-helper-method); safe because every
+      // request still needs the access code and only the listed origins get CORS at all
+      'access-control-allow-headers': req.headers.get('access-control-request-headers') || 'content-type, x-lumi-code',
       'access-control-max-age': '86400',
       vary: 'origin',
     } : { vary: 'origin' },
@@ -41,9 +43,9 @@ async function session(env, cors) {
     headers: { 'X-API-KEY': env.LIVEAVATAR_API_KEY, 'content-type': 'application/json', accept: 'application/json' },
     body: JSON.stringify({ mode: 'LITE', avatar_id: env.LIVEAVATAR_AVATAR_ID, is_sandbox: String(env.LIVEAVATAR_SANDBOX) === 'true' }),
   });
-  const data = await res.json().catch(() => ({}));
+  const text = await res.text(); let data = {}; try { data = JSON.parse(text); } catch {}
   const token = data?.data?.session_token || data?.session_token;
-  if (!res.ok || !token) return json({ error: 'LiveAvatar token request failed', status: res.status, detail: data?.message || data?.error || null }, 502, cors);
+  if (!res.ok || !token) return json({ error: 'LiveAvatar token request failed', status: res.status, detail: (data?.message || data?.detail || data?.error) ? JSON.stringify(data?.message || data?.detail || data?.error).slice(0, 400) : text.slice(0, 400) }, 502, cors);
   return json({ session_token: token, session_id: data?.data?.session_id || data?.session_id || null }, 200, cors);
 }
 

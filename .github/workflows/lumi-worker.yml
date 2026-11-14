@@ -68,8 +68,31 @@ jobs:
             if [ -n "$value" ]; then printf '%s' "$value" | npx --yes wrangler@4 secret put "$name" >/dev/null && echo "$name stored";
             else echo "::warning::$name is not set as a repository secret; that feature stays off."; fi
           done
-      - name: Result
+      - name: Self-test of the live server (what the iPhone does)
         if: steps.creds.outputs.configured == 'true'
+        env:
+          URL: ${{ steps.deploy.outputs.url }}
+          CODE: ${{ secrets.LUMI_ACCESS_CODE }}
+          ORIGIN: https://hello2michael-cmyk.github.io
         run: |
-          echo "### Lumi key server" >> "$GITHUB_STEP_SUMMARY"
-          echo "Address for the tutor's settings: ${{ steps.deploy.outputs.url }}" >> "$GITHUB_STEP_SUMMARY"
+          sleep 5
+          S="$GITHUB_STEP_SUMMARY"
+          echo "### Lumi key server" >> "$S"
+          echo "Address: $URL" >> "$S"
+          echo "" >> "$S"
+          echo "| Check | Result |" >> "$S"
+          echo "|---|---|" >> "$S"
+          # 1. browser preflight with the headers the Claude SDK sends
+          code=$(curl -s -o /dev/null -w '%{http_code}' -X OPTIONS "$URL/v1/messages" -H "origin: $ORIGIN" -H 'access-control-request-method: POST' -H 'access-control-request-headers: content-type,x-api-key,anthropic-version,x-stainless-helper-method,x-lumi-code')
+          echo "| Browser permission (preflight) | HTTP $code (204 = ok) |" >> "$S"
+          # 2. Claude through the server (a tiny request)
+          body=$(curl -s -X POST "$URL/v1/messages" -H "origin: $ORIGIN" -H "x-lumi-code: $CODE" -H 'content-type: application/json' -H 'anthropic-version: 2023-06-01' \
+            -d '{"model":"claude-sonnet-5-5","max_tokens":20,"messages":[{"role":"user","content":"Say: ok"}]}')
+          echo "| Claude via server | $(echo "$body" | jq -c 'if .content then "ok: " + (.content[0].text // "") else (.error // .) end' 2>/dev/null | head -c 300) |" >> "$S"
+          # 3. natural voice (raw PCM for the video teacher)
+          body=$(curl -s -X POST "$URL/tts" -H "origin: $ORIGIN" -H "x-lumi-code: $CODE" -H 'content-type: application/json' -d '{"text":"Hallo.","format":"pcm"}')
+          echo "| Voice (Google) | $(echo "$body" | jq -c 'if .audio then "ok: \(.audio | length) characters of audio" else . end' 2>/dev/null | head -c 300) |" >> "$S"
+          # 4. LiveAvatar session token (the token itself is never printed)
+          body=$(curl -s -X POST "$URL/session" -H "origin: $ORIGIN" -H "x-lumi-code: $CODE")
+          echo "| Video teacher (LiveAvatar) | $(echo "$body" | jq -c 'if .session_token then "ok: session token received" else . end' 2>/dev/null | head -c 600) |" >> "$S"
+          cat "$S"
