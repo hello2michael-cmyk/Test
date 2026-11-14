@@ -426,6 +426,15 @@ function unlockAudio(withSpeech = true) {
 const isIOS = /iP(hone|ad|od)/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
 
 /* ------------------------------------------------------------------ UI */
+/* in landscape (TV) the buttons fade out after 5 seconds without touch */
+let calmTimer = 0, calmTap = false;
+function wakeControls() {
+  if (document.body.classList.contains('calm')) { document.body.classList.remove('calm'); calmTap = true; setTimeout(() => { calmTap = false; }, 400); }
+  clearTimeout(calmTimer);
+  calmTimer = setTimeout(() => { if (matchMedia('(min-aspect-ratio: 5/4)').matches && document.body.classList.contains('focus') && !document.body.classList.contains('sheet')) document.body.classList.add('calm'); }, 5000);
+}
+document.addEventListener('pointerdown', wakeControls, true);
+window.addEventListener('resize', wakeControls);
 function setFocus(on) { document.body.classList.remove('sheet'); settings.focus = !!on; saveSettings(); if (avatar) avatar.inset = settings.focus ? 96 : 0; document.body.classList.toggle('focus', settings.focus); document.body.classList.toggle('nocc', !settings.cc); if ($('fabCC')) $('fabCC').classList.toggle('off', !settings.cc); }
 function syncFab() { const m = $('fabMic'); if (!m) return; m.classList.toggle('on', listening); m.classList.toggle('busy', busy && !listening); }
 function setStatus(s) { $('status').textContent = s; }
@@ -494,6 +503,7 @@ function wire() {
   };
   document.addEventListener('pointermove', e => avatar.lookAt((e.clientX / innerWidth) * 2 - 1, (e.clientY / innerHeight) * 2 - 1));
   const interrupt = () => { if (document.body.classList.contains('sheet')) { document.body.classList.remove('sheet'); return; }
+    if (calmTap) { calmTap = false; return; }   // the first tap on a calm screen only brings the buttons back
     if (videoAvatar.state() === 'needs-tap') { videoAvatar.resume(); return; }
     interrupt2(); };
   const interrupt2 = () => { if (busy || pending > 0 || speechSynthesis.speaking) { stopSpeaking(); setStatus(''); if (settings.voiceMode && !busy) startListening(); } else if (!listening && !busy) startListening(); };
@@ -535,7 +545,7 @@ async function main() {
   client = makeClient();
   history = JSON.parse(sessionStorage.getItem('lumi.history') || '[]');
   document.body.classList.toggle('tv', !!settings.tv);
-  wire(); applyLang(); setFocus(settings.focus);
+  wire(); applyLang(); setFocus(settings.focus); wakeControls();
   requestAnimationFrame(loop);
   window.lumi = { ask, showScene, showCard, settings, get systemPrompt() { return systemPrompt; } };   // for tests and the console
 }
