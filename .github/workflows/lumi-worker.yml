@@ -94,5 +94,5 @@ jobs:
           echo "| Voice (Google) | $(echo "$body" | jq -c 'if .audio then "ok: \(.audio | length) characters of audio" else . end' 2>/dev/null | head -c 300) |" >> "$S"
           # 4. LiveAvatar session token (the token itself is never printed)
           body=$(curl -s -X POST "$URL/session" -H "origin: $ORIGIN" -H "x-lumi-code: $CODE")
-          echo "| Video teacher (LiveAvatar) | $(echo "$body" | jq -c 'if .session_token then "ok: session token received" else . end' 2>/dev/null | head -c 600) |" >> "$S"
+          echo "| Video teacher (LiveAvatar) | $(echo "$body" | jq -c 'if .session_token then "ok: session token received" else . end' 2>/dev/null | head -c 1200) |" >> "$S"
           cat "$S"
