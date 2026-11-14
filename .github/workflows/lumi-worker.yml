@@ -46,7 +46,13 @@ jobs:
           args=()
           if [ -n "${{ vars.LIVEAVATAR_AVATAR_ID }}" ]; then args+=(--var "LIVEAVATAR_AVATAR_ID:${{ vars.LIVEAVATAR_AVATAR_ID }}"); fi
           if [ -n "${{ vars.LIVEAVATAR_SANDBOX }}" ]; then args+=(--var "LIVEAVATAR_SANDBOX:${{ vars.LIVEAVATAR_SANDBOX }}"); fi
-          npx --yes wrangler@4 deploy "${args[@]}" 2>&1 | tee deploy.log
+          set -o pipefail
+          if ! npx --yes wrangler@4 deploy "${args[@]}" 2>&1 | tee deploy.log; then
+            if grep -q "register a workers.dev subdomain" deploy.log; then
+              echo "::error::Cloudflare needs a workers.dev subdomain once: dash.cloudflare.com → Workers & Pages → choose a subdomain, then run this workflow again."
+            fi
+            exit 1
+          fi
           url=$(grep -oE 'https://[a-z0-9.-]+\.workers\.dev' deploy.log | head -1)
           echo "url=$url" >> "$GITHUB_OUTPUT"
       - name: Store the secrets in the worker
