@@ -18,7 +18,7 @@ export function createVideoAvatar({ video, getServer, getCode, onChange, log, Se
     try {
       const res = await fetch(getServer() + '/session', { method: 'POST', headers: { 'x-lumi-code': getCode() } });
       const data = await res.json().catch(() => ({}));
-      if (!res.ok || !data.session_token) throw new Error(data.error || ('session ' + res.status));
+      if (!res.ok || !data.session_token) throw new Error([data.error || ('session ' + res.status), data.status && ('HTTP ' + data.status), data.detail].filter(Boolean).join(' · '));
       session = new Session(data.session_token, { voiceChat: { defaultMuted: true }, autoKeepAlive: true });
       session.on(SessionEvent.SESSION_STREAM_READY, () => {
         session.attach(video);
