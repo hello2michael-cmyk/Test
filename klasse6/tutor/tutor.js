@@ -7,7 +7,7 @@ import { Anthropic } from './vendor/anthropic-sdk.js';
 import { Scene } from '../js/engine3d.js';
 import { SCENES } from '../js/scenes.js';
 import { Avatar } from './avatar.js?v=5';
-import { createVideoAvatar } from './video-avatar.js?v=2';
+import { createVideoAvatar } from './video-avatar.js?v=3';
 
 const $ = id => document.getElementById(id);
 const THEME = { bgTop: '#0d1229', bgBottom: '#170d38', accent: '#5c9eff', accent2: '#6bedb8', text: '#ffffff', muted: 'rgba(255,255,255,0.7)', dark: true };
@@ -144,7 +144,7 @@ ${syllabusSummary(d)}`;
 }
 
 /* ------------------------------------------------------------------ Claude */
-let videoAvatar = { live: () => false, state: () => 'off', interrupt() {}, start() {}, stop() {}, touch() {}, resume() {}, speak: async () => false, endTurn: async () => {} };
+let videoAvatar = { live: () => false, state: () => 'off', lastError: () => '', interrupt() {}, start() {}, stop() {}, touch() {}, resume() {}, speak: async () => false, endTurn: async () => {} };
 const viaServer = () => !!(settings.server && settings.code);
 const serverUrl = p => settings.server.replace(/\/+$/, '') + p;
 function makeClient() {
@@ -525,7 +525,7 @@ async function main() {
       if (st === 'starting') setStatus(T().videoStarting);
       else if (st === 'reconnecting') setStatus(T().videoReconnect);
       else if (st === 'needs-tap') setStatus(T().videoTap);
-      else if (st === 'failed') setStatus(T().videoFailed);
+      else if (st === 'failed') setStatus(T().videoFailed + (videoAvatar.lastError && videoAvatar.lastError() ? ' (' + videoAvatar.lastError() + ')' : ''));
       else if (st === 'live' && [T().videoStarting, T().videoTap, T().videoReconnect].includes($('status').textContent)) setStatus('');
     },
   });
