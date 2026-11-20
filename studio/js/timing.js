@@ -36,15 +36,17 @@ export function speedToFit(total, cap) {
 }
 
 /** Split narration into caption cues timed proportionally to character count. */
-export function captions(narration, start, duration, maxChars = 40) {
+export function captions(narration, start, duration, maxChars = 40, style = 'lines') {
   const words = (narration || '').trim().split(/\s+/).filter(Boolean);
   if (!words.length || duration <= 0) return [];
+  // 'words': one to three words per cue (never more than ~14 characters), the big-caption style of story shorts.
+  if (style === 'words') maxChars = 14;
   const chunks = [[]];
   for (const w of words) {
     const cur = chunks[chunks.length - 1];
     const len = cur.join(' ').length;
-    const endsSentence = cur.length && /[.!?]$/.test(cur[cur.length - 1]);
-    if ((cur.length && len + w.length + 1 > maxChars) || (endsSentence && cur.length)) chunks.push([w]);
+    const endsSentence = cur.length && /[.!?,:;]$/.test(cur[cur.length - 1]);
+    if ((cur.length && len + w.length + 1 > maxChars) || (endsSentence && cur.length) || (style === 'words' && cur.length >= 3)) chunks.push([w]);
     else cur.push(w);
   }
   const totalChars = words.join(' ').length + chunks.length;
@@ -52,7 +54,7 @@ export function captions(narration, start, duration, maxChars = 40) {
   let cursor = start;
   for (const c of chunks) {
     const text = c.join(' ');
-    const length = Math.max(0.6, duration * ((text.length + 1) / totalChars));
+    const length = Math.max(style === 'words' ? 0.2 : 0.6, duration * ((text.length + 1) / totalChars));
     cues.push({ start: cursor, end: Math.min(start + duration, cursor + length), text });
     cursor += length;
   }

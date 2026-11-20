@@ -1,0 +1,2243 @@
+{
+ "id": "current",
+ "prompt": "Story short \"In This City, Everyone Has To Tell The Truth\" from shorts/stories/truth-city.story.json: a narrated story acted out by blocky avatars, vertical, about 72 seconds.",
+ "attempts": 0,
+ "createdAt": 1795209453109,
+ "updatedAt": 1795209453109,
+ "stage": "plan",
+ "mode": "course",
+ "durationApplied": true,
+ "audios": {},
+ "footage": {},
+ "heroBeats": [],
+ "settings": {
+  "videoStyle": "course",
+  "aspect": "9x16",
+  "quality": "1080",
+  "fps": 30,
+  "theme": "Midnight",
+  "burnInCaptions": true,
+  "captionStyle": "words",
+  "showProgressBar": false,
+  "voice": "am_adam",
+  "speed": 1.04,
+  "sceneHoldSeconds": 0.25,
+  "musicVolume": 0,
+  "ambientBed": false,
+  "channelName": "",
+  "cta": "Subscribe for the next world",
+  "footageProvider": "none",
+  "aiClipBudget": 0,
+  "minSceneSeconds": 0,
+  "maxDuration": 94,
+  "targetDuration": 72,
+  "short": {
+   "id": "truth-city",
+   "title": "In This City, Everyone Has To Tell The Truth",
+   "authored": "truth-city.story.json"
+  }
+ },
+ "brief": {
+  "title": "In This City, Everyone Has To Tell The Truth",
+  "audience": "everyone who likes what-if stories",
+  "hook": "In this city, everyone has to tell the truth. Every single person. No exceptions.",
+  "learningObjectives": [],
+  "keyTakeaway": "Which law would you make? Tell me in the comments, and subscribe for the next world.",
+  "tone": "playful, quick, deadpan",
+  "mode": "course",
+  "lessonScene": null,
+  "bibleLine": "",
+  "chapters": [
+   {
+    "id": 1,
+    "title": "In This City, Everyone Has To Tell The Truth",
+    "goal": "In This City, Everyone Has To Tell The Truth",
+    "keyPoints": [],
+    "example": ""
+   }
+  ],
+  "outline": [
+   {
+    "id": 1,
+    "chapterId": 1,
+    "purpose": "hook",
+    "keyPoint": "In this city, everyone has to tell the truth. Every single person. No exceptions.",
+    "suggestedVisual": "story3d"
+   },
+   {
+    "id": 2,
+    "chapterId": 1,
+    "purpose": "explain",
+    "keyPoint": "Mia walks up to Max and asks how her new haircut looks.",
+    "suggestedVisual": "story3d"
+   },
+   {
+    "id": 3,
+    "chapterId": 1,
+    "purpose": "explain",
+    "keyPoint": "Max has to say what he really thinks. Honestly? Terrible. Mia walks away.",
+    "suggestedVisual": "story3d"
+   },
+   {
+    "id": 4,
+    "chapterId": 1,
+    "purpose": "explain",
+    "keyPoint": "At home, Grandma made her famous soup. She has been cooking all day.",
+    "suggestedVisual": "story3d"
+   },
+   {
+    "id": 5,
+    "chapterId": 1,
+    "purpose": "explain",
+    "keyPoint": "Max tastes it. His face says everything before his mouth does. Grandma is not amused.",
+    "suggestedVisual": "story3d"
+   },
+   {
+    "id": 6,
+    "chapterId": 1,
+    "purpose": "explain",
+    "keyPoint": "At school, the teacher asks who actually did the homework.",
+    "suggestedVisual": "story3d"
+   },
+   {
+    "id": 7,
+    "chapterId": 1,
+    "purpose": "explain",
+    "keyPoint": "Nobody raises a hand. Nobody can lie. The whole class gets detention.",
+    "suggestedVisual": "story3d"
+   },
+   {
+    "id": 8,
+    "chapterId": 1,
+    "purpose": "explain",
+    "keyPoint": "That night, a police officer stops Max. Have you ever broken a rule?",
+    "suggestedVisual": "story3d"
+   },
+   {
+    "id": 9,
+    "chapterId": 1,
+    "purpose": "explain",
+    "keyPoint": "Max thinks about it. Yes. He crossed the street on red. Last Tuesday.",
+    "suggestedVisual": "story3d"
+   },
+   {
+    "id": 10,
+    "chapterId": 1,
+    "purpose": "explain",
+    "keyPoint": "By evening the whole city is in trouble. Everyone told the truth, and now nobody is talking to anyone.",
+    "suggestedVisual": "story3d"
+   },
+   {
+    "id": 11,
+    "chapterId": 1,
+    "purpose": "explain",
+    "keyPoint": "So the mayor makes a new law. From tomorrow, everyone gets one lie per day. The city goes wild.",
+    "suggestedVisual": "story3d"
+   },
+   {
+    "id": 12,
+    "chapterId": 1,
+    "purpose": "explain",
+    "keyPoint": "The next morning, Mia walks up to Max and says: your haircut looks great. And both of them smile.",
+    "suggestedVisual": "story3d"
+   },
+   {
+    "id": 13,
+    "chapterId": 1,
+    "purpose": "takeaway",
+    "keyPoint": "Which law would you make? Tell me in the comments, and subscribe for the next world.",
+    "suggestedVisual": "story3d"
+   }
+  ]
+ },
+ "chapterBeats": {
+  "1": [
+   {
+    "narration": "In this city, everyone has to tell the truth. Every single person. No exceptions.",
+    "onScreenTitle": "In this city, everyone has to tell the",
+    "emphasisWords": [
+     "truth",
+     "exceptions"
+    ],
+    "kind": "story3d"
+   },
+   {
+    "narration": "Mia walks up to Max and asks how her new haircut looks.",
+    "onScreenTitle": "Mia walks up to Max and asks how",
+    "emphasisWords": [
+     "haircut"
+    ],
+    "kind": "story3d"
+   },
+   {
+    "narration": "Max has to say what he really thinks. Honestly? Terrible. Mia walks away.",
+    "onScreenTitle": "Max has to say what he really thinks.",
+    "emphasisWords": [
+     "Terrible"
+    ],
+    "kind": "story3d"
+   },
+   {
+    "narration": "At home, Grandma made her famous soup. She has been cooking all day.",
+    "onScreenTitle": "At home, Grandma made her famous soup. She",
+    "emphasisWords": [
+     "famous",
+     "soup"
+    ],
+    "kind": "story3d"
+   },
+   {
+    "narration": "Max tastes it. His face says everything before his mouth does. Grandma is not amused.",
+    "onScreenTitle": "Max tastes it. His face says everything before",
+    "emphasisWords": [
+     "everything",
+     "amused"
+    ],
+    "kind": "story3d"
+   },
+   {
+    "narration": "At school, the teacher asks who actually did the homework.",
+    "onScreenTitle": "At school, the teacher asks who actually did",
+    "emphasisWords": [
+     "homework"
+    ],
+    "kind": "story3d"
+   },
+   {
+    "narration": "Nobody raises a hand. Nobody can lie. The whole class gets detention.",
+    "onScreenTitle": "Nobody raises a hand. Nobody can lie. The",
+    "emphasisWords": [
+     "Nobody",
+     "detention"
+    ],
+    "kind": "story3d"
+   },
+   {
+    "narration": "That night, a police officer stops Max. Have you ever broken a rule?",
+    "onScreenTitle": "That night, a police officer stops Max. Have",
+    "emphasisWords": [
+     "police",
+     "rule"
+    ],
+    "kind": "story3d"
+   },
+   {
+    "narration": "Max thinks about it. Yes. He crossed the street on red. Last Tuesday.",
+    "onScreenTitle": "Max thinks about it. Yes. He crossed the",
+    "emphasisWords": [
+     "Yes",
+     "Tuesday"
+    ],
+    "kind": "story3d"
+   },
+   {
+    "narration": "By evening the whole city is in trouble. Everyone told the truth, and now nobody is talking to anyone.",
+    "onScreenTitle": "By evening the whole city is in trouble.",
+    "emphasisWords": [
+     "trouble",
+     "nobody"
+    ],
+    "kind": "story3d"
+   },
+   {
+    "narration": "So the mayor makes a new law. From tomorrow, everyone gets one lie per day. The city goes wild.",
+    "onScreenTitle": "So the mayor makes a new law. From",
+    "emphasisWords": [
+     "one",
+     "lie"
+    ],
+    "kind": "story3d"
+   },
+   {
+    "narration": "The next morning, Mia walks up to Max and says: your haircut looks great. And both of them smile.",
+    "onScreenTitle": "The next morning, Mia walks up to Max",
+    "emphasisWords": [
+     "great",
+     "smile"
+    ],
+    "kind": "story3d"
+   },
+   {
+    "narration": "Which law would you make? Tell me in the comments, and subscribe for the next world.",
+    "onScreenTitle": "Which law would you make? Tell me in",
+    "emphasisWords": [
+     "you",
+     "subscribe"
+    ],
+    "kind": "story3d"
+   }
+  ]
+ },
+ "script": {
+  "scenes": [
+   {
+    "beatId": 1,
+    "chapterId": 1,
+    "narration": "In this city, everyone has to tell the truth. Every single person. No exceptions.",
+    "onScreenTitle": "In this city, everyone has to tell the",
+    "emphasisWords": [
+     "truth",
+     "exceptions"
+    ]
+   },
+   {
+    "beatId": 2,
+    "chapterId": 1,
+    "narration": "Mia walks up to Max and asks how her new haircut looks.",
+    "onScreenTitle": "Mia walks up to Max and asks how",
+    "emphasisWords": [
+     "haircut"
+    ]
+   },
+   {
+    "beatId": 3,
+    "chapterId": 1,
+    "narration": "Max has to say what he really thinks. Honestly? Terrible. Mia walks away.",
+    "onScreenTitle": "Max has to say what he really thinks.",
+    "emphasisWords": [
+     "Terrible"
+    ]
+   },
+   {
+    "beatId": 4,
+    "chapterId": 1,
+    "narration": "At home, Grandma made her famous soup. She has been cooking all day.",
+    "onScreenTitle": "At home, Grandma made her famous soup. She",
+    "emphasisWords": [
+     "famous",
+     "soup"
+    ]
+   },
+   {
+    "beatId": 5,
+    "chapterId": 1,
+    "narration": "Max tastes it. His face says everything before his mouth does. Grandma is not amused.",
+    "onScreenTitle": "Max tastes it. His face says everything before",
+    "emphasisWords": [
+     "everything",
+     "amused"
+    ]
+   },
+   {
+    "beatId": 6,
+    "chapterId": 1,
+    "narration": "At school, the teacher asks who actually did the homework.",
+    "onScreenTitle": "At school, the teacher asks who actually did",
+    "emphasisWords": [
+     "homework"
+    ]
+   },
+   {
+    "beatId": 7,
+    "chapterId": 1,
+    "narration": "Nobody raises a hand. Nobody can lie. The whole class gets detention.",
+    "onScreenTitle": "Nobody raises a hand. Nobody can lie. The",
+    "emphasisWords": [
+     "Nobody",
+     "detention"
+    ]
+   },
+   {
+    "beatId": 8,
+    "chapterId": 1,
+    "narration": "That night, a police officer stops Max. Have you ever broken a rule?",
+    "onScreenTitle": "That night, a police officer stops Max. Have",
+    "emphasisWords": [
+     "police",
+     "rule"
+    ]
+   },
+   {
+    "beatId": 9,
+    "chapterId": 1,
+    "narration": "Max thinks about it. Yes. He crossed the street on red. Last Tuesday.",
+    "onScreenTitle": "Max thinks about it. Yes. He crossed the",
+    "emphasisWords": [
+     "Yes",
+     "Tuesday"
+    ]
+   },
+   {
+    "beatId": 10,
+    "chapterId": 1,
+    "narration": "By evening the whole city is in trouble. Everyone told the truth, and now nobody is talking to anyone.",
+    "onScreenTitle": "By evening the whole city is in trouble.",
+    "emphasisWords": [
+     "trouble",
+     "nobody"
+    ]
+   },
+   {
+    "beatId": 11,
+    "chapterId": 1,
+    "narration": "So the mayor makes a new law. From tomorrow, everyone gets one lie per day. The city goes wild.",
+    "onScreenTitle": "So the mayor makes a new law. From",
+    "emphasisWords": [
+     "one",
+     "lie"
+    ]
+   },
+   {
+    "beatId": 12,
+    "chapterId": 1,
+    "narration": "The next morning, Mia walks up to Max and says: your haircut looks great. And both of them smile.",
+    "onScreenTitle": "The next morning, Mia walks up to Max",
+    "emphasisWords": [
+     "great",
+     "smile"
+    ]
+   },
+   {
+    "beatId": 13,
+    "chapterId": 1,
+    "narration": "Which law would you make? Tell me in the comments, and subscribe for the next world.",
+    "onScreenTitle": "Which law would you make? Tell me in",
+    "emphasisWords": [
+     "you",
+     "subscribe"
+    ]
+   }
+  ],
+  "totalWords": 188
+ },
+ "review": {
+  "approved": true,
+  "issues": [],
+  "claimsToVerify": [],
+  "revisedNarration": {},
+  "mustFix": [],
+  "reviewer": "authored story"
+ },
+ "storyboard": {
+  "scenes": [
+   {
+    "beatId": 1,
+    "kind": "story3d",
+    "kicker": null,
+    "title": "In this city, everyone has to tell the",
+    "subtitle": null,
+    "bullets": null,
+    "nodes": null,
+    "leftTitle": null,
+    "leftItems": null,
+    "rightTitle": null,
+    "rightItems": null,
+    "statValue": null,
+    "statLabel": null,
+    "code": null,
+    "codeLanguage": null,
+    "quote": null,
+    "attribution": null,
+    "shot": null,
+    "stockQuery": null,
+    "model": null,
+    "labels": null,
+    "scene": null,
+    "params": null,
+    "formula": null,
+    "question": null,
+    "think": null,
+    "hint": null,
+    "thinkText": null,
+    "eyebrow": null,
+    "footnote": null,
+    "answerText": null,
+    "segment": null,
+    "story": {
+     "set": "street",
+     "time": "day",
+     "headline": null,
+     "actors": [
+      {
+       "id": "max",
+       "look": {
+        "skin": "light",
+        "shirt": "#2f7cf6",
+        "pants": "#223049",
+        "hair": "short",
+        "hairColor": "brown",
+        "hat": null,
+        "glasses": false,
+        "sleeves": null,
+        "logo": null
+       },
+       "pos": [
+        -3.5,
+        0.6
+       ],
+       "yaw": 0,
+       "action": "walk",
+       "face": "happy",
+       "say": null,
+       "keys": [
+        {
+         "at": 0,
+         "then": "idle",
+         "to": [
+          0.2,
+          0.6
+         ],
+         "dur": 3.2
+        }
+       ]
+      },
+      {
+       "id": "kid1",
+       "look": {
+        "skin": "tan",
+        "shirt": "#f4c20d",
+        "pants": "#2b2b2b",
+        "hair": "spiky",
+        "hairColor": "red",
+        "hat": null,
+        "glasses": false,
+        "sleeves": null,
+        "logo": null
+       },
+       "pos": [
+        3.2,
+        -0.3
+       ],
+       "yaw": -40,
+       "action": "talk",
+       "face": "happy",
+       "say": null,
+       "keys": []
+      },
+      {
+       "id": "kid2",
+       "look": {
+        "skin": "dark",
+        "shirt": "#1abc9c",
+        "pants": "#1e2d3a",
+        "hair": "long",
+        "hairColor": "black",
+        "hat": null,
+        "glasses": false,
+        "sleeves": null,
+        "logo": null
+       },
+       "pos": [
+        4.3,
+        -0.2
+       ],
+       "yaw": 40,
+       "action": "idle",
+       "face": "laugh",
+       "say": null,
+       "keys": []
+      }
+     ],
+     "props": [
+      {
+       "type": "sign",
+       "pos": [
+        1.9,
+        0.2
+       ],
+       "yaw": 15,
+       "text": "NO LIES\nALLOWED",
+       "color": "#e74c3c",
+       "textColor": null
+      }
+     ],
+     "camera": {
+      "move": "push"
+     }
+    },
+    "hero": false,
+    "chapterId": 1
+   },
+   {
+    "beatId": 2,
+    "kind": "story3d",
+    "kicker": null,
+    "title": "Mia walks up to Max and asks how",
+    "subtitle": null,
+    "bullets": null,
+    "nodes": null,
+    "leftTitle": null,
+    "leftItems": null,
+    "rightTitle": null,
+    "rightItems": null,
+    "statValue": null,
+    "statLabel": null,
+    "code": null,
+    "codeLanguage": null,
+    "quote": null,
+    "attribution": null,
+    "shot": null,
+    "stockQuery": null,
+    "model": null,
+    "labels": null,
+    "scene": null,
+    "params": null,
+    "formula": null,
+    "question": null,
+    "think": null,
+    "hint": null,
+    "thinkText": null,
+    "eyebrow": null,
+    "footnote": null,
+    "answerText": null,
+    "segment": null,
+    "story": {
+     "set": "street",
+     "time": "day",
+     "headline": null,
+     "actors": [
+      {
+       "id": "max",
+       "look": {
+        "skin": "light",
+        "shirt": "#2f7cf6",
+        "pants": "#223049",
+        "hair": "short",
+        "hairColor": "brown",
+        "hat": null,
+        "glasses": false,
+        "sleeves": null,
+        "logo": null
+       },
+       "pos": [
+        -0.5,
+        0.5
+       ],
+       "yaw": 60,
+       "action": "idle",
+       "face": "happy",
+       "say": null,
+       "keys": []
+      },
+      {
+       "id": "mia",
+       "look": {
+        "skin": "tan",
+        "shirt": "#ff6fa3",
+        "pants": "#3a2a3f",
+        "hair": "long",
+        "hairColor": "blonde",
+        "hat": null,
+        "glasses": false,
+        "sleeves": null,
+        "logo": null
+       },
+       "pos": [
+        3.2,
+        0.6
+       ],
+       "yaw": 0,
+       "action": "walk",
+       "face": "happy",
+       "say": null,
+       "keys": [
+        {
+         "at": 0,
+         "then": "talk",
+         "to": [
+          0.9,
+          0.5
+         ],
+         "dur": 2
+        },
+        {
+         "at": 2.2,
+         "action": "talk",
+         "yaw": -70,
+         "face": "happy",
+         "say": "Like my hair?"
+        }
+       ]
+      }
+     ],
+     "props": [],
+     "camera": {
+      "distance": 5.5,
+      "move": "orbit"
+     }
+    },
+    "hero": false,
+    "chapterId": 1
+   },
+   {
+    "beatId": 3,
+    "kind": "story3d",
+    "kicker": null,
+    "title": "Max has to say what he really thinks.",
+    "subtitle": null,
+    "bullets": null,
+    "nodes": null,
+    "leftTitle": null,
+    "leftItems": null,
+    "rightTitle": null,
+    "rightItems": null,
+    "statValue": null,
+    "statLabel": null,
+    "code": null,
+    "codeLanguage": null,
+    "quote": null,
+    "attribution": null,
+    "shot": null,
+    "stockQuery": null,
+    "model": null,
+    "labels": null,
+    "scene": null,
+    "params": null,
+    "formula": null,
+    "question": null,
+    "think": null,
+    "hint": null,
+    "thinkText": null,
+    "eyebrow": null,
+    "footnote": null,
+    "answerText": null,
+    "segment": null,
+    "story": {
+     "set": "street",
+     "time": "day",
+     "headline": null,
+     "actors": [
+      {
+       "id": "max",
+       "look": {
+        "skin": "light",
+        "shirt": "#2f7cf6",
+        "pants": "#223049",
+        "hair": "short",
+        "hairColor": "brown",
+        "hat": null,
+        "glasses": false,
+        "sleeves": null,
+        "logo": null
+       },
+       "pos": [
+        -0.5,
+        0.5
+       ],
+       "yaw": 60,
+       "action": "think",
+       "face": "neutral",
+       "say": null,
+       "keys": [
+        {
+         "at": 1.4,
+         "action": "shrug",
+         "face": "sad",
+         "say": "Terrible."
+        }
+       ]
+      },
+      {
+       "id": "mia",
+       "look": {
+        "skin": "tan",
+        "shirt": "#ff6fa3",
+        "pants": "#3a2a3f",
+        "hair": "long",
+        "hairColor": "blonde",
+        "hat": null,
+        "glasses": false,
+        "sleeves": null,
+        "logo": null
+       },
+       "pos": [
+        0.9,
+        0.5
+       ],
+       "yaw": -70,
+       "action": "idle",
+       "face": "happy",
+       "say": null,
+       "keys": [
+        {
+         "at": 1.6,
+         "action": "angry",
+         "face": "angry"
+        },
+        {
+         "at": 3,
+         "then": "idle",
+         "to": [
+          4.5,
+          0.4
+         ],
+         "dur": 1.8,
+         "face": "sad"
+        }
+       ]
+      }
+     ],
+     "props": [],
+     "camera": {
+      "distance": 5.5
+     }
+    },
+    "hero": false,
+    "chapterId": 1
+   },
+   {
+    "beatId": 4,
+    "kind": "story3d",
+    "kicker": null,
+    "title": "At home, Grandma made her famous soup. She",
+    "subtitle": null,
+    "bullets": null,
+    "nodes": null,
+    "leftTitle": null,
+    "leftItems": null,
+    "rightTitle": null,
+    "rightItems": null,
+    "statValue": null,
+    "statLabel": null,
+    "code": null,
+    "codeLanguage": null,
+    "quote": null,
+    "attribution": null,
+    "shot": null,
+    "stockQuery": null,
+    "model": null,
+    "labels": null,
+    "scene": null,
+    "params": null,
+    "formula": null,
+    "question": null,
+    "think": null,
+    "hint": null,
+    "thinkText": null,
+    "eyebrow": null,
+    "footnote": null,
+    "answerText": null,
+    "segment": null,
+    "story": {
+     "set": "home",
+     "time": "day",
+     "headline": null,
+     "actors": [
+      {
+       "id": "grandma",
+       "look": {
+        "skin": "pale",
+        "shirt": "#8e44ad",
+        "pants": "#1f1f2e",
+        "hair": "bun",
+        "hairColor": "grey",
+        "hat": null,
+        "glasses": true,
+        "sleeves": null,
+        "logo": null
+       },
+       "pos": [
+        -1.2,
+        -1.6
+       ],
+       "yaw": 30,
+       "action": "talk",
+       "face": "happy",
+       "say": "Soup!",
+       "keys": []
+      },
+      {
+       "id": "max",
+       "look": {
+        "skin": "light",
+        "shirt": "#2f7cf6",
+        "pants": "#223049",
+        "hair": "short",
+        "hairColor": "brown",
+        "hat": null,
+        "glasses": false,
+        "sleeves": null,
+        "logo": null
+       },
+       "pos": [
+        0.9,
+        -1.2
+       ],
+       "yaw": -20,
+       "action": "sit",
+       "face": "happy",
+       "say": null,
+       "keys": []
+      }
+     ],
+     "props": [
+      {
+       "type": "chair",
+       "pos": [
+        0.9,
+        -1.2
+       ],
+       "yaw": -20,
+       "text": null,
+       "color": "#8a5a30",
+       "textColor": null
+      },
+      {
+       "type": "table",
+       "pos": [
+        0.9,
+        -0.3
+       ],
+       "yaw": 0,
+       "text": null,
+       "color": null,
+       "textColor": null
+      },
+      {
+       "type": "crate",
+       "pos": [
+        0.9,
+        -0.3
+       ],
+       "yaw": 0,
+       "text": null,
+       "color": "#e67e22",
+       "textColor": null,
+       "size": 0.2,
+       "y": 0.75
+      }
+     ],
+     "camera": {
+      "azimuth": -0.25,
+      "distance": 6,
+      "move": "push"
+     }
+    },
+    "hero": false,
+    "chapterId": 1
+   },
+   {
+    "beatId": 5,
+    "kind": "story3d",
+    "kicker": null,
+    "title": "Max tastes it. His face says everything before",
+    "subtitle": null,
+    "bullets": null,
+    "nodes": null,
+    "leftTitle": null,
+    "leftItems": null,
+    "rightTitle": null,
+    "rightItems": null,
+    "statValue": null,
+    "statLabel": null,
+    "code": null,
+    "codeLanguage": null,
+    "quote": null,
+    "attribution": null,
+    "shot": null,
+    "stockQuery": null,
+    "model": null,
+    "labels": null,
+    "scene": null,
+    "params": null,
+    "formula": null,
+    "question": null,
+    "think": null,
+    "hint": null,
+    "thinkText": null,
+    "eyebrow": null,
+    "footnote": null,
+    "answerText": null,
+    "segment": null,
+    "story": {
+     "set": "home",
+     "time": "day",
+     "headline": null,
+     "actors": [
+      {
+       "id": "max",
+       "look": {
+        "skin": "light",
+        "shirt": "#2f7cf6",
+        "pants": "#223049",
+        "hair": "short",
+        "hairColor": "brown",
+        "hat": null,
+        "glasses": false,
+        "sleeves": null,
+        "logo": null
+       },
+       "pos": [
+        0.9,
+        -1.2
+       ],
+       "yaw": -20,
+       "action": "sit",
+       "face": "surprised",
+       "say": null,
+       "keys": [
+        {
+         "at": 1.2,
+         "face": "sad",
+         "say": "Too salty."
+        }
+       ]
+      },
+      {
+       "id": "grandma",
+       "look": {
+        "skin": "pale",
+        "shirt": "#8e44ad",
+        "pants": "#1f1f2e",
+        "hair": "bun",
+        "hairColor": "grey",
+        "hat": null,
+        "glasses": true,
+        "sleeves": null,
+        "logo": null
+       },
+       "pos": [
+        -1.2,
+        -1.6
+       ],
+       "yaw": 30,
+       "action": "idle",
+       "face": "happy",
+       "say": null,
+       "keys": [
+        {
+         "at": 2.2,
+         "action": "angry",
+         "face": "angry"
+        }
+       ]
+      }
+     ],
+     "props": [
+      {
+       "type": "chair",
+       "pos": [
+        0.9,
+        -1.2
+       ],
+       "yaw": -20,
+       "text": null,
+       "color": "#8a5a30",
+       "textColor": null
+      },
+      {
+       "type": "table",
+       "pos": [
+        0.9,
+        -0.3
+       ],
+       "yaw": 0,
+       "text": null,
+       "color": null,
+       "textColor": null
+      },
+      {
+       "type": "crate",
+       "pos": [
+        0.9,
+        -0.3
+       ],
+       "yaw": 0,
+       "text": null,
+       "color": "#e67e22",
+       "textColor": null,
+       "size": 0.2,
+       "y": 0.75
+      }
+     ],
+     "camera": {
+      "azimuth": -0.1,
+      "distance": 4.6,
+      "target": [
+       0.4,
+       0.9,
+       -1
+      ]
+     }
+    },
+    "hero": false,
+    "chapterId": 1
+   },
+   {
+    "beatId": 6,
+    "kind": "story3d",
+    "kicker": null,
+    "title": "At school, the teacher asks who actually did",
+    "subtitle": null,
+    "bullets": null,
+    "nodes": null,
+    "leftTitle": null,
+    "leftItems": null,
+    "rightTitle": null,
+    "rightItems": null,
+    "statValue": null,
+    "statLabel": null,
+    "code": null,
+    "codeLanguage": null,
+    "quote": null,
+    "attribution": null,
+    "shot": null,
+    "stockQuery": null,
+    "model": null,
+    "labels": null,
+    "scene": null,
+    "params": null,
+    "formula": null,
+    "question": null,
+    "think": null,
+    "hint": null,
+    "thinkText": null,
+    "eyebrow": null,
+    "footnote": null,
+    "answerText": null,
+    "segment": null,
+    "story": {
+     "set": "classroom",
+     "time": "day",
+     "headline": null,
+     "actors": [
+      {
+       "id": "teacher",
+       "look": {
+        "skin": "brown",
+        "shirt": "#27ae60",
+        "pants": "#34495e",
+        "hair": "short",
+        "hairColor": "black",
+        "hat": null,
+        "glasses": true,
+        "sleeves": null,
+        "logo": null
+       },
+       "pos": [
+        0,
+        -2.4
+       ],
+       "yaw": 0,
+       "action": "point",
+       "face": "neutral",
+       "say": null,
+       "keys": []
+      },
+      {
+       "id": "max",
+       "look": {
+        "skin": "light",
+        "shirt": "#2f7cf6",
+        "pants": "#223049",
+        "hair": "short",
+        "hairColor": "brown",
+        "hat": null,
+        "glasses": false,
+        "sleeves": null,
+        "logo": null
+       },
+       "pos": [
+        -2.4,
+        -1.15
+       ],
+       "yaw": 0,
+       "action": "sit",
+       "face": "neutral",
+       "say": null,
+       "keys": []
+      },
+      {
+       "id": "kid1",
+       "look": {
+        "skin": "tan",
+        "shirt": "#f4c20d",
+        "pants": "#2b2b2b",
+        "hair": "spiky",
+        "hairColor": "red",
+        "hat": null,
+        "glasses": false,
+        "sleeves": null,
+        "logo": null
+       },
+       "pos": [
+        0,
+        -1.15
+       ],
+       "yaw": 0,
+       "action": "sit",
+       "face": "neutral",
+       "say": null,
+       "keys": []
+      },
+      {
+       "id": "kid3",
+       "look": {
+        "skin": "light",
+        "shirt": "#f39c12",
+        "pants": "#2c3e50",
+        "hair": "short",
+        "hairColor": "blonde",
+        "hat": null,
+        "glasses": false,
+        "sleeves": null,
+        "logo": null
+       },
+       "pos": [
+        2.4,
+        -1.15
+       ],
+       "yaw": 0,
+       "action": "sit",
+       "face": "neutral",
+       "say": null,
+       "keys": []
+      }
+     ],
+     "props": [
+      {
+       "type": "board",
+       "pos": [
+        0,
+        -3.9
+       ],
+       "yaw": 0,
+       "text": "HOMEWORK?",
+       "color": null,
+       "textColor": null
+      }
+     ],
+     "camera": {
+      "azimuth": 0.15,
+      "elevation": 0.28,
+      "distance": 7.5,
+      "target": [
+       0,
+       0.9,
+       -1.5
+      ]
+     }
+    },
+    "hero": false,
+    "chapterId": 1
+   },
+   {
+    "beatId": 7,
+    "kind": "story3d",
+    "kicker": null,
+    "title": "Nobody raises a hand. Nobody can lie. The",
+    "subtitle": null,
+    "bullets": null,
+    "nodes": null,
+    "leftTitle": null,
+    "leftItems": null,
+    "rightTitle": null,
+    "rightItems": null,
+    "statValue": null,
+    "statLabel": null,
+    "code": null,
+    "codeLanguage": null,
+    "quote": null,
+    "attribution": null,
+    "shot": null,
+    "stockQuery": null,
+    "model": null,
+    "labels": null,
+    "scene": null,
+    "params": null,
+    "formula": null,
+    "question": null,
+    "think": null,
+    "hint": null,
+    "thinkText": null,
+    "eyebrow": null,
+    "footnote": null,
+    "answerText": null,
+    "segment": null,
+    "story": {
+     "set": "classroom",
+     "time": "day",
+     "headline": null,
+     "actors": [
+      {
+       "id": "teacher",
+       "look": {
+        "skin": "brown",
+        "shirt": "#27ae60",
+        "pants": "#34495e",
+        "hair": "short",
+        "hairColor": "black",
+        "hat": null,
+        "glasses": true,
+        "sleeves": null,
+        "logo": null
+       },
+       "pos": [
+        0,
+        -2.4
+       ],
+       "yaw": 0,
+       "action": "angry",
+       "face": "angry",
+       "say": null,
+       "keys": [
+        {
+         "at": 2.4,
+         "say": "Detention!"
+        }
+       ]
+      },
+      {
+       "id": "max",
+       "look": {
+        "skin": "light",
+        "shirt": "#2f7cf6",
+        "pants": "#223049",
+        "hair": "short",
+        "hairColor": "brown",
+        "hat": null,
+        "glasses": false,
+        "sleeves": null,
+        "logo": null
+       },
+       "pos": [
+        -2.4,
+        -1.15
+       ],
+       "yaw": 0,
+       "action": "sit",
+       "face": "sad",
+       "say": null,
+       "keys": []
+      },
+      {
+       "id": "kid1",
+       "look": {
+        "skin": "tan",
+        "shirt": "#f4c20d",
+        "pants": "#2b2b2b",
+        "hair": "spiky",
+        "hairColor": "red",
+        "hat": null,
+        "glasses": false,
+        "sleeves": null,
+        "logo": null
+       },
+       "pos": [
+        0,
+        -1.15
+       ],
+       "yaw": 0,
+       "action": "sit",
+       "face": "sad",
+       "say": null,
+       "keys": []
+      },
+      {
+       "id": "kid3",
+       "look": {
+        "skin": "light",
+        "shirt": "#f39c12",
+        "pants": "#2c3e50",
+        "hair": "short",
+        "hairColor": "blonde",
+        "hat": null,
+        "glasses": false,
+        "sleeves": null,
+        "logo": null
+       },
+       "pos": [
+        2.4,
+        -1.15
+       ],
+       "yaw": 0,
+       "action": "sit",
+       "face": "surprised",
+       "say": null,
+       "keys": []
+      }
+     ],
+     "props": [
+      {
+       "type": "board",
+       "pos": [
+        0,
+        -3.9
+       ],
+       "yaw": 0,
+       "text": "HOMEWORK?",
+       "color": null,
+       "textColor": null
+      }
+     ],
+     "camera": {
+      "azimuth": 0.15,
+      "elevation": 0.28,
+      "distance": 7.5,
+      "target": [
+       0,
+       0.9,
+       -1.5
+      ],
+      "move": "push"
+     }
+    },
+    "hero": false,
+    "chapterId": 1
+   },
+   {
+    "beatId": 8,
+    "kind": "story3d",
+    "kicker": null,
+    "title": "That night, a police officer stops Max. Have",
+    "subtitle": null,
+    "bullets": null,
+    "nodes": null,
+    "leftTitle": null,
+    "leftItems": null,
+    "rightTitle": null,
+    "rightItems": null,
+    "statValue": null,
+    "statLabel": null,
+    "code": null,
+    "codeLanguage": null,
+    "quote": null,
+    "attribution": null,
+    "shot": null,
+    "stockQuery": null,
+    "model": null,
+    "labels": null,
+    "scene": null,
+    "params": null,
+    "formula": null,
+    "question": null,
+    "think": null,
+    "hint": null,
+    "thinkText": null,
+    "eyebrow": null,
+    "footnote": null,
+    "answerText": null,
+    "segment": null,
+    "story": {
+     "set": "street",
+     "time": "night",
+     "headline": null,
+     "actors": [
+      {
+       "id": "officer",
+       "look": {
+        "skin": "dark",
+        "shirt": "#1d3f8a",
+        "pants": "#13233f",
+        "hair": "cap",
+        "hairColor": "#1d3f8a",
+        "hat": null,
+        "glasses": false,
+        "sleeves": null,
+        "logo": null
+       },
+       "pos": [
+        0.9,
+        0.4
+       ],
+       "yaw": -80,
+       "action": "point",
+       "face": "neutral",
+       "say": null,
+       "keys": [
+        {
+         "at": 2,
+         "say": "Ever broken a rule?"
+        }
+       ]
+      },
+      {
+       "id": "max",
+       "look": {
+        "skin": "light",
+        "shirt": "#2f7cf6",
+        "pants": "#223049",
+        "hair": "short",
+        "hairColor": "brown",
+        "hat": null,
+        "glasses": false,
+        "sleeves": null,
+        "logo": null
+       },
+       "pos": [
+        -1.3,
+        0.5
+       ],
+       "yaw": 70,
+       "action": "idle",
+       "face": "surprised",
+       "say": null,
+       "keys": []
+      }
+     ],
+     "props": [
+      {
+       "type": "car",
+       "pos": [
+        4.5,
+        -1.5
+       ],
+       "yaw": 0,
+       "text": null,
+       "color": "#1d3f8a",
+       "textColor": null
+      }
+     ],
+     "camera": {
+      "distance": 5.8,
+      "move": "push"
+     }
+    },
+    "hero": false,
+    "chapterId": 1
+   },
+   {
+    "beatId": 9,
+    "kind": "story3d",
+    "kicker": null,
+    "title": "Max thinks about it. Yes. He crossed the",
+    "subtitle": null,
+    "bullets": null,
+    "nodes": null,
+    "leftTitle": null,
+    "leftItems": null,
+    "rightTitle": null,
+    "rightItems": null,
+    "statValue": null,
+    "statLabel": null,
+    "code": null,
+    "codeLanguage": null,
+    "quote": null,
+    "attribution": null,
+    "shot": null,
+    "stockQuery": null,
+    "model": null,
+    "labels": null,
+    "scene": null,
+    "params": null,
+    "formula": null,
+    "question": null,
+    "think": null,
+    "hint": null,
+    "thinkText": null,
+    "eyebrow": null,
+    "footnote": null,
+    "answerText": null,
+    "segment": null,
+    "story": {
+     "set": "street",
+     "time": "night",
+     "headline": null,
+     "actors": [
+      {
+       "id": "max",
+       "look": {
+        "skin": "light",
+        "shirt": "#2f7cf6",
+        "pants": "#223049",
+        "hair": "short",
+        "hairColor": "brown",
+        "hat": null,
+        "glasses": false,
+        "sleeves": null,
+        "logo": null
+       },
+       "pos": [
+        -1.3,
+        0.5
+       ],
+       "yaw": 70,
+       "action": "think",
+       "face": "neutral",
+       "say": null,
+       "keys": [
+        {
+         "at": 1.5,
+         "action": "sad",
+         "face": "sad",
+         "say": "Last Tuesday."
+        }
+       ]
+      },
+      {
+       "id": "officer",
+       "look": {
+        "skin": "dark",
+        "shirt": "#1d3f8a",
+        "pants": "#13233f",
+        "hair": "cap",
+        "hairColor": "#1d3f8a",
+        "hat": null,
+        "glasses": false,
+        "sleeves": null,
+        "logo": null
+       },
+       "pos": [
+        0.9,
+        0.4
+       ],
+       "yaw": -80,
+       "action": "idle",
+       "face": "neutral",
+       "say": null,
+       "keys": [
+        {
+         "at": 2.6,
+         "action": "angry",
+         "face": "angry"
+        }
+       ]
+      }
+     ],
+     "props": [
+      {
+       "type": "car",
+       "pos": [
+        4.5,
+        -1.5
+       ],
+       "yaw": 0,
+       "text": null,
+       "color": "#1d3f8a",
+       "textColor": null
+      },
+      {
+       "type": "sign",
+       "pos": [
+        -3.2,
+        -0.4
+       ],
+       "yaw": 25,
+       "text": "TODAY IS\nTUESDAY",
+       "color": "#2ecc71",
+       "textColor": null
+      }
+     ],
+     "camera": {
+      "distance": 5,
+      "target": [
+       -0.2,
+       0.9,
+       0.4
+      ]
+     }
+    },
+    "hero": false,
+    "chapterId": 1
+   },
+   {
+    "beatId": 10,
+    "kind": "story3d",
+    "kicker": null,
+    "title": "By evening the whole city is in trouble.",
+    "subtitle": null,
+    "bullets": null,
+    "nodes": null,
+    "leftTitle": null,
+    "leftItems": null,
+    "rightTitle": null,
+    "rightItems": null,
+    "statValue": null,
+    "statLabel": null,
+    "code": null,
+    "codeLanguage": null,
+    "quote": null,
+    "attribution": null,
+    "shot": null,
+    "stockQuery": null,
+    "model": null,
+    "labels": null,
+    "scene": null,
+    "params": null,
+    "formula": null,
+    "question": null,
+    "think": null,
+    "hint": null,
+    "thinkText": null,
+    "eyebrow": null,
+    "footnote": null,
+    "answerText": null,
+    "segment": null,
+    "story": {
+     "set": "park",
+     "time": "sunset",
+     "headline": null,
+     "actors": [
+      {
+       "id": "mia",
+       "look": {
+        "skin": "tan",
+        "shirt": "#ff6fa3",
+        "pants": "#3a2a3f",
+        "hair": "long",
+        "hairColor": "blonde",
+        "hat": null,
+        "glasses": false,
+        "sleeves": null,
+        "logo": null
+       },
+       "pos": [
+        -3,
+        -0.6
+       ],
+       "yaw": 0,
+       "action": "sit",
+       "face": "sad",
+       "say": null,
+       "keys": []
+      },
+      {
+       "id": "grandma",
+       "look": {
+        "skin": "pale",
+        "shirt": "#8e44ad",
+        "pants": "#1f1f2e",
+        "hair": "bun",
+        "hairColor": "grey",
+        "hat": null,
+        "glasses": true,
+        "sleeves": null,
+        "logo": null
+       },
+       "pos": [
+        -0.4,
+        -0.6
+       ],
+       "yaw": 0,
+       "action": "sit",
+       "face": "angry",
+       "say": null,
+       "keys": []
+      },
+      {
+       "id": "kid2",
+       "look": {
+        "skin": "dark",
+        "shirt": "#1abc9c",
+        "pants": "#1e2d3a",
+        "hair": "long",
+        "hairColor": "black",
+        "hat": null,
+        "glasses": false,
+        "sleeves": null,
+        "logo": null
+       },
+       "pos": [
+        2.4,
+        -0.6
+       ],
+       "yaw": 0,
+       "action": "sit",
+       "face": "sad",
+       "say": null,
+       "keys": []
+      },
+      {
+       "id": "max",
+       "look": {
+        "skin": "light",
+        "shirt": "#2f7cf6",
+        "pants": "#223049",
+        "hair": "short",
+        "hairColor": "brown",
+        "hat": null,
+        "glasses": false,
+        "sleeves": null,
+        "logo": null
+       },
+       "pos": [
+        0.8,
+        1.4
+       ],
+       "yaw": 0,
+       "action": "sad",
+       "face": "sad",
+       "say": null,
+       "keys": []
+      }
+     ],
+     "props": [
+      {
+       "type": "bench",
+       "pos": [
+        -3,
+        -0.6
+       ],
+       "yaw": 0,
+       "text": null,
+       "color": null,
+       "textColor": null
+      },
+      {
+       "type": "bench",
+       "pos": [
+        -0.4,
+        -0.6
+       ],
+       "yaw": 0,
+       "text": null,
+       "color": null,
+       "textColor": null
+      },
+      {
+       "type": "bench",
+       "pos": [
+        2.4,
+        -0.6
+       ],
+       "yaw": 0,
+       "text": null,
+       "color": null,
+       "textColor": null
+      }
+     ],
+     "camera": {
+      "elevation": 0.26,
+      "distance": 8.5,
+      "move": "pan"
+     }
+    },
+    "hero": false,
+    "chapterId": 1
+   },
+   {
+    "beatId": 11,
+    "kind": "story3d",
+    "kicker": null,
+    "title": "So the mayor makes a new law. From",
+    "subtitle": null,
+    "bullets": null,
+    "nodes": null,
+    "leftTitle": null,
+    "leftItems": null,
+    "rightTitle": null,
+    "rightItems": null,
+    "statValue": null,
+    "statLabel": null,
+    "code": null,
+    "codeLanguage": null,
+    "quote": null,
+    "attribution": null,
+    "shot": null,
+    "stockQuery": null,
+    "model": null,
+    "labels": null,
+    "scene": null,
+    "params": null,
+    "formula": null,
+    "question": null,
+    "think": null,
+    "hint": null,
+    "thinkText": null,
+    "eyebrow": null,
+    "footnote": null,
+    "answerText": null,
+    "segment": null,
+    "story": {
+     "set": "stage",
+     "time": "night",
+     "headline": null,
+     "actors": [
+      {
+       "id": "mayor",
+       "look": {
+        "skin": "light",
+        "shirt": "#2b2b35",
+        "pants": "#2b2b35",
+        "hair": "bald",
+        "hairColor": null,
+        "hat": null,
+        "glasses": false,
+        "sleeves": "long",
+        "logo": null
+       },
+       "pos": [
+        0,
+        -1.2
+       ],
+       "yaw": 0,
+       "action": "talk",
+       "face": "happy",
+       "say": null,
+       "keys": [
+        {
+         "at": 2.6,
+         "action": "cheer",
+         "face": "laugh"
+        }
+       ]
+      },
+      {
+       "id": "kid1",
+       "look": {
+        "skin": "tan",
+        "shirt": "#f4c20d",
+        "pants": "#2b2b2b",
+        "hair": "spiky",
+        "hairColor": "red",
+        "hat": null,
+        "glasses": false,
+        "sleeves": null,
+        "logo": null
+       },
+       "pos": [
+        -3.4,
+        0.9
+       ],
+       "yaw": 150,
+       "action": "idle",
+       "face": "happy",
+       "say": null,
+       "keys": [
+        {
+         "at": 3,
+         "action": "cheer",
+         "face": "laugh"
+        }
+       ]
+      },
+      {
+       "id": "kid3",
+       "look": {
+        "skin": "light",
+        "shirt": "#f39c12",
+        "pants": "#2c3e50",
+        "hair": "short",
+        "hairColor": "blonde",
+        "hat": null,
+        "glasses": false,
+        "sleeves": null,
+        "logo": null
+       },
+       "pos": [
+        3.3,
+        1
+       ],
+       "yaw": -150,
+       "action": "idle",
+       "face": "happy",
+       "say": null,
+       "keys": [
+        {
+         "at": 3.2,
+         "action": "jump",
+         "face": "laugh"
+        }
+       ]
+      },
+      {
+       "id": "officer",
+       "look": {
+        "skin": "dark",
+        "shirt": "#1d3f8a",
+        "pants": "#13233f",
+        "hair": "cap",
+        "hairColor": "#1d3f8a",
+        "hat": null,
+        "glasses": false,
+        "sleeves": null,
+        "logo": null
+       },
+       "pos": [
+        -1.6,
+        1.6
+       ],
+       "yaw": 170,
+       "action": "idle",
+       "face": "happy",
+       "say": null,
+       "keys": [
+        {
+         "at": 3.4,
+         "action": "dance",
+         "face": "happy"
+        }
+       ]
+      }
+     ],
+     "props": [
+      {
+       "type": "podium",
+       "pos": [
+        0,
+        -0.6
+       ],
+       "yaw": 0,
+       "text": null,
+       "color": null,
+       "textColor": null
+      },
+      {
+       "type": "sign",
+       "pos": [
+        1.9,
+        -1
+       ],
+       "yaw": -15,
+       "text": "ONE LIE\nPER DAY",
+       "color": "#f4c20d",
+       "textColor": "#1b1b1b"
+      }
+     ],
+     "camera": {
+      "azimuth": -0.2,
+      "elevation": 0.26,
+      "distance": 8.5,
+      "target": [
+       0,
+       1.1,
+       -0.6
+      ],
+      "move": "push"
+     }
+    },
+    "hero": false,
+    "chapterId": 1
+   },
+   {
+    "beatId": 12,
+    "kind": "story3d",
+    "kicker": null,
+    "title": "The next morning, Mia walks up to Max",
+    "subtitle": null,
+    "bullets": null,
+    "nodes": null,
+    "leftTitle": null,
+    "leftItems": null,
+    "rightTitle": null,
+    "rightItems": null,
+    "statValue": null,
+    "statLabel": null,
+    "code": null,
+    "codeLanguage": null,
+    "quote": null,
+    "attribution": null,
+    "shot": null,
+    "stockQuery": null,
+    "model": null,
+    "labels": null,
+    "scene": null,
+    "params": null,
+    "formula": null,
+    "question": null,
+    "think": null,
+    "hint": null,
+    "thinkText": null,
+    "eyebrow": null,
+    "footnote": null,
+    "answerText": null,
+    "segment": null,
+    "story": {
+     "set": "street",
+     "time": "day",
+     "headline": null,
+     "actors": [
+      {
+       "id": "max",
+       "look": {
+        "skin": "light",
+        "shirt": "#2f7cf6",
+        "pants": "#223049",
+        "hair": "short",
+        "hairColor": "brown",
+        "hat": null,
+        "glasses": false,
+        "sleeves": null,
+        "logo": null
+       },
+       "pos": [
+        -0.5,
+        0.5
+       ],
+       "yaw": 60,
+       "action": "idle",
+       "face": "neutral",
+       "say": null,
+       "keys": [
+        {
+         "at": 3.6,
+         "action": "cheer",
+         "face": "laugh"
+        }
+       ]
+      },
+      {
+       "id": "mia",
+       "look": {
+        "skin": "tan",
+        "shirt": "#ff6fa3",
+        "pants": "#3a2a3f",
+        "hair": "long",
+        "hairColor": "blonde",
+        "hat": null,
+        "glasses": false,
+        "sleeves": null,
+        "logo": null
+       },
+       "pos": [
+        3.2,
+        0.6
+       ],
+       "yaw": 0,
+       "action": "walk",
+       "face": "happy",
+       "say": null,
+       "keys": [
+        {
+         "at": 0,
+         "then": "talk",
+         "to": [
+          0.9,
+          0.5
+         ],
+         "dur": 1.8
+        },
+        {
+         "at": 2,
+         "action": "talk",
+         "yaw": -70,
+         "face": "wink",
+         "say": "Nice haircut!"
+        },
+        {
+         "at": 3.8,
+         "action": "wave",
+         "face": "laugh"
+        }
+       ]
+      }
+     ],
+     "props": [],
+     "camera": {
+      "distance": 5.5,
+      "move": "push"
+     }
+    },
+    "hero": false,
+    "chapterId": 1
+   },
+   {
+    "beatId": 13,
+    "kind": "story3d",
+    "kicker": null,
+    "title": "Which law would you make? Tell me in",
+    "subtitle": null,
+    "bullets": null,
+    "nodes": null,
+    "leftTitle": null,
+    "leftItems": null,
+    "rightTitle": null,
+    "rightItems": null,
+    "statValue": null,
+    "statLabel": null,
+    "code": null,
+    "codeLanguage": null,
+    "quote": null,
+    "attribution": null,
+    "shot": null,
+    "stockQuery": null,
+    "model": null,
+    "labels": null,
+    "scene": null,
+    "params": null,
+    "formula": null,
+    "question": null,
+    "think": null,
+    "hint": null,
+    "thinkText": null,
+    "eyebrow": null,
+    "footnote": null,
+    "answerText": null,
+    "segment": null,
+    "story": {
+     "set": "void",
+     "time": "day",
+     "headline": "WHICH LAW WOULD YOU MAKE?",
+     "actors": [
+      {
+       "id": "max",
+       "look": {
+        "skin": "light",
+        "shirt": "#2f7cf6",
+        "pants": "#223049",
+        "hair": "short",
+        "hairColor": "brown",
+        "hat": null,
+        "glasses": false,
+        "sleeves": null,
+        "logo": null
+       },
+       "pos": [
+        -0.9,
+        0.3
+       ],
+       "yaw": 20,
+       "action": "point",
+       "face": "happy",
+       "say": null,
+       "keys": []
+      },
+      {
+       "id": "mia",
+       "look": {
+        "skin": "tan",
+        "shirt": "#ff6fa3",
+        "pants": "#3a2a3f",
+        "hair": "long",
+        "hairColor": "blonde",
+        "hat": null,
+        "glasses": false,
+        "sleeves": null,
+        "logo": null
+       },
+       "pos": [
+        0.9,
+        0.3
+       ],
+       "yaw": -20,
+       "action": "wave",
+       "face": "happy",
+       "say": null,
+       "keys": []
+      }
+     ],
+     "props": [
+      {
+       "type": "sign",
+       "pos": [
+        0,
+        -1.4
+       ],
+       "yaw": 0,
+       "text": "SUBSCRIBE",
+       "color": "#e74c3c",
+       "textColor": null
+      }
+     ],
+     "camera": {
+      "distance": 5.2,
+      "target": [
+       0,
+       0.9,
+       0
+      ],
+      "move": "orbit"
+     }
+    },
+    "hero": false,
+    "chapterId": 1
+   }
+  ]
+ },
+ "publish": {
+  "title": "In This City, Everyone Has To Tell The Truth",
+  "description": "What happens in a city where nobody can lie? Max finds out the hard way: a haircut, Grandma's soup, a classroom with no homework, and one very honest conversation with the police.\n\nAn original story with blocky avatars.\n\nVoice: computer-generated (text-to-speech). Original story with blocky avatars, rendered by the AI Video Studio factory.",
+  "tags": [
+   "story",
+   "what if",
+   "blocky",
+   "animation",
+   "shorts",
+   "funny",
+   "truth"
+  ],
+  "chapters": [],
+  "thumbnailText": "IN THIS CITY,",
+  "pinnedComment": "Which law would you make? Tell me below."
+ }
+}

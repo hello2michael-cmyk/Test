@@ -1,8 +1,19 @@
 // SRT captions, YouTube text package, sharing and downloads.
 export function srt(plan) {
   let i = 1, out = '';
-  for (const s of plan.scenes) for (const c of s.captions) {
-    out += `${i++}\n${stamp(c.start)} --> ${stamp(c.end)}\n${c.text}\n\n`;
+  for (const s of plan.scenes) {
+    // Big word-by-word captions are burned in; the SRT groups them back into readable lines.
+    const cues = plan.captionStyle === 'words' ? groupCues(s.captions, 40) : s.captions;
+    for (const c of cues) out += `${i++}\n${stamp(c.start)} --> ${stamp(c.end)}\n${c.text}\n\n`;
+  }
+  return out;
+}
+function groupCues(cues, maxChars) {
+  const out = [];
+  for (const c of cues) {
+    const last = out[out.length - 1];
+    if (last && last.text.length + 1 + c.text.length <= maxChars && !/[.!?]$/.test(last.text) && Math.abs(c.start - last.end) < 0.05) { last.text += ' ' + c.text; last.end = c.end; }
+    else out.push({ ...c });
   }
   return out;
 }
@@ -84,7 +95,7 @@ export function planMarkdown(cp) {
   const words = cp.script.totalWords || sc.reduce((n, x) => n + x.narration.trim().split(/\s+/).length, 0);
   const est = Math.round(words / 3.1 + sc.length * 0.8);
   const mm = `${Math.floor(est / 60)}:${pad(est % 60)}`;
-  const visualOf = v => v.kind === 'question' ? `Frage mit ${v.think ?? 5} s Denkpause: „${v.question}“` : v.kind === 'math3d' ? `3D-Mathe „${v.scene}“ ${JSON.stringify(v.params || {})}` : v.kind === 'scene3d' ? `3D ${v.model} (${(v.labels || []).join(', ')})` : v.kind === 'footage' ? 'full-frame AI footage' : v.kind === 'chapter' ? 'chapter card' : v.kind === 'bullets' ? `bullets (${(v.bullets || []).join(' · ')})` : v.kind === 'diagram' ? `flow (${(v.nodes || []).join(' → ')})` : v.kind;
+  const visualOf = v => v.kind === 'story3d' && v.story ? `story in the ${v.story.set} (${v.story.time}): ${v.story.actors.map(a => `${a.id || 'actor'} ${a.action}${a.keys && a.keys.length ? ' → ' + a.keys.map(k => k.action || (k.to ? 'walk' : k.say ? 'says' : '…')).join(', ') : ''}`).join('; ')}${v.story.props.length ? ' · props: ' + v.story.props.map(p => p.type + (p.text ? ` “${p.text.replace(/\n/g, ' ')}”` : '')).join(', ') : ''}` : v.kind === 'question' ? `Frage mit ${v.think ?? 5} s Denkpause: „${v.question}“` : v.kind === 'math3d' ? `3D-Mathe „${v.scene}“ ${JSON.stringify(v.params || {})}` : v.kind === 'scene3d' ? `3D ${v.model} (${(v.labels || []).join(', ')})` : v.kind === 'footage' ? 'full-frame AI footage' : v.kind === 'chapter' ? 'chapter card' : v.kind === 'bullets' ? `bullets (${(v.bullets || []).join(' · ')})` : v.kind === 'diagram' ? `flow (${(v.nodes || []).join(' → ')})` : v.kind;
   let out = `## ${b.title}\n\n*Estimated length ${mm} · ${b.chapters.length} chapters · ${sc.length} scenes · ${words} words · for ${b.audience}*\n\n**Hook:** ${b.hook}\n\n**Takeaway:** ${b.keyTakeaway}\n\n`;
   for (const ch of b.chapters) {
     const beats = sc.filter(x => x.chapterId === ch.id);

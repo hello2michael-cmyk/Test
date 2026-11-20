@@ -10,6 +10,15 @@ Plus, unrelated to the TV: **AI Video Studio**, an iPhone app that turns one pro
 
 Live at: https://hello2michael-cmyk.github.io/Test/
 
+## Story shorts: blocky avatars act out a narrated story
+
+Vertical YouTube Shorts in the style of the narrated "what if" story videos (a voice tells the story, block-figure
+characters act it out in small 3D sets, the words pop up one to three at a time in big captions). Write the story as
+`shorts/stories/<id>.story.json`, run `node shorts/tools/make-short-plan.mjs` on it, commit, and open an issue titled
+`Short: <id>`: the factory renders it in 9:16 with a free English voice and posts the links. Preview any scene first in
+`shorts/preview.html`. Format, sets, actions and props: [`shorts/README.md`](shorts/README.md). The characters are
+original block figures drawn in `studio/js/blocky.js`; no game assets are used.
+
 ## Klasse 6 Bayern: ein YouTube-Video pro Lehrplan-Thema
 
 The goal is a YouTube lesson for every topic of Jahrgangsstufe 6 at a Bavarian Gymnasium, built from the official **LehrplanPLUS (G9)**,

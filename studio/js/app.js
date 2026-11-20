@@ -540,7 +540,7 @@ async function produce(prompt, resume) {
   const footageCredits = [...new Set(Object.values(cp.footage || {}).filter(Boolean).map(e => e.credit).filter(Boolean))];
   const footageBySceneLabel = Object.fromEntries(scenes.map(sc => { const e = cp.footage && cp.footage[sc.beatId]; return [sc.beatId, !e ? 'motion graphics' : e.source === 'ai-video' ? 'AI-generated video' : e.kind === 'video' ? 'stock video' : 'AI photo with motion']; }));
   const chapters = course && cp.brief.chapters ? cp.brief.chapters.map(c => { const first = scenes.find(sc => sc.script.chapterId === c.id); return first ? { id: c.id, title: c.title, start: first.start } : null; }).filter(Boolean) : [];
-  const plan = { prompt, mode: cp.mode, brief: cp.brief, review: cp.review, publish: cp.publish, scenes, chapters, totalDuration: total, claimsToVerify: cp.review.claimsToVerify, width, height, fps: s.fps, footageCredits, footageBySceneLabel, footageSummary: cp.footageSummary || '', createdAt: Date.now() };
+  const plan = { prompt, mode: cp.mode, brief: cp.brief, review: cp.review, publish: cp.publish, scenes, chapters, totalDuration: total, captionStyle: s.captionStyle || 'lines', claimsToVerify: cp.review.claimsToVerify, width, height, fps: s.fps, footageCredits, footageBySceneLabel, footageSummary: cp.footageSummary || '', createdAt: Date.now() };
 
   // ---------- Mix ----------
   progress('Mixing', 0.3);
@@ -679,7 +679,7 @@ async function narrate(cp, s, useMockTTS, save) {
     const visual = storyboard.scenes.find(v => v.beatId === p.beatId);
     const a = cp.audios[p.beatId];
     return { beatId: p.beatId, script: sc, visual, start: p.start, duration: p.duration, narrationStart: p.narrationStart,
-      narrationDuration: a.duration, think: thinkOf(p.beatId), audio: a, captions: T.captions(sc.narration, p.narrationStart, a.duration) };
+      narrationDuration: a.duration, think: thinkOf(p.beatId), audio: a, captions: T.captions(sc.narration, p.narrationStart, a.duration, 40, s.captionStyle || 'lines') };
   });
   return { scenes, total };
 }

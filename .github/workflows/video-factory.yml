@@ -10,6 +10,8 @@ name: Video factory (make a video from a prompt)
 #     Optional lines in the body: "minuten: 7", "footage: free", "stimme: de-DE-Chirp3-HD-Charon" (a Google voice).
 #  5. Open an issue titled "Eltern: M6-1.1": the parents-and-teachers version of the same topic (8-10 minutes).
 #  6. Open an issue titled "English: M6-1.1": the English version for parents who do not speak German (German terms kept).
+#  7. Open an issue titled "Short: truth-city" (a story id from shorts/stories/): a vertical story short acted out by blocky
+#     avatars, English voice, big word-by-word captions, rendered from the committed shorts/stories/<id>/plan.json.
 on:
   workflow_dispatch:
     inputs:
@@ -122,8 +124,8 @@ jobs:
   make:
     if: >-
       (github.event_name == 'workflow_dispatch' && github.event.inputs.package != 'yes') ||
-      (github.event_name == 'issues' && (startsWith(github.event.issue.title, 'Video:') || startsWith(github.event.issue.title, 'Lektion:') || startsWith(github.event.issue.title, 'Eltern:') || startsWith(github.event.issue.title, 'English:'))) ||
-      (github.event_name == 'issue_comment' && (startsWith(github.event.issue.title, 'Video:') || startsWith(github.event.issue.title, 'Lektion:') || startsWith(github.event.issue.title, 'Eltern:') || startsWith(github.event.issue.title, 'English:')) && !github.event.issue.pull_request && github.event.comment.user.type != 'Bot')
+      (github.event_name == 'issues' && (startsWith(github.event.issue.title, 'Video:') || startsWith(github.event.issue.title, 'Lektion:') || startsWith(github.event.issue.title, 'Eltern:') || startsWith(github.event.issue.title, 'English:') || startsWith(github.event.issue.title, 'Short:'))) ||
+      (github.event_name == 'issue_comment' && (startsWith(github.event.issue.title, 'Video:') || startsWith(github.event.issue.title, 'Lektion:') || startsWith(github.event.issue.title, 'Eltern:') || startsWith(github.event.issue.title, 'English:') || startsWith(github.event.issue.title, 'Short:')) && !github.event.issue.pull_request && github.event.comment.user.type != 'Bot')
     runs-on: ubuntu-latest
     timeout-minutes: 170
     steps:
@@ -159,7 +161,7 @@ jobs:
               return {k.lower(): v.strip() for k, v in o.items()}
           def strip_opts(body):
               return re.sub(r'^(style|aspect|footage|seconds|review|minuten|minutes|stimme|voice)\s*:.*$', '', body or '', flags=re.I | re.M).strip()
-          lesson, minutes, variant, voice = '', '', 'kinder', ''
+          lesson, minutes, variant, voice, short = '', '', 'kinder', '', ''
           if event == 'workflow_dispatch':
               prompt = ev['IN_PROMPT'].strip()
               style, aspect, footage = ev.get('IN_STYLE') or 'auto', ev.get('IN_ASPECT') or '16x9', ev.get('IN_FOOTAGE') or 'free'
@@ -176,7 +178,10 @@ jobs:
               title = ev.get('ISSUE_TITLE') or ''
               body = ev.get('ISSUE_BODY') or ''
               o = opts_from(body)
-              if title.lower().startswith(('lektion:', 'eltern:', 'english:')):
+              if title.lower().startswith('short:'):
+                  short = re.sub(r'[^A-Za-z0-9_-]', '', title.split(':', 1)[1].strip().split()[0] if title.split(':', 1)[1].strip() else '')
+                  prompt = ''          # the plan is committed under shorts/stories/<id>/plan.json
+              elif title.lower().startswith(('lektion:', 'eltern:', 'english:')):
                   variant = {'eltern:': 'eltern', 'english:': 'international'}.get(title.lower().split(':', 1)[0] + ':', 'kinder')
                   m = re.search(r'([A-Za-z]+\d+-[0-9][0-9.]*|[A-Za-z]+\d+)', title.split(':', 1)[1])
                   lesson = m.group(1) if m else ''
@@ -211,6 +216,11 @@ jobs:
           if lesson and os.path.exists(f'klasse6/lessons/{lesson}/plan.json' if variant == 'kinder' else f'klasse6/lessons/{lesson}/{variant}/plan.json') and not feedback:
               phase = 'all'
               print('committed lesson plan found: rendering directly')
+          if short:
+              phase, footage, feedback = 'all', 'none', ''     # a comment on a Short issue simply renders it again
+              if not os.path.exists(f'shorts/stories/{short}/plan.json'):
+                  raise SystemExit(f'no committed plan for short "{short}": expected shorts/stories/{short}/plan.json (write shorts/stories/{short}.story.json and run node shorts/tools/make-short-plan.mjs)')
+              print('committed short plan found: rendering directly')
           if lesson and not prompt and not secs:
               secs = str(round(float((minutes or '0').replace(',', '.')) * 60 * 1.08)) if minutes else ''
           if not secs and prompt:
@@ -225,10 +235,10 @@ jobs:
               v = voice.strip().strip('`"\'')
               tts = v if ':' in v else 'google:' + v
           with open(os.environ['GITHUB_OUTPUT'], 'a') as f:
-              f.write('phase=%s\nstyle=%s\naspect=%s\nfootage=%s\nsecs=%s\nissue=%s\nprev_run=%s\nlesson=%s\nminutes=%s\nvariant=%s\ntts=%s\n' % (phase, style, aspect, footage, secs, issue, prev_run, lesson, minutes, variant, tts))
+              f.write('phase=%s\nstyle=%s\naspect=%s\nfootage=%s\nsecs=%s\nissue=%s\nprev_run=%s\nlesson=%s\nminutes=%s\nvariant=%s\ntts=%s\nshort=%s\n' % (phase, style, aspect, footage, secs, issue, prev_run, lesson, minutes, variant, tts, short))
           open('prompt.txt', 'w').write(prompt)
           open('feedback.txt', 'w').write(feedback)
-          print('event', event, 'phase', phase, 'issue', issue or '-', 'prev_run', prev_run or '-', 'lesson', lesson or '-')
+          print('event', event, 'phase', phase, 'issue', issue or '-', 'prev_run', prev_run or '-', 'lesson', lesson or '-', 'short', short or '-')
           print('PROMPT:', prompt[:300]); print('style', style, 'aspect', aspect, 'footage', footage, 'secs', secs)
           if feedback: print('FEEDBACK:', feedback[:300])
           PY
@@ -305,6 +315,7 @@ jobs:
           CHANNEL: ${{ vars.CHANNEL_NAME }}
           AI_CLIPS: ${{ steps.req.outputs.lesson != '' && (vars.LESSON_AI_CLIPS || '0') || (vars.AI_CLIPS || '12') }}
           LESSON: ${{ steps.req.outputs.lesson }}
+          SHORT: ${{ steps.req.outputs.short }}
           MINUTES: ${{ steps.req.outputs.minutes }}
           VARIANT: ${{ steps.req.outputs.variant }}
           MIN_SCENE_SECONDS: ${{ vars.MIN_SCENE_SECONDS || '' }}
@@ -385,6 +396,7 @@ jobs:
           body: |
             Prompt: ${{ github.event.inputs.prompt || github.event.issue.title }}
             ${{ steps.req.outputs.lesson != '' && format('Lesson: {0} ({1}). Voice: {2}.', steps.req.outputs.lesson, steps.req.outputs.variant, steps.req.outputs.tts || vars.LESSON_TTS || 'default') || '' }}
+            ${{ steps.req.outputs.short != '' && format('Story short: {0} (shorts/stories/{0}.story.json), vertical 9:16.', steps.req.outputs.short) || '' }}
 
             Files: the MP4 (H.264, YouTube-ready), captions (.srt), the YouTube title/description/tags/chapters (-youtube.txt) and a thumbnail.
             Footage: see youtube.txt for credits. Made by the AI Video Studio factory, run ${{ github.run_number }}.
@@ -409,7 +421,7 @@ jobs:
 
           Footage: ${FOOT}
 
-          Open the MP4 link on your phone, save it, and upload from the YouTube app. To make another video, open a new issue whose title starts with \`Video:\`; for the next Klasse-6 lesson use \`Lektion: <topic id>\` from klasse6/LEKTIONEN.md."
+          Open the MP4 link on your phone, save it, and upload from the YouTube app. To make another video, open a new issue whose title starts with \`Video:\`; for the next Klasse-6 lesson use \`Lektion: <topic id>\` from klasse6/LEKTIONEN.md; for a story short use \`Short: <story id>\` from shorts/stories."
 
       - name: Report a failure on the issue
         if: failure() && steps.issue.outputs.number != ''

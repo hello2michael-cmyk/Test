@@ -1,0 +1,175 @@
+{
+  "id": "truth-city",
+  "title": "In This City, Everyone Has To Tell The Truth",
+  "voice": "am_adam",
+  "speed": 1.04,
+  "cast": {
+    "max":     { "skin": "light", "outfit": "blue",   "hair": "short", "hairColor": "brown" },
+    "mia":     { "skin": "tan",   "outfit": "pink",   "hair": "long",  "hairColor": "blonde" },
+    "grandma": { "skin": "pale",  "outfit": "purple", "hair": "bun",   "hairColor": "grey", "glasses": true },
+    "teacher": { "skin": "brown", "outfit": "green",  "hair": "short", "hairColor": "black", "glasses": true },
+    "officer": { "skin": "dark",  "outfit": "police", "hair": "cap",   "hairColor": "#1d3f8a" },
+    "mayor":   { "skin": "light", "outfit": "suit",   "hair": "bald",  "sleeves": "long" },
+    "kid1":    { "skin": "tan",   "outfit": "yellow", "hair": "spiky", "hairColor": "red" },
+    "kid2":    { "skin": "dark",  "outfit": "teal",   "hair": "long",  "hairColor": "black" },
+    "kid3":    { "skin": "light", "outfit": "orange", "hair": "short", "hairColor": "blonde" }
+  },
+  "scenes": [
+    {
+      "narration": "In this city, everyone has to tell the truth. Every single person. No exceptions.",
+      "emphasis": ["truth", "exceptions"],
+      "set": "street", "time": "day",
+      "camera": { "move": "push" },
+      "actors": [
+        { "who": "max", "pos": [-3.5, 0.6], "action": "walk", "keys": [{ "at": 0, "to": [0.2, 0.6], "dur": 3.2, "then": "idle" }] },
+        { "who": "kid1", "pos": [3.2, -0.3], "yaw": -40, "action": "talk" },
+        { "who": "kid2", "pos": [4.3, -0.2], "yaw": 40, "action": "idle", "face": "laugh" }
+      ],
+      "props": [{ "type": "sign", "pos": [1.9, 0.2], "yaw": 15, "text": "NO LIES\nALLOWED", "color": "#e74c3c" }]
+    },
+    {
+      "narration": "Mia walks up to Max and asks how her new haircut looks.",
+      "emphasis": ["haircut"],
+      "set": "street", "time": "day",
+      "camera": { "distance": 5.5, "move": "orbit" },
+      "actors": [
+        { "who": "max", "pos": [-0.5, 0.5], "yaw": 60, "action": "idle", "face": "happy" },
+        { "who": "mia", "pos": [3.2, 0.6], "action": "walk", "keys": [{ "at": 0, "to": [0.9, 0.5], "dur": 2.0, "then": "talk" }, { "at": 2.2, "yaw": -70, "action": "talk", "face": "happy", "say": "Like my hair?" }] }
+      ]
+    },
+    {
+      "narration": "Max has to say what he really thinks. Honestly? Terrible. Mia walks away.",
+      "emphasis": ["Terrible"],
+      "set": "street", "time": "day",
+      "camera": { "distance": 5.5 },
+      "actors": [
+        { "who": "max", "pos": [-0.5, 0.5], "yaw": 60, "action": "think", "face": "neutral", "keys": [{ "at": 1.4, "action": "shrug", "face": "sad", "say": "Terrible." }] },
+        { "who": "mia", "pos": [0.9, 0.5], "yaw": -70, "action": "idle", "face": "happy", "keys": [{ "at": 1.6, "face": "angry", "action": "angry" }, { "at": 3.0, "to": [4.5, 0.4], "dur": 1.8, "then": "idle", "face": "sad" }] }
+      ]
+    },
+    {
+      "narration": "At home, Grandma made her famous soup. She has been cooking all day.",
+      "emphasis": ["famous", "soup"],
+      "set": "home", "time": "day",
+      "camera": { "azimuth": -0.25, "distance": 6, "move": "push" },
+      "actors": [
+        { "who": "grandma", "pos": [-1.2, -1.6], "yaw": 30, "action": "talk", "face": "happy", "say": "Soup!" },
+        { "who": "max", "pos": [0.9, -1.2], "yaw": -20, "action": "sit", "face": "happy" }
+      ],
+      "props": [{ "type": "chair", "pos": [0.9, -1.2], "yaw": -20, "color": "#8a5a30" }, { "type": "table", "pos": [0.9, -0.3], "yaw": 0 }, { "type": "crate", "pos": [0.9, -0.3], "size": 0.12, "y": 0.75, "color": "#e67e22" }]
+    },
+    {
+      "narration": "Max tastes it. His face says everything before his mouth does. Grandma is not amused.",
+      "emphasis": ["everything", "amused"],
+      "set": "home", "time": "day",
+      "camera": { "azimuth": -0.1, "distance": 4.6, "target": [0.4, 0.9, -1.0] },
+      "actors": [
+        { "who": "max", "pos": [0.9, -1.2], "yaw": -20, "action": "sit", "face": "surprised", "keys": [{ "at": 1.2, "face": "sad", "say": "Too salty." }] },
+        { "who": "grandma", "pos": [-1.2, -1.6], "yaw": 30, "action": "idle", "face": "happy", "keys": [{ "at": 2.2, "action": "angry", "face": "angry" }] }
+      ],
+      "props": [{ "type": "chair", "pos": [0.9, -1.2], "yaw": -20, "color": "#8a5a30" }, { "type": "table", "pos": [0.9, -0.3], "yaw": 0 }, { "type": "crate", "pos": [0.9, -0.3], "size": 0.12, "y": 0.75, "color": "#e67e22" }]
+    },
+    {
+      "narration": "At school, the teacher asks who actually did the homework.",
+      "emphasis": ["homework"],
+      "set": "classroom", "time": "day",
+      "camera": { "azimuth": 0.15, "elevation": 0.28, "distance": 7.5, "target": [0, 0.9, -1.5] },
+      "actors": [
+        { "who": "teacher", "pos": [0, -2.4], "yaw": 0, "action": "point", "face": "neutral" },
+        { "who": "max", "pos": [-2.4, -1.15], "action": "sit", "face": "neutral" },
+        { "who": "kid1", "pos": [0, -1.15], "action": "sit", "face": "neutral" },
+        { "who": "kid3", "pos": [2.4, -1.15], "action": "sit", "face": "neutral" }
+      ],
+      "props": [{ "type": "board", "pos": [0, -3.9], "text": "HOMEWORK?" }]
+    },
+    {
+      "narration": "Nobody raises a hand. Nobody can lie. The whole class gets detention.",
+      "emphasis": ["Nobody", "detention"],
+      "set": "classroom", "time": "day",
+      "camera": { "azimuth": 0.15, "elevation": 0.28, "distance": 7.5, "target": [0, 0.9, -1.5], "move": "push" },
+      "actors": [
+        { "who": "teacher", "pos": [0, -2.4], "yaw": 0, "action": "angry", "face": "angry", "keys": [{ "at": 2.4, "say": "Detention!" }] },
+        { "who": "max", "pos": [-2.4, -1.15], "action": "sit", "face": "sad" },
+        { "who": "kid1", "pos": [0, -1.15], "action": "sit", "face": "sad" },
+        { "who": "kid3", "pos": [2.4, -1.15], "action": "sit", "face": "surprised" }
+      ],
+      "props": [{ "type": "board", "pos": [0, -3.9], "text": "HOMEWORK?" }]
+    },
+    {
+      "narration": "That night, a police officer stops Max. Have you ever broken a rule?",
+      "emphasis": ["police", "rule"],
+      "set": "street", "time": "night",
+      "camera": { "distance": 5.8, "move": "push" },
+      "actors": [
+        { "who": "officer", "pos": [0.9, 0.4], "yaw": -80, "action": "point", "face": "neutral", "keys": [{ "at": 2.0, "say": "Ever broken a rule?" }] },
+        { "who": "max", "pos": [-1.3, 0.5], "yaw": 70, "action": "idle", "face": "surprised" }
+      ],
+      "props": [{ "type": "car", "pos": [4.5, -1.5], "yaw": 0, "color": "#1d3f8a" }]
+    },
+    {
+      "narration": "Max thinks about it. Yes. He crossed the street on red. Last Tuesday.",
+      "emphasis": ["Yes", "Tuesday"],
+      "set": "street", "time": "night",
+      "camera": { "distance": 5.0, "target": [-0.2, 0.9, 0.4] },
+      "actors": [
+        { "who": "max", "pos": [-1.3, 0.5], "yaw": 70, "action": "think", "face": "neutral", "keys": [{ "at": 1.5, "action": "sad", "face": "sad", "say": "Last Tuesday." }] },
+        { "who": "officer", "pos": [0.9, 0.4], "yaw": -80, "action": "idle", "face": "neutral", "keys": [{ "at": 2.6, "action": "angry", "face": "angry" }] }
+      ],
+      "props": [{ "type": "car", "pos": [4.5, -1.5], "yaw": 0, "color": "#1d3f8a" }, { "type": "sign", "pos": [-3.2, -0.4], "yaw": 25, "text": "TODAY IS\nTUESDAY", "color": "#2ecc71" }]
+    },
+    {
+      "narration": "By evening the whole city is in trouble. Everyone told the truth, and now nobody is talking to anyone.",
+      "emphasis": ["trouble", "nobody"],
+      "set": "park", "time": "sunset",
+      "camera": { "elevation": 0.26, "distance": 8.5, "move": "pan" },
+      "actors": [
+        { "who": "mia", "pos": [-3.0, -0.6], "yaw": 0, "action": "sit", "face": "sad" },
+        { "who": "grandma", "pos": [-0.4, -0.6], "yaw": 0, "action": "sit", "face": "angry" },
+        { "who": "kid2", "pos": [2.4, -0.6], "yaw": 0, "action": "sit", "face": "sad" },
+        { "who": "max", "pos": [0.8, 1.4], "yaw": 0, "action": "sad", "face": "sad" }
+      ],
+      "props": [{ "type": "bench", "pos": [-3.0, -0.6] }, { "type": "bench", "pos": [-0.4, -0.6] }, { "type": "bench", "pos": [2.4, -0.6] }]
+    },
+    {
+      "narration": "So the mayor makes a new law. From tomorrow, everyone gets one lie per day. The city goes wild.",
+      "emphasis": ["one", "lie"],
+      "set": "stage", "time": "night",
+      "camera": { "azimuth": -0.2, "elevation": 0.26, "distance": 8.5, "target": [0, 1.1, -0.6], "move": "push" },
+      "actors": [
+        { "who": "mayor", "pos": [0, -1.2], "yaw": 0, "action": "talk", "face": "happy", "keys": [{ "at": 2.6, "action": "cheer", "face": "laugh" }] },
+        { "who": "kid1", "pos": [-3.4, 0.9], "yaw": 150, "action": "idle", "keys": [{ "at": 3.0, "action": "cheer", "face": "laugh" }] },
+        { "who": "kid3", "pos": [3.3, 1.0], "yaw": -150, "action": "idle", "keys": [{ "at": 3.2, "action": "jump", "face": "laugh" }] },
+        { "who": "officer", "pos": [-1.6, 1.6], "yaw": 170, "action": "idle", "keys": [{ "at": 3.4, "action": "dance", "face": "happy" }] }
+      ],
+      "props": [{ "type": "podium", "pos": [0, -0.6] }, { "type": "sign", "pos": [1.9, -1.0], "yaw": -15, "text": "ONE LIE\nPER DAY", "color": "#f4c20d", "textColor": "#1b1b1b" }]
+    },
+    {
+      "narration": "The next morning, Mia walks up to Max and says: your haircut looks great. And both of them smile.",
+      "emphasis": ["great", "smile"],
+      "set": "street", "time": "day",
+      "camera": { "distance": 5.5, "move": "push" },
+      "actors": [
+        { "who": "max", "pos": [-0.5, 0.5], "yaw": 60, "action": "idle", "face": "neutral", "keys": [{ "at": 3.6, "action": "cheer", "face": "laugh" }] },
+        { "who": "mia", "pos": [3.2, 0.6], "action": "walk", "keys": [{ "at": 0, "to": [0.9, 0.5], "dur": 1.8, "then": "talk" }, { "at": 2.0, "yaw": -70, "action": "talk", "face": "wink", "say": "Nice haircut!" }, { "at": 3.8, "action": "wave", "face": "laugh" }] }
+      ]
+    },
+    {
+      "narration": "Which law would you make? Tell me in the comments, and subscribe for the next world.",
+      "emphasis": ["you", "subscribe"],
+      "set": "void", "time": "day",
+      "headline": "WHICH LAW WOULD YOU MAKE?",
+      "camera": { "distance": 5.2, "target": [0, 0.9, 0], "move": "orbit" },
+      "actors": [
+        { "who": "max", "pos": [-0.9, 0.3], "yaw": 20, "action": "point", "face": "happy" },
+        { "who": "mia", "pos": [0.9, 0.3], "yaw": -20, "action": "wave", "face": "happy" }
+      ],
+      "props": [{ "type": "sign", "pos": [0, -1.4], "text": "SUBSCRIBE", "color": "#e74c3c" }]
+    }
+  ],
+  "youtube": {
+    "title": "In This City, Everyone Has To Tell The Truth",
+    "description": "What happens in a city where nobody can lie? Max finds out the hard way: a haircut, Grandma's soup, a classroom with no homework, and one very honest conversation with the police.\n\nAn original story with blocky avatars.",
+    "tags": ["story", "what if", "blocky", "animation", "shorts", "funny", "truth"],
+    "pinnedComment": "Which law would you make? Tell me below."
+  }
+}

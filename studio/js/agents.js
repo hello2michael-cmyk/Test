@@ -2,8 +2,9 @@
 // of the deterministic producer (narration, timing, mixing, rendering, packaging).
 import * as T from './timing.js';
 import { MATH_SCENE_IDS, lessonRules, sceneCatalog, cleanParams } from './lesson.js';
+import { cleanStory } from './blocky.js';
 
-export const SCENE_KINDS = ['title', 'bullets', 'diagram', 'comparison', 'stat', 'code', 'quote', 'outro', 'footage', 'scene3d', 'chapter', 'math3d', 'question'];
+export const SCENE_KINDS = ['title', 'bullets', 'diagram', 'comparison', 'stat', 'code', 'quote', 'outro', 'footage', 'scene3d', 'chapter', 'math3d', 'question', 'story3d'];
 export const MODELS_3D = ['network', 'pipeline', 'hub', 'stack', 'orbit', 'grid'];
 /** Long-form lessons: above this many seconds the explainer becomes a chaptered course. */
 export const COURSE_MIN_SECONDS = 120;
@@ -994,6 +995,7 @@ export function sanitise(v, script) {
     footnote: v.footnote ? clip(String(v.footnote), 20) : null,
     answerText: v.answerText ? clip(String(v.answerText), 8) : null,
     segment: Array.isArray(v.segment) && v.segment.length === 2 && v.segment.every(x => Number.isFinite(Number(x))) ? [Number(v.segment[0]), Number(v.segment[1])] : null,
+    story: v.kind === 'story3d' ? cleanStory(v.story || v) : null,
     hero: !!v.hero,
     chapterId: v.chapterId != null ? Number(v.chapterId) : (script.chapterId != null ? Number(script.chapterId) : null),
   };
@@ -1001,6 +1003,7 @@ export function sanitise(v, script) {
   const degrade = () => { out.kind = 'bullets'; if (!out.bullets || !out.bullets.length) out.bullets = fallbackBullets(); };
   switch (out.kind) {
     case 'footage': break;
+    case 'story3d': if (!out.story || !out.story.actors.length) degrade(); break;
     case 'chapter': if (!out.model) out.model = 'orbit'; break;
     case 'question': if (!out.question) out.question = clip(script.narration, 30); if (out.think == null) out.think = 5; break;
     case 'math3d':

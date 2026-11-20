@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Story short preview</title>
+<style>
+  body { margin: 0; background: #111; color: #eee; font: 15px -apple-system, system-ui, sans-serif; display: flex; flex-direction: column; align-items: center; gap: 10px; padding: 12px; }
+  canvas { width: min(92vw, 420px); aspect-ratio: 9/16; background: #000; border-radius: 14px; }
+  .row { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; justify-content: center; }
+  input[type=range] { width: 260px; }
+  select, button, input[type=text] { font: inherit; padding: 6px 10px; border-radius: 8px; border: 1px solid #444; background: #222; color: #eee; }
+  .cap { color: #bbb; max-width: 420px; text-align: center; }
+</style>
+</head>
+<body>
+<div class="row">
+  <input id="src" type="text" value="stories/truth-city.story.json" size="34">
+  <button id="load">Load</button>
+  <select id="scene"></select>
+  <button id="play">Play</button>
+</div>
+<canvas id="c" width="1080" height="1920"></canvas>
+<div class="row"><label>time <input id="t" type="range" min="0" max="6" step="0.02" value="1.5"></label><span id="tv">1.5 s</span></div>
+<div class="cap" id="cap"></div>
+<script type="module">
+import { Renderer } from '../studio/js/renderer.js';
+import { sanitise } from '../studio/js/agents.js';
+import { captions } from '../studio/js/timing.js';
+const $ = id => document.getElementById(id);
+const canvas = $('c');
+const params = new URLSearchParams(location.search);
+let story = null, plan = null, playing = false;
+const settings = { theme: 'Midnight', burnInCaptions: true, captionStyle: 'words', showProgressBar: false, channelName: '' };
+function build() {
+  const cast = story.cast || {};
+  const scenes = story.scenes.map((sc, i) => {
+    const beatId = i + 1;
+    const script = { beatId, chapterId: 1, narration: sc.narration, onScreenTitle: sc.title || '', emphasisWords: sc.emphasis || [] };
+    const actors = (sc.actors || []).map(a => ({ ...a, id: a.who || a.id, look: { ...(a.who ? cast[a.who] || {} : {}), ...(a.look || {}) } }));
+    const visual = sanitise({ kind: 'story3d', title: sc.title || '', chapterId: 1, story: { set: sc.set, time: sc.time, camera: sc.camera, headline: sc.headline, actors, props: sc.props || [] } }, script);
+    const dur = Math.max(2.4, sc.narration.trim().split(/\s+/).length / (3.1 * (story.speed || 1)) + 1.05);
+    return { beatId, script, visual, start: 0, duration: dur, narrationStart: 0.35, narrationDuration: dur - 1.05, think: 0, captions: captions(sc.narration, 0.35, dur - 1.05, 40, 'words') };
+  });
+  let t = 0; for (const s of scenes) { s.start = t; for (const c of s.captions) { c.start += t; c.end += t; } t += s.duration; }
+  plan = { scenes, totalDuration: t };
+  $('scene').innerHTML = scenes.map((s, i) => `<option value="${i}">${i + 1}. ${s.script.narration.slice(0, 40)}</option>`).join('');
+  $('scene').value = params.get('scene') || 0;
+  pick();
+}
+function pick() { const s = plan.scenes[+$('scene').value]; $('t').max = s.duration.toFixed(2); $('t').value = Math.min(+$('t').value, s.duration); draw(); }
+function draw() {
+  const s = plan.scenes[+$('scene').value], local = +$('t').value;
+  const r = new Renderer(canvas, settings);
+  r.draw(plan, s.start + local);
+  $('tv').textContent = local.toFixed(2) + ' s'; $('cap').textContent = s.script.narration;
+}
+async function load() { story = await (await fetch($('src').value)).json(); build(); }
+$('load').onclick = load; $('scene').onchange = pick; $('t').oninput = draw;
+$('play').onclick = () => { playing = !playing; $('play').textContent = playing ? 'Pause' : 'Play'; let last = performance.now(); const step = (now) => { if (!playing) return; const s = plan.scenes[+$('scene').value]; let v = +$('t').value + (now - last) / 1000; last = now; if (v > s.duration) v = 0; $('t').value = v; draw(); requestAnimationFrame(step); }; requestAnimationFrame(step); };
+if (params.get('src')) $('src').value = params.get('src');
+await load();
+if (params.get('t')) { $('t').value = params.get('t'); draw(); }
+window.__preview = { draw, plan: () => plan, setScene: (i, t) => { $('scene').value = i; pick(); $('t').value = t; draw(); } };
+</script>
+</body>
+</html>

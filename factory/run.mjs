@@ -21,6 +21,9 @@
 //   FEEDBACK          the creator's change requests: PHASE=plan re-plans from PLAN_FILE with this feedback
 //   AI_CLIPS          long lessons: how many scenes get a generated AI clip (default 12)
 //   MIN_SCENE_SECONDS hold every scene at least this long (default: renderer minimum; lessons: 10)
+//   SHORT             a story short id from shorts/stories/<id>.story.json whose plan is committed as shorts/stories/<id>/plan.json
+//                     (made with node shorts/tools/make-short-plan.mjs): a vertical story acted out by blocky avatars, English
+//                     voice (Kokoro in the browser, no key), big word-by-word captions. Rendered as committed; no writer model.
 //   LESSON            a Klasse-6 topic id from klasse6/data/klasse6-bayern.json, e.g. M6-2.2: makes a German lesson
 //                     for children from the verified Bavarian syllabus (style course, 3D maths scenes, German voice)
 //   MINUTES           lesson length in minutes (default: the topic's videoMinutes)
@@ -87,6 +90,19 @@ function lessonPrompt({ subject, lb, topic }, minutes) {
   lines.push(`Quelle: ${subject.url}`);
   return lines.join('\n');
 }
+// ---- Story shorts: the plan is authored in the repository (shorts/stories/<id>/plan.json) and rendered as it is ----
+const shortId = env('SHORT', '').replace(/[^A-Za-z0-9_-]/g, '');
+let short = null;
+if (shortId) {
+  const committed = path.join(process.cwd(), 'shorts', 'stories', shortId, 'plan.json');
+  if (!fs.existsSync(committed)) { console.error(`SHORT "${shortId}": no ${path.relative(process.cwd(), committed)}. Write shorts/stories/${shortId}.story.json and run node shorts/tools/make-short-plan.mjs on it.`); process.exit(2); }
+  inputPlan = JSON.parse(fs.readFileSync(committed, 'utf8'));
+  if (inputPlan.plan) inputPlan = inputPlan.plan;
+  prompt = inputPlan.prompt || `Story short ${shortId}`;
+  phase = 'video';
+  short = inputPlan.settings && inputPlan.settings.short ? inputPlan.settings.short : { id: shortId };
+  console.log(`[factory] story short ${shortId}: using the committed plan ${path.relative(process.cwd(), committed)}`);
+}
 // Feedback without a previous plan (someone replied before any plan existed): fold it into the request.
 if (feedback && !inputPlan && prompt) prompt += `\n\nCreator notes: ${feedback}`;
 if (!prompt) { console.error('PROMPT is required'); process.exit(2); }
@@ -132,6 +148,17 @@ if (lesson) {
   settings.ambientBed = env('MUSIC', '0') === '1'; settings.musicVolume = settings.ambientBed ? 0.18 : 0;   // lessons: voice only, no synthetic music bed (MUSIC=1 brings it back)
   settings.reviewerModelId = env('REVIEWER', 'hf-text:meta-llama/Llama-3.3-70B-Instruct');
   console.log(`[factory] lesson ${lesson.topic.id} „${lesson.topic.title}“ (${lesson.subject.name}, ${variant}), ${minutes} min, min scene ${settings.minSceneSeconds} s, 3D scene ${settings.lesson.scene || 'none'}`);
+}
+if (short) {
+  // The short's own settings (vertical, voice, captions, timing) win over the factory defaults; VOICE and SPEED may still be forced.
+  const keep = ['aspect', 'quality', 'fps', 'theme', 'burnInCaptions', 'captionStyle', 'showProgressBar', 'voice', 'speed', 'sceneHoldSeconds', 'musicVolume', 'ambientBed', 'cta', 'footageProvider', 'aiClipBudget', 'minSceneSeconds', 'maxDuration', 'targetDuration', 'short'];
+  for (const k of keep) if (inputPlan.settings && inputPlan.settings[k] !== undefined) settings[k] = inputPlan.settings[k];
+  settings.videoStyle = 'course';
+  if (process.env.VOICE) settings.voice = env('VOICE', settings.voice);
+  if (process.env.SPEED) settings.speed = parseFloat(env('SPEED', String(settings.speed))) || settings.speed;
+  if (process.env.ASPECT) settings.aspect = env('ASPECT', settings.aspect);
+  settings.footageProvider = 'none'; settings.aiClipBudget = 0;
+  console.log(`[factory] short „${short.title || shortId}“: ${settings.aspect}, voice ${settings.voice} ×${settings.speed}, captions ${settings.captionStyle}`);
 }
 const mock = /(^|&)mock=1/.test(extra);
 if (mock) settings.modelId = 'mock';
@@ -213,9 +240,7 @@ async function launch() {
   await page.route(/^https:\/\/huggingface\.co\/onnx-community\/Kokoro[^?]*\/resolve\/[^/]+\/voices\//, async (route) => {
     const req = route.request();
     try {
-      const r = await fetch(req.url(), { redirect: 'follow' });
-      if (!r.ok) throw new Error(`HTTP ${r.status}`);
-      const body = Buffer.from(await r.arrayBuffer());
+      const body = await fetchBytes(req.url());
       console.log(`[factory] voice ${req.url().split('/').pop()} (${(body.length / 1e6).toFixed(2)} MB)`);
       await route.fulfill({ status: 200, headers: { 'access-control-allow-origin': '*', 'content-type': 'application/octet-stream' }, body });
     } catch (e) { console.log('[factory] voice fetch failed', req.url().slice(0, 140), e.message); try { await route.fulfill({ status: 502, body: e.message }); } catch {} }
@@ -227,6 +252,17 @@ async function launch() {
       await route.continue();
     } catch (e) { console.log('[factory] hub fetch failed', req.url().slice(0, 140), e.message); try { await route.fulfill({ status: 502, body: e.message }); } catch {} }
   });
+}
+// Node's fetch ignores HTTPS_PROXY and some proxies cut large transfers; curl honours the proxy, so it is the fallback.
+async function fetchBytes(url) {
+  try {
+    const r = await fetch(url, { redirect: 'follow' });
+    if (!r.ok) throw new Error(`HTTP ${r.status}`);
+    return Buffer.from(await r.arrayBuffer());
+  } catch (e) {
+    try { return execFileSync('curl', ['-sS', '-L', '--fail', '--retry', '2', url], { maxBuffer: 1024 * 1024 * 1024 }); }
+    catch (e2) { throw new Error(`${e.message}; curl: ${(e2.stderr || e2.message || '').toString().trim().slice(0, 160)}`); }
+  }
 }
 // Download a Hub file once into .hubcache/<model id>/<file> (under the directory the studio is served from).
 const hubCacheDir = path.join(process.cwd(), '.hubcache');
@@ -240,11 +276,9 @@ async function cacheHubFile(localUrl) {
   const remote = `https://huggingface.co/${parts.slice(0, 2).join('/')}/resolve/main/${parts.slice(2).join('/')}`;
   if (!hubDownloads.has(rel)) {
     hubDownloads.set(rel, (async () => {
-      const r = await fetch(remote, { redirect: 'follow' });
-      if (!r.ok) throw new Error(`HTTP ${r.status} for ${remote}`);
       fs.mkdirSync(path.dirname(file), { recursive: true });
       const tmp = file + '.part';
-      await fs.promises.writeFile(tmp, Buffer.from(await r.arrayBuffer()));
+      await fs.promises.writeFile(tmp, await fetchBytes(remote));
       fs.renameSync(tmp, file);
       console.log(`[factory] cached ${rel} (${(fs.statSync(file).size / 1e6).toFixed(1)} MB)`);
     })().finally(() => hubDownloads.delete(rel)));

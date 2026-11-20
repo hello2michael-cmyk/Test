@@ -3,6 +3,7 @@ import { THEMES } from './settings.js';
 import { Scene3D } from './scene3d.js';
 import { Scene as MathScene } from '../../klasse6/js/engine3d.js';
 import { SCENES as MATH_SCENES } from '../../klasse6/js/scenes.js';
+import { drawStory, storyCamera } from './blocky.js';
 
 const FADE_IN = 0.45, FADE_OUT = 0.3;
 const clamp01 = x => Math.min(1, Math.max(0, x));
@@ -46,8 +47,10 @@ export class Renderer {
     const scene = plan.scenes[index];
     this.plan = plan; this.sceneIndex = index;
     const local = time - scene.start;
-    const aIn = outCubic(prog(local, 0, FADE_IN));
-    const aOut = index === plan.scenes.length - 1 ? 1 : clamp01((scene.start + scene.duration - time) / FADE_OUT);
+    // Story scenes cut hard, like the shorts they imitate; everything else fades through the background.
+    const cut = scene.visual && scene.visual.kind === 'story3d';
+    const aIn = cut ? 1 : outCubic(prog(local, 0, FADE_IN));
+    const aOut = cut || index === plan.scenes.length - 1 ? 1 : clamp01((scene.start + scene.duration - time) / FADE_OUT);
     ctx.save();
     ctx.globalAlpha = Math.min(aIn, aOut);
     this.scene(scene, local);
@@ -55,7 +58,7 @@ export class Renderer {
     this.chrome(plan, time);
     if (this.settings.burnInCaptions) {
       const cue = scene.captions.find(c => time >= c.start && time < c.end);
-      if (cue) this.caption(cue.text);
+      if (cue) { if (this.settings.captionStyle === 'words') this.bigCaption(cue, scene, time); else this.caption(cue.text); }
     }
   }
 
@@ -141,6 +144,43 @@ export class Renderer {
     const font = this.font(this.u(this.portrait ? 40 : 36), 600);
     const cx = w / 2, cy = h - this.my * (this.portrait ? 1.35 : 1.05);
     this.pill(text, cx, cy, font, '#fff', theme.caption, this.u(28), this.u(14), 1, w * 0.84);
+  }
+
+  /**
+   * Story-short captions: one to three words at a time, huge, white with a black outline, emphasis words in yellow,
+   * popping in with each cue (the style of narrated game-avatar shorts).
+   */
+  bigCaption(cue, scene, time) {
+    const { ctx, w, h } = this;
+    const words = String(cue.text).toUpperCase().split(/\s+/).filter(Boolean);
+    if (!words.length) return;
+    const emph = new Set(((scene.script && scene.script.emphasisWords) || []).map(x => String(x).toUpperCase().replace(/[^\w']/g, '')));
+    let px = this.u(this.portrait ? 92 : 80);
+    const maxW = w * 0.88;
+    ctx.save();
+    ctx.textBaseline = 'middle'; ctx.textAlign = 'left'; ctx.lineJoin = 'round';
+    let font = this.font(px, 900), total;
+    const measure = () => { ctx.font = font; const space = ctx.measureText(' ').width * 0.9; total = words.reduce((n, wd) => n + ctx.measureText(wd).width, 0) + space * (words.length - 1); return space; };
+    let space = measure();
+    while (total > maxW && px > this.u(40)) { px -= this.u(4); font = this.font(px, 900); space = measure(); }
+    const pop = outBack(prog(time, cue.start, 0.14)), scale = 0.86 + 0.14 * pop;
+    const cy = h * (this.portrait ? 0.71 : 0.8);
+    ctx.translate(w / 2, cy); ctx.scale(scale, scale); ctx.translate(-w / 2, -cy);
+    let x = (w - total) / 2;
+    ctx.font = font; ctx.lineWidth = px * 0.16; ctx.strokeStyle = '#000';
+    ctx.shadowColor = 'rgba(0,0,0,0.5)'; ctx.shadowBlur = px * 0.18; ctx.shadowOffsetY = px * 0.06;
+    for (const wd of words) {
+      ctx.strokeText(wd, x, cy);
+      x += ctx.measureText(wd).width + space;
+    }
+    ctx.shadowColor = 'transparent';
+    x = (w - total) / 2;
+    for (const wd of words) {
+      ctx.fillStyle = emph.has(wd.replace(/[^\w']/g, '')) ? '#ffd83d' : '#ffffff';
+      ctx.fillText(wd, x, cy);
+      x += ctx.measureText(wd).width + space;
+    }
+    ctx.restore();
   }
 
   // ---------- text helpers ----------
@@ -235,6 +275,7 @@ export class Renderer {
       case 'footage': return this.footageOverlay(v, local);
       case 'scene3d': return this.scene3d(v, local, scene.duration);
       case 'math3d': return this.math3d(v, local, scene);
+      case 'story3d': return this.story3d(v, local, scene);
       case 'question': return this.question(v, local, scene);
       case 'chapter': return this.chapter(v, local, scene.duration);
       default: return this.outro(v, local);
@@ -278,6 +319,25 @@ export class Renderer {
     if (typeof v.formula === 'string') S.formulaOverride = v.formula;
     def.draw(S, t, v.params || {});
     S.flush();
+  }
+
+  /** A blocky-avatar story scene (studio/js/blocky.js): sky, set, props and acting characters; optional headline. */
+  story3d(v, local, scene) {
+    const story = v.story || v;
+    const S = new MathScene(this.ctx, this.w, this.h, this.theme, { ...storyCamera(story, local, scene.duration, this.portrait), cy: this.h * (this.portrait ? 0.5 : 0.54) });
+    drawStory(S, story, local, scene.duration);
+    S.flush();
+    if (story.headline) {
+      const { ctx } = this;
+      const p = outBack(prog(local, 0.1, 0.5));
+      const px = this.fitFont(story.headline, this.u(this.portrait ? 76 : 64), this.u(36), 900, this.cw, 2);
+      ctx.save(); ctx.font = this.font(px, 900); ctx.textAlign = 'center'; ctx.textBaseline = 'top'; ctx.lineJoin = 'round';
+      const m = this.wrap(story.headline, ctx.font, this.cw);
+      const y0 = this.h * (this.portrait ? 0.1 : 0.07) + (1 - p) * this.u(20);
+      ctx.globalAlpha *= clamp01(p);
+      m.lines.forEach((line, i) => { const y = y0 + i * px * 1.08; ctx.lineWidth = px * 0.16; ctx.strokeStyle = '#000'; ctx.strokeText(line, this.w / 2, y); ctx.fillStyle = '#fff'; ctx.fillText(line, this.w / 2, y); });
+      ctx.restore();
+    }
   }
 
   /**
