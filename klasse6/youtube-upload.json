@@ -185,6 +185,14 @@
       "release": "video-55",
       "slug": "23-Franzoesisch-Datum-und-Plural-Kinder",
       "fach": "Franzoesisch"
+    },
+    {
+      "nr": 24,
+      "lesson": "NT6-1.2b",
+      "variant": "kinder",
+      "release": "video-56",
+      "slug": "24-NT-Biologie-Fotosynthese-Zellatmung-Kinder",
+      "fach": "Natur und Technik"
     }
   ]
 }

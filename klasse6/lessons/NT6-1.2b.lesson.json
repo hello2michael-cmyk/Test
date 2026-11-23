@@ -1,0 +1,348 @@
+{
+  "topic": "NT6-1.2b",
+  "title": "Fotosynthese und Zellatmung: So lebt eine Pflanze",
+  "audience": "Kinder der 6. Klasse (etwa 11 Jahre), Natur und Technik",
+  "tone": "warm, ruhig und genau, mit klaren Bildern",
+  "hook": "Eine Pflanze kann nicht essen. Trotzdem wächst sie und wird groß. Woher bekommt sie ihre Nahrung? Sie baut sie selbst, mit Sonnenlicht.",
+  "keyTakeaway": "Im Chloroplasten baut die Pflanze mit Licht aus Kohlenstoffdioxid und Wasser energiereiche Glucose und gibt Sauerstoff ab. Im Mitochondrium wird die Glucose Tag und Nacht mit Sauerstoff abgebaut, dabei wird Energie frei.",
+  "learningObjectives": [
+    "Die Aufgaben von Wurzel, Sprossachse und Blatt nennen",
+    "Die Wortgleichung der Fotosynthese aufschreiben und den Chloroplasten als Ort nennen",
+    "Die Wortgleichung der Zellatmung aufschreiben und das Mitochondrium als Ort nennen",
+    "Erklären, warum Fotosynthese und Zellatmung einen Kreislauf bilden",
+    "Begründen, warum die Fotosynthese für das Leben auf der Erde wichtig ist"
+  ],
+  "cta": "Abonniere für die nächste Lektion",
+  "chapters": [
+    {
+      "title": "Die Pflanze als Fabrik",
+      "goal": "Du kennst die drei Grundorgane der Pflanze und ihre Aufgaben.",
+      "keyPoints": [
+        "Wurzel",
+        "Sprossachse",
+        "Blatt"
+      ],
+      "scenes": [
+        {
+          "kind": "title",
+          "onScreenTitle": "Fotosynthese und Zellatmung",
+          "narration": "Eine Pflanze kann nicht essen. Sie hat keinen Mund und keinen Magen. Trotzdem wächst sie, bekommt neue Blätter und wird groß. Woher kommt ihre Nahrung? Die Antwort ist erstaunlich: Die Pflanze baut ihre Nahrung selbst, mit Sonnenlicht. In dieser Lektion schauen wir in ein Blatt hinein, wie unter einem sehr starken Mikroskop. Am Ende gibt es Tipps für deinen Test."
+        },
+        {
+          "kind": "math3d",
+          "scene": "pflanze",
+          "params": {
+            "anzeige": "Bau"
+          },
+          "segment": [
+            0,
+            30
+          ],
+          "onScreenTitle": "Wurzel, Sprossachse und Blatt",
+          "narration": "Eine Pflanze hat drei Grundorgane. Unten ist die Wurzel. Sie verankert die Pflanze im Boden, nimmt Wasser und Mineralstoffe auf und kann Nährstoffe speichern. In der Mitte ist die Sprossachse, also der Stängel. Sie trägt die Blätter zum Licht und ist das Transportsystem der Pflanze. Oben sind die Blätter. In ihnen findet die Fotosynthese statt. Dort wird die Nahrung hergestellt. Alle drei Teile arbeiten zusammen wie in einer Fabrik."
+        },
+        {
+          "kind": "bullets",
+          "onScreenTitle": "Die drei Grundorgane",
+          "bullets": [
+            "Wurzel: verankert, nimmt Wasser auf, speichert",
+            "Sprossachse: trägt und transportiert",
+            "Blatt: Fotosynthese"
+          ],
+          "narration": "Merke dir die drei Grundorgane mit ihren Aufgaben. Die Wurzel verankert die Pflanze, nimmt Wasser und Mineralstoffe auf und speichert Vorräte. Die Sprossachse trägt die Blätter und transportiert Stoffe nach oben und nach unten. Das Blatt ist die Zuckerfabrik der Pflanze, denn hier findet die Fotosynthese statt. In einem Test wird oft gefragt: Nenne die Aufgaben der Wurzel. Dann schreibst du alle drei Aufgaben auf."
+        }
+      ]
+    },
+    {
+      "title": "Fotosynthese: Zucker aus Luft und Wasser",
+      "goal": "Du kannst die Fotosynthese mit einer Wortgleichung beschreiben.",
+      "keyPoints": [
+        "Chloroplast und Chlorophyll",
+        "Kohlenstoffdioxid und Wasser",
+        "Glucose und Sauerstoff"
+      ],
+      "scenes": [
+        {
+          "kind": "chapter",
+          "onScreenTitle": "Fotosynthese: Zucker aus Luft und Wasser",
+          "narration": "Jetzt schauen wir in eine Zelle des Blattes. Darin liegen viele kleine grüne Körnchen. Sie heißen Chloroplasten. Grün sind sie wegen eines Farbstoffs, des Chlorophylls, auf Deutsch Blattgrün. Das Chlorophyll kann Sonnenlicht einfangen, ähnlich wie eine Solarzelle auf einem Dach. Mit der Energie aus dem Licht baut der Chloroplast etwas Neues. Schauen wir genau zu, welche Zutaten er dafür braucht und was dabei entsteht."
+        },
+        {
+          "kind": "math3d",
+          "scene": "stoffwechsel",
+          "params": {
+            "ablauf": "Fotosynthese"
+          },
+          "segment": [
+            0,
+            30
+          ],
+          "onScreenTitle": "Im Chloroplasten",
+          "narration": "Hier ist ein Chloroplast mit seinen grünen Stapeln. Zuerst fällt Sonnenlicht auf ihn. Dann kommen zwei Ausgangsstoffe. Aus der Luft kommt Kohlenstoffdioxid, abgekürzt C O zwei. Es gelangt durch winzige Öffnungen in das Blatt. Von der Wurzel kommt Wasser, H zwei O. Aus diesen beiden Stoffen baut der Chloroplast Glucose, also Zucker. Die Energie aus dem Licht steckt jetzt im Zucker. Darum sagt man: energiereiche Glucose. Außerdem entsteht Sauerstoff, O zwei. Er geht hinaus in die Luft."
+        },
+        {
+          "kind": "bullets",
+          "onScreenTitle": "Die Wortgleichung der Fotosynthese",
+          "bullets": [
+            "Kohlenstoffdioxid + Wasser",
+            "→ mit Licht und Chlorophyll →",
+            "Glucose + Sauerstoff",
+            "Ort: Chloroplast"
+          ],
+          "narration": "Diese Wortgleichung musst du auswendig können. Kohlenstoffdioxid plus Wasser ergibt, mit Licht und Chlorophyll, Glucose plus Sauerstoff. Links stehen die Ausgangsstoffe, rechts die Produkte. Licht und Chlorophyll schreibst du auf den Pfeil, denn sie sind keine Stoffe, die im Zucker landen: Das Licht liefert die Energie, und das Chlorophyll fängt sie ein. Ein Merksatz hilft: Lichtenergie wird im Zucker gespeichert. Sie wird dabei in chemische Energie umgewandelt, die in der Glucose steckt."
+        },
+        {
+          "kind": "question",
+          "question": "Welche zwei Stoffe braucht die Pflanze für die Fotosynthese, und welche zwei Stoffe entstehen?",
+          "think": 12,
+          "hint": "Ein Stoff kommt aus der Luft, einer aus dem Boden. Eines der Produkte ist süß.",
+          "narration": "Jetzt du. Welche zwei Stoffe braucht die Pflanze für die Fotosynthese? Und welche zwei Stoffe entstehen dabei? Denk an die Wortgleichung, die wir gerade gesehen haben. Du hast ein paar Sekunden Zeit. Halte das Video an, wenn du länger brauchst."
+        },
+        {
+          "kind": "bullets",
+          "onScreenTitle": "Antwort",
+          "bullets": [
+            "Braucht: Kohlenstoffdioxid und Wasser",
+            "Entsteht: Glucose und Sauerstoff",
+            "Dazu nötig: Licht und Chlorophyll"
+          ],
+          "narration": "Die Pflanze braucht Kohlenstoffdioxid aus der Luft und Wasser aus dem Boden. Dabei entstehen Glucose, also Zucker, und Sauerstoff. Damit das klappt, braucht sie außerdem Licht und Chlorophyll. Die Glucose hat die Formel C sechs H zwölf O sechs. Ein häufiger Fehler in Tests ist, Sauerstoff auf die linke Seite zu schreiben. Sauerstoff wird bei der Fotosynthese nicht gebraucht, er entsteht. Prüfe deshalb immer, auf welcher Seite des Pfeils ein Stoff steht."
+        }
+      ]
+    },
+    {
+      "title": "Zellatmung: Energie aus Zucker",
+      "goal": "Du kannst die Zellatmung mit einer Wortgleichung beschreiben.",
+      "keyPoints": [
+        "Mitochondrium",
+        "Glucose und Sauerstoff",
+        "Energie wird frei"
+      ],
+      "scenes": [
+        {
+          "kind": "chapter",
+          "onScreenTitle": "Zellatmung: Energie aus Zucker",
+          "narration": "Die Pflanze hat jetzt Zucker. Aber Zucker allein lässt sie noch nicht wachsen. Die Energie im Zucker muss erst wieder freigesetzt werden. Das passiert in anderen kleinen Teilen der Zelle, den Mitochondrien. Ein einzelnes heißt das Mitochondrium. Sein Spitzname ist Kraftwerk der Zelle. Und hier ist etwas wichtig: Die Mitochondrien arbeiten immer, am Tag und in der Nacht. Auch Menschen und Tiere haben Mitochondrien in ihren Zellen."
+        },
+        {
+          "kind": "math3d",
+          "scene": "stoffwechsel",
+          "params": {
+            "ablauf": "Zellatmung"
+          },
+          "segment": [
+            0,
+            30
+          ],
+          "onScreenTitle": "Im Mitochondrium",
+          "narration": "Hier ist ein Mitochondrium mit seiner gefalteten inneren Haut. Hinein kommen Glucose und Sauerstoff. Im Mitochondrium wird die Glucose abgebaut. Dabei wird die Energie frei, die vorher vom Licht im Zucker gespeichert wurde. Mit dieser Energie lebt die Pflanze: Sie wächst, bildet Blüten und transportiert Stoffe. Übrig bleiben Kohlenstoffdioxid und Wasser. Sie werden wieder abgegeben. Man nennt diesen Vorgang Zellatmung, weil dabei, wie beim Atmen, Sauerstoff verbraucht und Kohlenstoffdioxid abgegeben wird."
+        },
+        {
+          "kind": "bullets",
+          "onScreenTitle": "Die Wortgleichung der Zellatmung",
+          "bullets": [
+            "Glucose + Sauerstoff",
+            "→ Kohlenstoffdioxid + Wasser + Energie",
+            "Ort: Mitochondrium",
+            "Tag und Nacht"
+          ],
+          "narration": "Auch diese Wortgleichung musst du können. Glucose plus Sauerstoff ergibt Kohlenstoffdioxid plus Wasser plus Energie. Vergleiche sie mit der Fotosynthese. Fällt dir etwas auf? Die Zellatmung ist genau umgekehrt. Die Stoffe, die bei der Fotosynthese entstehen, werden bei der Zellatmung gebraucht. Und die Stoffe, die bei der Zellatmung entstehen, braucht wieder die Fotosynthese. Ein Merksatz: Fotosynthese baut auf, Zellatmung baut ab."
+        },
+        {
+          "kind": "question",
+          "question": "Wo findet die Zellatmung statt, und was wird dabei frei?",
+          "think": 10,
+          "hint": "Denk an den Spitznamen: Kraftwerk der Zelle.",
+          "narration": "Deine Frage. Wo in der Zelle findet die Zellatmung statt? Und was wird dabei frei, das die Pflanze zum Leben braucht? Denk an den Spitznamen, den wir gerade gelernt haben. Du hast ein paar Sekunden Zeit zum Nachdenken. Halte das Video an, wenn du länger brauchst."
+        },
+        {
+          "kind": "bullets",
+          "onScreenTitle": "Antwort",
+          "bullets": [
+            "Ort: in den Mitochondrien",
+            "Frei wird: Energie",
+            "Kraftwerk der Zelle"
+          ],
+          "narration": "Die Zellatmung findet in den Mitochondrien statt, den Kraftwerken der Zelle. Dabei wird Energie frei, mit der die Pflanze wächst und lebt. Achte auf die Schreibweise: ein Mitochondrium, mehrere Mitochondrien. Und verwechsle die beiden Orte nicht. Chloroplast gehört zur Fotosynthese, Mitochondrium gehört zur Zellatmung. Ein Trick zum Merken: Chloroplast und Chlorophyll beginnen beide mit Chloro, das heißt grün."
+        }
+      ]
+    },
+    {
+      "title": "Ein Kreislauf, Tag und Nacht",
+      "goal": "Du erklärst, warum Fotosynthese und Zellatmung zusammengehören.",
+      "keyPoints": [
+        "Kreislauf der Stoffe",
+        "Nachts nur Zellatmung",
+        "Am Tag überwiegt Fotosynthese"
+      ],
+      "scenes": [
+        {
+          "kind": "chapter",
+          "onScreenTitle": "Ein Kreislauf",
+          "narration": "Jetzt setzen wir beides zusammen. In einer Blattzelle gibt es Chloroplasten und Mitochondrien. Die beiden arbeiten zusammen wie zwei Nachbarn, die sich gegenseitig aushelfen. Der eine gibt dem anderen genau das, was dieser braucht. Daraus entsteht ein Kreislauf. Schau dir an, wie die Stoffe zwischen den beiden hin und her wandern, und achte auf die Farben: Orange ist Glucose, Lila ist Sauerstoff, Grau ist Kohlenstoffdioxid, Blau ist Wasser."
+        },
+        {
+          "kind": "math3d",
+          "scene": "stoffwechsel",
+          "params": {
+            "ablauf": "Kreislauf"
+          },
+          "segment": [
+            0,
+            30
+          ],
+          "onScreenTitle": "Chloroplast und Mitochondrium",
+          "narration": "Links der Chloroplast im Sonnenlicht, rechts das Mitochondrium. Der Chloroplast schickt Glucose und Sauerstoff hinüber zum Mitochondrium. Das Mitochondrium baut die Glucose ab, setzt Energie frei und schickt Kohlenstoffdioxid und Wasser zurück. Diese beiden Stoffe nimmt der Chloroplast wieder für die Fotosynthese. So läuft es immer weiter im Kreis. Was das eine herstellt, braucht das andere. Nur die Energie geht nicht im Kreis: Sie kommt von der Sonne und wird am Ende genutzt. Das Bild ist vereinfacht, denn die Pflanze tauscht am Tag auch Gase mit der Luft aus."
+        },
+        {
+          "kind": "math3d",
+          "scene": "stoffwechsel",
+          "params": {
+            "ablauf": "Nacht"
+          },
+          "segment": [
+            0,
+            30
+          ],
+          "onScreenTitle": "Und in der Nacht?",
+          "narration": "Was passiert in der Nacht? Ohne Licht kann der Chloroplast keine Fotosynthese machen. Er ruht. Das Mitochondrium aber arbeitet weiter, denn die Pflanze braucht immer Energie. Es nimmt Sauerstoff auf und baut Glucose aus dem Vorrat ab. Dabei gibt es Kohlenstoffdioxid ab, genau wie wir beim Atmen. Zum Vergleich: Am Tag ist die Fotosynthese viel stärker als die Zellatmung. Deshalb gibt eine Pflanze am Tag insgesamt mehr Sauerstoff ab, als sie selbst verbraucht. Diesen Überschuss atmen wir ein."
+        },
+        {
+          "kind": "question",
+          "question": "Macht eine Pflanze nachts Fotosynthese? Und macht sie nachts Zellatmung?",
+          "think": 10,
+          "hint": "Was braucht die Fotosynthese, das es nachts nicht gibt?",
+          "narration": "Eine Frage, die in Tests oft vorkommt. Macht eine Pflanze nachts Fotosynthese? Und macht sie nachts Zellatmung? Antworte für beide Vorgänge getrennt. Du hast ein paar Sekunden Zeit. Halte das Video an, wenn du länger brauchst."
+        },
+        {
+          "kind": "bullets",
+          "onScreenTitle": "Antwort",
+          "bullets": [
+            "Fotosynthese: nein, kein Licht",
+            "Zellatmung: ja, immer",
+            "Nachts gibt die Pflanze CO₂ ab"
+          ],
+          "narration": "Nachts gibt es keine Fotosynthese, weil das Licht fehlt. Die Zellatmung läuft aber weiter, Tag und Nacht. Deshalb gibt die Pflanze nachts Kohlenstoffdioxid ab. Ein typischer Fehler ist der Satz: Pflanzen atmen nur am Tag, oder: Pflanzen atmen gar nicht. Beides ist falsch. Pflanzen atmen immer, so wie wir. Nur am Tag stellen sie zusätzlich durch Fotosynthese mehr Sauerstoff her, als sie verbrauchen."
+        }
+      ]
+    },
+    {
+      "title": "Transport in der Pflanze",
+      "goal": "Du beschreibst, wie Wasser und Zucker durch die Pflanze wandern.",
+      "keyPoints": [
+        "Wasser nach oben",
+        "Verdunstung zieht nach",
+        "Zucker überallhin"
+      ],
+      "scenes": [
+        {
+          "kind": "chapter",
+          "onScreenTitle": "Transport in der Pflanze",
+          "narration": "Für die Fotosynthese braucht das Blatt Wasser. Das Wasser ist aber unten im Boden. Und der Zucker entsteht oben im Blatt, gebraucht wird er aber überall, auch in der Wurzel. Die Pflanze muss also Stoffe transportieren, und zwar in zwei Richtungen. Dafür hat die Sprossachse feine Leitungen, ähnlich wie Wasserrohre in einem Haus. Schau dir den Weg an. Blau ist das Wasser, Orange ist der Zucker."
+        },
+        {
+          "kind": "math3d",
+          "scene": "pflanze",
+          "params": {
+            "anzeige": "Alles"
+          },
+          "segment": [
+            0,
+            30
+          ],
+          "onScreenTitle": "Wasser nach oben, Zucker überallhin",
+          "narration": "Die Wurzel nimmt Wasser und Mineralstoffe aus dem Boden auf. In der Sprossachse steigt das Wasser nach oben bis in die Blätter. Aus den Blättern verdunstet ständig Wasser. Das zieht neues Wasser von unten nach, ähnlich wie beim Trinken mit einem Strohhalm: Oben wird gezogen, unten folgt das Wasser. Der Zucker aus den Blättern wandert in die ganze Pflanze, nach oben zu den Knospen und nach unten bis in die Wurzel. Ein Teil wird dort gespeichert. Darum sind Karotte und Zuckerrübe süß."
+        },
+        {
+          "kind": "question",
+          "question": "Warum ist eine Karotte süß?",
+          "think": 10,
+          "hint": "Wo wird der Zucker hergestellt, und wohin wird er transportiert?",
+          "narration": "Eine Frage zum Nachdenken. Warum ist eine Karotte süß? Die Karotte ist ja eine Wurzel, und in der Wurzel gibt es keine Fotosynthese. Du hast ein paar Sekunden Zeit. Halte das Video an, wenn du länger brauchst."
+        },
+        {
+          "kind": "bullets",
+          "onScreenTitle": "Antwort",
+          "bullets": [
+            "Zucker entsteht im Blatt",
+            "Transport durch die Sprossachse",
+            "Gespeichert in der Wurzel"
+          ],
+          "narration": "Der Zucker entsteht durch Fotosynthese in den Blättern. Dann wird er durch die Sprossachse nach unten in die Wurzel transportiert und dort als Vorrat gespeichert. Die Karotte ist also ein Speicher. Die Pflanze legt sich einen Vorrat für später an, zum Beispiel um im nächsten Jahr zu blühen. Wir Menschen ernten diesen Vorrat und essen ihn. So bekommen auch wir die Energie, die ursprünglich aus dem Sonnenlicht stammt."
+        }
+      ]
+    },
+    {
+      "title": "Tipps für deinen Test",
+      "goal": "Du weißt, worauf es in einem Test ankommt.",
+      "keyPoints": [
+        "Wortgleichungen",
+        "Orte zuordnen",
+        "Bedeutung der Fotosynthese"
+      ],
+      "scenes": [
+        {
+          "kind": "chapter",
+          "onScreenTitle": "Warum Fotosynthese so wichtig ist",
+          "narration": "Eine typische Testfrage lautet: Erkläre, warum die Fotosynthese für das Leben auf der Erde so wichtig ist. Dafür brauchst du drei Gründe. Erstens entsteht bei der Fotosynthese der Sauerstoff, den Menschen und Tiere zum Atmen brauchen. Zweitens wird Kohlenstoffdioxid aus der Luft verbraucht. Drittens ist sie der Anfang aller Nahrung: Mit dem Zucker als Baustoff und Energielieferant stellt die Pflanze Stärke, Öle, Fette, Eiweiße und Vitamine her. Tiere fressen Pflanzen, und wir essen Pflanzen und Tiere."
+        },
+        {
+          "kind": "bullets",
+          "onScreenTitle": "Vier Tipps für den Test",
+          "bullets": [
+            "Beide Wortgleichungen auswendig können",
+            "Chloroplast = Fotosynthese, Mitochondrium = Zellatmung",
+            "Licht und Chlorophyll auf den Pfeil",
+            "Abbildung: erst Pfeile verfolgen, dann beschriften"
+          ],
+          "narration": "Hier sind die wichtigsten Tipps. Erstens: Lerne beide Wortgleichungen auswendig, sie kommen fast immer dran. Zweitens: Ordne die Orte richtig zu, Chloroplast zur Fotosynthese, Mitochondrium zur Zellatmung, und schreibe die Fachbegriffe richtig, zum Beispiel Chlorophyll mit zwei l am Ende. Drittens: Licht und Chlorophyll gehören auf den Pfeil, nicht auf eine Seite. Und viertens: Bei einer Abbildung zuerst die Pfeile verfolgen, dann beschriften."
+        },
+        {
+          "kind": "outro",
+          "narration": "Das war die Lektion zu Fotosynthese und Zellatmung. Im Chloroplasten baut die Pflanze mit Licht aus Kohlenstoffdioxid und Wasser energiereiche Glucose und gibt Sauerstoff ab. Im Mitochondrium wird die Glucose mit Sauerstoff abgebaut, Tag und Nacht, und dabei wird Energie frei. Beides zusammen ist ein Kreislauf. Und ohne Fotosynthese gäbe es weder Sauerstoff zum Atmen noch Nahrung für uns. Viel Erfolg bei deinem Test."
+        }
+      ]
+    }
+  ],
+  "youtube": {
+    "title": "Fotosynthese und Zellatmung einfach erklärt | Natur und Technik Klasse 6 Gymnasium Bayern",
+    "description": "Wie stellt eine Pflanze mit Licht Zucker her? In 3D-Bildern: der Chloroplast bei der Fotosynthese, das Mitochondrium bei der Zellatmung, der Kreislauf zwischen beiden, was nachts passiert, und wie Wasser und Zucker durch Wurzel, Sprossachse und Blatt wandern. Mit Wortgleichungen, Fragen zum Mitdenken und Tipps für den Test.\n\nPasst zum LehrplanPLUS Gymnasium Bayern, Natur und Technik Jahrgangsstufe 6, Lernbereich NT6 1.2 Samenpflanzen als Lebewesen (Fotosynthese und Zellatmung).",
+    "tags": [
+      "Fotosynthese",
+      "Zellatmung",
+      "Fotosynthese einfach erklärt",
+      "Chloroplast",
+      "Mitochondrium",
+      "Natur und Technik Klasse 6",
+      "Biologie Klasse 6",
+      "Gymnasium Bayern",
+      "Wortgleichung Fotosynthese",
+      "Stoffwechsel Pflanze",
+      "LehrplanPLUS"
+    ]
+  },
+  "review": {
+    "reviewer": "second Claude model (Claude Code subagent), independent of the writer",
+    "date": "2026-11-23",
+    "mustFixApplied": [
+      "'Licht wird zu Zucker' ersetzt: Lichtenergie wird im Zucker gespeichert (Stoff und Energie getrennt)",
+      "Kapiteltitel 'Zucker aus Luft und Wasser'",
+      "Sauerstoff nicht mehr 'Abfall'",
+      "Fragen Karotte und Nacht verraten die Antwort nicht mehr",
+      "Tipps: Anzahl im Titel passt zu den Stichpunkten"
+    ],
+    "issuesApplied": [
+      "Ausgangsstoffe statt Zutaten",
+      "Hinweis nur im hint",
+      "Formel C6H12O6",
+      "Chloro = grün",
+      "Kreislauf als vereinfacht gekennzeichnet",
+      "Nacht: Glucose aus dem Vorrat",
+      "Strohhalm als Bild gekennzeichnet",
+      "Zuckerfabrik statt Küche",
+      "Nahrung: Stärke, Öle, Fette, Eiweiße, Vitamine",
+      "Probe durch Test ersetzt"
+    ],
+    "verdictAfter": "ok"
+  }
+}
