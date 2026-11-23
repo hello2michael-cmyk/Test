@@ -48,6 +48,7 @@ Fertige Videos (GitHub-Releases, 90 Tage abrufbar; ohne Hintergrundmusik, mit Tr
 | Kinder-Lektion M6-SA1.1 Schulaufgabe Teil 1: Brüche | Leda | ca. 16:52 | https://github.com/hello2michael-cmyk/Test/releases/tag/video-53 |
 | Kinder-Lektion M6-SA1.2 Schulaufgabe Teil 2: Dezimalbrüche | Leda | ca. 18:27 | https://github.com/hello2michael-cmyk/Test/releases/tag/video-54 |
 | Kinder-Lektion F6-1.2a Datum und Plural (Leda + französische Stimme) | Leda + fr-FR Leda | ca. 18:52 | https://github.com/hello2michael-cmyk/Test/releases/tag/video-55 |
+| Kinder-Lektion NT6-1.2b Fotosynthese und Zellatmung | Leda | ca. 13:02 | https://github.com/hello2michael-cmyk/Test/releases/tag/video-56 |
 | Stimmvergleich Eltern M6-1.1 | Kore / Charon / Leda | ca. 10:00 | video-20 / video-21 / video-22 |
 
 Reihenfolge: zuerst Mathematik (fertige 3D-Szenen), dann Deutsch (Satzglieder-Szene vorhanden), Natur und Technik, Geschichte, Fremdsprachen, dann der Rest.

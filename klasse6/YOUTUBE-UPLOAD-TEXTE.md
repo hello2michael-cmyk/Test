@@ -1126,3 +1126,51 @@ Französisch Klasse 6, Französisch Datum, le premier avril, Französisch Plural
 **Angehefteter Kommentar:** entfällt (Kommentare sind bei „für Kinder“ aus).
 
 **Später ergänzen:** Eltern-Guide zu diesem Thema · Playlist Klasse 6 Bayern: Lektionen für Schüler
+
+## 24 · 24-NT-Biologie-Fotosynthese-Zellatmung-Kinder
+
+**Einstellungen:** Für Kinder: JA · KI-Frage (vier Fälle): Nein · Sprache: Deutsch · Kategorie: Bildung · Playlist: Klasse 6 Bayern: Lektionen für Schüler · Vorschaubild: 24-NT-Biologie-Fotosynthese-Zellatmung-Kinder-thumbnail.jpg · Untertitel: 24-NT-Biologie-Fotosynthese-Zellatmung-Kinder.srt
+
+**Titel** (89 Zeichen)
+```
+Fotosynthese und Zellatmung einfach erklärt | Natur und Technik Klasse 6 Gymnasium Bayern
+```
+
+**Beschreibung** (1426 Zeichen)
+```
+Wie stellt eine Pflanze mit Licht Zucker her, und wie bekommt sie daraus Energie? In 3D-Bildern: der Chloroplast bei der Fotosynthese, das Mitochondrium bei der Zellatmung, der Kreislauf zwischen beiden, was nachts passiert, und wie Wasser und Zucker durch Wurzel, Sprossachse und Blatt wandern.
+
+In diesem Video:
+• Wurzel, Sprossachse und Blatt und ihre Aufgaben
+• Fotosynthese: Kohlenstoffdioxid + Wasser → Glucose + Sauerstoff
+• Zellatmung: Glucose + Sauerstoff → Kohlenstoffdioxid + Wasser + Energie
+• Chloroplast und Mitochondrium, Tag und Nacht
+• Warum die Karotte süß ist: Transport und Speicherung
+• Warum die Fotosynthese für uns lebenswichtig ist
+• Fünf Fragen zum Mitdenken und Tipps für den Test
+
+Für wen: Schülerinnen und Schüler der 6. Klasse am Gymnasium, Natur und Technik, Schwerpunkt Biologie.
+
+Lehrplan: LehrplanPLUS Gymnasium Bayern, Natur und Technik Jahrgangsstufe 6, Lernbereich NT6 1.2 Samenpflanzen als Lebewesen.
+
+Kapitel
+0:00 Die Pflanze als Fabrik
+1:27 Fotosynthese: Zucker aus Luft und Wasser
+4:07 Zellatmung: Energie aus Zucker
+6:46 Ein Kreislauf, Tag und Nacht
+9:32 Transport in der Pflanze
+11:25 Tipps für deinen Test
+
+Transparenz: Die Sprecherstimme ist computergeneriert (Text-to-Speech). Das Skript folgt dem LehrplanPLUS Bayern und wurde von einem zweiten KI-Modell geprüft; vor der Veröffentlichung sieht ein Elternteil jedes Video durch.
+
+#Fotosynthese #Biologie #Klasse6 #GymnasiumBayern
+```
+
+**Tags** (263 Zeichen)
+```
+Fotosynthese, Zellatmung, Fotosynthese einfach erklärt, Chloroplast, Mitochondrium, Wortgleichung Fotosynthese, Natur und Technik Klasse 6, Biologie Klasse 6, Gymnasium Bayern, Stoffwechsel Pflanze, Wurzel Sprossachse Blatt, LehrplanPLUS, Biologie einfach erklärt
+```
+
+**Angehefteter Kommentar:** entfällt (Kommentare sind bei „für Kinder“ aus).
+
+**Später ergänzen:** Eltern-Guide zu diesem Thema · Playlist Klasse 6 Bayern: Lektionen für Schüler
