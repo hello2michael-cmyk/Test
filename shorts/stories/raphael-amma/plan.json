@@ -1,0 +1,3962 @@
+{
+ "id": "current",
+ "prompt": "Story short \"The Home Nurse And Raphael Amma\" from shorts/stories/raphael-amma.story.json: a narrated story acted out by blocky avatars, vertical, about 165 seconds.",
+ "attempts": 0,
+ "createdAt": 1795708870255,
+ "updatedAt": 1795708870255,
+ "stage": "plan",
+ "mode": "course",
+ "durationApplied": true,
+ "audios": {},
+ "footage": {},
+ "heroBeats": [],
+ "settings": {
+  "videoStyle": "course",
+  "aspect": "9x16",
+  "quality": "1080",
+  "fps": 30,
+  "theme": "Midnight",
+  "burnInCaptions": true,
+  "captionStyle": "words",
+  "showProgressBar": false,
+  "voice": "am_fenrir",
+  "speed": 1,
+  "sceneHoldSeconds": 0.25,
+  "musicVolume": 0,
+  "ambientBed": false,
+  "channelName": "",
+  "cta": "Subscribe for the next story",
+  "footageProvider": "none",
+  "aiClipBudget": 0,
+  "minSceneSeconds": 0,
+  "maxDuration": 215,
+  "targetDuration": 165,
+  "short": {
+   "id": "raphael-amma",
+   "title": "The Home Nurse And Raphael Amma",
+   "authored": "raphael-amma.story.json"
+  }
+ },
+ "brief": {
+  "title": "The Home Nurse And Raphael Amma",
+  "audience": "horror story fans",
+  "hook": "Jack was a home nurse. One morning his manager sent him to a new patient. An extraordinary old woman, he called her.",
+  "learningObjectives": [],
+  "keyTakeaway": "Would you have gone in? Tell me in the comments. And subscribe for the next story.",
+  "tone": "slow, low, creepy",
+  "mode": "course",
+  "lessonScene": null,
+  "bibleLine": "",
+  "chapters": [
+   {
+    "id": 1,
+    "title": "The Home Nurse And Raphael Amma",
+    "goal": "The Home Nurse And Raphael Amma",
+    "keyPoints": [],
+    "example": ""
+   }
+  ],
+  "outline": [
+   {
+    "id": 1,
+    "chapterId": 1,
+    "purpose": "hook",
+    "keyPoint": "Jack was a home nurse. One morning his manager sent him to a new patient. An extraordinary old woman, he called her.",
+    "suggestedVisual": "story3d"
+   },
+   {
+    "id": 2,
+    "chapterId": 1,
+    "purpose": "explain",
+    "keyPoint": "Jack asked if it was really okay. Of course it's okay, said the manager. You will get paid a lot. Go in.",
+    "suggestedVisual": "story3d"
+   },
+   {
+    "id": 3,
+    "chapterId": 1,
+    "purpose": "explain",
+    "keyPoint": "The granny welcomed him with a cup of chai. Sit on the sofa and wait, she said. I have to go to my room.",
+    "suggestedVisual": "story3d"
+   },
+   {
+    "id": 4,
+    "chapterId": 1,
+    "purpose": "explain",
+    "keyPoint": "Hours passed. On the shelf, Jack found a photo. The granny, standing next to another home nurse.",
+    "suggestedVisual": "story3d"
+   },
+   {
+    "id": 5,
+    "chapterId": 1,
+    "purpose": "explain",
+    "keyPoint": "That one left early, she said. Jack was not so sure about that.",
+    "suggestedVisual": "story3d"
+   },
+   {
+    "id": 6,
+    "chapterId": 1,
+    "purpose": "explain",
+    "keyPoint": "She showed him the guest room. There was one rule. Do not be awake after midnight. Or else.",
+    "suggestedVisual": "story3d"
+   },
+   {
+    "id": 7,
+    "chapterId": 1,
+    "purpose": "explain",
+    "keyPoint": "The first nights, Jack could not sleep. Just homesick, he told himself. Just homesick.",
+    "suggestedVisual": "story3d"
+   },
+   {
+    "id": 8,
+    "chapterId": 1,
+    "purpose": "explain",
+    "keyPoint": "But every day, the granny got meaner. She snapped at him. She pinched him. She hit him.",
+    "suggestedVisual": "story3d"
+   },
+   {
+    "id": 9,
+    "chapterId": 1,
+    "purpose": "explain",
+    "keyPoint": "One night he was still awake after midnight. And then he heard it. Knocking. Slow. Odd. Knocking.",
+    "suggestedVisual": "story3d"
+   },
+   {
+    "id": 10,
+    "chapterId": 1,
+    "purpose": "explain",
+    "keyPoint": "He fell asleep right there. In the morning he told himself it was just a bad dream. Just a nightmare.",
+    "suggestedVisual": "story3d"
+   },
+   {
+    "id": 11,
+    "chapterId": 1,
+    "purpose": "explain",
+    "keyPoint": "The next night, she came into his room. And she told him a story. Not about herself, she said. About Raphael Amma.",
+    "suggestedVisual": "story3d"
+   },
+   {
+    "id": 12,
+    "chapterId": 1,
+    "purpose": "explain",
+    "keyPoint": "Raphael Amma had a husband, Raphael Appa, and seven children. And every single one of them ignored her.",
+    "suggestedVisual": "story3d"
+   },
+   {
+    "id": 13,
+    "chapterId": 1,
+    "purpose": "explain",
+    "keyPoint": "She did not divorce him. She prayed. To the devil. I want to eat them all, she said. But the three youngest later. When they are older.",
+    "suggestedVisual": "story3d"
+   },
+   {
+    "id": 14,
+    "chapterId": 1,
+    "purpose": "explain",
+    "keyPoint": "And she ate them. One by one. The devil moved in. Until only the three youngest were left.",
+    "suggestedVisual": "story3d"
+   },
+   {
+    "id": 15,
+    "chapterId": 1,
+    "purpose": "explain",
+    "keyPoint": "Years later, she ate two more. But the last child she loved. She let him run away from the house. The devil, she said, would find him anyway.",
+    "suggestedVisual": "story3d"
+   },
+   {
+    "id": 16,
+    "chapterId": 1,
+    "purpose": "explain",
+    "keyPoint": "Jack was terrified. That same night, when the granny went out, he ran.",
+    "suggestedVisual": "story3d"
+   },
+   {
+    "id": 17,
+    "chapterId": 1,
+    "purpose": "explain",
+    "keyPoint": "He ran through the dark, deep into the woods. And he ended up in front of a small hut.",
+    "suggestedVisual": "story3d"
+   },
+   {
+    "id": 18,
+    "chapterId": 1,
+    "purpose": "explain",
+    "keyPoint": "Inside: blood on the floor. And a book, full of odd letters. The first words read: Dear devil.",
+    "suggestedVisual": "story3d"
+   },
+   {
+    "id": 19,
+    "chapterId": 1,
+    "purpose": "explain",
+    "keyPoint": "Jack knew there was no way out of this house. He sat down on the floor. And he cried.",
+    "suggestedVisual": "story3d"
+   },
+   {
+    "id": 20,
+    "chapterId": 1,
+    "purpose": "explain",
+    "keyPoint": "Behind him, the door opened. Raphael Amma. Possessed. With an axe in her hand.",
+    "suggestedVisual": "story3d"
+   },
+   {
+    "id": 21,
+    "chapterId": 1,
+    "purpose": "explain",
+    "keyPoint": "Because the devil had kept his promise. Jack was the missing son. The last child. The one she let run away.",
+    "suggestedVisual": "story3d"
+   },
+   {
+    "id": 22,
+    "chapterId": 1,
+    "purpose": "explain",
+    "keyPoint": "The axe fell. And the moment Jack was gone, the devil had nothing left to keep. Raphael Amma turned to dust.",
+    "suggestedVisual": "story3d"
+   },
+   {
+    "id": 23,
+    "chapterId": 1,
+    "purpose": "takeaway",
+    "keyPoint": "Would you have gone in? Tell me in the comments. And subscribe for the next story.",
+    "suggestedVisual": "story3d"
+   }
+  ]
+ },
+ "chapterBeats": {
+  "1": [
+   {
+    "narration": "Jack was a home nurse. One morning his manager sent him to a new patient. An extraordinary old woman, he called her.",
+    "onScreenTitle": "Jack was a home nurse. One morning his",
+    "emphasisWords": [
+     "nurse",
+     "extraordinary"
+    ],
+    "kind": "story3d"
+   },
+   {
+    "narration": "Jack asked if it was really okay. Of course it's okay, said the manager. You will get paid a lot. Go in.",
+    "onScreenTitle": "Jack asked if it was really okay. Of",
+    "emphasisWords": [
+     "okay",
+     "lot"
+    ],
+    "kind": "story3d"
+   },
+   {
+    "narration": "The granny welcomed him with a cup of chai. Sit on the sofa and wait, she said. I have to go to my room.",
+    "onScreenTitle": "The granny welcomed him with a cup of",
+    "emphasisWords": [
+     "chai",
+     "wait"
+    ],
+    "kind": "story3d"
+   },
+   {
+    "narration": "Hours passed. On the shelf, Jack found a photo. The granny, standing next to another home nurse.",
+    "onScreenTitle": "Hours passed. On the shelf, Jack found a",
+    "emphasisWords": [
+     "photo",
+     "another"
+    ],
+    "kind": "story3d"
+   },
+   {
+    "narration": "That one left early, she said. Jack was not so sure about that.",
+    "onScreenTitle": "That one left early, she said. Jack was",
+    "emphasisWords": [
+     "early",
+     "sure"
+    ],
+    "kind": "story3d"
+   },
+   {
+    "narration": "She showed him the guest room. There was one rule. Do not be awake after midnight. Or else.",
+    "onScreenTitle": "She showed him the guest room. There was",
+    "emphasisWords": [
+     "rule",
+     "midnight",
+     "else"
+    ],
+    "kind": "story3d"
+   },
+   {
+    "narration": "The first nights, Jack could not sleep. Just homesick, he told himself. Just homesick.",
+    "onScreenTitle": "The first nights, Jack could not sleep. Just",
+    "emphasisWords": [
+     "sleep",
+     "homesick"
+    ],
+    "kind": "story3d"
+   },
+   {
+    "narration": "But every day, the granny got meaner. She snapped at him. She pinched him. She hit him.",
+    "onScreenTitle": "But every day, the granny got meaner. She",
+    "emphasisWords": [
+     "meaner",
+     "hit"
+    ],
+    "kind": "story3d"
+   },
+   {
+    "narration": "One night he was still awake after midnight. And then he heard it. Knocking. Slow. Odd. Knocking.",
+    "onScreenTitle": "One night he was still awake after midnight.",
+    "emphasisWords": [
+     "awake",
+     "Knocking"
+    ],
+    "kind": "story3d"
+   },
+   {
+    "narration": "He fell asleep right there. In the morning he told himself it was just a bad dream. Just a nightmare.",
+    "onScreenTitle": "He fell asleep right there. In the morning",
+    "emphasisWords": [
+     "dream",
+     "nightmare"
+    ],
+    "kind": "story3d"
+   },
+   {
+    "narration": "The next night, she came into his room. And she told him a story. Not about herself, she said. About Raphael Amma.",
+    "onScreenTitle": "The next night, she came into his room.",
+    "emphasisWords": [
+     "story",
+     "Raphael",
+     "Amma"
+    ],
+    "kind": "story3d"
+   },
+   {
+    "narration": "Raphael Amma had a husband, Raphael Appa, and seven children. And every single one of them ignored her.",
+    "onScreenTitle": "Raphael Amma had a husband, Raphael Appa, and",
+    "emphasisWords": [
+     "seven",
+     "ignored"
+    ],
+    "kind": "story3d"
+   },
+   {
+    "narration": "She did not divorce him. She prayed. To the devil. I want to eat them all, she said. But the three youngest later. When they are older.",
+    "onScreenTitle": "She did not divorce him. She prayed. To",
+    "emphasisWords": [
+     "devil",
+     "eat",
+     "youngest"
+    ],
+    "kind": "story3d"
+   },
+   {
+    "narration": "And she ate them. One by one. The devil moved in. Until only the three youngest were left.",
+    "onScreenTitle": "And she ate them. One by one. The",
+    "emphasisWords": [
+     "ate",
+     "devil",
+     "three"
+    ],
+    "kind": "story3d"
+   },
+   {
+    "narration": "Years later, she ate two more. But the last child she loved. She let him run away from the house. The devil, she said, would find him anyway.",
+    "onScreenTitle": "Years later, she ate two more. But the",
+    "emphasisWords": [
+     "two",
+     "loved",
+     "anyway"
+    ],
+    "kind": "story3d"
+   },
+   {
+    "narration": "Jack was terrified. That same night, when the granny went out, he ran.",
+    "onScreenTitle": "Jack was terrified. That same night, when the",
+    "emphasisWords": [
+     "terrified",
+     "ran"
+    ],
+    "kind": "story3d"
+   },
+   {
+    "narration": "He ran through the dark, deep into the woods. And he ended up in front of a small hut.",
+    "onScreenTitle": "He ran through the dark, deep into the",
+    "emphasisWords": [
+     "woods",
+     "hut"
+    ],
+    "kind": "story3d"
+   },
+   {
+    "narration": "Inside: blood on the floor. And a book, full of odd letters. The first words read: Dear devil.",
+    "onScreenTitle": "Inside: blood on the floor. And a book,",
+    "emphasisWords": [
+     "blood",
+     "Dear",
+     "devil"
+    ],
+    "kind": "story3d"
+   },
+   {
+    "narration": "Jack knew there was no way out of this house. He sat down on the floor. And he cried.",
+    "onScreenTitle": "Jack knew there was no way out of",
+    "emphasisWords": [
+     "no",
+     "cried"
+    ],
+    "kind": "story3d"
+   },
+   {
+    "narration": "Behind him, the door opened. Raphael Amma. Possessed. With an axe in her hand.",
+    "onScreenTitle": "Behind him, the door opened. Raphael Amma. Possessed.",
+    "emphasisWords": [
+     "Raphael",
+     "Amma",
+     "axe"
+    ],
+    "kind": "story3d"
+   },
+   {
+    "narration": "Because the devil had kept his promise. Jack was the missing son. The last child. The one she let run away.",
+    "onScreenTitle": "Because the devil had kept his promise. Jack",
+    "emphasisWords": [
+     "Jack",
+     "missing",
+     "son"
+    ],
+    "kind": "story3d"
+   },
+   {
+    "narration": "The axe fell. And the moment Jack was gone, the devil had nothing left to keep. Raphael Amma turned to dust.",
+    "onScreenTitle": "The axe fell. And the moment Jack was",
+    "emphasisWords": [
+     "gone",
+     "dust"
+    ],
+    "kind": "story3d"
+   },
+   {
+    "narration": "Would you have gone in? Tell me in the comments. And subscribe for the next story.",
+    "onScreenTitle": "Would you have gone in? Tell me in",
+    "emphasisWords": [
+     "you",
+     "subscribe"
+    ],
+    "kind": "story3d"
+   }
+  ]
+ },
+ "script": {
+  "scenes": [
+   {
+    "beatId": 1,
+    "chapterId": 1,
+    "narration": "Jack was a home nurse. One morning his manager sent him to a new patient. An extraordinary old woman, he called her.",
+    "onScreenTitle": "Jack was a home nurse. One morning his",
+    "emphasisWords": [
+     "nurse",
+     "extraordinary"
+    ]
+   },
+   {
+    "beatId": 2,
+    "chapterId": 1,
+    "narration": "Jack asked if it was really okay. Of course it's okay, said the manager. You will get paid a lot. Go in.",
+    "onScreenTitle": "Jack asked if it was really okay. Of",
+    "emphasisWords": [
+     "okay",
+     "lot"
+    ]
+   },
+   {
+    "beatId": 3,
+    "chapterId": 1,
+    "narration": "The granny welcomed him with a cup of chai. Sit on the sofa and wait, she said. I have to go to my room.",
+    "onScreenTitle": "The granny welcomed him with a cup of",
+    "emphasisWords": [
+     "chai",
+     "wait"
+    ]
+   },
+   {
+    "beatId": 4,
+    "chapterId": 1,
+    "narration": "Hours passed. On the shelf, Jack found a photo. The granny, standing next to another home nurse.",
+    "onScreenTitle": "Hours passed. On the shelf, Jack found a",
+    "emphasisWords": [
+     "photo",
+     "another"
+    ]
+   },
+   {
+    "beatId": 5,
+    "chapterId": 1,
+    "narration": "That one left early, she said. Jack was not so sure about that.",
+    "onScreenTitle": "That one left early, she said. Jack was",
+    "emphasisWords": [
+     "early",
+     "sure"
+    ]
+   },
+   {
+    "beatId": 6,
+    "chapterId": 1,
+    "narration": "She showed him the guest room. There was one rule. Do not be awake after midnight. Or else.",
+    "onScreenTitle": "She showed him the guest room. There was",
+    "emphasisWords": [
+     "rule",
+     "midnight",
+     "else"
+    ]
+   },
+   {
+    "beatId": 7,
+    "chapterId": 1,
+    "narration": "The first nights, Jack could not sleep. Just homesick, he told himself. Just homesick.",
+    "onScreenTitle": "The first nights, Jack could not sleep. Just",
+    "emphasisWords": [
+     "sleep",
+     "homesick"
+    ]
+   },
+   {
+    "beatId": 8,
+    "chapterId": 1,
+    "narration": "But every day, the granny got meaner. She snapped at him. She pinched him. She hit him.",
+    "onScreenTitle": "But every day, the granny got meaner. She",
+    "emphasisWords": [
+     "meaner",
+     "hit"
+    ]
+   },
+   {
+    "beatId": 9,
+    "chapterId": 1,
+    "narration": "One night he was still awake after midnight. And then he heard it. Knocking. Slow. Odd. Knocking.",
+    "onScreenTitle": "One night he was still awake after midnight.",
+    "emphasisWords": [
+     "awake",
+     "Knocking"
+    ]
+   },
+   {
+    "beatId": 10,
+    "chapterId": 1,
+    "narration": "He fell asleep right there. In the morning he told himself it was just a bad dream. Just a nightmare.",
+    "onScreenTitle": "He fell asleep right there. In the morning",
+    "emphasisWords": [
+     "dream",
+     "nightmare"
+    ]
+   },
+   {
+    "beatId": 11,
+    "chapterId": 1,
+    "narration": "The next night, she came into his room. And she told him a story. Not about herself, she said. About Raphael Amma.",
+    "onScreenTitle": "The next night, she came into his room.",
+    "emphasisWords": [
+     "story",
+     "Raphael",
+     "Amma"
+    ]
+   },
+   {
+    "beatId": 12,
+    "chapterId": 1,
+    "narration": "Raphael Amma had a husband, Raphael Appa, and seven children. And every single one of them ignored her.",
+    "onScreenTitle": "Raphael Amma had a husband, Raphael Appa, and",
+    "emphasisWords": [
+     "seven",
+     "ignored"
+    ]
+   },
+   {
+    "beatId": 13,
+    "chapterId": 1,
+    "narration": "She did not divorce him. She prayed. To the devil. I want to eat them all, she said. But the three youngest later. When they are older.",
+    "onScreenTitle": "She did not divorce him. She prayed. To",
+    "emphasisWords": [
+     "devil",
+     "eat",
+     "youngest"
+    ]
+   },
+   {
+    "beatId": 14,
+    "chapterId": 1,
+    "narration": "And she ate them. One by one. The devil moved in. Until only the three youngest were left.",
+    "onScreenTitle": "And she ate them. One by one. The",
+    "emphasisWords": [
+     "ate",
+     "devil",
+     "three"
+    ]
+   },
+   {
+    "beatId": 15,
+    "chapterId": 1,
+    "narration": "Years later, she ate two more. But the last child she loved. She let him run away from the house. The devil, she said, would find him anyway.",
+    "onScreenTitle": "Years later, she ate two more. But the",
+    "emphasisWords": [
+     "two",
+     "loved",
+     "anyway"
+    ]
+   },
+   {
+    "beatId": 16,
+    "chapterId": 1,
+    "narration": "Jack was terrified. That same night, when the granny went out, he ran.",
+    "onScreenTitle": "Jack was terrified. That same night, when the",
+    "emphasisWords": [
+     "terrified",
+     "ran"
+    ]
+   },
+   {
+    "beatId": 17,
+    "chapterId": 1,
+    "narration": "He ran through the dark, deep into the woods. And he ended up in front of a small hut.",
+    "onScreenTitle": "He ran through the dark, deep into the",
+    "emphasisWords": [
+     "woods",
+     "hut"
+    ]
+   },
+   {
+    "beatId": 18,
+    "chapterId": 1,
+    "narration": "Inside: blood on the floor. And a book, full of odd letters. The first words read: Dear devil.",
+    "onScreenTitle": "Inside: blood on the floor. And a book,",
+    "emphasisWords": [
+     "blood",
+     "Dear",
+     "devil"
+    ]
+   },
+   {
+    "beatId": 19,
+    "chapterId": 1,
+    "narration": "Jack knew there was no way out of this house. He sat down on the floor. And he cried.",
+    "onScreenTitle": "Jack knew there was no way out of",
+    "emphasisWords": [
+     "no",
+     "cried"
+    ]
+   },
+   {
+    "beatId": 20,
+    "chapterId": 1,
+    "narration": "Behind him, the door opened. Raphael Amma. Possessed. With an axe in her hand.",
+    "onScreenTitle": "Behind him, the door opened. Raphael Amma. Possessed.",
+    "emphasisWords": [
+     "Raphael",
+     "Amma",
+     "axe"
+    ]
+   },
+   {
+    "beatId": 21,
+    "chapterId": 1,
+    "narration": "Because the devil had kept his promise. Jack was the missing son. The last child. The one she let run away.",
+    "onScreenTitle": "Because the devil had kept his promise. Jack",
+    "emphasisWords": [
+     "Jack",
+     "missing",
+     "son"
+    ]
+   },
+   {
+    "beatId": 22,
+    "chapterId": 1,
+    "narration": "The axe fell. And the moment Jack was gone, the devil had nothing left to keep. Raphael Amma turned to dust.",
+    "onScreenTitle": "The axe fell. And the moment Jack was",
+    "emphasisWords": [
+     "gone",
+     "dust"
+    ]
+   },
+   {
+    "beatId": 23,
+    "chapterId": 1,
+    "narration": "Would you have gone in? Tell me in the comments. And subscribe for the next story.",
+    "onScreenTitle": "Would you have gone in? Tell me in",
+    "emphasisWords": [
+     "you",
+     "subscribe"
+    ]
+   }
+  ],
+  "totalWords": 438
+ },
+ "review": {
+  "approved": true,
+  "issues": [],
+  "claimsToVerify": [],
+  "revisedNarration": {},
+  "mustFix": [],
+  "reviewer": "authored story"
+ },
+ "storyboard": {
+  "scenes": [
+   {
+    "beatId": 1,
+    "kind": "story3d",
+    "kicker": null,
+    "title": "Jack was a home nurse. One morning his",
+    "subtitle": null,
+    "bullets": null,
+    "nodes": null,
+    "leftTitle": null,
+    "leftItems": null,
+    "rightTitle": null,
+    "rightItems": null,
+    "statValue": null,
+    "statLabel": null,
+    "code": null,
+    "codeLanguage": null,
+    "quote": null,
+    "attribution": null,
+    "shot": null,
+    "stockQuery": null,
+    "model": null,
+    "labels": null,
+    "scene": null,
+    "params": null,
+    "formula": null,
+    "question": null,
+    "think": null,
+    "hint": null,
+    "thinkText": null,
+    "eyebrow": null,
+    "footnote": null,
+    "answerText": null,
+    "segment": null,
+    "story": {
+     "set": "street",
+     "time": "day",
+     "headline": null,
+     "actors": [
+      {
+       "id": "jack",
+       "look": {
+        "skin": "tan",
+        "shirt": "#e8f1f5",
+        "pants": "#2c3e50",
+        "hair": "short",
+        "hairColor": "black",
+        "hat": null,
+        "glasses": false,
+        "sleeves": null,
+        "logo": null
+       },
+       "pos": [
+        -0.9,
+        0.5
+       ],
+       "yaw": 60,
+       "action": "idle",
+       "face": "neutral",
+       "say": null,
+       "keys": []
+      },
+      {
+       "id": "manager",
+       "look": {
+        "skin": "light",
+        "shirt": "#2b2b35",
+        "pants": "#2b2b35",
+        "hair": "short",
+        "hairColor": "brown",
+        "hat": null,
+        "glasses": true,
+        "sleeves": "long",
+        "logo": null
+       },
+       "pos": [
+        1.1,
+        0.4
+       ],
+       "yaw": -70,
+       "action": "talk",
+       "face": "happy",
+       "say": null,
+       "keys": [
+        {
+         "at": 2.2,
+         "action": "point",
+         "yaw": 150
+        }
+       ]
+      }
+     ],
+     "props": [
+      {
+       "type": "car",
+       "pos": [
+        4.6,
+        -1.5
+       ],
+       "yaw": 0,
+       "text": null,
+       "color": "#8e8e8e",
+       "textColor": null,
+       "open": false
+      }
+     ],
+     "camera": {
+      "distance": 5.8,
+      "move": "push"
+     },
+     "tint": null,
+     "vignette": false
+    },
+    "hero": false,
+    "chapterId": 1
+   },
+   {
+    "beatId": 2,
+    "kind": "story3d",
+    "kicker": null,
+    "title": "Jack asked if it was really okay. Of",
+    "subtitle": null,
+    "bullets": null,
+    "nodes": null,
+    "leftTitle": null,
+    "leftItems": null,
+    "rightTitle": null,
+    "rightItems": null,
+    "statValue": null,
+    "statLabel": null,
+    "code": null,
+    "codeLanguage": null,
+    "quote": null,
+    "attribution": null,
+    "shot": null,
+    "stockQuery": null,
+    "model": null,
+    "labels": null,
+    "scene": null,
+    "params": null,
+    "formula": null,
+    "question": null,
+    "think": null,
+    "hint": null,
+    "thinkText": null,
+    "eyebrow": null,
+    "footnote": null,
+    "answerText": null,
+    "segment": null,
+    "story": {
+     "set": "street",
+     "time": "day",
+     "headline": null,
+     "actors": [
+      {
+       "id": "jack",
+       "look": {
+        "skin": "tan",
+        "shirt": "#e8f1f5",
+        "pants": "#2c3e50",
+        "hair": "short",
+        "hairColor": "black",
+        "hat": null,
+        "glasses": false,
+        "sleeves": null,
+        "logo": null
+       },
+       "pos": [
+        -0.9,
+        0.5
+       ],
+       "yaw": 60,
+       "action": "think",
+       "face": "neutral",
+       "say": null,
+       "keys": [
+        {
+         "at": 0.3,
+         "say": "Is it okay?"
+        },
+        {
+         "at": 2,
+         "action": "idle",
+         "say": null
+        }
+       ]
+      },
+      {
+       "id": "manager",
+       "look": {
+        "skin": "light",
+        "shirt": "#2b2b35",
+        "pants": "#2b2b35",
+        "hair": "short",
+        "hairColor": "brown",
+        "hat": null,
+        "glasses": true,
+        "sleeves": "long",
+        "logo": null
+       },
+       "pos": [
+        1.1,
+        0.4
+       ],
+       "yaw": -70,
+       "action": "talk",
+       "face": "happy",
+       "say": null,
+       "keys": [
+        {
+         "at": 2.2,
+         "say": "You'll get paid a LOT."
+        },
+        {
+         "at": 4.2,
+         "action": "point",
+         "yaw": 150,
+         "say": "Go in."
+        }
+       ]
+      }
+     ],
+     "props": [],
+     "camera": {
+      "distance": 5,
+      "target": [
+       0.1,
+       0.9,
+       0.4
+      ]
+     },
+     "tint": null,
+     "vignette": false
+    },
+    "hero": false,
+    "chapterId": 1
+   },
+   {
+    "beatId": 3,
+    "kind": "story3d",
+    "kicker": null,
+    "title": "The granny welcomed him with a cup of",
+    "subtitle": null,
+    "bullets": null,
+    "nodes": null,
+    "leftTitle": null,
+    "leftItems": null,
+    "rightTitle": null,
+    "rightItems": null,
+    "statValue": null,
+    "statLabel": null,
+    "code": null,
+    "codeLanguage": null,
+    "quote": null,
+    "attribution": null,
+    "shot": null,
+    "stockQuery": null,
+    "model": null,
+    "labels": null,
+    "scene": null,
+    "params": null,
+    "formula": null,
+    "question": null,
+    "think": null,
+    "hint": null,
+    "thinkText": null,
+    "eyebrow": null,
+    "footnote": null,
+    "answerText": null,
+    "segment": null,
+    "story": {
+     "set": "home",
+     "time": "day",
+     "headline": null,
+     "actors": [
+      {
+       "id": "granny",
+       "look": {
+        "skin": "pale",
+        "shirt": "#5b2c6f",
+        "pants": "#2b1b33",
+        "hair": "bun",
+        "hairColor": "grey",
+        "hat": null,
+        "glasses": false,
+        "sleeves": "long",
+        "logo": null,
+        "hold": "cup"
+       },
+       "pos": [
+        -0.9,
+        -1.4
+       ],
+       "yaw": -55,
+       "action": "offer",
+       "face": "happy",
+       "say": null,
+       "keys": [
+        {
+         "at": 1.6,
+         "say": "Sit and wait."
+        },
+        {
+         "at": 3.6,
+         "then": "idle",
+         "to": [
+          3.5,
+          -3.2
+         ],
+         "dur": 2.4,
+         "hold": null,
+         "say": null
+        }
+       ]
+      },
+      {
+       "id": "jack",
+       "look": {
+        "skin": "tan",
+        "shirt": "#e8f1f5",
+        "pants": "#2c3e50",
+        "hair": "short",
+        "hairColor": "black",
+        "hat": null,
+        "glasses": false,
+        "sleeves": null,
+        "logo": null
+       },
+       "pos": [
+        -3.2,
+        -2.5
+       ],
+       "yaw": 20,
+       "action": "sit",
+       "face": "neutral",
+       "say": null,
+       "keys": [
+        {
+         "at": 1.4,
+         "hold": "cup"
+        }
+       ]
+      }
+     ],
+     "props": [
+      {
+       "type": "door",
+       "pos": [
+        3.6,
+        -3.98
+       ],
+       "yaw": 0,
+       "text": null,
+       "color": "#4a2e17",
+       "textColor": null,
+       "open": false
+      }
+     ],
+     "camera": {
+      "azimuth": -0.2,
+      "distance": 6,
+      "target": [
+       -1.9,
+       0.8,
+       -1.8
+      ],
+      "move": "push"
+     },
+     "tint": null,
+     "vignette": false
+    },
+    "hero": false,
+    "chapterId": 1
+   },
+   {
+    "beatId": 4,
+    "kind": "story3d",
+    "kicker": null,
+    "title": "Hours passed. On the shelf, Jack found a",
+    "subtitle": null,
+    "bullets": null,
+    "nodes": null,
+    "leftTitle": null,
+    "leftItems": null,
+    "rightTitle": null,
+    "rightItems": null,
+    "statValue": null,
+    "statLabel": null,
+    "code": null,
+    "codeLanguage": null,
+    "quote": null,
+    "attribution": null,
+    "shot": null,
+    "stockQuery": null,
+    "model": null,
+    "labels": null,
+    "scene": null,
+    "params": null,
+    "formula": null,
+    "question": null,
+    "think": null,
+    "hint": null,
+    "thinkText": null,
+    "eyebrow": null,
+    "footnote": null,
+    "answerText": null,
+    "segment": null,
+    "story": {
+     "set": "home",
+     "time": "sunset",
+     "headline": null,
+     "actors": [
+      {
+       "id": "jack",
+       "look": {
+        "skin": "tan",
+        "shirt": "#e8f1f5",
+        "pants": "#2c3e50",
+        "hair": "short",
+        "hairColor": "black",
+        "hat": null,
+        "glasses": false,
+        "sleeves": null,
+        "logo": null
+       },
+       "pos": [
+        0.4,
+        -2.2
+       ],
+       "yaw": 180,
+       "action": "idle",
+       "face": "neutral",
+       "say": null,
+       "keys": [
+        {
+         "at": 2,
+         "action": "hold",
+         "yaw": 0,
+         "face": "surprised",
+         "hold": "photo"
+        }
+       ]
+      }
+     ],
+     "props": [
+      {
+       "type": "photo",
+       "pos": [
+        0.4,
+        -3.6
+       ],
+       "yaw": 0,
+       "text": null,
+       "color": null,
+       "textColor": null,
+       "y": 0.86,
+       "open": false
+      },
+      {
+       "type": "door",
+       "pos": [
+        3.6,
+        -3.98
+       ],
+       "yaw": 0,
+       "text": null,
+       "color": "#4a2e17",
+       "textColor": null,
+       "open": false
+      }
+     ],
+     "camera": {
+      "azimuth": -0.05,
+      "distance": 4.6,
+      "target": [
+       0.4,
+       1.1,
+       -2.8
+      ],
+      "move": "push"
+     },
+     "tint": null,
+     "vignette": false
+    },
+    "hero": false,
+    "chapterId": 1
+   },
+   {
+    "beatId": 5,
+    "kind": "story3d",
+    "kicker": null,
+    "title": "That one left early, she said. Jack was",
+    "subtitle": null,
+    "bullets": null,
+    "nodes": null,
+    "leftTitle": null,
+    "leftItems": null,
+    "rightTitle": null,
+    "rightItems": null,
+    "statValue": null,
+    "statLabel": null,
+    "code": null,
+    "codeLanguage": null,
+    "quote": null,
+    "attribution": null,
+    "shot": null,
+    "stockQuery": null,
+    "model": null,
+    "labels": null,
+    "scene": null,
+    "params": null,
+    "formula": null,
+    "question": null,
+    "think": null,
+    "hint": null,
+    "thinkText": null,
+    "eyebrow": null,
+    "footnote": null,
+    "answerText": null,
+    "segment": null,
+    "story": {
+     "set": "home",
+     "time": "sunset",
+     "headline": null,
+     "actors": [
+      {
+       "id": "jack",
+       "look": {
+        "skin": "tan",
+        "shirt": "#e8f1f5",
+        "pants": "#2c3e50",
+        "hair": "short",
+        "hairColor": "black",
+        "hat": null,
+        "glasses": false,
+        "sleeves": null,
+        "logo": null,
+        "hold": "photo"
+       },
+       "pos": [
+        -0.4,
+        -1.6
+       ],
+       "yaw": 90,
+       "action": "hold",
+       "face": "neutral",
+       "say": null,
+       "keys": [
+        {
+         "at": 2,
+         "action": "think",
+         "face": "sad",
+         "hold": null
+        }
+       ]
+      },
+      {
+       "id": "granny",
+       "look": {
+        "skin": "pale",
+        "shirt": "#5b2c6f",
+        "pants": "#2b1b33",
+        "hair": "bun",
+        "hairColor": "grey",
+        "hat": null,
+        "glasses": false,
+        "sleeves": "long",
+        "logo": null
+       },
+       "pos": [
+        1.8,
+        -1.8
+       ],
+       "yaw": -90,
+       "action": "talk",
+       "face": "neutral",
+       "say": null,
+       "keys": [
+        {
+         "at": 0.4,
+         "say": "He left early."
+        },
+        {
+         "at": 2.4,
+         "action": "idle",
+         "face": "blank",
+         "say": null
+        }
+       ]
+      }
+     ],
+     "props": [
+      {
+       "type": "door",
+       "pos": [
+        3.6,
+        -3.98
+       ],
+       "yaw": 0,
+       "text": null,
+       "color": "#4a2e17",
+       "textColor": null,
+       "open": false
+      }
+     ],
+     "camera": {
+      "azimuth": -0.3,
+      "distance": 5.2,
+      "target": [
+       0.6,
+       0.9,
+       -2
+      ]
+     },
+     "tint": null,
+     "vignette": false
+    },
+    "hero": false,
+    "chapterId": 1
+   },
+   {
+    "beatId": 6,
+    "kind": "story3d",
+    "kicker": null,
+    "title": "She showed him the guest room. There was",
+    "subtitle": null,
+    "bullets": null,
+    "nodes": null,
+    "leftTitle": null,
+    "leftItems": null,
+    "rightTitle": null,
+    "rightItems": null,
+    "statValue": null,
+    "statLabel": null,
+    "code": null,
+    "codeLanguage": null,
+    "quote": null,
+    "attribution": null,
+    "shot": null,
+    "stockQuery": null,
+    "model": null,
+    "labels": null,
+    "scene": null,
+    "params": null,
+    "formula": null,
+    "question": null,
+    "think": null,
+    "hint": null,
+    "thinkText": null,
+    "eyebrow": null,
+    "footnote": null,
+    "answerText": null,
+    "segment": null,
+    "story": {
+     "set": "bedroom",
+     "time": "sunset",
+     "headline": null,
+     "actors": [
+      {
+       "id": "granny",
+       "look": {
+        "skin": "pale",
+        "shirt": "#5b2c6f",
+        "pants": "#2b1b33",
+        "hair": "bun",
+        "hairColor": "grey",
+        "hat": null,
+        "glasses": false,
+        "sleeves": "long",
+        "logo": null
+       },
+       "pos": [
+        1.6,
+        -1.4
+       ],
+       "yaw": -60,
+       "action": "point",
+       "face": "neutral",
+       "say": null,
+       "keys": [
+        {
+         "at": 2,
+         "say": "Not after midnight."
+        },
+        {
+         "at": 4.2,
+         "face": "evil",
+         "say": "Or else."
+        }
+       ]
+      },
+      {
+       "id": "jack",
+       "look": {
+        "skin": "tan",
+        "shirt": "#e8f1f5",
+        "pants": "#2c3e50",
+        "hair": "short",
+        "hairColor": "black",
+        "hat": null,
+        "glasses": false,
+        "sleeves": null,
+        "logo": null
+       },
+       "pos": [
+        -0.8,
+        -0.8
+       ],
+       "yaw": 50,
+       "action": "idle",
+       "face": "neutral",
+       "say": null,
+       "keys": [
+        {
+         "at": 4.2,
+         "face": "scared"
+        }
+       ]
+      }
+     ],
+     "props": [],
+     "camera": {
+      "azimuth": -0.25,
+      "distance": 6,
+      "target": [
+       0.2,
+       0.9,
+       -1.8
+      ],
+      "move": "push"
+     },
+     "tint": null,
+     "vignette": false
+    },
+    "hero": false,
+    "chapterId": 1
+   },
+   {
+    "beatId": 7,
+    "kind": "story3d",
+    "kicker": null,
+    "title": "The first nights, Jack could not sleep. Just",
+    "subtitle": null,
+    "bullets": null,
+    "nodes": null,
+    "leftTitle": null,
+    "leftItems": null,
+    "rightTitle": null,
+    "rightItems": null,
+    "statValue": null,
+    "statLabel": null,
+    "code": null,
+    "codeLanguage": null,
+    "quote": null,
+    "attribution": null,
+    "shot": null,
+    "stockQuery": null,
+    "model": null,
+    "labels": null,
+    "scene": null,
+    "params": null,
+    "formula": null,
+    "question": null,
+    "think": null,
+    "hint": null,
+    "thinkText": null,
+    "eyebrow": null,
+    "footnote": null,
+    "answerText": null,
+    "segment": null,
+    "story": {
+     "set": "bedroom",
+     "time": "night",
+     "headline": null,
+     "actors": [
+      {
+       "id": "jack",
+       "look": {
+        "skin": "tan",
+        "shirt": "#e8f1f5",
+        "pants": "#2c3e50",
+        "hair": "short",
+        "hairColor": "black",
+        "hat": null,
+        "glasses": false,
+        "sleeves": null,
+        "logo": null
+       },
+       "pos": [
+        -2.4,
+        -1.9
+       ],
+       "y": 0.66,
+       "yaw": 0,
+       "action": "lie",
+       "face": "sad",
+       "say": null,
+       "keys": []
+      }
+     ],
+     "props": [
+      {
+       "type": "candle",
+       "pos": [
+        -0.5,
+        -3.4
+       ],
+       "yaw": 0,
+       "text": null,
+       "color": null,
+       "textColor": null,
+       "y": 0.6,
+       "open": false
+      }
+     ],
+     "camera": {
+      "azimuth": -0.35,
+      "elevation": 0.45,
+      "distance": 5,
+      "target": [
+       -2.2,
+       0.6,
+       -2.2
+      ],
+      "move": "orbit"
+     },
+     "tint": null,
+     "vignette": false
+    },
+    "hero": false,
+    "chapterId": 1
+   },
+   {
+    "beatId": 8,
+    "kind": "story3d",
+    "kicker": null,
+    "title": "But every day, the granny got meaner. She",
+    "subtitle": null,
+    "bullets": null,
+    "nodes": null,
+    "leftTitle": null,
+    "leftItems": null,
+    "rightTitle": null,
+    "rightItems": null,
+    "statValue": null,
+    "statLabel": null,
+    "code": null,
+    "codeLanguage": null,
+    "quote": null,
+    "attribution": null,
+    "shot": null,
+    "stockQuery": null,
+    "model": null,
+    "labels": null,
+    "scene": null,
+    "params": null,
+    "formula": null,
+    "question": null,
+    "think": null,
+    "hint": null,
+    "thinkText": null,
+    "eyebrow": null,
+    "footnote": null,
+    "answerText": null,
+    "segment": null,
+    "story": {
+     "set": "home",
+     "time": "day",
+     "headline": null,
+     "actors": [
+      {
+       "id": "granny",
+       "look": {
+        "skin": "pale",
+        "shirt": "#5b2c6f",
+        "pants": "#2b1b33",
+        "hair": "bun",
+        "hairColor": "grey",
+        "hat": null,
+        "glasses": false,
+        "sleeves": "long",
+        "logo": null
+       },
+       "pos": [
+        1,
+        -1.6
+       ],
+       "yaw": -90,
+       "action": "angry",
+       "face": "angry",
+       "say": null,
+       "keys": [
+        {
+         "at": 1.5,
+         "action": "point"
+        },
+        {
+         "at": 3.2,
+         "action": "swing",
+         "hold": null
+        }
+       ]
+      },
+      {
+       "id": "jack",
+       "look": {
+        "skin": "tan",
+        "shirt": "#e8f1f5",
+        "pants": "#2c3e50",
+        "hair": "short",
+        "hairColor": "black",
+        "hat": null,
+        "glasses": false,
+        "sleeves": null,
+        "logo": null
+       },
+       "pos": [
+        -1,
+        -1.6
+       ],
+       "yaw": 90,
+       "action": "idle",
+       "face": "sad",
+       "say": null,
+       "keys": [
+        {
+         "at": 3.4,
+         "action": "scared",
+         "face": "scared"
+        }
+       ]
+      }
+     ],
+     "props": [
+      {
+       "type": "door",
+       "pos": [
+        3.6,
+        -3.98
+       ],
+       "yaw": 0,
+       "text": null,
+       "color": "#4a2e17",
+       "textColor": null,
+       "open": false
+      }
+     ],
+     "camera": {
+      "azimuth": -0.2,
+      "distance": 5.4,
+      "target": [
+       0,
+       0.9,
+       -1.6
+      ],
+      "move": "push"
+     },
+     "tint": null,
+     "vignette": false
+    },
+    "hero": false,
+    "chapterId": 1
+   },
+   {
+    "beatId": 9,
+    "kind": "story3d",
+    "kicker": null,
+    "title": "One night he was still awake after midnight.",
+    "subtitle": null,
+    "bullets": null,
+    "nodes": null,
+    "leftTitle": null,
+    "leftItems": null,
+    "rightTitle": null,
+    "rightItems": null,
+    "statValue": null,
+    "statLabel": null,
+    "code": null,
+    "codeLanguage": null,
+    "quote": null,
+    "attribution": null,
+    "shot": null,
+    "stockQuery": null,
+    "model": null,
+    "labels": null,
+    "scene": null,
+    "params": null,
+    "formula": null,
+    "question": null,
+    "think": null,
+    "hint": null,
+    "thinkText": null,
+    "eyebrow": null,
+    "footnote": null,
+    "answerText": null,
+    "segment": null,
+    "story": {
+     "set": "bedroom",
+     "time": "night",
+     "headline": null,
+     "actors": [
+      {
+       "id": "jack",
+       "look": {
+        "skin": "tan",
+        "shirt": "#e8f1f5",
+        "pants": "#2c3e50",
+        "hair": "short",
+        "hairColor": "black",
+        "hat": null,
+        "glasses": false,
+        "sleeves": null,
+        "logo": null
+       },
+       "pos": [
+        -0.9,
+        -1.2
+       ],
+       "yaw": 60,
+       "action": "sit",
+       "face": "neutral",
+       "say": null,
+       "keys": [
+        {
+         "at": 2,
+         "action": "scared",
+         "face": "scared"
+        }
+       ]
+      }
+     ],
+     "props": [
+      {
+       "type": "candle",
+       "pos": [
+        -0.5,
+        -3.4
+       ],
+       "yaw": 0,
+       "text": null,
+       "color": null,
+       "textColor": null,
+       "y": 0.6,
+       "open": false
+      },
+      {
+       "type": "text",
+       "pos": [
+        1.8,
+        -3.6
+       ],
+       "yaw": 0,
+       "text": "KNOCK. KNOCK.",
+       "color": "#000000",
+       "textColor": null,
+       "y": 2.6,
+       "open": false
+      }
+     ],
+     "camera": {
+      "azimuth": -0.3,
+      "distance": 6.6,
+      "target": [
+       -0.3,
+       1,
+       -2.2
+      ],
+      "move": "push"
+     },
+     "tint": null,
+     "vignette": false
+    },
+    "hero": false,
+    "chapterId": 1
+   },
+   {
+    "beatId": 10,
+    "kind": "story3d",
+    "kicker": null,
+    "title": "He fell asleep right there. In the morning",
+    "subtitle": null,
+    "bullets": null,
+    "nodes": null,
+    "leftTitle": null,
+    "leftItems": null,
+    "rightTitle": null,
+    "rightItems": null,
+    "statValue": null,
+    "statLabel": null,
+    "code": null,
+    "codeLanguage": null,
+    "quote": null,
+    "attribution": null,
+    "shot": null,
+    "stockQuery": null,
+    "model": null,
+    "labels": null,
+    "scene": null,
+    "params": null,
+    "formula": null,
+    "question": null,
+    "think": null,
+    "hint": null,
+    "thinkText": null,
+    "eyebrow": null,
+    "footnote": null,
+    "answerText": null,
+    "segment": null,
+    "story": {
+     "set": "bedroom",
+     "time": "day",
+     "headline": null,
+     "actors": [
+      {
+       "id": "jack",
+       "look": {
+        "skin": "tan",
+        "shirt": "#e8f1f5",
+        "pants": "#2c3e50",
+        "hair": "short",
+        "hairColor": "black",
+        "hat": null,
+        "glasses": false,
+        "sleeves": null,
+        "logo": null
+       },
+       "pos": [
+        -2.4,
+        -1.9
+       ],
+       "y": 0.66,
+       "yaw": 0,
+       "action": "lie",
+       "face": "neutral",
+       "say": null,
+       "keys": [
+        {
+         "at": 2.6,
+         "action": "sit",
+         "pos": [
+          -1.6,
+          -1
+         ],
+         "y": 0,
+         "yaw": 40,
+         "face": "sad"
+        }
+       ]
+      }
+     ],
+     "props": [],
+     "camera": {
+      "azimuth": -0.35,
+      "elevation": 0.4,
+      "distance": 5.2,
+      "target": [
+       -2.2,
+       0.6,
+       -2.2
+      ],
+      "move": "pull"
+     },
+     "tint": null,
+     "vignette": false
+    },
+    "hero": false,
+    "chapterId": 1
+   },
+   {
+    "beatId": 11,
+    "kind": "story3d",
+    "kicker": null,
+    "title": "The next night, she came into his room.",
+    "subtitle": null,
+    "bullets": null,
+    "nodes": null,
+    "leftTitle": null,
+    "leftItems": null,
+    "rightTitle": null,
+    "rightItems": null,
+    "statValue": null,
+    "statLabel": null,
+    "code": null,
+    "codeLanguage": null,
+    "quote": null,
+    "attribution": null,
+    "shot": null,
+    "stockQuery": null,
+    "model": null,
+    "labels": null,
+    "scene": null,
+    "params": null,
+    "formula": null,
+    "question": null,
+    "think": null,
+    "hint": null,
+    "thinkText": null,
+    "eyebrow": null,
+    "footnote": null,
+    "answerText": null,
+    "segment": null,
+    "story": {
+     "set": "bedroom",
+     "time": "night",
+     "headline": null,
+     "actors": [
+      {
+       "id": "jack",
+       "look": {
+        "skin": "tan",
+        "shirt": "#e8f1f5",
+        "pants": "#2c3e50",
+        "hair": "short",
+        "hairColor": "black",
+        "hat": null,
+        "glasses": false,
+        "sleeves": null,
+        "logo": null
+       },
+       "pos": [
+        -1,
+        -1.2
+       ],
+       "yaw": 60,
+       "action": "sit",
+       "face": "scared",
+       "say": null,
+       "keys": []
+      },
+      {
+       "id": "granny",
+       "look": {
+        "skin": "pale",
+        "shirt": "#5b2c6f",
+        "pants": "#2b1b33",
+        "hair": "bun",
+        "hairColor": "grey",
+        "hat": null,
+        "glasses": false,
+        "sleeves": "long",
+        "logo": null,
+        "hold": "candle"
+       },
+       "pos": [
+        3.2,
+        -3
+       ],
+       "yaw": 0,
+       "action": "idle",
+       "face": "blank",
+       "say": null,
+       "keys": [
+        {
+         "at": 0.4,
+         "action": "walk",
+         "then": "talk",
+         "to": [
+          0.9,
+          -1.4
+         ],
+         "dur": 2.4
+        },
+        {
+         "at": 3,
+         "yaw": -70,
+         "say": "Let me tell you a story."
+        }
+       ]
+      }
+     ],
+     "props": [
+      {
+       "type": "door",
+       "pos": [
+        3.2,
+        -3.98
+       ],
+       "yaw": 0,
+       "text": null,
+       "color": "#4a2e17",
+       "textColor": null,
+       "open": true
+      }
+     ],
+     "camera": {
+      "azimuth": -0.2,
+      "distance": 6.4,
+      "target": [
+       0,
+       1,
+       -2.2
+      ],
+      "move": "push"
+     },
+     "tint": null,
+     "vignette": false
+    },
+    "hero": false,
+    "chapterId": 1
+   },
+   {
+    "beatId": 12,
+    "kind": "story3d",
+    "kicker": null,
+    "title": "Raphael Amma had a husband, Raphael Appa, and",
+    "subtitle": null,
+    "bullets": null,
+    "nodes": null,
+    "leftTitle": null,
+    "leftItems": null,
+    "rightTitle": null,
+    "rightItems": null,
+    "statValue": null,
+    "statLabel": null,
+    "code": null,
+    "codeLanguage": null,
+    "quote": null,
+    "attribution": null,
+    "shot": null,
+    "stockQuery": null,
+    "model": null,
+    "labels": null,
+    "scene": null,
+    "params": null,
+    "formula": null,
+    "question": null,
+    "think": null,
+    "hint": null,
+    "thinkText": null,
+    "eyebrow": null,
+    "footnote": null,
+    "answerText": null,
+    "segment": null,
+    "story": {
+     "set": "home",
+     "time": "night",
+     "headline": null,
+     "actors": [
+      {
+       "id": "granny",
+       "look": {
+        "skin": "pale",
+        "shirt": "#5b2c6f",
+        "pants": "#2b1b33",
+        "hair": "bun",
+        "hairColor": "grey",
+        "hat": null,
+        "glasses": false,
+        "sleeves": "long",
+        "logo": null
+       },
+       "pos": [
+        -2.6,
+        -0.6
+       ],
+       "yaw": 110,
+       "action": "sad",
+       "face": "sad",
+       "say": null,
+       "keys": []
+      },
+      {
+       "id": "appa",
+       "look": {
+        "skin": "tan",
+        "shirt": "#222222",
+        "pants": "#444444",
+        "hair": "bald",
+        "hairColor": null,
+        "hat": null,
+        "glasses": false,
+        "sleeves": "long",
+        "logo": null,
+        "hold": "phone"
+       },
+       "pos": [
+        -3.2,
+        -2.5
+       ],
+       "yaw": 0,
+       "action": "sit",
+       "face": "neutral",
+       "say": null,
+       "keys": []
+      },
+      {
+       "id": "kid1",
+       "look": {
+        "skin": "tan",
+        "shirt": "#f4c20d",
+        "pants": "#2b2b2b",
+        "hair": "short",
+        "hairColor": "black",
+        "hat": null,
+        "glasses": false,
+        "sleeves": null,
+        "logo": null,
+        "scale": 0.62
+       },
+       "pos": [
+        0.2,
+        -2.2
+       ],
+       "yaw": 180,
+       "action": "idle",
+       "face": "happy",
+       "say": null,
+       "keys": []
+      },
+      {
+       "id": "kid2",
+       "look": {
+        "skin": "tan",
+        "shirt": "#1abc9c",
+        "pants": "#1e2d3a",
+        "hair": "long",
+        "hairColor": "black",
+        "hat": null,
+        "glasses": false,
+        "sleeves": null,
+        "logo": null,
+        "scale": 0.6
+       },
+       "pos": [
+        1,
+        -2.3
+       ],
+       "yaw": 180,
+       "action": "idle",
+       "face": "happy",
+       "say": null,
+       "keys": []
+      },
+      {
+       "id": "kid3",
+       "look": {
+        "skin": "tan",
+        "shirt": "#f39c12",
+        "pants": "#2c3e50",
+        "hair": "spiky",
+        "hairColor": "black",
+        "hat": null,
+        "glasses": false,
+        "sleeves": null,
+        "logo": null,
+        "scale": 0.58
+       },
+       "pos": [
+        1.8,
+        -2.1
+       ],
+       "yaw": 180,
+       "action": "idle",
+       "face": "happy",
+       "say": null,
+       "keys": []
+      },
+      {
+       "id": "kid4",
+       "look": {
+        "skin": "tan",
+        "shirt": "#27ae60",
+        "pants": "#34495e",
+        "hair": "short",
+        "hairColor": "black",
+        "hat": null,
+        "glasses": false,
+        "sleeves": null,
+        "logo": null,
+        "scale": 0.56
+       },
+       "pos": [
+        2.6,
+        -2.3
+       ],
+       "yaw": 180,
+       "action": "idle",
+       "face": "happy",
+       "say": null,
+       "keys": []
+      },
+      {
+       "id": "kid5",
+       "look": {
+        "skin": "tan",
+        "shirt": "#ff6fa3",
+        "pants": "#3a2a3f",
+        "hair": "long",
+        "hairColor": "black",
+        "hat": null,
+        "glasses": false,
+        "sleeves": null,
+        "logo": null,
+        "scale": 0.54
+       },
+       "pos": [
+        0.6,
+        -1
+       ],
+       "yaw": 160,
+       "action": "idle",
+       "face": "happy",
+       "say": null,
+       "keys": []
+      },
+      {
+       "id": "kid6",
+       "look": {
+        "skin": "tan",
+        "shirt": "#e74c3c",
+        "pants": "#2c3e50",
+        "hair": "short",
+        "hairColor": "black",
+        "hat": null,
+        "glasses": false,
+        "sleeves": null,
+        "logo": null,
+        "scale": 0.52
+       },
+       "pos": [
+        1.6,
+        -0.9
+       ],
+       "yaw": 200,
+       "action": "idle",
+       "face": "happy",
+       "say": null,
+       "keys": []
+      },
+      {
+       "id": "kid7",
+       "look": {
+        "skin": "tan",
+        "shirt": "#2f7cf6",
+        "pants": "#223049",
+        "hair": "short",
+        "hairColor": "black",
+        "hat": null,
+        "glasses": false,
+        "sleeves": null,
+        "logo": null,
+        "scale": 0.5
+       },
+       "pos": [
+        2.6,
+        -1.1
+       ],
+       "yaw": 180,
+       "action": "idle",
+       "face": "happy",
+       "say": null,
+       "keys": []
+      }
+     ],
+     "props": [],
+     "camera": {
+      "azimuth": -0.25,
+      "elevation": 0.28,
+      "distance": 7.4,
+      "target": [
+       0.4,
+       0.8,
+       -1.4
+      ],
+      "move": "pan"
+     },
+     "tint": null,
+     "vignette": false
+    },
+    "hero": false,
+    "chapterId": 1
+   },
+   {
+    "beatId": 13,
+    "kind": "story3d",
+    "kicker": null,
+    "title": "She did not divorce him. She prayed. To",
+    "subtitle": null,
+    "bullets": null,
+    "nodes": null,
+    "leftTitle": null,
+    "leftItems": null,
+    "rightTitle": null,
+    "rightItems": null,
+    "statValue": null,
+    "statLabel": null,
+    "code": null,
+    "codeLanguage": null,
+    "quote": null,
+    "attribution": null,
+    "shot": null,
+    "stockQuery": null,
+    "model": null,
+    "labels": null,
+    "scene": null,
+    "params": null,
+    "formula": null,
+    "question": null,
+    "think": null,
+    "hint": null,
+    "thinkText": null,
+    "eyebrow": null,
+    "footnote": null,
+    "answerText": null,
+    "segment": null,
+    "story": {
+     "set": "cabin",
+     "time": "night",
+     "headline": null,
+     "actors": [
+      {
+       "id": "granny",
+       "look": {
+        "skin": "pale",
+        "shirt": "#5b2c6f",
+        "pants": "#2b1b33",
+        "hair": "bun",
+        "hairColor": "grey",
+        "hat": null,
+        "glasses": false,
+        "sleeves": "long",
+        "logo": null
+       },
+       "pos": [
+        0,
+        -1.6
+       ],
+       "yaw": 0,
+       "action": "pray",
+       "face": "blank",
+       "say": null,
+       "keys": [
+        {
+         "at": 2.4,
+         "face": "evil",
+         "say": "Let me eat them all."
+        }
+       ]
+      }
+     ],
+     "props": [
+      {
+       "type": "candle",
+       "pos": [
+        -1,
+        -2.6
+       ],
+       "yaw": 0,
+       "text": null,
+       "color": null,
+       "textColor": null,
+       "open": false
+      },
+      {
+       "type": "candle",
+       "pos": [
+        1,
+        -2.6
+       ],
+       "yaw": 0,
+       "text": null,
+       "color": null,
+       "textColor": null,
+       "open": false
+      },
+      {
+       "type": "book",
+       "pos": [
+        0,
+        -2.9
+       ],
+       "yaw": 0,
+       "text": null,
+       "color": null,
+       "textColor": null,
+       "open": true
+      }
+     ],
+     "camera": {
+      "azimuth": -0.15,
+      "distance": 5.2,
+      "target": [
+       0,
+       1,
+       -1.6
+      ],
+      "move": "push"
+     },
+     "tint": null,
+     "vignette": false
+    },
+    "hero": false,
+    "chapterId": 1
+   },
+   {
+    "beatId": 14,
+    "kind": "story3d",
+    "kicker": null,
+    "title": "And she ate them. One by one. The",
+    "subtitle": null,
+    "bullets": null,
+    "nodes": null,
+    "leftTitle": null,
+    "leftItems": null,
+    "rightTitle": null,
+    "rightItems": null,
+    "statValue": null,
+    "statLabel": null,
+    "code": null,
+    "codeLanguage": null,
+    "quote": null,
+    "attribution": null,
+    "shot": null,
+    "stockQuery": null,
+    "model": null,
+    "labels": null,
+    "scene": null,
+    "params": null,
+    "formula": null,
+    "question": null,
+    "think": null,
+    "hint": null,
+    "thinkText": null,
+    "eyebrow": null,
+    "footnote": null,
+    "answerText": null,
+    "segment": null,
+    "story": {
+     "set": "home",
+     "time": "night",
+     "headline": null,
+     "actors": [
+      {
+       "id": "granny",
+       "look": {
+        "skin": "pale",
+        "shirt": "#5b2c6f",
+        "pants": "#2b1b33",
+        "hair": "bun",
+        "hairColor": "grey",
+        "hat": null,
+        "glasses": false,
+        "sleeves": "long",
+        "logo": null
+       },
+       "pos": [
+        -1.2,
+        -0.6
+       ],
+       "yaw": 120,
+       "action": "possessed",
+       "face": "evil",
+       "say": null,
+       "keys": []
+      },
+      {
+       "id": "appa",
+       "look": {
+        "skin": "tan",
+        "shirt": "#222222",
+        "pants": "#444444",
+        "hair": "bald",
+        "hairColor": null,
+        "hat": null,
+        "glasses": false,
+        "sleeves": "long",
+        "logo": null
+       },
+       "pos": [
+        -3.2,
+        -2.5
+       ],
+       "yaw": 0,
+       "action": "sit",
+       "face": "scared",
+       "say": null,
+       "keys": [
+        {
+         "at": 0.5,
+         "action": "run",
+         "to": [
+          -3.4,
+          -6
+         ],
+         "dur": 1.4
+        }
+       ]
+      },
+      {
+       "id": "kid1",
+       "look": {
+        "skin": "tan",
+        "shirt": "#f4c20d",
+        "pants": "#2b2b2b",
+        "hair": "short",
+        "hairColor": "black",
+        "hat": null,
+        "glasses": false,
+        "sleeves": null,
+        "logo": null,
+        "scale": 0.62
+       },
+       "pos": [
+        0.2,
+        -2.2
+       ],
+       "yaw": 180,
+       "action": "scared",
+       "face": "scared",
+       "say": null,
+       "keys": [
+        {
+         "at": 1,
+         "action": "run",
+         "to": [
+          0.2,
+          -6
+         ],
+         "dur": 1.2
+        }
+       ]
+      },
+      {
+       "id": "kid2",
+       "look": {
+        "skin": "tan",
+        "shirt": "#1abc9c",
+        "pants": "#1e2d3a",
+        "hair": "long",
+        "hairColor": "black",
+        "hat": null,
+        "glasses": false,
+        "sleeves": null,
+        "logo": null,
+        "scale": 0.6
+       },
+       "pos": [
+        1,
+        -2.3
+       ],
+       "yaw": 180,
+       "action": "scared",
+       "face": "scared",
+       "say": null,
+       "keys": [
+        {
+         "at": 1.6,
+         "action": "run",
+         "to": [
+          1,
+          -6
+         ],
+         "dur": 1.2
+        }
+       ]
+      },
+      {
+       "id": "kid3",
+       "look": {
+        "skin": "tan",
+        "shirt": "#f39c12",
+        "pants": "#2c3e50",
+        "hair": "spiky",
+        "hairColor": "black",
+        "hat": null,
+        "glasses": false,
+        "sleeves": null,
+        "logo": null,
+        "scale": 0.58
+       },
+       "pos": [
+        1.8,
+        -2.1
+       ],
+       "yaw": 180,
+       "action": "scared",
+       "face": "scared",
+       "say": null,
+       "keys": [
+        {
+         "at": 2.2,
+         "action": "run",
+         "to": [
+          1.8,
+          -6
+         ],
+         "dur": 1.2
+        }
+       ]
+      },
+      {
+       "id": "kid4",
+       "look": {
+        "skin": "tan",
+        "shirt": "#27ae60",
+        "pants": "#34495e",
+        "hair": "short",
+        "hairColor": "black",
+        "hat": null,
+        "glasses": false,
+        "sleeves": null,
+        "logo": null,
+        "scale": 0.56
+       },
+       "pos": [
+        2.6,
+        -2.3
+       ],
+       "yaw": 180,
+       "action": "scared",
+       "face": "scared",
+       "say": null,
+       "keys": [
+        {
+         "at": 2.8,
+         "action": "run",
+         "to": [
+          2.6,
+          -6
+         ],
+         "dur": 1.2
+        }
+       ]
+      },
+      {
+       "id": "kid5",
+       "look": {
+        "skin": "tan",
+        "shirt": "#ff6fa3",
+        "pants": "#3a2a3f",
+        "hair": "long",
+        "hairColor": "black",
+        "hat": null,
+        "glasses": false,
+        "sleeves": null,
+        "logo": null,
+        "scale": 0.54
+       },
+       "pos": [
+        0.6,
+        -1
+       ],
+       "yaw": 160,
+       "action": "idle",
+       "face": "scared",
+       "say": null,
+       "keys": []
+      },
+      {
+       "id": "kid6",
+       "look": {
+        "skin": "tan",
+        "shirt": "#e74c3c",
+        "pants": "#2c3e50",
+        "hair": "short",
+        "hairColor": "black",
+        "hat": null,
+        "glasses": false,
+        "sleeves": null,
+        "logo": null,
+        "scale": 0.52
+       },
+       "pos": [
+        1.6,
+        -0.9
+       ],
+       "yaw": 200,
+       "action": "idle",
+       "face": "scared",
+       "say": null,
+       "keys": []
+      },
+      {
+       "id": "kid7",
+       "look": {
+        "skin": "tan",
+        "shirt": "#2f7cf6",
+        "pants": "#223049",
+        "hair": "short",
+        "hairColor": "black",
+        "hat": null,
+        "glasses": false,
+        "sleeves": null,
+        "logo": null,
+        "scale": 0.5
+       },
+       "pos": [
+        2.6,
+        -1.1
+       ],
+       "yaw": 180,
+       "action": "idle",
+       "face": "sad",
+       "say": null,
+       "keys": []
+      }
+     ],
+     "props": [],
+     "camera": {
+      "azimuth": -0.25,
+      "elevation": 0.28,
+      "distance": 7.4,
+      "target": [
+       0.4,
+       0.8,
+       -1.4
+      ]
+     },
+     "tint": null,
+     "vignette": false
+    },
+    "hero": false,
+    "chapterId": 1
+   },
+   {
+    "beatId": 15,
+    "kind": "story3d",
+    "kicker": null,
+    "title": "Years later, she ate two more. But the",
+    "subtitle": null,
+    "bullets": null,
+    "nodes": null,
+    "leftTitle": null,
+    "leftItems": null,
+    "rightTitle": null,
+    "rightItems": null,
+    "statValue": null,
+    "statLabel": null,
+    "code": null,
+    "codeLanguage": null,
+    "quote": null,
+    "attribution": null,
+    "shot": null,
+    "stockQuery": null,
+    "model": null,
+    "labels": null,
+    "scene": null,
+    "params": null,
+    "formula": null,
+    "question": null,
+    "think": null,
+    "hint": null,
+    "thinkText": null,
+    "eyebrow": null,
+    "footnote": null,
+    "answerText": null,
+    "segment": null,
+    "story": {
+     "set": "woods",
+     "time": "night",
+     "headline": null,
+     "actors": [
+      {
+       "id": "granny",
+       "look": {
+        "skin": "pale",
+        "shirt": "#5b2c6f",
+        "pants": "#2b1b33",
+        "hair": "bun",
+        "hairColor": "grey",
+        "hat": null,
+        "glasses": false,
+        "sleeves": "long",
+        "logo": null
+       },
+       "pos": [
+        0.9,
+        -2.2
+       ],
+       "yaw": -20,
+       "action": "possessed",
+       "face": "evil",
+       "say": null,
+       "keys": [
+        {
+         "at": 2.2,
+         "action": "sad",
+         "face": "sad"
+        }
+       ]
+      },
+      {
+       "id": "kid5",
+       "look": {
+        "skin": "tan",
+        "shirt": "#ff6fa3",
+        "pants": "#3a2a3f",
+        "hair": "long",
+        "hairColor": "black",
+        "hat": null,
+        "glasses": false,
+        "sleeves": null,
+        "logo": null,
+        "scale": 0.54
+       },
+       "pos": [
+        -1,
+        -2
+       ],
+       "yaw": 0,
+       "action": "scared",
+       "face": "scared",
+       "say": null,
+       "keys": [
+        {
+         "at": 1,
+         "action": "run",
+         "to": [
+          -1,
+          -6
+         ],
+         "dur": 1
+        }
+       ]
+      },
+      {
+       "id": "kid6",
+       "look": {
+        "skin": "tan",
+        "shirt": "#e74c3c",
+        "pants": "#2c3e50",
+        "hair": "short",
+        "hairColor": "black",
+        "hat": null,
+        "glasses": false,
+        "sleeves": null,
+        "logo": null,
+        "scale": 0.52
+       },
+       "pos": [
+        -0.2,
+        -1.6
+       ],
+       "yaw": 0,
+       "action": "scared",
+       "face": "scared",
+       "say": null,
+       "keys": [
+        {
+         "at": 1.6,
+         "action": "run",
+         "to": [
+          -0.2,
+          -6
+         ],
+         "dur": 1
+        }
+       ]
+      },
+      {
+       "id": "kid7",
+       "look": {
+        "skin": "tan",
+        "shirt": "#2f7cf6",
+        "pants": "#223049",
+        "hair": "short",
+        "hairColor": "black",
+        "hat": null,
+        "glasses": false,
+        "sleeves": null,
+        "logo": null,
+        "scale": 0.5
+       },
+       "pos": [
+        0.2,
+        -1.2
+       ],
+       "yaw": 0,
+       "action": "idle",
+       "face": "sad",
+       "say": null,
+       "keys": [
+        {
+         "at": 3.2,
+         "action": "run",
+         "to": [
+          -0.3,
+          4
+         ],
+         "dur": 2.6
+        }
+       ]
+      }
+     ],
+     "props": [],
+     "camera": {
+      "azimuth": 0.1,
+      "elevation": 0.22,
+      "distance": 7.5,
+      "target": [
+       0,
+       1,
+       -1.6
+      ],
+      "move": "pull"
+     },
+     "tint": null,
+     "vignette": false
+    },
+    "hero": false,
+    "chapterId": 1
+   },
+   {
+    "beatId": 16,
+    "kind": "story3d",
+    "kicker": null,
+    "title": "Jack was terrified. That same night, when the",
+    "subtitle": null,
+    "bullets": null,
+    "nodes": null,
+    "leftTitle": null,
+    "leftItems": null,
+    "rightTitle": null,
+    "rightItems": null,
+    "statValue": null,
+    "statLabel": null,
+    "code": null,
+    "codeLanguage": null,
+    "quote": null,
+    "attribution": null,
+    "shot": null,
+    "stockQuery": null,
+    "model": null,
+    "labels": null,
+    "scene": null,
+    "params": null,
+    "formula": null,
+    "question": null,
+    "think": null,
+    "hint": null,
+    "thinkText": null,
+    "eyebrow": null,
+    "footnote": null,
+    "answerText": null,
+    "segment": null,
+    "story": {
+     "set": "bedroom",
+     "time": "night",
+     "headline": null,
+     "actors": [
+      {
+       "id": "jack",
+       "look": {
+        "skin": "tan",
+        "shirt": "#e8f1f5",
+        "pants": "#2c3e50",
+        "hair": "short",
+        "hairColor": "black",
+        "hat": null,
+        "glasses": false,
+        "sleeves": null,
+        "logo": null
+       },
+       "pos": [
+        -0.9,
+        -1.2
+       ],
+       "yaw": 60,
+       "action": "scared",
+       "face": "scared",
+       "say": null,
+       "keys": [
+        {
+         "at": 1.8,
+         "action": "run",
+         "then": "run",
+         "to": [
+          3.2,
+          -3
+         ],
+         "dur": 1.4
+        },
+        {
+         "at": 3.2,
+         "action": "run",
+         "to": [
+          3.2,
+          -6
+         ],
+         "dur": 1
+        }
+       ]
+      }
+     ],
+     "props": [
+      {
+       "type": "door",
+       "pos": [
+        3.2,
+        -3.98
+       ],
+       "yaw": 0,
+       "text": null,
+       "color": "#4a2e17",
+       "textColor": null,
+       "open": true
+      },
+      {
+       "type": "candle",
+       "pos": [
+        -0.5,
+        -3.4
+       ],
+       "yaw": 0,
+       "text": null,
+       "color": null,
+       "textColor": null,
+       "y": 0.6,
+       "open": false
+      }
+     ],
+     "camera": {
+      "azimuth": -0.3,
+      "distance": 6.8,
+      "target": [
+       -0.2,
+       1,
+       -2
+      ]
+     },
+     "tint": null,
+     "vignette": false
+    },
+    "hero": false,
+    "chapterId": 1
+   },
+   {
+    "beatId": 17,
+    "kind": "story3d",
+    "kicker": null,
+    "title": "He ran through the dark, deep into the",
+    "subtitle": null,
+    "bullets": null,
+    "nodes": null,
+    "leftTitle": null,
+    "leftItems": null,
+    "rightTitle": null,
+    "rightItems": null,
+    "statValue": null,
+    "statLabel": null,
+    "code": null,
+    "codeLanguage": null,
+    "quote": null,
+    "attribution": null,
+    "shot": null,
+    "stockQuery": null,
+    "model": null,
+    "labels": null,
+    "scene": null,
+    "params": null,
+    "formula": null,
+    "question": null,
+    "think": null,
+    "hint": null,
+    "thinkText": null,
+    "eyebrow": null,
+    "footnote": null,
+    "answerText": null,
+    "segment": null,
+    "story": {
+     "set": "woods",
+     "time": "night",
+     "headline": null,
+     "actors": [
+      {
+       "id": "jack",
+       "look": {
+        "skin": "tan",
+        "shirt": "#e8f1f5",
+        "pants": "#2c3e50",
+        "hair": "short",
+        "hairColor": "black",
+        "hat": null,
+        "glasses": false,
+        "sleeves": null,
+        "logo": null
+       },
+       "pos": [
+        0,
+        3.6
+       ],
+       "yaw": 180,
+       "action": "run",
+       "face": "scared",
+       "say": null,
+       "keys": [
+        {
+         "at": 0,
+         "action": "run",
+         "then": "idle",
+         "to": [
+          0,
+          -1.8
+         ],
+         "dur": 3
+        },
+        {
+         "at": 3.2,
+         "face": "surprised"
+        }
+       ]
+      }
+     ],
+     "props": [],
+     "camera": {
+      "azimuth": -0.1,
+      "elevation": 0.24,
+      "distance": 8,
+      "target": [
+       0,
+       1.1,
+       -1.8
+      ],
+      "move": "push"
+     },
+     "tint": null,
+     "vignette": false
+    },
+    "hero": false,
+    "chapterId": 1
+   },
+   {
+    "beatId": 18,
+    "kind": "story3d",
+    "kicker": null,
+    "title": "Inside: blood on the floor. And a book,",
+    "subtitle": null,
+    "bullets": null,
+    "nodes": null,
+    "leftTitle": null,
+    "leftItems": null,
+    "rightTitle": null,
+    "rightItems": null,
+    "statValue": null,
+    "statLabel": null,
+    "code": null,
+    "codeLanguage": null,
+    "quote": null,
+    "attribution": null,
+    "shot": null,
+    "stockQuery": null,
+    "model": null,
+    "labels": null,
+    "scene": null,
+    "params": null,
+    "formula": null,
+    "question": null,
+    "think": null,
+    "hint": null,
+    "thinkText": null,
+    "eyebrow": null,
+    "footnote": null,
+    "answerText": null,
+    "segment": null,
+    "story": {
+     "set": "cabin",
+     "time": "night",
+     "headline": null,
+     "actors": [
+      {
+       "id": "jack",
+       "look": {
+        "skin": "tan",
+        "shirt": "#e8f1f5",
+        "pants": "#2c3e50",
+        "hair": "short",
+        "hairColor": "black",
+        "hat": null,
+        "glasses": false,
+        "sleeves": null,
+        "logo": null
+       },
+       "pos": [
+        -0.5,
+        -0.2
+       ],
+       "yaw": 40,
+       "action": "idle",
+       "face": "scared",
+       "say": null,
+       "keys": [
+        {
+         "at": 2.2,
+         "action": "hold",
+         "hold": "book"
+        }
+       ]
+      }
+     ],
+     "props": [
+      {
+       "type": "stain",
+       "pos": [
+        0.4,
+        -1.2
+       ],
+       "yaw": 0,
+       "text": null,
+       "color": null,
+       "textColor": null,
+       "size": 0.7,
+       "open": false
+      },
+      {
+       "type": "stain",
+       "pos": [
+        1.9,
+        -2.4
+       ],
+       "yaw": 0,
+       "text": null,
+       "color": null,
+       "textColor": null,
+       "size": 0.5,
+       "open": false
+      },
+      {
+       "type": "stain",
+       "pos": [
+        -0.8,
+        -2.6
+       ],
+       "yaw": 0,
+       "text": null,
+       "color": null,
+       "textColor": null,
+       "size": 0.35,
+       "open": false
+      },
+      {
+       "type": "table",
+       "pos": [
+        1.2,
+        -2.6
+       ],
+       "yaw": 0,
+       "text": null,
+       "color": "#3b2718",
+       "textColor": null,
+       "open": false
+      },
+      {
+       "type": "book",
+       "pos": [
+        1.2,
+        -2.6
+       ],
+       "yaw": 0,
+       "text": null,
+       "color": null,
+       "textColor": null,
+       "y": 0.75,
+       "open": true
+      },
+      {
+       "type": "candle",
+       "pos": [
+        0.5,
+        -2.6
+       ],
+       "yaw": 0,
+       "text": null,
+       "color": null,
+       "textColor": null,
+       "y": 0.75,
+       "open": false
+      },
+      {
+       "type": "axe",
+       "pos": [
+        -2.4,
+        -3
+       ],
+       "yaw": 30,
+       "text": null,
+       "color": null,
+       "textColor": null,
+       "open": false
+      },
+      {
+       "type": "text",
+       "pos": [
+        1.2,
+        -2.6
+       ],
+       "yaw": 0,
+       "text": "Dear devil,",
+       "color": "#1a0a0a",
+       "textColor": "#ff8a8a",
+       "y": 1.6,
+       "open": false
+      }
+     ],
+     "camera": {
+      "azimuth": -0.2,
+      "elevation": 0.5,
+      "distance": 5.2,
+      "target": [
+       0.2,
+       0.5,
+       -1.6
+      ],
+      "move": "push"
+     },
+     "tint": null,
+     "vignette": false
+    },
+    "hero": false,
+    "chapterId": 1
+   },
+   {
+    "beatId": 19,
+    "kind": "story3d",
+    "kicker": null,
+    "title": "Jack knew there was no way out of",
+    "subtitle": null,
+    "bullets": null,
+    "nodes": null,
+    "leftTitle": null,
+    "leftItems": null,
+    "rightTitle": null,
+    "rightItems": null,
+    "statValue": null,
+    "statLabel": null,
+    "code": null,
+    "codeLanguage": null,
+    "quote": null,
+    "attribution": null,
+    "shot": null,
+    "stockQuery": null,
+    "model": null,
+    "labels": null,
+    "scene": null,
+    "params": null,
+    "formula": null,
+    "question": null,
+    "think": null,
+    "hint": null,
+    "thinkText": null,
+    "eyebrow": null,
+    "footnote": null,
+    "answerText": null,
+    "segment": null,
+    "story": {
+     "set": "cabin",
+     "time": "night",
+     "headline": null,
+     "actors": [
+      {
+       "id": "jack",
+       "look": {
+        "skin": "tan",
+        "shirt": "#e8f1f5",
+        "pants": "#2c3e50",
+        "hair": "short",
+        "hairColor": "black",
+        "hat": null,
+        "glasses": false,
+        "sleeves": null,
+        "logo": null
+       },
+       "pos": [
+        -0.6,
+        -0.4
+       ],
+       "yaw": 20,
+       "action": "cry",
+       "face": "sad",
+       "say": null,
+       "keys": []
+      }
+     ],
+     "props": [
+      {
+       "type": "stain",
+       "pos": [
+        0.4,
+        -1.2
+       ],
+       "yaw": 0,
+       "text": null,
+       "color": null,
+       "textColor": null,
+       "size": 0.7,
+       "open": false
+      },
+      {
+       "type": "table",
+       "pos": [
+        1.2,
+        -2.6
+       ],
+       "yaw": 0,
+       "text": null,
+       "color": "#3b2718",
+       "textColor": null,
+       "open": false
+      },
+      {
+       "type": "book",
+       "pos": [
+        1.2,
+        -2.6
+       ],
+       "yaw": 0,
+       "text": null,
+       "color": null,
+       "textColor": null,
+       "y": 0.75,
+       "open": true
+      },
+      {
+       "type": "candle",
+       "pos": [
+        0.5,
+        -2.6
+       ],
+       "yaw": 0,
+       "text": null,
+       "color": null,
+       "textColor": null,
+       "y": 0.75,
+       "open": false
+      }
+     ],
+     "camera": {
+      "azimuth": 0.25,
+      "elevation": 0.3,
+      "distance": 4.8,
+      "target": [
+       -0.4,
+       0.5,
+       -0.8
+      ],
+      "move": "push"
+     },
+     "tint": null,
+     "vignette": false
+    },
+    "hero": false,
+    "chapterId": 1
+   },
+   {
+    "beatId": 20,
+    "kind": "story3d",
+    "kicker": null,
+    "title": "Behind him, the door opened. Raphael Amma. Possessed.",
+    "subtitle": null,
+    "bullets": null,
+    "nodes": null,
+    "leftTitle": null,
+    "leftItems": null,
+    "rightTitle": null,
+    "rightItems": null,
+    "statValue": null,
+    "statLabel": null,
+    "code": null,
+    "codeLanguage": null,
+    "quote": null,
+    "attribution": null,
+    "shot": null,
+    "stockQuery": null,
+    "model": null,
+    "labels": null,
+    "scene": null,
+    "params": null,
+    "formula": null,
+    "question": null,
+    "think": null,
+    "hint": null,
+    "thinkText": null,
+    "eyebrow": null,
+    "footnote": null,
+    "answerText": null,
+    "segment": null,
+    "story": {
+     "set": "cabin",
+     "time": "night",
+     "headline": null,
+     "actors": [
+      {
+       "id": "jack",
+       "look": {
+        "skin": "tan",
+        "shirt": "#e8f1f5",
+        "pants": "#2c3e50",
+        "hair": "short",
+        "hairColor": "black",
+        "hat": null,
+        "glasses": false,
+        "sleeves": null,
+        "logo": null
+       },
+       "pos": [
+        -0.6,
+        -0.4
+       ],
+       "yaw": 20,
+       "action": "cry",
+       "face": "sad",
+       "say": null,
+       "keys": []
+      },
+      {
+       "id": "granny",
+       "look": {
+        "skin": "pale",
+        "shirt": "#5b2c6f",
+        "pants": "#2b1b33",
+        "hair": "bun",
+        "hairColor": "grey",
+        "hat": null,
+        "glasses": false,
+        "sleeves": "long",
+        "logo": null,
+        "hold": "axe"
+       },
+       "pos": [
+        -3,
+        -3.4
+       ],
+       "yaw": 0,
+       "action": "possessed",
+       "face": "evil",
+       "say": null,
+       "keys": [
+        {
+         "at": 0.8,
+         "action": "walk",
+         "then": "raise",
+         "to": [
+          -1.6,
+          -1.4
+         ],
+         "dur": 3
+        }
+       ]
+      }
+     ],
+     "props": [
+      {
+       "type": "door",
+       "pos": [
+        -3,
+        -3.98
+       ],
+       "yaw": 0,
+       "text": null,
+       "color": "#2e1c0f",
+       "textColor": null,
+       "open": true
+      },
+      {
+       "type": "stain",
+       "pos": [
+        0.4,
+        -1.2
+       ],
+       "yaw": 0,
+       "text": null,
+       "color": null,
+       "textColor": null,
+       "size": 0.7,
+       "open": false
+      },
+      {
+       "type": "candle",
+       "pos": [
+        0.5,
+        -2.6
+       ],
+       "yaw": 0,
+       "text": null,
+       "color": null,
+       "textColor": null,
+       "y": 0.75,
+       "open": false
+      },
+      {
+       "type": "table",
+       "pos": [
+        1.2,
+        -2.6
+       ],
+       "yaw": 0,
+       "text": null,
+       "color": "#3b2718",
+       "textColor": null,
+       "open": false
+      }
+     ],
+     "camera": {
+      "azimuth": 0.25,
+      "elevation": 0.26,
+      "distance": 6.4,
+      "target": [
+       -1.2,
+       1,
+       -1.6
+      ],
+      "move": "push"
+     },
+     "tint": null,
+     "vignette": false
+    },
+    "hero": false,
+    "chapterId": 1
+   },
+   {
+    "beatId": 21,
+    "kind": "story3d",
+    "kicker": null,
+    "title": "Because the devil had kept his promise. Jack",
+    "subtitle": null,
+    "bullets": null,
+    "nodes": null,
+    "leftTitle": null,
+    "leftItems": null,
+    "rightTitle": null,
+    "rightItems": null,
+    "statValue": null,
+    "statLabel": null,
+    "code": null,
+    "codeLanguage": null,
+    "quote": null,
+    "attribution": null,
+    "shot": null,
+    "stockQuery": null,
+    "model": null,
+    "labels": null,
+    "scene": null,
+    "params": null,
+    "formula": null,
+    "question": null,
+    "think": null,
+    "hint": null,
+    "thinkText": null,
+    "eyebrow": null,
+    "footnote": null,
+    "answerText": null,
+    "segment": null,
+    "story": {
+     "set": "cabin",
+     "time": "night",
+     "headline": "JACK WAS THE MISSING SON",
+     "actors": [
+      {
+       "id": "jack",
+       "look": {
+        "skin": "tan",
+        "shirt": "#e8f1f5",
+        "pants": "#2c3e50",
+        "hair": "short",
+        "hairColor": "black",
+        "hat": null,
+        "glasses": false,
+        "sleeves": null,
+        "logo": null
+       },
+       "pos": [
+        -0.6,
+        -0.4
+       ],
+       "yaw": 20,
+       "action": "cry",
+       "face": "sad",
+       "say": null,
+       "keys": [
+        {
+         "at": 2.6,
+         "action": "sit",
+         "yaw": 180,
+         "face": "scared"
+        }
+       ]
+      },
+      {
+       "id": "granny",
+       "look": {
+        "skin": "pale",
+        "shirt": "#5b2c6f",
+        "pants": "#2b1b33",
+        "hair": "bun",
+        "hairColor": "grey",
+        "hat": null,
+        "glasses": false,
+        "sleeves": "long",
+        "logo": null,
+        "hold": "axe"
+       },
+       "pos": [
+        -1.6,
+        -1.4
+       ],
+       "yaw": 20,
+       "action": "raise",
+       "face": "evil",
+       "say": null,
+       "keys": [
+        {
+         "at": 4,
+         "action": "swing"
+        }
+       ]
+      }
+     ],
+     "props": [
+      {
+       "type": "stain",
+       "pos": [
+        0.4,
+        -1.2
+       ],
+       "yaw": 0,
+       "text": null,
+       "color": null,
+       "textColor": null,
+       "size": 0.7,
+       "open": false
+      }
+     ],
+     "camera": {
+      "azimuth": 0.1,
+      "elevation": 0.2,
+      "distance": 4.4,
+      "target": [
+       -1,
+       1,
+       -1
+      ]
+     },
+     "tint": null,
+     "vignette": false
+    },
+    "hero": false,
+    "chapterId": 1
+   },
+   {
+    "beatId": 22,
+    "kind": "story3d",
+    "kicker": null,
+    "title": "The axe fell. And the moment Jack was",
+    "subtitle": null,
+    "bullets": null,
+    "nodes": null,
+    "leftTitle": null,
+    "leftItems": null,
+    "rightTitle": null,
+    "rightItems": null,
+    "statValue": null,
+    "statLabel": null,
+    "code": null,
+    "codeLanguage": null,
+    "quote": null,
+    "attribution": null,
+    "shot": null,
+    "stockQuery": null,
+    "model": null,
+    "labels": null,
+    "scene": null,
+    "params": null,
+    "formula": null,
+    "question": null,
+    "think": null,
+    "hint": null,
+    "thinkText": null,
+    "eyebrow": null,
+    "footnote": null,
+    "answerText": null,
+    "segment": null,
+    "story": {
+     "set": "cabin",
+     "time": "night",
+     "headline": null,
+     "actors": [
+      {
+       "id": "jack",
+       "look": {
+        "skin": "tan",
+        "shirt": "#e8f1f5",
+        "pants": "#2c3e50",
+        "hair": "short",
+        "hairColor": "black",
+        "hat": null,
+        "glasses": false,
+        "sleeves": null,
+        "logo": null
+       },
+       "pos": [
+        -0.6,
+        -0.4
+       ],
+       "yaw": 100,
+       "action": "lie",
+       "face": "blank",
+       "say": null,
+       "keys": []
+      }
+     ],
+     "props": [
+      {
+       "type": "dust",
+       "pos": [
+        -1.6,
+        -1.4
+       ],
+       "yaw": 0,
+       "text": null,
+       "color": null,
+       "textColor": null,
+       "size": 0.7,
+       "open": false
+      },
+      {
+       "type": "axe",
+       "pos": [
+        -1.9,
+        -0.9
+       ],
+       "yaw": 60,
+       "text": null,
+       "color": null,
+       "textColor": null,
+       "open": false
+      },
+      {
+       "type": "stain",
+       "pos": [
+        -0.2,
+        -0.2
+       ],
+       "yaw": 0,
+       "text": null,
+       "color": null,
+       "textColor": null,
+       "size": 0.6,
+       "open": false
+      },
+      {
+       "type": "stain",
+       "pos": [
+        0.4,
+        -1.2
+       ],
+       "yaw": 0,
+       "text": null,
+       "color": null,
+       "textColor": null,
+       "size": 0.7,
+       "open": false
+      }
+     ],
+     "camera": {
+      "azimuth": 0.1,
+      "elevation": 0.5,
+      "distance": 5,
+      "target": [
+       -0.8,
+       0.4,
+       -1
+      ],
+      "move": "rise"
+     },
+     "tint": null,
+     "vignette": false
+    },
+    "hero": false,
+    "chapterId": 1
+   },
+   {
+    "beatId": 23,
+    "kind": "story3d",
+    "kicker": null,
+    "title": "Would you have gone in? Tell me in",
+    "subtitle": null,
+    "bullets": null,
+    "nodes": null,
+    "leftTitle": null,
+    "leftItems": null,
+    "rightTitle": null,
+    "rightItems": null,
+    "statValue": null,
+    "statLabel": null,
+    "code": null,
+    "codeLanguage": null,
+    "quote": null,
+    "attribution": null,
+    "shot": null,
+    "stockQuery": null,
+    "model": null,
+    "labels": null,
+    "scene": null,
+    "params": null,
+    "formula": null,
+    "question": null,
+    "think": null,
+    "hint": null,
+    "thinkText": null,
+    "eyebrow": null,
+    "footnote": null,
+    "answerText": null,
+    "segment": null,
+    "story": {
+     "set": "black",
+     "time": "night",
+     "headline": "WOULD YOU HAVE GONE IN?",
+     "actors": [
+      {
+       "id": "granny",
+       "look": {
+        "skin": "pale",
+        "shirt": "#5b2c6f",
+        "pants": "#2b1b33",
+        "hair": "bun",
+        "hairColor": "grey",
+        "hat": null,
+        "glasses": false,
+        "sleeves": "long",
+        "logo": null,
+        "hold": "candle"
+       },
+       "pos": [
+        0,
+        0
+       ],
+       "yaw": 0,
+       "action": "idle",
+       "face": "evil",
+       "say": null,
+       "keys": []
+      }
+     ],
+     "props": [],
+     "camera": {
+      "distance": 5,
+      "target": [
+       0,
+       0.9,
+       0
+      ],
+      "move": "push"
+     },
+     "tint": null,
+     "vignette": false
+    },
+    "hero": false,
+    "chapterId": 1
+   }
+  ]
+ },
+ "publish": {
+  "title": "The Home Nurse And Raphael Amma | A Horror Story",
+  "description": "Jack is a home nurse. His manager sends him to an extraordinary old woman who pays a lot. There is only one rule in her house: do not be awake after midnight. Or else.\n\nAn original horror story with blocky avatars. Not for young children.\n\nVoice: computer-generated (text-to-speech). Original story with blocky avatars, rendered by the AI Video Studio factory.",
+  "tags": [
+   "horror",
+   "story",
+   "scary",
+   "creepy",
+   "blocky",
+   "animation",
+   "shorts",
+   "home nurse",
+   "possessed"
+  ],
+  "chapters": [],
+  "thumbnailText": "THE HOME NURSE",
+  "pinnedComment": "Would you have gone in? And did you see the ending coming?"
+ }
+}

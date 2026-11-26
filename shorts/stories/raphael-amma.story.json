@@ -1,0 +1,297 @@
+{
+  "id": "raphael-amma",
+  "title": "The Home Nurse And Raphael Amma",
+  "voice": "am_fenrir",
+  "speed": 1.0,
+  "audience": "horror story fans",
+  "tone": "slow, low, creepy",
+  "cta": "Subscribe for the next story",
+  "cast": {
+    "jack":    { "skin": "tan",   "outfit": "white",  "hair": "short", "hairColor": "black", "shirt": "#e8f1f5", "pants": "#2c3e50" },
+    "manager": { "skin": "light", "outfit": "suit",   "hair": "short", "hairColor": "brown", "sleeves": "long", "glasses": true },
+    "granny":  { "skin": "pale",  "outfit": "purple", "hair": "bun",   "hairColor": "grey", "shirt": "#5b2c6f", "pants": "#2b1b33", "sleeves": "long" },
+    "appa":    { "skin": "tan",   "outfit": "black",  "hair": "bald",  "sleeves": "long" },
+    "kid1":    { "skin": "tan",   "outfit": "yellow", "hair": "short", "hairColor": "black", "scale": 0.62 },
+    "kid2":    { "skin": "tan",   "outfit": "teal",   "hair": "long",  "hairColor": "black", "scale": 0.6 },
+    "kid3":    { "skin": "tan",   "outfit": "orange", "hair": "spiky", "hairColor": "black", "scale": 0.58 },
+    "kid4":    { "skin": "tan",   "outfit": "green",  "hair": "short", "hairColor": "black", "scale": 0.56 },
+    "kid5":    { "skin": "tan",   "outfit": "pink",   "hair": "long",  "hairColor": "black", "scale": 0.54 },
+    "kid6":    { "skin": "tan",   "outfit": "red",    "hair": "short", "hairColor": "black", "scale": 0.52 },
+    "kid7":    { "skin": "tan",   "outfit": "blue",   "hair": "short", "hairColor": "black", "scale": 0.5 }
+  },
+  "scenes": [
+    {
+      "narration": "Jack was a home nurse. One morning his manager sent him to a new patient. An extraordinary old woman, he called her.",
+      "emphasis": ["nurse", "extraordinary"],
+      "set": "street", "time": "day",
+      "camera": { "distance": 5.8, "move": "push" },
+      "actors": [
+        { "who": "jack", "pos": [-0.9, 0.5], "yaw": 60, "action": "idle", "face": "neutral" },
+        { "who": "manager", "pos": [1.1, 0.4], "yaw": -70, "action": "talk", "face": "happy", "keys": [{ "at": 2.2, "action": "point", "yaw": 150 }] }
+      ],
+      "props": [{ "type": "car", "pos": [4.6, -1.5], "color": "#8e8e8e" }]
+    },
+    {
+      "narration": "Jack asked if it was really okay. Of course it's okay, said the manager. You will get paid a lot. Go in.",
+      "emphasis": ["okay", "lot"],
+      "set": "street", "time": "day",
+      "camera": { "distance": 5.0, "target": [0.1, 0.9, 0.4] },
+      "actors": [
+        { "who": "jack", "pos": [-0.9, 0.5], "yaw": 60, "action": "think", "face": "neutral", "keys": [{ "at": 0.3, "say": "Is it okay?" }, { "at": 2.0, "say": null, "action": "idle" }] },
+        { "who": "manager", "pos": [1.1, 0.4], "yaw": -70, "action": "talk", "face": "happy", "keys": [{ "at": 2.2, "say": "You'll get paid a LOT." }, { "at": 4.2, "action": "point", "yaw": 150, "say": "Go in." }] }
+      ]
+    },
+    {
+      "narration": "The granny welcomed him with a cup of chai. Sit on the sofa and wait, she said. I have to go to my room.",
+      "emphasis": ["chai", "wait"],
+      "set": "home", "time": "day",
+      "camera": { "azimuth": -0.2, "distance": 6.0, "target": [-1.9, 0.8, -1.8], "move": "push" },
+      "actors": [
+        { "who": "granny", "pos": [-0.9, -1.4], "yaw": -55, "action": "offer", "face": "happy", "look": { "hold": "cup" }, "keys": [{ "at": 1.6, "say": "Sit and wait." }, { "at": 3.6, "say": null, "hold": null, "to": [3.5, -3.2], "dur": 2.4, "then": "idle" }] },
+        { "who": "jack", "pos": [-3.2, -2.5], "yaw": 20, "action": "sit", "face": "neutral", "keys": [{ "at": 1.4, "hold": "cup" }] }
+      ],
+      "props": [{ "type": "door", "pos": [3.6, -3.98], "color": "#4a2e17" }]
+    },
+    {
+      "narration": "Hours passed. On the shelf, Jack found a photo. The granny, standing next to another home nurse.",
+      "emphasis": ["photo", "another"],
+      "set": "home", "time": "sunset",
+      "camera": { "azimuth": -0.05, "distance": 4.6, "target": [0.4, 1.1, -2.8], "move": "push" },
+      "actors": [
+        { "who": "jack", "pos": [0.4, -2.2], "yaw": 180, "action": "idle", "face": "neutral", "keys": [{ "at": 2.0, "action": "hold", "hold": "photo", "yaw": 0, "face": "surprised" }] }
+      ],
+      "props": [{ "type": "photo", "pos": [0.4, -3.6], "y": 0.86, "yaw": 0 }, { "type": "door", "pos": [3.6, -3.98], "color": "#4a2e17" }]
+    },
+    {
+      "narration": "That one left early, she said. Jack was not so sure about that.",
+      "emphasis": ["early", "sure"],
+      "set": "home", "time": "sunset",
+      "camera": { "azimuth": -0.3, "distance": 5.2, "target": [0.6, 0.9, -2.0] },
+      "vignette": true,
+      "actors": [
+        { "who": "jack", "pos": [-0.4, -1.6], "yaw": 90, "action": "hold", "face": "neutral", "look": { "hold": "photo" }, "keys": [{ "at": 2.0, "face": "sad", "action": "think", "hold": null }] },
+        { "who": "granny", "pos": [1.8, -1.8], "yaw": -90, "action": "talk", "face": "neutral", "keys": [{ "at": 0.4, "say": "He left early." }, { "at": 2.4, "say": null, "action": "idle", "face": "blank" }] }
+      ],
+      "props": [{ "type": "door", "pos": [3.6, -3.98], "color": "#4a2e17" }]
+    },
+    {
+      "narration": "She showed him the guest room. There was one rule. Do not be awake after midnight. Or else.",
+      "emphasis": ["rule", "midnight", "else"],
+      "set": "bedroom", "time": "sunset",
+      "camera": { "azimuth": -0.25, "distance": 6.0, "target": [0.2, 0.9, -1.8], "move": "push" },
+      "vignette": true,
+      "actors": [
+        { "who": "granny", "pos": [1.6, -1.4], "yaw": -60, "action": "point", "face": "neutral", "keys": [{ "at": 2.0, "say": "Not after midnight." }, { "at": 4.2, "say": "Or else.", "face": "evil" }] },
+        { "who": "jack", "pos": [-0.8, -0.8], "yaw": 50, "action": "idle", "face": "neutral", "keys": [{ "at": 4.2, "face": "scared" }] }
+      ]
+    },
+    {
+      "narration": "The first nights, Jack could not sleep. Just homesick, he told himself. Just homesick.",
+      "emphasis": ["sleep", "homesick"],
+      "set": "bedroom", "time": "night",
+      "camera": { "azimuth": -0.35, "elevation": 0.45, "distance": 5.0, "target": [-2.2, 0.6, -2.2], "move": "orbit" },
+      "vignette": true,
+      "actors": [
+        { "who": "jack", "pos": [-2.4, -1.9], "y": 0.66, "yaw": 0, "action": "lie", "face": "sad" }
+      ],
+      "props": [{ "type": "candle", "pos": [-0.5, -3.4], "y": 0.6 }]
+    },
+    {
+      "narration": "But every day, the granny got meaner. She snapped at him. She pinched him. She hit him.",
+      "emphasis": ["meaner", "hit"],
+      "set": "home", "time": "day",
+      "camera": { "azimuth": -0.2, "distance": 5.4, "target": [0, 0.9, -1.6], "move": "push" },
+      "actors": [
+        { "who": "granny", "pos": [1.0, -1.6], "yaw": -90, "action": "angry", "face": "angry", "keys": [{ "at": 1.5, "action": "point" }, { "at": 3.2, "action": "swing", "hold": null }] },
+        { "who": "jack", "pos": [-1.0, -1.6], "yaw": 90, "action": "idle", "face": "sad", "keys": [{ "at": 3.4, "action": "scared", "face": "scared" }] }
+      ],
+      "props": [{ "type": "door", "pos": [3.6, -3.98], "color": "#4a2e17" }]
+    },
+    {
+      "narration": "One night he was still awake after midnight. And then he heard it. Knocking. Slow. Odd. Knocking.",
+      "emphasis": ["awake", "Knocking"],
+      "set": "bedroom", "time": "night",
+      "camera": { "azimuth": -0.3, "distance": 6.6, "target": [-0.3, 1.0, -2.2], "move": "push" },
+      "vignette": true,
+      "actors": [
+        { "who": "jack", "pos": [-0.9, -1.2], "yaw": 60, "action": "sit", "face": "neutral", "keys": [{ "at": 2.0, "face": "scared", "action": "scared" }] }
+      ],
+      "props": [{ "type": "candle", "pos": [-0.5, -3.4], "y": 0.6 }, { "type": "text", "pos": [1.8, -3.6], "y": 2.6, "text": "KNOCK. KNOCK.", "color": "#000000" }]
+    },
+    {
+      "narration": "He fell asleep right there. In the morning he told himself it was just a bad dream. Just a nightmare.",
+      "emphasis": ["dream", "nightmare"],
+      "set": "bedroom", "time": "day",
+      "camera": { "azimuth": -0.35, "elevation": 0.4, "distance": 5.2, "target": [-2.2, 0.6, -2.2], "move": "pull" },
+      "actors": [
+        { "who": "jack", "pos": [-2.4, -1.9], "y": 0.66, "yaw": 0, "action": "lie", "face": "neutral", "keys": [{ "at": 2.6, "action": "sit", "y": 0, "pos": [-1.6, -1.0], "yaw": 40, "face": "sad" }] }
+      ]
+    },
+    {
+      "narration": "The next night, she came into his room. And she told him a story. Not about herself, she said. About Raphael Amma.",
+      "emphasis": ["story", "Raphael", "Amma"],
+      "set": "bedroom", "time": "night",
+      "camera": { "azimuth": -0.2, "distance": 6.4, "target": [0.0, 1.0, -2.2], "move": "push" },
+      "vignette": true,
+      "actors": [
+        { "who": "jack", "pos": [-1.0, -1.2], "yaw": 60, "action": "sit", "face": "scared" },
+        { "who": "granny", "pos": [3.2, -3.0], "yaw": 0, "action": "idle", "face": "blank", "look": { "hold": "candle" }, "keys": [{ "at": 0.4, "to": [0.9, -1.4], "dur": 2.4, "then": "talk", "action": "walk" }, { "at": 3.0, "yaw": -70, "say": "Let me tell you a story." }] }
+      ],
+      "props": [{ "type": "door", "pos": [3.2, -3.98], "open": true, "color": "#4a2e17" }]
+    },
+    {
+      "narration": "Raphael Amma had a husband, Raphael Appa, and seven children. And every single one of them ignored her.",
+      "emphasis": ["seven", "ignored"],
+      "set": "home", "time": "night",
+      "camera": { "azimuth": -0.25, "elevation": 0.28, "distance": 7.4, "target": [0.4, 0.8, -1.4], "move": "pan" },
+      "tint": "#7a1b2a", "tintAlpha": 0.12, "vignette": true,
+      "actors": [
+        { "who": "granny", "pos": [-2.6, -0.6], "yaw": 110, "action": "sad", "face": "sad" },
+        { "who": "appa", "pos": [-3.2, -2.5], "yaw": 0, "action": "sit", "face": "neutral", "look": { "hold": "phone" } },
+        { "who": "kid1", "pos": [0.2, -2.2], "yaw": 180, "action": "idle" }, { "who": "kid2", "pos": [1.0, -2.3], "yaw": 180, "action": "idle" },
+        { "who": "kid3", "pos": [1.8, -2.1], "yaw": 180, "action": "idle" }, { "who": "kid4", "pos": [2.6, -2.3], "yaw": 180, "action": "idle" },
+        { "who": "kid5", "pos": [0.6, -1.0], "yaw": 160, "action": "idle" }, { "who": "kid6", "pos": [1.6, -0.9], "yaw": 200, "action": "idle" },
+        { "who": "kid7", "pos": [2.6, -1.1], "yaw": 180, "action": "idle" }
+      ]
+    },
+    {
+      "narration": "She did not divorce him. She prayed. To the devil. I want to eat them all, she said. But the three youngest later. When they are older.",
+      "emphasis": ["devil", "eat", "youngest"],
+      "set": "cabin", "time": "night",
+      "camera": { "azimuth": -0.15, "distance": 5.2, "target": [0, 1.0, -1.6], "move": "push" },
+      "tint": "#8a0f1a", "tintAlpha": 0.22, "vignette": true,
+      "actors": [
+        { "who": "granny", "pos": [0, -1.6], "yaw": 0, "action": "pray", "face": "blank", "keys": [{ "at": 2.4, "face": "evil", "say": "Let me eat them all." }] }
+      ],
+      "props": [{ "type": "candle", "pos": [-1.0, -2.6] }, { "type": "candle", "pos": [1.0, -2.6] }, { "type": "book", "pos": [0, -2.9], "open": true }]
+    },
+    {
+      "narration": "And she ate them. One by one. The devil moved in. Until only the three youngest were left.",
+      "emphasis": ["ate", "devil", "three"],
+      "set": "home", "time": "night",
+      "camera": { "azimuth": -0.25, "elevation": 0.28, "distance": 7.4, "target": [0.4, 0.8, -1.4] },
+      "tint": "#8a0f1a", "tintAlpha": 0.2, "vignette": true,
+      "actors": [
+        { "who": "granny", "pos": [-1.2, -0.6], "yaw": 120, "action": "possessed", "face": "evil" },
+        { "who": "appa", "pos": [-3.2, -2.5], "yaw": 0, "action": "sit", "face": "scared", "keys": [{ "at": 0.5, "action": "run", "to": [-3.4, -7], "dur": 1.4 }] },
+        { "who": "kid1", "pos": [0.2, -2.2], "yaw": 180, "action": "scared", "face": "scared", "keys": [{ "at": 1.0, "action": "run", "to": [0.2, -7], "dur": 1.2 }] },
+        { "who": "kid2", "pos": [1.0, -2.3], "yaw": 180, "action": "scared", "face": "scared", "keys": [{ "at": 1.6, "action": "run", "to": [1.0, -7], "dur": 1.2 }] },
+        { "who": "kid3", "pos": [1.8, -2.1], "yaw": 180, "action": "scared", "face": "scared", "keys": [{ "at": 2.2, "action": "run", "to": [1.8, -7], "dur": 1.2 }] },
+        { "who": "kid4", "pos": [2.6, -2.3], "yaw": 180, "action": "scared", "face": "scared", "keys": [{ "at": 2.8, "action": "run", "to": [2.6, -7], "dur": 1.2 }] },
+        { "who": "kid5", "pos": [0.6, -1.0], "yaw": 160, "action": "idle", "face": "scared" }, { "who": "kid6", "pos": [1.6, -0.9], "yaw": 200, "action": "idle", "face": "scared" },
+        { "who": "kid7", "pos": [2.6, -1.1], "yaw": 180, "action": "idle", "face": "sad" }
+      ]
+    },
+    {
+      "narration": "Years later, she ate two more. But the last child she loved. She let him run away from the house. The devil, she said, would find him anyway.",
+      "emphasis": ["two", "loved", "anyway"],
+      "set": "woods", "time": "night",
+      "camera": { "azimuth": 0.1, "elevation": 0.22, "distance": 7.5, "target": [0, 1.0, -1.6], "move": "pull" },
+      "tint": "#3a0a12", "tintAlpha": 0.16, "vignette": true,
+      "actors": [
+        { "who": "granny", "pos": [0.9, -2.2], "yaw": -20, "action": "possessed", "face": "evil", "keys": [{ "at": 2.2, "action": "sad", "face": "sad" }] },
+        { "who": "kid5", "pos": [-1.0, -2.0], "yaw": 0, "action": "scared", "face": "scared", "keys": [{ "at": 1.0, "action": "run", "to": [-1.0, -7], "dur": 1.0 }] },
+        { "who": "kid6", "pos": [-0.2, -1.6], "yaw": 0, "action": "scared", "face": "scared", "keys": [{ "at": 1.6, "action": "run", "to": [-0.2, -7], "dur": 1.0 }] },
+        { "who": "kid7", "pos": [0.2, -1.2], "yaw": 0, "action": "idle", "face": "sad", "keys": [{ "at": 3.2, "action": "run", "to": [-0.3, 4.5], "dur": 2.6 }] }
+      ]
+    },
+    {
+      "narration": "Jack was terrified. That same night, when the granny went out, he ran.",
+      "emphasis": ["terrified", "ran"],
+      "set": "bedroom", "time": "night",
+      "camera": { "azimuth": -0.3, "distance": 6.8, "target": [-0.2, 1.0, -2.0] },
+      "vignette": true,
+      "actors": [
+        { "who": "jack", "pos": [-0.9, -1.2], "yaw": 60, "action": "scared", "face": "scared", "keys": [{ "at": 1.8, "action": "run", "to": [3.2, -3.0], "dur": 1.4, "then": "run" }, { "at": 3.2, "action": "run", "to": [3.2, -7], "dur": 1.0 }] }
+      ],
+      "props": [{ "type": "door", "pos": [3.2, -3.98], "open": true, "color": "#4a2e17" }, { "type": "candle", "pos": [-0.5, -3.4], "y": 0.6 }]
+    },
+    {
+      "narration": "He ran through the dark, deep into the woods. And he ended up in front of a small hut.",
+      "emphasis": ["woods", "hut"],
+      "set": "woods", "time": "night",
+      "camera": { "azimuth": -0.1, "elevation": 0.24, "distance": 8.0, "target": [0, 1.1, -1.8], "move": "push" },
+      "vignette": true,
+      "actors": [
+        { "who": "jack", "pos": [0, 3.6], "yaw": 180, "action": "run", "face": "scared", "keys": [{ "at": 0, "action": "run", "to": [0, -1.8], "dur": 3.0, "then": "idle" }, { "at": 3.2, "face": "surprised" }] }
+      ]
+    },
+    {
+      "narration": "Inside: blood on the floor. And a book, full of odd letters. The first words read: Dear devil.",
+      "emphasis": ["blood", "Dear", "devil"],
+      "set": "cabin", "time": "night",
+      "camera": { "azimuth": -0.2, "elevation": 0.5, "distance": 5.2, "target": [0.2, 0.5, -1.6], "move": "push" },
+      "tint": "#5a0a12", "tintAlpha": 0.1, "vignette": true,
+      "actors": [
+        { "who": "jack", "pos": [-0.5, -0.2], "yaw": 40, "action": "idle", "face": "scared", "keys": [{ "at": 2.2, "action": "hold", "hold": "book" }] }
+      ],
+      "props": [{ "type": "stain", "pos": [0.4, -1.2], "size": 0.7 }, { "type": "stain", "pos": [1.9, -2.4], "size": 0.5 }, { "type": "stain", "pos": [-0.8, -2.6], "size": 0.35 },
+                { "type": "table", "pos": [1.2, -2.6], "yaw": 0, "color": "#3b2718" }, { "type": "book", "pos": [1.2, -2.6], "y": 0.75, "open": true }, { "type": "candle", "pos": [0.5, -2.6], "y": 0.75 },
+                { "type": "axe", "pos": [-2.4, -3.0], "yaw": 30 }, { "type": "text", "pos": [1.2, -2.6], "y": 1.6, "text": "Dear devil,", "color": "#1a0a0a", "textColor": "#ff8a8a" }]
+    },
+    {
+      "narration": "Jack knew there was no way out of this house. He sat down on the floor. And he cried.",
+      "emphasis": ["no", "cried"],
+      "set": "cabin", "time": "night",
+      "camera": { "azimuth": 0.25, "elevation": 0.3, "distance": 4.8, "target": [-0.4, 0.5, -0.8], "move": "push" },
+      "tint": "#5a0a12", "tintAlpha": 0.1, "vignette": true,
+      "actors": [
+        { "who": "jack", "pos": [-0.6, -0.4], "yaw": 20, "action": "cry", "face": "sad" }
+      ],
+      "props": [{ "type": "stain", "pos": [0.4, -1.2], "size": 0.7 }, { "type": "table", "pos": [1.2, -2.6], "yaw": 0, "color": "#3b2718" }, { "type": "book", "pos": [1.2, -2.6], "y": 0.75, "open": true }, { "type": "candle", "pos": [0.5, -2.6], "y": 0.75 }]
+    },
+    {
+      "narration": "Behind him, the door opened. Raphael Amma. Possessed. With an axe in her hand.",
+      "emphasis": ["Raphael", "Amma", "axe"],
+      "set": "cabin", "time": "night",
+      "camera": { "azimuth": 0.25, "elevation": 0.26, "distance": 6.4, "target": [-1.2, 1.0, -1.6], "move": "push" },
+      "tint": "#8a0f1a", "tintAlpha": 0.2, "vignette": true,
+      "actors": [
+        { "who": "jack", "pos": [-0.6, -0.4], "yaw": 20, "action": "cry", "face": "sad" },
+        { "who": "granny", "pos": [-3.0, -3.4], "yaw": 0, "action": "possessed", "face": "evil", "look": { "hold": "axe" }, "keys": [{ "at": 0.8, "action": "walk", "to": [-1.6, -1.4], "dur": 3.0, "then": "raise" }] }
+      ],
+      "props": [{ "type": "door", "pos": [-3.0, -3.98], "open": true, "color": "#2e1c0f" }, { "type": "stain", "pos": [0.4, -1.2], "size": 0.7 }, { "type": "candle", "pos": [0.5, -2.6], "y": 0.75 }, { "type": "table", "pos": [1.2, -2.6], "yaw": 0, "color": "#3b2718" }]
+    },
+    {
+      "narration": "Because the devil had kept his promise. Jack was the missing son. The last child. The one she let run away.",
+      "emphasis": ["Jack", "missing", "son"],
+      "set": "cabin", "time": "night",
+      "headline": "JACK WAS THE MISSING SON",
+      "camera": { "azimuth": 0.1, "elevation": 0.2, "distance": 4.4, "target": [-1.0, 1.0, -1.0] },
+      "tint": "#8a0f1a", "tintAlpha": 0.28, "vignette": true, "flash": 5.2,
+      "actors": [
+        { "who": "jack", "pos": [-0.6, -0.4], "yaw": 20, "action": "cry", "face": "sad", "keys": [{ "at": 2.6, "action": "sit", "yaw": 180, "face": "scared" }] },
+        { "who": "granny", "pos": [-1.6, -1.4], "yaw": 20, "action": "raise", "face": "evil", "look": { "hold": "axe" }, "keys": [{ "at": 4.0, "action": "swing" }] }
+      ],
+      "props": [{ "type": "stain", "pos": [0.4, -1.2], "size": 0.7 }]
+    },
+    {
+      "narration": "The axe fell. And the moment Jack was gone, the devil had nothing left to keep. Raphael Amma turned to dust.",
+      "emphasis": ["gone", "dust"],
+      "set": "cabin", "time": "night",
+      "camera": { "azimuth": 0.1, "elevation": 0.5, "distance": 5.0, "target": [-0.8, 0.4, -1.0], "move": "rise" },
+      "tint": "#3a0a12", "tintAlpha": 0.25, "vignette": true,
+      "actors": [
+        { "who": "jack", "pos": [-0.6, -0.4], "yaw": 100, "action": "lie", "face": "blank" }
+      ],
+      "props": [{ "type": "dust", "pos": [-1.6, -1.4], "size": 0.7 }, { "type": "axe", "pos": [-1.9, -0.9], "yaw": 60 }, { "type": "stain", "pos": [-0.2, -0.2], "size": 0.6 }, { "type": "stain", "pos": [0.4, -1.2], "size": 0.7 }]
+    },
+    {
+      "narration": "Would you have gone in? Tell me in the comments. And subscribe for the next story.",
+      "emphasis": ["you", "subscribe"],
+      "set": "black", "time": "night",
+      "headline": "WOULD YOU HAVE GONE IN?",
+      "camera": { "distance": 5.0, "target": [0, 0.9, 0], "move": "push" },
+      "vignette": true,
+      "actors": [
+        { "who": "granny", "pos": [0, 0], "yaw": 0, "action": "idle", "face": "evil", "look": { "hold": "candle" } }
+      ]
+    }
+  ],
+  "youtube": {
+    "title": "The Home Nurse And Raphael Amma | A Horror Story",
+    "description": "Jack is a home nurse. His manager sends him to an extraordinary old woman who pays a lot. There is only one rule in her house: do not be awake after midnight. Or else.\n\nAn original horror story with blocky avatars. Not for young children.",
+    "tags": ["horror", "story", "scary", "creepy", "blocky", "animation", "shorts", "home nurse", "possessed"],
+    "pinnedComment": "Would you have gone in? And did you see the ending coming?"
+  }
+}

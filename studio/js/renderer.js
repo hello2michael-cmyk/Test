@@ -3,7 +3,7 @@ import { THEMES } from './settings.js';
 import { Scene3D } from './scene3d.js';
 import { Scene as MathScene } from '../../klasse6/js/engine3d.js';
 import { SCENES as MATH_SCENES } from '../../klasse6/js/scenes.js';
-import { drawStory, storyCamera } from './blocky.js';
+import { drawStory, storyCamera, storyFinish } from './blocky.js';
 
 const FADE_IN = 0.45, FADE_OUT = 0.3;
 const clamp01 = x => Math.min(1, Math.max(0, x));
@@ -327,6 +327,7 @@ export class Renderer {
     const S = new MathScene(this.ctx, this.w, this.h, this.theme, { ...storyCamera(story, local, scene.duration, this.portrait), cy: this.h * (this.portrait ? 0.5 : 0.54) });
     drawStory(S, story, local, scene.duration);
     S.flush();
+    storyFinish(S, local);
     if (story.headline) {
       const { ctx } = this;
       const p = outBack(prog(local, 0.1, 0.5));

@@ -14,10 +14,11 @@
 //   headline optional big text at the top of the frame
 import { ease, smooth, outBack, outCubic, clamp01, rgba, mix, shade } from '../../klasse6/js/engine3d.js';
 
-export const STORY_SETS = ['street', 'classroom', 'park', 'home', 'stage', 'void'];
-export const STORY_ACTIONS = ['idle', 'walk', 'run', 'sit', 'point', 'cheer', 'wave', 'sad', 'think', 'talk', 'jump', 'angry', 'dance', 'shrug', 'lie', 'sleep'];
-export const STORY_FACES = ['neutral', 'happy', 'sad', 'surprised', 'angry', 'wink', 'laugh'];
-export const STORY_PROPS = ['sign', 'bench', 'chair', 'desk', 'table', 'tree', 'crate', 'car', 'lamp', 'podium', 'bed', 'board', 'fence', 'bush', 'ball', 'stand'];
+export const STORY_SETS = ['street', 'classroom', 'park', 'home', 'stage', 'void', 'bedroom', 'woods', 'cabin', 'black'];
+export const STORY_ACTIONS = ['idle', 'walk', 'run', 'sit', 'point', 'cheer', 'wave', 'sad', 'think', 'talk', 'jump', 'angry', 'dance', 'shrug', 'lie', 'sleep', 'pray', 'cry', 'knock', 'swing', 'possessed', 'hold', 'offer', 'scared', 'raise'];
+export const STORY_FACES = ['neutral', 'happy', 'sad', 'surprised', 'angry', 'wink', 'laugh', 'scared', 'evil', 'blank'];
+export const STORY_PROPS = ['sign', 'bench', 'chair', 'desk', 'table', 'tree', 'crate', 'car', 'lamp', 'podium', 'bed', 'board', 'fence', 'bush', 'ball', 'stand', 'text', 'photo', 'book', 'stain', 'door', 'axe', 'candle', 'dust', 'sofa'];
+export const STORY_ITEMS = ['cup', 'book', 'photo', 'axe', 'candle', 'phone'];
 export const STORY_HAIR = ['short', 'long', 'bald', 'cap', 'bun', 'spiky'];
 
 export const SKINS = { light: '#f3c9a4', tan: '#d9a070', brown: '#9c6540', dark: '#5a3a24', yellow: '#f5d442', pale: '#f8dfc6' };
@@ -91,6 +92,9 @@ const FACES = {
   surprised: { mouth: [0.1, 0.12], smile: 0, eyes: 1.3, brows: 1 },
   angry: { mouth: [0.18, 0.035], smile: -0.6, eyes: 0.8, brows: -2 },
   wink: { mouth: [0.2, 0.04], smile: 1, eyes: 1, brows: 0, wink: true },
+  scared: { mouth: [0.11, 0.15], smile: 0, eyes: 1.5, brows: 1 },
+  evil: { mouth: [0.24, 0.05], smile: 1, eyes: 0.9, brows: -2, red: true },
+  blank: { mouth: [0.12, 0.02], smile: 0, eyes: 0.5, brows: 0 },
 };
 
 /**
@@ -114,6 +118,15 @@ function pose(action, t, phase, seed = 0) {
     case 'talk': { p.ra = -0.9 + 0.25 * s(t * 5 + seed); p.la = -0.5 + 0.2 * s(t * 4.3 + 1); p.raRoll = -0.2; p.laRoll = 0.2; p.headPitch = 0.04 * s(t * 6); p.headYaw = 0.06 * s(t * 2.2); break; }
     case 'angry': { p.la = -1.35; p.ra = -1.35; p.laRoll = 0.95; p.raRoll = -0.95; p.headPitch = 0.12; p.bodyPitch = 0.06; p.y = 0.01 * s(t * 14); break; }
     case 'dance': { p.la = -1.6 + 1.1 * s(t * 6.3); p.ra = -1.6 - 1.1 * s(t * 6.3); p.laRoll = 0.5; p.raRoll = -0.5; p.y = 0.06 * Math.abs(s(t * 6.3)); p.headRoll = 0.15 * s(t * 3.15); p.ll = 0.2 * s(t * 6.3); p.rl = -0.2 * s(t * 6.3); break; }
+    case 'pray': { p.la = -1.25; p.ra = -1.25; p.laRoll = -0.42; p.raRoll = 0.42; p.headPitch = 0.3; p.y = 0.004 * s(t * 3); break; }
+    case 'cry': { p.sit = true; p.floor = true; p.ll = p.rl = -Math.PI / 2; p.la = p.ra = -2.3; p.laRoll = -0.5; p.raRoll = 0.5; p.headPitch = 0.42; p.y = 0.02 * Math.abs(s(t * 7)); p.bodyPitch = 0.15; break; }
+    case 'knock': { p.ra = -1.45 + 0.3 * Math.max(0, s(t * 12)); p.raRoll = -0.1; break; }
+    case 'raise': { p.ra = -2.7 + 0.04 * s(t * 13); p.raRoll = -0.12; p.la = -1.3; p.laRoll = 0.3; p.headRoll = 0.35; p.headPitch = 0.05; p.bodyPitch = -0.06; p.y = 0.006 * s(t * 21); break; }
+    case 'swing': { const u = smooth((t - 0.9) / 0.35); p.ra = lerp(-2.7, -0.4, u); p.la = -0.6; p.raRoll = -0.1; p.bodyPitch = lerp(-0.12, 0.25, u); p.headPitch = lerp(-0.1, 0.2, u); break; }
+    case 'possessed': { p.la = -1.5 + 0.05 * s(t * 17); p.ra = -1.45 + 0.05 * c(t * 19); p.headRoll = 0.4; p.headPitch = 0.1; p.bodyPitch = 0.12; p.y = 0.008 * s(t * 23); p.ll = 0.1 * s(t * 9); p.rl = -0.1 * s(t * 9); break; }
+    case 'hold': { p.ra = -1.2; p.raRoll = -0.15; p.la = 0.05; p.headPitch = 0.1; break; }
+    case 'offer': { p.ra = -1.4; p.raRoll = -0.1; p.la = -0.3; p.laRoll = 0.1; p.headPitch = 0.05; break; }
+    case 'scared': { p.la = -2.2 + 0.08 * s(t * 15); p.ra = -2.2 - 0.08 * s(t * 15); p.laRoll = 0.5; p.raRoll = -0.5; p.headPitch = -0.1; p.bodyPitch = -0.1; p.y = 0.01 * s(t * 21); break; }
     case 'shrug': { const u = 0.5 + 0.5 * s(t * 2.5); p.la = -0.6; p.ra = -0.6; p.laRoll = 0.9 * u; p.raRoll = -0.9 * u; p.headRoll = 0.18 * u; break; }
     default: { p.y = 0.012 * s(t * 1.9 + seed); p.la = 0.06 * s(t * 1.9 + seed); p.ra = -0.06 * s(t * 1.9 + seed); p.headYaw = 0.05 * s(t * 0.7 + seed); }
   }
@@ -126,9 +139,10 @@ export function drawFigure(S, look, action, t, phase, root, face = 'neutral', se
   const skin = col(look.skin, SKINS.light), shirt = col(look.shirt, OUTFITS.blue.shirt), pants = col(look.pants, OUTFITS.blue.pants);
   const hairColor = col(look.hairColor, HAIR_COLORS.brown), hair = STORY_HAIR.includes(look.hair) ? look.hair : 'short';
   const hipY = 2 * s, shoulderY = 4 * s, headBase = 4.05 * s;
+  if (look.scale && look.scale !== 1) { const k = Math.max(0.4, Math.min(1.6, Number(look.scale))); root = compose(root, { m: [k, 0, 0, 0, k, 0, 0, 0, k], t: [0, 0, 0] }); }
   let body = chain(root, T(0, P.y, 0));
   if (P.lie) body = chain(root, T(0, 0.5 * s, 0), Rx(-Math.PI / 2), T(0, -0.2, 0));
-  else if (P.sit) body = chain(root, T(0, SEAT - hipY, 0));
+  else if (P.sit) body = chain(root, T(0, (P.floor ? 0.02 : SEAT) - hipY, 0));
   const torsoX = chain(body, about([0, hipY, 0], Rx(P.bodyPitch)));
   // legs
   box(S, chain(body, about([0, hipY, 0], Rx(P.ll))), [-0.5 * s, 1 * s, 0], [0.49 * s, 1 * s, 0.49 * s], pants, { edge: false });
@@ -146,6 +160,21 @@ export function drawFigure(S, look, action, t, phase, root, face = 'neutral', se
   box(S, armL, [-1.5 * s, 3 * s, 0], [0.49 * s, 1 * s, 0.49 * s], sleeve ? shirt : skin, { edge: false });
   box(S, armR, [1.5 * s, 3 * s, 0], [0.49 * s, 1 * s, 0.49 * s], sleeve ? shirt : skin, { edge: false });
   if (!sleeve) { box(S, armL, [-1.5 * s, 3.55 * s, 0], [0.5 * s, 0.45 * s, 0.5 * s], shirt, { edge: false }, 0.003); box(S, armR, [1.5 * s, 3.55 * s, 0], [0.5 * s, 0.45 * s, 0.5 * s], shirt, { edge: false }, 0.003); }
+  // something in the right hand (the hand is at the bottom of the arm, [1.5s, 2s, 0] in the arm's frame)
+  const hold = STORY_ITEMS.includes(look.hold) ? look.hold : null;
+  if (hold) {
+    const hx = 1.5 * s, hy = 2.05 * s;
+    if (hold === 'cup') { box(S, armR, [hx, hy, 0.3 * s], [0.14 * s, 0.17 * s, 0.14 * s], '#f3f3f3', { edge: false }, 0.01); box(S, armR, [hx, hy + 0.17 * s, 0.3 * s], [0.11 * s, 0.015 * s, 0.11 * s], '#b5651d', { edge: false }, 0.02); }
+    else if (hold === 'book') { box(S, armR, [hx, hy - 0.05 * s, 0.45 * s], [0.3 * s, 0.05 * s, 0.4 * s], '#5a2d0c', { edge: false }, 0.01); box(S, armR, [hx, hy + 0.01 * s, 0.45 * s], [0.27 * s, 0.015 * s, 0.37 * s], '#f1e8d0', { edge: false }, 0.02); }
+    else if (hold === 'photo') { box(S, armR, [hx, hy + 0.2 * s, 0.4 * s], [0.32 * s, 0.26 * s, 0.03 * s], '#3a2a1a', { edge: false }, 0.01); box(S, armR, [hx, hy + 0.2 * s, 0.44 * s], [0.26 * s, 0.2 * s, 0.01 * s], '#d9d2c0', { edge: false }, 0.02); }
+    else if (hold === 'phone') { box(S, armR, [hx, hy, 0.35 * s], [0.14 * s, 0.26 * s, 0.03 * s], '#1b1b1b', { edge: false }, 0.01); }
+    else if (hold === 'candle') { box(S, armR, [hx, hy + 0.25 * s, 0.3 * s], [0.06 * s, 0.3 * s, 0.06 * s], '#f3ead0', { edge: false }, 0.01); box(S, armR, [hx, hy + 0.66 * s, 0.3 * s], [0.07 * s, (0.08 + 0.03 * Math.sin(t * 23)) * s, 0.07 * s], '#ffb830', { edge: false, lumBias: 0.8 }, 0.02); }
+    else if (hold === 'axe') { // held across the hand: with the arm raised the axe points up, with the arm down it points forward
+      box(S, armR, [hx, hy, 1.7 * s], [0.11 * s, 0.11 * s, 2.0 * s], '#5a3a1e', { edge: false }, 0.01);
+      box(S, armR, [hx, hy + 0.3 * s, 3.3 * s], [0.1 * s, 0.9 * s, 0.6 * s], '#9aa1a8', { edge: false }, 0.02);
+      box(S, armR, [hx, hy + 0.3 * s, 3.95 * s], [0.11 * s, 1.0 * s, 0.09 * s], '#eef1f4', { edge: false }, 0.03);
+    }
+  }
   // head
   const headX = chain(torsoX, about([0, headBase, 0], chain(Ry(P.headYaw), Rz(P.headRoll), Rx(P.headPitch))));
   const hh = 0.55 * s, hc = [0, headBase + hh, 0];
@@ -153,9 +182,10 @@ export function drawFigure(S, look, action, t, phase, root, face = 'neutral', se
   // face on the front (+z)
   const F = FACES[face] || FACES.neutral, fz = hh + 0.004;
   const eyeH = 0.1 * s * F.eyes, eyeY = hc[1] + 0.12 * s;
-  box(S, headX, [-0.2 * s, eyeY, fz], [0.085 * s, eyeH, 0.004], '#1b1b1b', { edge: false }, 0.05);
+  const eyeC = F.red ? '#d81616' : '#1b1b1b';
+  box(S, headX, [-0.2 * s, eyeY, fz], [0.085 * s, eyeH, 0.004], eyeC, { edge: false }, 0.05);
   if (F.wink) box(S, headX, [0.2 * s, eyeY, fz], [0.11 * s, 0.02 * s, 0.004], '#1b1b1b', { edge: false }, 0.05);
-  else box(S, headX, [0.2 * s, eyeY, fz], [0.085 * s, eyeH, 0.004], '#1b1b1b', { edge: false }, 0.05);
+  else box(S, headX, [0.2 * s, eyeY, fz], [0.085 * s, eyeH, 0.004], eyeC, { edge: false }, 0.05);
   if (F.brows) { // brows: inner ends lowered for angry, raised for surprise, outer lowered for sad
     const tilt = F.brows === -2 ? 0.35 : F.brows === -1 ? -0.25 : 0, lift = F.brows === 1 ? 0.3 * s : F.brows === -2 ? 0.2 * s : 0.26 * s;
     box(S, chain(headX, about([-0.2 * s, eyeY + lift, fz], Rz(-tilt))), [-0.2 * s, eyeY + lift, fz], [0.12 * s, 0.025 * s, 0.004], '#1b1b1b', { edge: false }, 0.05);
@@ -199,7 +229,7 @@ export function drawFigure(S, look, action, t, phase, root, face = 'neutral', se
 
 // ---------- actor state over time ----------
 function actorState(a, t) {
-  let pos = [Number(a.pos?.[0]) || 0, Number(a.pos?.[1]) || 0], yaw = deg(a.yaw), action = a.action || 'idle', face = a.face || 'happy', say = null, dist = 0;
+  let pos = [Number(a.pos?.[0]) || 0, Number(a.pos?.[1]) || 0], yaw = deg(a.yaw), action = a.action || 'idle', face = a.face || 'happy', say = null, dist = 0, hold, y = Number(a.y) || 0;
   const keys = Array.isArray(a.keys) ? [...a.keys].sort((x, y) => (Number(x.at) || 0) - (Number(y.at) || 0)) : [];
   let start = pos;
   for (const k of keys) {
@@ -222,25 +252,29 @@ function actorState(a, t) {
       start = pos;
     }
     if (k.face) face = k.face;
+    if (k.hold !== undefined) hold = k.hold;
+    if (k.y != null) y = Number(k.y) || 0;
     say = k.say !== undefined ? k.say : say;
     if (k.pos) { pos = [Number(k.pos[0]) || 0, Number(k.pos[1]) || 0]; start = pos; }
   }
   if (!keys.length && a.say) say = a.say;
-  return { pos, yaw, action, face, say, dist };
+  return { pos, yaw, action, face, say, dist, hold, y };
 }
 
 // ---------- sets ----------
 const SKY = {
-  day: { top: '#5aa9ff', bottom: '#cfe9ff', sun: '#fff3a6', ground: { street: '#8e9196', park: '#6fbf4a', classroom: '#d7c3a1', home: '#c89a63', stage: '#4a3f5c', void: '#3a7bd5' } },
-  sunset: { top: '#3d3a8c', bottom: '#ff9f6e', sun: '#ffb347', ground: { street: '#6f6a76', park: '#5c9b3f', classroom: '#cdb48f', home: '#b88a58', stage: '#3f3550', void: '#5b3f8c' } },
-  night: { top: '#0a1230', bottom: '#2a3b6b', sun: '#e8ecff', ground: { street: '#3e4250', park: '#2f5a2a', classroom: '#9f8f73', home: '#8a6742', stage: '#2a2338', void: '#15204a' } },
+  day: { top: '#5aa9ff', bottom: '#cfe9ff', sun: '#fff3a6', ground: { street: '#8e9196', park: '#6fbf4a', classroom: '#d7c3a1', home: '#c89a63', stage: '#4a3f5c', void: '#3a7bd5', bedroom: '#b58a5a', woods: '#2e4a24', cabin: '#5a3d26', black: '#000000' } },
+  sunset: { top: '#3d3a8c', bottom: '#ff9f6e', sun: '#ffb347', ground: { street: '#6f6a76', park: '#5c9b3f', classroom: '#cdb48f', home: '#b88a58', stage: '#3f3550', void: '#5b3f8c', bedroom: '#a37c50', woods: '#2a4020', cabin: '#4f3521', black: '#000000' } },
+  night: { top: '#0a1230', bottom: '#2a3b6b', sun: '#e8ecff', ground: { street: '#3e4250', park: '#2f5a2a', classroom: '#9f8f73', home: '#8a6742', stage: '#2a2338', void: '#15204a', bedroom: '#6e5236', woods: '#121c0f', cabin: '#3a2718', black: '#000000' } },
 };
 
 function sky(S, time, set) {
   const { ctx, w, h } = S, k = SKY[time] || SKY.day;
-  const interior = set === 'classroom' || set === 'home';
+  const interior = set === 'classroom' || set === 'home' || set === 'bedroom' || set === 'cabin' || set === 'black';
   const g = ctx.createLinearGradient(0, 0, 0, h);
-  if (interior) { g.addColorStop(0, set === 'classroom' ? '#f1ead6' : '#e9dcc8'); g.addColorStop(1, set === 'classroom' ? '#d9cfb8' : '#d2c0a8'); }
+  const wallTop = { classroom: '#f1ead6', home: '#e9dcc8', bedroom: time === 'night' ? '#4a3d35' : '#d9c9b8', cabin: time === 'night' ? '#2a1c12' : '#4a3220', black: '#000000' }[set] || '#e9dcc8';
+  const wallBot = { classroom: '#d9cfb8', home: '#d2c0a8', bedroom: time === 'night' ? '#3a2f29' : '#c7b5a2', cabin: time === 'night' ? '#1f140d' : '#3b2719', black: '#000000' }[set] || '#d2c0a8';
+  if (interior) { g.addColorStop(0, wallTop); g.addColorStop(1, wallBot); }
   else { g.addColorStop(0, k.top); g.addColorStop(1, k.bottom); }
   ctx.fillStyle = g; ctx.fillRect(0, 0, w, h);
   // horizon: everything below it is ground
@@ -436,8 +470,7 @@ function drawSet(S, set, time, t) {
       groundLines(S, '#000000', 0.6, -8, 8, -3.8, 3.8, 0.1);
       strip(S, -3.5, 3.5, -2.6, 0.4, '#b23a48', 0.004, 0.012);          // rug
       // sofa
-      box(S, X, [-3.2, 0.3, -2.8], [1.2, 0.3, 0.5], '#4e6fb3', { edge: false }); box(S, X, [-3.2, 0.75, -3.2], [1.2, 0.3, 0.12], '#4e6fb3', { edge: false });
-      for (const sx of [-1, 1]) box(S, X, [-3.2 + sx * 1.2, 0.5, -2.8], [0.12, 0.2, 0.5], '#3f5a93', { edge: false });
+      sofa(S, -3.2, -2.8, 0, '#4e6fb3');
       // TV on a stand
       box(S, X, [3.4, 0.3, -3.3], [0.9, 0.3, 0.3], '#5a3b20', { edge: false }); box(S, X, [3.4, 1.15, -3.35], [0.8, 0.5, 0.05], '#1b1b1b', { edge: false });
       quad(S, [[2.68, 0.72, -3.29], [4.12, 0.72, -3.29], [4.12, 1.58, -3.29], [2.68, 1.58, -3.29]], '#3fa9ff', { edge: false, lumBias: 0.35 }, 0.02);
@@ -453,6 +486,41 @@ function drawSet(S, set, time, t) {
       for (let i = -2; i <= 2; i++) box(S, X, [i * 2.2, 4.0, -2], [0.14, 0.14, 0.14], '#fff6c8', { edge: false, lumBias: 0.6 });
       break;
     }
+    case 'bedroom': {
+      const wt = time === 'night' ? '#4a3d35' : '#d9c9b8', ws = time === 'night' ? '#3d322c' : '#cdbba9';
+      quad(S, [[-8, 0, -4], [8, 0, -4], [8, 3.2, -4], [-8, 3.2, -4]], wt, { edge: false });
+      quad(S, [[-8, 0, 6], [-8, 0, -4], [-8, 3.2, -4], [-8, 3.2, 6]], ws, { edge: false });
+      quad(S, [[8, 0, -4], [8, 0, 6], [8, 3.2, 6], [8, 3.2, -4]], ws, { edge: false });
+      quad(S, [[-3.6, 1.3, -3.99], [-1.6, 1.3, -3.99], [-1.6, 2.7, -3.99], [-3.6, 2.7, -3.99]], time === 'night' ? '#101a3a' : '#bfe4ff', { edge: false, lumBias: 0.3 }, 0.02);
+      if (time === 'night') { // moonlight through the window
+        box(S, X, [-2.6, 2.0, -3.96], [1.0, 0.04, 0.02], '#7d7363', { edge: false }, 0.03); box(S, X, [-2.6, 2.0, -3.96], [0.04, 0.7, 0.02], '#7d7363', { edge: false }, 0.03);
+      }
+      groundLines(S, '#000000', 0.6, -8, 8, -3.8, 3.8, 0.1);
+      bed(S, -2.4, -2.4, 0, '#6b4e8c');
+      box(S, X, [-0.5, 0.3, -3.4], [0.3, 0.3, 0.3], '#5a3b20', { edge: false });   // nightstand
+      door(S, 3.2, -3.98, 0, false, '#4a2e17');
+      break;
+    }
+    case 'woods': {
+      // a dark forest with a path to a small hut
+      strip(S, -0.6, 0.6, -2.6, 4, '#3d3326', 0.004, 0.01);
+      const ts = [[-6.5, -4.2, 1.5], [-4.2, -5.5, 1.3], [-2.6, -3.6, 1.2], [2.6, -3.8, 1.3], [4.4, -5.4, 1.5], [6.6, -4.0, 1.2], [-8, -2.4, 1.1], [8.2, -2.2, 1.3], [-5.2, -1.2, 0.9], [5.6, -0.9, 1.0], [-7.5, 0.6, 1.0], [7.8, 0.9, 1.0]];
+      ts.forEach(([x, z, k], i) => darkTree(S, x, z, k, i));
+      hut(S, 0, -3.8);
+      break;
+    }
+    case 'cabin': {
+      const wt = time === 'night' ? '#2a1c12' : '#4a3220', ws = time === 'night' ? '#22160e' : '#3f2a1b';
+      quad(S, [[-8, 0, -4], [8, 0, -4], [8, 3.0, -4], [-8, 3.0, -4]], wt, { edge: false });
+      quad(S, [[-8, 0, 6], [-8, 0, -4], [-8, 3.0, -4], [-8, 3.0, 6]], ws, { edge: false });
+      quad(S, [[8, 0, -4], [8, 0, 6], [8, 3.0, 6], [8, 3.0, -4]], ws, { edge: false });
+      for (let y = 0.5; y < 3; y += 0.5) quad(S, [[-8, y, -3.99], [8, y, -3.99], [8, y + 0.03, -3.99], [-8, y + 0.03, -3.99]], '#1a100a', { edge: false }, 0.02);   // log seams
+      groundLines(S, '#000000', 0.5, -8, 8, -3.8, 3.8, 0.16);
+      quad(S, [[2.2, 1.2, -3.99], [3.4, 1.2, -3.99], [3.4, 2.1, -3.99], [2.2, 2.1, -3.99]], '#0a1024', { edge: false, lumBias: 0.1 }, 0.02);   // a black window
+      door(S, -3.0, -3.98, 0, false, '#2e1c0f');
+      break;
+    }
+    case 'black': break;
     default: {
       // void: a wide platform with a soft grid, for abstract moments
       S.floor(0.001, 8, 10);
@@ -460,6 +528,65 @@ function drawSet(S, set, time, t) {
   }
 }
 
+function sofa(S, x, z, yaw, color = '#4e6fb3') {
+  const X = chain(T(x, 0, z), Ry(yaw));
+  box(S, X, [0, SEAT / 2, 0], [1.2, SEAT / 2, 0.5], color, { edge: false }); box(S, X, [0, 0.72, -0.4], [1.2, 0.32, 0.12], color, { edge: false });
+  for (const sx of [-1, 1]) box(S, X, [sx * 1.2, 0.36, 0], [0.12, 0.26, 0.5], shade(color, 0.8), { edge: false });
+  shadow(S, x, z, 1.4, 0.18);
+}
+function door(S, x, z, yaw, open = false, color = '#4a2e17') {
+  const X = chain(T(x, 0, z), Ry(yaw));
+  box(S, X, [0, 1.1, 0.0], [0.62, 1.1, 0.05], shade(color, 0.6), { edge: false }, 0.01);            // frame
+  const panel = open ? chain(X, about([-0.55, 0, 0.08], Ry(-1.2))) : X;
+  box(S, panel, [0, 1.05, 0.08], [0.55, 1.05, 0.03], color, { edge: false }, 0.02);
+  box(S, panel, [0.4, 1.05, 0.13], [0.05, 0.05, 0.03], '#c9a24a', { edge: false }, 0.03);           // knob
+}
+function darkTree(S, x, z, size = 1, seed = 0) {
+  const X = I(), h = 1.4 * size;
+  box(S, X, [x, h / 2, z], [0.14 * size, h / 2, 0.14 * size], '#2a1c12', { edge: false });
+  const g = ['#15301a', '#1b3a1e', '#102614'];
+  box(S, X, [x, h + 0.6 * size, z], [0.7 * size, 0.55 * size, 0.7 * size], g[seed % 3], { edge: false });
+  box(S, X, [x + 0.1 * size, h + 1.35 * size, z - 0.1 * size], [0.45 * size, 0.35 * size, 0.45 * size], g[(seed + 1) % 3], { edge: false });
+}
+function hut(S, x, z) {
+  const X = I();
+  box(S, X, [x, 0.9, z], [1.4, 0.9, 1.1], '#3a2a1a', { edge: false });
+  box(S, X, [x, 1.95, z], [1.65, 0.16, 1.35], '#241810', { edge: false });
+  box(S, X, [x, 2.3, z], [1.1, 0.22, 0.95], '#2c1d13', { edge: false });
+  quad(S, [[x - 0.35, 0, z + 1.11], [x + 0.35, 0, z + 1.11], [x + 0.35, 1.3, z + 1.11], [x - 0.35, 1.3, z + 1.11]], '#120b06', { edge: false }, 0.02);
+  quad(S, [[x + 0.6, 0.8, z + 1.11], [x + 1.1, 0.8, z + 1.11], [x + 1.1, 1.3, z + 1.11], [x + 0.6, 1.3, z + 1.11]], '#ffcf5a', { edge: false, lumBias: 0.7 }, 0.02);
+  shadow(S, x, z, 1.8, 0.25);
+}
+function photo(S, x, z, yaw, y = 0.9, color = '#3a2a1a') {
+  const X = chain(T(x, y, z), Ry(yaw));
+  box(S, X, [0, 0.3, 0], [0.34, 0.3, 0.03], color, { edge: false }, 0.01);
+  box(S, X, [0, 0.3, 0.035], [0.27, 0.23, 0.005], '#d9d2c0', { edge: false }, 0.02);
+  // two tiny figures in the picture
+  box(S, X, [-0.08, 0.26, 0.042], [0.05, 0.12, 0.004], '#8e44ad', { edge: false }, 0.03); box(S, X, [-0.08, 0.42, 0.042], [0.04, 0.04, 0.004], '#f3c9a4', { edge: false }, 0.03);
+  box(S, X, [0.09, 0.25, 0.042], [0.05, 0.13, 0.004], '#2f7cf6', { edge: false }, 0.03); box(S, X, [0.09, 0.42, 0.042], [0.04, 0.04, 0.004], '#d9a070', { edge: false }, 0.03);
+}
+function book(S, x, z, yaw, y = 0, color = '#5a2d0c', open = false) {
+  const X = chain(T(x, y, z), Ry(yaw));
+  box(S, X, [0, 0.04, 0], [0.32, 0.04, 0.42], color, { edge: false }, 0.01);
+  box(S, X, [0, 0.085, 0], [0.29, 0.008, 0.39], '#efe4c8', { edge: false }, 0.02);
+  if (open) for (let i = 0; i < 5; i++) box(S, X, [-0.1 + (i % 2) * 0.1, 0.1, -0.14 + i * 0.07], [0.09 + (i % 3) * 0.03, 0.002, 0.006], '#3a1a1a', { edge: false }, 0.03);
+}
+function stain(S, x, z, size = 0.5, color = '#5e0a0a') {
+  S.prism([[x - size, z - size * 0.6], [x + size * 0.8, z - size * 0.9], [x + size, z + size * 0.5], [x - size * 0.3, z + size * 0.9]], 0.003, 0.004, color, { edge: false });
+  S.prism([[x + size * 0.9, z + size * 0.5], [x + size * 1.3, z + size * 0.3], [x + size * 1.2, z + size * 0.9]], 0.003, 0.004, color, { edge: false });
+}
+function axeProp(S, x, z, yaw) {
+  const X = chain(T(x, 0, z), Ry(yaw));
+  box(S, X, [0, 0.05, 0], [0.5, 0.03, 0.03], '#6b4a2a', { edge: false }); box(S, X, [0.45, 0.14, 0], [0.12, 0.14, 0.02], '#9aa0a6', { edge: false });
+}
+function candle(S, x, z, t, y = 0) {
+  const X = I();
+  box(S, X, [x, y + 0.14, z], [0.04, 0.14, 0.04], '#f3ead0', { edge: false }, 0.01);
+  box(S, X, [x, y + 0.34, z], [0.045, 0.06 + 0.02 * Math.sin(t * 23), 0.045], '#ffb830', { edge: false, lumBias: 0.8 }, 0.02);
+}
+function dust(S, x, z, size = 0.6) {
+  for (let i = 0; i < 9; i++) { const a = i * 2.4, r = size * (0.2 + 0.08 * (i % 4)); box(S, I(), [x + Math.cos(a) * r, 0.05 + 0.02 * (i % 3), z + Math.sin(a) * r * 0.7], [0.07 + 0.02 * (i % 3), 0.05, 0.06], i % 2 ? '#8a8378' : '#6f685e', { edge: false }); }
+}
 function drawProp(S, p, t, time) {
   const x = Number(p.pos?.[0]) || 0, z = Number(p.pos?.[1]) || 0, yaw = deg(p.yaw), c = col(p.color, null);
   switch (p.type) {
@@ -479,6 +606,15 @@ function drawProp(S, p, t, time) {
     case 'bush': return bush(S, x, z, Number(p.size) || 0.4, Math.round(x * 3) & 1);
     case 'ball': return ball(S, x, z, t, c || '#ff6b35', Number(p.y) || 0);
     case 'stand': return stand(S, x, z, yaw, p.text, c || '#2ecc71');
+    case 'text': return S.label([x, Number(p.y) || 1.6, z], p.text || '', { above: 0, strong: true, color: col(p.textColor, '#fff'), bg: c ? rgba(c, 0.92) : 'rgba(0,0,0,0.75)', size: S.u(Number(p.size) ? 30 * Number(p.size) : 34) });
+    case 'photo': return photo(S, x, z, yaw, Number(p.y) || 0.9, c || '#3a2a1a');
+    case 'book': return book(S, x, z, yaw, Number(p.y) || 0, c || '#5a2d0c', !!p.open);
+    case 'stain': return stain(S, x, z, Number(p.size) || 0.5, c || '#5e0a0a');
+    case 'door': return door(S, x, z, yaw, !!p.open, c || '#4a2e17');
+    case 'axe': return axeProp(S, x, z, yaw);
+    case 'candle': return candle(S, x, z, t, Number(p.y) || 0);
+    case 'dust': return dust(S, x, z, Number(p.size) || 0.6);
+    case 'sofa': return sofa(S, x, z, yaw, c || '#4e6fb3');
   }
 }
 
@@ -512,15 +648,16 @@ export function drawStory(S, v, t, duration) {
   const actors = v.actors || [];
   actors.forEach((a, i) => {
     const st = actorState(a, t);
-    const look = a.look || {};
-    const root = chain(T(st.pos[0], 0, st.pos[1]), Ry(st.yaw));
+    const look = st.hold !== undefined ? { ...(a.look || {}), hold: st.hold } : (a.look || {});
+    const root = chain(T(st.pos[0], st.y, st.pos[1]), Ry(st.yaw));
     const phase = st.dist * TAU / 1.1 + (st.action === 'walk' || st.action === 'run' ? 0 : 0);
     const walkingInPlace = (st.action === 'walk' || st.action === 'run') && st.dist === 0;
     const ph = walkingInPlace ? t * (st.action === 'run' ? 11 : 7) : phase;
-    shadow(S, st.pos[0], st.pos[1], st.action === 'lie' || st.action === 'sleep' ? 0.9 : 0.42, 0.3);
+    if (set !== 'black') shadow(S, st.pos[0], st.pos[1], (st.action === 'lie' || st.action === 'sleep' ? 0.9 : 0.42) * (look.scale || 1), 0.3);
     const top = drawFigure(S, look, st.action, t, ph, root, st.face, i * 1.7);
     if (st.say) S.label(top, st.say, { above: 0.1, strong: true, color: '#1b1b1b', bg: 'rgba(255,255,255,0.95)', size: S.u(30) });
   });
+  S.storyOverlay = { tint: v.tint || null, tintAlpha: v.tintAlpha, vignette: !!v.vignette, flash: v.flash };
   // keep speech bubbles and sign text inside the frame
   const ctx = S.ctx;
   for (const l of S.labels) {
@@ -540,25 +677,35 @@ function cleanLook(l) {
   l = l && typeof l === 'object' ? l : {};
   const outfit = OUTFITS[l.outfit] || null;
   return { skin: str(l.skin, 16), shirt: str(l.shirt, 16) || (outfit && outfit.shirt), pants: str(l.pants, 16) || (outfit && outfit.pants), hair: STORY_HAIR.includes(l.hair) ? l.hair : 'short',
-    hairColor: str(l.hairColor, 16), hat: l.hat === true ? true : str(l.hat, 16), glasses: !!l.glasses, sleeves: l.sleeves === 'long' ? 'long' : null, logo: str(l.logo, 16) };
+    hairColor: str(l.hairColor, 16), hat: l.hat === true ? true : str(l.hat, 16), glasses: !!l.glasses, sleeves: l.sleeves === 'long' ? 'long' : null, logo: str(l.logo, 16), scale: l.scale != null ? num(l.scale, 1, 0.4, 1.6) : undefined, hold: STORY_ITEMS.includes(l.hold) ? l.hold : (l.hold === null ? null : undefined) };
 }
 export function cleanStory(v) {
-  const out = { set: STORY_SETS.includes(v.set) ? v.set : 'street', time: ['day', 'sunset', 'night'].includes(v.time) ? v.time : 'day', headline: str(v.headline, 40), actors: [], props: [], camera: null };
+  const out = { set: STORY_SETS.includes(v.set) ? v.set : 'street', time: ['day', 'sunset', 'night'].includes(v.time) ? v.time : 'day', headline: str(v.headline, 40), actors: [], props: [], camera: null,
+    tint: str(v.tint, 16), tintAlpha: v.tintAlpha != null ? num(v.tintAlpha, 0.18, 0, 0.6) : undefined, vignette: !!v.vignette, flash: v.flash != null ? num(v.flash, 0, 0, 600) : undefined };
   const c = v.camera && typeof v.camera === 'object' ? v.camera : null;
   if (c) out.camera = { azimuth: c.azimuth != null ? num(c.azimuth, -0.35, -1.4, 1.4) : undefined, elevation: c.elevation != null ? num(c.elevation, 0.2, 0.02, 1.2) : undefined, distance: c.distance != null ? num(c.distance, 7, 2.5, 20) : undefined,
     target: Array.isArray(c.target) && c.target.length === 3 ? [num(c.target[0], 0, -14, 14), num(c.target[1], 0.75, 0, 4), num(c.target[2], 0, -6, 4)] : undefined, fov: c.fov != null ? num(c.fov, 0.9, 0.4, 1.5) : undefined,
     move: ['none', 'push', 'pull', 'orbit', 'pan', 'rise'].includes(c.move) ? c.move : undefined };
-  for (const a of (Array.isArray(v.actors) ? v.actors : []).slice(0, 8)) {
+  for (const a of (Array.isArray(v.actors) ? v.actors : []).slice(0, 12)) {
     if (!a || typeof a !== 'object') continue;
-    out.actors.push({ id: str(a.id, 24), look: cleanLook(a.look), pos: vec2(a.pos), yaw: num(a.yaw, 0, -360, 360), action: STORY_ACTIONS.includes(a.action) ? a.action : 'idle',
+    out.actors.push({ id: str(a.id, 24), look: cleanLook(a.look), pos: vec2(a.pos), y: a.y != null ? num(a.y, 0, 0, 3) : undefined, yaw: num(a.yaw, 0, -360, 360), action: STORY_ACTIONS.includes(a.action) ? a.action : 'idle',
       face: STORY_FACES.includes(a.face) ? a.face : 'happy', say: str(a.say, 40),
       keys: (Array.isArray(a.keys) ? a.keys : []).slice(0, 16).filter(k => k && typeof k === 'object').map(k => ({ at: num(k.at, 0, 0, 600), action: STORY_ACTIONS.includes(k.action) ? k.action : undefined, then: STORY_ACTIONS.includes(k.then) ? k.then : undefined,
-        to: Array.isArray(k.to) ? vec2(k.to) : undefined, pos: Array.isArray(k.pos) ? vec2(k.pos) : undefined, dur: k.dur != null ? num(k.dur, 1, 0.1, 60) : undefined, yaw: k.yaw != null ? num(k.yaw, 0, -360, 360) : undefined,
-        face: STORY_FACES.includes(k.face) ? k.face : undefined, say: k.say === null ? null : (k.say !== undefined ? str(k.say, 40) : undefined) })) });
+        to: Array.isArray(k.to) ? vec2(k.to) : undefined, pos: Array.isArray(k.pos) ? vec2(k.pos) : undefined, dur: k.dur != null ? num(k.dur, 1, 0.1, 60) : undefined, y: k.y != null ? num(k.y, 0, 0, 3) : undefined, yaw: k.yaw != null ? num(k.yaw, 0, -360, 360) : undefined,
+        face: STORY_FACES.includes(k.face) ? k.face : undefined, hold: k.hold === null ? null : (STORY_ITEMS.includes(k.hold) ? k.hold : undefined), say: k.say === null ? null : (k.say !== undefined ? str(k.say, 40) : undefined) })) });
   }
   for (const p of (Array.isArray(v.props) ? v.props : []).slice(0, 14)) {
     if (!p || typeof p !== 'object' || !STORY_PROPS.includes(p.type)) continue;
-    out.props.push({ type: p.type, pos: vec2(p.pos), yaw: num(p.yaw, 0, -360, 360), text: p.text != null ? String(p.text).split('\n').slice(0, 3).map(l => l.trim().slice(0, 24)).filter(Boolean).join('\n') || null : null, color: str(p.color, 16), textColor: str(p.textColor, 16), size: p.size != null ? num(p.size, 1, 0.2, 4) : undefined, y: p.y != null ? num(p.y, 0, 0, 3) : undefined });
+    out.props.push({ type: p.type, pos: vec2(p.pos), yaw: num(p.yaw, 0, -360, 360), text: p.text != null ? String(p.text).split('\n').slice(0, 3).map(l => l.trim().slice(0, 24)).filter(Boolean).join('\n') || null : null, color: str(p.color, 16), textColor: str(p.textColor, 16), size: p.size != null ? num(p.size, 1, 0.2, 4) : undefined, y: p.y != null ? num(p.y, 0, 0, 3) : undefined, open: !!p.open });
   }
   return out;
+}
+
+/** 2D finish after S.flush(): colour tint, vignette, a white flash at `flash` seconds (for a horror beat). */
+export function storyFinish(S, t) {
+  const o = S.storyOverlay; if (!o) return;
+  const { ctx, w, h } = S;
+  if (o.tint) { ctx.save(); ctx.fillStyle = rgba(col(o.tint, '#ff0000'), Math.min(0.6, Number(o.tintAlpha) || 0.18)); ctx.fillRect(0, 0, w, h); ctx.restore(); }
+  if (o.vignette) { const g = ctx.createRadialGradient(w / 2, h / 2, Math.min(w, h) * 0.3, w / 2, h / 2, Math.max(w, h) * 0.72); g.addColorStop(0, 'rgba(0,0,0,0)'); g.addColorStop(1, 'rgba(0,0,0,0.82)'); ctx.fillStyle = g; ctx.fillRect(0, 0, w, h); }
+  if (Number.isFinite(Number(o.flash))) { const d = t - Number(o.flash); if (d >= 0 && d < 0.5) { ctx.fillStyle = `rgba(255,255,255,${(1 - d / 0.5) * 0.9})`; ctx.fillRect(0, 0, w, h); } }
 }
